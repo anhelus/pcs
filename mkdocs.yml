@@ -16,7 +16,6 @@ theme:
     # - navigation.tabs.sticky
     - navigation.indexes
     - navigation.top
-  custom_dir: overrides
 
 markdown_extensions:
   - admonition # notes make pretty
