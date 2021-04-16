@@ -1,1 +1,3 @@
-# Hello, world!
+# Python per il Calcolo Scientifico
+
+Angelo Cardellicchio

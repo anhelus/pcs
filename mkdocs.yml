@@ -1,8 +1,10 @@
 site_name: Python 4 Data Science
-site_url: https://python.programiq.it
+site_url: https://python.angelocardellicchio.it
 
 nav:
   - Home: index.md
+  - NumPy:
+    - Introduzione: '01_numpy/01_intro.md'
 
 theme:
   name: material
