@@ -50,3 +50,6 @@ In numpy, gli assi sono indicati con axes. Questo indica che se abbiamo un array
 
 il nsotro array avrà due assi. Il primo asse ha una lunghezza di 2, mentre il secondo una lunghezza di 3.
 
+
+
+https://numpy.org/doc/stable/user/absolute_beginners.html

@@ -7,3 +7,5 @@ La libreria NuymPY contiene degli array multidimensionali e delle strutture dati
 NumPy è una libreria Python che fornisce un oggetto sotto forma di array multidimensionale, diversi otggetti derivati (come masked array e matrici), e dioverse fuzioni per effettuare operazioni veloci sugli arrray, incluse operazioni matematiche, logcihe, manipolazione delle forme, ordinamento, selezione, I/O, DFT, algebra lineare base, operazioni statistiche base, simulazioni random e via dicendo.
 
 Al centro del package NumPy vi è l'oggetto *ndarray*. Questo oggetto incapusal degli array n-dimensionali di tipi di dati omogenei
+
+https://numpy.org/doc/stable/user/whatisnumpy.html#whatisnumpy
