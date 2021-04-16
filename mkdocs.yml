@@ -1,0 +1,72 @@
+site_name: Python 4 Data Science
+site_url: https://python.angelocardellicchio.it
+
+nav:
+  - Home: index.md
+  - NumPy:
+    - Introduzione: '01_numpy/01_intro.md'
+
+theme:
+  name: material
+  font:
+    text: Ubuntu
+    code: Ubuntu Mono
+  features:
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.top
+  custom_dir: overrides
+
+markdown_extensions:
+  - admonition # notes make pretty
+  - attr_list
+  - footnotes
+  - meta # page-specific context
+  - toc:
+      permalink: true # inserts an anchor
+  - sane_lists # better ul and ol
+  - nl2br # newline hard break
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem: # better italic and bold
+      smart_enable: asterisk
+  - pymdownx.caret # insert text and superscript
+  - pymdownx.details # details and summary; work with admonition
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.highlight: # better code, instead of CodeHilite           <--------
+      linenums: false
+  - pymdownx.inlinehilite # like codehilite but inline
+  - pymdownx.magiclink # auto links
+  - pymdownx.mark # highlight text
+  - pymdownx.smartsymbols # special symbols
+  - pymdownx.superfences: # nest code blocks under other blocks   <-------
+  - pymdownx.tasklist: # better tasks lists
+      custom_checkbox: true
+  - pymdownx.tabbed # auto tabs
+  - pymdownx.tilde # strike through cross out text
+  - mdtooltips
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/anhelus
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/angelocardellicchio/?locale=it_IT
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:angelo.cardellicchio@uniba.it
+  # disqus: finance-programiq-it
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2021 Angelo Cardellicchio - MIT License
+
+# google_analytics:
+#   - G-79XG9LLXDG
+#   - auto
