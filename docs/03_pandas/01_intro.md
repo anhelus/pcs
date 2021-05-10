@@ -5,83 +5,12 @@
 pandas è adatto a diversi tipi di dati:
 
 * dati tabellari con colonne eterogenee, come nelel tabelle SQL o nei fogli Excel;
+* dati di serie temporali, sia ordinati sia non, non necessariamente a frequenza fissa
+* matrici dati arbitrarie (sia tipizzate omogeneamente, sia eterogeneamente) con label in termini di righe e colonne
+* ogni altra fofrma di dataset derivanti da osservazioni o statistiche
 
-pandas is a Python package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real-world data analysis in Python. Additionally, it has the broader goal of becoming the most powerful and flexible open source data analysis/manipulation tool available in any language. It is already well on its way toward this goal.
+I dati non devono essere necessariamente labellizzati per essere posizionati all'interno di una struttura dati pandas.
 
-pandas is well suited for many different kinds of data:
+Le due strutture dati primarei di pandas sono le Series (monodimensionali) ed i DataFrame (bidimensionali). Queste permettono dig estire la stragrande maggioranza dei tipici casi d'uso in finanza, statistica, scienze sociali, e molte aree ingegneristiche.
 
-Tabular data with heterogeneously-typed columns, as in an SQL table or Excel spreadsheet
-
-Ordered and unordered (not necessarily fixed-frequency) time series data.
-
-Arbitrary matrix data (homogeneously typed or heterogeneous) with row and column labels
-
-Any other form of observational / statistical data sets. The data need not be labeled at all to be placed into a pandas data structure
-
-The two primary data structures of pandas, Series (1-dimensional) and DataFrame (2-dimensional), handle the vast majority of typical use cases in finance, statistics, social science, and many areas of engineering. For R users, DataFrame provides everything that R’s data.frame provides and much more. pandas is built on top of NumPy and is intended to integrate well within a scientific computing environment with many other 3rd party libraries.
-
-Here are just a few of the things that pandas does well:
-
-Easy handling of missing data (represented as NaN) in floating point as well as non-floating point data
-
-Size mutability: columns can be inserted and deleted from DataFrame and higher dimensional objects
-
-Automatic and explicit data alignment: objects can be explicitly aligned to a set of labels, or the user can simply ignore the labels and let Series, DataFrame, etc. automatically align the data for you in computations
-
-Powerful, flexible group by functionality to perform split-apply-combine operations on data sets, for both aggregating and transforming data
-
-Make it easy to convert ragged, differently-indexed data in other Python and NumPy data structures into DataFrame objects
-
-Intelligent label-based slicing, fancy indexing, and subsetting of large data sets
-
-Intuitive merging and joining data sets
-
-Flexible reshaping and pivoting of data sets
-
-Hierarchical labeling of axes (possible to have multiple labels per tick)
-
-Robust IO tools for loading data from flat files (CSV and delimited), Excel files, databases, and saving / loading data from the ultrafast HDF5 format
-
-Time series-specific functionality: date range generation and frequency conversion, moving window statistics, date shifting, and lagging.
-
-Many of these principles are here to address the shortcomings frequently experienced using other languages / scientific research environments. For data scientists, working with data is typically divided into multiple stages: munging and cleaning data, analyzing / modeling it, then organizing the results of the analysis into a form suitable for plotting or tabular display. pandas is the ideal tool for all of these tasks.
-
-Some other notes
-
-pandas is fast. Many of the low-level algorithmic bits have been extensively tweaked in Cython code. However, as with anything else generalization usually sacrifices performance. So if you focus on one feature for your application you may be able to create a faster specialized tool.
-
-pandas is a dependency of statsmodels, making it an important part of the statistical computing ecosystem in Python.
-
-pandas has been used extensively in production in financial applications.
-
-Data structures
-Dimensions
-
-Name
-
-Description
-
-1
-
-Series
-
-1D labeled homogeneously-typed array
-
-2
-
-DataFrame
-
-General 2D labeled, size-mutable tabular structure with potentially heterogeneously-typed column
-
-Why more than one data structure?
-The best way to think about the pandas data structures is as flexible containers for lower dimensional data. For example, DataFrame is a container for Series, and Series is a container for scalars. We would like to be able to insert and remove objects from these containers in a dictionary-like fashion.
-
-Also, we would like sensible default behaviors for the common API functions which take into account the typical orientation of time series and cross-sectional data sets. When using the N-dimensional array (ndarrays) to store 2- and 3-dimensional data, a burden is placed on the user to consider the orientation of the data set when writing functions; axes are considered more or less equivalent (except when C- or Fortran-contiguousness matters for performance). In pandas, the axes are intended to lend more semantic meaning to the data; i.e., for a particular data set, there is likely to be a “right” way to orient the data. The goal, then, is to reduce the amount of mental effort required to code up data transformations in downstream functions.
-
-For example, with tabular data (DataFrame) it is more semantically helpful to think of the index (the rows) and the columns rather than axis 0 and axis 1. Iterating through the columns of the DataFrame thus results in more readable code:
-
-for col in df.columns:
-    series = df[col]
-    # do something with series
-Mutability and copying of data
-All pandas data structures are value-mutable (the values they contain can be altered) but not always size-mutable. The length of a Series cannot be changed, but, for example, columns can be inserted into a DataFrame. However, the vast majority of methods produce new objects and leave the input data untouched. In general we like to favor immutability where sensible.
+Pandas è inoltre stato creato a partire da NumPy, e si intera con altri ambienti per il calcolo scientifico, con molte altre librerie di terze parti.

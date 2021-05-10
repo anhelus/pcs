@@ -1,15 +1,39 @@
 # Introduzione a Python
 
-!!!note "Nota"
-	Queste lezioni seguono il percorso tracciato dal tutorial ufficiale di Python. Di conseguenza, aderiscono alle licenze [PSF e Zero-Clause BSD License](https://docs.python.org/3/license.html).
-
 ## Premessa: Python e tipizzazione
 
 ### Tipizzazione dinamica
 
-Prima di partire con l'introduzione dei concetti fondamentali del linguaggio, è opportuna una premessa. Infatti Python, a differenza dei linguaggi C e C++, implementa il concetto di *tipizzazione dinamica*, il che significa che l'*interprete* valuta il tipo di ogni variabile a runtime, e che questo può cambiare nel corso dell'esecuzione del programma.
+Python è un linguaggio *interpretato* ed a *tipizzazione dinamica*. In breve, questo significa che l'interprete valuta il tipo di ciascuna variabile a runtime, e che questo può cambiare durante l'esecuzione del programma.
 
-Questo semplifica apparentemente la vita al programmatore, che non dovrebbe (in teoria) più preoccuaprsi di concetti come il tipo della variabile, in quanto inferiti automaticamente dall'interprete. Tuttavia, questa è un'arma a doppio taglio, in quanto l'interprete Python adotta il (pilatesco) principio chiamato *duck typing*.
+Ma, a conti fatti, in cosa si traduce per il programmatore? Beh, molto semplice.
+
+Immaginiamo di dover definire ed inizializzare una variabile di tipo intero in un linguaggio a tipizzazione *statica*, come ad esempio il C++. Per farlo, scriveremo qualcosa simile a:
+
+```c++
+int var = 0;
+```
+
+In Python, potremo omettere il tipo, che sarà inferito direttamente dal valore assegnato alla variabile:
+
+```py
+var = 0
+```
+
+Immaginiamo ora che la nostra variabile debba diventare un decimale. In C++, dovremo effettuare il casting:
+
+```c++
+float fVar = float(var);
+fVar + 1.1;
+```
+
+In Python, questo non sarà necessario, e potremo effettuare direttamente le operazioni desiderate:
+
+```py
+var + 1.1
+```
+
+Questo può apparentemente semplificare di molto la vita, in quanto non è più necessario preoccuparsi del tipo della variabile. Non è però tutto oro ciò che luccica: per comprenderlo, infatti, è il momento di parlare del (pilatesco) principio del *duck typing*.
 
 #### Duck Typing
 
