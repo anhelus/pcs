@@ -27,7 +27,7 @@ float fVar = float(var);
 fVar + 1.1;
 ```
 
-In Python, questo non sarà necessario, e potremo effettuare direttamente le operazioni desiderate:
+In Python questo non sarà necessario, e potremo effettuare direttamente le operazioni desiderate:
 
 ```py
 var + 1.1
@@ -37,38 +37,41 @@ Questo può apparentemente semplificare di molto la vita, in quanto non è più 
 
 #### Duck Typing
 
-Il duck typing deriva dalla massima secondo cui:
+Il duck typing è riassumibile nella seguente massima:
 
 !!!quote "Duck Typing"
 	*If it walks like a duck and it quacks like a duck, then it must be a duck.*
-	(*Se cammina come un papero, e starnazza come un papero, deve essere un papero.*)
 
-Traduciamo brevemente questa massima in informatichese. Immaginiamo di passare all'interprete Python una variabile che assume valore `1`. L'interprete si accorge che ha tutti i comportamenti assimilabili ad un numero di tipo intero: di conseguenza, inferirà che si tratta proprio di una variabile di questo tipo. Se però poi sommiamo in seguito il valore `1.1`, il risultato sarà un valore decimale, interpretato quindi come `float`, in quanto tutti i "comportamenti" sono assimilabili a quelli di una variabile di questo tipo.
+che in italiano suona più o meno *Se cammina come un papero, e starnazza come un papero, deve essere un papero*. Traduciamola brevemente in "informatichese". 
 
-Questo concetto sarà ancora più "forte" (per non dire *invadente*) quando parleremo delle classi: Python infatti non ci chiederà mai di esplicitare nel codice delle eventuali procedure di casting, ma le inferirà per noi, con tutte le comodità che questo comporta (oltre che i potenzialmente catrastrofici effetti).
+Immaginiamo di istruire il nostro interprete Python ad assegnare alla nostra variabile `var` il valore di `1`. L'interprete nota che la variabile si "comporta" come un numero intero, e quindi "stabilirà" che si tratti proprio di questo.
+
+Proviamo ora a sommare a `var` un valore pari ad `1.1`. Il risultato, come ovvio, sarà un numero decimale, e quindi l'interprete "cambierà idea", in quanto i comportamenti assunti da `var` sono adesso assimilabili ad una variabile di tipo `float`.
+
+L'utilità del duck typing è evidente: permette allo sviluppatore di "risparmiare" numerose operazioni di cast, rendendo il codice più semplice da scrivere e manutenere. Tuttavia, occorre tenerne conto nel momento in cui si usano classi ed oggetti, in quanto l'interprete proverà ad inferire ed usare automaticamente un tipo in base al contesto in cui viene usata la variabile, con le comodità (ed i potenziali disastri) che questo comporta.
 
 ## L'interprete Python
 
-A differenza dei compilatori presenti in altri linguaggi di programmazione, Python offre un interprete accessibile al programmatore direttamente dalla riga di comando.
+Python offre un interprete accessibile al programmatore direttamente dalla riga di comando.
 
-Dopo averlo installato, ed essersi assicurati che il launcher sia stato aggiunto al path di sistema, possiamo lanciare l'interprete da riga di comando. Per prima cosa, comunque, assicuriamoci che sia tutto a posto controllando la versione installata di Python:
+Dopo averlo installato (è possibile farlo seguendo le istruzioni presenti sul [sito ufficiale](https://www.python.org/)) ed essersi assicurati che il launcher sia stato aggiunto al path di sistema, possiamo lanciarlo tramite riga di comando. Per prima cosa, comunque, assicuriamoci che sia tutto a posto controllando la versione installata di Python:
 
-```bash
+```sh
 $ python --version
 python3.9.1
 ```
 
-A questo punto, lanciamo l'interprete mediante il seguente comando:
+A questo punto, lanciamo l'interprete:
 
-```bash
+```sh
 python
 ```
 
-Proviamo quindi ad usare Python per alcuni semplici comandi. Inizieremo a provare ad usarlo come calcolatrice; attendiamo che l'interprete ci chieda un input (sarà visualizzato il simbolo `>>>`).
+Possiamo quindi iniziare ad usare Python.
 
 ## Calcoli e numeri
 
-Proviamo ad usare l'interprete come una semplice calcolatrice.
+Proviamo ad usare l'interprete come una semplice calcolatrice; per farlo, scriviamo direttamente dopo il simbolo `>>>` le operazioni che vogliamo eseguire, e premiamo il tasto `Invio`. Ad esempio:
 
 ```python
 >>> 2 + 2
@@ -77,26 +80,33 @@ Proviamo ad usare l'interprete come una semplice calcolatrice.
 15
 >>> 10 - 2 * 4
 2
->>> 2 / 2
-2.0
 ```
 
 ### Divisioni
 
-La cosa importante da notare è che la divisione restituisce sempre un numero in virgola mobile. Notiamo che i primi tre risultati hanno tipo intero (int), mentre gli altri hanno tipo float. Ad ogni modo, possiamo ottenere il quoziente ed il resto della divisione usando rispettivamente gli operatori `//` e `%`.
+Le divisioni restituiscono sempre un numero in virgola mobile. Ad esempio:
 
-```python
+```py
 >>> 16 / 3
 5.333333333333333
+>>> 2 / 2
+2.0
+```
+
+Proviamo ora ad usare altri due operatori, molto simili al classico operatore di divisione:
+
+```py
 >>> 16 // 3
 5
 >>> 16 % 3
 1
 ```
 
-### Calcolo di potenza
+Notiamo come in questi casi siano restituiti dei numeri interi. Il perché è presto detto: gli operatori `//` e `%` calcolano, rispettivamente, il *quoziente* ed il *resto* della divisione e, come sappiamo, entrambi sono dei valori interi.
 
-Per calcolare la potenza di un numero, è necessario usare l'operatore `**`, che accetta a sinistra la base, ed a destra l'esponente:
+### Elevazione a potenza
+
+Per elevare un numero a potenza, è necessario usare l'operatore `**`, in cui l'operando sinistro è la base, mentre quello destro l'esponente:
 
 ```python
 >>> 3 ** 2
@@ -105,31 +115,12 @@ Per calcolare la potenza di un numero, è necessario usare l'operatore `**`, che
 256
 ```
 
-### Tipi numerici supportati"
-
-Abbiamo accennato al fatto che Python supporta interi e float. Oltre questi, Python supporta anche altri tipi numerici, come i `Decimal` ed i `Fraction`, ed ha un supporto integrato ai numeri complessi, espressi usando il suffisso `j` o `J` per la parte immaginaria.
-
-```python
->>> from decimal import *
->>> print(Decimal(1) / Decimal(7))
-```
-
-```python
->>> from fractions import Fraction
->>> Fraction(4, 6)
-Fraction(2, 3)
-```
-
-```python
->>> a = 1 + 4j
->>> b = 2 + 3j
->>> print(a + b)
-(3+7j)
-```
+!!!note "Tipi numerici in Python"
+	Abbiamo finora parlato soltanto di numeri interi e decimali; tuttavia, Python supporta anche altri tipi, come ad esempio `Decimal` e `Fraction`. E' inoltre presente un supporto nativo ai numeri complessi, esprimibili usando il suffisso `j` per indicare la parte immaginaria.
 
 ## Stringhe
 
-Python ovviamente supporta anche le stringhe, che possono essere indifferentemente racchiuse tra singole o doppie virgolette.
+In Python le stringhe possono indifferentemente essere racchiuse tra virgolette singole e doppie.
 
 ```python
 >>> "una stringa"
@@ -138,7 +129,7 @@ Python ovviamente supporta anche le stringhe, che possono essere indifferentemen
 "un'altra stringa"
 ```
 
-Nella seconda espressione, notiamo l'uso del carattere di escape `\` che precede l'apostrofo. E' importante fare attenzione ad utilizzarlo, in quanto in caso contrario avremmo avuto un errore di sintassi da parte dell'interprete.
+Notiamo nella seconda istruzione l'uso del carattere di escape (`\`) che precede l'apostrofo; se lo omettessimo, l'interprete ci restituirebbe un errore sintattico (`SyntaxError`):
 
 ```python
 >>> 'un'altra stringa'
@@ -149,7 +140,7 @@ SyntaxError: invalid syntax
 ```
 
 !!!note "Nota"
-	E' importante sottolineare come *tutti* i caratteri preceduti da un simbolo `\` saranno interpretati come escape character, a meno che non si aggiunga una `r` prima dell'inizio della stringa, come ad esempio:
+	Tutti i caratteri preceduti dal simbolo `\` saranno interpretati come escape character, a meno di aggiungere il simbolo `r` prima dell'inizio della stringa:
 	> ```python
 	  >>> print('C:\nuova_cartella')
 	  C:
@@ -160,7 +151,7 @@ SyntaxError: invalid syntax
 
 ### Stringhe su righe multiple
 
-Le stringhe possono articolarsi su più righe. Un modo per farlo è quello di usare le *triple-quotes*, ovvero tre virgolette di seguito (ovviamente sia in apertura, sia in chiusura):
+Le stringhe possono articolarsi su più righe. Per farlo, possiamo usare le *triple-quotes*, ovvero tre virgolette di seguito, per indicare l'inizio e la fine della stringa:
 
 ```python linenums="1" hl_lines="1 3"
 >>> print("""Questo è un esempio\
@@ -171,11 +162,12 @@ Le stringhe possono articolarsi su più righe. Un modo per farlo è quello di us
 	riga multipla
 ```
 
-Notiamo anche qui la presenza del carattere `\`. In questo caso, il suo utilizzo è quello di evitare che venga posto, al termine di ogni riga, un carattere `\n`: infatti, si vede come il newline venga "ignorato" nelle righe evidenziate, ovvero la 1 e la 3, mentre non lo sia nella riga 2.
+!!!note "Nota"
+	Notiamo nel precedente snippet il carattere `\`, usato per evitare che venga automaticamente inserito dall'interprete il carattere *newline* (`\n`) al termine di ogni riga. Infatti, si vede come il newline non sia stato aggiunto nelle righe evidenziate, mentre sia presente nella riga 2.
 
 ### Concatenazione di stringhe
 
-Python offre anche un modo molto semplice per concatenare due stringhe: per farlo, infatti, basta usare l'operatore `+` su due stringhe.
+Concatenare due stringhe in Python è estremamente semplice, e basta usare l'operatore `+`:
 
 ```python linenums="1"
 >>> stringa_a = "Prima stringa"
@@ -185,18 +177,20 @@ Prima stringa - Seconda stringa
 ```
 
 !!!note "Nota"
-	E' anche possibile concatenere diverse volte una stessa stringa usando l'operatore `*`:
+	Se usiamo l'operatore `*` possiamo concatenare più volte la stessa stringa:
 	> ```python
 	  >>> 3 * 'co.'
 	  'co.co.co.'
 	  ```
 
-Un altro modo per concatenare due stringhe è semplicemente metterle l'una subito dopo l'altra, in questo modo:
+Possiamo anche semplicemente porre le due stringhe l'una di seguito all'altra:
 
 ```python
 >>> "Py" "thon"
 'Python'
 ```
+
+TODO: da qui
 
 !!!warning "Attenzione"
 	E' importante non concatenare un *literal* (ovvero una stringa racchiusa tra virgolette, sia singole, sia doppie) ad una variabile di tipo stringa. Se provassimo a farlo, l'interprete ci restituirebbe il seguente errore:
