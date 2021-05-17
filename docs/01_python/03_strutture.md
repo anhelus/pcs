@@ -1,12 +1,22 @@
-# Ancora sulle strutture dati in Python
+# Le strutture dati (in breve)
 
-## Liste come stack e code
+## Liste, pile e code
 
-Python mette a disposione un'estesa serie di metodi di accesso, inserimento e gestione delle liste, disponibili a [questo indirizzo](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
+Python ci offre una grande varietà di metodi per gestire le liste; troviamo un elenco esaustivo a [questo indirizzo](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists). Grazie a questi metodi, è possibile costruire una pila o una coda in modo molto più semplice rispetto ad altri linguaggi.
 
-E' interessante quindi notare come sia possibile costruire uno stack o una coda in maniera estremamente semplice; vediamo come.
+### Pila
 
-### Stack
+Una *pila* (in inglese *stack*) adotta una strategia di accesso ai dati di tipo *Last-In, First-Out* (*LIFO*). Questo significa che il primo elemento ad essere "servito" (o, per meglio dire, analizzato) è quello in cima alla pila.
+
+!!!tip "Un esempio"
+	Un tipico esempio di pila è quella dei piatti da lavare. Quasi sicuramente, il piatto in cima alla pila sarà l'ultimo che avremo preso dal tavolo; tuttavia, sarà anche il primo ad essere lavato.
+
+Per implementare una pila in Python, potremo usare due metodi:
+
+* grazie ad `append()`, potremo inserire un nuovo elemento in cima alla pila;
+* grazie a `pop()`, potremo estrarre l'elemento in cima alla 
+
+Usiamo quindi il metodo `append()`
 
 Ricordiamo che uno stack adotta una strategia di accesso del tipo LIFO; ciò significa quindi che il primo elemento ad essere servito sarà quello in cima allo stack. Potremo quindi usare il metodo `append()` per inserire l'elemento in cima alla lista, ed il metodo `pop()` per recuperarlo.
 
