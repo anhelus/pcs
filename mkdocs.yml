@@ -6,12 +6,11 @@ nav:
   - Python:
     - 01 - Introduzione al Python: 01_python/01_intro.md
     - 02 - Programmare in Python: 01_python/02_programmare.md
-    - 03 - Strutture Dati: 01_python/03_strutture.md
-    - 04 - Moduli: 01_python/04_moduli.md
-    - 05 - Classi e concetti avanzati: 01_python/05_classi.md
-    - 06 - I/O in Python: 01_python/06_file.md
-    - 07 - Cenni ai test: 01_python/07_test.md
-    - 08 - Cenni a NumPy: 01_python/08_numpy.md
+    - 03 - Stack e queue: 01_python/03_strutture.md
+    - 04 - List comprehension: 01_python/04_list_comprehension.md
+    - 05 - Tuple e dizionari: 01_python/05_tuple_dict.md
+    - 06 - Moduli: 01_python/06_moduli.md
+    - 07 - Classi e concetti avanzati: 01_python/07_classi.md
   - NumPy:
     - 01 - Introduzione a NumPy: 02_numpy/01_intro.md
 
