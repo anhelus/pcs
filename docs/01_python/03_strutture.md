@@ -1,4 +1,4 @@
-# Le strutture dati (in breve)
+# Alcune applicazioni delle liste
 
 ## Liste, pile e code
 

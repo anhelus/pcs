@@ -1,7 +1,10 @@
+# Le altre strutture per le sequenze
 
+Quando abbiamo parlato delle liste abbiamo accennato al fatto che Python offre altre tre strutture built-in per memorizzare sequenze di dati. Scopriamole insieme.
 
-Le *tuple* sono il terzo tipo di sequenze "standard" disponibile in Python, e consistono di una serie di valori separati da una lettera.
-Ad esempio:
+## Tuple
+
+Le *tuple* permettono di rappresentano un insieme di valori eterogenei separadoli da una virgola. Ad esempio:
 
 ```py
 >>> tupla = ('hello', 'world', 12)
@@ -9,7 +12,7 @@ Ad esempio:
 ('hello', 'world', 12)
 ```
 
-Così come per le liste, uno dei valori della tupla può essere a sua volta una tupla:
+Un po' come avviene per le liste, uno dei valori della tupla può a sua volta essere un'altra tupla. Ad esempio:
 
 ```py
 >>> tupla = ('hello', 'world', (1, 2))
@@ -17,57 +20,104 @@ Così come per le liste, uno dei valori della tupla può essere a sua volta una 
 ('hello', 'world', (1, 2))
 ```
 
-E' però importante sottolineare che, a differenza delle liste (e come le stringhe), le tuple sono *immutabili*.
+A differenza di una lista, però, le *tuple sono immutabili*. Ciò non implica però che non possano contenere al loro interno oggetti mutabili. Guardiamo il seguente esempio:
 
-!!!note "Nota"
-	Il fatto che le tuple siano immutabili non implica che non possano contenere al loro interno oggetti mutabili. Ad esempio:
-	> ```py
- 	  >>> tupla = ('hello', 'world', [1, 2, 3])
-	  >>> tupla[2]
-	  [1, 2, 3]
-	  >>> tupla[2] = [1, 2, 3, 4] 				# errore!
-	  Traceback (most recent call last):
-	  File "<stdin>", line 1, in <module>
-	  TypeError: 'tuple' object does not support item assignment
-	  >>> tupla[2][0] = 2						# ok
-	  >>> tupla
-	  ('hello', 'world', [2, 2, 3])
-	  ```
+```py
+>>> tupla = ('hello', 'world', [1, 2, 3])
+>>> tupla[2]
+[1, 2, 3]
+```
+
+La tupla avrà al suo interno due stringhe (immutabili) ed una lista (mutabile). Proviamo a modificare la lista:
+
+```py
+>>> tupla[2] = [2, 2, 3]
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+```
+
+Come prevedibile, abbiamo avuto un errore di assegnazione legato all'immutabilità della tupla. Proviamo adesso però a modificare *direttamente la lista*:
+
+```py
+>>> tupla[2][0] = 2
+>>> tupla
+('hello', 'world', [2, 2, 3])
+```
+
+L'operazione è evidentemente ammissibile, ed il risultato è stato proprio quello atteso.
 
 !!!tip "Tuple e liste"
-	E' facile osservare come tuple e liste siano tra loro molto simili a livello sintattico, e differiscano principalmente per il fatto che le prime sono immutabili, mentre le seconde no. Idealmente, è bene usare le tuple per elementi di tipo eterogeneo, che devono essere esclusivamente acceduti, mentre le liste vanno usate per elementi omogenei, che devono essere modificati all'occorrenza.
+	Ad un attento osservatore non sfuggirà come tuple e liste siano simili dal punto di vista sintattico, e differiscano in buona sostanza per la mutabilità. Da qui discende che le tuple sono estremamente efficaci nel caso si debba esclusivamente accedere agli elementi contenuti, mentre le liste devono essere usate quando è anche necessario modificare all'occorrenza detti elementi.
+
+## Set
+
+Anche i *set* sono molto simili alle liste dal punto di vista sintattico, ma offrono una significativa differenza: infatti, in un set *non possono esserci elementi ripetuti*.
+
+!!!note "Nota"
+	Notiamo un'evidente analogia con il concetto matematico di insieme.
+
+La sintassi da usare per creare un set è la seguente.
+
+```py
+>>> insieme = { 1, "stringa", 2 }
+>>> insieme
+{1, 2, 'stringa'}
+```
+
+Il set ammette al suo interno dati eterogenei, tuttavia non può contenere al suo interno delle liste o dei dizionari. Questo è legato al fatto che i set (così come gli stessi dizionari) sono delle [hash table](https://it.wikipedia.org/wiki/Hash_table), e quindi sfruttano il concetto di *hash* per rappresentare i dati contenuti in maniera compatta ed efficiente. Il fatto che le liste ed i dizionari non possano essere rappresentati in questo modo li esclude in automatico dall'includibilità all'interno di un set.
+
+Un'altra considerazione da fare è che il set *non è ordinato*: ciò rende impossibile accedere ad (e *modificare*) un elemento del set mediante il suo indice, come succedeva per liste e tuple.
+
+!!!tip "Suggerimento"
+	I set possono essere usati per isolare gli elementi univoci presenti in una lista. Per farlo, basta convertire la lista in set:
+	> ```py
+	  >>> l = [1, 2, 2, 3]
+  	  >>> l
+	  [1, 2, 2, 3]
+	  >>> s = set(l)
+	  >>> s
+	  {1, 2, 3}
+	  ```
 
 ## Dizionari
 
-L'ultimo tipo di dati che vale la pena affrontare in Python sono i *dizionari*, che abbiamo già visto in C e C++ con il nome di [array associativi](../02_dispense/programmazione/02_linguaggio_cpp/09_container/#associative-container).
+Il quarto ed ultimo tipo di contenitore per sequenze di dati è il *dizionario*, presente anche in altri linguaggi di programmazione con il nome di *array associativo* o *hash map*.
 
-I dizionari sono quindi indicizzati non mediante un classico indice numerico, ma mediante delle *chiavi*, che devono necessariamente essere immutabili (ovvero stringhe, numeri e tuple, che però al loro interno non possono contenere elementi mutabili come liste). Ad ogni chiave, come negli array associativi, corrisponde un determinato *valore*, che è arbitrario e può essere di qualsiasi tipo. Di conseguenza, un concetto comunemente associato ai dizionari è quello di *coppie chiave - valore*.
+L'elemento base di un dizionario è la *coppia chiave - valore*, nella quale un certo valore (di qualsiasi tipo) è associato ad una determinata chiave (di tipo immutabile).
 
-Vediamo come creare un dizionario:
+I dizionari hanno diverse caratteristiche comuni ai set, dall'inutilizzabilità delle liste come chiavi al fatto di non permettere chiavi ripetute. Inoltre, le coppie chiave - valore sono accedute, per l'appunto, per chiave, e non in base all'ordine delle coppie.
+
+!!!note "Nota"
+	Una differenza tra set e dizionari sta nel fatto che questi ultimi sono *ordinati* a partire da Python 3.7.
+
+Per creare un dizionario, possiamo usare una sintassi simile a quella usata per i set. Ad esempio, per creare un dizionario vuoto:
 
 ```py
->>> dizionario = {}             			# creo un dizionario vuoto
+>>> dizionario = {}
 >>> dizionario
 {}
 ```
 
-Possiamo quindi inserire una serie di chiavi, associandovi un determinato valore:
+Possiamo quindi inserire delle coppie chiave - valore in questo modo:
 
 ```py
->>> dizionario['k'] = 'v'			# aggiungo la chiave "k" a cui è associato il valore "v"
+>>> dizionario['k'] = 'v'
 >>> dizionario
 {'k': 'v'}
->>> dizionario[1] = 'n'				# aggiungo la chiave 1 a cui è associato il valore "n"
+>>> dizionario[1] = 'n'
 >>> dizionario
 {'k': 'v', 1: 'n'}
 ```
 
-Per accedere al valore associato ad una chiave:
+Per accedere al valore associato ad una determinata chiave:
 
 ```py
 >>> dizionario[1]
 'n'
 ```
+
+TODO: DA QUI
 
 ### Accedere a chiavi e valori
 

@@ -328,9 +328,11 @@ TypeError: 'str' object does not support item assignment
 
 ## Liste
 
-Abbiamo già detto che una stringa altro non è se non un caso particolare di *lista*. Queste hanno per Python la stessa funzione degli array negli altri linguaggi di programmazione.
+Abbiamo già detto che una stringa altro non è se non un caso particolare di *lista*. La domanda che sorge spontanea è quindi: *cosa è una lista*?
 
-Possiamo definire una lista in questo modo:
+Le liste sono uno dei quattro tipi di strutture *built-in* che Python offre per memorizzare sequenze di dati. Da un punto di vista puramente "concettuale", potremmo considerarle alla stregua degli array presenti in altri linguaggi di programmazione, seppur con alcune, significative differenze.
+
+Possiamo creare una lista in questo modo:
 
 ```py
 >>> lista = [1, 2, 3, 4, 5]
@@ -405,7 +407,3 @@ Proviamo ad estendere ulteriormente la lista cambiando il primo elemento con una
 ## Conclusioni
 
 Abbiamo dato una rapida introduzione al linguaggio Python, soffermandoci su alcune dei tipi di dati più usati, come numeri, stringhe e liste. Nelle prossime sezioni, torneremo sulle liste, ed approfondiremo altri tipi di iterabili, come tuple e dizionari.
-
-## Esercizi
-
-
