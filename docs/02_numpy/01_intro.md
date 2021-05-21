@@ -2,6 +2,36 @@
 
 La libreria **NumPy** (abbreviazione che sta per *Num*erical *Py*thon) è quella maggiormente usata nel campo del calcolo scientifico in Python, e ne rappresenta uno standard *de facto*, in quanto le API messe a disposizione da NumPy sono estensivamente utilizzate dalla quasi totalità degli altri package dedicati alle scienze ed all'ingegneria.
 
+## Installazione
+
+Al momento di installare NumPy, possiamo optare per due opzioni. La prima è quella di usare una distribuzione "scientifica" di Python; quella più usata è [Anaconda](https://www.anaconda.com).
+
+La seconda strada, che è quella che seguiremo, è sfruttare un'installazione "standard" di Python, creando un apposito ambiente virtuale ed il *dependency manager* [pipenv](https://pypi.org/project/pipenv/).
+
+Creiamo quindi una cartella, e creiamo un nuovo ambiente virtuale con NumPy usando questo comando:
+
+```sh
+mkdir python-data-science
+cd python-data-science
+pipenv install numpy
+```
+
+All'interno della cartella troveremo due file: 
+
+* `Pipfile`, che conterrà l'elenco dei pacchetti che abbiamo installato in quello specifico ambiente virtuale;
+* `Pipfile.lock`, che conterrà i riferimenti alle versioni dei singoli pacchetti installati.
+
+!!!warning "Attenzione"
+	**Non** modifichiamo **mai** direttamente i file generati da pipenv. Per farlo, esistono comandi appositi che illustreremo man mano che ne avremo bisogno.
+
+## Importare NumPy
+
+Abbiamo visto in precedenza che per usare un package o un modulo Python all'interno dei nostri script dovremo per prima cosa renderli "visibili". Faremo ovviamente lo stesso con NumPy, anteponendo questa direttiva in ogni modulo nel quale lo useremo:
+
+```py
+import numpy as np
+```
+
 ## Gli `ndarray`
 
 La struttura dati alla base di NumPy è quella degli *array*. Più precisamente, NumPy offre una struttura chiamata `ndarray`, rappresentante un array ad $n$ dimensioni contenente dati di tipo *omogeneo*. E' interessante notare come anche `ndarray` sia un'abbreviazione, stante per *n*-*d*imensional *array*. 

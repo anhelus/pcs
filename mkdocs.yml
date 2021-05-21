@@ -3,8 +3,20 @@ site_url: https://python.angelocardellicchio.it
 
 nav:
   - Home: index.md
+  - Python:
+    - 01 - Introduzione: 01_python/01_intro.md
+    - 02 - Concetti base: 01_python/02_programmare.md
+    - 03 - Liste, code e pile: 01_python/03_strutture.md
+    - 04 - List comprehension: 01_python/04_list_comprehension.md
+    - 05 - Tuple, set e dizionari: 01_python/05_tuple_dict.md
+    - 06 - Script, moduli e package: 01_python/06_moduli.md
+    - 07 - Classi: 01_python/07_classi.md
   - NumPy:
-    - Introduzione: '01_numpy/01_intro.md'
+    - 01 - Introduzione a NumPy: 02_numpy/01_intro.md
+  - Appendici:
+    - Appendice A - Configurazioni: 04_appendici/a_configurazioni.md
+    - Appendice B - Tabelle Python: 04_appendici/b_python.md
+
 
 theme:
   name: material
@@ -59,6 +71,11 @@ extra:
     - icon: fontawesome/solid/paper-plane
       link: mailto:angelo.cardellicchio@uniba.it
   # disqus: finance-programiq-it
+
+extra_javascript:
+  - js/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
   - stylesheets/extra.css
