@@ -4,7 +4,7 @@ Così come il C++, Python ha un esteso supporto per la programmazione orientata 
 
 La definizione di una classe in Python avviene come segue:
 
-```python
+```py
 class ClassName(BaseClass):
 	# Class body
 ```
@@ -15,7 +15,7 @@ Notiamo che, a differenza del C++, nel quale la classe viene definita all'intern
 
 Il linguaggio Python non prevede l'utilizzo di un costruttore vero e proprio, quanto piuttosto di un metodo di inizializzazione degli attributi della classe. Questo metodo assume lo stesso nome per ogni classe, ovvero `__init__`:
 
-```python
+```py
 class ClassName(BaseClass):
 
 	def __init__(self, *args, **kwargs):
@@ -29,7 +29,7 @@ class ClassName(BaseClass):
 
 Notiamo l'uso della parola chiave `self`. Questa, in qualche modo, richiama il `this` del C++: infatti, si riferisce alla specifica istanza della classe. Ad esempio:
 
-```python
+```py
 class Person(object):
 
 	def __init__(self, first_name, last_name, age=18):
@@ -47,7 +47,7 @@ Python prevede, come il C++, l'uso di modificatori di accesso ai dati; nello spe
 
 Per contraddistinguere i tre tipi di variabili, si utilizzano gli underscore come suffisso al nome della stessa; in particolare, un unico underscore indica un membro `protected`, mentre un doppio underscore indica un membro `private`.
 
-```python
+```py
 class Person(object):
 
 	def __init__(self, first_name, last_name, age=18):
@@ -58,7 +58,7 @@ class Person(object):
 
 !!!note "Nota"
 	I membri protetti sono facilmente accessibili dall'esterno della classe. Infatti:
-	> ```python
+	> ```py
 	  p = Person('Jax', 'Teller')
 	  print(p.first_name)
 	  print(p._last_name)
@@ -81,14 +81,14 @@ Contestualmente, è possibile usare la stessa convenzione definire metodi per l'
 
 I metodi di una classe sono definiti in questo modo:
 
-```python
+```py
 def metodo(self, *args, **kwargs):
 	pass
 ```
 
 E' importante notare come il primo attributo di un normale metodo di classe sia sempre la parola `self`. Questa non deve però essere specificata quando lo si chiama dall'esterno: basta infatti chiamarlo usando l'operatore `.` da un'istanza della classe:
 
-```python
+```py
 # ...
 p = Person()
 p.metodo(*args, **kwargs)
@@ -103,7 +103,7 @@ Prima di continuare a parlare dei metodi che è possibile definire all'interno d
 
 Python tratta le funzioni come degli *oggetti*. E' quindi possiible che una funzione *restituisca una funzione*:
 
-```python
+```py
 def main_character(series):
 	def supernatural():
 		return "Sam Winchester"
@@ -119,20 +119,20 @@ def main_character(series):
 
 Il valore di ritorno è quindi un oggetto. Possiamo provare a chiamarlo dal nostro script:
 
-```python
+```py
 >>> mc = main_character("Supernatural")
 ```
 
 Se provassimo a mandarlo a schermo trattandolo come una variabile, avremmo in uscita una reference a funzione:
 
-```python
+```py
 >>> print("Function reference: {}".format(mc))
 Function reference: <function main_character.<locals>.supernatural at 0x00000170C448BA60>
 ```
 
 Per visualizzare il risultato, trattiamolo come se fosse una chiamata a funzione:
 
-```python
+```py
 >>> print("Function outcoming value: {}".format(mc()))
 Function outcoming value: Sam Winchester
 ```
@@ -141,7 +141,7 @@ Function outcoming value: Sam Winchester
 
 Possiamo passare una fuzione come argomento ad un'altra funzione:
 
-```python
+```py
 def favorite_series(func):
 	def internal_check():
 		print("Checking my favorite series...")
@@ -155,7 +155,7 @@ def check():
 
 Dal nostro script:
 
-```python
+```py
 >>> print_fav_series = favorite_series(check)
 >>> print_fav_series()
 Checking my favorite series...
@@ -169,7 +169,7 @@ Vediamo quindi come la funzione passata come argomento sarà correttamente chiam
 
 La sintassi che abbiamo usato è, per dirla con Manzoni, *ampollosa*. Python ci offre quindi una sintassi equivalente, ma molto più accessibile, per usare una funzione come argomento di un'altra funzione, ovvero i decorator. Infatti:
 
-```python
+```py
 @favorite_series
 def print_fav_series_decorated():
 	print('Breaking Bad')
@@ -184,7 +184,7 @@ Got it!
 
 E' possibile definire i cosiddetti *metodi di classe* mediante il decorator `@classmethod`:
 
-```python
+```py
 @classmethod
 def from_string(cls, person_string: str):
 	fn, ln, age = person_string.split(' ')
@@ -195,7 +195,7 @@ A differenza dei normali metodi definiti all'interno di una classe, i metodi di 
 
 Per chiamare un metodo di classe, ci riferiamo al nome della classe stessa, e non alla singola istanza:
 
-```python
+```py
 pb = Person.from_string('Bobby Munson 58')
 print("{} {}".format(pb.first_name, pb._last_name))
 ```
@@ -204,7 +204,7 @@ print("{} {}".format(pb.first_name, pb._last_name))
 
 Così come in C e C++, è possibile definire metodi statici, che in questo caso sono maggiormente assimilabili alla loro concezione del C++. Infatti, nell'ambito della classe, un metodo statico non accetta né la classe, né una specifica istanza, ma si comporta come una funzione "semplice", che però è possibile chiamare dall'interno della classe. Ad esempio:
 
-```python
+```py
 @staticmethod
 def check_is_valid(first_name):
 	# return False if len(first_name) < 2 else True
@@ -215,7 +215,7 @@ def check_is_valid(first_name):
 !!! note "Nota"
 	In questo metodo, abbiamo usato una sintassi chiamata *shorthand ternary operator*, mentre commentato troviamo il classico operatore ternario, o una versione più semplice.
 
-```python
+```py
 >>> print(pb.check_is_valid('Li'))
 True
 >>> print(Person.check_is_valid('X'))
@@ -226,7 +226,7 @@ False
 
 I metodi astratti sono definibili nel caso si stiano implementando delle classi astratte (ovvero classi in cui alcuni metodi non sono implementati) o, nel caso estremo, interfacce (ovvero classi in cui nessun metodo è implementato). Per usarli, la nostra classe deve discendere da un particolare tipo di classe Python chiamato **Abstract Base Class**, abbreviato in `ABC`, e contenuto nel package `abc`:
 
-```python
+```py
 from abc import ABC
 
 class BaseClass(ABC):
@@ -240,7 +240,7 @@ class BaseClass(ABC):
 
 I metodi contrassegnati con il decorator `@abstractmethod` andranno implementati nelle classi derivate (operazione di *override*):
 
-```python
+```py
 class DerivedClass(BaseClass):
 
 	# some methods...
@@ -256,7 +256,7 @@ A differenza delle classi implementate in C++, finora non abbiamo usato i getter
 !!!note "Note"
 	In realtà, il decorator `@property` si riferisce ad una funzione con quattro parametri:
 
-	> ```python
+	> ```py
 	property(fget=None, fset=None, fdel=None, doc=None)
 	```
 
@@ -268,7 +268,7 @@ A differenza delle classi implementate in C++, finora non abbiamo usato i getter
 
 Le best practice ci dicono di adattare i nostri attributi, rendendoli privati, ed accedendovi soltanto mediante il decorator `@property`:
 
-```python
+```py
 class PersonProperty():
 
 	def __init__(self, first_name, last_name, age):
@@ -290,7 +290,7 @@ class PersonProperty():
 	# ...
 ```
 
-```python
+```py
 >>> pp = PersonProperty('Draco', 'Malfoy', 12)
 >>>	print(pp.first_name)
 Draco
