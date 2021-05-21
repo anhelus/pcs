@@ -9,21 +9,21 @@
       
       
       
-        <link rel="canonical" href="https://python.angelocardellicchio.it/">
+        <link rel="canonical" href="https://python.angelocardellicchio.it/02_numpy/04_manipolare_array/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
-        <title>Python 4 Data Science</title>
+        <title>04 manipolare array - Python 4 Data Science</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
       
     
@@ -38,7 +38,7 @@
     
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     
       
@@ -55,7 +55,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python-per-il-calcolo-scientifico" class="md-skip">
+        <a href="#come-si-fa-a-sapere-la-dimensione-e-forma-di-un-array" class="md-skip">
           Skip to content
         </a>
       
@@ -74,7 +74,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+    <a href="../.." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              04 manipolare array
             
           </span>
         </div>
@@ -154,7 +154,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+    <a href="../.." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -171,21 +171,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
-      
     </li>
   
 
@@ -219,7 +209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01_python/01_intro/" class="md-nav__link">
+      <a href="../../01_python/01_intro/" class="md-nav__link">
         01 - Introduzione
       </a>
     </li>
@@ -231,7 +221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01_python/02_programmare/" class="md-nav__link">
+      <a href="../../01_python/02_programmare/" class="md-nav__link">
         02 - Concetti base
       </a>
     </li>
@@ -243,7 +233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01_python/03_strutture/" class="md-nav__link">
+      <a href="../../01_python/03_strutture/" class="md-nav__link">
         03 - Liste, code e pile
       </a>
     </li>
@@ -255,7 +245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01_python/04_list_comprehension/" class="md-nav__link">
+      <a href="../../01_python/04_list_comprehension/" class="md-nav__link">
         04 - List comprehension
       </a>
     </li>
@@ -267,7 +257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01_python/05_tuple_dict/" class="md-nav__link">
+      <a href="../../01_python/05_tuple_dict/" class="md-nav__link">
         05 - Tuple, set e dizionari
       </a>
     </li>
@@ -279,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01_python/06_moduli/" class="md-nav__link">
+      <a href="../../01_python/06_moduli/" class="md-nav__link">
         06 - Script, moduli e package
       </a>
     </li>
@@ -291,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="01_python/07_classi/" class="md-nav__link">
+      <a href="../../01_python/07_classi/" class="md-nav__link">
         07 - Classi
       </a>
     </li>
@@ -333,7 +323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="02_numpy/01_intro/" class="md-nav__link">
+      <a href="../01_intro/" class="md-nav__link">
         01 - Introduzione a NumPy
       </a>
     </li>
@@ -375,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04_appendici/a_configurazioni/" class="md-nav__link">
+      <a href="../../04_appendici/a_configurazioni/" class="md-nav__link">
         Appendice A - Configurazioni
       </a>
     </li>
@@ -387,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="04_appendici/b_python/" class="md-nav__link">
+      <a href="../../04_appendici/b_python/" class="md-nav__link">
         Appendice B - Tabelle Python
       </a>
     </li>
@@ -416,8 +406,28 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#come-si-fa-a-sapere-la-dimensione-e-forma-di-un-array" class="md-nav__link">
+    come si fa a sapere la dimensione e forma di un array
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cambiare-le-dimensioni-di-un-array" class="md-nav__link">
+    cambiare le dimensioni di un array
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -430,8 +440,136 @@
               
                 
                 
-                <h1 id="python-per-il-calcolo-scientifico">Python per il Calcolo Scientifico<a class="headerlink" href="#python-per-il-calcolo-scientifico" title="Permanent link">&para;</a></h1>
-<p>Angelo Cardellicchio</p>
+                  <h1>04 manipolare array</h1>
+                
+                <p>FONO A "How to convert a D array into a 2D array</p>
+<p>Ordinare un elemento è semplice con np.sort(). Si possono specificare gli assi, tipo ed ordine quando si chiama la funzione.</p>
+<p>Se si inizia con questo array:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</code></pre></div>
+<p>si può rapidamente ordinare i numeri in ordine ascendente con:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</code></pre></div>
+<p>Oltre all'ordinamento, che restituisce una copia ordinata di un array, si possono usare le seguenti funzioni:</p>
+<ul>
+<li>argsort, che è un ordinamento indiretto lungo un certo asse</li>
+<li>lexosrt, che è un ordinamento indiretto con più chiavi</li>
+<li>searchsorted, che trova gli elementi in un array ordinato e</li>
+<li>partition, che è un ordinamento parziale</li>
+</ul>
+<p>Se iniziamo con questi array:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</code></pre></div>
+<p>possiamo concatenarli usando <code>np.concatenate()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</code></pre></div>
+<p>O, se iniziamo con questi array:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>x = np.array([[1, 2], [3, 4]])<br />
+y = np.array([[5, 6]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>possiamo concatenarli con:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>np.concatenate((x, y), axis=0)<br />
+array([[1, 2],<br />
+       [3, 4],<br />
+       [5, 6]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>per rimuovere un elemento in un array, è facile usare l'indicizzazione per scegliere gli elementi che si vogliono mantenere.</p>
+<h2 id="come-si-fa-a-sapere-la-dimensione-e-forma-di-un-array">come si fa a sapere la dimensione e forma di un array<a class="headerlink" href="#come-si-fa-a-sapere-la-dimensione-e-forma-di-un-array" title="Permanent link">&para;</a></h2>
+<p>ndarray.ndim ci dice il numero di assi, o dimensioni, dell'array</p>
+<p>ndarray.size ci dice il numero totale di elementi dell'array. Questo è il prodotto degli elementi della forma dell'array.</p>
+<p>ndarray.shape ci mostra una tupla di interi che indicano il numero di elmeenti memorizzati in ogni dimensione dell'array. Se, per esempio, si ha un array bidimensioanle con due righe e tre colonne, la forma dell'array è (2, 3).</p>
+<p>per esempio, se si crea questo array:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>array_example = np.array([[[0, 1, 2, 3],<br />
+...                            [4, 5, 6, 7]],<br />
+...<br />
+...                           [[0, 1, 2, 3],<br />
+...                            [4, 5, 6, 7]],<br />
+...<br />
+...                           [[0 ,1 ,2, 3],<br />
+...                            [4, 5, 6, 7]]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Per trovare il numero di dimensioni dell'array, si esegue:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>array_example.ndim<br />
+3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>per trovare il numero totale di elementi nell'array, si esegue:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>array_example.size<br />
+24</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>e per trovare la dimensione del nostro array, eseguiamo:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>array_example.shape<br />
+(3, 2, 4)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="cambiare-le-dimensioni-di-un-array">cambiare le dimensioni di un array<a class="headerlink" href="#cambiare-le-dimensioni-di-un-array" title="Permanent link">&para;</a></h2>
+<p>usare arr.reshape() darà una nuova forma all'array senza cambiare i dati. Ricordiao che quando si usa il metodo reshape, l'array che vogliamo produrre deve avere lo stesso numero di elementi dell'array originario. Se iniziamo con un array con 12 elementi, dovremo assicuracri che il nostro nuovo array ha un totale di 12 elementi.</p>
+<p>Se iniziamo con questo array:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a = np.arange(6)<br />
+print(a)<br />
+[0 1 2 3 4 5]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>possiamo usare reshape() per cambiare le dimensioni dell'arary. Ad esempio, possiamo ridimensionare questo array in un array con tre righe e due colonne:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>b = a.reshape(3, 2)<br />
+print(b)<br />
+[[0 1]<br />
+ [2 3]<br />
+ [4 5]]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>con np.reshape, possiamo specificare alcuni parametri opzionali:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>numpy.reshape(a, newshape=(1, 6))<br />
+array([[0, 1, 2, 3, 4, 5]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>a è l'array che verrà ridimensionato.</p>
+<p>newshape è la nuova forma che vogliamo. POssiamo specificare un intero o una tupla di interi. Se specifichiamo un intero, il risultato sarà un array di quella lunghezza. La fomra deve essere compatibile con quella originaria.</p>
+                
+                  
                 
               
               
@@ -451,25 +589,6 @@
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-      
-        <a href="01_python/01_intro/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              01 - Introduzione
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -522,12 +641,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
-        <script src="js/config.js"></script>
+        <script src="../../js/config.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

@@ -9,21 +9,21 @@
       
       
       
-        <link rel="canonical" href="https://python.angelocardellicchio.it/01_numpy/03_array/01_intro/">
+        <link rel="canonical" href="https://python.angelocardellicchio.it/03_pandas/02_data_structure/">
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
-        <title>Introduzione agli array - Python 4 Data Science</title>
+        <title>Introduzione alle strutture dati - Python 4 Data Science</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.9299cb39.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
         
       
     
@@ -38,7 +38,7 @@
     
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     
       
@@ -55,7 +55,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduzione-agli-array" class="md-skip">
+        <a href="#introduzione-alle-strutture-dati" class="md-skip">
           Skip to content
         </a>
       
@@ -74,7 +74,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+    <a href="../.." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduzione agli array
+              Introduzione alle strutture dati
             
           </span>
         </div>
@@ -154,7 +154,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+    <a href="../.." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -173,7 +173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -194,11 +194,125 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       <label class="md-nav__link" for="__nav_2">
+        Python
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/01_intro/" class="md-nav__link">
+        01 - Introduzione
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/02_programmare/" class="md-nav__link">
+        02 - Concetti base
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/03_strutture/" class="md-nav__link">
+        03 - Liste, code e pile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/04_list_comprehension/" class="md-nav__link">
+        04 - List comprehension
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/05_tuple_dict/" class="md-nav__link">
+        05 - Tuple, set e dizionari
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/06_moduli/" class="md-nav__link">
+        06 - Script, moduli e package
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/07_classi/" class="md-nav__link">
+        07 - Classi
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
         NumPy
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="NumPy" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           NumPy
         </label>
@@ -209,8 +323,62 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_intro/" class="md-nav__link">
-        Introduzione
+      <a href="../../02_numpy/01_intro/" class="md-nav__link">
+        01 - Introduzione a NumPy
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Appendici
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Appendici" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Appendici
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_appendici/a_configurazioni/" class="md-nav__link">
+        Appendice A - Configurazioni
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_appendici/b_python/" class="md-nav__link">
+        Appendice B - Tabelle Python
       </a>
     </li>
   
@@ -237,69 +405,9 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#qual-e-la-differenza-tra-una-lista-python-ed-un-array-numpy" class="md-nav__link">
-    Qual è la differenza tra una lista Python ed un array NumPy?
-  </a>
-  
-    <nav class="md-nav" aria-label="Qual è la differenza tra una lista Python ed un array NumPy?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#perche-usare-numpy" class="md-nav__link">
-    Perché* usare NumPy?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cosa-e-un-array" class="md-nav__link">
-    Cosa è un array?
-  </a>
-  
-    <nav class="md-nav" aria-label="Cosa è un array?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#piu-informaizoni-sugli-array" class="md-nav__link">
-    Più informaizoni sugli array
-  </a>
-  
-    <nav class="md-nav" aria-label="Più informaizoni sugli array">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#quali-sono-gli-attributi-di-un-array" class="md-nav__link">
-    QUali sono gli attributi di un array?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -312,34 +420,8 @@
               
                 
                 
-                <h1 id="introduzione-agli-array">Introduzione agli array<a class="headerlink" href="#introduzione-agli-array" title="Permanent link">&para;</a></h1>
-<h2 id="qual-e-la-differenza-tra-una-lista-python-ed-un-array-numpy">Qual è la differenza tra una lista Python ed un array NumPy?<a class="headerlink" href="#qual-e-la-differenza-tra-una-lista-python-ed-un-array-numpy" title="Permanent link">&para;</a></h2>
-<p>NumPy ci dà un enorme range di modi veloci ed efficienti per creare degli array e manipolare dei dati numerici al lroo interno. Mentre una lista python può contenere diversi tipi di dati al suo interno, tutti gli elementi in un array NumPy devono essere omogenei. Le operazioni matematiche che devono essere effettuate sugli array sarebbero state infatti estremamente inefficaci se gli array non fossero stati omogenei.</p>
-<h3 id="perche-usare-numpy">Perché* usare NumPy?<a class="headerlink" href="#perche-usare-numpy" title="Permanent link">&para;</a></h3>
-<p>Gli array numpy sono più veloci e compatti rispetto alle liste Python. Un array consuma meno memoria, ed è più conveniente da utilizzare. NumPy uisa molta meno memoria per memorizzare i dati e fornisce un meccanismo per specificare i tipi d dati. Qusto permette una ulteriore ottimizzzazione del codice.</p>
-<h2 id="cosa-e-un-array">Cosa è un array?<a class="headerlink" href="#cosa-e-un-array" title="Permanent link">&para;</a></h2>
-<p>Un array è la struttura dati centrale della libreria NumPy. E' considerato come una griglia di valori, e contiene informazioni circa gli elementi grezzi (raw), su come localizzare ciascun elemento, e come interpretarlo. Ha inotlre una griglia di elementi che può essere indicizzata in diversi modi. Gli elementi son tutto dello stesso tipo, indicato con <code>dtype</code>.</p>
-<p>Un array può essere idnicizzato da una tupla di interi non negativi, booleani, o da un altro array, o da interi. Il rank dell'array è il numeor di dimensioni. La forma dell'array è una tupla di interi che da la dimensione dell'arry su ogni dimensione.</p>
-<p>Un modo in cui si possono inziializzare gli array NumPy è dalle liste Python, usanod liste annidate per dati con due o più dimensioni. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-</code></pre></div>
-<p>o</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
-</code></pre></div>
-<p>Possiamo accedere agli elementi nell'array usando le parentesi quadre. Quando si accede agli elementi, dobbiamo ricordarci che l'indicizzazione in NumPy inizia a 0. QUesto significa che se vogliamo accedere il primo elemento nell'array, staremo accedendo all'elemento 0.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]</span>
-</code></pre></div>
-<h3 id="piu-informaizoni-sugli-array">Più informaizoni sugli array<a class="headerlink" href="#piu-informaizoni-sugli-array" title="Permanent link">&para;</a></h3>
-<p>Possiamo occasionalmente sentire un riferimento ad un array come ad un <em>ndarray</em>, che è una abbreviazione per <em>N-dimensional array</em> (array ad n dimensioni). Un array ad n dimensioni è semplicemente un array con un numero generico di dimensioni. Possiaom sentire infatti 1-D, o array monodimensionaloi, o 2-D, array multidimenzionali, e via dicendo.</p>
-<p>La classe NumPy ndarray viene suata per rappresentare sia matrici sia vettori. Un vettore è un array con una singola dimensione (non vi è differenza tra i vettori riga ed i vettori colonna), mentre una matrice si riferisce ad un array con due dimensioni. Per array tridimensionali o con un maggior numero di dimensioni, si usa comunemente il termine tensore.</p>
-<h4 id="quali-sono-gli-attributi-di-un-array">QUali sono gli attributi di un array?<a class="headerlink" href="#quali-sono-gli-attributi-di-un-array" title="Permanent link">&para;</a></h4>
-<p>Una rray è normalmente un contenitore a dimensione fissata di oggetti dello stesso tipo e dimensione. Il numero di dimensioni ed oggetti in un array è definito dalla sua forma. La forma di un array è una tupla di interi non negativi che specifica le dimensioni lungo ogni asse.</p>
-<p>In numpy, gli assi sono indicati con axes. Questo indica che se abbiamo un array bidimensionale del tipo:</p>
-<p>[[0.,0.,0.],<br />
- [1.,1., 1.]]</p>
-<p>il nsotro array avrà due assi. Il primo asse ha una lunghezza di 2, mentre il secondo una lunghezza di 3.</p>
-<p><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">https://numpy.org/doc/stable/user/absolute_beginners.html</a></p>
+                <h1 id="introduzione-alle-strutture-dati">Introduzione alle strutture dati<a class="headerlink" href="#introduzione-alle-strutture-dati" title="Permanent link">&para;</a></h1>
+<p>Iniziamo con una rapida, non comprensiva overview delle strutture dati fondamentali in pandas. I comportamenti fondamentali a riguardo di tipo di dati, indicizzazione, ed axis labeling/alignment si applicano a tutti gli oggetti. Per iniziare, importiamo NumPy e carichiamo Pandas nel nostro namespace.</p>
                 
               
               
@@ -351,7 +433,7 @@
           </div>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+          <a href="#" class="md-top md-icon" title="Back to top" data-md-component="top" data-md-state="hidden">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
           </a>
         
@@ -411,10 +493,16 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.7353b375.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="../../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
