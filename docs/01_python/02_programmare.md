@@ -346,3 +346,7 @@ Chiudiamo accennando all'istruzione `pass`. Questa non fa assolutamente nulla; Ã
 
 !!!note "Nota"
 	Anche se di primo acchitto potrebbe non essere evidente, l'istruzione `pass` Ã¨ *estremamente* utile.
+
+## Conclusioni
+
+In questa lezione, abbiamo visto alcune delle tecniche fondamentali da padroneggiare per quello che riguarda la programmazione strutturata in Python. Nella prossima lezione, ci focalizzeremo su alcune possibili applicazioni delle liste.

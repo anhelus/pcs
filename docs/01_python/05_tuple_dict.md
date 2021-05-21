@@ -117,11 +117,9 @@ Per accedere al valore associato ad una determinata chiave:
 'n'
 ```
 
-TODO: DA QUI
+### Chiavi e valori
 
-### Accedere a chiavi e valori
-
-E' possibile avere la lista delle chiavi di un dizionario mediante il metodo `keys()`, che restituisce un oggetto di tipo `dict_keys`, convertibile in lista:
+E' possibile recuperare la lista di tutte le chiavi presenti in un dizionario usando il metodo `keys()`, che restituisce un oggetto di tipo `dict_keys`, a sua volta convertibile in lista:
 
 ```py
 >>> chiavi = dizionario.keys()
@@ -152,12 +150,26 @@ dict_items([('k', 'v'), (1, 'n')])	# non è una lista!
 >>>
 ```
 
-### Creare un dizionario non vuoto
+### Creazione di un dizionario (non vuoto)
 
-Abbiamo diversi modi per creare un dizionario non vuoto. Il primo, più semplice, è quello di dichiarare nell'operatore `{}` le coppie chiave - valore iniziali:
+Abbiamo diversi modi per creare un dizionario non vuoto.
+
+#### Uso dell'operatore `{}`
+
+Il più semplice, che è quello che useremo più spesso, è quello di dichiarare nell'operatore `{}` le coppie chiave - valore iniziali:
 
 ```py
 >>> dizionario = { 'k1': 1, 'k2': 2 }
+>>> dizionario
+{'k1': 1, 'k2': 2}
+```
+
+#### Uso del costruttore `dict()`
+
+Un altro modo è usare il metodo costruttore `dict()`:
+
+```py
+>>> dizionario = dict(k1=1, k2=2)
 >>> dizionario
 {'k1': 1, 'k2': 2}
 ```
@@ -176,7 +188,7 @@ Possiamo poi usare la funzione `zip` per creare un dizionario a partire da due l
 
 #### Dict comprehension
 
-Possiamo ottenere un dizionario a partire da un altro oggetto iterabile (sia esso una sequenza o un altro dizionario) usando la *dict comprehension*, che ha una forma del tipo:
+Un modo per ottenere un dizionario a partire da un altro oggetto iterabile è la *dict comprehension*, che ha una forma del tipo:
 
 ```py
 output = { chiave: valore for valore in iterabile }

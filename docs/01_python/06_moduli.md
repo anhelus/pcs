@@ -1,102 +1,186 @@
-# Moduli
+# Script e moduli
 
-Possiamo interagire con l'interprete Python in diversi modi. Finora, quello che abbiamo maggiormente usato è stata l'interazione diretta con l'interprete, lanciandolo da terminale ed invocando di volta in volta le istruzioni necessarie. Ovviamente, questo presenta numerosi svantaggi: non abbiamo infatti syntax highlighting, non siamo in grado di recuperare le istruzioni una volta chiuso l'interprete, ed in generale non è un modo ottimale di programmare.
+## Un approccio migliore
 
-Possiamo quindi definire degli *script*, che saranno salvati sotto forma di file con estensione `py`, e conterranno tutte le istruzioni che vogliamo siano eseguite a runtime.
+Finora abbiamo interagito direttamente con l'interprete Python, lanciandolo da terminale ed eseguendo di volta in volta le istruzioni necessarie. Ovviamente questo approccio, seppur immediato, presenta diversi svantaggi, tra cui:
 
-Esiste però un modo per replicare l'approccio che avevamo adottato in C e C++, ovvero quello di suddividere il codice in base alle funzionalità offerte; per farlo, occorre usare i *moduli*, ovvero dei file, sempre con estensione `py`, che contengono le definizioni alle classi o ai metodi da noi creati, che potranno quindi essere richiamati esternamente.
+* non abbiamo il *syntax highlighting*;
+* non siamo in grado di recuperare il codice una volta chiuso l'interprete;
+* non possiamo verificare facilmente il funzionamento del codice;
+* non possiamo modificare facilmente il codice.
+
+Appare evidente come quindi non si tratti di un modo *ottimale* di sviluppare codice Python. Per questo, oltre al supporto di una IDE (cfr. [Appendice A](../04_appendici/a_configurazioni.md)), dovremo definire dei veri e propri *script*, che saranno salvati sotto forma di file con estensione `py`, e conterranno le istruzioni relative al nostro programma.
+
+## Il primo script
+
+Possiamo quindi provare a creare il nostro primo script Python. Per farlo, apriamo Visual Studio Code (o la nostra IDE di riferimento), e creiamo un file chiamato `main.py`, all'interno del quale inseriremo questo codice:
+
+```py
+# main.py
+def hello_world():
+	print('Hello, world')
+
+hello_world()
+```
+
+Adesso apriamo un terminale, spostiamoci nella cartella nel quale abbiamo salvato questo script, ed eseguiamolo:
+
+```sh
+$ cd cartella_dove_risiede_lo_script
+$ python main.py
+```
+
+A schermo, dovrebbe apparire la scritta `Hello, world`:
+
+```sh
+Hello, world
+```
+
+## L'approccio modulare
+
+Utilizzare gli script permette di ovviare a diversi tra gli inconvenienti evidenziati in precedenza; tuttavia, quando le dimensioni della nostra *code base* (ovvero, la quantità di codice che scriviamo nei nostri programmi) iniziano ad essere "ingombranti", è opportuno adottare un approccio *modulare*, che prevede una separazione "fisica", ancorché logica, di parti di codice delegate a funzioni differenti.
+
+### Un esempio
+
+Immaginiamo di voler scrivere un programma che definisca delle funzioni per calcolare l'area delle principali figure geometriche. Modifichiamo quindi il nostro file `main.py` come segue:
+
+```py
+def calcola_area_quadrato(lato):
+	return lato * lato
+
+
+def calcola_area_rettangolo(base, altezza):
+	return base * altezza
+
+
+def calcola_area_triangolo(base, altezza):
+	return (base * altezza) / 2
+
+
+area_quadrato = calcola_area_quadrato(4)
+area_rettangolo = calcola_area_rettangolo(2, 3)
+area_triangolo = calcola_area_triangolo(2, 3)
+```
+
+Immaginiamo di voler quindi aggiungere una funzione di calcolo trigonometrico:
+
+```py
+import math
+
+def calcola_tangente(angolo):
+	return math.sin(angolo) / math.cos(angolo)
+
+
+tangente_pi = calcola_tangente(math.pi)
+```
+
+Il codice del nostro file `main.py` comprenderà adesso funzioni di tipo geometrico e trigonometrico.
+
+Cosa succederebbe se volessimo integrare delle funzioni di calcolo integrale, o di altro tipo? Ovviamente, ci sarebbe da un lato un aumento delle dimensioni della code base, dall'altro un "mix" tra funzioni che afferiscono ad ambiti differenti (seppur simili tra loro). Una buona idea sarebbe quindi quella di *separare* le diverse parti del programma, magari raggruppando le funzioni geometriche nel file `geometria.py`, le funzioni trigonometriche nel file `trigonometria.py`, e via discorrendo.
+
+Questi file, che conterranno al loro interno prevalentemente funzioni (ma non solo), sono chiamati *moduli*.
 
 !!!note "Nota"
-	La linea che contraddistingue gli script dai moduli è molto sottile, e nei fatti è facile confondersi utilizzandoli in maniera "intercambiabile". Ricordiamo però che, almeno in teoria, gli script dovrebbero essere esclusivamente *eseguiti*, mentre i moduli soltanto *invocati*.
+	La linea che contraddistingue gli script dai moduli è molto sottile, e nei fatti è facile fare confusione ed utilizzarli in maniera "intercambiabile". Sottolineamo però che, idealmente, gli script devono contenere al loro interno soltanto del codice che sarà *eseguito*, mentre i moduli solo del codice che sarà *invocato* da uno o più script.
 
 !!!note "Interprete e nome di un modulo"
-	L'interprete è in grado di risalire al nome di un modulo dal nome del file in cui è contenuto. Se, ad esempio, definiamo un modulo nel file **matematica.py**, l'interprete associerà a quel modulo il nome `matematica`. Detto nome è inoltre accessibile globalmente *e* dall'interno del modulo richiamando la variabile globale `__name__`.
+	L'interprete è in grado di risalire al nome di un modulo dal nome del file in cui è contenuto. Se, ad esempio, definiamo un modulo nel file `geometria.py`, l'interprete associerà a quel modulo il nome `geometria`. Detto nome è inoltre accessibile globalmente e dall'interno del modulo richiamando la variabile globale `__name__`.
 
-Facciamo un esempio.
+#### I moduli `geometria` e `trigonometria`
 
-## Il modulo `matematica`
+Creiamo adesso il file `geometria.py`, all'interno del quale "sposteremo" le funzioni definite in precedenza per il calcolo geometrico.
 
-Creiamo un modulo `matematica` all'interno del file **matematica.py**; nel modulo, definiremo delle funzioni per il calcolo matematico. Ad esempio:
-
-```python
-# matematica.py
-
-def somma(a, b):
-	return a + b
+```py
+# geometria.py
+def calcola_area_quadrato(lato):
+	return lato * lato
 
 
-def moltiplica(a, b):
-	return a * b
+def calcola_area_rettangolo(base, altezza):
+	return base * altezza
 
 
-def fibonacci(val_max):
-	fib = [0, 1]
-	fib += [(fib := [fib[1], fib[0] + fib[1]]) and fib[1] for i in range(val_max)]
-	return fib
+def calcola_area_triangolo(base, altezza):
+	return (base * altezza) / 2
 ```
 
-Definiamo ora, nella stessa cartella, uno script, e chiamiamolo **run.py**:
+Analogamente, nel file `trigonometria.py` andremo a definire la funzione per il calcolo della tangente.
 
-```python linenums="1"
-# run.py
-import matematica
+```py
+import math
+
+def calcola_tangente(angolo):
+	return math.sin(angolo) / math.cos(angolo)
+```
+
+Riscriviamo ora il file `main.py`:
+
+```py linenums="1"
+import geometria
+import trigonometria
 
 if __name__ == "__main__":
-	print(matematica.fibonacci(20))
+	print(geometria.calcola_area_quadrato(4))
+	print(trigonometria.calcola_tangente(math.pi))
 ```
 
-Notiamo due cose:
+Possiamo notare due cose.
 
-1. stiamo richiamando la funzione `fibonacci()` definita nel modulo `matematica`; per farlo, usiamo la direttiva `import` (potete pensarla come analoga alla direttiva `#include` del C/C++);
-2. alle righe 4-5, quella "strana" sintassi ci serve a dichiarare il `main`. Tuttavia, Python ci permette di ometterla, ed è utile soprattutto nel caso ci siano programmi complessi con passaggio di parametri multipli.
+1. In primis, stiamo richiamando le funzioni `calcola_area_quadrato()` e `calcola_tangente()` definite nei moduli `geometria` e `trigonometria`, rispettivamente. Questi moduli sono importati all'interno del nostro script mediante la direttiva `import`.
+2. Alle righe 5 e 6, la "strana" sintassi mostrata serve a dichiarare quello che è il `main`, ovvero il punto di "accesso" al codice del nostro programma. Il `main` è normalmente presente in tutti i linguaggi di programmazione, alle volte sotto forme un po' differenti da quella qui mostrata; tuttavia, nel caso di script particolarmente semplici, il `main` può essere tranquillamente omesso, in quanto l'interprete riuscirà ad eseguirlo in maniera autonoma.
 
-Proviamo quindi a lanciare lo script digitando l'istruzione `python run.py` da terminale. A schermo, se tutto è andato per il verso giusto, vedremo i primi dodici elementi della sequenza di Fibonacci.
+Proviamo a lanciare lo script; per farlo, digitiamo l'istruzione `python main.py` da terminale. A schermo, se tutto è andato per il verso giusto, vedremo i valori dell'area di un quadrato e della tangente di $\pi$.
 
-!!!note "Import di funzioni"
-	Nel nostro script, abbiamo usato esclusivamente la funzione `fibonacci()`; tuttavia, la direttiva `import` utilizzata fa sì che vengano importante anche le funzioni somma e moltiplica, che non utilizziamo. E' quindi buona regola, qualora non servano tutte le classi e funzioni definite all'interno di un modulo, usare una versione modificata della direttiva, che prende la forma di:
+## Usare gli import
 
-	> ```python
-	  from modulo import funzione_o_classe
-	  ```
-	
-	il che, nel nostro caso specifico, diventa:
+Relativamente al modulo `geometria`, abbiamo usato esclusivamente la funzione `calcola_area_quadrato()`, "trascurando" le altre due funzioni comunque presenti nel modulo. In queste circostanze, possiamo usare una versione modificata della direttiva `import`, che assume la seguente forma:
 
-	> ```python
-	  from matematica import fibonacci
-	  ```
+```py
+from modulo import funzione_o_classe
+```
 
-!!!note "Alias"
-	L'`import` permette anche di definire degli alias, che risultano particolarmente utili nel caso di nomi di package complessi. Ad esempio:
+il che, nel nostro caso specifico, diventa:
 
-	> ```python
-	  import matematica as mate
-	  print(mate.fibonacci(20))
-	  ```
+```py
+from geometria import calcola_area_quadrato
+```
+
+In questo modo, possiamo importare solamente quello che ci serve, il che risulta particolarmente utile a migliorare l'efficienza del nostro codice; il perché sarà chiaro a breve.
+
+### Alias
+
+La direttiva `import` ci permette di definire anche degli alias, particolarmente utili nel caso si usino dei nomi di package complessi. Ad esempio:
+
+```py
+import trigonometria as tr
+
+print(tr.calcola_tangente(math.pi))
+```
 
 ### La funzione dir()
 
-La funzione `dir()` ci permette di vedere tutti i nomi (sia di funzione, sia di classe) definiti da un modulo, e li restituisce sotto forma di lista. Ad esempio:
+La funzione `dir()` restituisce una lista con tutti i nomi (sia di funzione, sia di classe) definiti da un modulo. Ad esempio:
 
-```python
->>> dir(matematica)
-['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'fibonacci', 'moltiplica', 'somma']
+```py
+>>> dir(geometria)
+['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'calcola_area_quadrato', 'calcola_area_rettangolo', 'calcola_area_triangolo']
 ```
 
-!!!note "Nota"
-	Oltre alle funzioni, classi e costanti da noi definite, nel modulo `matematica` sono definite in modo automatico tutta una serie di variabili, le quali saranno importate assieme alle definizioni necessarie nel caso si usi la direttiva `import` in maniera "approssimativa". Ad esempio:
+E' interessante notare come, oltre a funzioni, classi e variabili da noi definite, nel modulo `geometria` siano automaticamente definite *altre* variabili, che saranno importate usando import:
 
-	> ```python
-	  import matematica
-	  if __name__ == "__main__":
-		print(matematica.__file__)
-		print(matematica.fibonacci(20))
-	  ```
-	
-	In questo caso, saremo in grado di accedere alla variabile `__file__` del modulo `matematica`, che indica il percorso relativo dello stesso all'interno del file system. Ovviamente, questa variabile non ci serve (quasi mai), per cui è evidente l'importanza dell'uso della direttiva `from`!
+```py
+import geometria
+
+if __name__ == "__main__":
+	print(geometria.__file__)
+	print(geometria.calcola_area_quadrato(4))
+```
+
+Notiamo che saremo in grado di accedere alla variabile `__file__` del modulo `geometria`, che indica il percorso relativo dello stesso all'interno del file system. Ovviamente, questa variabile non è quasi mai utile, ma comporta un ulteriore carico sul codice, da cui diventa evidente l'importanza dell'opportuno uso della direttiva `from`.
 
 ### Moduli della libreria standard
 
-Python ha diversi moduli appartenenti ad una libreria standard, analogamente a quanto visto per C e C++. In particolare, alcuni moduli meritano una menzione:
+Python ha diversi moduli appartenenti ad una libreria standard, i quali sono automaticamente disponibili a valle dell'installazione dell'interprete. Alcuni tra i più utilizzati sono:
 
 * `sys`: è il modulo integrato nell'interprete, ed offre diverse utility necessarie al suo funzionamento;
 * `os`: modulo delegato all'interazione con il sistema operativo su cui gira l'interprete;
@@ -104,17 +188,15 @@ Python ha diversi moduli appartenenti ad una libreria standard, analogamente a q
 * `datetime`: modulo usato per le funzionalità di data ed ora;
 * `copy`: modulo usato per gestire, tra le altre cose, la deep copy di un oggetto.
 
-Ovviamente, fare una lista esaustiva è pressoché inutile, oltre che ridondante, per cui si rimanda alla [Python Library Reference](https://docs.python.org/3/library/).
+Per una lista esaustiva, si rimanda alla [Python Library Reference](https://docs.python.org/3/library/).
 
 ## Package
 
-Chiudiamo con un accenno ad un ulteriore livello possibile nella struttura dei file di un programma (o libreria) Python, ovvero quello definito mediante i *package*.
+Chiudiamo la trattazione con un accenno ai *package*, ovvero a delle vere e proprie "collezioni" che raggruppano moduli tra loro coerenti, in modo da facilitarne il successivo accesso. In pratica, i package non sono altro se non delle cartelle contenenti più moduli (quindi, file con estensione `nome_modulo.py`), oltre ad un file, chiamato `__init__.py`, che permette all'interprete di riconoscere quella cartella come package e, occasionalmente, contiene delle istruzioni di inizializzazione del package.
 
-In breve, questi sono dei veri e propri "contenitori" di moduli, che permettono di raggruppare moduli tra loro coerenti, di modo da facilitarne successivamente l'accesso ed il recupero; nella pratica, i package sono delle cartelle sul file system, contenenti al loro interno una serie di moduli ed un file (spesso lasciato vuoto) chiamato `__init__.py`, che permette all'interprete di riconoscere quella cartella come package.
+Per poter accedere ad un modulo contenuto all'interno di un package, possiamo usare la direttiva `import`, modificandola come segue:
 
-L'accesso ad un modulo interno ad un package avviene modificando la direttiva `import` come segue:
-
-```python
+```py
 import nome_package.nome_modulo
 # oppure...
 from nome_package.nome_modulo import nome_funzione
