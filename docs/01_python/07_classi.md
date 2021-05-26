@@ -1,19 +1,17 @@
 # Classi in Python
 
-Così come il C++, Python ha un esteso supporto per la programmazione orientata agli oggetti.
+Python offre un esteso supporto alla *programmazione orientata agli oggetti*.
 
-La definizione di una classe in Python avviene come segue:
+Per definire una classe, dovremo usare la parola chiave `class`:
 
 ```py
 class ClassName(BaseClass):
 	# Class body
 ```
 
-Notiamo che, a differenza del C++, nel quale la classe viene definita all'interno di un header, qui la definizione avviene contestualmente alla dichiarazione della firma della classe.
-
 ## Costruttori
 
-Il linguaggio Python non prevede l'utilizzo di un costruttore vero e proprio, quanto piuttosto di un metodo di inizializzazione degli attributi della classe. Questo metodo assume lo stesso nome per ogni classe, ovvero `__init__`:
+La maggior parte dei linguaggi di programmazione utilizza il concetto di *costruttore* per creare un'istanza di una classe. Il Python, tuttavia, non prevede l'utilizzo di un costruttore vero e proprio, quanto piuttosto di un metodo di *inizializzazione* dei singoli attributi dell'istanza. Da qui deriva il nome del metodo, ovvero `__init__`:
 
 ```py
 class ClassName(BaseClass):
@@ -24,10 +22,10 @@ class ClassName(BaseClass):
 		# ...
 ```
 
-!!!note "Nota"
-	La sintassi `*args` e `**kwargs` rappresenta, rispettivamente, l'*unpacking* di liste e dizionari. Ciò significa che come argomento non si passa la lista o il dizionario, ma i valori (o le coppie chiave/valore) ivi contenuti.
+!!!tip "Unpacking"
+	Con la sintassi `*args` e `**kwargs` vogliamo rappresentare l'azione di *unpacking* di (rispettivamente) una lista ed un dizionario, mediante la quale stiamo passando tutti i valori contenuti all'interno della sequenza.
 
-Notiamo l'uso della parola chiave `self`. Questa, in qualche modo, richiama il `this` del C++: infatti, si riferisce alla specifica istanza della classe. Ad esempio:
+Occorre prestare particolare attenzione all'uso della keyword `self`, che permette di riferirsi alla specifica istanza di una classe (per chi ha familiarità con i linguaggi come il C++, è concettualmente simile alla parola chiave `this`). Ad esempio:
 
 ```py
 class Person(object):
@@ -38,44 +36,49 @@ class Person(object):
 		self.__age = age
 ```
 
-!!!note "Nota"
-	In Python, tutte le classi derivano da una classe generica `object`.
+Questo snippet ci permette di evidenziare quattro punti:
+
+1. la classe generica `object`, da cui derivano **tutte** le classi Python (ma la cui dichiarazione può comunque essere omessa);
+2. il funzionamento della parola chiave `self`, che permette di associare agli attributi della singola istanza un determinato valore;
+3. la possibilità di inserire tra i parametri dei valori opzionali e di default (in questo caso `age`, che di default vale `18`);
+4. la presenza di uno o due simboli `_` (*underscore*) davanti ad alcuni attributi.
+
+Approfondiamo brevemente il punto 4.
 
 ## Modificatori di accesso
 
-Python prevede, come il C++, l'uso di modificatori di accesso ai dati; nello specifico, ritroviamo `public`, `protected` e `private`.
-
-Per contraddistinguere i tre tipi di variabili, si utilizzano gli underscore come suffisso al nome della stessa; in particolare, un unico underscore indica un membro `protected`, mentre un doppio underscore indica un membro `private`.
+Python prevede l'uso di modificatori di accesso ai dati; nello specifico, troviamo i classici `public`, `protected` e `private`. Tuttavia, a differenza di altri linguaggi, per distinguere tra i tre modificatori di accesso si utilizzano uno o due *underscore* come suffisso al nome dell'attributo; in particolare, usare un *underscore* singolo indica un attributo protected, mentre un *underscore* doppio indica un attributo `private`. Nel nostro caso:
 
 ```py
 class Person(object):
 
 	def __init__(self, first_name, last_name, age=18):
-		self.first_name = first_name
-		self._last_name = last_name
-		self.__age = age
+		self.first_name = first_name		# Membro "public"
+		self._last_name = last_name			# Membro "protected"
+		self.__age = age					# Membro "private"
 ```
 
-!!!note "Nota"
-	I membri protetti sono facilmente accessibili dall'esterno della classe. Infatti:
+!!!warning "Attenzione"
+	Nonostante il modificatore di accesso, è possibile accedere ai membri protetti dall'esterno della classe. Infatti:
 	> ```py
-	  p = Person('Jax', 'Teller')
-	  print(p.first_name)
-	  print(p._last_name)
-	  try:
-	  	  print(p.__age)
-	  except AttributeError:
-	  	  print('Age is private!')
-	  ```
-
-	risulterà in:
-	> ```bash
+	  >>> p = Person('Jax', 'Teller')
+	  >>> print(p.first_name)
+	  >>> print(p._last_name)
 	  Jax
 	  Teller
+	  ```
+	
+	Questo non vale per gli attributi privati:
+
+	> ```bash
+	  >>> try:
+	  >>>     print(p.__age)
+	  >>> except AttributeError:
+	  >>>	  print('Età è privato!')
 	  Età è privato!
 	  ```
 
-Contestualmente, è possibile usare la stessa convenzione definire metodi per l'accesso a variabili `protected` e `private`.
+Questa sintassi può ovviamente essere utilizzata per definire dei metodi protetti o privati.
 
 ## Classi e metodi
 
