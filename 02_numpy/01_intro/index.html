@@ -376,19 +376,31 @@
     Gli ndarray
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#efficienza-di-numpy" class="md-nav__link">
-    Efficienza di NumPy
+    <nav class="md-nav" aria-label="Gli ndarray">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#efficienza-di-numpy-nelle-operazioni-algebriche" class="md-nav__link">
+    Efficienza di NumPy nelle operazioni algebriche
+  </a>
+  
+    <nav class="md-nav" aria-label="Efficienza di NumPy nelle operazioni algebriche">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approccio-con-liste" class="md-nav__link">
+    Approccio con liste
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#vettorizzazione-e-broadcasting" class="md-nav__link">
-    Vettorizzazione e broadcasting
-  </a>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -504,19 +516,31 @@
     Gli ndarray
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#efficienza-di-numpy" class="md-nav__link">
-    Efficienza di NumPy
+    <nav class="md-nav" aria-label="Gli ndarray">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#efficienza-di-numpy-nelle-operazioni-algebriche" class="md-nav__link">
+    Efficienza di NumPy nelle operazioni algebriche
+  </a>
+  
+    <nav class="md-nav" aria-label="Efficienza di NumPy nelle operazioni algebriche">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approccio-con-liste" class="md-nav__link">
+    Approccio con liste
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#vettorizzazione-e-broadcasting" class="md-nav__link">
-    Vettorizzazione e broadcasting
-  </a>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -534,72 +558,107 @@
                 
                 
                 <h1 id="introduzione-a-numpy">Introduzione a NumPy<a class="headerlink" href="#introduzione-a-numpy" title="Permanent link">&para;</a></h1>
-<p>La libreria <strong>NumPy</strong> (abbreviazione che sta per <em>Num*erical *Py*thon) è quella maggiormente usata nel campo del calcolo scientifico in Python, e ne rappresenta uno standard *de facto</em>, in quanto le API messe a disposizione da NumPy sono estensivamente utilizzate dalla quasi totalità degli altri package dedicati alle scienze ed all'ingegneria.</p>
+<p>La libreria <strong>NumPy</strong> (abbreviazione che sta per <em>Num*erical *Py*thon) è quella maggiormente usata nel campo del calcolo scientifico in Python, e ne rappresenta uno standard *de facto</em>, in quanto le classi ed i metodi messi a disposizione da NumPy sono estensivamente utilizzate dalla quasi totalità degli altri package dedicati alle scienze ed all'ingegneria.</p>
 <h2 id="installazione">Installazione<a class="headerlink" href="#installazione" title="Permanent link">&para;</a></h2>
-<p>Al momento di installare NumPy, possiamo optare per due opzioni. La prima è quella di usare una distribuzione "scientifica" di Python; quella più usata è <a href="https://www.anaconda.com">Anaconda</a>.</p>
-<p>La seconda strada, che è quella che seguiremo, è sfruttare un'installazione "standard" di Python, creando un apposito ambiente virtuale ed il <em>dependency manager</em> <a href="https://pypi.org/project/pipenv/">pipenv</a>.</p>
-<p>Creiamo quindi una cartella, e creiamo un nuovo ambiente virtuale con NumPy usando questo comando:</p>
-<div class="highlight"><pre><span></span><code>mkdir python-data-science
-<span class="nb">cd</span> python-data-science
-pipenv install numpy
+<p>Per installare NumPy è possibile optare per due opzioni. La prima è usare una distribuzione scientifica "predefinita" di Python (la più conosciuta è <a href="https://www.anaconda.com">Anaconda</a>); la seconda, che è anche quella che seguiremo, è creare un apposito <em>ambiente virtuale</em> (cfr. Appendice B) con il gestore delle dipendenze <a href="https://pypi.org/project/pipenv/">pipenv</a>.</p>
+<p>Creiamo quindi una nuova cartella all'interno della quale andremo ad ospitare tutti i nostri script, e spostiamoci all'interno della stessa:</p>
+<div class="highlight"><pre><span></span><code>$ mkdir python-data-science
+$ <span class="nb">cd</span> python-data-science
 </code></pre></div>
-<p>All'interno della cartella troveremo due file: </p>
+<p>A questo punto, usiamo pipenv per creare un nuovo ambiente virtuale ed installare NumPy:</p>
+<div class="highlight"><pre><span></span><code>$ pipenv install numpy
+</code></pre></div>
+<p>Una volta terminata la procedura, saranno presenti due file all'interno della cartella <code>python-data-science</code>:</p>
 <ul>
 <li><code>Pipfile</code>, che conterrà l'elenco dei pacchetti che abbiamo installato in quello specifico ambiente virtuale;</li>
 <li><code>Pipfile.lock</code>, che conterrà i riferimenti alle versioni dei singoli pacchetti installati.</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Attenzione</p>
-<p><strong>Non</strong> modifichiamo <strong>mai</strong> direttamente i file generati da pipenv. Per farlo, esistono comandi appositi che illustreremo man mano che ne avremo bisogno.</p>
+<p><strong>Non</strong> modifichiamo <strong>mai</strong> direttamente questi due file. Per farlo, esistono comandi appositi, che saranno introdotti man mano che li useremo.</p>
 </div>
 <h2 id="importare-numpy">Importare NumPy<a class="headerlink" href="#importare-numpy" title="Permanent link">&para;</a></h2>
 <p>Abbiamo visto in precedenza che per usare un package o un modulo Python all'interno dei nostri script dovremo per prima cosa renderli "visibili". Faremo ovviamente lo stesso con NumPy, anteponendo questa direttiva in ogni modulo nel quale lo useremo:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </code></pre></div>
 <h2 id="gli-ndarray">Gli <code>ndarray</code><a class="headerlink" href="#gli-ndarray" title="Permanent link">&para;</a></h2>
-<p>La struttura dati alla base di NumPy è quella degli <em>array</em>. Più precisamente, NumPy offre una struttura chiamata <code>ndarray</code>, rappresentante un array ad <span class="arithmatex">\(n\)</span> dimensioni contenente dati di tipo <em>omogeneo</em>. E' interessante notare come anche <code>ndarray</code> sia un'abbreviazione, stante per <em>n</em>-<em>d*imensional *array</em>. </p>
-<p>La dichiarazione ed inizializzazione di un <code>ndarray</code> è molto simile a quella di una classica lista Python:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<p>La struttura dati alla base di NumPy è quella degli <em>array</em>. Più precisamente, NumPy mette a disposizione gli <code>ndarray</code>, che rappresentano degli array ad <span class="arithmatex">\(n\)</span> dimensioni contenenti dati di tipo <em>omogeneo</em>. </p>
+<div class="admonition note">
+<p class="admonition-title">Il significato di <code>ndarray</code></p>
+<p><code>ndarray</code> è un'abbreviazione che sta per <em>n</em>-<em>d*imensional *array</em>. </p>
+</div>
+<p>La dichiarazione ed inizializzazione di un <code>ndarray</code> è in qualche modo simile a quella di una classica lista Python:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </code></pre></div>
-<p>Questa sintassi, però, non deve trarci in inganno. Esistono, infatti, varie differenze che intercorrono tra un <code>ndarray</code> ed una classica sequenza Python, ovvero:</p>
+<p>In realtà, volendo essere precisi, possiamo affermare come esista un costruttore che crea un <code>ndarray</code> a partire da una lista, come mostrato nel codice precedente.</p>
+<p>Questa sintassi, però, non deve trarre in inganno. Sono diverse le differenze che intercorrono tra un <code>ndarray</code> ed una classica lista; le principali possono essere riassunte nella seguente tabella.</p>
+<table>
+<thead>
+<tr>
+<th>Caratteristica</th>
+<th><code>ndarray</code></th>
+<th>Lista</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dimensione</td>
+<td>Fissata al momento della creazione</td>
+<td>Mutabile (ad esempio, con <code>append()</code>)</td>
+</tr>
+<tr>
+<td>Elementi</td>
+<td>Omogenei (stesso tipo)</td>
+<td>Eterogenei (qualsiasi tipo)</td>
+</tr>
+<tr>
+<td>Ambito</td>
+<td>Operazioni algebriche</td>
+<td>General-purpose</td>
+</tr>
+</tbody>
+</table>
+<p>Commentiamo brevemente le differenze viste nella tabella precedente:</p>
 <ol>
-<li>un <code>ndarray</code> ha una dimensione fissata al momento della creazione, a differenza della lista. Cambiare la dimensione di un array creerà quindi un <em>nuovo</em> array, cancellando quello originario;</li>
-<li>gli elementi di un <code>ndarray</code> devono essere dello stesso tipo;</li>
-<li>gli array rendono più semplici ed efficienti le operazioni algebriche, specialmente su matrici di grosse dimensioni.</li>
+<li>un <code>ndarray</code> ha una dimensione fissata al momento della creazione, a differenza della lista. Cambiare la dimensione di un array comporterà quindi la creazione di un <em>nuovo</em> array, con la cancellazione di quello originario. Nella lista, essendo mutabile, questo non avviene;</li>
+<li>gli elementi di un <code>ndarray</code> devono essere dello stesso tipo, mentre le liste accettano qualsiasi tipo di elemento al loro interno;</li>
+<li>gli array rendono più semplici ed efficienti le operazioni algebriche, specialmente su matrici di grosse dimensioni, mentre le liste sono progettate per supportare di ogni tipo.</li>
 </ol>
-<h2 id="efficienza-di-numpy">Efficienza di NumPy<a class="headerlink" href="#efficienza-di-numpy" title="Permanent link">&para;</a></h2>
-<p>Il terzo punto è particolarmente importante, sopratutto nell'ambito del calcolo scientifico. Come semplice esempio, consideriamo una moltiplicazione elemento per elemento tra due vettori della stessa dimensione.</p>
-<p>Con due liste, potremmo usare un ciclo <code>for</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
+<h3 id="efficienza-di-numpy-nelle-operazioni-algebriche">Efficienza di NumPy nelle operazioni algebriche<a class="headerlink" href="#efficienza-di-numpy-nelle-operazioni-algebriche" title="Permanent link">&para;</a></h3>
+<p>Il punto 3 dell'elenco precedente assume particolare rilevanza ai nostri fini. Per comprenderne il motivo, facciamo un semplice esempio, considerando una moltiplicazione <em>elemento per elemento</em> tra due vettori riga della stessa dimensione.</p>
+<h4 id="approccio-con-liste">Approccio con liste<a class="headerlink" href="#approccio-con-liste" title="Permanent link">&para;</a></h4>
+<p>Usando due liste, potremmo usare un ciclo <code>for</code> o una list comprehension:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ciclo for</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)):</span>
     <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="c1"># list comprehension</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))]</span>
 </code></pre></div>
-<p>oppure una <em>list comprehension</em>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))]</span>
-</code></pre></div>
-<p>In entrambi i casi, l'operazione verrà effettuata in maniera corretta; tuttavia, se i vettori sono di dimensioni importanti, avremo un costo da pagare legato all'inefficienza di Python nella gestione dei cicli.</p>
-<p>Ovviamente, dato che le inefficienze sono legate al Python (e, quindi, all'<em>overhead</em> introdotto principalmente dall'interprete), la soluzione più semplice sarebbe quella di utilizzare un altro linguaggio, come ad esempio il C. In questo caso, l'operazione precedente sarebbe associata a questo codice:</p>
+<p>Il risultato dell'operazione sarà in entrambi i casi <em>corretto</em>. Tuttavia, i cicli sono computazionalmente <em>costosi</em>: ciò significa che, specialmente all'aumentare del numero di elementi contenuti nei vettori, sarà necessario pagare un costo crescente.</p>
+<p>La soluzione sarebbe quindi quella di ricorrere ad un linguaggio più efficiente, come il C che, essendo compilato, riduce alcune delle inefficienze tipiche dei linguaggi interpretati. Il codice precedentemente diverrebbe quindi:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rows</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Problema risolto, dunque? Per un caso così semplice, sì. Immaginiamo però di voler estendere il caso precedente a due dimensioni; il codice diverrà:</p>
+<p>Problema risolto, dunque? Apparentemente sì. </p>
+<p>Immaginiamo però di voler estendere il caso precedente a due dimensioni; il codice diverrà:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rows</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">columns</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>Il numero di cicli annidati aumenterà in maniera direttamente proporzionale alla dimensionalità degli array: ciò significa, ad esempio, che per un array a dieci dimensioni avremo altrettanti cicli annidati.</p>
 <p>Appare quindi chiaro come anche un leggero aumento della complessità delle operazioni da effettuare comporti un significativo aumento della complessità in termini di codice. Ed è proprio qui che NumPy ci viene in aiuto.</p>
-<p>Infatti, l'operazione precedente può essere riassunta in NumPy come segue:</p>
+<p>Infatti, per moltiplicare due array in NumPy basta la seguente istruzione:</p>
 <div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
 </code></pre></div>
-<p>La sintassi è evidentemente molto più concisa e semplice, sia rispetto al C, sia rispetto al caso in cui si usino delle liste in Python. Inoltre, è la stessa sintassi che viene solitamente usata nelle formule reali! Oltre a questo, NumPy sfrutta codice <em>precompilato</em> in C: questo significa che la precedente operazione sarà svolta <em>quasi</em> alla stessa velocità del codice scritto in linguaggio C.</p>
-<p>Si tratta, quindi, di unire il "meglio" dei due mondi: da un lato, l'eleganza e semplicità sintattica del Python e, dall'altro, l'efficienza del C.</p>
-<h2 id="vettorizzazione-e-broadcasting">Vettorizzazione e broadcasting<a class="headerlink" href="#vettorizzazione-e-broadcasting" title="Permanent link">&para;</a></h2>
-<p>Due importanti concetti sfruttati da NumPy sono quelli di <em>vettorizzazione</em> e <em>broadcasting</em>.</p>
-<p>La vettorizzazione ci permette di scrivere codice senza cicli o indici espliciti; ovviamente, <em>i cicli ci sono</em>, ma avvengono <em>sotto al cofano</em>, grazie al codice C precompilato. Il codice vettorizzato, inoltre, presenta diversi vantaggi, soprattutto in termini di leggibilità e manutenibilità.</p>
-<p>Il concetto di <em>broadcasting</em> riguarda invece il comportamento implicito delle operazioni, e permette di usare la stessa sintassi <em>indipendentemente</em> dalle dimensioni degli <code>ndarray</code> coinvolti (e dall'operazione effettuata, sia essa algebrica, logica, etc.).</p>
+<p>La sintassi è evidentemente molto più concisa e semplice, <em>anche rispetto alle liste in Python</em>, ed è molto simile a quella che si trova sulle formule "reali" usate sui libri di testo. Infine, questa istruzione sfrutta codice <em>precompilato</em>: in questo modo, si potranno ottenere delle prestazioni (quasi) equivalenti a quelle del codice scritto direttamente in C.</p>
+<div class="admonition note">
+<p class="admonition-title">Vettorizzazione e broadcasting</p>
+<p>Quello che abbiamo appena visto è formalmente riassumibile nei concetti di <em>vettorizzazione</em> (ovvero la possibilità di scrivere il codice senza usare esplicitamente dei cicli) e <em>broadcasting</em> (riguardante la possibilità di usare una sintassi comune ed indipendente dalla dimensionalità degli array coinvolti nelle operazioni).</p>
+</div>
                 
               
               

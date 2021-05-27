@@ -418,6 +418,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#gestione-delle-eccezioni" class="md-nav__link">
+    Gestione delle Eccezioni
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestione delle Eccezioni">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-decorator" class="md-nav__link">
+    I decorator
+  </a>
+  
+    <nav class="md-nav" aria-label="I decorator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funzioni-come-oggetti" class="md-nav__link">
+    Funzioni come oggetti
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funzioni-come-argomenti-di-altre-funzioni" class="md-nav__link">
+    Funzioni come argomenti di altre funzioni
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definizione-ed-uso-di-decorator" class="md-nav__link">
+    Definizione ed uso di decorator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -461,6 +508,53 @@
   <a href="#tabella-degli-operatori-booleani" class="md-nav__link">
     Tabella degli operatori booleani
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestione-delle-eccezioni" class="md-nav__link">
+    Gestione delle Eccezioni
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestione delle Eccezioni">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-decorator" class="md-nav__link">
+    I decorator
+  </a>
+  
+    <nav class="md-nav" aria-label="I decorator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funzioni-come-oggetti" class="md-nav__link">
+    Funzioni come oggetti
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funzioni-come-argomenti-di-altre-funzioni" class="md-nav__link">
+    Funzioni come argomenti di altre funzioni
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definizione-ed-uso-di-decorator" class="md-nav__link">
+    Definizione ed uso di decorator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -509,6 +603,65 @@
 </tr>
 </tbody>
 </table>
+<h2 id="gestione-delle-eccezioni">Gestione delle Eccezioni<a class="headerlink" href="#gestione-delle-eccezioni" title="Permanent link">&para;</a></h2>
+<h3 id="i-decorator">I decorator<a class="headerlink" href="#i-decorator" title="Permanent link">&para;</a></h3>
+<p>Prima di continuare a parlare dei metodi che è possibile definire all'interno di una classe Python, è necessario introdurre il concetto di <em>decorator</em>, ovvero una particolare notazione che viene usata in Python (ed in altri linguaggi di programmazione) per indicare una funzione che "decora" un'altra funzione.</p>
+<h4 id="funzioni-come-oggetti">Funzioni come oggetti<a class="headerlink" href="#funzioni-come-oggetti" title="Permanent link">&para;</a></h4>
+<p>Python tratta le funzioni come degli <em>oggetti</em>. E' quindi possiible che una funzione <em>restituisca una funzione</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">main_character</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">supernatural</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">&quot;Sam Winchester&quot;</span>
+
+    <span class="k">def</span> <span class="nf">breaking_bad</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">&quot;Walter White&quot;</span>
+
+    <span class="k">if</span> <span class="n">series</span> <span class="o">==</span> <span class="s2">&quot;Supernatural&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">supernatural</span>
+    <span class="k">elif</span> <span class="n">series</span> <span class="o">==</span> <span class="s2">&quot;Breaking Bad&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">breaking_bad</span>
+</code></pre></div>
+<p>Il valore di ritorno è quindi un oggetto. Possiamo provare a chiamarlo dal nostro script:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mc</span> <span class="o">=</span> <span class="n">main_character</span><span class="p">(</span><span class="s2">&quot;Supernatural&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Se provassimo a mandarlo a schermo trattandolo come una variabile, avremmo in uscita una reference a funzione:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Function reference: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mc</span><span class="p">))</span>
+<span class="n">Function</span> <span class="n">reference</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">main_character</span><span class="o">.&lt;</span><span class="nb">locals</span><span class="o">&gt;.</span><span class="n">supernatural</span> <span class="n">at</span> <span class="mh">0x00000170C448BA60</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>Per visualizzare il risultato, trattiamolo come se fosse una chiamata a funzione:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Function outcoming value: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mc</span><span class="p">()))</span>
+<span class="n">Function</span> <span class="n">outcoming</span> <span class="n">value</span><span class="p">:</span> <span class="n">Sam</span> <span class="n">Winchester</span>
+</code></pre></div>
+<h4 id="funzioni-come-argomenti-di-altre-funzioni">Funzioni come argomenti di altre funzioni<a class="headerlink" href="#funzioni-come-argomenti-di-altre-funzioni" title="Permanent link">&para;</a></h4>
+<p>Possiamo passare una fuzione come argomento ad un'altra funzione:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">favorite_series</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">internal_check</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Checking my favorite series...&quot;</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got it!&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">internal_check</span>
+
+<span class="k">def</span> <span class="nf">check</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sons of Anarchy&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Dal nostro script:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">print_fav_series</span> <span class="o">=</span> <span class="n">favorite_series</span><span class="p">(</span><span class="n">check</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print_fav_series</span><span class="p">()</span>
+<span class="n">Checking</span> <span class="n">my</span> <span class="n">favorite</span> <span class="n">series</span><span class="o">...</span>
+<span class="n">Sons</span> <span class="n">of</span> <span class="n">Anarchy</span>
+<span class="n">Got</span> <span class="n">it</span><span class="err">!</span>
+</code></pre></div>
+<p>Vediamo quindi come la funzione passata come argomento sarà correttamente chiamata internamente al metodo <code>favorite_series</code>.</p>
+<h4 id="definizione-ed-uso-di-decorator">Definizione ed uso di decorator<a class="headerlink" href="#definizione-ed-uso-di-decorator" title="Permanent link">&para;</a></h4>
+<p>La sintassi che abbiamo usato è, per dirla con Manzoni, <em>ampollosa</em>. Python ci offre quindi una sintassi equivalente, ma molto più accessibile, per usare una funzione come argomento di un'altra funzione, ovvero i decorator. Infatti:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@favorite_series</span>
+<span class="k">def</span> <span class="nf">print_fav_series_decorated</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Breaking Bad&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print_fav_series_decorated</span><span class="p">()</span>
+<span class="n">Checking</span> <span class="n">my</span> <span class="n">favorite</span> <span class="n">series</span><span class="o">...</span>
+<span class="n">Breaking</span> <span class="n">Bad</span>
+<span class="n">Got</span> <span class="n">it</span><span class="err">!</span>
+</code></pre></div>
                 
               
               

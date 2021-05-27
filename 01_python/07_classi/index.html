@@ -338,56 +338,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#i-decorator" class="md-nav__link">
-    I decorator
-  </a>
-  
-    <nav class="md-nav" aria-label="I decorator">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#funzioni-come-oggetti" class="md-nav__link">
-    Funzioni come oggetti
+  <a href="#i-metodi-di-classe" class="md-nav__link">
+    I metodi di classe
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#funzioni-come-argomenti-di-altre-funzioni" class="md-nav__link">
-    Funzioni come argomenti di altre funzioni
+  <a href="#i-metodi-statici" class="md-nav__link">
+    I metodi statici
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#definizione-ed-uso-di-decorator" class="md-nav__link">
-    Definizione ed uso di decorator
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#classmethod" class="md-nav__link">
-    @classmethod
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#staticmethod" class="md-nav__link">
-    @staticmethod
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#abstractmethod" class="md-nav__link">
-    @abstractmethod
+  <a href="#i-metodi-astratti" class="md-nav__link">
+    I metodi astratti
   </a>
   
 </li>
@@ -398,8 +364,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#proprieta" class="md-nav__link">
-    Proprietà
+  <a href="#le-proprieta" class="md-nav__link">
+    Le proprietà
   </a>
   
 </li>
@@ -562,56 +528,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#i-decorator" class="md-nav__link">
-    I decorator
-  </a>
-  
-    <nav class="md-nav" aria-label="I decorator">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#funzioni-come-oggetti" class="md-nav__link">
-    Funzioni come oggetti
+  <a href="#i-metodi-di-classe" class="md-nav__link">
+    I metodi di classe
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#funzioni-come-argomenti-di-altre-funzioni" class="md-nav__link">
-    Funzioni come argomenti di altre funzioni
+  <a href="#i-metodi-statici" class="md-nav__link">
+    I metodi statici
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#definizione-ed-uso-di-decorator" class="md-nav__link">
-    Definizione ed uso di decorator
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#classmethod" class="md-nav__link">
-    @classmethod
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#staticmethod" class="md-nav__link">
-    @staticmethod
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#abstractmethod" class="md-nav__link">
-    @abstractmethod
+  <a href="#i-metodi-astratti" class="md-nav__link">
+    I metodi astratti
   </a>
   
 </li>
@@ -622,8 +554,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#proprieta" class="md-nav__link">
-    Proprietà
+  <a href="#le-proprieta" class="md-nav__link">
+    Le proprietà
   </a>
   
 </li>
@@ -642,229 +574,217 @@
                 
                 
                 <h1 id="classi-in-python">Classi in Python<a class="headerlink" href="#classi-in-python" title="Permanent link">&para;</a></h1>
-<p>Così come il C++, Python ha un esteso supporto per la programmazione orientata agli oggetti.</p>
-<p>La definizione di una classe in Python avviene come segue:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ClassName</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
-    <span class="c1"># Class body</span>
+<p>Python offre un esteso supporto alla <em>programmazione orientata agli oggetti</em>.</p>
+<p>Per definire una classe, dovremo usare la parola chiave <code>class</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">NomeClasse</span><span class="p">(</span><span class="n">ClasseBase</span><span class="p">):</span>
+    <span class="c1"># Attributi e metodi di classe...</span>
 </code></pre></div>
-<p>Notiamo che, a differenza del C++, nel quale la classe viene definita all'interno di un header, qui la definizione avviene contestualmente alla dichiarazione della firma della classe.</p>
+<p>Con la sintassi precedente, abbiamo creato una classe chiamata <code>NomeClasse</code> discendente da una classe base (<code>ClasseBase</code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Nota sulla OOP</p>
+<p>Per approfondire i concetti alla base della programmazione orientata agli oggetti, è opportuno consultare l'[appendice C].</p>
+</div>
 <h2 id="costruttori">Costruttori<a class="headerlink" href="#costruttori" title="Permanent link">&para;</a></h2>
-<p>Il linguaggio Python non prevede l'utilizzo di un costruttore vero e proprio, quanto piuttosto di un metodo di inizializzazione degli attributi della classe. Questo metodo assume lo stesso nome per ogni classe, ovvero <code>__init__</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ClassName</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+<p>La maggior parte dei linguaggi di programmazione utilizza il concetto di <em>costruttore</em> per creare un'istanza di una classe. Il Python, tuttavia, non prevede l'utilizzo di un costruttore vero e proprio, quanto piuttosto di un metodo di <em>inizializzazione</em> dei singoli attributi dell'istanza. Da qui deriva il nome del metodo, ovvero <code>__init__</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">NomeClasse</span><span class="p">(</span><span class="n">ClasseBase</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># ...</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">arg_1</span> <span class="o">=</span> <span class="n">arg_1</span>
         <span class="c1"># ...</span>
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>La sintassi <code>*args</code> e <code>**kwargs</code> rappresenta, rispettivamente, l'<em>unpacking</em> di liste e dizionari. Ciò significa che come argomento non si passa la lista o il dizionario, ma i valori (o le coppie chiave/valore) ivi contenuti.</p>
+<div class="admonition tip">
+<p class="admonition-title">Unpacking</p>
+<p>Con la sintassi <code>*args</code> e <code>**kwargs</code> vogliamo rappresentare l'azione di <em>unpacking</em> di (rispettivamente) una lista ed un dizionario, mediante la quale stiamo passando tutti i valori contenuti all'interno della sequenza.</p>
 </div>
-<p>Notiamo l'uso della parola chiave <code>self</code>. Questa, in qualche modo, richiama il <code>this</code> del C++: infatti, si riferisce alla specifica istanza della classe. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<p>Occorre prestare particolare attenzione all'uso della keyword <code>self</code>, che permette di riferirsi alla specifica istanza di una classe (per chi ha familiarità con i linguaggi come il C++, è concettualmente simile alla parola chiave <code>this</code>). Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Persona</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_last_name</span> <span class="o">=</span> <span class="n">last_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__age</span> <span class="o">=</span> <span class="n">age</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cognome</span> <span class="o">=</span> <span class="n">cognome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span> <span class="o">=</span> <span class="n">eta</span>
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>In Python, tutte le classi derivano da una classe generica <code>object</code>.</p>
-</div>
+<p>Questo snippet ci permette di evidenziare quattro punti:</p>
+<ol>
+<li>la classe generica <code>object</code>, da cui derivano <strong>tutte</strong> le classi Python (ma la cui dichiarazione può comunque essere omessa);</li>
+<li>il funzionamento della parola chiave <code>self</code>, che permette di associare agli attributi della singola istanza un determinato valore;</li>
+<li>la possibilità di inserire tra i parametri dei valori opzionali e di default (in questo caso <code>eta</code>, che di default vale <code>18</code>);</li>
+<li>la presenza di uno o due simboli <code>_</code> (<em>underscore</em>) davanti ad alcuni attributi.</li>
+</ol>
+<p>Approfondiamo brevemente il punto 4.</p>
 <h2 id="modificatori-di-accesso">Modificatori di accesso<a class="headerlink" href="#modificatori-di-accesso" title="Permanent link">&para;</a></h2>
-<p>Python prevede, come il C++, l'uso di modificatori di accesso ai dati; nello specifico, ritroviamo <code>public</code>, <code>protected</code> e <code>private</code>.</p>
-<p>Per contraddistinguere i tre tipi di variabili, si utilizzano gli underscore come suffisso al nome della stessa; in particolare, un unico underscore indica un membro <code>protected</code>, mentre un doppio underscore indica un membro <code>private</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<p>Python prevede l'uso di modificatori di accesso ai dati; nello specifico, troviamo i classici <code>public</code>, <code>protected</code> e <code>private</code>. Tuttavia, a differenza di altri linguaggi, per distinguere tra i tre modificatori di accesso si utilizzano uno o due <em>underscore</em> come suffisso al nome dell'attributo; in particolare, usare un <em>underscore</em> singolo indica un attributo protected, mentre un <em>underscore</em> doppio indica un attributo <code>private</code>. Nel nostro caso:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Persona</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_last_name</span> <span class="o">=</span> <span class="n">last_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__age</span> <span class="o">=</span> <span class="n">age</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>                <span class="c1"># Membro &quot;public&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cognome</span> <span class="o">=</span> <span class="n">cognome</span>         <span class="c1"># Membro &quot;protected&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span> <span class="o">=</span> <span class="n">eta</span>                <span class="c1"># Membro &quot;private&quot;</span>
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>I membri protetti sono facilmente accessibili dall'esterno della classe. Infatti:</p>
+<div class="admonition warning">
+<p class="admonition-title">Attenzione</p>
+<p>Nonostante il modificatore di accesso, è possibile accedere ai membri protetti dall'esterno della classe. Infatti:</p>
 <blockquote>
-<div class="highlight"><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Jax&#39;</span><span class="p">,</span> <span class="s1">&#39;Teller&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">first_name</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">_last_name</span><span class="p">)</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">__age</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Age is private!&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="s1">&#39;Jax&#39;</span><span class="p">,</span> <span class="s1">&#39;Teller&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">nome</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">_cognome</span><span class="p">)</span>
+<span class="n">Jax</span>
+<span class="n">Teller</span>
 </code></pre></div>
 </blockquote>
-<p>risulterà in:</p>
+<p>Questo non vale per gli attributi privati:</p>
 <blockquote>
-<div class="highlight"><pre><span></span><code>Jax
-Teller
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; try:
+&gt;&gt;&gt;     print<span class="o">(</span>p.__eta<span class="o">)</span>
+&gt;&gt;&gt; except AttributeError:
+&gt;&gt;&gt;     print<span class="o">(</span><span class="s1">&#39;Età è privato!&#39;</span><span class="o">)</span>
 Età è privato!
 </code></pre></div>
 </blockquote>
 </div>
-<p>Contestualmente, è possibile usare la stessa convenzione definire metodi per l'accesso a variabili <code>protected</code> e <code>private</code>.</p>
+<p>Questa sintassi può ovviamente essere utilizzata per definire dei metodi protetti o privati.</p>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>La sintassi che abbiamo mostrato nello snippet precedente è relativa alla <em>gestione delle eccezioni</em>. Ne troverete accenno nell'[appendice B].</p>
+</div>
 <h2 id="classi-e-metodi">Classi e metodi<a class="headerlink" href="#classi-e-metodi" title="Permanent link">&para;</a></h2>
-<p>I metodi di una classe sono definiti in questo modo:</p>
+<p>La sintassi per definire il metodo di una classe è analoga a quella usata per definire una funzione.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">metodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">pass</span>
 </code></pre></div>
-<p>E' importante notare come il primo attributo di un normale metodo di classe sia sempre la parola <code>self</code>. Questa non deve però essere specificata quando lo si chiama dall'esterno: basta infatti chiamarlo usando l'operatore <code>.</code> da un'istanza della classe:</p>
+<p>Esiste tuttavia una differenza fondamentale: infatti, il primo attributo di un metodo appartenente ad una classe è <em>sempre</em> un riferimento all'istanza tramite la parola chiave <code>self</code>. Tale riferimento non va specificato quando il metodo viene chiamato dall'esterno:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">()</span>
-<span class="n">p</span><span class="o">.</span><span class="n">metodo</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">metodo</span><span class="p">(</span><span class="n">parametro</span><span class="p">)</span>
 <span class="c1"># ...</span>
 </code></pre></div>
-<h3 id="i-decorator">I decorator<a class="headerlink" href="#i-decorator" title="Permanent link">&para;</a></h3>
-<p>Prima di continuare a parlare dei metodi che è possibile definire all'interno di una classe Python, è necessario introdurre il concetto di <em>decorator</em>, ovvero una particolare notazione che viene usata in Python (ed in altri linguaggi di programmazione) per indicare una funzione che "decora" un'altra funzione.</p>
-<h4 id="funzioni-come-oggetti">Funzioni come oggetti<a class="headerlink" href="#funzioni-come-oggetti" title="Permanent link">&para;</a></h4>
-<p>Python tratta le funzioni come degli <em>oggetti</em>. E' quindi possiible che una funzione <em>restituisca una funzione</em>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">main_character</span><span class="p">(</span><span class="n">series</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">supernatural</span><span class="p">():</span>
-        <span class="k">return</span> <span class="s2">&quot;Sam Winchester&quot;</span>
-
-    <span class="k">def</span> <span class="nf">breaking_bad</span><span class="p">():</span>
-        <span class="k">return</span> <span class="s2">&quot;Walter White&quot;</span>
-
-    <span class="k">if</span> <span class="n">series</span> <span class="o">==</span> <span class="s2">&quot;Supernatural&quot;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">supernatural</span>
-    <span class="k">elif</span> <span class="n">series</span> <span class="o">==</span> <span class="s2">&quot;Breaking Bad&quot;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">breaking_bad</span>
-</code></pre></div>
-<p>Il valore di ritorno è quindi un oggetto. Possiamo provare a chiamarlo dal nostro script:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mc</span> <span class="o">=</span> <span class="n">main_character</span><span class="p">(</span><span class="s2">&quot;Supernatural&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>Se provassimo a mandarlo a schermo trattandolo come una variabile, avremmo in uscita una reference a funzione:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Function reference: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mc</span><span class="p">))</span>
-<span class="n">Function</span> <span class="n">reference</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">main_character</span><span class="o">.&lt;</span><span class="nb">locals</span><span class="o">&gt;.</span><span class="n">supernatural</span> <span class="n">at</span> <span class="mh">0x00000170C448BA60</span><span class="o">&gt;</span>
-</code></pre></div>
-<p>Per visualizzare il risultato, trattiamolo come se fosse una chiamata a funzione:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Function outcoming value: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mc</span><span class="p">()))</span>
-<span class="n">Function</span> <span class="n">outcoming</span> <span class="n">value</span><span class="p">:</span> <span class="n">Sam</span> <span class="n">Winchester</span>
-</code></pre></div>
-<h4 id="funzioni-come-argomenti-di-altre-funzioni">Funzioni come argomenti di altre funzioni<a class="headerlink" href="#funzioni-come-argomenti-di-altre-funzioni" title="Permanent link">&para;</a></h4>
-<p>Possiamo passare una fuzione come argomento ad un'altra funzione:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">favorite_series</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">internal_check</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Checking my favorite series...&quot;</span><span class="p">)</span>
-        <span class="n">func</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got it!&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">internal_check</span>
-
-<span class="k">def</span> <span class="nf">check</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sons of Anarchy&#39;</span><span class="p">)</span>
-</code></pre></div>
-<p>Dal nostro script:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">print_fav_series</span> <span class="o">=</span> <span class="n">favorite_series</span><span class="p">(</span><span class="n">check</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">print_fav_series</span><span class="p">()</span>
-<span class="n">Checking</span> <span class="n">my</span> <span class="n">favorite</span> <span class="n">series</span><span class="o">...</span>
-<span class="n">Sons</span> <span class="n">of</span> <span class="n">Anarchy</span>
-<span class="n">Got</span> <span class="n">it</span><span class="err">!</span>
-</code></pre></div>
-<p>Vediamo quindi come la funzione passata come argomento sarà correttamente chiamata internamente al metodo <code>favorite_series</code>.</p>
-<h4 id="definizione-ed-uso-di-decorator">Definizione ed uso di decorator<a class="headerlink" href="#definizione-ed-uso-di-decorator" title="Permanent link">&para;</a></h4>
-<p>La sintassi che abbiamo usato è, per dirla con Manzoni, <em>ampollosa</em>. Python ci offre quindi una sintassi equivalente, ma molto più accessibile, per usare una funzione come argomento di un'altra funzione, ovvero i decorator. Infatti:</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@favorite_series</span>
-<span class="k">def</span> <span class="nf">print_fav_series_decorated</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Breaking Bad&#39;</span><span class="p">)</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">print_fav_series_decorated</span><span class="p">()</span>
-<span class="n">Checking</span> <span class="n">my</span> <span class="n">favorite</span> <span class="n">series</span><span class="o">...</span>
-<span class="n">Breaking</span> <span class="n">Bad</span>
-<span class="n">Got</span> <span class="n">it</span><span class="err">!</span>
-</code></pre></div>
-<h3 id="classmethod"><code>@classmethod</code><a class="headerlink" href="#classmethod" title="Permanent link">&para;</a></h3>
-<p>E' possibile definire i cosiddetti <em>metodi di classe</em> mediante il decorator <code>@classmethod</code>:</p>
+<p>Nel codice precedente, abbiamo usato l'operatore <code>.</code> per accedere a <code>metodo</code> definito all'interno della classe <code>Persona</code>.</p>
+<p>Approfondiamo adesso alcune particolari tipologie di metodi, ottenibili usando determinati decorator (cfr. appendice B).</p>
+<h3 id="i-metodi-di-classe">I metodi di classe<a class="headerlink" href="#i-metodi-di-classe" title="Permanent link">&para;</a></h3>
+<p>Il decorator <code>@classmethod</code> ci permette di definire i cosiddetti <em>metodi di classe</em>:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
-<span class="k">def</span> <span class="nf">from_string</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">person_string</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="n">fn</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="n">person_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">Person</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">ln</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">builder_stringa</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stringa</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span> <span class="o">=</span> <span class="n">stringa</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Persona</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
 </code></pre></div>
-<p>A differenza dei normali metodi definiti all'interno di una classe, i metodi di classe passano implicitamente un riferimento alla classe (<code>cls</code>) e non all'istanza (<code>self</code>). Questo significa che sono dei metodi pensati per applicarsi all'intera classe, e non alla singola istanza; normalmente, vengono usati per creare dei costruttori alternativi, come nel caso precedente, nel quale creiamo una persona a partire da una stringa.</p>
-<p>Per chiamare un metodo di classe, ci riferiamo al nome della classe stessa, e non alla singola istanza:</p>
-<div class="highlight"><pre><span></span><code><span class="n">pb</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;Bobby Munson 58&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pb</span><span class="o">.</span><span class="n">first_name</span><span class="p">,</span> <span class="n">pb</span><span class="o">.</span><span class="n">_last_name</span><span class="p">))</span>
-</code></pre></div>
-<h3 id="staticmethod"><code>@staticmethod</code><a class="headerlink" href="#staticmethod" title="Permanent link">&para;</a></h3>
-<p>Così come in C e C++, è possibile definire metodi statici, che in questo caso sono maggiormente assimilabili alla loro concezione del C++. Infatti, nell'ambito della classe, un metodo statico non accetta né la classe, né una specifica istanza, ma si comporta come una funzione "semplice", che però è possibile chiamare dall'interno della classe. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@staticmethod</span>
-<span class="k">def</span> <span class="nf">check_is_valid</span><span class="p">(</span><span class="n">first_name</span><span class="p">):</span>
-    <span class="c1"># return False if len(first_name) &lt; 2 else True</span>
-    <span class="c1"># return len(first_name) &lt; 2</span>
-    <span class="k">return</span> <span class="kc">False</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">first_name</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>In questo metodo, abbiamo usato una sintassi chiamata <em>shorthand ternary operator</em>, mentre commentato troviamo il classico operatore ternario, o una versione più semplice.</p>
+<p>A differenza dei metodi standard, i metodi di classe hanno un riferimento alla classe (<code>cls</code>) e non all'istanza (<code>self</code>). Questo significa che sono dei metodi che si <em>applicano all'intera classe</em>, e non alla singola istanza. Un tipico esempio di utilizzo di un metodo di classe è mostrato nello snippet precedente, nel quale stiamo creando un oggetto di classe <code>Persona</code> a partire da una stringa.</p>
+<div class="admonition tip">
+<p class="admonition-title">Curiosità</p>
+<p>Il metodo precedente è, di fatto, un'implementazione del design pattern Builder.</p>
 </div>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">pb</span><span class="o">.</span><span class="n">check_is_valid</span><span class="p">(</span><span class="s1">&#39;Li&#39;</span><span class="p">))</span>
+<p>Per richiamare un metodo di classe occorre riferirsi al nome della classe stessa, e non ad una singola istanza:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">persona</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">builder_stringa</span><span class="p">(</span><span class="s1">&#39;Bobby Munson 58&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">persona</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span> <span class="n">persona</span><span class="o">.</span><span class="n">_cognome</span><span class="p">))</span>
+<span class="n">Bobby</span> <span class="n">Munson</span>
+</code></pre></div>
+<h3 id="i-metodi-statici">I metodi statici<a class="headerlink" href="#i-metodi-statici" title="Permanent link">&para;</a></h3>
+<p>Mediante il decoratore <code>@staticmethod</code> possiamo definire un metodo <em>statico</em>. L'accezione comune del metodo statico è descritta nell'appendice C; tuttavia, nel Python il funzionamento di un metodo di questo tipo è riassumibile in un comportamento assimilabile ad una funzione "semplice", definita però all'interno della classe, e richiamabile su istanze della stessa. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="k">def</span> <span class="nf">nome_valido</span><span class="p">(</span><span class="n">nome</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nome</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+<p>Questo metodo è quindi liberamente richiamabile mediante l'operatore <code>.</code> da una singola istanza:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="o">.</span><span class="n">nome_valido</span><span class="p">(</span><span class="s1">&#39;Li&#39;</span><span class="p">))</span>
 <span class="kc">True</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Person</span><span class="o">.</span><span class="n">check_is_valid</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">))</span>
+</code></pre></div>
+<p>Un'altra possibilità è richiamarlo sulla classe stessa: </p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Persona</span><span class="o">.</span><span class="n">nome_valido</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">))</span>
 <span class="kc">False</span>
 </code></pre></div>
-<h3 id="abstractmethod"><code>@abstractmethod</code><a class="headerlink" href="#abstractmethod" title="Permanent link">&para;</a></h3>
-<p>I metodi astratti sono definibili nel caso si stiano implementando delle classi astratte (ovvero classi in cui alcuni metodi non sono implementati) o, nel caso estremo, interfacce (ovvero classi in cui nessun metodo è implementato). Per usarli, la nostra classe deve discendere da un particolare tipo di classe Python chiamato <strong>Abstract Base Class</strong>, abbreviato in <code>ABC</code>, e contenuto nel package <code>abc</code>:</p>
+<h3 id="i-metodi-astratti">I metodi astratti<a class="headerlink" href="#i-metodi-astratti" title="Permanent link">&para;</a></h3>
+<p>Possiamo definire dei metodi <em>astratti</em> (cfr. Appendice C) mediante il decorator <code>@abstractmethod</code>. Per farlo, la nostra classe deve discendere dalla classe <code>ABC</code> (acronimo che sta per <em>Abstract Base Class</em>), contenuta nel package <code>abc</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span>
 
-<span class="k">class</span> <span class="nc">BaseClass</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-
-    <span class="c1"># some methods...</span>
-
-    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">method_to_override</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
-</code></pre></div>
-<p>I metodi contrassegnati con il decorator <code>@abstractmethod</code> andranno implementati nelle classi derivate (operazione di <em>override</em>):</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">DerivedClass</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
-
-    <span class="c1"># some methods...</span>
-
-    <span class="k">def</span> <span class="nf">method_to_override</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">do_something</span><span class="p">()</span>
-</code></pre></div>
-<h2 id="proprieta">Proprietà<a class="headerlink" href="#proprieta" title="Permanent link">&para;</a></h2>
-<p>A differenza delle classi implementate in C++, finora non abbiamo usato i getter ed i setter. Per farlo, possiamo usare sia degli opportuni metodi (nel nostro caso, ad esempio, potremmo usare un metodo <code>get_first_name(self)</code>, un metodo <code>set_first_name(self, fn)</code>, e via dicendo), o, in maniera più <em>pythonic</em>, il decorator <code>@property</code>, che ci offre un modo integrato per definire ogni attributo della classe.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In realtà, il decorator <code>@property</code> si riferisce ad una funzione con quattro parametri:</p>
-<blockquote>
-<p><code>py
-property(fget=None, fset=None, fdel=None, doc=None)</code></p>
-</blockquote>
-<p>che rappresentano:<br />
-* <code>fget</code> funzione per ottenere il valore dell'attributo;<br />
-* <code>fset</code> funzione per impostare il valore dell'attributo;<br />
-* <code>fdel</code> funzione per cancellare l'attributo;<br />
-* <code>doc</code> funzione per la documentazione dell'attributo.</p>
-</div>
-<p>Le best practice ci dicono di adattare i nostri attributi, rendendoli privati, ed accedendovi soltanto mediante il decorator <code>@property</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">PersonProperty</span><span class="p">():</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">first_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__first_name</span>
-
-    <span class="nd">@first_name</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">first_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Name must be longer than two characters&#39;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__first_name</span> <span class="o">=</span> <span class="n">value</span>
+<span class="k">class</span> <span class="nc">ClasseBase</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
 
     <span class="c1"># ...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">metodo_da_sovrascrivere</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">pp</span> <span class="o">=</span> <span class="n">PersonProperty</span><span class="p">(</span><span class="s1">&#39;Draco&#39;</span><span class="p">,</span> <span class="s1">&#39;Malfoy&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">pp</span><span class="o">.</span><span class="n">first_name</span><span class="p">)</span>
+<p>I metodi contrassegnati con il decorator <code>@abstractmethod</code> dovranno essere implementati nelle classi derivate (in altre parole, dovremo farne l'<em>override</em>):</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ClasseDerivata</span><span class="p">(</span><span class="n">ClasseBase</span><span class="p">):</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="k">def</span> <span class="nf">metodo_da_sovrascrivere</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># ...</span>
+</code></pre></div>
+<h2 id="le-proprieta">Le proprietà<a class="headerlink" href="#le-proprieta" title="Permanent link">&para;</a></h2>
+<p>In molti linguaggi di programmazione si usano tradizionalmente i metodi <em>accessori</em> (<em>getter</em>) e <em>modificatori</em> (<em>setter</em>) per accedere agli attributi delle istanze di una classe. Python non vieta di farlo: ad esempio, possiamo scrivere un metodo <code>get_nome(self)</code> per accedere al nome di una persona, ed un metodo <code>set_nome(self, nome)</code> per impostare detta proprietà.</p>
+<p>Tuttavia, è possibile usare una sintassi più compatta (e, in definitiva, maggiormente <em>pythonic</em>) mediante il decorator <code>@property</code>, che rappresenta una funzione a quattro parametri:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">property</span><span class="p">(</span><span class="n">fget</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fdel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>In particolare:</p>
+<ul>
+<li><code>fget</code> è la funzione usata per recuperare il valore dell'attributo;</li>
+<li><code>fset</code> è la funzione usata per impostare il valore dell'attributo;</li>
+<li><code>fdel</code> è la funzione per rimuovere l'attributo;</li>
+<li><code>doc</code> è la funzione per documentare e descrivere l'attributo.</li>
+</ul>
+<p>Grazie a <code>property</code>, potremo seguire le "best practice" della OOP, rendendo privati gli attributi della classe ed accedendovi mediante opportuni metodi.</p>
+<p>Riscriviamo quindi la classe <code>Persona</code> facendo uso del decorator <code>@property</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Persona</span><span class="p">():</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cognome</span> <span class="o">=</span> <span class="n">cognome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nome</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nome</span>
+
+    <span class="nd">@nome</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;La lunghezza del nome non può essere inferiore a due caratteri.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__nome</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cognome</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cognome</span>
+
+    <span class="nd">@cognome</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cognome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;La lunghezza del cognome non può essere inferiore a due caratteri.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cognome</span> <span class="o">=</span> <span class="n">value</span>  
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">eta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span>
+
+    <span class="nd">@eta</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">eta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;L&#39;età non può essere negativa.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span> <span class="o">=</span> <span class="n">value</span>
+</code></pre></div>
+<p>Alcune note:</p>
+<ul>
+<li>abbiamo riscritto la classe <code>Persona</code> in modo da trasformare tutti gli attributi in proprietà;</li>
+<li>per ogni proprietà, abbiamo specificato un getter, che restituisce il valore della stessa;</li>
+<li>oltre al getter, è stato specificato un setter, nel quale vi è anche una forma di validazione del valore passato in input.</li>
+</ul>
+<p>Vediamo come usare la nostra nuova classe:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">draco</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="s1">&#39;Draco&#39;</span><span class="p">,</span> <span class="s1">&#39;Malfoy&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">draco</span><span class="o">.</span><span class="n">nome</span><span class="p">)</span>
 <span class="n">Draco</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">pp</span> <span class="o">=</span> <span class="n">PersonProperty</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;Granger&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
-<span class="ne">ValueError</span><span class="p">:</span> <span class="n">Name</span> <span class="n">must</span> <span class="n">be</span> <span class="n">longer</span> <span class="n">than</span> <span class="n">two</span> <span class="n">characters</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">draco</span><span class="o">.</span><span class="n">eta</span><span class="p">)</span>
+<span class="mi">12</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">hermione</span> <span class="o">=</span> <span class="n">PersonProperty</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;Granger&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">La</span> <span class="n">lunghezza</span> <span class="k">del</span> <span class="n">nome</span> <span class="n">non</span> <span class="n">può</span> <span class="n">essere</span> <span class="n">inferiore</span> <span class="n">a</span> <span class="n">due</span> <span class="n">caratteri</span><span class="o">.</span>
 </code></pre></div>
+<p>Notiamo che, dal punto di vista dello script che richiama la classe, non ci sono differenze di sorta; tuttavia, la logica di validazione ci permette di evitare errori e situazioni incoerenti, ed è inoltre possibile sfruttare le proprietà per accedere agli attributi privati della classe.</p>
                 
               
               
