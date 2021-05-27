@@ -1,28 +1,31 @@
 # Introduzione a NumPy
 
-La libreria **NumPy** (abbreviazione che sta per *Num*erical *Py*thon) è quella maggiormente usata nel campo del calcolo scientifico in Python, e ne rappresenta uno standard *de facto*, in quanto le API messe a disposizione da NumPy sono estensivamente utilizzate dalla quasi totalità degli altri package dedicati alle scienze ed all'ingegneria.
+La libreria **NumPy** (abbreviazione che sta per *Num*erical *Py*thon) è quella maggiormente usata nel campo del calcolo scientifico in Python, e ne rappresenta uno standard *de facto*, in quanto le classi ed i metodi messi a disposizione da NumPy sono estensivamente utilizzate dalla quasi totalità degli altri package dedicati alle scienze ed all'ingegneria.
 
 ## Installazione
 
-Al momento di installare NumPy, possiamo optare per due opzioni. La prima è quella di usare una distribuzione "scientifica" di Python; quella più usata è [Anaconda](https://www.anaconda.com).
+Per installare NumPy è possibile optare per due opzioni. La prima è usare una distribuzione scientifica "predefinita" di Python (la più conosciuta è [Anaconda](https://www.anaconda.com)); la seconda, che è anche quella che seguiremo, è creare un apposito *ambiente virtuale* (cfr. Appendice B) con il gestore delle dipendenze [pipenv](https://pypi.org/project/pipenv/).
 
-La seconda strada, che è quella che seguiremo, è sfruttare un'installazione "standard" di Python, creando un apposito ambiente virtuale ed il *dependency manager* [pipenv](https://pypi.org/project/pipenv/).
-
-Creiamo quindi una cartella, e creiamo un nuovo ambiente virtuale con NumPy usando questo comando:
+Creiamo quindi una nuova cartella all'interno della quale andremo ad ospitare tutti i nostri script, e spostiamoci all'interno della stessa:
 
 ```sh
-mkdir python-data-science
-cd python-data-science
-pipenv install numpy
+$ mkdir python-data-science
+$ cd python-data-science
 ```
 
-All'interno della cartella troveremo due file: 
+A questo punto, usiamo pipenv per creare un nuovo ambiente virtuale ed installare NumPy:
+
+```sh
+$ pipenv install numpy
+```
+
+Una volta terminata la procedura, saranno presenti due file all'interno della cartella `python-data-science`:
 
 * `Pipfile`, che conterrà l'elenco dei pacchetti che abbiamo installato in quello specifico ambiente virtuale;
 * `Pipfile.lock`, che conterrà i riferimenti alle versioni dei singoli pacchetti installati.
 
 !!!warning "Attenzione"
-	**Non** modifichiamo **mai** direttamente i file generati da pipenv. Per farlo, esistono comandi appositi che illustreremo man mano che ne avremo bisogno.
+	**Non** modifichiamo **mai** direttamente questi due file. Per farlo, esistono comandi appositi, che saranno introdotti man mano che li useremo.
 
 ## Importare NumPy
 
@@ -34,41 +37,53 @@ import numpy as np
 
 ## Gli `ndarray`
 
-La struttura dati alla base di NumPy è quella degli *array*. Più precisamente, NumPy offre una struttura chiamata `ndarray`, rappresentante un array ad $n$ dimensioni contenente dati di tipo *omogeneo*. E' interessante notare come anche `ndarray` sia un'abbreviazione, stante per *n*-*d*imensional *array*. 
+La struttura dati alla base di NumPy è quella degli *array*. Più precisamente, NumPy mette a disposizione gli `ndarray`, che rappresentano degli array ad $n$ dimensioni contenenti dati di tipo *omogeneo*. 
 
-La dichiarazione ed inizializzazione di un `ndarray` è molto simile a quella di una classica lista Python:
+!!!note "Il significato di `ndarray`"
+    `ndarray` è un'abbreviazione che sta per *n*-*d*imensional *array*. 
+
+La dichiarazione ed inizializzazione di un `ndarray` è in qualche modo simile a quella di una classica lista Python:
 
 ```py
->>> a = numpy.array([1, 2, 3])
+>>> a = np.array([1, 2, 3])
 ```
 
-Questa sintassi, però, non deve trarci in inganno. Esistono, infatti, varie differenze che intercorrono tra un `ndarray` ed una classica sequenza Python, ovvero:
+In realtà, volendo essere precisi, possiamo affermare come esista un costruttore che crea un `ndarray` a partire da una lista, come mostrato nel codice precedente.
 
-1. un `ndarray` ha una dimensione fissata al momento della creazione, a differenza della lista. Cambiare la dimensione di un array creerà quindi un *nuovo* array, cancellando quello originario;
-2. gli elementi di un `ndarray` devono essere dello stesso tipo;
-3. gli array rendono più semplici ed efficienti le operazioni algebriche, specialmente su matrici di grosse dimensioni.
+Questa sintassi, però, non deve trarre in inganno. Sono diverse le differenze che intercorrono tra un `ndarray` ed una classica lista; le principali possono essere riassunte nella seguente tabella.
 
-## Efficienza di NumPy
+| Caratteristica | `ndarray`                          | Lista                                 |
+| -------------- | ---------------------------------- | ------------------------------------- |
+| Dimensione     | Fissata al momento della creazione | Mutabile (ad esempio, con `append()`) |
+| Elementi       | Omogenei (stesso tipo)             | Eterogenei (qualsiasi tipo)           |
+| Ambito         | Operazioni algebriche              | General-purpose                       |
 
-Il terzo punto è particolarmente importante, sopratutto nell'ambito del calcolo scientifico. Come semplice esempio, consideriamo una moltiplicazione elemento per elemento tra due vettori della stessa dimensione.
+Commentiamo brevemente le differenze viste nella tabella precedente:
 
-Con due liste, potremmo usare un ciclo `for`:
+1. un `ndarray` ha una dimensione fissata al momento della creazione, a differenza della lista. Cambiare la dimensione di un array comporterà quindi la creazione di un *nuovo* array, con la cancellazione di quello originario. Nella lista, essendo mutabile, questo non avviene;
+2. gli elementi di un `ndarray` devono essere dello stesso tipo, mentre le liste accettano qualsiasi tipo di elemento al loro interno;
+3. gli array rendono più semplici ed efficienti le operazioni algebriche, specialmente su matrici di grosse dimensioni, mentre le liste sono progettate per supportare di ogni tipo.
+
+### Efficienza di NumPy nelle operazioni algebriche
+
+Il punto 3 dell'elenco precedente assume particolare rilevanza ai nostri fini. Per comprenderne il motivo, facciamo un semplice esempio, considerando una moltiplicazione *elemento per elemento* tra due vettori riga della stessa dimensione.
+
+#### Approccio con liste
+
+Usando due liste, potremmo usare un ciclo `for` o una list comprehension:
 
 ```py
+# ciclo for
 c = []
 for i in range(len(a)):
     c.append(a[i]*b[i])
-```
-
-oppure una *list comprehension*:
-
-```py
+# list comprehension
 c = [a[i] * b[i] for i in range(len(a))]
 ```
 
-In entrambi i casi, l'operazione verrà effettuata in maniera corretta; tuttavia, se i vettori sono di dimensioni importanti, avremo un costo da pagare legato all'inefficienza di Python nella gestione dei cicli.
+Il risultato dell'operazione sarà in entrambi i casi *corretto*. Tuttavia, i cicli sono computazionalmente *costosi*: ciò significa che, specialmente all'aumentare del numero di elementi contenuti nei vettori, sarà necessario pagare un costo crescente.
 
-Ovviamente, dato che le inefficienze sono legate al Python (e, quindi, all'*overhead* introdotto principalmente dall'interprete), la soluzione più semplice sarebbe quella di utilizzare un altro linguaggio, come ad esempio il C. In questo caso, l'operazione precedente sarebbe associata a questo codice:
+La soluzione sarebbe quindi quella di ricorrere ad un linguaggio più efficiente, come il C che, essendo compilato, riduce alcune delle inefficienze tipiche dei linguaggi interpretati. Il codice precedentemente diverrebbe quindi:
 
 ```c
 for (i = 0; i < rows; i++) {
@@ -76,7 +91,9 @@ for (i = 0; i < rows; i++) {
 }
 ```
 
-Problema risolto, dunque? Per un caso così semplice, sì. Immaginiamo però di voler estendere il caso precedente a due dimensioni; il codice diverrà:
+Problema risolto, dunque? Apparentemente sì. 
+
+Immaginiamo però di voler estendere il caso precedente a due dimensioni; il codice diverrà:
 
 ```c
 for (i = 0; i < rows; i++) {
@@ -86,22 +103,17 @@ for (i = 0; i < rows; i++) {
 }
 ```
 
+Il numero di cicli annidati aumenterà in maniera direttamente proporzionale alla dimensionalità degli array: ciò significa, ad esempio, che per un array a dieci dimensioni avremo altrettanti cicli annidati.
+
 Appare quindi chiaro come anche un leggero aumento della complessità delle operazioni da effettuare comporti un significativo aumento della complessità in termini di codice. Ed è proprio qui che NumPy ci viene in aiuto.
 
-Infatti, l'operazione precedente può essere riassunta in NumPy come segue:
+Infatti, per moltiplicare due array in NumPy basta la seguente istruzione:
 
 ```py
 c = a * b
 ```
 
-La sintassi è evidentemente molto più concisa e semplice, sia rispetto al C, sia rispetto al caso in cui si usino delle liste in Python. Inoltre, è la stessa sintassi che viene solitamente usata nelle formule reali! Oltre a questo, NumPy sfrutta codice *precompilato* in C: questo significa che la precedente operazione sarà svolta *quasi* alla stessa velocità del codice scritto in linguaggio C.
+La sintassi è evidentemente molto più concisa e semplice, *anche rispetto alle liste in Python*, ed è molto simile a quella che si trova sulle formule "reali" usate sui libri di testo. Infine, questa istruzione sfrutta codice *precompilato*: in questo modo, si potranno ottenere delle prestazioni (quasi) equivalenti a quelle del codice scritto direttamente in C.
 
-Si tratta, quindi, di unire il "meglio" dei due mondi: da un lato, l'eleganza e semplicità sintattica del Python e, dall'altro, l'efficienza del C.
-
-## Vettorizzazione e broadcasting
-
-Due importanti concetti sfruttati da NumPy sono quelli di *vettorizzazione* e *broadcasting*.
-
-La vettorizzazione ci permette di scrivere codice senza cicli o indici espliciti; ovviamente, *i cicli ci sono*, ma avvengono *sotto al cofano*, grazie al codice C precompilato. Il codice vettorizzato, inoltre, presenta diversi vantaggi, soprattutto in termini di leggibilità e manutenibilità.
-
-Il concetto di *broadcasting* riguarda invece il comportamento implicito delle operazioni, e permette di usare la stessa sintassi *indipendentemente* dalle dimensioni degli `ndarray` coinvolti (e dall'operazione effettuata, sia essa algebrica, logica, etc.).
+!!!note "Vettorizzazione e broadcasting"
+    Quello che abbiamo appena visto è formalmente riassumibile nei concetti di *vettorizzazione* (ovvero la possibilità di scrivere il codice senza usare esplicitamente dei cicli) e *broadcasting* (riguardante la possibilità di usare una sintassi comune ed indipendente dalla dimensionalità degli array coinvolti nelle operazioni).
