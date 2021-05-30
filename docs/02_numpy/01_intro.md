@@ -117,3 +117,7 @@ La sintassi è evidentemente molto più concisa e semplice, *anche rispetto alle
 
 !!!note "Vettorizzazione e broadcasting"
     Quello che abbiamo appena visto è formalmente riassumibile nei concetti di *vettorizzazione* (ovvero la possibilità di scrivere il codice senza usare esplicitamente dei cicli) e *broadcasting* (riguardante la possibilità di usare una sintassi comune ed indipendente dalla dimensionalità degli array coinvolti nelle operazioni).
+
+## Conclusioni
+
+In questa lezione, abbiamo dato un breve sguardo su quello che offre NumPy, e sul perché preferirlo in determinate situazioni all'uso delle normali tecniche messe a disposizione da Python. Nella [prossima lezione](./02_array), continueremo il discorso sugli array, scendendo maggiormente nel dettaglio di questa importante struttura dati.

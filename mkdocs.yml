@@ -13,6 +13,7 @@ nav:
     - 07 - Classi: 01_python/07_classi.md
   - NumPy:
     - 01 - Introduzione a NumPy: 02_numpy/01_intro.md
+    - 02 - Introduzione agli array: 02_numpy/02_array.md
   - Appendici:
     - Appendice A - Configurazioni: 04_appendici/a_configurazioni.md
     - Appendice B - Tabelle Python: 04_appendici/b_python.md

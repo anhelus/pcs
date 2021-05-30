@@ -1,3 +1,45 @@
+# Costruzione ed indicizzazione di un array
+
+### Costruire un array
+
+I nuovi array possono essere creati mediante un apposito costruttore.
+
+ndarray(shape, **kwargs)
+
+E' però più semplice farlo tramite una delle funzioni messe a disposizione da NumPy. Ad esempio, possiamo farlo usando la funzione np.array(), che ci permette di crearlo usando una semplice lista e, opzionalmente, impostando il tipo di dato:
+
+```py
+>>> a = np.array([1, 2, 3])
+```
+
+Esistono ovviamente numerose altre funzioni per la creazione di un array. Ad esempio, se volessimo creare una matrice con valori unitari, potremmo usare np.ones():
+
+```py
+>>> u = np.ones(2)
+array([1., 1.])
+```
+
+mentre per una matrice con tutti valori pari a zero usiamo np.zeros():
+
+```py
+>>> u = np.zeros(2)
+array([0., 0.])
+```
+
+#### Creazione di un array vuoto
+
+Possiamo anche creare un array vuoto. Questo può essere particolarmente utile quando vogliamo preallocare un array di una certa dimensione.
+
+```py
+>>> np.empty(2)
+array([42., 42.])
+```
+
+!!!note "Nota"
+    In realtà, possiamo osservare un fenomeno interessante: infatti, l'array vuoto sarà, in realtà, popolato da valori. Tuttavia, questi valori sono completamente casuali, e dipendenti dallo stato della memoria del sistema in un determinato istante.
+
+https://numpy.org/doc/stable/user/absolute_beginners.html
+
 https://numpy.org/doc/stable/user/absolute_beginners.html#indexing-and-slicing
 
 è possibile fare l'indicizzazione e lo slice degli array NumPy nello stesso modo con cui lo si fa con le liste Python:
@@ -110,3 +152,33 @@ Se l'elemento che stiamo cercando non esiste nell'array, l'array di indici resti
 >>> print(not_there)
 (array([], dtype=int64), array([], dtype=int64))
 ```
+
+
+
+### Fancy indexing
+
+Una tecnica estremamente interessante è quella del *fancy indexing*. Concettualmente, questa indicizzazione prevede che venga passato un array di indici, in modo da accedere a più elementi di un array contemporaneamente.
+
+Facciamo un esempio.
+
+```py
+>>> rand = np.random.RandomState(42)
+>>> x = rand.randint(100, size=10)
+>>> indexes = np.array([[1,4],[5,2]])
+>>> x
+array([51, 92, 14, 71, 60, 20, 82, 86, 74, 74])
+>>> x[indexes]
+array([[92, 60],
+       [20, 14]])
+```
+
+Nel codice precedente, stiamo:
+
+1. usando la funzione `randint` per generare un array di numeri interi casuali compresi tra 0 e 100;
+2. generando un array bidimensionale `indexes`;
+3. restituendo, mediante il fancy indexing, un array con le dimensioni di `indexes` e gli elementi di `x` presi nelle posizioni indicate da `indexes`.
+
+La potenza del fancy indexing sta proprio in questo: non solo siamo in grado di accedere facilmente a più elementi di un array mediante un'unica operazione, ma possiamo anche ridisporre questi elementi come più ci aggrada!
+
+!!!tip "Combinare i metodi"
+    Alla bisogna, è possibile combinare i diversi metodi di indicizzazione tra loro.
