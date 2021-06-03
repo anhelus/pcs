@@ -1,5 +1,7 @@
 # Costruzione ed indicizzazione di un array
 
+Nella precedente lezione, abbiamo visto come sia possibile creare un nuovo array mediante il ,etpappostio i precedenti 
+
 ### Costruire un array
 
 I nuovi array possono essere creati mediante un apposito costruttore.
