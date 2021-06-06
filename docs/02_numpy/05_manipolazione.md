@@ -352,6 +352,15 @@ array([[ 1,  2,  3,  4,  5,  6,  7,  8],
 !!!warning "Attenzione"
     Le nuove dimensioni dell'array devono essere coerenti con quelle dell'array di partenza!
 
+### Flattening (o vettorizzazione)
+
+Abbiamo già visto in precedenza la *vettorizzazione* di un array, effettuata in automatico in alcune situazioni (come ad esempio la chiamata di `delete` o `insert` senza specificare il parametro `axis`). Tuttavia, possiamo usare la funzione `flatten` per effettuare manualmente questa operazione:
+
+```py
+>>> mat.flatten()
+array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+```
+
 ## Il broadcasting
 
 Concludiamo questa lezione accennando al *broadcasting*, che viene usato ogni volta che vogliamo effettuare un'operazione tra un array ed un singolo scalare, o tra array di dimensioni differenti (posto che, ovviamente, questa operazione sia algebricamente ammissibile).
