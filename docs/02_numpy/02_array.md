@@ -84,43 +84,6 @@ Proviamo a valutare la proprietà `shape` del precedente array:
 (2, 3)
 ```
 
-## Accesso agli elementi degli array
-
-Il modo più immediato di accedere ad un elemento presente in un array è usare l'operatore `[]` assieme all'indice cui si vuole accedere, esattamente come avviene per le liste. Ad esempio, possiamo selezionare il primo elemento di un array mediante la seguente sintassi:
-
-```py
->>> a = np.array([1,2,3,4])
->>> a[0]
-1
-```
-
-Nel caso di array ad $n$ dimensioni, è necessario indicare l'indice per ciascuna delle dimensioni dell'array. Nel caso di un array bidimensionale, potremmo selezionare l'elemento alla prima riga e prima colonna con una sintassi di questo tipo:
-
-```py
->>> b = np.array([[1,2], [3,4]])
->>> b[0][0]
-1
-```
-
-Oltre al metodo "standard", è possibile usare una maschera di valori booleani. Nel prossimo esempio, selezioniamo tutti gli elementi della prima colonna dell'array:
-
-```py
->>> mask = ([True, False], [True, False])
->>> b[mask]
-array([1, 3])
-```
-
-Possiamo poi scegliere tutti gli elementi che soddisfano una determinata condizione logica o matematica:
-
-```py
->>> mask = (b > 2)
->>> mask
-array([[False, False],
-       [ True,  True]])
->>> b[mask]
-array([3, 4])
-```
-
 ## Conclusioni
 
-In questa lezione, abbiamo dato una breve panoramica introduttiva sugli array. Nella [prossima lezione](./03_build_indexing.md), approfondiremo ulteriormente le loro modalità di creazione ed indicizzazione.
+In questa lezione, abbiamo dato una breve panoramica introduttiva sugli array. Nella [prossima lezione](./03_costruzione.md), approfondiremo ulteriormente le loro modalità di creazione ed indicizzazione.
