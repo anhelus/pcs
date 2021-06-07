@@ -2,9 +2,9 @@
 
 NumPy offre numerose modalità per operare sugli array e manipolarli. Vediamone alcune.
 
-## Operazioni aritmetiche
+## Operazioni algebriche di base
 
-Possiamo usare due array per effettuare diversi tipi di operazioni aritmetiche (elemento per elemento). Ad esempio, per sommare due array:
+Possiamo usare due array per effettuare diversi tipi di operazioni algebriche di base. Ad esempio, per sommare due array:
 
 ```py
 >>> a = np.array([1, 2])
@@ -13,7 +13,7 @@ Possiamo usare due array per effettuare diversi tipi di operazioni aritmetiche (
 array([4, 6])
 ```
 
-Possiamo ovviamente anche usare le altre operazioni aritmetiche:
+Possiamo ovviamente anche fare le altre operazioni fondamentali:
 
 ```py
 >>> a - b
@@ -21,8 +21,13 @@ array([-2, -2])
 >>> a * b
 array([3, 8])
 >>> a / b
-array([0.33333333, 0.5       ])
+array([0.33333333, 0.5])
+>>> b / a
+array([3., 2.])
 ```
+
+!!!note "Moltiplicazione e divisione"
+	Per comprendere appieno il comportamento degli operatori * e /, dovremo parlare del broadcasting. Lo faremo in una delle prossime lezioni.
 
 ### La funzione `sum`
 
@@ -49,6 +54,17 @@ Per sommare gli elementi per riga, invece, dovremo passare il parametro `1`:
 ```py
 >>> b.sum(axis=1)
 array([3, 7])
+```
+
+### La funzione `dot()`
+
+La funzione `dot()` ci permette di effettuare l'operazione di moltiplicazione matriciale standard:
+
+```py
+>>> a = np.array([1, 2])
+>>> b = np.array([[3], [4]])
+>>> a.dot(b)
+array([11])
 ```
 
 ## Ordinamento degli elementi di un array
@@ -361,16 +377,6 @@ Abbiamo già visto in precedenza la *vettorizzazione* di un array, effettuata in
 array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 ```
 
-## Il broadcasting
+## Conclusioni
 
-Concludiamo questa lezione accennando al *broadcasting*, che viene usato ogni volta che vogliamo effettuare un'operazione tra un array ed un singolo scalare, o tra array di dimensioni differenti (posto che, ovviamente, questa operazione sia algebricamente ammissibile).
-
-Supponiamo di voler moltiplicare il nostro array per un certo scalare:
-
-```py
->>> a = np.array([1, 2])
->>> a * 2
-array([2, 4])
-```
-
-Appare evidente come NumPy "comprenda" che la moltiplicazione deve avvenire tra lo scalare `2` e tutti gli elementi del vettore `a`. Ovviamente, questo concetto è esteso ad ogni operazione di tipo matriciale, come vedremo nella prossima lezione.
+In questa lezione, abbiamo visto alcuni fondamentali modi di manipolare un array che NumPy ci mette a disposizione. Nella [prossima](./06_op_matriciali.md), parleremo più in dettaglio delle operazioni algebriche.

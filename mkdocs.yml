@@ -16,7 +16,11 @@ nav:
     - 02 - Introduzione agli array: 02_numpy/02_array.md
     - 03 - Costruzione di un array: 02_numpy/03_costruzione.md
     - 04 - Indicizzazione di un array: 02_numpy/04_indicizzazione.md
-    - 05 - Operazioni base con gli array: 02_numpy/05_manipolazione.md
+    - 05 - Operazioni base con gli array: 02_numpy/05_operazioni.md
+    - 06 - Algebra lineare: 02_numpy/06_algebra.md
+    - 07 - Polinomi lineari: 02_numpy/07_polinomi.md
+    - 08 - Statistica: 02_numpy/08_statistica.md
+    - 09 - Visualizzazione dei risultati: 02_numpy/09_plotting.md
   - Appendici:
     - Appendice A - Configurazioni: 04_appendici/a_configurazioni.md
     - Appendice B - Tabelle Python: 04_appendici/b_python.md
