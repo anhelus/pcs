@@ -407,3 +407,9 @@ Proviamo ad estendere ulteriormente la lista cambiando il primo elemento con una
 ## Conclusioni
 
 Abbiamo dato una rapida introduzione al linguaggio Python, soffermandoci su alcune dei tipi di dati più usati, come numeri, stringhe e liste. Nelle prossime sezioni, torneremo sulle liste, ed approfondiremo altri tipi di iterabili, come tuple e dizionari.
+
+## Esercizi
+
+1. Creiamo una stringa che assuma valore *PCS*.
+2. Valutiamo la lunghezza della stringa creata al punto 1.
+3. Proviamo a creare una lista a partire dalla stringa creata al punto 1.
