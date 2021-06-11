@@ -6,6 +6,12 @@ name = "pypi"
 [packages]
 mkdocs = "*"
 mkdocs-material = "*"
+scikit-learn = "*"
+matplotlib = "*"
+scipy = "*"
+pandas = "*"
+jupyterlab = "*"
+tensorflow = "~=2.4.0"
 
 [dev-packages]
 
