@@ -12,7 +12,7 @@
         <link rel="canonical" href="https://python.angelocardellicchio.it/02_numpy/02_array/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
         
       
     
@@ -42,6 +42,8 @@
     
     
       
+
+
     
     
   </head>
@@ -216,174 +218,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../01_python/02_programmare/" class="md-nav__link">
-        02 - Concetti base
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../01_python/03_strutture/" class="md-nav__link">
-        03 - Liste, code e pile
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../01_python/04_list_comprehension/" class="md-nav__link">
-        04 - List comprehension
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../01_python/05_tuple_dict/" class="md-nav__link">
-        05 - Tuple, set e dizionari
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../01_python/06_moduli/" class="md-nav__link">
-        06 - Script, moduli e package
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../01_python/07_classi/" class="md-nav__link">
-        07 - Classi
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      <label class="md-nav__link" for="__nav_3">
-        NumPy
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="NumPy" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          NumPy
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../01_intro/" class="md-nav__link">
-        01 - Introduzione a NumPy
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      <label class="md-nav__link" for="__nav_4">
-        Appendici
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Appendici" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Appendici
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../04_appendici/a_configurazioni/" class="md-nav__link">
-        Appendice A - Configurazioni
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../04_appendici/b_python/" class="md-nav__link">
-        Appendice B - Tabelle Python
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -416,45 +250,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inizializzazione-di-un-array" class="md-nav__link">
-    Inizializzazione di un array
+  <a href="#array-e-liste" class="md-nav__link">
+    Array e liste
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#accesso-agli-elementi-degli-array" class="md-nav__link">
-    Accesso agli elementi degli array
+  <a href="#la-classe-ndarray" class="md-nav__link">
+    La classe ndarray
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#array-vs-liste" class="md-nav__link">
-    Array vs. liste
+  <a href="#creazione-ed-inizializzazione" class="md-nav__link">
+    Creazione ed inizializzazione
   </a>
   
-    <nav class="md-nav" aria-label="Array vs. liste">
+    <nav class="md-nav" aria-label="Creazione ed inizializzazione">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#perche-usare-numpy" class="md-nav__link">
-    Perché* usare NumPy?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#piu-informaizoni-sugli-array" class="md-nav__link">
-    Più informaizoni sugli array
-  </a>
-  
-    <nav class="md-nav" aria-label="Più informaizoni sugli array">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#quali-sono-gli-attributi-di-un-array" class="md-nav__link">
-    QUali sono gli attributi di un array?
+  <a href="#array-eterogenei" class="md-nav__link">
+    Array eterogenei
   </a>
   
 </li>
@@ -463,9 +282,25 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#il-numero-di-elementi-di-un-array" class="md-nav__link">
+    Il numero di elementi di un array
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusioni" class="md-nav__link">
+    Conclusioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esercizi" class="md-nav__link">
+    Esercizi
+  </a>
   
 </li>
       
@@ -483,41 +318,64 @@
                 
                 
                 <h1 id="introduzione-agli-array">Introduzione agli array<a class="headerlink" href="#introduzione-agli-array" title="Permanent link">&para;</a></h1>
-<p>L'array è la struttura dati al centro del funzionamento di NumPy. Un array (o, più precisamente, un <code>ndarray</code>) è una vera e propria <em>griglia</em> di elementi <em>omogenei</em>, ovvero caratterizzati dallo stesso tipo (indicato con <code>dtype</code>); l'oggetto <code>ndarray</code> offre inoltre dei metodi per reperire il <em>valore</em> e gli <em>indici</em> di ciascun elemento. </p>
-<h2 id="inizializzazione-di-un-array">Inizializzazione di un array<a class="headerlink" href="#inizializzazione-di-un-array" title="Permanent link">&para;</a></h2>
-<p>Un modo in cui </p>
-<p>Un modo in cui si possono inziializzare gli array NumPy è dalle liste Python, usanod liste annidate per dati con due o più dimensioni. Ad esempio:</p>
+<p>Nella <a href="../01_intro/">scorsa lezione</a>, abbiamo introdotto gli <em>array</em>, ovvero la struttura dati "centrale" all'interno dell'ecosistema di NumPy. In questa lezione e nelle successive ne approfondiremo gli aspetti e le caratteristiche principali.</p>
+<h2 id="array-e-liste">Array e liste<a class="headerlink" href="#array-e-liste" title="Permanent link">&para;</a></h2>
+<p>La prima impressione che si può avere è che gli array siano molto simili alle classiche liste. Esistono però alcune differenze, cui abbiamo già accennato nella scorsa lezione.</p>
+<p>In linea di massima, però, è preferibile usare un array quando si ha a che fare con operazioni di tipo <em>matematico</em> su dati <em>omogenei</em>, ovvero dello stesso tipo. Questo è collegato essenzialmente a questioni di <em>ottimizzazione</em>: NumPy sfrutta per le operazioni matematiche del codice precompilato in C, ed inoltre gli array sono più compatti e veloci da utilizzare rispetto alle liste.</p>
+<h2 id="la-classe-ndarray">La classe <code>ndarray</code><a class="headerlink" href="#la-classe-ndarray" title="Permanent link">&para;</a></h2>
+<p>Alle volte, ci si può riferire ad un array con il termine <code>ndarray</code>, abbreviazione che sta per <span class="arithmatex">\(n\)</span>-dimensional array. Questa è, in realtà, la rappresentazione più generica degli array di NumPy, e permette di caratterizzare delle strutture dati con un numero arbitrario di dimensioni (<span class="arithmatex">\(n\)</span>, per l'appunto).</p>
+<div class="admonition note">
+<p class="admonition-title">Vettori, matrici e tensori</p>
+<p>Una struttura di tipo algebrico ad <span class="arithmatex">\(n\)</span> dimensioni, con <span class="arithmatex">\(n &gt; 2\)</span>, è detta <em>tensore</em>. Se <span class="arithmatex">\(n = 1\)</span>, abbiamo un <em>vettore</em>, mentre con <span class="arithmatex">\(n = 2\)</span> abbiamo una <em>matrice</em>.</p>
+</div>
+<h2 id="creazione-ed-inizializzazione">Creazione ed inizializzazione<a class="headerlink" href="#creazione-ed-inizializzazione" title="Permanent link">&para;</a></h2>
+<p>Il primo passo per utilizzare un <code>ndarray</code> è, ovviamente, crearlo! Per farlo, ci sono diversi metodi, ma il più semplice è sicuramente quello di passare al metodo <code>array()</code> di NumPy una lista di elementi. Ad esempio:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 </code></pre></div>
-<p>o</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
+<p>Possiamo passare anche una "lista di liste", in modo da ottenere un array multidimensionale:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 </code></pre></div>
-<h2 id="accesso-agli-elementi-degli-array">Accesso agli elementi degli array<a class="headerlink" href="#accesso-agli-elementi-degli-array" title="Permanent link">&para;</a></h2>
-<p>Un aspetto interessante dell'indicizzazione è che questa può essere fatta in diversi modi: ad esempio, è possibile usare dei numeri interi, o una maschera di valori booleani, o ancora un altro array. Vediamo alcuni esempi:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># TODO: esempi</span>
+<p>Gli array non sono necessariamente numerici. Possiamo, ad esempio, creare un array di stringhe:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;s1&quot;</span><span class="p">,</span> <span class="s2">&quot;s2&quot;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span>
+<span class="n">array</span><span class="p">([</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;&lt;U2&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>Possiamo accedere agli elementi nell'array usando le parentesi quadre. Quando si accede agli elementi, dobbiamo ricordarci che l'indicizzazione in NumPy inizia a 0. QUesto significa che se vogliamo accedere il primo elemento nell'array, staremo accedendo all'elemento 0.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]</span>
+<h3 id="array-eterogenei">Array eterogenei<a class="headerlink" href="#array-eterogenei" title="Permanent link">&para;</a></h3>
+<p>Abbiamo già detto che gli array, a differenza delle stringhe, devono contenere dati <em>omogenei</em>, ovvero dello stesso tipo. Cosa succede se proviamo a passare al metodo <code>numpy.array()</code> una lista composta da dati di tipo differente? Facciamo un esempio.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
 </code></pre></div>
-<h2 id="array-vs-liste">Array vs. liste<a class="headerlink" href="#array-vs-liste" title="Permanent link">&para;</a></h2>
-<p>Di primo acchitto, può sembrare che gli array siano <em>molto</em> simili alle classiche liste. Esistono però delle differenze:</p>
-<!-- TODO: da qui -->
-
-<p>NumPy ci dà un enorme range di modi veloci ed efficienti per creare degli array e manipolare dei dati numerici al lroo interno. Mentre una lista python può contenere diversi tipi di dati al suo interno, tutti gli elementi in un array NumPy devono essere omogenei. Le operazioni matematiche che devono essere effettuate sugli array sarebbero state infatti estremamente inefficaci se gli array non fossero stati omogenei.</p>
-<h3 id="perche-usare-numpy">Perché* usare NumPy?<a class="headerlink" href="#perche-usare-numpy" title="Permanent link">&para;</a></h3>
-<p>Gli array numpy sono più veloci e compatti rispetto alle liste Python. Un array consuma meno memoria, ed è più conveniente da utilizzare. NumPy uisa molta meno memoria per memorizzare i dati e fornisce un meccanismo per specificare i tipi d dati. Qusto permette una ulteriore ottimizzzazione del codice.</p>
-<h3 id="piu-informaizoni-sugli-array">Più informaizoni sugli array<a class="headerlink" href="#piu-informaizoni-sugli-array" title="Permanent link">&para;</a></h3>
-<p>Possiamo occasionalmente sentire un riferimento ad un array come ad un <em>ndarray</em>, che è una abbreviazione per <em>N-dimensional array</em> (array ad n dimensioni). Un array ad n dimensioni è semplicemente un array con un numero generico di dimensioni. Possiaom sentire infatti 1-D, o array monodimensionaloi, o 2-D, array multidimenzionali, e via dicendo.</p>
-<p>La classe NumPy ndarray viene suata per rappresentare sia matrici sia vettori. Un vettore è un array con una singola dimensione (non vi è differenza tra i vettori riga ed i vettori colonna), mentre una matrice si riferisce ad un array con due dimensioni. Per array tridimensionali o con un maggior numero di dimensioni, si usa comunemente il termine tensore.</p>
-<h4 id="quali-sono-gli-attributi-di-un-array">QUali sono gli attributi di un array?<a class="headerlink" href="#quali-sono-gli-attributi-di-un-array" title="Permanent link">&para;</a></h4>
-<p>Una rray è normalmente un contenitore a dimensione fissata di oggetti dello stesso tipo e dimensione. Il numero di dimensioni ed oggetti in un array è definito dalla sua forma. La forma di un array è una tupla di interi non negativi che specifica le dimensioni lungo ogni asse.</p>
-<p>In numpy, gli assi sono indicati con axes. Questo indica che se abbiamo un array bidimensionale del tipo:</p>
-<p>[[0.,0.,0.],<br />
- [1.,1., 1.]]</p>
-<p>il nsotro array avrà due assi. Il primo asse ha una lunghezza di 2, mentre il secondo una lunghezza di 3.</p>
-<p>Così come in altri container Python, i contenuti di un array sono accessibili e modificabili mediante l'indicizzazione o lo slicing dell'array. A differenza del tipico container, però, diversi array possono condividere gli stessi dati, per cui i cambi fatti su un array possono essere visibili in un altro.</p>
-<p>Gli attributi di un array riflettono informazioni intrinseche sull'array stesso. Se dobbiamo accedere o impostare delle proprietà di un array senza crearne uno nuovo, si può spesso accedere ad un array mediante is uoi attributi.</p>
+<p>Abbiamo passato al metodo <code>array()</code> un valore intero ed un float. Possiamo notare che è stato effettuato un <em>casting</em> in maniera implicita, e <em>tutti</em> i valori passati sono stati convertiti in float. Vediamo cosa accade se provassimo a passare un intero ed una stringa.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;s3&quot;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">e</span>
+<span class="n">array</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;s3&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;&lt;U11&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Anche in questo caso, è stata effettuata la conversione dei dati in automatico, passando stavolta da intero a stringa.</p>
+<p>La regola da tenere a mente, ad ogni modo, è che NumPy (e, in generale, Python) seguono il principio dell'<em>upcasting</em>: in altre parole, quando deve essere fatta una conversione tra diversi tipi di dati, si farà in modo da convertire tutte le variabili nel tipo <em>a più alta precisione</em>, allo scopo di evitare perdite di informazioni.</p>
+<h2 id="il-numero-di-elementi-di-un-array">Il numero di elementi di un array<a class="headerlink" href="#il-numero-di-elementi-di-un-array" title="Permanent link">&para;</a></h2>
+<p>Abbiamo detto che un array è un "contenitore", a dimensione prefissata, per oggetti di un ben determinato tipo e dimensione. Il numero di dimensioni e gli oggetti contenuti all'interno di un array sono definiti a partire da una proprietà chiamata <code>shape</code>, liberamente traducibile in "forma". Quest'ultima è una tupla di numeri interi, ovviamente non negativi, che permette di determinare la dimensionalità dell'array lungo ogni <em>asse</em> (ovvero <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span>, <span class="arithmatex">\(z\)</span>, etc.).</p>
+<p>Ad esempio, potremo dire che il seguente array bidimensionale ha due assi, il primo di lunghezza due, il secondo di lunghezza tre:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+</code></pre></div>
+<p>Proviamo a valutare la proprietà <code>shape</code> del precedente array:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="conclusioni">Conclusioni<a class="headerlink" href="#conclusioni" title="Permanent link">&para;</a></h2>
+<p>In questa lezione, abbiamo dato una breve panoramica introduttiva sugli array. Nella <a href="../03_costruzione/">prossima lezione</a>, approfondiremo ulteriormente le loro modalità di creazione ed indicizzazione.</p>
+<h2 id="esercizi">Esercizi<a class="headerlink" href="#esercizi" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Proviamo a creare un tensore tridimensionale di dimensioni <span class="arithmatex">\(3 \times 3 \times 3\)</span>, e salviamo questi valori in una tupla <code>(a, b, c)</code>.</li>
+</ol>
                 
               
               
@@ -566,15 +424,6 @@
     
       
       
-        
-        
-      
-      <a href="https://www.linkedin.com/in/angelocardellicchio/?locale=it_IT" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-      </a>
-    
-      
-      
       <a href="mailto:angelo.cardellicchio@uniba.it" target="_blank" rel="noopener" title="" class="md-footer-social__link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
       </a>
@@ -589,10 +438,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
       
         <script src="../../js/config.js"></script>
       

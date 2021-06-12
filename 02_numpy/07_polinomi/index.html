@@ -1,0 +1,502 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://python.angelocardellicchio.it/02_numpy/07_polinomi/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>Il modulo `polynomial` - Python 4 Data Science</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Ubuntu";--md-code-font-family:"Ubuntu Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#il-modulo-polynomial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python 4 Data Science
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Il modulo `polynomial`
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Python 4 Data Science
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Python
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/01_intro/" class="md-nav__link">
+        01 - Introduzione
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operazioni-tra-polinomi" class="md-nav__link">
+    Operazioni tra polinomi
+  </a>
+  
+    <nav class="md-nav" aria-label="Operazioni tra polinomi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addizione-di-polinomi" class="md-nav__link">
+    Addizione di polinomi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sottrazione-di-polinomi" class="md-nav__link">
+    Sottrazione di polinomi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moltiplicazione-di-polinomi" class="md-nav__link">
+    Moltiplicazione di polinomi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#divisione-tra-polinomi" class="md-nav__link">
+    Divisione tra polinomi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elevazione-a-potenza" class="md-nav__link">
+    Elevazione a potenza
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizzazione-di-un-polinomio" class="md-nav__link">
+    Visualizzazione di un polinomio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valutare-un-polinomio" class="md-nav__link">
+    Valutare un polinomio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derivata-ed-integrale-di-funzioni-polinomiali" class="md-nav__link">
+    Derivata ed integrale di funzioni polinomiali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusioni" class="md-nav__link">
+    Conclusioni
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="il-modulo-polynomial">Il modulo <code>polynomial</code><a class="headerlink" href="#il-modulo-polynomial" title="Permanent link">&para;</a></h1>
+<p>Il modulo <code>numpy.polynomial.polynomial</code> ci offre numerose classi e funzionalità per il trattamento dei polinomi. Vediamo insieme quali sono le principali.</p>
+<h2 id="operazioni-tra-polinomi">Operazioni tra polinomi<a class="headerlink" href="#operazioni-tra-polinomi" title="Permanent link">&para;</a></h2>
+<p>Immaginiamo di avere due diversi polinomi (cui non associeremo alcun significato fisico), ovvero:</p>
+<div class="arithmatex">\[
+y = 2x + 1 \\
+y = x^2 + 3x + 2
+\]</div>
+<p>Vediamo come usare dei metodi forniti dal modulo <code>polynomial</code> per effettuare delle operazioni su di loro.</p>
+<h3 id="addizione-di-polinomi">Addizione di polinomi<a class="headerlink" href="#addizione-di-polinomi" title="Permanent link">&para;</a></h3>
+<p>Per effettuare l'addizione di due polinomi, possiamo usare il metodo <code>polyadd(c1, c2)</code>, che accetta come parametri due vettori <code>c1</code> e <code>c2</code> che rappresentano, rispettivamente, i coefficienti del polinomio 1 e 2. Volendo sommare il primo ed il secondo polinomio, potremo scrivere:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy.polynomial.polynomial</span> <span class="k">as</span> <span class="nn">poly</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polyadd</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
+</code></pre></div>
+<p>che è il risultato atteso, ovvero <span class="arithmatex">\(x^2 + 5x + 3\)</span>.</p>
+<p>Notiamo come le dimensioni di <code>c1</code> e di <code>c2</code> debbano essere tra loro <em>coerenti</em>. Se infatti omettessimo il coefficiente <span class="arithmatex">\(0\)</span> al termine di secondo grado in <code>c1</code>, il risultato sarebbe il seguente:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polyadd</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
+</code></pre></div>
+<p>Ovviamente, il risultato precedente è errato.</p>
+<h3 id="sottrazione-di-polinomi">Sottrazione di polinomi<a class="headerlink" href="#sottrazione-di-polinomi" title="Permanent link">&para;</a></h3>
+<p>Possiamo poi sottrarre due polinomi usando la funzione <code>polysub(c1, c2)</code>, i cui parametri sono identici a quelli passati a <code>polyadd</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polysub</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">c1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+</code></pre></div>
+<h3 id="moltiplicazione-di-polinomi">Moltiplicazione di polinomi<a class="headerlink" href="#moltiplicazione-di-polinomi" title="Permanent link">&para;</a></h3>
+<p>Le considerazioni precedenti possono essere banalmente traslate al caso della moltiplicazione tra polinomi, ottenibile mediante la funzione <code>polymul(c1, c2)</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polymul</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Notiamo che il coefficiente del termine di quarto grado viene comunque riportato, nonostante questo sia pari a zero.</p>
+</div>
+<h3 id="divisione-tra-polinomi">Divisione tra polinomi<a class="headerlink" href="#divisione-tra-polinomi" title="Permanent link">&para;</a></h3>
+<p>La divisione tra polinomi è un'operazione leggermente più complessa delle altre, e prevede l'uso della funzione <code>polydiv(c1, c2)</code>, che restituirà stavolta due array: il primo, <code>q</code>, rappresenta i coefficienti del polinomio quoziente, mentre il secondo, <code>r</code>, indica i coefficienti del polinomio resto.</p>
+<p>Nel nostro caso:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">polydiv</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">])</span>
+</code></pre></div>
+<h3 id="elevazione-a-potenza">Elevazione a potenza<a class="headerlink" href="#elevazione-a-potenza" title="Permanent link">&para;</a></h3>
+<p>Chiudiamo questa breve panoramica parlando dell'elevazione a potenza di un polinomio, effettuabile mediante la funzione <code>polypow(c, pow)</code>, con <code>c</code> vettore dei coefficienti, e <code>pow</code> potenza a cui elevare:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polypow</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+</code></pre></div>
+<p>Anche in questo caso, vengono riportati i termini pari a zero nei risultati.</p>
+<h2 id="visualizzazione-di-un-polinomio">Visualizzazione di un polinomio<a class="headerlink" href="#visualizzazione-di-un-polinomio" title="Permanent link">&para;</a></h2>
+<p>Il metodo che abbiamo usato finora per visualizzare i coefficienti di un polinomio è alquanto inefficace e poco rappresentativo. Possiamo quindi sfruttare la funzione <code>poly1d(p)</code> di NumPy, che ci offre un oggetto la cui rappresentazione è molto più simile a quella cui siamo abituati nella "realtà":</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="mi">2</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>Esistono diversi modi di sfruttare questa rappresentazione per mostrare a schermo i polinomi risultanti dalle operazioni che effettuiamo. Uno, banale, è convertire il polinomio risultante; altri invece prevedono l'utilizzo delle funzioni polinomiali di NumPy (e non del package <code>polynomial.polynomial</code>).</p>
+</div>
+<h2 id="valutare-un-polinomio">Valutare un polinomio<a class="headerlink" href="#valutare-un-polinomio" title="Permanent link">&para;</a></h2>
+<p>Per valutare il valore <span class="arithmatex">\(y\)</span> assunto dal polinomio per un determinato valore di <span class="arithmatex">\(x\)</span>, usiamo la funzione <code>polyval(x, p)</code>, che accetta come argomento un intero (o una lista di interi) <code>x</code> ed un polinomio <code>p</code>.</p>
+<p>Se volessimo valutare il valore assunto da <span class="arithmatex">\(y\)</span> per <span class="arithmatex">\(x \in [1, 2]\)</span> sulla retta rappresentata dal polinomio <code>c1</code>, ad esempio, potremmo usare <code>polyval</code> come segue:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polyval</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">])</span>
+</code></pre></div>
+<h2 id="derivata-ed-integrale-di-funzioni-polinomiali">Derivata ed integrale di funzioni polinomiali<a class="headerlink" href="#derivata-ed-integrale-di-funzioni-polinomiali" title="Permanent link">&para;</a></h2>
+<p>Concludiamo questa breve carrellata con due metodi in grado di calcolare, rispettivamente, la derivata e l'integrale di una funzione polinomiale.</p>
+<p>Il metodo <code>polyder(p, m)</code>, infatti, permette di calcolare la derivata di ordine <code>m</code> del polinomio <code>p</code> (di default, <code>m=2</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polyder</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">])</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Attenzione</p>
+<p>Non inseriamo coefficienti "extra" usando <code>polyder</code> e <code>polyints</code>, in quanto potrebbero portare a risultati inattesi.</p>
+</div>
+<p>Il metodo duale è <code>polyint(p, m)</code>, che prevedibilmente calcola l'integrale di ordine <code>m</code> del polinomio <code>p</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polyint</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.</span> <span class="p">,</span> <span class="mf">2.</span> <span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+</code></pre></div>
+<h2 id="conclusioni">Conclusioni<a class="headerlink" href="#conclusioni" title="Permanent link">&para;</a></h2>
+<p>In questa lezione, abbiamo dato uno sguardo ad alcune delle funzioni per il trattamento dei polinomi messe a disposizione da NumPy. Nella <a href="../08_statistica/">prossima lezione</a>, daremo uno sguardo ravvicinato alle funzioni statistiche.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" title="Back to top" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 Angelo Cardellicchio - MIT License
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/anhelus" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:angelo.cardellicchio@uniba.it" target="_blank" rel="noopener" title="" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M476 3.2 12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
