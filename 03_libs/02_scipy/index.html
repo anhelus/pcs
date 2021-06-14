@@ -16,7 +16,7 @@
     
     
       
-        <title>SciPy - Python 4 Data Science</title>
+        <title>L'ecosistema SciPy - Python 4 Data Science</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scipy" class="md-skip">
+        <a href="#lecosistema-scipy" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SciPy
+              L'ecosistema SciPy
             
           </span>
         </div>
@@ -250,22 +250,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generiamo-una-distribuzione-di-probabilita" class="md-nav__link">
-    Generiamo una distribuzione di probabilità
+  <a href="#la-libreria-scipy" class="md-nav__link">
+    La libreria SciPy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calcoliamo-determinante-ed-inversa" class="md-nav__link">
-    calcoliamo determinante ed inversa
+  <a href="#esempio-1-distribuzione-di-probabilita" class="md-nav__link">
+    Esempio 1: Distribuzione di probabilità
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#trasformata-di-fourier-di-un-seno" class="md-nav__link">
-    Trasformata di fourier di un seno
+  <a href="#esempio-2-calcolo-del-determinante-e-dellinversa" class="md-nav__link">
+    Esempio 2: calcolo del determinante e dell'inversa
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esempio-3-trasformata-di-fourier" class="md-nav__link">
+    Esempio 3: Trasformata di Fourier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusioni" class="md-nav__link">
+    Conclusioni
   </a>
   
 </li>
@@ -283,21 +297,21 @@
               
                 
                 
-                <h1 id="scipy">SciPy<a class="headerlink" href="#scipy" title="Permanent link">&para;</a></h1>
-<p>SciPy è una collezione di algoritmi matematici e funzioni costruite su NumPy. Aggiunge funzioanlità significative alle normali sessioni Python, fornendo all'utente dei comandi e delle classi per manipolare e visualizzare i dati.</p>
-<p>Per installarlo:</p>
-<p>pipenv install scipy</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>import numpy as np<br />
-import matplotlib as mpl<br />
-import matplotlib.pyplot as plt</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="generiamo-una-distribuzione-di-probabilita">Generiamo una distribuzione di probabilità<a class="headerlink" href="#generiamo-una-distribuzione-di-probabilita" title="Permanent link">&para;</a></h2>
-<p>Comparazione tra il valore teorico di una distribuzione di densità di probabilità e l'istogramma di un grande numero di valori generati casualmente.</p>
+                <h1 id="lecosistema-scipy">L'ecosistema SciPy<a class="headerlink" href="#lecosistema-scipy" title="Permanent link">&para;</a></h1>
+<p>Finora abbiamo parlato prevalentemente di NumPy e (soltanto in piccola parte) di Matplotlib. Tuttavia, entrambe queste librerie fanno parte di un ecosistema più ampio per il calcolo scientifico, comprendente anche le librerie <em>SciPy</em>, <em>iPython</em>, <em>Pandas</em> e <em>SimPy</em>. Questo ecosistema è, per l'appunto, chiamato come una delle librerie che lo compongono, che è anche quella di cui tratteremo (giocoforza limitatamente) in questa lezione, ovvero <em>SciPy</em>.</p>
+<h2 id="la-libreria-scipy">La <em>libreria</em> SciPy<a class="headerlink" href="#la-libreria-scipy" title="Permanent link">&para;</a></h2>
+<p>La libreria SciPy rappresenta un insieme di algoritmi e funzioni matematiche costruite a partire da NumPy. Tuttavia, come è possibile vedere dalla <a href="https://docs.scipy.org/doc/scipy/reference/">reference</a>, il numero e la varietà delle funzioni offerte è notevolmente maggiore rispetto a NumPy.</p>
+<p>Per iniziare, quindi, procediamo installandola nel nostro ambiente di sviluppo.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pipenv</span> <span class="n">install</span> <span class="n">scipy</span>
+</code></pre></div>
+<p>Nel prosieguo, presupporremo che siano stati già importati NumPy e Matplotlib.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</code></pre></div>
+<h2 id="esempio-1-distribuzione-di-probabilita">Esempio 1: Distribuzione di probabilità<a class="headerlink" href="#esempio-1-distribuzione-di-probabilita" title="Permanent link">&para;</a></h2>
+<p>Vediamo come comparare visivamente il valore teorico assunto da due distribuzioni di probabilità "standard" (ovvero la uniforme e la normale) e l'istogramma ottenuto a partire da un elevato numero di elementi generati casualmente ma appartenenti a quella distribuzione.</p>
+<p>Useremo questo codice:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">uniform</span>
 
 <span class="n">x_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.99</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
@@ -316,7 +330,41 @@ import matplotlib.pyplot as plt</p>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="calcoliamo-determinante-ed-inversa">calcoliamo determinante ed inversa<a class="headerlink" href="#calcoliamo-determinante-ed-inversa" title="Permanent link">&para;</a></h2>
+<p>In primis, importiamo i moduli <code>norm</code> ed <code>uniform</code> del package <code>scipy.stats</code>, che contengono tutto quello di cui abbiamo bisogno per la modellazione delle distribuzioni normali (<code>norm</code>) ed uniformi (<code>uniform</code>).</p>
+<p>Successivamente, usiamo la funzione <code>linspace</code> di NumPy, il cui funzionamento è molto simile a <code>range</code> ed <code>arange</code>, ma che restituisce risultati consistenti anche nel caso di uso di step non interi (il che non è sempre garantito con <code>arange</code>). In particolare, genereremo 100 campioni equidistanziati e compresi tra l'1 ed il 99 percentile delle funzioni; per individuare questi valori, usiamo la funzione <code>ppf(p)</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.99</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">uniform</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">uniform</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.99</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Intuitivamente, individuare 100 valori compresi tra l'1 ed il 99 percentile significa in pratica modellare la maggior parte dell'intervallo dei valori assunti "normalmente" dalla funzione.</p>
+</div>
+<p>A questo punto, calcoliamo 1000 valori generati casualmente seguendo entrambe le distribuzioni mediante la funzione <code>rvs()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">r_1</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">r_2</span> <span class="o">=</span> <span class="n">uniform</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+<p>Per terminare, generemo due subplot, uno relativo alla funzione densità di probabilità normale, ed uno relativo alla funzione densità di probabilità uniforme. Nei subplot, compareremo i valori equispaziati generati in precedenza (<code>x_1</code> ed <code>x_2</code>) con l'istogramma dei 1000 valori generati casualmente (<code>r_1</code> ed <code>r_2</code>); ovviamente, ricordiamo di inserire il valore <code>density=True</code> per normalizzare l'istogramma.</p>
+<p>Il risultato dovrebbe essere simile a quello mostrato in figura:</p>
+<!-- TODO IMAGE -->
+
+<h2 id="esempio-2-calcolo-del-determinante-e-dellinversa">Esempio 2: calcolo del determinante e dell'inversa<a class="headerlink" href="#esempio-2-calcolo-del-determinante-e-dellinversa" title="Permanent link">&para;</a></h2>
+<p>Un altro esempio delle potenzialità offerte da SciPy sta nel calcolo algebrico, che offre molte più funzioni rispetto a quelle presenti in NumPy, specialmente per quello che riguarda la fattorizzazione di matrici.</p>
+<p>Per fare un rapido esempio, vediamo come è possibile calcolare il determinante e l'inversa di una matrice.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+
+<span class="c1"># ... matrice mat creata sotto forma di array NumPy</span>
+
+<span class="c1"># Determinante</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<span class="c1"># Inversa</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>E' molto semplice otare come la sintassi richiami quella di NumPy e, in realtà, anche il funzionamento sia il medesimo, per cui è possibile usare indifferentemente entrambe le librerie. Dove SciPy "spicca" è in tutte quelle funzioni che non sono presenti in NumPy.</p>
+</div>
+<!-- TODO il seguente deve diventare un esercizio -->
+
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
 
 <span class="k">def</span> <span class="nf">can_be_inverted</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
@@ -332,37 +380,43 @@ import matplotlib.pyplot as plt</p>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div>
-<h2 id="trasformata-di-fourier-di-un-seno">Trasformata di fourier di un seno<a class="headerlink" href="#trasformata-di-fourier-di-un-seno" title="Permanent link">&para;</a></h2>
+<h2 id="esempio-3-trasformata-di-fourier">Esempio 3: Trasformata di Fourier<a class="headerlink" href="#esempio-3-trasformata-di-fourier" title="Permanent link">&para;</a></h2>
+<p>SciPy non è limitato al calcolo algebrico e matriciale, e può essere usato, come dicevamo, in molti altri ambiti, come ad esempio il signal processing. Ad esempio, possiamo sfruttarlo per calcolare la trasformata di Fourier di un segnale sinusoidale:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
-
-<span class="n">T</span> <span class="o">=</span> <span class="mf">0.01</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">N</span><span class="o">*</span><span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-
 <span class="n">yf</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">]))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">500</span><span class="p">]))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<p>somma di seni</p>
+<p>Nell'esempio precedente, generiamo 1000 campioni equidistanziati tra 0 e 10, e quindi creiamo il vettore <code>y</code> la cui formula sarà associata a <span class="arithmatex">\(f(x) = 2\pi x\)</span>. A quel punto, calcoliamo la trasformata di Fourier di <code>y</code>, e ne visualizziamo a schermo il modulo.</p>
+<!-- TODO figura -->
+
+<div class="admonition warning">
+<p class="admonition-title">Attenzione</p>
+<p>Ricordiamo che la trasformata di Fourier è simmetrica. Per questo, visualizzeremo soltanto la prima metà dei valori estratti per il modulo.</p>
+</div>
+<p>Possiamo estendere il precedente esperimento vedendo cosa accade per una somma di seni:</p>
 <div class="highlight"><pre><span></span><code><span class="n">y_tr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-
 <span class="n">y_trf</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">y_tr</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_trf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_trf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">500</span><span class="p">]))</span>
 </code></pre></div>
-<p>somma di seni con smorzamento</p>
+<p>Come si deve dalla figura, avremo come risultato due impulsi:</p>
+<!-- TODO figura -->
+
+<p>In ultimo, possiamo valutare anche cosa accade riducendo l'ampiezza di una delle due sinusoidi:</p>
 <div class="highlight"><pre><span></span><code><span class="n">y_tr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-
 <span class="n">y_trf</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">y_tr</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_trf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_trf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">500</span><span class="p">]))</span>
 </code></pre></div>
+<!-- TODO figura -->
+
+<h2 id="conclusioni">Conclusioni<a class="headerlink" href="#conclusioni" title="Permanent link">&para;</a></h2>
+<p>In questa lezione, abbiamo dato una breve panoramica sulle possibilità offerte da SciPy. Nelle prossime, vedremo come funzionano altre due librerie, ovvero <em>iPython</em> e <em>Pandas</em>.</p>
                 
               
               
