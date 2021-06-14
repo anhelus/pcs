@@ -12,18 +12,24 @@ Partiamo proprio da *Matplotlib*, che è probabilmente la più usata tra le libr
 pipenv install matplotlib
 ```
 
+Nel prosieguo, presupporremo che siano stati effettuati gli import necessari, riassumibili nelle seguenti istruzioni:
+
+```py
+import numpy as np
+import matplotlib.pylot as plt
+```
+
 ### Il primo plot
 
 Una volta installata Matplotlib, proviamo a creare il nostro primo plot. Per farlo, apriamo il nostro solito terminale Python, ed inseriamo le seguenti istruzioni:
+
 ```py
->>> import numpy as np
->>> import matplotlib.pylot as plt
->>> rng = np.random.default_rng(42)
->>> x = np.arange(1, 6)
->>> y = rng.integers(low=0, high=10, size=5)
->>> fig, ax = plt.subplots()
->>> ax.plot(x, y)
->>> plt.show()
+rng = np.random.default_rng(42)
+x = np.arange(1, 6)
+y = rng.integers(low=0, high=10, size=5)
+fig, ax = plt.subplots()
+ax.plot(x, y)
+plt.show()
 ```
 
 Se tutto è andato per il verso giusto, dovremmo vedere a schermo un'immagine simile a questa (data la natura casuale di `y`):
@@ -50,13 +56,13 @@ In ultimo, abbiamo gli *artist*, che rappresentano *tutto* quello che è possibi
 Torniamo brevemente al precedente snippet. Dopo aver importato i package necessari, ed aver creato un vettore di numeri interi casuali, abbiamo creato una `Figure` ed un `Axes` usando la funzione `subplots()`:
 
 ```py
->>> fig, ax = plt.subplots()
+fig, ax = plt.subplots()
 ```
 
 A quel punto, abbiamo effettuato il plot dei valori di `x` ed `y` su nostro oggetto `Axes`:
 
 ```py
->>> ax.plot(x, y)
+ax.plot(x, y)
 ```
 
 In ultimo, abbiamo mostrato a schermo la figura usando la funzione `plt.show()`.
@@ -210,6 +216,12 @@ Per prima cosa, installiamo la libreria nel modo usuale:
 pipenv install seaborn
 ```
 
+Importiamo poi Seaborn nel nostro script:
+
+```py
+import seaborn as sns
+```
+
 ### Esempio: Heatmap
 
 La sintassi usata da Seaborn è molto simile a quella usata da Matplotlib, con qualche piccola ed ovvia differenza. 
@@ -217,8 +229,6 @@ La sintassi usata da Seaborn è molto simile a quella usata da Matplotlib, con q
 Una funzione molto utile è quella che ci permette di visualizzare le *heatmap*, che ci permettono di visualizzare rapidamente i valori in diversi tipi di matrici, come ad esempio quelle di correlazione (o, come vedremo più avanti, quelle di confusione). Questa funzione, quasi "banalmente", è chiamata `heatmap()`, e richiede almeno un parametro in ingresso, rappresentativo della matrice da cui sarà estratta la figura:
 
 ```py
-import seaborn as sns
-
 a = rng.integers(low=0, high=100, size=(20, 20))
 coeff = np.corrcoef(a)
 fig, ax = plt.subplots()
