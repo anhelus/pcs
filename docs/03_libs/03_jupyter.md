@@ -38,9 +38,9 @@ A differenza delle altre librerie, non avremo bisogno di importare Jupyter; tutt
 
 A questo punto saremo davanti ad una schermata molto simle a quella mostrata in figura.
 
-<!-- TODO inserire schermata intro Jupyter -->
+![intro](../assets/images/03_libs/03_jupyter/intro.png)
 
-Creiamo il nostro primo notebook premendo il pulsante "TODO:". Una volta terminata la procedura, potremo iniziare ad interagire con l'ambiente.
+Creiamo il nostro primo notebook premendo il pulsante *Python 3* nel menu *Notebook*. Una volta terminata la procedura, potremo iniziare ad interagire con l'ambiente. Prima di procedere, però, definiamo il nome del nostro notebook dal menu a sinistra.
 
 Proviamo a fare qualcosa di semplice: importiamo NumPy e Matplotlib, creiamo un array di numeri casuali, e facciamone il plot a schermo. Per prima cosa, all'interno della prima cella, definiamo gli import:
 
@@ -49,10 +49,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 ```
 
-Per eseguire il codice all'interno della cella, premiamo il tasto `Play`, oppure la combinazione di tasti TODO: controllare `Ctrl+L`. Una volta eseguita la prima cella, vedremo che nel notebook se ne sarà creata un'altra; al suo interno, scriviamo le istruzioni necessarie alla creazione di un array casuale.
+Per eseguire il codice all'interno della cella, premiamo il tasto `Play`, oppure la combinazione di tasti `Shift+Invio`. Una volta eseguita la prima cella, vedremo che nel notebook se ne sarà creata un'altra; al suo interno, scriviamo le istruzioni necessarie alla creazione di un array casuale.
 
 ```py
-a = np.random.randint(0, 10, (5, 1))
+a = np.random.randint(0, 100, (5))
+a
 ```
 
 Eseguiamo l'istruzione; noteremo che al di sotto della cella è apparso a schermo l'array che abbiamo appena creato. *Se provassimo ad eseguire nuovamente il codice nella cella, vedremmo che l'array assumerebbe un nuovo valore*.
@@ -66,6 +67,8 @@ fig, ax = plt.subplots()
 
 ax.plot(np.arange(1, 6), a)
 ```
+
+![sample](../assets/images/03_libs/03_jupyter/sample.png)
 
 Vedremo immediatamente sotto la cella la figura rappresentativa del vettore che abbiamo creato.
 
@@ -82,6 +85,15 @@ Una breve descrizione.
 ### Cancellare una cella
 
 Possiamo anche decidere di cancellare una cella; per farlo, selezioniamola e premiamo due volte il tasto `D`, oppure andiamo dal menu `Cell` e selezioniamo l'apposita opzione.
+
+### Bonus: Estensioni
+
+E' possibile abilitare una serie di estensioni a partire dal menu indicato nella seguente immagine.
+
+![sample](../assets/images/03_libs/03_jupyter/extensions.png)
+
+!!!tip "Suggerimento"
+	Esistono delle estensioni per la visualizzazione delle variabili in stile Matlab. Tuttavia, è plausibile che sorgano delle problematiche di compatibilità con le ultime versioni di Jupyter Lab.
 
 ## Conclusioni
 

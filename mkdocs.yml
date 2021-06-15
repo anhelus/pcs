@@ -3,6 +3,8 @@ site_url: https://python.angelocardellicchio.it
 
 nav:
   - Home: index.md
+  - Slides: slides.md
+  - Esercizi: exercises.md
   - Python:
     - 01 - Introduzione: 01_python/01_intro.md
     # - 02 - Concetti base: 01_python/02_programmare.md

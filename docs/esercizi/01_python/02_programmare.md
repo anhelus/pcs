@@ -49,3 +49,30 @@ Valuto numero -4
 Esco
 False
 ```
+
+3. Estraiamo tutti gli indici pari di una lista arbitraria di dieci elementi in ordine inverso. Per farlo, usiamo sia la funzione `range` sia lo slicing.
+
+```py
+>>> def estrai_con_slice(lista):
+...     if len(lista) != 10:
+...             print('Errore!')
+...             return []
+...     else:
+...             return lista[::-2]
+...
+>>> def estrai_con_range(lista):
+...     if len(lista) != 10:
+...             print('Errore!')
+...             return []
+...     else:
+...             l_out = []
+...             for i in range(9, 0, -2):
+...                     l_out.append(lista[i])
+...             return l_out
+...
+>>> l = [1,2,3,4,5,6,7,8,9,10]
+>>> estrai_con_slice(l)
+[10, 8, 6, 4, 2]
+>>> estrai_con_range(l)
+[10, 8, 6, 4, 2]
+```
