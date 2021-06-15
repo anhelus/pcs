@@ -247,10 +247,10 @@ Python permette di accedere anche usando degli indici *negativi*, considerando q
 L'operazione di *slicing* permette di estrarre una certa parte di una stringa. In generale, assume la seguente forma:
 
 ```py
->>> stringa[i:j]
+>>> stringa[i:j:s]
 ```
 
-dove `i` è l'indice iniziale, e `j` quello finale. E' importante sottolineare come **l'elemento all'indice iniziale sarà incluso, mentre quello all'indice finale sarà escluso**.
+dove `i` è l'indice iniziale, `j` quello finale ed `s` lo step utilizzato. E' importante sottolineare come **l'elemento all'indice iniziale sarà incluso, mentre quello all'indice finale sarà escluso**.
 
 Ad esempio:
 
@@ -407,3 +407,55 @@ Proviamo ad estendere ulteriormente la lista cambiando il primo elemento con una
 ## Conclusioni
 
 Abbiamo dato una rapida introduzione al linguaggio Python, soffermandoci su alcune dei tipi di dati più usati, come numeri, stringhe e liste. Nelle prossime sezioni, torneremo sulle liste, ed approfondiremo altri tipi di iterabili, come tuple e dizionari.
+
+## Appendice alla lezione 1
+
+Ecco alcuni esempi di slicing su lista, con annessi risultati ottenibili.
+
+Consideriamo la seguente stringa:
+
+```py
+>>> l = [1, 2, 3, 4, 5, 6]
+```
+
+Prendiamo gli elementi sugli indice pari (ovvero 0, 2 e 4):
+
+```py
+>>> l[0::2]
+[1, 3, 5]
+```
+
+Prendiamo tutti gli elementi a partire dal terzultimo e con indice pari:
+
+```py
+>>> l[-3::2]
+[4, 6]
+```
+
+Partiamo dal terzultimo elemento, e proseguiamo all'indietro verso l'origine:
+
+```py
+>>> l[-3::-1]
+[4, 3, 2, 1]
+```
+
+Partiamo dall'ultimo elemento e proseguiamo sino al terz'ultimo dall'origine:
+
+```py
+>>> l[:3:-1]
+[6, 5]
+```
+
+Prendiamo gli ultimi tre elementi in ordine inverso:
+
+```py
+>>> l[len(l)-1:len(l)-4:-1]
+[6, 5, 4]
+```
+
+Prendiamo gli elementi agli indici pari in ordine inverso:
+
+```py
+>>> l[::-2]
+[6, 4, 2]
+```
