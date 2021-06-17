@@ -16,7 +16,7 @@
     
     
       
-        <title>Risoluzione degli esercizi - Python 4 Data Science</title>
+        <title>Lezione 3 - Python 4 Data Science</title>
       
     
     
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Risoluzione degli esercizi
+              Lezione 3
             
           </span>
         </div>
@@ -203,12 +203,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
         Esercizi
@@ -241,6 +243,28 @@
       <a href="../02_programmare/" class="md-nav__link">
         Lezione 2
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Lezione 3
+      </a>
+      
     </li>
   
 
@@ -294,6 +318,42 @@
     <li class="md-nav__item">
       <a href="../../../01_python/02_programmare/" class="md-nav__link">
         02 - Concetti base
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/03_strutture/" class="md-nav__link">
+        03 - Liste, code e pile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/04_list_comprehension/" class="md-nav__link">
+        04 - List comprehension
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/05_tuple_dict/" class="md-nav__link">
+        05 - Tuple, set e dizionari
       </a>
     </li>
   
@@ -355,6 +415,21 @@
 
 <span class="n">dizionario</span> <span class="o">=</span> <span class="n">genera_dict</span><span class="p">()</span>
 </code></pre></div>
+<ol start="3">
+<li>Scriviamo la funzione <code>lista_a_tupla()</code> che permetta di convertire una lista arbitraria in una tupla. Scriviamo poi la funzione duale, <code>tupla_a_lista()</code>. Entrambe le funzioni devono usare dei cicli.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">lista_a_tupla</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">()</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">+=</span> <span class="p">(</span><span class="n">el</span><span class="p">,)</span>
+    <span class="k">return</span> <span class="n">t</span>
+
+<span class="k">def</span> <span class="nf">tupla_a_lista</span><span class="p">(</span><span class="n">tupla</span><span class="p">):</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">tupla</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">+=</span> <span class="p">[</span><span class="n">el</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">l</span>
+</code></pre></div>
                 
               
               
@@ -374,6 +449,41 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../02_programmare/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lezione 2" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Lezione 2
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../01_python/01_intro/" class="md-footer__link md-footer__link--next" aria-label="Next: 01 - Introduzione" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              01 - Introduzione
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

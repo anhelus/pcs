@@ -176,6 +176,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://python.angelocardellicchio.it/esercizi/01_python/04_classi/</loc>
+         <lastmod>2021-06-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://python.angelocardellicchio.it/esercizi/03_libs/02_scipy/</loc>
          <lastmod>2021-06-17</lastmod>
          <changefreq>daily</changefreq>
