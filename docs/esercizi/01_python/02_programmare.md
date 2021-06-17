@@ -3,12 +3,16 @@
 1. Scriviamo una funzione che iteri fino a che il valore associato ad un contatore intero è minore di 10. Usiamo un ciclo `while`.
 
 ```py
->>> def itera_while():
-...     i=0
-...     while i < 10:
-...             i=i+1
-...             print("{}-ma iterazione".format(i))
-...
+def itera_while():
+    i=0
+    while i < 10:
+            i=i+1
+            print("{}-ma iterazione".format(i))
+```
+
+Il risultato ottenuto sarà:
+
+```py
 >>> itera_while()
 1-ma iterazione
 2-ma iterazione
@@ -25,19 +29,23 @@
 2. Scriviamo una funzione che iteri fino a che una condizione booleana non è `False`. Usiamo un ciclo `for`, ponendo come numero massimo di iterazioni 100 e se necessario, usando il metodo [`random.randint(a, b)`](https://docs.python.org/3/library/random.html#random.randint).
 
 ```py
->>> def itera_for():
-...     cond=True
-...     for i in range(100):
-...             eval = random.randint(-10, 10)
-...             print('Valuto numero {}'.format(eval))
-...             if eval < 0:
-...                     print('Esco')
-...                     cond=False
-...                     return cond
-...             else:
-...                     print('Continuo')
-...     return cond
-...
+def itera_for():
+    cond=True
+    for i in range(100):
+            eval = random.randint(-10, 10)
+            print('Valuto numero {}'.format(eval))
+            if eval < 0:
+                    print('Esco')
+                    cond=False
+                    return cond
+            else:
+                    print('Continuo')
+    return cond
+```
+
+Il risultato ottenuto sarà:
+
+```py
 >>> itera_for()
 Valuto numero 6
 Continuo
@@ -53,23 +61,27 @@ False
 3. Estraiamo tutti gli indici pari di una lista arbitraria di dieci elementi in ordine inverso. Per farlo, usiamo sia la funzione `range` sia lo slicing.
 
 ```py
->>> def estrai_con_slice(lista):
-...     if len(lista) != 10:
-...             print('Errore!')
-...             return []
-...     else:
-...             return lista[::-2]
-...
->>> def estrai_con_range(lista):
-...     if len(lista) != 10:
-...             print('Errore!')
-...             return []
-...     else:
-...             l_out = []
-...             for i in range(9, 0, -2):
-...                     l_out.append(lista[i])
-...             return l_out
-...
+def estrai_con_slice(lista):
+    if len(lista) != 10:
+            print('Errore!')
+            return []
+    else:
+            return lista[-2::-2]
+
+def estrai_con_range(lista):
+    if len(lista) != 10:
+        print('Errore!')
+        return []
+    else:
+        l_out = []
+        for i in range(8, -1, -2):
+            l_out.append(lista[i])
+        return l_out
+```
+
+Il risultato ottenuto sarà:
+
+```py
 >>> l = [1,2,3,4,5,6,7,8,9,10]
 >>> estrai_con_slice(l)
 [10, 8, 6, 4, 2]
