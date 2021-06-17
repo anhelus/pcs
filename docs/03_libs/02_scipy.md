@@ -8,9 +8,14 @@ La libreria SciPy rappresenta un insieme di algoritmi e funzioni matematiche cos
 
 Per iniziare, quindi, procediamo installandola nel nostro ambiente di sviluppo.
 
-```py
-pipenv install scipy
-```
+==="Pip" 
+	```sh
+	pip install scipy
+	```
+==="Pipenv"
+	```sh
+	pipenv install scipy
+	```
 
 Nel prosieguo, presupporremo che siano stati già importati NumPy e Matplotlib.
 
@@ -69,7 +74,7 @@ Per terminare, generemo due subplot, uno relativo alla funzione densità di prob
 
 Il risultato dovrebbe essere simile a quello mostrato in figura:
 
-<!-- TODO IMAGE -->
+![pdf](../assets/images/03_libs/02_scipy/pdfs.png)
 
 ## Esempio 2: calcolo del determinante e dell'inversa
 
@@ -91,25 +96,6 @@ i = linalg.inv(mat)
 !!!note "Nota"
 	E' molto semplice otare come la sintassi richiami quella di NumPy e, in realtà, anche il funzionamento sia il medesimo, per cui è possibile usare indifferentemente entrambe le librerie. Dove SciPy "spicca" è in tutte quelle funzioni che non sono presenti in NumPy.
 
-<!-- TODO il seguente deve diventare un esercizio -->
-
-```py
-from scipy import linalg
-
-def can_be_inverted(mat):
-	if linalg.det(mat) != 0.:
-		return True
-	else:
-		return False
-
-
-def invert_if_invertible(mat):
-	if can_be_inverted(mat):
-		return linalg.inv(mat)
-	else:
-		return None
-```
-
 ## Esempio 3: Trasformata di Fourier
 
 SciPy non è limitato al calcolo algebrico e matriciale, e può essere usato, come dicevamo, in molti altri ambiti, come ad esempio il signal processing. Ad esempio, possiamo sfruttarlo per calcolare la trasformata di Fourier di un segnale sinusoidale:
@@ -129,7 +115,7 @@ plt.show()
 
 Nell'esempio precedente, generiamo 1000 campioni equidistanziati tra 0 e 10, e quindi creiamo il vettore `y` la cui formula sarà associata a $f(x) = 2\pi x$. A quel punto, calcoliamo la trasformata di Fourier di `y`, e ne visualizziamo a schermo il modulo.
 
-<!-- TODO figura -->
+![fft_sin](../assets/images/03_libs/02_scipy/fft_sin.png)
 
 !!!warning "Attenzione"
 	Ricordiamo che la trasformata di Fourier è simmetrica. Per questo, visualizzeremo soltanto la prima metà dei valori estratti per il modulo.
@@ -144,7 +130,7 @@ ax.plot(np.abs(y_trf[0:500]))
 
 Come si deve dalla figura, avremo come risultato due impulsi:
 
-<!-- TODO figura -->
+![fft_two_sins](../assets/images/03_libs/02_scipy/fft_two_sins.png)
 
 In ultimo, possiamo valutare anche cosa accade riducendo l'ampiezza di una delle due sinusoidi:
 
@@ -154,7 +140,7 @@ y_trf = fft(y_tr)
 ax.plot(np.abs(y_trf[0:500]))
 ```
 
-<!-- TODO figura -->
+![fft_two_sins_red](../assets/images/03_libs/02_scipy/fft_two_sins_red.png)
 
 ## Conclusioni
 
