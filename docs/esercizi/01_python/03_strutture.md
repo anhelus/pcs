@@ -20,3 +20,19 @@ def genera_dict():
 
 dizionario = genera_dict()
 ```
+
+3. Scriviamo la funzione `lista_a_tupla()` che permetta di convertire una lista arbitraria in una tupla. Scriviamo poi la funzione duale, `tupla_a_lista()`. Entrambe le funzioni devono usare dei cicli.
+
+```py
+def lista_a_tupla(lista):
+    t = ()
+    for el in lista:
+        t += (el,)
+    return t
+
+def tupla_a_lista(tupla):
+    l = []
+    for el in tupla:
+        l += [el]
+    return l
+```
