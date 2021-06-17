@@ -16,7 +16,7 @@
     
     
       
-        <title>04 list comprehension - Python 4 Data Science</title>
+        <title>List comprehension - Python 4 Data Science</title>
       
     
     
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              04 list comprehension
+              List comprehension
             
           </span>
         </div>
@@ -189,18 +189,87 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../slides/" class="md-nav__link">
+        Slides
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
-      <label class="md-nav__link" for="__nav_2">
+      <label class="md-nav__link" for="__nav_3">
+        Esercizi
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Esercizi" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Esercizi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/01_python/01_intro/" class="md-nav__link">
+        Lezione 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/01_python/02_programmare/" class="md-nav__link">
+        Lezione 2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
         Python
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Python" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Python
         </label>
@@ -213,6 +282,18 @@
     <li class="md-nav__item">
       <a href="../01_intro/" class="md-nav__link">
         01 - Introduzione
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_programmare/" class="md-nav__link">
+        02 - Concetti base
       </a>
     </li>
   
@@ -240,6 +321,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -248,57 +331,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#list-comprehension" class="md-nav__link">
-    List comprehension
-  </a>
-  
-    <nav class="md-nav" aria-label="List comprehension">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#forma-base" class="md-nav__link">
     Forma base
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#forma-estesa-con-if-else" class="md-nav__link">
     Forma estesa con if-else
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#esempio-1-selezionare-i-nomi-da-una-lista" class="md-nav__link">
     Esempio 1: selezionare i nomi da una lista
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#esempio-2-calcolo-dei-quadrati" class="md-nav__link">
     Esempio 2: calcolo dei quadrati
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#esempio-3-lista-dei-numeri-pari-e-dispari" class="md-nav__link">
     Esempio 3: lista dei numeri pari e dispari
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#in-definitiva" class="md-nav__link">
     In definitiva...
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -322,10 +392,8 @@
               
                 
                 
-                  <h1>04 list comprehension</h1>
-                
-                <h2 id="list-comprehension">List comprehension<a class="headerlink" href="#list-comprehension" title="Permanent link">&para;</a></h2>
-<h3 id="forma-base">Forma base<a class="headerlink" href="#forma-base" title="Permanent link">&para;</a></h3>
+                <h1 id="list-comprehension">List comprehension<a class="headerlink" href="#list-comprehension" title="Permanent link">&para;</a></h1>
+<h2 id="forma-base">Forma base<a class="headerlink" href="#forma-base" title="Permanent link">&para;</a></h2>
 <p>Una delle tecniche più usate per effettuare delle operazioni sugli elementi di una lista è usare la tecnica della <em>list comprehension</em>, che permette di sostituire <em>quasi</em> completamente i classici cicli.</p>
 <p>Nella forma base, una list comprehension ha una sintassi di questo tipo:</p>
 <div class="highlight"><pre><span></span><code><span class="n">lista_output</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista_input</span><span class="p">]</span>
@@ -335,7 +403,7 @@
 <p class="admonition-title">Nota</p>
 <p>Per essere precisi, più che di lista, sarebbe opportuno parlare di iterabile di input.</p>
 </div>
-<h3 id="forma-estesa-con-if-else">Forma estesa con if-else<a class="headerlink" href="#forma-estesa-con-if-else" title="Permanent link">&para;</a></h3>
+<h2 id="forma-estesa-con-if-else">Forma estesa con if-else<a class="headerlink" href="#forma-estesa-con-if-else" title="Permanent link">&para;</a></h2>
 <p>La list comprehension può anche includere delle istruzioni condizionali. Un primo esempio è la seguente forma:</p>
 <div class="highlight"><pre><span></span><code><span class="n">lista_output_if</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista_input</span> <span class="k">if</span> <span class="n">condizione</span><span class="p">]</span>
 </code></pre></div>
@@ -344,7 +412,7 @@
 </code></pre></div>
 <p>la funzione <code>f()</code> sarebbe invocata su tutti gli elementi che soddisfano la <code>condizione</code>, mentre la funzione <code>g()</code> su tutti quelli che non la soddisfano.</p>
 <p>Vediamo adesso qualche esempio di applicazione.</p>
-<h3 id="esempio-1-selezionare-i-nomi-da-una-lista">Esempio 1: selezionare i nomi da una lista<a class="headerlink" href="#esempio-1-selezionare-i-nomi-da-una-lista" title="Permanent link">&para;</a></h3>
+<h2 id="esempio-1-selezionare-i-nomi-da-una-lista">Esempio 1: selezionare i nomi da una lista<a class="headerlink" href="#esempio-1-selezionare-i-nomi-da-una-lista" title="Permanent link">&para;</a></h2>
 <p>Supponiamo di voler selezionare tutti i nomi che iniziano con la lettera "B". Se usassimo un classico ciclo <code>for</code>, potremmo scrivere:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lista_nomi</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jax Teller&quot;</span><span class="p">,</span> <span class="s2">&quot;Walter White&quot;</span><span class="p">,</span> <span class="s2">&quot;Billy Butcher&quot;</span><span class="p">,</span> <span class="s2">&quot;Luke Skywalker&quot;</span><span class="p">,</span> <span class="s2">&quot;Bobby Singer&quot;</span><span class="p">,</span> <span class="s2">&quot;Johnny Lawrence&quot;</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
@@ -359,7 +427,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 <span class="p">[</span><span class="s1">&#39;Billy Butcher&#39;</span><span class="p">,</span> <span class="s1">&#39;Bobby Singer&#39;</span><span class="p">]</span>
 </code></pre></div>
-<h3 id="esempio-2-calcolo-dei-quadrati">Esempio 2: calcolo dei quadrati<a class="headerlink" href="#esempio-2-calcolo-dei-quadrati" title="Permanent link">&para;</a></h3>
+<h2 id="esempio-2-calcolo-dei-quadrati">Esempio 2: calcolo dei quadrati<a class="headerlink" href="#esempio-2-calcolo-dei-quadrati" title="Permanent link">&para;</a></h2>
 <p>Vediamo come usare una list comprehension per ottenere una nuova lista applicando a tutti gli elementi di una sequenza una certa funzione. Ad esempio, potremmo voler ottenere la lista dei quadrati di una certa sequenza:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">quadrato</span><span class="p">(</span><span class="n">numero</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">numero</span> <span class="o">**</span> <span class="mi">2</span>
@@ -374,7 +442,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">output</span>
 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>
 </code></pre></div>
-<h3 id="esempio-3-lista-dei-numeri-pari-e-dispari">Esempio 3: lista dei numeri pari e dispari<a class="headerlink" href="#esempio-3-lista-dei-numeri-pari-e-dispari" title="Permanent link">&para;</a></h3>
+<h2 id="esempio-3-lista-dei-numeri-pari-e-dispari">Esempio 3: lista dei numeri pari e dispari<a class="headerlink" href="#esempio-3-lista-dei-numeri-pari-e-dispari" title="Permanent link">&para;</a></h2>
 <p>Facciamo un ultimo esempio usando una list comprehension per "contrassegnare" tutti i numeri da 0 a 10 in base al fatto che siano pari o dispari. Al solito, vediamo come farlo usando un ciclo:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
@@ -390,7 +458,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">output</span>
 <span class="p">[</span><span class="s1">&#39;1 è dispari&#39;</span><span class="p">,</span> <span class="s1">&#39;2 è pari&#39;</span><span class="p">,</span> <span class="s1">&#39;3 è dispari&#39;</span><span class="p">,</span> <span class="s1">&#39;4 è pari&#39;</span><span class="p">,</span> <span class="s1">&#39;5 è dispari&#39;</span><span class="p">,</span> <span class="s1">&#39;6 è pari&#39;</span><span class="p">,</span> <span class="s1">&#39;7 è dispari&#39;</span><span class="p">,</span> <span class="s1">&#39;8 è pari&#39;</span><span class="p">,</span> <span class="s1">&#39;9 è dispari&#39;</span><span class="p">]</span>
 </code></pre></div>
-<h3 id="in-definitiva">In definitiva...<a class="headerlink" href="#in-definitiva" title="Permanent link">&para;</a></h3>
+<h2 id="in-definitiva">In definitiva...<a class="headerlink" href="#in-definitiva" title="Permanent link">&para;</a></h2>
 <p>Le list comprehension sono utili e versatili, e permettono, in molti casi, di sostituire i classici cicli con una sintassi più snella. Tuttavia, bisogna fare attenzione a non abusare di questo strumento: infatti, facendolo si rischia di complicare inutilmente il nostro programma, rendendolo poco leggibile e manutenibile.</p>
 <p>Come regola generale, quindi, ricordiamo il principio del rasoio di Occam: anche se è facile innamorarsi delle list comprehension, è bene ricordarsi che anche i cicli sono <em>leciti e funzionali</em>, per cui non è sempre necessario trovare a tutti i costi una soluzione usando una list comprehension.</p>
 <h2 id="post-scriptum-assignment-expressions">Post scriptum: assignment expressions<a class="headerlink" href="#post-scriptum-assignment-expressions" title="Permanent link">&para;</a></h2>

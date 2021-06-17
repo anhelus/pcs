@@ -188,6 +188,75 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../slides/" class="md-nav__link">
+        Slides
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Esercizi
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Esercizi" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Esercizi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/01_python/01_intro/" class="md-nav__link">
+        Lezione 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/01_python/02_programmare/" class="md-nav__link">
+        Lezione 2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -195,14 +264,14 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
-      <label class="md-nav__link" for="__nav_2">
+      <label class="md-nav__link" for="__nav_4">
         Python
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Python" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Python
         </label>
@@ -383,6 +452,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#alcuni-esempi" class="md-nav__link">
+    Alcuni esempi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#mutabilita-di-una-lista" class="md-nav__link">
     Mutabilità di una lista
   </a>
@@ -408,17 +484,22 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#appendice-alla-lezione-1" class="md-nav__link">
-    Appendice alla lezione 1
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_programmare/" class="md-nav__link">
+        02 - Concetti base
+      </a>
     </li>
   
 
@@ -592,6 +673,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#alcuni-esempi" class="md-nav__link">
+    Alcuni esempi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#mutabilita-di-una-lista" class="md-nav__link">
     Mutabilità di una lista
   </a>
@@ -613,13 +701,6 @@
         <li class="md-nav__item">
   <a href="#conclusioni" class="md-nav__link">
     Conclusioni
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#appendice-alla-lezione-1" class="md-nav__link">
-    Appendice alla lezione 1
   </a>
   
 </li>
@@ -890,6 +971,35 @@ Il consiglio, in questi casi "ibridi", è quello di usare l'operatore standard d
 <span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span> <span class="o">+</span> <span class="p">[</span><span class="mi">6</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </code></pre></div>
+<h3 id="alcuni-esempi">Alcuni esempi<a class="headerlink" href="#alcuni-esempi" title="Permanent link">&para;</a></h3>
+<p>Ecco alcuni esempi di slicing su lista, con annessi risultati ottenibili.</p>
+<p>Consideriamo la seguente stringa:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</code></pre></div>
+<p>Prendiamo gli elementi sugli indice pari (ovvero 0, 2 e 4):</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div>
+<p>Prendiamo tutti gli elementi a partire dal terzultimo e con indice pari:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</code></pre></div>
+<p>Partiamo dal terzultimo elemento, e proseguiamo all'indietro verso l'origine:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>Partiamo dall'ultimo elemento e proseguiamo sino al terz'ultimo dall'origine:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[:</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div>
+<p>Prendiamo gli ultimi tre elementi in ordine inverso:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre></div>
+<p>Prendiamo gli elementi agli indici pari in ordine inverso:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[::</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
 <h3 id="mutabilita-di-una-lista">Mutabilità di una lista<a class="headerlink" href="#mutabilita-di-una-lista" title="Permanent link">&para;</a></h3>
 <p>A differenza delle stringhe, le liste sono oggetti <em>mutabili</em>. Di conseguenza, possiamo modificarne il contenuto:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
@@ -929,35 +1039,6 @@ Il consiglio, in questi casi "ibridi", è quello di usare l'operatore standard d
 </code></pre></div>
 <h2 id="conclusioni">Conclusioni<a class="headerlink" href="#conclusioni" title="Permanent link">&para;</a></h2>
 <p>Abbiamo dato una rapida introduzione al linguaggio Python, soffermandoci su alcune dei tipi di dati più usati, come numeri, stringhe e liste. Nelle prossime sezioni, torneremo sulle liste, ed approfondiremo altri tipi di iterabili, come tuple e dizionari.</p>
-<h2 id="appendice-alla-lezione-1">Appendice alla lezione 1<a class="headerlink" href="#appendice-alla-lezione-1" title="Permanent link">&para;</a></h2>
-<p>Ecco alcuni esempi di slicing su lista, con annessi risultati ottenibili.</p>
-<p>Consideriamo la seguente stringa:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-</code></pre></div>
-<p>Prendiamo gli elementi sugli indice pari (ovvero 0, 2 e 4):</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</code></pre></div>
-<p>Prendiamo tutti gli elementi a partire dal terzultimo e con indice pari:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-</code></pre></div>
-<p>Partiamo dal terzultimo elemento, e proseguiamo all'indietro verso l'origine:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-</code></pre></div>
-<p>Partiamo dall'ultimo elemento e proseguiamo sino al terz'ultimo dall'origine:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[:</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</code></pre></div>
-<p>Prendiamo gli ultimi tre elementi in ordine inverso:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-</code></pre></div>
-<p>Prendiamo gli elementi agli indici pari in ordine inverso:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[::</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-</code></pre></div>
                 
               
               
@@ -981,7 +1062,7 @@ Il consiglio, in questi casi "ibridi", è quello di usare l'operatore standard d
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+        <a href="../../esercizi/01_python/02_programmare/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lezione 2" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -990,11 +1071,26 @@ Il consiglio, in questi casi "ibridi", è quello di usare l'operatore standard d
               <span class="md-footer__direction">
                 Previous
               </span>
-              Home
+              Lezione 2
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../02_programmare/" class="md-footer__link md-footer__link--next" aria-label="Next: 02 - Concetti base" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              02 - Concetti base
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   

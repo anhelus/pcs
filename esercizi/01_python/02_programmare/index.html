@@ -16,7 +16,7 @@
     
     
       
-        <title>Risoluzione degli esercizi - Python 4 Data Science</title>
+        <title>Lezione 2 - Python 4 Data Science</title>
       
     
     
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Risoluzione degli esercizi
+              Lezione 2
             
           </span>
         </div>
@@ -189,18 +189,99 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../slides/" class="md-nav__link">
+        Slides
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Esercizi
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Esercizi" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Esercizi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_intro/" class="md-nav__link">
+        Lezione 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Lezione 2
+      </a>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
-      <label class="md-nav__link" for="__nav_2">
+      <label class="md-nav__link" for="__nav_4">
         Python
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Python" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Python
         </label>
@@ -213,6 +294,18 @@
     <li class="md-nav__item">
       <a href="../../../01_python/01_intro/" class="md-nav__link">
         01 - Introduzione
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_programmare/" class="md-nav__link">
+        02 - Concetti base
       </a>
     </li>
   
@@ -258,13 +351,14 @@
 <ol>
 <li>Scriviamo una funzione che iteri fino a che il valore associato ad un contatore intero è minore di 10. Usiamo un ciclo <code>while</code>.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">itera_while</span><span class="p">():</span>
-<span class="o">...</span>     <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
-<span class="o">...</span>     <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-<span class="o">...</span>             <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-<span class="o">...</span>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">-ma iterazione&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="o">...</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">itera_while</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">itera_while</span><span class="p">():</span>
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">-ma iterazione&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</code></pre></div>
+<p>Il risultato ottenuto sarà:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">itera_while</span><span class="p">()</span>
 <span class="mi">1</span><span class="o">-</span><span class="n">ma</span> <span class="n">iterazione</span>
 <span class="mi">2</span><span class="o">-</span><span class="n">ma</span> <span class="n">iterazione</span>
 <span class="mi">3</span><span class="o">-</span><span class="n">ma</span> <span class="n">iterazione</span>
@@ -279,20 +373,21 @@
 <ol start="2">
 <li>Scriviamo una funzione che iteri fino a che una condizione booleana non è <code>False</code>. Usiamo un ciclo <code>for</code>, ponendo come numero massimo di iterazioni 100 e se necessario, usando il metodo <a href="https://docs.python.org/3/library/random.html#random.randint"><code>random.randint(a, b)</code></a>.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">itera_for</span><span class="p">():</span>
-<span class="o">...</span>     <span class="n">cond</span><span class="o">=</span><span class="kc">True</span>
-<span class="o">...</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
-<span class="o">...</span>             <span class="nb">eval</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="o">...</span>             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valuto numero </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">eval</span><span class="p">))</span>
-<span class="o">...</span>             <span class="k">if</span> <span class="nb">eval</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="o">...</span>                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Esco&#39;</span><span class="p">)</span>
-<span class="o">...</span>                     <span class="n">cond</span><span class="o">=</span><span class="kc">False</span>
-<span class="o">...</span>                     <span class="k">return</span> <span class="n">cond</span>
-<span class="o">...</span>             <span class="k">else</span><span class="p">:</span>
-<span class="o">...</span>                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Continuo&#39;</span><span class="p">)</span>
-<span class="o">...</span>     <span class="k">return</span> <span class="n">cond</span>
-<span class="o">...</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">itera_for</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">itera_for</span><span class="p">():</span>
+    <span class="n">cond</span><span class="o">=</span><span class="kc">True</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+            <span class="nb">eval</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Valuto numero </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">eval</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">eval</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Esco&#39;</span><span class="p">)</span>
+                    <span class="n">cond</span><span class="o">=</span><span class="kc">False</span>
+                    <span class="k">return</span> <span class="n">cond</span>
+            <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Continuo&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cond</span>
+</code></pre></div>
+<p>Il risultato ottenuto sarà:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">itera_for</span><span class="p">()</span>
 <span class="n">Valuto</span> <span class="n">numero</span> <span class="mi">6</span>
 <span class="n">Continuo</span>
 <span class="n">Valuto</span> <span class="n">numero</span> <span class="mi">7</span>
@@ -302,6 +397,33 @@
 <span class="n">Valuto</span> <span class="n">numero</span> <span class="o">-</span><span class="mi">4</span>
 <span class="n">Esco</span>
 <span class="kc">False</span>
+</code></pre></div>
+<ol start="3">
+<li>Estraiamo tutti gli indici pari di una lista arbitraria di dieci elementi in ordine inverso. Per farlo, usiamo sia la funzione <code>range</code> sia lo slicing.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">estrai_con_slice</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Errore!&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">lista</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">::</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">estrai_con_range</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Errore!&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">l_out</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">):</span>
+            <span class="n">l_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">l_out</span>
+</code></pre></div>
+<p>Il risultato ottenuto sarà:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">estrai_con_slice</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">estrai_con_range</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </code></pre></div>
                 
               
@@ -322,6 +444,41 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../01_intro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lezione 1" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Lezione 1
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../01_python/01_intro/" class="md-footer__link md-footer__link--next" aria-label="Next: 01 - Introduzione" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              01 - Introduzione
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

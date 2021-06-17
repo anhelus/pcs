@@ -189,18 +189,87 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../slides/" class="md-nav__link">
+        Slides
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
-      <label class="md-nav__link" for="__nav_2">
+      <label class="md-nav__link" for="__nav_3">
+        Esercizi
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Esercizi" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Esercizi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/01_python/01_intro/" class="md-nav__link">
+        Lezione 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/01_python/02_programmare/" class="md-nav__link">
+        Lezione 2
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
         Python
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Python" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Python
         </label>
@@ -213,6 +282,18 @@
     <li class="md-nav__item">
       <a href="../../01_python/01_intro/" class="md-nav__link">
         01 - Introduzione
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/02_programmare/" class="md-nav__link">
+        02 - Concetti base
       </a>
     </li>
   
@@ -302,8 +383,12 @@
 <h2 id="la-libreria-scipy">La <em>libreria</em> SciPy<a class="headerlink" href="#la-libreria-scipy" title="Permanent link">&para;</a></h2>
 <p>La libreria SciPy rappresenta un insieme di algoritmi e funzioni matematiche costruite a partire da NumPy. Tuttavia, come è possibile vedere dalla <a href="https://docs.scipy.org/doc/scipy/reference/">reference</a>, il numero e la varietà delle funzioni offerte è notevolmente maggiore rispetto a NumPy.</p>
 <p>Per iniziare, quindi, procediamo installandola nel nostro ambiente di sviluppo.</p>
-<div class="highlight"><pre><span></span><code><span class="n">pipenv</span> <span class="n">install</span> <span class="n">scipy</span>
-</code></pre></div>
+<p>==="Pip" <br />
+    <div class="highlight"><pre><span></span><code>pip install scipy
+</code></pre></div><br />
+==="Pipenv"<br />
+    <div class="highlight"><pre><span></span><code>pipenv install scipy
+</code></pre></div></p>
 <p>Nel prosieguo, presupporremo che siano stati già importati NumPy e Matplotlib.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
@@ -345,8 +430,7 @@
 </code></pre></div>
 <p>Per terminare, generemo due subplot, uno relativo alla funzione densità di probabilità normale, ed uno relativo alla funzione densità di probabilità uniforme. Nei subplot, compareremo i valori equispaziati generati in precedenza (<code>x_1</code> ed <code>x_2</code>) con l'istogramma dei 1000 valori generati casualmente (<code>r_1</code> ed <code>r_2</code>); ovviamente, ricordiamo di inserire il valore <code>density=True</code> per normalizzare l'istogramma.</p>
 <p>Il risultato dovrebbe essere simile a quello mostrato in figura:</p>
-<!-- TODO IMAGE -->
-
+<p><img alt="pdf" src="../../assets/images/03_libs/02_scipy/pdfs.png" /></p>
 <h2 id="esempio-2-calcolo-del-determinante-e-dellinversa">Esempio 2: calcolo del determinante e dell'inversa<a class="headerlink" href="#esempio-2-calcolo-del-determinante-e-dellinversa" title="Permanent link">&para;</a></h2>
 <p>Un altro esempio delle potenzialità offerte da SciPy sta nel calcolo algebrico, che offre molte più funzioni rispetto a quelle presenti in NumPy, specialmente per quello che riguarda la fattorizzazione di matrici.</p>
 <p>Per fare un rapido esempio, vediamo come è possibile calcolare il determinante e l'inversa di una matrice.</p>
@@ -363,23 +447,6 @@
 <p class="admonition-title">Nota</p>
 <p>E' molto semplice otare come la sintassi richiami quella di NumPy e, in realtà, anche il funzionamento sia il medesimo, per cui è possibile usare indifferentemente entrambe le librerie. Dove SciPy "spicca" è in tutte quelle funzioni che non sono presenti in NumPy.</p>
 </div>
-<!-- TODO il seguente deve diventare un esercizio -->
-
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
-
-<span class="k">def</span> <span class="nf">can_be_inverted</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span> <span class="o">!=</span> <span class="mf">0.</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-
-<span class="k">def</span> <span class="nf">invert_if_invertible</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">can_be_inverted</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">None</span>
-</code></pre></div>
 <h2 id="esempio-3-trasformata-di-fourier">Esempio 3: Trasformata di Fourier<a class="headerlink" href="#esempio-3-trasformata-di-fourier" title="Permanent link">&para;</a></h2>
 <p>SciPy non è limitato al calcolo algebrico e matriciale, e può essere usato, come dicevamo, in molti altri ambiti, come ad esempio il signal processing. Ad esempio, possiamo sfruttarlo per calcolare la trasformata di Fourier di un segnale sinusoidale:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span>
@@ -394,8 +461,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p>Nell'esempio precedente, generiamo 1000 campioni equidistanziati tra 0 e 10, e quindi creiamo il vettore <code>y</code> la cui formula sarà associata a <span class="arithmatex">\(f(x) = 2\pi x\)</span>. A quel punto, calcoliamo la trasformata di Fourier di <code>y</code>, e ne visualizziamo a schermo il modulo.</p>
-<!-- TODO figura -->
-
+<p><img alt="fft_sin" src="../../assets/images/03_libs/02_scipy/fft_sin.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Attenzione</p>
 <p>Ricordiamo che la trasformata di Fourier è simmetrica. Per questo, visualizzeremo soltanto la prima metà dei valori estratti per il modulo.</p>
@@ -406,15 +472,13 @@
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_trf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">500</span><span class="p">]))</span>
 </code></pre></div>
 <p>Come si deve dalla figura, avremo come risultato due impulsi:</p>
-<!-- TODO figura -->
-
+<p><img alt="fft_two_sins" src="../../assets/images/03_libs/02_scipy/fft_two_sins.png" /></p>
 <p>In ultimo, possiamo valutare anche cosa accade riducendo l'ampiezza di una delle due sinusoidi:</p>
 <div class="highlight"><pre><span></span><code><span class="n">y_tr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
 <span class="n">y_trf</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">y_tr</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_trf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">500</span><span class="p">]))</span>
 </code></pre></div>
-<!-- TODO figura -->
-
+<p><img alt="fft_two_sins_red" src="../../assets/images/03_libs/02_scipy/fft_two_sins_red.png" /></p>
 <h2 id="conclusioni">Conclusioni<a class="headerlink" href="#conclusioni" title="Permanent link">&para;</a></h2>
 <p>In questa lezione, abbiamo dato una breve panoramica sulle possibilità offerte da SciPy. Nelle prossime, vedremo come funzionano altre due librerie, ovvero <em>iPython</em> e <em>Pandas</em>.</p>
                 
