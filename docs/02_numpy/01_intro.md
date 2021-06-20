@@ -15,9 +15,14 @@ $ cd python-data-science
 
 A questo punto, usiamo pipenv per creare un nuovo ambiente virtuale ed installare NumPy:
 
-```sh
-$ pipenv install numpy
-```
+==="Pip" 
+	```sh
+	pip install numpy
+	```
+==="Pipenv"
+	```sh
+	pipenv install numpy
+	```
 
 Una volta terminata la procedura, saranno presenti due file all'interno della cartella `python-data-science`:
 

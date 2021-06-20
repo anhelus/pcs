@@ -1,52 +1,145 @@
 # Cosa è Scikit-Learn?
 
-Scikit-Learn è una grossa libreria per il machine learnign che supporta sia l'apprendimento supervisionato, sia l'apprendimento non supervisionato. Fornisce anche diversi tool per il model fitting, il data preprocessing, la selezione e valutazione del mdoello, e via dicendo.
+Scikit-Learn è una delle principali librerie per il machine learning disponibili per Python. Il fatto che sia ampiamente utilizzata è legato soprattutto al fatto che supporta un gran numero di algoritmi, risulta abbastanza semplice da utilizzare, ed è perfettamente integrata con NumPy e Pandas.
+
+In questa lezione, daremo una panoramica ad ampio spettro delle capacità di Scikit-Learn, per poi passare a trattare più nel dettaglio diversi scenari di utilizzo nelle prossime lezioni.
 
 ## Installazione di Scikit-Learn
 
-TODO
+Per prima cosa, installiamo la libreria, al solito globalmente o nel nostro ambiente virtuale.
+
+==="Pip" 
+	```sh
+	pip install scikit-learn
+	```
+==="Pipenv"
+	```sh
+	pipenv install scikit-learn
+	```
+
+Fatto questo, prima di procedere a "sporcarci le mani", è necessario introdurre un po' della terminologia usata in ambito machine learning.
 
 ## Un po' di terminologia
 
-Prima di andare avanti, è necessario sapere alcune cose.
-
 ### Dati e feature
 
-Possiamo immaginare un dataset come una sorta di "matrice", nella quale le righe sono chiamate *campioni*, mentre le colonne sono chiamate *feature*.
+Quando abbiamo parlato di Pandas, abbiamo visto che possiamo immaginare un dataset come una sorta di *matrice*, nella quale le righe sono chiamate *campioni*, mentre le colonne sono chiamate *feature*.
 
-I campioni sono delle osservazioni del fenomeno. Le feature sono le diverse variabili relative a ciascuna osservazione.
+Un dataset serve a modellare un fenomeno sotto osservazione. Nel caso che abbiamo affrontato in precedenza, il dataset Titanic modella il "fenomeno" relativo ai passeggeri della nave; altri dataset possono essere relativi a dati acquisiti da dei sensori, oppure ancora alle immagini in un impianto di videosorveglianza. I fenomeni sono quindi *eterogenei*, e dipendono ovviamente dallo scenario sotto analisi.
 
-Per fare un esempio, immaginiamo di avere due sensori, uno di umidità ed uno di temperatura, che acquisiscono i dati ogni quindici minuti.
+!!!note "Nota"
+    Normalmente, nella modellazione di un qualsiasi tipo di fenomeno, è bene sfruttare la conoscenza di un *esperto di dominio*.
 
-Immaginiamo di disporre le acquisizioni in un foglio di calcolo: su ogni riga, avremo un campione, nel quale vi è il momento di acquisizione, oltre ai valori letti di temperatura ed umidità, che potremo leggere per colonna. Le righe sono appunto i campioni, mentre le colonne (istante di acquisizione, temperatura ed umidità) sono le feature.
+<!-- TODO: inserire figura 3 slides -->
 
-### Metodi di machine learning
+#### Campioni e sbilanciamento del dataset
 
-La scelta principale dell'algoritmo di machine learning da utilizzare è legata al *tipo* di dati. Ma cosa significa *tipo di dati*?
+I campioni sono le *osservazioni* del fenomeno: nel caso del dataset Titanic, ogni campione è associato ad un passeggero, mentre per dati provenienti da immagini di videosorveglianza, il singolo campione è associato ad ogni immagine acquisita dalle videocamere. 
 
-Sostanzialmente, esistono due tipi di dati.
+Ovviamente, è anche possibile che più campioni provengano da meccanismi di generazione dei dati molto simili: ad esempio, potremmo avere due righe che descrivono lo stesso passeggero, o due immagini che riprendono la stessa persona dalla stessa angolazione: in questo caso, occorre valutare se vi è della ridondanza tra i dati, ed eventualmente effettuarne un filtraggio. L'estremizzazione di questo principio porta alla problematica degli *imbalanced data*, ovvero dei dataset *sbilanciati* verso un'unica classe.
 
-* dati indipendenti ed identicamente distribuiti (IID)
-* serie temporali
+<!-- TODO: fare slide -->
+
+#### Feature e feature selection
+
+D'altro canto, le colonne sono le *feature* del nostro dataset. Nel caso del dataset del Titanic, abbiamo a che fare con il nome del passeggero, la cabina, o ad esempio la modalità di imbarco; nel caso di un dataset relativo a dati acquisiti da sensori, potremmo avere le letture di temperatura e di umidità, ad esempio. Per un dataset di immagini, invece, le feature sono, in senso lato, tutte le forme, a differenti livelli di astrazione, che possono essere individuate all'interno dell'immagine.
+
+Così come per i dati, anche le feature possono essere *ridondanti*. Se, ad esempio, notassimo che le letture derivanti dal sensore di ossigeno sono *linearmente proporzionali* rispetto a quelle derivanti dal sensore di temperatura, potremmo decidere di eliminare una delle due letture; lo stesso potremmo fare nel caso individuassimo delle feature a bassa varianza, e che quindi assumono lo stesso valore (o quasi) per tutti i dati.
+
+Questo processo di eliminazione, chiamato *feature selection*, è estremamente importante, soprattutto perché avere troppe feature significa rischiare di incorrere nel fenomeno della *curse of dimensionality*.
+
+<!-- TODO: fare slide -->
+
+##### Curse of dimensionality
+
+Nell'ambito del machine learning, la *curse of dimensionality* indica quel fenomeno che insorge quando il numero di feature è paragonabile a quello dei campioni.
+
+Dobbiamo ricordare che il machine learning non fa altro che provare ad "estrarre" una relazione tra i campioni e le feature che li rappresentano: in altre parole, gli algoritmi tentano di capire se, ad esempio, esiste una correlazione tra tutti i passeggeri maschi di età inferiore ai 18 anni, oppure se le donne con età superiore ai 60 anni hanno aderito ad un certo piano tariffario, e via dicendo. Per far questo, è necessario che ci siano abbastanza campioni per descrivere ogni possibile comportamento del fenomeno sotto osservazione: ad esempio, se vi è soltanto una donna che ha pagato il biglietto più di 10 dollari, è plausibile che questa informazione sia *inutile*, ancorché *fuorviante*, mentre se un gran numero di ragazzi è stipato nelle cabine del secondo piano, allora, l'informazione avrà un valore del tutto differente.
+
+La conseguenza immediata di ciò, e che è alla base della curse of dimensionality, risiede quindi nel fatto che quando il numero di feature è circa uguale a quello dei campioni è *molto probabile* che l'algoritmo non sarà in grado di caratterizzare in maniera adeguata il fenomeno sottostante. Le soluzioni a quel punto saranno due: da un lato, potremo provare ad aumentare il numero dei campioni, mentre dall'altro potremo provare a rimuovere le feature poco significative, o anche quelle tra loro correlate, aiutando a mitigare la curse of dimensionality.
+
+<!-- TODO: fare slide -->
+
+### Tipi di dati
+
+Abbiamo finora parlato di campioni e feature. Tuttavia, non abbiamo ancora affrontato un aspetto fondamentale nell'analisi dei dati, ovvero la valutazione del *tipo di dato*, la quale determina, di conseguenza, la scelta dell'algoritmo da utilizzare.
+
+Sostanzialmente, esistono due tipi di dati, ovvero i *dati indipendenti ed identicamente distribuiti* (*IID*) e le *serie temporali*.
 
 #### Dati indipendenti ed identicamente distribuiti
 
-I dati IID sono, come dice il nome stesso, *indipendenti* l'uno dall'altro. In altri termini, ciò significa che il valore di un campione non dipende dal valore di un altro. Un esempio sono le immagini.
+I dati IID sono, come dice il nome stesso, *indipendenti* l'uno dall'altro; inoltre, tutti i dati fanno parte dello stesso meccanismo di generazione dei dati, e quindi si suppone *sottendano alla stessa distribuzione*. In altri termini, ciò significa che il valore di un campione non dipende dal valore di un altro.
+
+Un esempio sono le immagini di diversi oggetti, che possono essere usate per creare un algoritmo di identificazione degli oggetti, oppure gli stessi passeggeri del Titanic.
+
+<!-- TODO: da slide -->
+
+Tipicamente, su questo tipo di dati sono usate tre tipi di algoritmi, ovvero *regressione*, *classificazione* e *clustering*.
+
+##### Classificazione
+
+Le tecniche di classificazione prevedono che ad ogni dato sia assegnata una *classe*, comportando di conseguenza un "raggruppamento" degli stessi in base alle indicazioni sulle classi.
+
+Un esempio sono le classificazioni delle immagini rispetto al tipo di oggetto raffigurato: le immagini relative ad un'auto apparterranno alla classe omonima, mentre le immagini di un cane apparteranno ad un'altra classe, e via dicendo. Altro esempio sono è una possibile classificazione dei passeggeri del Titanic sulla base del fatto che siano sopravvissuti o meno.
+
+<!-- TODO: slide -->
+
+##### Regressione
+
+Le tecniche di regressione cercano invece di trovare una relazione tra le feature di ciascun dato ed un valore numerico (TODO: verificare se continuo o discreto).
+
+Rimanendo ai passeggeri del Titanic, potremmo voler valutare il rapporto esistente tra l'età del passeggero ed il prezzo che questi ha pagato per il biglietto.
+
+<!-- TODO: slide -->
+
+##### Clustering
+
+In ultimo, le tecniche di clustering provano ad inferire dei "raggruppamenti", chiamati formalmente *cluster*, di dati. Ovviamente, i dati appartenenti ad un cluster sono da considerarsi *affini*, mentre i dati appartenenti a cluster differenti sono da considerarsi *differenti*.
+
+Il clustering non prevede la presenza di alcuna classe. Di conseguenza, queste tecniche di apprendimento sono dette *non supervisionate*, in quanto non è necessario l'intervento di un esperto di dominio per definire le classi cui appartengono i dati su cui viene addestrato l'algoritmo.
+
+<!-- TODO: slide -->
 
 #### Serie temporali
 
-Le serie temporali sono invece fatte da dati dipendenti l'uno dall'altro, vincolati tra loro da vincoli temporali. Un esempio è un video, che è fatto da una sequenza di immagini.
+A dìfferenza dei dati IID, le serie temporali sono composte da dati tra loro interdipendenti, e "correlati" da vincoli temporali.
+
+Esempi di questo tipo di dati sono i video, composti da *sequenze* di immagini disposte in un ben preciso ordine temporale, oppure ancora le acquisizioni derivate da un sensore.
+
+<!-- TODO: fare slide -->
+
+!!!note "Nota"
+	Parleremo più estensivamente delle serie temporali nella lezione su StatsModels.
+
+## Concetti base di Scikit-Learn
 
 ### Stimatori
 
-Gli algoritmi di machine learning sono generalmente definiti come *stimatori*. Scikit-Learn utilizza un'interfaccia comune per ciascun metodo: infatti, vedremo come, indipendentemente dal metodo scelto, useremo sempre i metodi fit, transform e predict, che, almeno in linea di massima, ci permetteranno rapidamente di cambiare i metodi di machine learning da utilizzare.
+Scikit-Learn definisce gli algoritmi di machine learning come *stimatori*: in tal senso, sia gli algoritmi di clustering, sia quelli di regressione, sia quelli di classificazione sono trattati, per l'appunto, come stimatori.
+
+!!!note "Nota"
+	Come vedremo, questa caratterizzazione permette a Scikit-Learn di offrire un'interfaccia comune per la maggior parte degli algoritmi.
+
+#### Parametri dello stimatore
+
+Molto importanti sono i *parametri* con cui regolare il funzionamento dello stimatore. Ad esempio, per l'algoritmo `KMeans`, un possibile parametro è il numero di cluster in cui i dati sono suddivisi.
+
+Vedremo come modificare questi parametri può cambiare *enormemente* le performance di un algoritmo. Performance che, ovviamente, sono valutate secondo apposite *metriche*.
+
+#### Metriche
+
+Ogni algoritmo viene valutato secondo una metrica, che di solito permette di definire, in termini percentuali o assoluti, l'accuratezza dell'algoritmo.
 
 ### Preprocessing
 
 Molto spesso, è necessario effettuare delle operazioni di preprocessing (**mai usare preprocessamento**) sui dati. Questo perché questi possono essere viziati dall'assenza di valori in determinati ambiti, oppure è necessario scalarli. Scikit-Learn offre un intero package dedicato a questo.
 
-train_test_split
+Le funzioni che utilizzeremo maggiormente saranno:
 
-Valutazione del modello con cross-validation
+* `train_test_split`, per suddividere il dataset in un insieme di training ed uno di test;
+* gli *Imputer*, per assegnare eventuali valori mancanti all'interno del dataset;
+* i *Transformer*, che ci permettono di modificare il tipo dei dati.
 
-## Pipeline
+### Pipeline
+
+Accenniamo in ultimo al fatto che, normalmente, è necessario *concatenare* diversi stimatori. Per farlo, Scikit-Learn ci mette a disposizione un'apposita struttura chiamata `Pipeline`, che approfondiremo nelle prossime lezioni.

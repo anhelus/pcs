@@ -8,9 +8,14 @@ Finora ci siamo limitati a visualizzare dati e risultati usando esclusivamente l
 
 Partiamo proprio da *Matplotlib*, che è probabilmente la più usata tra le librerie disponibili per la visualizzazione dati. Iniziamo installandola all'interno del nostro ambiente di lavoro:
 
-```sh
-pipenv install matplotlib
-```
+==="Pip" 
+	```sh
+	pip install matplotlib
+	```
+==="Pipenv"
+	```sh
+	pipenv install matplotlib
+	```
 
 Nel prosieguo, presupporremo che siano stati effettuati gli import necessari, riassumibili nelle seguenti istruzioni:
 
@@ -212,9 +217,14 @@ Seaborn è una libreria che *estende* Matplotlib, integrando diverse opzioni e f
 
 Per prima cosa, installiamo la libreria nel modo usuale:
 
-```sh
-pipenv install seaborn
-```
+==="Pip" 
+	```sh
+	pip install seaborn
+	```
+==="Pipenv"
+	```sh
+	pipenv install seaborn
+	```
 
 Importiamo poi Seaborn nel nostro script:
 
