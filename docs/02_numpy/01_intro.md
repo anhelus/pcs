@@ -126,7 +126,3 @@ La sintassi è evidentemente molto più concisa e semplice, *anche rispetto alle
 ## Conclusioni
 
 In questa lezione, abbiamo dato un breve sguardo su quello che offre NumPy, e sul perché preferirlo in determinate situazioni all'uso delle normali tecniche messe a disposizione da Python. Nella [prossima lezione](./02_array), continueremo il discorso sugli array, scendendo maggiormente nel dettaglio di questa importante struttura dati.
-
-## Esercizi
-
-1. Creiamo un array di dimensioni $4 \times 1$, una matrice quadrata di ordine $2$, ed un tensore di dimensioni $3 \times 3 \times 3$.

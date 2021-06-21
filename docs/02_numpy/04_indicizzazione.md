@@ -1,4 +1,3 @@
-
 # Accedere agli elementi di un array
 
 Il modo più immediato per accedere al valore di un elemento in un array è usare l'operatore `[]`, specificando contestualmente l'indice dell'elemento cui si vuole accedere, proprio come avviene per le liste. 
