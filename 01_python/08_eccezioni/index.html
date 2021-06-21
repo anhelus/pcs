@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://python.angelocardellicchio.it/03_libs/03_jupyter/">
+        <link rel="canonical" href="https://python.angelocardellicchio.it/01_python/08_eccezioni/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
-        <title>iPython e Jupyter Lab - Python 4 Data Science</title>
+        <title>Gestione delle eccezioni in Python - Python 4 Data Science</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ipython-e-jupyter-lab" class="md-skip">
+        <a href="#gestione-delle-eccezioni-in-python" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              iPython e Jupyter Lab
+              Gestione delle eccezioni in Python
             
           </span>
         </div>
@@ -316,7 +316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/01_intro/" class="md-nav__link">
+      <a href="../01_intro/" class="md-nav__link">
         01 - Introduzione
       </a>
     </li>
@@ -328,7 +328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/02_programmare/" class="md-nav__link">
+      <a href="../02_programmare/" class="md-nav__link">
         02 - Concetti base
       </a>
     </li>
@@ -340,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/03_strutture/" class="md-nav__link">
+      <a href="../03_strutture/" class="md-nav__link">
         03 - Liste, code e pile
       </a>
     </li>
@@ -352,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/04_list_comprehension/" class="md-nav__link">
+      <a href="../04_list_comprehension/" class="md-nav__link">
         04 - List comprehension
       </a>
     </li>
@@ -364,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/05_tuple_dict/" class="md-nav__link">
+      <a href="../05_tuple_dict/" class="md-nav__link">
         05 - Tuple, set e dizionari
       </a>
     </li>
@@ -376,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/06_moduli/" class="md-nav__link">
+      <a href="../06_moduli/" class="md-nav__link">
         06 - Script, moduli e package
       </a>
     </li>
@@ -388,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/07_classi/" class="md-nav__link">
+      <a href="../07_classi/" class="md-nav__link">
         07 - Classi
       </a>
     </li>
@@ -420,69 +420,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cosa-e-un-notebook" class="md-nav__link">
-    Cosa è un notebook?
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installazione-e-lancio-di-jupyter-lab" class="md-nav__link">
-    Installazione e lancio di Jupyter Lab
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#il-primo-notebook" class="md-nav__link">
-    Il primo notebook
-  </a>
-  
-    <nav class="md-nav" aria-label="Il primo notebook">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#commenti-in-latex-e-markdown" class="md-nav__link">
-    Commenti in Latex e Markdown
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cancellare-una-cella" class="md-nav__link">
-    Cancellare una cella
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bonus-estensioni" class="md-nav__link">
-    Bonus: Estensioni
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusioni" class="md-nav__link">
-    Conclusioni
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -494,65 +431,8 @@
               
                 
                 
-                <h1 id="ipython-e-jupyter-lab">iPython e Jupyter Lab<a class="headerlink" href="#ipython-e-jupyter-lab" title="Permanent link">&para;</a></h1>
-<p>Fino a questo momento, ci siamo limitati ad utilizzare la riga di comando, con solo i più "audaci" che si saranno avventurati nell'esecuzione di interi script da riga di comando.</p>
-<p>Appare però evidente come questo modo di procedere sia limitato (e limitante). Non sarebbe meglio avere un ambiente di sviluppo <em>interattivo</em>, nel quale inserire le nostre istruzioni allo scopo di visualizzare rapidamente i risultati ottenuti e, se necessario, modificarle al volo? Beh, è questo quello che devono aver pensato gli sviluppatori della libreria iPython, anch'essa facente parte del framework SciPy, quando hanno lanciato il progetto <em>Jupyter Lab</em>, precedentemente conosciuto soltanto come <em>Jupyter</em>, introducendo uno degli strumenti più usati dai data analyst al giorno d'oggi, ovvero i <em>notebook</em>.</p>
-<h2 id="cosa-e-un-notebook">Cosa è un notebook?<a class="headerlink" href="#cosa-e-un-notebook" title="Permanent link">&para;</a></h2>
-<p>Un notebook è, in parole povere, un ambiente interattivo che permette di scrivere e testare il nostro codice. In particolare, potremo scrivere una o più istruzioni ed eseguirle in maniera separata (ma non <em>indipendente</em>) dalle altre mediante il meccanismo delle <em>celle</em>, che altro non sono che singoli blocchi di codice. Potremo inoltre inserire commenti, descrizioni ed equazioni usando due linguaggi di markup molto noti, ovvero Markdown e Latex.</p>
-<p>Vediamo brevemente come creare ed usare un notebook.</p>
-<h2 id="installazione-e-lancio-di-jupyter-lab">Installazione e lancio di Jupyter Lab<a class="headerlink" href="#installazione-e-lancio-di-jupyter-lab" title="Permanent link">&para;</a></h2>
-<p>Per prima cosa, installiamo Jupyter Lab nel nostro ambiente di sviluppo.</p>
-<p>==="Pip" <br />
-    <div class="highlight"><pre><span></span><code>pip install jupyterlab
-</code></pre></div><br />
-==="Pipenv"<br />
-    <div class="highlight"><pre><span></span><code>pipenv install jupyterlab
-</code></pre></div></p>
-<p>A differenza delle altre librerie, non avremo bisogno di importare Jupyter; tuttavia, dovremo lanciare l'ambiente interattivo mediante il seguente comando:</p>
-<p>==="Pip" <br />
-    <div class="highlight"><pre><span></span><code>jupyter lab
-</code></pre></div><br />
-==="Pipenv"<br />
-    <div class="highlight"><pre><span></span><code>pipenv run jupyter lab
-</code></pre></div></p>
-<h2 id="il-primo-notebook">Il primo notebook<a class="headerlink" href="#il-primo-notebook" title="Permanent link">&para;</a></h2>
-<p>A questo punto saremo davanti ad una schermata molto simle a quella mostrata in figura.</p>
-<p><img alt="intro" src="../../assets/images/03_libs/03_jupyter/intro.png" /></p>
-<p>Creiamo il nostro primo notebook premendo il pulsante <em>Python 3</em> nel menu <em>Notebook</em>. Una volta terminata la procedura, potremo iniziare ad interagire con l'ambiente. Prima di procedere, però, definiamo il nome del nostro notebook dal menu a sinistra.</p>
-<p>Proviamo a fare qualcosa di semplice: importiamo NumPy e Matplotlib, creiamo un array di numeri casuali, e facciamone il plot a schermo. Per prima cosa, all'interno della prima cella, definiamo gli import:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</code></pre></div>
-<p>Per eseguire il codice all'interno della cella, premiamo il tasto <code>Play</code>, oppure la combinazione di tasti <code>Shift+Invio</code>. Una volta eseguita la prima cella, vedremo che nel notebook se ne sarà creata un'altra; al suo interno, scriviamo le istruzioni necessarie alla creazione di un array casuale.</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">a</span>
-</code></pre></div>
-<p>Eseguiamo l'istruzione; noteremo che al di sotto della cella è apparso a schermo l'array che abbiamo appena creato. <em>Se provassimo ad eseguire nuovamente il codice nella cella, vedremmo che l'array assumerebbe un nuovo valore</em>.</p>
-<p>Ed è proprio questa la forza di Jupyter: la capacità di eseguire singole celle, cambiando di volta in volta valori ed algoritmi, e facilitando in questo modo le nostre prove e test.</p>
-<p>A questo punto, possiamo creare un'ultima cella, e stampare a schermo il nostro vettore:</p>
-<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">a</span><span class="p">)</span>
-</code></pre></div>
-<p><img alt="sample" src="../../assets/images/03_libs/03_jupyter/sample.png" /></p>
-<p>Vedremo immediatamente sotto la cella la figura rappresentativa del vettore che abbiamo creato.</p>
-<h3 id="commenti-in-latex-e-markdown">Commenti in Latex e Markdown<a class="headerlink" href="#commenti-in-latex-e-markdown" title="Permanent link">&para;</a></h3>
-<p>Accennavamo prima al fatto che fosse possibile inserire dei commenti e delle descrizioni nei linguaggi Markdown e Latex. Per farlo, ci basta selezionare il menu a tendina in alto, ed al posto di <code>Code</code> specificare un'altra opzione. Se volessimo aggiungere una descrizione al nostro notebook, ad esempio, potremmo aggiungere una cella in alto e scrivere il seguente codice:</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># Header</span>
-
-Una breve descrizione.
-</code></pre></div>
-<h3 id="cancellare-una-cella">Cancellare una cella<a class="headerlink" href="#cancellare-una-cella" title="Permanent link">&para;</a></h3>
-<p>Possiamo anche decidere di cancellare una cella; per farlo, selezioniamola e premiamo due volte il tasto <code>D</code>, oppure andiamo dal menu <code>Cell</code> e selezioniamo l'apposita opzione.</p>
-<h3 id="bonus-estensioni">Bonus: Estensioni<a class="headerlink" href="#bonus-estensioni" title="Permanent link">&para;</a></h3>
-<p>E' possibile abilitare una serie di estensioni a partire dal menu indicato nella seguente immagine.</p>
-<p><img alt="sample" src="../../assets/images/03_libs/03_jupyter/extensions.png" /></p>
-<div class="admonition tip">
-<p class="admonition-title">Suggerimento</p>
-<p>Esistono delle estensioni per la visualizzazione delle variabili in stile Matlab. Tuttavia, è plausibile che sorgano delle problematiche di compatibilità con le ultime versioni di Jupyter Lab.</p>
-</div>
-<h2 id="conclusioni">Conclusioni<a class="headerlink" href="#conclusioni" title="Permanent link">&para;</a></h2>
-<p>In questa lezione, abbiamo brevemente visto come creare e manipolare un notebook in Jupyter. Dalla prossima, sarà questa la modalità con cui agiremo per mostrare e testare il nostro codice.</p>
+                <h1 id="gestione-delle-eccezioni-in-python">Gestione delle eccezioni in Python<a class="headerlink" href="#gestione-delle-eccezioni-in-python" title="Permanent link">&para;</a></h1>
+<p>Questa lezione è ancora una bozza.</p>
                 
               
               

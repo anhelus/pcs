@@ -257,6 +257,30 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/01_python/04_classi/" class="md-nav__link">
+        Lezione 4 (classi)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/01_python/05_eccezioni/" class="md-nav__link">
+        Lezione 4 (eccezioni)
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -347,6 +371,30 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/06_moduli/" class="md-nav__link">
+        06 - Script, moduli e package
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/07_classi/" class="md-nav__link">
+        07 - Classi
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -398,20 +446,80 @@
     Dati e feature
   </a>
   
+    <nav class="md-nav" aria-label="Dati e feature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#campioni-e-sbilanciamento-del-dataset" class="md-nav__link">
+    Campioni e sbilanciamento del dataset
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#metodi-di-machine-learning" class="md-nav__link">
-    Metodi di machine learning
+  <a href="#feature-e-feature-selection" class="md-nav__link">
+    Feature e feature selection
   </a>
   
-    <nav class="md-nav" aria-label="Metodi di machine learning">
+    <nav class="md-nav" aria-label="Feature e feature selection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curse-of-dimensionality" class="md-nav__link">
+    Curse of dimensionality
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipi-di-dati" class="md-nav__link">
+    Tipi di dati
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipi di dati">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#dati-indipendenti-ed-identicamente-distribuiti" class="md-nav__link">
     Dati indipendenti ed identicamente distribuiti
   </a>
+  
+    <nav class="md-nav" aria-label="Dati indipendenti ed identicamente distribuiti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classificazione" class="md-nav__link">
+    Classificazione
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regressione" class="md-nav__link">
+    Regressione
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering" class="md-nav__link">
+    Clustering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -427,10 +535,43 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetti-base-di-scikit-learn" class="md-nav__link">
+    Concetti base di Scikit-Learn
+  </a>
+  
+    <nav class="md-nav" aria-label="Concetti base di Scikit-Learn">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#stimatori" class="md-nav__link">
     Stimatori
   </a>
+  
+    <nav class="md-nav" aria-label="Stimatori">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parametri-dello-stimatore" class="md-nav__link">
+    Parametri dello stimatore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metriche" class="md-nav__link">
+    Metriche
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -441,15 +582,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#pipeline" class="md-nav__link">
     Pipeline
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -467,34 +608,99 @@
                 
                 
                 <h1 id="cosa-e-scikit-learn">Cosa è Scikit-Learn?<a class="headerlink" href="#cosa-e-scikit-learn" title="Permanent link">&para;</a></h1>
-<p>Scikit-Learn è una grossa libreria per il machine learnign che supporta sia l'apprendimento supervisionato, sia l'apprendimento non supervisionato. Fornisce anche diversi tool per il model fitting, il data preprocessing, la selezione e valutazione del mdoello, e via dicendo.</p>
+<p>Scikit-Learn è una delle principali librerie per il machine learning disponibili per Python. Il fatto che sia ampiamente utilizzata è legato soprattutto al fatto che supporta un gran numero di algoritmi, risulta abbastanza semplice da utilizzare, ed è perfettamente integrata con NumPy e Pandas.</p>
+<p>In questa lezione, daremo una panoramica ad ampio spettro delle capacità di Scikit-Learn, per poi passare a trattare più nel dettaglio diversi scenari di utilizzo nelle prossime lezioni.</p>
 <h2 id="installazione-di-scikit-learn">Installazione di Scikit-Learn<a class="headerlink" href="#installazione-di-scikit-learn" title="Permanent link">&para;</a></h2>
-<p>TODO</p>
+<p>Per prima cosa, installiamo la libreria, al solito globalmente o nel nostro ambiente virtuale.</p>
+<p>==="Pip" <br />
+    <div class="highlight"><pre><span></span><code>pip install scikit-learn
+</code></pre></div><br />
+==="Pipenv"<br />
+    <div class="highlight"><pre><span></span><code>pipenv install scikit-learn
+</code></pre></div></p>
+<p>Fatto questo, prima di procedere a "sporcarci le mani", è necessario introdurre un po' della terminologia usata in ambito machine learning.</p>
 <h2 id="un-po-di-terminologia">Un po' di terminologia<a class="headerlink" href="#un-po-di-terminologia" title="Permanent link">&para;</a></h2>
-<p>Prima di andare avanti, è necessario sapere alcune cose.</p>
 <h3 id="dati-e-feature">Dati e feature<a class="headerlink" href="#dati-e-feature" title="Permanent link">&para;</a></h3>
-<p>Possiamo immaginare un dataset come una sorta di "matrice", nella quale le righe sono chiamate <em>campioni</em>, mentre le colonne sono chiamate <em>feature</em>.</p>
-<p>I campioni sono delle osservazioni del fenomeno. Le feature sono le diverse variabili relative a ciascuna osservazione.</p>
-<p>Per fare un esempio, immaginiamo di avere due sensori, uno di umidità ed uno di temperatura, che acquisiscono i dati ogni quindici minuti.</p>
-<p>Immaginiamo di disporre le acquisizioni in un foglio di calcolo: su ogni riga, avremo un campione, nel quale vi è il momento di acquisizione, oltre ai valori letti di temperatura ed umidità, che potremo leggere per colonna. Le righe sono appunto i campioni, mentre le colonne (istante di acquisizione, temperatura ed umidità) sono le feature.</p>
-<h3 id="metodi-di-machine-learning">Metodi di machine learning<a class="headerlink" href="#metodi-di-machine-learning" title="Permanent link">&para;</a></h3>
-<p>La scelta principale dell'algoritmo di machine learning da utilizzare è legata al <em>tipo</em> di dati. Ma cosa significa <em>tipo di dati</em>?</p>
-<p>Sostanzialmente, esistono due tipi di dati.</p>
-<ul>
-<li>dati indipendenti ed identicamente distribuiti (IID)</li>
-<li>serie temporali</li>
-</ul>
+<p>Quando abbiamo parlato di Pandas, abbiamo visto che possiamo immaginare un dataset come una sorta di <em>matrice</em>, nella quale le righe sono chiamate <em>campioni</em>, mentre le colonne sono chiamate <em>feature</em>.</p>
+<p>Un dataset serve a modellare un fenomeno sotto osservazione. Nel caso che abbiamo affrontato in precedenza, il dataset Titanic modella il "fenomeno" relativo ai passeggeri della nave; altri dataset possono essere relativi a dati acquisiti da dei sensori, oppure ancora alle immagini in un impianto di videosorveglianza. I fenomeni sono quindi <em>eterogenei</em>, e dipendono ovviamente dallo scenario sotto analisi.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Normalmente, nella modellazione di un qualsiasi tipo di fenomeno, è bene sfruttare la conoscenza di un <em>esperto di dominio</em>.</p>
+</div>
+<!-- TODO: inserire figura 3 slides -->
+
+<h4 id="campioni-e-sbilanciamento-del-dataset">Campioni e sbilanciamento del dataset<a class="headerlink" href="#campioni-e-sbilanciamento-del-dataset" title="Permanent link">&para;</a></h4>
+<p>I campioni sono le <em>osservazioni</em> del fenomeno: nel caso del dataset Titanic, ogni campione è associato ad un passeggero, mentre per dati provenienti da immagini di videosorveglianza, il singolo campione è associato ad ogni immagine acquisita dalle videocamere. </p>
+<p>Ovviamente, è anche possibile che più campioni provengano da meccanismi di generazione dei dati molto simili: ad esempio, potremmo avere due righe che descrivono lo stesso passeggero, o due immagini che riprendono la stessa persona dalla stessa angolazione: in questo caso, occorre valutare se vi è della ridondanza tra i dati, ed eventualmente effettuarne un filtraggio. L'estremizzazione di questo principio porta alla problematica degli <em>imbalanced data</em>, ovvero dei dataset <em>sbilanciati</em> verso un'unica classe.</p>
+<!-- TODO: fare slide -->
+
+<h4 id="feature-e-feature-selection">Feature e feature selection<a class="headerlink" href="#feature-e-feature-selection" title="Permanent link">&para;</a></h4>
+<p>D'altro canto, le colonne sono le <em>feature</em> del nostro dataset. Nel caso del dataset del Titanic, abbiamo a che fare con il nome del passeggero, la cabina, o ad esempio la modalità di imbarco; nel caso di un dataset relativo a dati acquisiti da sensori, potremmo avere le letture di temperatura e di umidità, ad esempio. Per un dataset di immagini, invece, le feature sono, in senso lato, tutte le forme, a differenti livelli di astrazione, che possono essere individuate all'interno dell'immagine.</p>
+<p>Così come per i dati, anche le feature possono essere <em>ridondanti</em>. Se, ad esempio, notassimo che le letture derivanti dal sensore di ossigeno sono <em>linearmente proporzionali</em> rispetto a quelle derivanti dal sensore di temperatura, potremmo decidere di eliminare una delle due letture; lo stesso potremmo fare nel caso individuassimo delle feature a bassa varianza, e che quindi assumono lo stesso valore (o quasi) per tutti i dati.</p>
+<p>Questo processo di eliminazione, chiamato <em>feature selection</em>, è estremamente importante, soprattutto perché avere troppe feature significa rischiare di incorrere nel fenomeno della <em>curse of dimensionality</em>.</p>
+<!-- TODO: fare slide -->
+
+<h5 id="curse-of-dimensionality">Curse of dimensionality<a class="headerlink" href="#curse-of-dimensionality" title="Permanent link">&para;</a></h5>
+<p>Nell'ambito del machine learning, la <em>curse of dimensionality</em> indica quel fenomeno che insorge quando il numero di feature è paragonabile a quello dei campioni.</p>
+<p>Dobbiamo ricordare che il machine learning non fa altro che provare ad "estrarre" una relazione tra i campioni e le feature che li rappresentano: in altre parole, gli algoritmi tentano di capire se, ad esempio, esiste una correlazione tra tutti i passeggeri maschi di età inferiore ai 18 anni, oppure se le donne con età superiore ai 60 anni hanno aderito ad un certo piano tariffario, e via dicendo. Per far questo, è necessario che ci siano abbastanza campioni per descrivere ogni possibile comportamento del fenomeno sotto osservazione: ad esempio, se vi è soltanto una donna che ha pagato il biglietto più di 10 dollari, è plausibile che questa informazione sia <em>inutile</em>, ancorché <em>fuorviante</em>, mentre se un gran numero di ragazzi è stipato nelle cabine del secondo piano, allora, l'informazione avrà un valore del tutto differente.</p>
+<p>La conseguenza immediata di ciò, e che è alla base della curse of dimensionality, risiede quindi nel fatto che quando il numero di feature è circa uguale a quello dei campioni è <em>molto probabile</em> che l'algoritmo non sarà in grado di caratterizzare in maniera adeguata il fenomeno sottostante. Le soluzioni a quel punto saranno due: da un lato, potremo provare ad aumentare il numero dei campioni, mentre dall'altro potremo provare a rimuovere le feature poco significative, o anche quelle tra loro correlate, aiutando a mitigare la curse of dimensionality.</p>
+<!-- TODO: fare slide -->
+
+<h3 id="tipi-di-dati">Tipi di dati<a class="headerlink" href="#tipi-di-dati" title="Permanent link">&para;</a></h3>
+<p>Abbiamo finora parlato di campioni e feature. Tuttavia, non abbiamo ancora affrontato un aspetto fondamentale nell'analisi dei dati, ovvero la valutazione del <em>tipo di dato</em>, la quale determina, di conseguenza, la scelta dell'algoritmo da utilizzare.</p>
+<p>Sostanzialmente, esistono due tipi di dati, ovvero i <em>dati indipendenti ed identicamente distribuiti</em> (<em>IID</em>) e le <em>serie temporali</em>.</p>
 <h4 id="dati-indipendenti-ed-identicamente-distribuiti">Dati indipendenti ed identicamente distribuiti<a class="headerlink" href="#dati-indipendenti-ed-identicamente-distribuiti" title="Permanent link">&para;</a></h4>
-<p>I dati IID sono, come dice il nome stesso, <em>indipendenti</em> l'uno dall'altro. In altri termini, ciò significa che il valore di un campione non dipende dal valore di un altro. Un esempio sono le immagini.</p>
+<p>I dati IID sono, come dice il nome stesso, <em>indipendenti</em> l'uno dall'altro; inoltre, tutti i dati fanno parte dello stesso meccanismo di generazione dei dati, e quindi si suppone <em>sottendano alla stessa distribuzione</em>. In altri termini, ciò significa che il valore di un campione non dipende dal valore di un altro.</p>
+<p>Un esempio sono le immagini di diversi oggetti, che possono essere usate per creare un algoritmo di identificazione degli oggetti, oppure gli stessi passeggeri del Titanic.</p>
+<!-- TODO: da slide -->
+
+<p>Tipicamente, su questo tipo di dati sono usate tre tipi di algoritmi, ovvero <em>regressione</em>, <em>classificazione</em> e <em>clustering</em>.</p>
+<h5 id="classificazione">Classificazione<a class="headerlink" href="#classificazione" title="Permanent link">&para;</a></h5>
+<p>Le tecniche di classificazione prevedono che ad ogni dato sia assegnata una <em>classe</em>, comportando di conseguenza un "raggruppamento" degli stessi in base alle indicazioni sulle classi.</p>
+<p>Un esempio sono le classificazioni delle immagini rispetto al tipo di oggetto raffigurato: le immagini relative ad un'auto apparterranno alla classe omonima, mentre le immagini di un cane apparteranno ad un'altra classe, e via dicendo. Altro esempio sono è una possibile classificazione dei passeggeri del Titanic sulla base del fatto che siano sopravvissuti o meno.</p>
+<!-- TODO: slide -->
+
+<h5 id="regressione">Regressione<a class="headerlink" href="#regressione" title="Permanent link">&para;</a></h5>
+<p>Le tecniche di regressione cercano invece di trovare una relazione tra le feature di ciascun dato ed un valore numerico (TODO: verificare se continuo o discreto).</p>
+<p>Rimanendo ai passeggeri del Titanic, potremmo voler valutare il rapporto esistente tra l'età del passeggero ed il prezzo che questi ha pagato per il biglietto.</p>
+<!-- TODO: slide -->
+
+<h5 id="clustering">Clustering<a class="headerlink" href="#clustering" title="Permanent link">&para;</a></h5>
+<p>In ultimo, le tecniche di clustering provano ad inferire dei "raggruppamenti", chiamati formalmente <em>cluster</em>, di dati. Ovviamente, i dati appartenenti ad un cluster sono da considerarsi <em>affini</em>, mentre i dati appartenenti a cluster differenti sono da considerarsi <em>differenti</em>.</p>
+<p>Il clustering non prevede la presenza di alcuna classe. Di conseguenza, queste tecniche di apprendimento sono dette <em>non supervisionate</em>, in quanto non è necessario l'intervento di un esperto di dominio per definire le classi cui appartengono i dati su cui viene addestrato l'algoritmo.</p>
+<!-- TODO: slide -->
+
 <h4 id="serie-temporali">Serie temporali<a class="headerlink" href="#serie-temporali" title="Permanent link">&para;</a></h4>
-<p>Le serie temporali sono invece fatte da dati dipendenti l'uno dall'altro, vincolati tra loro da vincoli temporali. Un esempio è un video, che è fatto da una sequenza di immagini.</p>
+<p>A dìfferenza dei dati IID, le serie temporali sono composte da dati tra loro interdipendenti, e "correlati" da vincoli temporali.</p>
+<p>Esempi di questo tipo di dati sono i video, composti da <em>sequenze</em> di immagini disposte in un ben preciso ordine temporale, oppure ancora le acquisizioni derivate da un sensore.</p>
+<!-- TODO: fare slide -->
+
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Parleremo più estensivamente delle serie temporali nella lezione su StatsModels.</p>
+</div>
+<h2 id="concetti-base-di-scikit-learn">Concetti base di Scikit-Learn<a class="headerlink" href="#concetti-base-di-scikit-learn" title="Permanent link">&para;</a></h2>
 <h3 id="stimatori">Stimatori<a class="headerlink" href="#stimatori" title="Permanent link">&para;</a></h3>
-<p>Gli algoritmi di machine learning sono generalmente definiti come <em>stimatori</em>. Scikit-Learn utilizza un'interfaccia comune per ciascun metodo: infatti, vedremo come, indipendentemente dal metodo scelto, useremo sempre i metodi fit, transform e predict, che, almeno in linea di massima, ci permetteranno rapidamente di cambiare i metodi di machine learning da utilizzare.</p>
+<p>Scikit-Learn definisce gli algoritmi di machine learning come <em>stimatori</em>: in tal senso, sia gli algoritmi di clustering, sia quelli di regressione, sia quelli di classificazione sono trattati, per l'appunto, come stimatori.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Come vedremo, questa caratterizzazione permette a Scikit-Learn di offrire un'interfaccia comune per la maggior parte degli algoritmi.</p>
+</div>
+<h4 id="parametri-dello-stimatore">Parametri dello stimatore<a class="headerlink" href="#parametri-dello-stimatore" title="Permanent link">&para;</a></h4>
+<p>Molto importanti sono i <em>parametri</em> con cui regolare il funzionamento dello stimatore. Ad esempio, per l'algoritmo <code>KMeans</code>, un possibile parametro è il numero di cluster in cui i dati sono suddivisi.</p>
+<p>Vedremo come modificare questi parametri può cambiare <em>enormemente</em> le performance di un algoritmo. Performance che, ovviamente, sono valutate secondo apposite <em>metriche</em>.</p>
+<h4 id="metriche">Metriche<a class="headerlink" href="#metriche" title="Permanent link">&para;</a></h4>
+<p>Ogni algoritmo viene valutato secondo una metrica, che di solito permette di definire, in termini percentuali o assoluti, l'accuratezza dell'algoritmo.</p>
 <h3 id="preprocessing">Preprocessing<a class="headerlink" href="#preprocessing" title="Permanent link">&para;</a></h3>
 <p>Molto spesso, è necessario effettuare delle operazioni di preprocessing (<strong>mai usare preprocessamento</strong>) sui dati. Questo perché questi possono essere viziati dall'assenza di valori in determinati ambiti, oppure è necessario scalarli. Scikit-Learn offre un intero package dedicato a questo.</p>
-<p>train<em>test</em>split</p>
-<p>Valutazione del modello con cross-validation</p>
-<h2 id="pipeline">Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h2>
+<p>Le funzioni che utilizzeremo maggiormente saranno:</p>
+<ul>
+<li><code>train_test_split</code>, per suddividere il dataset in un insieme di training ed uno di test;</li>
+<li>gli <em>Imputer</em>, per assegnare eventuali valori mancanti all'interno del dataset;</li>
+<li>i <em>Transformer</em>, che ci permettono di modificare il tipo dei dati.</li>
+</ul>
+<h3 id="pipeline">Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h3>
+<p>Accenniamo in ultimo al fatto che, normalmente, è necessario <em>concatenare</em> diversi stimatori. Per farlo, Scikit-Learn ci mette a disposizione un'apposita struttura chiamata <code>Pipeline</code>, che approfondiremo nelle prossime lezioni.</p>
                 
               
               

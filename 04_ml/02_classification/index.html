@@ -257,6 +257,30 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/01_python/04_classi/" class="md-nav__link">
+        Lezione 4 (classi)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/01_python/05_eccezioni/" class="md-nav__link">
+        Lezione 4 (eccezioni)
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -347,6 +371,30 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/06_moduli/" class="md-nav__link">
+        06 - Script, moduli e package
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_python/07_classi/" class="md-nav__link">
+        07 - Classi
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -379,30 +427,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tipi-di-problema" class="md-nav__link">
-    Tipi di problema
+  <a href="#classificazione-supervisionata-e-non-supervisioata" class="md-nav__link">
+    Classificazione supervisionata e non supervisioata
   </a>
   
-    <nav class="md-nav" aria-label="Tipi di problema">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-classificazione-e-la-sua-tipologia" class="md-nav__link">
+    La classificazione e la sua tipologia
+  </a>
+  
+    <nav class="md-nav" aria-label="La classificazione e la sua tipologia">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#binaria" class="md-nav__link">
-    Binaria
+  <a href="#classificazione-binaria" class="md-nav__link">
+    Classificazione binaria
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#multi-classe" class="md-nav__link">
-    Multi-classe
+  <a href="#classificazione-multi-classe" class="md-nav__link">
+    Classificazione multi-classe
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#multi-label" class="md-nav__link">
-    Multi-label
+  <a href="#classificazione-multi-label" class="md-nav__link">
+    Classificazione multi-label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classificazione-multi-output" class="md-nav__link">
+    Classificazione multi-output
   </a>
   
 </li>
@@ -534,16 +596,45 @@
                 
                 
                 <h1 id="il-problema-della-classificazione">Il problema della classificazione<a class="headerlink" href="#il-problema-della-classificazione" title="Permanent link">&para;</a></h1>
-<p>Come suggerisce il termine stesso, il problema della <em>classificazione</em> viene risolto assegnando ad un determinato campione di una <em>classe</em>, da non intendersi (ovviamente!) nel senso prettamente informatico del termine, ma piuttosto come un insieme di proprietà che permette di contraddistinguere dati con caratteristiche differenti. Per questo motivo, la classificazione è (spesso) approcciata in maniera <em>supervisionata</em>, facendo sì che un <em>esperto di dominio</em> contrassegni un insieme di valori, chiamati <em>label</em>, mediante la procedura di <em>labeling</em>.</p>
-<h2 id="tipi-di-problema">Tipi di problema<a class="headerlink" href="#tipi-di-problema" title="Permanent link">&para;</a></h2>
-<p>Esistono diversi tipi di approcci alla classificazione, tutti contraddistinguibili in base al numero di classi e label. Diamo un breve sguardo.</p>
-<h3 id="binaria">Binaria<a class="headerlink" href="#binaria" title="Permanent link">&para;</a></h3>
-<p>Un problema di classificazione <em>binario</em> riguarda soltanto due possibili output, che di solito vengono indicati con <em>vero</em> o <em>falso</em>. Un tipico esempio è quello del riconoscimento dell'identità di una persona dal suo volto, nel quale il sistema di intelligenza artificiale restituisce <em>vero</em> se il volto è correttamente riconosciuto, e <em>falso</em> altrimenti.</p>
-<h3 id="multi-classe">Multi-classe<a class="headerlink" href="#multi-classe" title="Permanent link">&para;</a></h3>
-<p>Tutti i problemi che prevedono più di due classi sono chiamati <em>multi-classe</em>, e sono tra quelli più diffusi in ambiti come la computer vision e l'analisi dei dati. Rimanendo all'interno dell'ambito dell'elaborazione delle immagini, un esempio di problema multi-classe sta nel riconoscimento del tipo di oggetto inquadrato in una foto, che può appartenere ad un numero molto elevato di classi (ad esempio, auto, smartphone, animali, etc.).</p>
-<h3 id="multi-label">Multi-label<a class="headerlink" href="#multi-label" title="Permanent link">&para;</a></h3>
-<p>TODO</p>
+<p>Nella lezione precedente abbiamo brevemente introdotto il problema della <em>classificazione</em>. Questo, come suggerisce il nome stesso, prevede che sia assegnata ad ogni campione una <em>classe</em>, da intendersi come un "insieme" di proprietà ed attributi che permette di distinguere oggetti con caratteristiche differenti.</p>
+<p>Per fare un esempio, due immagini appartengono alla stessa classe se ritraggono due "oggetti" dello stesso tipo: due auto rosse, due gatti, o due persone vestite allo stesso modo. Se avessimo a che fare con un'immagine di un cane ed una di un gatto, invece, potremmo ragionevolmente desumere che appartengono a due classi differenti.</p>
+<p>Nel caso del Titanic, invece, potremmo classificare i passeggeri come <em>sopravvissuti</em> e <em>non sopravvissuti</em>, andando quindi a caratterizzare i due gruppi in base alle loro caratteristiche.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Il concetto di classe è tuttavia correlato al <em>dominio</em> che ci troviamo a trattare. Per capirci, qualora stessimo classificando tutti i "quadrupedi", cane e gatto apparterrebbero alla stessa classe.</p>
+</div>
+<h2 id="classificazione-supervisionata-e-non-supervisioata">Classificazione supervisionata e non supervisioata<a class="headerlink" href="#classificazione-supervisionata-e-non-supervisioata" title="Permanent link">&para;</a></h2>
+<p>La classificazione è spesso approcciata in maniera <em>supervisionata</em>. Questo prevede che un <em>esperto di dominio</em> "contrassegni", o per meglio dire <em>etichetti</em>, una serie di dati mediante la procedura di <em>labeling</em>.</p>
+<p>Tornando all'esempio delle immagini, l'esperto di dominio dovrebbe assegnare l'etichetta <em>cane</em> alle immagini raffiguranti un cane, mentre l'etichetta <em>gatto</em> andrebbe assegnata alle immagini contenente un gatto. Per quello che riguarda il dataset del Titanic, l'etichetta sarà assegnata per ogni passeggero in base al fatto che questo sia sopravvissuto o meno.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ovviamente, questi sono casi "semplici" di labeling. Esistono, nella realtà, casi molto più complessi, nei quali l'esperto di dominio deve essere altamente qualificato.</p>
+</div>
+<p>Esiste anche la possibilità di usare un approccio <em>non supervisionato</em>, che non prevede la presenza di un esperto di dominio, e che conseguentemente inferisce la struttura dei dati da essi stessi. In questo corso, non tratteremo questi approcci per ciò che riguarda la classificazione vera e propria; vedremo però il clustering, che è, per antonomasia, non supervisionato.</p>
+<h2 id="la-classificazione-e-la-sua-tipologia">La classificazione e la sua tipologia<a class="headerlink" href="#la-classificazione-e-la-sua-tipologia" title="Permanent link">&para;</a></h2>
+<p>Oltre alla distinzione tra approcci supervisionati e non, esistono altre distinzioni, derivanti dal numero di classi e label assegnate ai vari campioni.</p>
+<h3 id="classificazione-binaria">Classificazione binaria<a class="headerlink" href="#classificazione-binaria" title="Permanent link">&para;</a></h3>
+<p>I problemi di <em>classificazione binaria</em> prevedono che l'output possibile siano soltanto due, di solito <em>vero</em> e <em>falso</em>, in ovvia analogia con la logica booleana.</p>
+<p>Un tipico esempio di un problema binario è quello del riconoscimento del volto di una persona, nel quale il sistema di machine learning deve restituire <em>vero</em> se il volto viene riconosciuto correttamente, e <em>falso</em> altrimenti. Altro esempio è quello cui abbiamo accennato in precedenza a riguardo della sopravvivenza dei passeggeri del Titanic.</p>
+<h3 id="classificazione-multi-classe">Classificazione multi-classe<a class="headerlink" href="#classificazione-multi-classe" title="Permanent link">&para;</a></h3>
+<p>I problemi che prevedono più di due classi sono detto <em>multi-classe</em>, e sono anche tra i più diffusi.</p>
+<p>Tornando all'elaborazioen delle immagini, il riconoscimento del tipo di oggetto raffigurato nella foto è un problema tipicamente multi-classe, dato che questo può appartenere ad un elevato numero di classi (ad esempio, auto, smartphone, animali, etc.). Tornando al dataset Titanic, un esempio di problema multi-classe potrebbe prevedere l'esigenza di classificare i passeggeri in base al compartimento nel quale era situata la loro cabina.</p>
+<h3 id="classificazione-multi-label">Classificazione multi-label<a class="headerlink" href="#classificazione-multi-label" title="Permanent link">&para;</a></h3>
+<!-- TODO -->
+
+<p>La classificazione <em>multi-label</em> prevede che ogni campione sia etichettato con <span class="arithmatex">\(m\)</span> label provenienti dall'insieme di <span class="arithmatex">\(N\)</span> classi, con <span class="arithmatex">\(0 \leq m \leq N\)</span>. In altre parole, potremmo pensare ad un problema multi-label come ad un problema che predice le proprietà <em>non mutualmente esclusive</em> di ogni campione.</p>
+<p>Per esempio, potremmo pensare di definire, oltre alla label <em>sopravvissuto</em>, anche la label <em>genere</em>, e valutare le due congiuntamente, in quanto supposte non mutualmente esclusive.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>In realtà, il genere potrebbe, e dovrebbe, aver avuto una relazione con le possibilità di sopravvivenza del passeggero, in quanto potrebbero essere state favorite le donne nel momento del salvataggio.</p>
+</div>
+<p>Questo tipo di problema è concettualmente riconducibile all'uso "concatenato" di una serie di classificatori binari in cascata, uno per ciascuna delle label disponibili.</p>
+<h3 id="classificazione-multi-output">Classificazione multi-output<a class="headerlink" href="#classificazione-multi-output" title="Permanent link">&para;</a></h3>
+<p>La classificazione <em>multi-output</em>, conosciuta anche come <em>multi-task</em>, è un approccio alla classificazione nel quale ogni campione viene etichettato mediante una serie di proprietà non binarie, in numero strettamente maggiore di 2. Ovviamente, stiamo parlando di una generalizzazione dei problemi che abbiamo visto finora, in particolare dei multi-label (che prevedono solo label binarie) e dei multi-classe.</p>
+<p>Per esempio, avremmo un problema multi-task quando, oltre ad andare ad individuare il tipo di oggetto, vogliamo definirne anche il colore: il fatto di vedere un'auto, ad esempio, non influirà (in linea teorica) il colore della stessa. </p>
 <h2 id="metriche">Metriche<a class="headerlink" href="#metriche" title="Permanent link">&para;</a></h2>
+<!-- TODO da qui -->
+
 <p>Di seguito, elencheremo soltanto <em>alcune</em> delle metriche che è possibile utilizzare nei problemi di classificazione.</p>
 <h3 id="accuracy">Accuracy<a class="headerlink" href="#accuracy" title="Permanent link">&para;</a></h3>
 <p>L'accuracy è definita come una misura dell'errore introdotto dal sistema di classificazione nella corretta identificazione della classe di un campione, valutata sull'intero set di test.</p>
