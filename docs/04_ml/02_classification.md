@@ -1,24 +1,63 @@
 # Il problema della classificazione
 
-Come suggerisce il termine stesso, il problema della *classificazione* viene risolto assegnando ad un determinato campione di una *classe*, da non intendersi (ovviamente!) nel senso prettamente informatico del termine, ma piuttosto come un insieme di proprietà che permette di contraddistinguere dati con caratteristiche differenti. Per questo motivo, la classificazione è (spesso) approcciata in maniera *supervisionata*, facendo sì che un *esperto di dominio* contrassegni un insieme di valori, chiamati *label*, mediante la procedura di *labeling*.
+Nella lezione precedente abbiamo brevemente introdotto il problema della *classificazione*. Questo, come suggerisce il nome stesso, prevede che sia assegnata ad ogni campione una *classe*, da intendersi come un "insieme" di proprietà ed attributi che permette di distinguere oggetti con caratteristiche differenti.
 
-## Tipi di problema
+Per fare un esempio, due immagini appartengono alla stessa classe se ritraggono due "oggetti" dello stesso tipo: due auto rosse, due gatti, o due persone vestite allo stesso modo. Se avessimo a che fare con un'immagine di un cane ed una di un gatto, invece, potremmo ragionevolmente desumere che appartengono a due classi differenti.
 
-Esistono diversi tipi di approcci alla classificazione, tutti contraddistinguibili in base al numero di classi e label. Diamo un breve sguardo.
+Nel caso del Titanic, invece, potremmo classificare i passeggeri come *sopravvissuti* e *non sopravvissuti*, andando quindi a caratterizzare i due gruppi in base alle loro caratteristiche.
 
-### Binaria
+!!!note "Note"
+    Il concetto di classe è tuttavia correlato al *dominio* che ci troviamo a trattare. Per capirci, qualora stessimo classificando tutti i "quadrupedi", cane e gatto apparterrebbero alla stessa classe.
 
-Un problema di classificazione *binario* riguarda soltanto due possibili output, che di solito vengono indicati con *vero* o *falso*. Un tipico esempio è quello del riconoscimento dell'identità di una persona dal suo volto, nel quale il sistema di intelligenza artificiale restituisce *vero* se il volto è correttamente riconosciuto, e *falso* altrimenti.
+## Classificazione supervisionata e non supervisioata
 
-### Multi-classe
+La classificazione è spesso approcciata in maniera *supervisionata*. Questo prevede che un *esperto di dominio* "contrassegni", o per meglio dire *etichetti*, una serie di dati mediante la procedura di *labeling*.
 
-Tutti i problemi che prevedono più di due classi sono chiamati *multi-classe*, e sono tra quelli più diffusi in ambiti come la computer vision e l'analisi dei dati. Rimanendo all'interno dell'ambito dell'elaborazione delle immagini, un esempio di problema multi-classe sta nel riconoscimento del tipo di oggetto inquadrato in una foto, che può appartenere ad un numero molto elevato di classi (ad esempio, auto, smartphone, animali, etc.).
+Tornando all'esempio delle immagini, l'esperto di dominio dovrebbe assegnare l'etichetta *cane* alle immagini raffiguranti un cane, mentre l'etichetta *gatto* andrebbe assegnata alle immagini contenente un gatto. Per quello che riguarda il dataset del Titanic, l'etichetta sarà assegnata per ogni passeggero in base al fatto che questo sia sopravvissuto o meno.
 
-### Multi-label
+!!!note "Nota"
+    Ovviamente, questi sono casi "semplici" di labeling. Esistono, nella realtà, casi molto più complessi, nei quali l'esperto di dominio deve essere altamente qualificato.
 
-TODO
+Esiste anche la possibilità di usare un approccio *non supervisionato*, che non prevede la presenza di un esperto di dominio, e che conseguentemente inferisce la struttura dei dati da essi stessi. In questo corso, non tratteremo questi approcci per ciò che riguarda la classificazione vera e propria; vedremo però il clustering, che è, per antonomasia, non supervisionato.
+
+## La classificazione e la sua tipologia
+
+Oltre alla distinzione tra approcci supervisionati e non, esistono altre distinzioni, derivanti dal numero di classi e label assegnate ai vari campioni.
+
+### Classificazione binaria
+
+I problemi di *classificazione binaria* prevedono che l'output possibile siano soltanto due, di solito *vero* e *falso*, in ovvia analogia con la logica booleana.
+
+Un tipico esempio di un problema binario è quello del riconoscimento del volto di una persona, nel quale il sistema di machine learning deve restituire *vero* se il volto viene riconosciuto correttamente, e *falso* altrimenti. Altro esempio è quello cui abbiamo accennato in precedenza a riguardo della sopravvivenza dei passeggeri del Titanic.
+
+### Classificazione multi-classe
+
+I problemi che prevedono più di due classi sono detto *multi-classe*, e sono anche tra i più diffusi.
+
+Tornando all'elaborazioen delle immagini, il riconoscimento del tipo di oggetto raffigurato nella foto è un problema tipicamente multi-classe, dato che questo può appartenere ad un elevato numero di classi (ad esempio, auto, smartphone, animali, etc.). Tornando al dataset Titanic, un esempio di problema multi-classe potrebbe prevedere l'esigenza di classificare i passeggeri in base al compartimento nel quale era situata la loro cabina.
+
+### Classificazione multi-label
+
+<!-- TODO -->
+
+La classificazione *multi-label* prevede che ogni campione sia etichettato con $m$ label provenienti dall'insieme di $N$ classi, con $0 \leq m \leq N$. In altre parole, potremmo pensare ad un problema multi-label come ad un problema che predice le proprietà *non mutualmente esclusive* di ogni campione.
+
+Per esempio, potremmo pensare di definire, oltre alla label *sopravvissuto*, anche la label *genere*, e valutare le due congiuntamente, in quanto supposte non mutualmente esclusive.
+
+!!!note "Nota"
+    In realtà, il genere potrebbe, e dovrebbe, aver avuto una relazione con le possibilità di sopravvivenza del passeggero, in quanto potrebbero essere state favorite le donne nel momento del salvataggio.
+
+Questo tipo di problema è concettualmente riconducibile all'uso "concatenato" di una serie di classificatori binari in cascata, uno per ciascuna delle label disponibili.
+
+### Classificazione multi-output
+
+La classificazione *multi-output*, conosciuta anche come *multi-task*, è un approccio alla classificazione nel quale ogni campione viene etichettato mediante una serie di proprietà non binarie, in numero strettamente maggiore di 2. Ovviamente, stiamo parlando di una generalizzazione dei problemi che abbiamo visto finora, in particolare dei multi-label (che prevedono solo label binarie) e dei multi-classe.
+
+Per esempio, avremmo un problema multi-task quando, oltre ad andare ad individuare il tipo di oggetto, vogliamo definirne anche il colore: il fatto di vedere un'auto, ad esempio, non influirà (in linea teorica) il colore della stessa. 
 
 ## Metriche
+
+<!-- TODO da qui -->
 
 Di seguito, elencheremo soltanto *alcune* delle metriche che è possibile utilizzare nei problemi di classificazione.
 
