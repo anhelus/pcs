@@ -61,10 +61,13 @@ array([3, 7])
 La funzione `dot()` ci permette di effettuare l'operazione di moltiplicazione matriciale standard:
 
 ```py
->>> a = np.array([1, 2])
+>>> a = np.array([[1, 2]])
 >>> b = np.array([[3], [4]])
 >>> a.dot(b)
 array([11])
+>>> b.dot(a)
+array([[3, 6],
+       [4, 8]])
 ```
 
 ## Ordinamento degli elementi di un array

@@ -87,7 +87,3 @@ Proviamo a valutare la proprietà `shape` del precedente array:
 ## Conclusioni
 
 In questa lezione, abbiamo dato una breve panoramica introduttiva sugli array. Nella [prossima lezione](./03_costruzione.md), approfondiremo ulteriormente le loro modalità di creazione ed indicizzazione.
-
-## Esercizi
-
-1. Proviamo a creare un tensore tridimensionale di dimensioni $3 \times 3 \times 3$, e salviamo questi valori in una tupla `(a, b, c)`.
