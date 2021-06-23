@@ -20,7 +20,46 @@ Tornando all'esempio delle immagini, l'esperto di dominio dovrebbe assegnare l'e
 
 Esiste anche la possibilità di usare un approccio *non supervisionato*, che non prevede la presenza di un esperto di dominio, e che conseguentemente inferisce la struttura dei dati da essi stessi. In questo corso, non tratteremo questi approcci per ciò che riguarda la classificazione vera e propria; vedremo però il clustering, che è, per antonomasia, non supervisionato.
 
-## La classificazione e la sua tipologia
+### Un primo esempio: gli alberi decisionali
+
+Gli *alberi decisionali* sono tra gli algoritmi più semplici che possiamo utilizzare per classificare dei dati.
+
+Un albero decisionale agisce sulle singole feature, impostando delle "regole" sulla base delle quali si stabilisce un outcome certo outcome. Partiamo da un esempio illustrato nella figura successiva.
+
+Un classificatore basato su albero decisionale prevede una struttura di questo tipo.
+
+![decision_tree](../assets/images/04_ml/0x_classification/decision_tree.jpg)
+
+La variabile di classificazione è quella relativa alla determinazione della sopravvivenza del passeggero. Come si può notare, il *genere* è la prima, e più importante, variabile che permette di determinare la sopravvivenza del passeggero.
+
+Come si vede dalla figura, è evidente come il genere sia la prima e più importante variabile che permette di determinare la sopravvivenza o meno del passeggero. In particolare, 
+
+Vediamo che la prima regola imposta dall'albero sia quella relativa al *genere*. I
+
+Si parte dal genere ()
+
+Un albero decisionale definisce
+
+Decision tree learning is a method commonly used in data mining.[2] The goal is to create a model that predicts the value of a target variable based on several input variables.
+
+A decision tree is a simple representation for classifying examples. For this section, assume that all of the input features have finite discrete domains, and there is a single target feature called the "classification". Each element of the domain of the classification is called a class. A decision tree or a classification tree is a tree in which each internal (non-leaf) node is labeled with an input feature. The arcs coming from a node labeled with an input feature are labeled with each of the possible values of the target feature or the arc leads to a subordinate decision node on a different input feature. Each leaf of the tree is labeled with a class or a probability distribution over the classes, signifying that the data set has been classified by the tree into either a specific class, or into a particular probability distribution (which, if the decision tree is well-constructed, is skewed towards certain subsets of classes).
+
+
+
+```py
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+iris = load_iris()
+X, y = iris.data, iris.target
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+clf = DecisionTreeClassifier()
+clf = clf.fit(X_train, y_train)
+plot_tree(clf)
+y_pred = clf.predict(X_test)
+```
+
+## Tipi di classificazione
 
 Oltre alla distinzione tra approcci supervisionati e non, esistono altre distinzioni, derivanti dal numero di classi e label assegnate ai vari campioni.
 
@@ -38,8 +77,6 @@ Tornando all'elaborazioen delle immagini, il riconoscimento del tipo di oggetto 
 
 ### Classificazione multi-label
 
-<!-- TODO -->
-
 La classificazione *multi-label* prevede che ogni campione sia etichettato con $m$ label provenienti dall'insieme di $N$ classi, con $0 \leq m \leq N$. In altre parole, potremmo pensare ad un problema multi-label come ad un problema che predice le proprietà *non mutualmente esclusive* di ogni campione.
 
 Per esempio, potremmo pensare di definire, oltre alla label *sopravvissuto*, anche la label *genere*, e valutare le due congiuntamente, in quanto supposte non mutualmente esclusive.
@@ -55,11 +92,11 @@ La classificazione *multi-output*, conosciuta anche come *multi-task*, è un app
 
 Per esempio, avremmo un problema multi-task quando, oltre ad andare ad individuare il tipo di oggetto, vogliamo definirne anche il colore: il fatto di vedere un'auto, ad esempio, non influirà (in linea teorica) il colore della stessa. 
 
-## Metriche
+## Valutare un algoritmo di classificazione: le metriche
 
-<!-- TODO da qui -->
+Gli algoritmi di classificazione (e, più in generale, tutti gli algoritmi di machine learning) sono valutati sulla base di una o più *metriche* che, nel caso specifico, mettono in evidenza in che percentuale l'algoritmo è in grado di determinare correttamente l'appartenenza o meno di un campione ad una classe.
 
-Di seguito, elencheremo soltanto *alcune* delle metriche che è possibile utilizzare nei problemi di classificazione.
+Vediamo in tal senso alcune delle metriche maggiormente usate.
 
 ### Accuracy
 
