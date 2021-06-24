@@ -30,21 +30,24 @@ Un classificatore basato su albero decisionale prevede una struttura di questo t
 
 ![decision_tree](../assets/images/04_ml/0x_classification/decision_tree.jpg)
 
-La variabile di classificazione è quella relativa alla determinazione della sopravvivenza del passeggero. Come si può notare, il *genere* è la prima, e più importante, variabile che permette di determinare la sopravvivenza del passeggero.
+Comprendere il funzionamento di un albero decisionale è abbastanza semplice. L'obiettivo di un albero decisionale è quello di creare un modello che predica il valore di una variabile obiettivo imparando delle semplici regole decisionali apprese a partire dalle feature dei dati. In pratica, possiamo pensare ad un albero come ad un percorso "a step", nel quale ad ogni step vi è un'approssimazione successiva verso il risultato finale.
 
-Come si vede dalla figura, è evidente come il genere sia la prima e più importante variabile che permette di determinare la sopravvivenza o meno del passeggero. In particolare, 
+Questo esempio mostra le possibilità di sopravvivenza individuate tra i passeggeri del Titanic, assieme alle percentuali di questi sul totale. La suddivisione che viene subito all'occhio è la seguente:
 
-Vediamo che la prima regola imposta dall'albero sia quella relativa al *genere*. I
+* il 36% dei passaggeri era donna;
+* il 60% uomo di età superiore ai 9 anni e 6 mesi;
+* il 4% uomo di età inferiore ai 9 anni e 6 mesi.
 
-Si parte dal genere ()
+L'albero invece ci dice che sono sopravvissuti:
 
-Un albero decisionale definisce
+* il 73% delle donne;
+* il 17% degli uomini con più di 9 anni e 6 mesi;
+* il 2% degli uomini con meno di 9 anni e 6 mesi, con *più* di tre fratelli;
+* l'89% degli uomini con meno di 9 anni e 6 mesi, con *meno* di tre fratelli.
 
-Decision tree learning is a method commonly used in data mining.[2] The goal is to create a model that predicts the value of a target variable based on several input variables.
+#### Implementazione in Scikit-Learn
 
-A decision tree is a simple representation for classifying examples. For this section, assume that all of the input features have finite discrete domains, and there is a single target feature called the "classification". Each element of the domain of the classification is called a class. A decision tree or a classification tree is a tree in which each internal (non-leaf) node is labeled with an input feature. The arcs coming from a node labeled with an input feature are labeled with each of the possible values of the target feature or the arc leads to a subordinate decision node on a different input feature. Each leaf of the tree is labeled with a class or a probability distribution over the classes, signifying that the data set has been classified by the tree into either a specific class, or into a particular probability distribution (which, if the decision tree is well-constructed, is skewed towards certain subsets of classes).
-
-
+Per quello che riguarda l'implementazione in Scikit-Learn di un albero decisionale, possiamo usare il seguente codice.
 
 ```py
 from sklearn.datasets import load_iris
@@ -55,9 +58,19 @@ X, y = iris.data, iris.target
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 clf = DecisionTreeClassifier()
 clf = clf.fit(X_train, y_train)
-plot_tree(clf)
 y_pred = clf.predict(X_test)
+plot_tree(clf)
 ```
+
+Commentiamolo brevemente.
+
+Per prima cosa, importiamo il metodo `load_iris`, che ci permette di caricare all'interno del programma un *dataset* (chiamato per l'appunto IRIS) che useremo a scopi di classificazione.
+
+Il secondo punto interessante è l'uso del metodo `train_test_split`, che ci permette di suddividere il dataset in due parti: una prima, chiamata di norma *insieme dei dati di training*, relativa ai dati che saranno usati per addestrare il modello, ed una seconda, chiamata *insieme dei dati di test*, che sarà usata per *validare* il modello.
+
+A quel punto, creeremo un oggetto di tipo `DecisionTreeClassifier()`, che per l'appunto ci permetterà di usare un albero decisionale a scopo di classificazione. Questo oggetto sarà addestrato sul nostro insieme di training mediante il metodo `fit`, e potrà essere poi usato per effettuare una predizione sui dati di test mediante il metodo `predict`.
+
+In ultimo, vogliamo poter plottare l'albero risultante dalla nostra analisi; per farlo, useremo il metodo `plot_tree`.
 
 ## Tipi di classificazione
 
@@ -128,12 +141,10 @@ $$
 acc(y, \hat{y}) = \frac{1}{5} * 3 = \frac{3}{5} = 0.6
 $$
 
-Per calcolare l'accuracy dei risultati ottenuti dal nostro predittore, Scikit-Learn ci mette a disposizione un'apposita funzione chiamata `accuracy_score`. Ad esempio:
+Per calcolare l'accuracy dei risultati ottenuti dal nostro predittore, Scikit-Learn ci mette a disposizione un'apposita funzione chiamata `accuracy_score`. Ad esempio, estendendo il caso precedente:
 
 ```py
 from sklearn.metrics import accuracy_score
-y_true = [1, 1, 1, 2, 2]
-y_pred = [1, 1, 2, 1, 2]
 accuracy_score(y_true, y_pred)
 ```
 
@@ -197,77 +208,4 @@ Possiamo visualizzare a schermo la matrice di confusione usando una heatmap di S
 
 ## Algoritmi di classificazione
 
-Scikit-Learn offre un gran numero di metodi di classificazione. Nel seguito, ne descriviamo alcuni, non in ordine di importanza, né di utilità.
-
-### Alberi decisionali
-
-Comprendere il funzionamento di un albero decisionale è abbastanza semplice. L'obiettivo di un albero decisionale è quello di creare un modello che predica il valore di una variabile obiettivo imparando delle semplici regole decisionali apprese a partire dalle feature dei dati. In pratica, possiamo pensare ad un albero come ad un percorso "a step", nel quale ad ogni step vi è un'approssimazione successiva verso il risultato finale.
-
-Vediamo un esempio grafico.
-
-![decision_tree](../assets/images/04_ml/0x_classification/decision_tree.jpg)
-
-Questo esempio mostra le possibilità di sopravvivenza individuate tra i passeggeri del Titanic, assieme alle percentuali di questi sul totale. La suddivisione che viene subito all'occhio è la seguente:
-
-* il 36% dei passaggeri era donna;
-* il 60% uomo di età superiore ai 9 anni e 6 mesi;
-* il 4% uomo di età inferiore ai 9 anni e 6 mesi.
-
-L'albero invece ci dice che sono sopravvissuti:
-
-* il 73% delle donne;
-* il 17% degli uomini con più di 9 anni e 6 mesi;
-* il 2% degli uomini con meno di 9 anni e 6 mesi, con *più* di tre fratelli;
-* l'89% degli uomini con meno di 9 anni e 6 mesi, con *meno* di tre fratelli.
-
-!!!tip "Suggerimento"
-    Qualora troviate una Delorean con la data puntata al 15 aprile 1912, assicuratevi di essere donna o di essere figli unici con meno di nove anni.
-
-Gli alberi decisionali possono essere usati sia come classificatori, sia come regressori; in questa lezione, ci concentreremo sull'uso come classificatori.
-
-```py
-from sklearn.tree import DecisionTreeClassifier
-x = np.random.random_integers(0, 10, size=(100, 1))
-y = np.random.random_integers(0, 2, size=(100))
-
-clf = DecisionTreeClassifier()
-clf = clf.fit(x, y)
-
-clf.predict(np.random.random_integers(0, 2, size=(100)))
-```
-
-Una volta terminato l'addestramento, possiamo visualizzare l'albero mediante la funzione `plot_tree`:
-
-```py
-from sklearn import tree
-
-tree.plot_tree(clf)
-```
-
-Il risultato sarà simile a quello mostrato in figura:
-
-TODO: FIGURA
-
-## Metodi ensemble
-
-L'obiettivo dei metodi ensemble è combinare le predizioni di diversi stimatori di base con un dato algoritmo di apprendimento per migliorare la generalizzabilità / robustezza di un singolo stimatore.
-
-Due famiglie di metodi ensemble sono normalmente idnividuati:
-
-* nei metodi averaging, il principio guida è quello di costruei diversi stimatori indipendenti e quindi mediare le loro predizioni. In media, gli stimatori combinati sono di solito migliori di uno qualsiasi dei singoli stimatori base perché ne viene ridotta la varianza.
-
-* di contrasto, nei metodi di boosting, gli stimatori di base sono costruiti in maniera sequenziale, a cascata, e si prova a ridurre il bias degli stimatori combinati. La motivaizone è combinare diversi modelli "deboli", per produrre un ensemble migliore.
-
-Vediamo un esponente di entrambi.
-
-### Random forest
-
-Il random forest è un metodo averaging. In pratica, viene costruito un insieme
-
-### AdaBoost
-
-L'algoritmo AdaBoost è un metodo boosting.
-
-## Reti neurali
-
-### Multi-Layer Perceptron
+Scikit-Learn offre un gran numero di metodi di classificazione. In questo corso, non descriveremo i singoli algoritmi; tuttavia, è importante sottolineare come l'interfaccia offerta da questi sia in tutto e per tutto *costante*, il che ci permette quindi di cambiare algoritmo utilizzato con un numero di modifiche giocoforza minimo.
