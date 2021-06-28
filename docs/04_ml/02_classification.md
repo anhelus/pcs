@@ -20,58 +20,6 @@ Tornando all'esempio delle immagini, l'esperto di dominio dovrebbe assegnare l'e
 
 Esiste anche la possibilità di usare un approccio *non supervisionato*, che non prevede la presenza di un esperto di dominio, e che conseguentemente inferisce la struttura dei dati da essi stessi. In questo corso, non tratteremo questi approcci per ciò che riguarda la classificazione vera e propria; vedremo però il clustering, che è, per antonomasia, non supervisionato.
 
-### Un primo esempio: gli alberi decisionali
-
-Gli *alberi decisionali* sono tra gli algoritmi più semplici che possiamo utilizzare per classificare dei dati.
-
-Un albero decisionale agisce sulle singole feature, impostando delle "regole" sulla base delle quali si stabilisce un outcome certo outcome. Partiamo da un esempio illustrato nella figura successiva.
-
-Un classificatore basato su albero decisionale prevede una struttura di questo tipo.
-
-![decision_tree](../assets/images/04_ml/0x_classification/decision_tree.jpg)
-
-Comprendere il funzionamento di un albero decisionale è abbastanza semplice. L'obiettivo di un albero decisionale è quello di creare un modello che predica il valore di una variabile obiettivo imparando delle semplici regole decisionali apprese a partire dalle feature dei dati. In pratica, possiamo pensare ad un albero come ad un percorso "a step", nel quale ad ogni step vi è un'approssimazione successiva verso il risultato finale.
-
-Questo esempio mostra le possibilità di sopravvivenza individuate tra i passeggeri del Titanic, assieme alle percentuali di questi sul totale. La suddivisione che viene subito all'occhio è la seguente:
-
-* il 36% dei passaggeri era donna;
-* il 60% uomo di età superiore ai 9 anni e 6 mesi;
-* il 4% uomo di età inferiore ai 9 anni e 6 mesi.
-
-L'albero invece ci dice che sono sopravvissuti:
-
-* il 73% delle donne;
-* il 17% degli uomini con più di 9 anni e 6 mesi;
-* il 2% degli uomini con meno di 9 anni e 6 mesi, con *più* di tre fratelli;
-* l'89% degli uomini con meno di 9 anni e 6 mesi, con *meno* di tre fratelli.
-
-#### Implementazione in Scikit-Learn
-
-Per quello che riguarda l'implementazione in Scikit-Learn di un albero decisionale, possiamo usare il seguente codice.
-
-```py
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier, plot_tree
-iris = load_iris()
-X, y = iris.data, iris.target
-X_train, X_test, y_train, y_test = train_test_split(X, y)
-clf = DecisionTreeClassifier()
-clf = clf.fit(X_train, y_train)
-y_pred = clf.predict(X_test)
-plot_tree(clf)
-```
-
-Commentiamolo brevemente.
-
-Per prima cosa, importiamo il metodo `load_iris`, che ci permette di caricare all'interno del programma un *dataset* (chiamato per l'appunto IRIS) che useremo a scopi di classificazione.
-
-Il secondo punto interessante è l'uso del metodo `train_test_split`, che ci permette di suddividere il dataset in due parti: una prima, chiamata di norma *insieme dei dati di training*, relativa ai dati che saranno usati per addestrare il modello, ed una seconda, chiamata *insieme dei dati di test*, che sarà usata per *validare* il modello.
-
-A quel punto, creeremo un oggetto di tipo `DecisionTreeClassifier()`, che per l'appunto ci permetterà di usare un albero decisionale a scopo di classificazione. Questo oggetto sarà addestrato sul nostro insieme di training mediante il metodo `fit`, e potrà essere poi usato per effettuare una predizione sui dati di test mediante il metodo `predict`.
-
-In ultimo, vogliamo poter plottare l'albero risultante dalla nostra analisi; per farlo, useremo il metodo `plot_tree`.
-
 ## Tipi di classificazione
 
 Oltre alla distinzione tra approcci supervisionati e non, esistono altre distinzioni, derivanti dal numero di classi e label assegnate ai vari campioni.
@@ -209,3 +157,57 @@ Possiamo visualizzare a schermo la matrice di confusione usando una heatmap di S
 ## Algoritmi di classificazione
 
 Scikit-Learn offre un gran numero di metodi di classificazione. In questo corso, non descriveremo i singoli algoritmi; tuttavia, è importante sottolineare come l'interfaccia offerta da questi sia in tutto e per tutto *costante*, il che ci permette quindi di cambiare algoritmo utilizzato con un numero di modifiche giocoforza minimo.
+
+### SVM
+
+### Alberi decisionali
+
+Gli *alberi decisionali* sono tra gli algoritmi più semplici che possiamo utilizzare per classificare dei dati.
+
+Un albero decisionale agisce sulle singole feature, impostando delle "regole" sulla base delle quali si stabilisce un outcome certo outcome. Partiamo da un esempio illustrato nella figura successiva.
+
+Un classificatore basato su albero decisionale prevede una struttura di questo tipo.
+
+![decision_tree](../assets/images/04_ml/0x_classification/decision_tree.jpg)
+
+Comprendere il funzionamento di un albero decisionale è abbastanza semplice. L'obiettivo di un albero decisionale è quello di creare un modello che predica il valore di una variabile obiettivo imparando delle semplici regole decisionali apprese a partire dalle feature dei dati. In pratica, possiamo pensare ad un albero come ad un percorso "a step", nel quale ad ogni step vi è un'approssimazione successiva verso il risultato finale.
+
+Questo esempio mostra le possibilità di sopravvivenza individuate tra i passeggeri del Titanic, assieme alle percentuali di questi sul totale. La suddivisione che viene subito all'occhio è la seguente:
+
+* il 36% dei passaggeri era donna;
+* il 60% uomo di età superiore ai 9 anni e 6 mesi;
+* il 4% uomo di età inferiore ai 9 anni e 6 mesi.
+
+L'albero invece ci dice che sono sopravvissuti:
+
+* il 73% delle donne;
+* il 17% degli uomini con più di 9 anni e 6 mesi;
+* il 2% degli uomini con meno di 9 anni e 6 mesi, con *più* di tre fratelli;
+* l'89% degli uomini con meno di 9 anni e 6 mesi, con *meno* di tre fratelli.
+
+#### Implementazione in Scikit-Learn (RIVEDERE CON SVM)
+
+Per quello che riguarda l'implementazione in Scikit-Learn di un albero decisionale, possiamo usare il seguente codice.
+
+```py
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+iris = load_iris()
+X, y = iris.data, iris.target
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+clf = DecisionTreeClassifier()
+clf = clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+plot_tree(clf)
+```
+
+Commentiamolo brevemente.
+
+Per prima cosa, importiamo il metodo `load_iris`, che ci permette di caricare all'interno del programma un *dataset* (chiamato per l'appunto IRIS) che useremo a scopi di classificazione.
+
+Il secondo punto interessante è l'uso del metodo `train_test_split`, che ci permette di suddividere il dataset in due parti: una prima, chiamata di norma *insieme dei dati di training*, relativa ai dati che saranno usati per addestrare il modello, ed una seconda, chiamata *insieme dei dati di test*, che sarà usata per *validare* il modello.
+
+A quel punto, creeremo un oggetto di tipo `DecisionTreeClassifier()`, che per l'appunto ci permetterà di usare un albero decisionale a scopo di classificazione. Questo oggetto sarà addestrato sul nostro insieme di training mediante il metodo `fit`, e potrà essere poi usato per effettuare una predizione sui dati di test mediante il metodo `predict`.
+
+In ultimo, vogliamo poter plottare l'albero risultante dalla nostra analisi; per farlo, useremo il metodo `plot_tree`.
