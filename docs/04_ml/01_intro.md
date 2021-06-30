@@ -143,3 +143,24 @@ Le funzioni che utilizzeremo maggiormente saranno:
 ### Pipeline
 
 Accenniamo in ultimo al fatto che, normalmente, è necessario *concatenare* diversi stimatori. Per farlo, Scikit-Learn ci mette a disposizione un'apposita struttura chiamata `Pipeline`, che approfondiremo nelle prossime lezioni.
+
+<!-- TODO: da qui revisione -->
+
+### Train, test e cross-validazione
+
+Apprendere i parametri di uno stimatore e testarlo sugli stessi dati è un errore metodologico: un modello che infatti si limitasse a ripetere le label dei campioni che ha appena visto avrebbe un punteggio perfetto, ma non sarebbe in grado di predire qualcosa di utile su dati non ancora visti. Questa situazione è comunemente chiamata **overfitting**. Per evitare l'overfitting, nei metodi supervisionati, si usa "lasciar fuori" parte dei dati disponibili e chiamarla *set di test*. La funzione principe per questo in scikit learn è train_test_split.
+
+<!-- TODO: questo deve essere spostato in una sezione relativa agli iperparametri -->
+
+Tuttavia, può essere anche possibile che si debbano valutare diversi iperparametri per un singolo stimatore. Il concetto di iperparametro è analogo a quello di configurazione, e non sono chiamati parametri per evitare di generare confusione con i parametri che vengono configurati internamente da uno stimatore durante l'apprendimento.
+
+Quando valutiamo diverse combinazioni di iperparametri, è possibile che vi sia un overfitting verso il test set, perché potremmo voler ritarare i parametri in modo da ottenere delle performance di validazione quanto migliori possibile. In questo modo, è possibile che il meccanismo di generazione dei dati caratteristico del test set possa "fuoriuscire" all'interno del modello, causando conseguentemente un peggioramento delle capacità di generalizzazione. Per risolvere questo problema, ogni parte del dataset può essere messa fuori in quello che viene chiamato *set di validazione*: il training avviene sul set di raining, la cui valutazione avviene sul set di valudazione,e  quando l'esperimento sembra aver successo, la valutazione finale può essere fatta sul set di test.
+
+Ad ogni modo, il partizionamento in questo modo riduce drasticametne il numero di campioni che può essere usato per apprendere il modello, ed i risultati possono dipende da una scelta casuale dalla coppia degli insieme (train, validazione).
+
+Una soluzione di questo problema è una procedura chiamato cross-validazione. Un set test deve essere sempre tenuto da parte per una valutazione finale, ma non è necessario il test di validazione. In questo approccio base, chiamato k-fold CV, il set di training è suddiviso in k set più piccoli. La procedura è la seguente:
+
+* un modello viene addestrato usando $k - 1$ dei fold come training data;
+* il modello risultante è validato sulla parte rimanente dei dati (ovvero è usato come test set per calcolare una misura di performacnce come l'accuracy.)
+
+La misura di performance restituita dai k-fold è quindi la media dei valori calcolati nel ciclo.
