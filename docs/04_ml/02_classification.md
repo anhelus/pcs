@@ -1,8 +1,8 @@
 # Il problema della classificazione
 
-Nella lezione precedente abbiamo brevemente introdotto il problema della *classificazione*. Questo, come suggerisce il nome stesso, prevede che sia assegnata ad ogni campione una *classe*, da intendersi come un "insieme" di proprietà ed attributi che permette di distinguere oggetti con caratteristiche differenti.
+Nella lezione precedente abbiamo brevemente introdotto il problema della *classificazione* che, come il nome stesso suggerisce, prevede che ad ogni dato sia assegnata una *classe*, da intendersi come insieme di proprietà ed attributi che permettono di distinguere oggetti con caratteristiche differenti.
 
-Per fare un esempio, due immagini appartengono alla stessa classe se ritraggono due "oggetti" dello stesso tipo: due auto rosse, due gatti, o due persone vestite allo stesso modo. Se avessimo a che fare con un'immagine di un cane ed una di un gatto, invece, potremmo ragionevolmente desumere che appartengono a due classi differenti.
+Facciamo un breve esempio. Due immagini, infatti, appartengono alla stessa classe nel caso ritraggono due campioni dello stesso tipo: due gatti, ad esempio, o due auto sportive. Se avessimo a che fare con l'immagine di un cane e quella di un gatto, invece, potremmo ragionevolmente desumere che appartengono a due classi differenti.
 
 Nel caso del Titanic, invece, potremmo classificare i passeggeri come *sopravvissuti* e *non sopravvissuti*, andando quindi a caratterizzare i due gruppi in base alle loro caratteristiche.
 
@@ -18,48 +18,45 @@ Tornando all'esempio delle immagini, l'esperto di dominio dovrebbe assegnare l'e
 !!!note "Nota"
     Ovviamente, questi sono casi "semplici" di labeling. Esistono, nella realtà, casi molto più complessi, nei quali l'esperto di dominio deve essere altamente qualificato.
 
-Esiste anche la possibilità di usare un approccio *non supervisionato*, che non prevede la presenza di un esperto di dominio, e che conseguentemente inferisce la struttura dei dati da essi stessi. In questo corso, non tratteremo questi approcci per ciò che riguarda la classificazione vera e propria; vedremo però il clustering, che è, per antonomasia, non supervisionato.
+Esiste anche la possibilità di usare un approccio *non supervisionato*, che non prevede la presenza di un esperto di dominio, e che conseguentemente inferisce la struttura dei dati da essi stessi. In questo corso, tratteremo il clustering, che è un approccio totalmente non supervisionato.
 
-## La classificazione e la sua tipologia
+## Tipi di classificazione
 
-Oltre alla distinzione tra approcci supervisionati e non, esistono altre distinzioni, derivanti dal numero di classi e label assegnate ai vari campioni.
+Oltre alla distinzione tra approcci supervisionati e non, ne esistono delle altre legate al numero di classi e label assegnate ai vari campioni.
 
 ### Classificazione binaria
 
-I problemi di *classificazione binaria* prevedono che l'output possibile siano soltanto due, di solito *vero* e *falso*, in ovvia analogia con la logica booleana.
+I problemi di *classificazione binaria* prevedono che gli output siano soltanto due, di solito *vero* e *falso*, in ovvia analogia con la logica booleana.
 
 Un tipico esempio di un problema binario è quello del riconoscimento del volto di una persona, nel quale il sistema di machine learning deve restituire *vero* se il volto viene riconosciuto correttamente, e *falso* altrimenti. Altro esempio è quello cui abbiamo accennato in precedenza a riguardo della sopravvivenza dei passeggeri del Titanic.
 
 ### Classificazione multi-classe
 
-I problemi che prevedono più di due classi sono detto *multi-classe*, e sono anche tra i più diffusi.
+I problemi che prevedono più di due classi sono detto *multi-classe*.
 
-Tornando all'elaborazioen delle immagini, il riconoscimento del tipo di oggetto raffigurato nella foto è un problema tipicamente multi-classe, dato che questo può appartenere ad un elevato numero di classi (ad esempio, auto, smartphone, animali, etc.). Tornando al dataset Titanic, un esempio di problema multi-classe potrebbe prevedere l'esigenza di classificare i passeggeri in base al compartimento nel quale era situata la loro cabina.
+Tornando all'elaborazione delle immagini, il riconoscimento del tipo di oggetto raffigurato nella foto è un problema tipicamente multi-classe, dato che questo può appartenere ad un elevato numero di classi (ad esempio, auto, smartphone, animali, etc.). Tornando al dataset Titanic, un esempio di problema multi-classe potrebbe prevedere l'esigenza di classificare i passeggeri in base al compartimento nel quale era situata la loro cabina.
+
+### Classificazione multi-task
+
+Parliamo di classificazione *multi-task* quando abbiamo diversi problemi che devono essere risolti contemporaneamente.
+
+Pensiamo, ad esempio, ad un problema che richieda di distinguere un gatto da una tigre, e, contestualmente, di descrivere l'ambiente in cui si trova l'animale. Ovviamente, il problema consta di due aspetti, che però sono tra loro correlati: infatti, è molto probabile che una tigre si trovi in un ambiente di tipo "selvaggio", mentre che la foto del gatto sia all'interno di una casa o comunque di un ambiente più "urbano". In questo caso, si potrebbero addestrare più classificatori, o combinarne diversi in un unico stimatore, per raggiungere il risultato finale.
 
 ### Classificazione multi-label
 
-<!-- TODO -->
+La classificazione *multi-label* è un caso particolare di classificazione multi-task.
 
-La classificazione *multi-label* prevede che ogni campione sia etichettato con $m$ label provenienti dall'insieme di $N$ classi, con $0 \leq m \leq N$. In altre parole, potremmo pensare ad un problema multi-label come ad un problema che predice le proprietà *non mutualmente esclusive* di ogni campione.
+Per rimanere nello stesso ambito del caso precedente, potremmo voler considerare un'immagine che abbia al suo interno diversi animali, come ad esempio un gatto, un cane ed una gallina. Il problema multi-label può prevedere, abbastanza banalmente, la descrizione della presenza (o meno) dei diversi animali all'interno della foto; per far questo, il classificatore si pone di suddividere l'immagine in diversi problemi di classificazione binaria, in particolare rispondendo alle domande:
 
-Per esempio, potremmo pensare di definire, oltre alla label *sopravvissuto*, anche la label *genere*, e valutare le due congiuntamente, in quanto supposte non mutualmente esclusive.
+1. Vi è un cane nell'immagine?
+2. Vi è un gatto nell'immagine?
+3. Vi è una gallina nell'immagine?
 
-!!!note "Nota"
-    In realtà, il genere potrebbe, e dovrebbe, aver avuto una relazione con le possibilità di sopravvivenza del passeggero, in quanto potrebbero essere state favorite le donne nel momento del salvataggio.
+## Valutare un algoritmo di classificazione: le metriche
 
-Questo tipo di problema è concettualmente riconducibile all'uso "concatenato" di una serie di classificatori binari in cascata, uno per ciascuna delle label disponibili.
+Gli algoritmi di classificazione (e, più in generale, tutti gli algoritmi di machine learning) sono valutati sulla base di una o più *metriche* che, nel caso specifico, mettono in evidenza in che percentuale l'algoritmo è in grado di determinare correttamente l'appartenenza o meno di un campione ad una classe.
 
-### Classificazione multi-output
-
-La classificazione *multi-output*, conosciuta anche come *multi-task*, è un approccio alla classificazione nel quale ogni campione viene etichettato mediante una serie di proprietà non binarie, in numero strettamente maggiore di 2. Ovviamente, stiamo parlando di una generalizzazione dei problemi che abbiamo visto finora, in particolare dei multi-label (che prevedono solo label binarie) e dei multi-classe.
-
-Per esempio, avremmo un problema multi-task quando, oltre ad andare ad individuare il tipo di oggetto, vogliamo definirne anche il colore: il fatto di vedere un'auto, ad esempio, non influirà (in linea teorica) il colore della stessa. 
-
-## Metriche
-
-<!-- TODO da qui -->
-
-Di seguito, elencheremo soltanto *alcune* delle metriche che è possibile utilizzare nei problemi di classificazione.
+Vediamo in tal senso alcune delle metriche maggiormente usate.
 
 ### Accuracy
 
@@ -91,14 +88,7 @@ $$
 acc(y, \hat{y}) = \frac{1}{5} * 3 = \frac{3}{5} = 0.6
 $$
 
-Per calcolare l'accuracy dei risultati ottenuti dal nostro predittore, Scikit-Learn ci mette a disposizione un'apposita funzione chiamata `accuracy_score`. Ad esempio:
-
-```py
-from sklearn.metrics import accuracy_score
-y_true = [1, 1, 1, 2, 2]
-y_pred = [1, 1, 2, 1, 2]
-accuracy_score(y_true, y_pred)
-```
+Per calcolare l'accuracy dei risultati ottenuti dal nostro predittore, Scikit-Learn ci mette a disposizione un'apposita funzione chiamata `accuracy_score`.
 
 ### Recall
 
@@ -120,11 +110,6 @@ $$
 
 Anche in questo caso, Scikit-Learn ci mette a disposizione una funzione chiamata `recall_score` mediante la quale calcolare questa metrica.
 
-```py
-from sklearn.metrics import recall_score
-recall_score(y_true, y_pred)
-```
-
 !!!tip "Il parametro `average`"
     La funzione `recall_score` accetta un parametro che, di primo acchitto, potrebbe passare inosservato, ovvero `average`. Questo è in realtà molto importante, in quanto deve essere impsotato in base alle specifiche del problema sotto osservazione. Così, in caso di classificazione binaria, dovremo usare `average='binary'`, specificando anche la classe sulla quale ci interessa calcolare il recall; nel caso di classi non bilanciate, invece, potremmo preferire la modalità `'macro'` alla modalità `'micro'`.
 
@@ -138,12 +123,7 @@ $$
 
 dove $FP$ è il numero di *falsi positivi*, ovvero dei campioni che il classificatore reputa erroneamente appartenenti ad una certa classe. La precision può quindi essere descritta come la capacità del classificatore di non assegnare una certa classe a campioni appartenenti ad un'altra.
 
-Per la precision valgono esattamente le stesse considerazioni fatte per il recall; l'unica differenza sostanziale, oltre quella "semantica", sta nel fatto che viene calcolata usando la funzione `precision_score`:
-
-```py
-from sklearn.metrics import precision_score
-precision_score(y_true, y_pred)
-```
+Per la precision valgono esattamente le stesse considerazioni fatte per il recall; l'unica differenza sostanziale, oltre quella "semantica", sta nel fatto che viene calcolata usando la funzione `precision_score`.
 
 ### Matrice di confusione
 
@@ -151,24 +131,21 @@ Un altro modo di rappresentare i risultati ottenuti da un classificatore è quel
 
 La definizione di una matrice di confusione $C$ è tale che $C_{i,j}$ sia uguale al numero di osservazioni che sono nel gruppo $i$, ma che vengono predette dal classificatore nel gruppo $j$.
 
-```py
-from sklearn.metrics import confusion_matrix
-confusion_matrix(y_true, y_pred)
-```
-
-Possiamo visualizzare a schermo la matrice di confusione usando una heatmap di Seaborn.
-
 ## Algoritmi di classificazione
 
-Scikit-Learn offre un gran numero di metodi di classificazione. Nel seguito, ne descriviamo alcuni, non in ordine di importanza, né di utilità.
+Scikit-Learn offre un gran numero di metodi di classificazione. In questo corso, ci limiteremo a descrivere brevemente un paio di algoritmi, ovvero le SVM e gli alberi decisionali. Al solito, però, è importante sottolineare come Scikit-Learn offra un'interfaccia in tutto e per tutto *omogenea* tra i diversi algoritmi, il che ci permette quindi di modificare il nostro approccio riscrivendo solo piccole parti del nostro codice.
 
-### Alberi decisionali
+### Un primo esempio: gli alberi decisionali
+
+Gli *alberi decisionali* sono tra gli algoritmi più semplici che possiamo utilizzare per classificare dei dati.
+
+Un albero decisionale agisce sulle singole feature, impostando delle "regole" sulla base delle quali si stabilisce un outcome certo outcome. Partiamo da un esempio illustrato nella figura successiva.
+
+Un classificatore basato su albero decisionale prevede una struttura di questo tipo.
+
+![decision_tree](../assets/images/04_ml/02_classification/decision_tree.jpg)
 
 Comprendere il funzionamento di un albero decisionale è abbastanza semplice. L'obiettivo di un albero decisionale è quello di creare un modello che predica il valore di una variabile obiettivo imparando delle semplici regole decisionali apprese a partire dalle feature dei dati. In pratica, possiamo pensare ad un albero come ad un percorso "a step", nel quale ad ogni step vi è un'approssimazione successiva verso il risultato finale.
-
-Vediamo un esempio grafico.
-
-![decision_tree](../assets/images/04_ml/0x_classification/decision_tree.jpg)
 
 Questo esempio mostra le possibilità di sopravvivenza individuate tra i passeggeri del Titanic, assieme alle percentuali di questi sul totale. La suddivisione che viene subito all'occhio è la seguente:
 
@@ -183,54 +160,15 @@ L'albero invece ci dice che sono sopravvissuti:
 * il 2% degli uomini con meno di 9 anni e 6 mesi, con *più* di tre fratelli;
 * l'89% degli uomini con meno di 9 anni e 6 mesi, con *meno* di tre fratelli.
 
-!!!tip "Suggerimento"
-    Qualora troviate una Delorean con la data puntata al 15 aprile 1912, assicuratevi di essere donna o di essere figli unici con meno di nove anni.
+### Le Support Vector Machine
 
-Gli alberi decisionali possono essere usati sia come classificatori, sia come regressori; in questa lezione, ci concentreremo sull'uso come classificatori.
+Le *Support Vector Machine* (*SVM*) operano sulla disposizione dei dati nell'iperspazio delle feature, cercando di individuare un iperpiano ottimale che ne consenta la migliore separazione possibile. Questo tipo di algoritmo prende il nome dai dati più vicini all'iperpiano, che sono chiamati *Support Vector*.
 
-```py
-from sklearn.tree import DecisionTreeClassifier
-x = np.random.random_integers(0, 10, size=(100, 1))
-y = np.random.random_integers(0, 2, size=(100))
+Nella figura successiva, presa da WikiMedia e creata da [Zack Weinberg](https://commons.wikimedia.org/w/index.php?curid=22877598), vediamo un esempio in un piano a due dimensioni.
 
-clf = DecisionTreeClassifier()
-clf = clf.fit(x, y)
+![svm_plane](../assets/images/04_ml/02_classification/svm_plane.png)
 
-clf.predict(np.random.random_integers(0, 2, size=(100)))
-```
+Le SVM calcolano la distanza tra i campioni mediante un'apposita funzione, chiamata *kernel*. Ve ne sono di diversi tipi, ognuno dei quali permette di ottenere risultati più o meno validi a seconda delle diverse situazioni.
 
-Una volta terminato l'addestramento, possiamo visualizzare l'albero mediante la funzione `plot_tree`:
-
-```py
-from sklearn import tree
-
-tree.plot_tree(clf)
-```
-
-Il risultato sarà simile a quello mostrato in figura:
-
-TODO: FIGURA
-
-## Metodi ensemble
-
-L'obiettivo dei metodi ensemble è combinare le predizioni di diversi stimatori di base con un dato algoritmo di apprendimento per migliorare la generalizzabilità / robustezza di un singolo stimatore.
-
-Due famiglie di metodi ensemble sono normalmente idnividuati:
-
-* nei metodi averaging, il principio guida è quello di costruei diversi stimatori indipendenti e quindi mediare le loro predizioni. In media, gli stimatori combinati sono di solito migliori di uno qualsiasi dei singoli stimatori base perché ne viene ridotta la varianza.
-
-* di contrasto, nei metodi di boosting, gli stimatori di base sono costruiti in maniera sequenziale, a cascata, e si prova a ridurre il bias degli stimatori combinati. La motivaizone è combinare diversi modelli "deboli", per produrre un ensemble migliore.
-
-Vediamo un esponente di entrambi.
-
-### Random forest
-
-Il random forest è un metodo averaging. In pratica, viene costruito un insieme
-
-### AdaBoost
-
-L'algoritmo AdaBoost è un metodo boosting.
-
-## Reti neurali
-
-### Multi-Layer Perceptron
+!!!note "Nota"
+	Le SVM, per loro natura, sono utili principalmente in caso di classificazione binaria. In realtà, però, gli algoritmi offerti da Scikit Learn permettono di implementare in maniera automatica *anche* la classificazione multi-classe, sfruttando un approccio chiamato *one-to-one*, che scompone il problema in una serie di problemi binari, sulla stregua della classificazione multi-label.

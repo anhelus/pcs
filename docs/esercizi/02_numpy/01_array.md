@@ -1,35 +1,35 @@
 # Risoluzione degli esercizi
 
-1. Scriviamo la funzione `crea_array(dim_1, dim_2)` che crea due array di elementi interi casuali, uno di dimensioni $4 \times 1$, ed uno di dimensioni $2 \times 2$. Se possibile, generalizzare i parametri accettati dalla funzione. Usare inoltre la funzione [`concatenate`](https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html#numpy.concatenate) per concatenare i diversi array.
+1. Scriviamo una funzione che restituisca il prodotto riga per colonna di due vettori `v1` e `v2`. Usiamo una list comprehension, e verifichiamo che la lunghezza dei due vettori sia coerente. Il metodo dovrà funzionare indipendentemente dall’ordine in cui sono passati i parametri.
+
+```py
+def riga_per_colonna(v1, v2):
+	if v1.shape[0] == 1:
+		if v2.shape[1] == 1 and v1.shape[1] == v2.shape[0]:
+			return sum([v1[0][i] * v2[i] for i in range(v2.shape[0])])
+	elif v2.shape[0] == 1:
+		if v1.shape[1] == 1 and v2.shape[1] == v1.shape[0]:
+			return sum([v1[i] * v2[0][i] for i in range(v1.shape[0])])
+	raise ValueError('Le dimensioni dei vettori non sono coerenti.')
+
+v1 = np.array([[1,2,3,4]])
+v2 = np.array([[1],[2],[3],[4]])
+
+riga_per_colonna(v1, v2)
+riga_per_colonna(v2, v1)
+riga_per_colonna(np.array([[1]]), v2)
+```
+
+2. Scriviamo una funzione `crea_array(dim_1, dim_2, val_min, val_max)` che crei array di dimensioni arbitrarie `dim_1` x `dim_2` fatti di numeri interi casuali compresi tra `val_min` e `val_max`. Di default, la funzione dovrà creare dei vettori riga.
 
 ```py
 import numpy as np
 from random import randint
 
-def crea_array(dim_1, dim_2=1):
-	if dim_2 == 1:
-		# Array monodimensionale
-		return np.array([randint(0, 100) for i in range(dim_1)])
-	elif dim_2 > 1:
-		# Array bidimensionale
-		base = np.array([[randint(0, 100) for i in range(dim_1)]])
-		for i in range(dim_2-1):
-			base = np.concatenate((
-				base,
-				np.array([[randint(0, 100) for i in range(dim_1)]])), 
-			axis=0)
-		return base
+def crea_array(dim_1, dim_2=1, val_min=0, val_max=100):
+	rows = [[randint(val_min, val_max) for i in range(dim_2)] for j in range(dim_1)]
+	return np.array(rows)
 
 a_1 = crea_array(4, 1)
 a_2 = crea_array(2, 2)
-```
-
-2. Scriviamo la funzione array_a_tupla che salva i valori contenuti negli array precedenti in tuple di dimensioni $4 \times 1$. Usare la funzione [`flatten`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html); provare ad usare un’unica istruzione sfruttando il casting a tupla.
-
-```py
-def array_a_tupla(array):
-	return tuple(array.flatten())
-
-array_a_tupla(a_1)
-array_a_tupla(a_2)
 ```

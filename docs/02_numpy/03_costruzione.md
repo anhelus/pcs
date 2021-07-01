@@ -52,9 +52,9 @@ Possiamo creare un array vuoto mediante la funzione `empty()`:
 ```py
 >>> e = np.empty(shape=(3,3))
 >>> e
-array([[0., 0., 0.],
-       [0., 0., 0.],
-       [0., 0., 0.]])
+array([[0.00000000e+000, 0.00000000e+000, 0.00000000e+000],
+       [0.00000000e+000, 0.00000000e+000, 1.67982320e-321],
+       [5.96555652e-302, 1.14188703e-104, 9.91401238e-278]])
 ```
 
 Questa funzione può risultare utile quando vogliamo preallocare spazio per un array.
@@ -75,7 +75,7 @@ array([[1., 0., 0.],
 ```
 
 !!!warning "Attenzione" 
-    In questo caso, notiamo come non si possa passare una tupla o una lista per indicare le dimensioni dell'array, ma soltanto un intero rappresentativo dell'ordine della matrice. Questo perché, *come ovvio*, le matrici identità *sono quadrate*.
+    In questo caso, notiamo come non si possa passare una tupla o una lista per indicare le dimensioni dell'array. Tuttavia, possiamo specificare sia il numero delle righe (con il primo parametro) che il numero delle colonne (con il secondo parametro).
 
 ### Matrici diagonali
 

@@ -8,9 +8,11 @@ from numpy import linalg
 
 ## Trasposta di una matrice
 
-un'operazione comune è fare la trasporta delle nostre matrici. gli array numpy hanno la proprietà T che ci permette di trasporre una matrice.
+La prima operazione che vedremo *non* richiede l'uso del modulo `linalg`, ed è quella che ci permette di effettuare la trasposta di una matrice. Per farlo, usiamo la funzione `transpose`.
 
-si può anche dover cambiare le dimensioni di una matrice. questo può accadere quando, ad esempio, si ha un modello che si attende una certa forma di input che è diversa dal nostro dataset. questo è dove il meotodo reshape può essere utile. abbiamo infatti bisogno semplicemente di passare le nuove dimensioni che vogliamo per la matrice.
+```py
+>>> np.transpose(x)
+```
 
 ## Matrice inversa
 
@@ -110,10 +112,10 @@ La funzione `matmul()` ha una differenza fondamentale rispetto alla funzione `do
 
 ## Potenza di matrice
 
-La funzione `linalg.matrix_power(a, n)` del package `linalg` permette di elevare a potenza `n` della matrice `a`. Ad esempio:
+La funzione `matrix_power(a, n)` del package `linalg` permette di elevare a potenza `n` della matrice `a`. Ad esempio:
 
 ```py
->>> linalg.matrix_power(a, 5)
+>>> matrix_power(a, 5)
 array([[1069, 1558],
        [2337, 3406]])
 ```
@@ -134,7 +136,7 @@ $$
 NumPy ci offre un metodo per effettuare la decomposizione QR in un'unica istruzione mediante la funzione `qr(a)` del package `linalg`. Ad esempio:
 
 ```py
->>> (q, r) = linalg.qr(mat)
+>>> (q, r) = qr(mat)
 >>> q
 array([[-0.74535599, -0.28151707, -0.60431166],
        [-0.2981424 , -0.67001063,  0.67985062],
@@ -163,15 +165,6 @@ dove $U$ è una matrice unitaria di dimensioni $m \times m$, $\Sigma$ è una mat
 Anche in questo caso, la SVD è estremamente complessa da implementare a partire dalle sue funzioni basilari. NumPy ci viene quindi in aiuto con la funzione `svd(mat)` del package `linalg`. Ad esempio:
 
 ```py
->>> (q, r) = linalg.qr(mat)
->>> q
-array([[-0.74535599, -0.28151707, -0.60431166],
-       [-0.2981424 , -0.67001063,  0.67985062],
-       [-0.59628479,  0.68690166,  0.41546427]])
->>> r
-array([[ -6.70820393,  -1.19256959, -14.16176386],
-       [  0.        ,  -3.94686936,   5.03915561],
-       [  0.        ,   0.        ,   0.22661687]])
 >>> (u, s, v) = linalg.svd(mat)
 >>> u
 array([[-0.62732922, -0.48645199, -0.60813034],
@@ -266,7 +259,3 @@ array([-7.5,  4.5,  3.5])
 ## Conclusioni
 
 In questa lezione, abbiamo visto come NumPy ci offra dei metodi per effettuare le operazioni base di algebra lineare in poche e semplici operazioni. Nella [successiva](./07_polinomi), vedremo i metodi che ci vengono dati per trattare i polinomi reali.
-
-## Esercizi
-
-1. Ricostruire una matrice $A$ a partire dalla sua decomposizione SVD.
