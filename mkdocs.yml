@@ -27,9 +27,13 @@ nav:
     - 04 - Indicizzazione di un array: 02_numpy/04_indicizzazione.md
     - 05 - Operazioni base con gli array: 02_numpy/05_operazioni.md
     - 06 - Algebra lineare: 02_numpy/06_algebra.md
-    # - 07 - Polinomi lineari: 02_numpy/07_polinomi.md
-    # - 08 - Statistica: 02_numpy/08_statistica.md
-    # - 09 - Visualizzazione dei risultati: 02_numpy/09_plotting.md
+    - 07 - Polinomi lineari: 02_numpy/07_polinomi.md
+    - 08 - Statistica: 02_numpy/08_statistica.md
+    - 09 - Visualizzazione dei risultati: 02_numpy/09_plotting.md
+  - Cenni all'ecosistema SciPy:
+    - 01 - Introduzione a Matplotlib e Seaborn: 03_libs/01_matplotlib.md
+    - 02 - Introduzione a SciPy: 03_libs/02_scipy.md
+    - 03 - Introduzione a Jupyter: 03_libs/03_jupyter.md
   # - Appendici:
     # - Appendice A - Configurazioni: 04_appendici/a_configurazioni.md
     # - Appendice B - Tabelle Python: 04_appendici/b_python.md
