@@ -12,11 +12,11 @@
         <link rel="canonical" href="https://python.angelocardellicchio.it/02_numpy/06_algebra/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
-        <title>Operazioni matriciali - Python 4 Data Science</title>
+        <title>06 - Algebra lineare - Python 4 Data Science</title>
       
     
     
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Operazioni matriciali
+              06 - Algebra lineare
             
           </span>
         </div>
@@ -281,6 +281,30 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/02_numpy/01_array/" class="md-nav__link">
+        Lezione 5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/02_numpy/02_operazioni/" class="md-nav__link">
+        Lezione 6
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -390,6 +414,369 @@
     <li class="md-nav__item">
       <a href="../../01_python/07_classi/" class="md-nav__link">
         07 - Classi
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        NumPy
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NumPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_intro/" class="md-nav__link">
+        01 - Introduzione a NumPy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_array/" class="md-nav__link">
+        02 - Introduzione agli array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_costruzione/" class="md-nav__link">
+        03 - Costruzione di un array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_indicizzazione/" class="md-nav__link">
+        04 - Indicizzazione di un array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_operazioni/" class="md-nav__link">
+        05 - Operazioni base con gli array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          06 - Algebra lineare
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        06 - Algebra lineare
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#trasposta-di-una-matrice" class="md-nav__link">
+    Trasposta di una matrice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matrice-inversa" class="md-nav__link">
+    Matrice inversa
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prodotti-vettoriali-e-matriciali" class="md-nav__link">
+    Prodotti vettoriali e matriciali
+  </a>
+  
+    <nav class="md-nav" aria-label="Prodotti vettoriali e matriciali">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-funzione-dot" class="md-nav__link">
+    La funzione dot()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prodotto-interno" class="md-nav__link">
+    Prodotto interno
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prodotto-esterno" class="md-nav__link">
+    Prodotto esterno
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-funzione-matmul" class="md-nav__link">
+    La funzione matmul
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#potenza-di-matrice" class="md-nav__link">
+    Potenza di matrice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decomposizione-di-matrice" class="md-nav__link">
+    Decomposizione di matrice
+  </a>
+  
+    <nav class="md-nav" aria-label="Decomposizione di matrice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decomposizione-qr" class="md-nav__link">
+    Decomposizione QR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decomposizione-ai-valori-singolari" class="md-nav__link">
+    Decomposizione ai valori singolari
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autovalori-ed-autovettori" class="md-nav__link">
+    Autovalori ed autovettori
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#norma" class="md-nav__link">
+    Norma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinante-rango-e-traccia" class="md-nav__link">
+    Determinante, rango e traccia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risoluzione-di-sistemi" class="md-nav__link">
+    Risoluzione di sistemi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusioni" class="md-nav__link">
+    Conclusioni
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_polinomi/" class="md-nav__link">
+        07 - Polinomi lineari
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_statistica/" class="md-nav__link">
+        08 - Statistica
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_plotting.md" class="md-nav__link">
+        09 - Visualizzazione dei risultati
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Cenni all'ecosistema SciPy
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cenni all'ecosistema SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Cenni all'ecosistema SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_libs/01_matplotlib/" class="md-nav__link">
+        01 - Introduzione a Matplotlib e Seaborn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_libs/02_scipy/" class="md-nav__link">
+        02 - Introduzione a SciPy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_libs/03_jupyter/" class="md-nav__link">
+        03 - Introduzione a Jupyter
       </a>
     </li>
   
@@ -550,13 +937,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#esercizi" class="md-nav__link">
-    Esercizi
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -575,8 +955,9 @@
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span>
 </code></pre></div>
 <h2 id="trasposta-di-una-matrice">Trasposta di una matrice<a class="headerlink" href="#trasposta-di-una-matrice" title="Permanent link">&para;</a></h2>
-<p>un'operazione comune è fare la trasporta delle nostre matrici. gli array numpy hanno la proprietà T che ci permette di trasporre una matrice.</p>
-<p>si può anche dover cambiare le dimensioni di una matrice. questo può accadere quando, ad esempio, si ha un modello che si attende una certa forma di input che è diversa dal nostro dataset. questo è dove il meotodo reshape può essere utile. abbiamo infatti bisogno semplicemente di passare le nuove dimensioni che vogliamo per la matrice.</p>
+<p>La prima operazione che vedremo <em>non</em> richiede l'uso del modulo <code>linalg</code>, ed è quella che ci permette di effettuare la trasposta di una matrice. Per farlo, usiamo la funzione <code>transpose</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="matrice-inversa">Matrice inversa<a class="headerlink" href="#matrice-inversa" title="Permanent link">&para;</a></h2>
 <p>Possiamo calcolare l'inversa di una matrice usando la funzione <code>inv(mat)</code> del package <code>linalg</code>, dove <code>mat</code> è la matrice da invertire. Ad esempio:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
@@ -675,8 +1056,8 @@
 </code></pre></div>
 <p>La funzione <code>matmul()</code> ha una differenza fondamentale rispetto alla funzione <code>dot()</code>, in quanto non accetta scalari come parametro (anche se è possibile passare vettori ed array N-dimensionali). Esiste in realtà un'altra differenza importante, che riguarda le operazioni N-dimensionali, ma che non tratteremo in questa sede.</p>
 <h2 id="potenza-di-matrice">Potenza di matrice<a class="headerlink" href="#potenza-di-matrice" title="Permanent link">&para;</a></h2>
-<p>La funzione <code>linalg.matrix_power(a, n)</code> del package <code>linalg</code> permette di elevare a potenza <code>n</code> della matrice <code>a</code>. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">linalg</span><span class="o">.</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<p>La funzione <code>matrix_power(a, n)</code> del package <code>linalg</code> permette di elevare a potenza <code>n</code> della matrice <code>a</code>. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">matrix_power</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">1069</span><span class="p">,</span> <span class="mi">1558</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">2337</span><span class="p">,</span> <span class="mi">3406</span><span class="p">]])</span>
 </code></pre></div>
@@ -691,7 +1072,7 @@ A = QR
 <p>Una matrice ortogonale è una matrice quadrata la cui inversa coincide con la trasposta.</p>
 </div>
 <p>NumPy ci offre un metodo per effettuare la decomposizione QR in un'unica istruzione mediante la funzione <code>qr(a)</code> del package <code>linalg</code>. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">qr</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">q</span>
 <span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.74535599</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.28151707</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.60431166</span><span class="p">],</span>
        <span class="p">[</span><span class="o">-</span><span class="mf">0.2981424</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.67001063</span><span class="p">,</span>  <span class="mf">0.67985062</span><span class="p">],</span>
@@ -713,16 +1094,7 @@ A = U \Sigma V^*
 <p>La trasposta coniugata di una matrice è ottenuta effettuandone la trasposizione e scambiando ogni elemento con il suo complesso coniugato.</p>
 </div>
 <p>Anche in questo caso, la SVD è estremamente complessa da implementare a partire dalle sue funzioni basilari. NumPy ci viene quindi in aiuto con la funzione <code>svd(mat)</code> del package <code>linalg</code>. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span>
-<span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.74535599</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.28151707</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.60431166</span><span class="p">],</span>
-       <span class="p">[</span><span class="o">-</span><span class="mf">0.2981424</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.67001063</span><span class="p">,</span>  <span class="mf">0.67985062</span><span class="p">],</span>
-       <span class="p">[</span><span class="o">-</span><span class="mf">0.59628479</span><span class="p">,</span>  <span class="mf">0.68690166</span><span class="p">,</span>  <span class="mf">0.41546427</span><span class="p">]])</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">r</span>
-<span class="n">array</span><span class="p">([[</span> <span class="o">-</span><span class="mf">6.70820393</span><span class="p">,</span>  <span class="o">-</span><span class="mf">1.19256959</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.16176386</span><span class="p">],</span>
-       <span class="p">[</span>  <span class="mf">0.</span>        <span class="p">,</span>  <span class="o">-</span><span class="mf">3.94686936</span><span class="p">,</span>   <span class="mf">5.03915561</span><span class="p">],</span>
-       <span class="p">[</span>  <span class="mf">0.</span>        <span class="p">,</span>   <span class="mf">0.</span>        <span class="p">,</span>   <span class="mf">0.22661687</span><span class="p">]])</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">u</span>
 <span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.62732922</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.48645199</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.60813034</span><span class="p">],</span>
        <span class="p">[</span><span class="o">-</span><span class="mf">0.10481126</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.72105629</span><span class="p">,</span>  <span class="mf">0.68490322</span><span class="p">],</span>
@@ -797,10 +1169,6 @@ Av = \lambda_0v
 </div>
 <h2 id="conclusioni">Conclusioni<a class="headerlink" href="#conclusioni" title="Permanent link">&para;</a></h2>
 <p>In questa lezione, abbiamo visto come NumPy ci offra dei metodi per effettuare le operazioni base di algebra lineare in poche e semplici operazioni. Nella <a href="./07_polinomi">successiva</a>, vedremo i metodi che ci vengono dati per trattare i polinomi reali.</p>
-<h2 id="esercizi">Esercizi<a class="headerlink" href="#esercizi" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Ricostruire una matrice <span class="arithmatex">\(A\)</span> a partire dalla sua decomposizione SVD.</li>
-</ol>
                 
               
               
@@ -820,6 +1188,41 @@ Av = \lambda_0v
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../05_operazioni/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 05 - Operazioni base con gli array" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              05 - Operazioni base con gli array
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../07_polinomi/" class="md-footer__link md-footer__link--next" aria-label="Next: 07 - Polinomi lineari" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              07 - Polinomi lineari
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -863,10 +1266,10 @@ Av = \lambda_0v
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="../../js/config.js"></script>
       

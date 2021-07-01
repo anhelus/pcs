@@ -9,21 +9,21 @@
       
       
       
-        <link rel="canonical" href="https://python.angelocardellicchio.it/esercizi/02_numpy/">
+        <link rel="canonical" href="https://python.angelocardellicchio.it/esercizi/02_numpy/02_operazioni/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
-        <title>Esercizi su NumPy - Python 4 Data Science</title>
+        <title>Lezione 6 - Python 4 Data Science</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.f1a3b89f.min.css">
         
       
     
@@ -38,7 +38,7 @@
     
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     
       
@@ -57,7 +57,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#esercizi-su-numpy" class="md-skip">
+        <a href="#risoluzione-degli-esercizi" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +76,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+    <a href="../../.." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Esercizi su NumPy
+              Lezione 6
             
           </span>
         </div>
@@ -156,7 +156,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+    <a href="../../.." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -175,7 +175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -190,7 +190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slides/" class="md-nav__link">
+      <a href="../../../slides/" class="md-nav__link">
         Slides
       </a>
     </li>
@@ -203,12 +203,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
         Esercizi
@@ -226,7 +228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_python/01_intro/" class="md-nav__link">
+      <a href="../../01_python/01_intro/" class="md-nav__link">
         Lezione 1
       </a>
     </li>
@@ -238,7 +240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_python/02_programmare/" class="md-nav__link">
+      <a href="../../01_python/02_programmare/" class="md-nav__link">
         Lezione 2
       </a>
     </li>
@@ -250,7 +252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_python/03_strutture/" class="md-nav__link">
+      <a href="../../01_python/03_strutture/" class="md-nav__link">
         Lezione 3
       </a>
     </li>
@@ -262,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_python/04_classi/" class="md-nav__link">
+      <a href="../../01_python/04_classi/" class="md-nav__link">
         Lezione 4 (classi)
       </a>
     </li>
@@ -274,9 +276,43 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_python/05_eccezioni/" class="md-nav__link">
+      <a href="../../01_python/05_eccezioni/" class="md-nav__link">
         Lezione 4 (eccezioni)
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_array/" class="md-nav__link">
+        Lezione 5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Lezione 6
+      </a>
+      
     </li>
   
 
@@ -316,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/01_intro/" class="md-nav__link">
+      <a href="../../../01_python/01_intro/" class="md-nav__link">
         01 - Introduzione
       </a>
     </li>
@@ -328,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/02_programmare/" class="md-nav__link">
+      <a href="../../../01_python/02_programmare/" class="md-nav__link">
         02 - Concetti base
       </a>
     </li>
@@ -340,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/03_strutture/" class="md-nav__link">
+      <a href="../../../01_python/03_strutture/" class="md-nav__link">
         03 - Liste, code e pile
       </a>
     </li>
@@ -352,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/04_list_comprehension/" class="md-nav__link">
+      <a href="../../../01_python/04_list_comprehension/" class="md-nav__link">
         04 - List comprehension
       </a>
     </li>
@@ -364,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/05_tuple_dict/" class="md-nav__link">
+      <a href="../../../01_python/05_tuple_dict/" class="md-nav__link">
         05 - Tuple, set e dizionari
       </a>
     </li>
@@ -376,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/06_moduli/" class="md-nav__link">
+      <a href="../../../01_python/06_moduli/" class="md-nav__link">
         06 - Script, moduli e package
       </a>
     </li>
@@ -388,8 +424,212 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/07_classi/" class="md-nav__link">
+      <a href="../../../01_python/07_classi/" class="md-nav__link">
         07 - Classi
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        NumPy
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NumPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_numpy/01_intro/" class="md-nav__link">
+        01 - Introduzione a NumPy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_numpy/02_array/" class="md-nav__link">
+        02 - Introduzione agli array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_numpy/03_costruzione/" class="md-nav__link">
+        03 - Costruzione di un array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_numpy/04_indicizzazione/" class="md-nav__link">
+        04 - Indicizzazione di un array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_numpy/05_operazioni/" class="md-nav__link">
+        05 - Operazioni base con gli array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_numpy/06_algebra/" class="md-nav__link">
+        06 - Algebra lineare
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_numpy/07_polinomi/" class="md-nav__link">
+        07 - Polinomi lineari
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_numpy/08_statistica/" class="md-nav__link">
+        08 - Statistica
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_numpy/09_plotting.md" class="md-nav__link">
+        09 - Visualizzazione dei risultati
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Cenni all'ecosistema SciPy
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cenni all'ecosistema SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Cenni all'ecosistema SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_libs/01_matplotlib/" class="md-nav__link">
+        01 - Introduzione a Matplotlib e Seaborn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_libs/02_scipy/" class="md-nav__link">
+        02 - Introduzione a SciPy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_libs/03_jupyter/" class="md-nav__link">
+        03 - Introduzione a Jupyter
       </a>
     </li>
   
@@ -431,18 +671,25 @@
               
                 
                 
-                <h1 id="esercizi-su-numpy">Esercizi su NumPy<a class="headerlink" href="#esercizi-su-numpy" title="Permanent link">&para;</a></h1>
+                <h1 id="risoluzione-degli-esercizi">Risoluzione degli esercizi<a class="headerlink" href="#risoluzione-degli-esercizi" title="Permanent link">&para;</a></h1>
 <ol>
-<li>
-<p>Definire una funzione <code>svd_rec(u, v, sigma)</code> che, dati i valori di <span class="arithmatex">\(U\)</span>, <span class="arithmatex">\(V\)</span> e <span class="arithmatex">\(\Sigma\)</span> ottenuti dalla decomposizione ai valori singolari di una matrice <span class="arithmatex">\(A\)</span> permetta di ricostruire quest'ultima. Implementare gli opportuni controlli per valutare la coerenza dei parametri passati in ingresso, e definire uno script in grado di scomporre e ricomporre una generica matrice <span class="arithmatex">\(A\)</span>.</p>
-</li>
-<li>
-<p>Trovare il minimo ed il massimo di un array usando soltanto cicli.</p>
-</li>
-<li>
-<p>E' possibile caratterizzare i dati di una distribuzione in maniera non parametrica specificando i valori del <em>range interquartile</em> (ovvero il numero di elementi che ricadono tra il 25 ed il 75 percentile), la <em>mediana</em> e la <em>deviazione standard</em>. Scrivere una funzione che accetti un vettore in ingresso e restituisca in uscita questi valori sotto forma di dizionario.</p>
-</li>
+<li>Scriviamo la funzione <code>rettifica(array)</code>, che restituisce un array delle stesse dimensioni di quello in ingresso ma che porta tutti i valori negativi a 0.</li>
 </ol>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rettifica</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">array</span><span class="p">[</span><span class="n">array</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">array</span>
+
+<span class="n">rettifica</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+</code></pre></div>
+<ol start="2">
+<li>Scriviamo la funzione <code>asort(vect)</code> che restituisce un vettore riga ordinato in modo discendente.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">asort</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">asort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></div>
                 
               
               
@@ -462,6 +709,41 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../01_array/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lezione 5" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Lezione 5
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../../01_python/01_intro/" class="md-footer__link md-footer__link--next" aria-label="Next: 01 - Introduzione" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              01 - Introduzione
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -505,12 +787,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
-        <script src="../../js/config.js"></script>
+        <script src="../../../js/config.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

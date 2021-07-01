@@ -12,11 +12,11 @@
         <link rel="canonical" href="https://python.angelocardellicchio.it/02_numpy/03_costruzione/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
-        <title>Costruzione di un array - Python 4 Data Science</title>
+        <title>03 - Costruzione di un array - Python 4 Data Science</title>
       
     
     
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Costruzione di un array
+              03 - Costruzione di un array
             
           </span>
         </div>
@@ -281,6 +281,30 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/02_numpy/01_array/" class="md-nav__link">
+        Lezione 5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../esercizi/02_numpy/02_operazioni/" class="md-nav__link">
+        Lezione 6
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -390,6 +414,320 @@
     <li class="md-nav__item">
       <a href="../../01_python/07_classi/" class="md-nav__link">
         07 - Classi
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        NumPy
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NumPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_intro/" class="md-nav__link">
+        01 - Introduzione a NumPy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_array/" class="md-nav__link">
+        02 - Introduzione agli array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          03 - Costruzione di un array
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        03 - Costruzione di un array
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#costruire-un-array-alcuni-modi-alternativi" class="md-nav__link">
+    Costruire un array: alcuni modi alternativi
+  </a>
+  
+    <nav class="md-nav" aria-label="Costruire un array: alcuni modi alternativi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#array-con-valori-zero-ed-unitari" class="md-nav__link">
+    Array con valori zero ed unitari
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-vuoti" class="md-nav__link">
+    Array vuoti
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrice-identita" class="md-nav__link">
+    Matrice identità
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrici-diagonali" class="md-nav__link">
+    Matrici diagonali
+  </a>
+  
+    <nav class="md-nav" aria-label="Matrici diagonali">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#da-vettore-a-matrice" class="md-nav__link">
+    Da vettore a matrice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#da-matrice-a-vettore" class="md-nav__link">
+    Da matrice a vettore
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrici-triangolari" class="md-nav__link">
+    Matrici triangolari
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusioni" class="md-nav__link">
+    Conclusioni
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_indicizzazione/" class="md-nav__link">
+        04 - Indicizzazione di un array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_operazioni/" class="md-nav__link">
+        05 - Operazioni base con gli array
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_algebra/" class="md-nav__link">
+        06 - Algebra lineare
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_polinomi/" class="md-nav__link">
+        07 - Polinomi lineari
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_statistica/" class="md-nav__link">
+        08 - Statistica
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_plotting.md" class="md-nav__link">
+        09 - Visualizzazione dei risultati
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Cenni all'ecosistema SciPy
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cenni all'ecosistema SciPy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Cenni all'ecosistema SciPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_libs/01_matplotlib/" class="md-nav__link">
+        01 - Introduzione a Matplotlib e Seaborn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_libs/02_scipy/" class="md-nav__link">
+        02 - Introduzione a SciPy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_libs/03_jupyter/" class="md-nav__link">
+        03 - Introduzione a Jupyter
       </a>
     </li>
   
@@ -550,9 +888,9 @@
 <p>Possiamo creare un array vuoto mediante la funzione <code>empty()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">e</span>
-<span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]])</span>
+<span class="n">array</span><span class="p">([[</span><span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">1.67982320e-321</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">5.96555652e-302</span><span class="p">,</span> <span class="mf">1.14188703e-104</span><span class="p">,</span> <span class="mf">9.91401238e-278</span><span class="p">]])</span>
 </code></pre></div>
 <p>Questa funzione può risultare utile quando vogliamo preallocare spazio per un array.</p>
 <div class="admonition note">
@@ -569,7 +907,7 @@
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Attenzione</p>
-<p>In questo caso, notiamo come non si possa passare una tupla o una lista per indicare le dimensioni dell'array, ma soltanto un intero rappresentativo dell'ordine della matrice. Questo perché, <em>come ovvio</em>, le matrici identità <em>sono quadrate</em>.</p>
+<p>In questo caso, notiamo come non si possa passare una tupla o una lista per indicare le dimensioni dell'array. Tuttavia, possiamo specificare sia il numero delle righe (con il primo parametro) che il numero delle colonne (con il secondo parametro).</p>
 </div>
 <h3 id="matrici-diagonali">Matrici diagonali<a class="headerlink" href="#matrici-diagonali" title="Permanent link">&para;</a></h3>
 <p>La funzione <code>diag()</code> viene usata sia per <em>creare</em> una matrice diagonale a partire da un vettore (che, ovviamente, sarà poi la diagonale della matrice), sia per <em>estrarre</em> la diagonale di una matrice. Facciamo alcuni esempi.</p>
@@ -649,6 +987,41 @@
         
 <footer class="md-footer">
   
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../02_array/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 02 - Introduzione agli array" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              02 - Introduzione agli array
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../04_indicizzazione/" class="md-footer__link md-footer__link--next" aria-label="Next: 04 - Indicizzazione di un array" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              04 - Indicizzazione di un array
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
@@ -691,10 +1064,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="../../js/config.js"></script>
       

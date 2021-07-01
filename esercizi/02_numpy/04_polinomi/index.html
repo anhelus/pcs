@@ -9,21 +9,21 @@
       
       
       
-        <link rel="canonical" href="https://python.angelocardellicchio.it/04_ml/03_regression/">
+        <link rel="canonical" href="https://python.angelocardellicchio.it/esercizi/02_numpy/04_polinomi/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
-        <title>Il problema della regressione - Python 4 Data Science</title>
+        <title>Risoluzione degli esercizi - Python 4 Data Science</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.f1a3b89f.min.css">
         
       
     
@@ -38,7 +38,7 @@
     
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     
       
@@ -57,7 +57,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#il-problema-della-regressione" class="md-skip">
+        <a href="#risoluzione-degli-esercizi" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +76,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+    <a href="../../.." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Il problema della regressione
+              Risoluzione degli esercizi
             
           </span>
         </div>
@@ -156,7 +156,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+    <a href="../../.." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -175,7 +175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -190,7 +190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slides/" class="md-nav__link">
+      <a href="../../../slides/" class="md-nav__link">
         Slides
       </a>
     </li>
@@ -226,7 +226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/01_python/01_intro/" class="md-nav__link">
+      <a href="../../01_python/01_intro/" class="md-nav__link">
         Lezione 1
       </a>
     </li>
@@ -238,7 +238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/01_python/02_programmare/" class="md-nav__link">
+      <a href="../../01_python/02_programmare/" class="md-nav__link">
         Lezione 2
       </a>
     </li>
@@ -250,7 +250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/01_python/03_strutture/" class="md-nav__link">
+      <a href="../../01_python/03_strutture/" class="md-nav__link">
         Lezione 3
       </a>
     </li>
@@ -262,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/01_python/04_classi/" class="md-nav__link">
+      <a href="../../01_python/04_classi/" class="md-nav__link">
         Lezione 4 (classi)
       </a>
     </li>
@@ -274,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/01_python/05_eccezioni/" class="md-nav__link">
+      <a href="../../01_python/05_eccezioni/" class="md-nav__link">
         Lezione 4 (eccezioni)
       </a>
     </li>
@@ -286,7 +286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/02_numpy/01_array/" class="md-nav__link">
+      <a href="../01_array/" class="md-nav__link">
         Lezione 5
       </a>
     </li>
@@ -298,7 +298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/02_numpy/02_operazioni/" class="md-nav__link">
+      <a href="../02_operazioni/" class="md-nav__link">
         Lezione 6
       </a>
     </li>
@@ -340,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/01_intro/" class="md-nav__link">
+      <a href="../../../01_python/01_intro/" class="md-nav__link">
         01 - Introduzione
       </a>
     </li>
@@ -352,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/02_programmare/" class="md-nav__link">
+      <a href="../../../01_python/02_programmare/" class="md-nav__link">
         02 - Concetti base
       </a>
     </li>
@@ -364,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/03_strutture/" class="md-nav__link">
+      <a href="../../../01_python/03_strutture/" class="md-nav__link">
         03 - Liste, code e pile
       </a>
     </li>
@@ -376,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/04_list_comprehension/" class="md-nav__link">
+      <a href="../../../01_python/04_list_comprehension/" class="md-nav__link">
         04 - List comprehension
       </a>
     </li>
@@ -388,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/05_tuple_dict/" class="md-nav__link">
+      <a href="../../../01_python/05_tuple_dict/" class="md-nav__link">
         05 - Tuple, set e dizionari
       </a>
     </li>
@@ -400,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/06_moduli/" class="md-nav__link">
+      <a href="../../../01_python/06_moduli/" class="md-nav__link">
         06 - Script, moduli e package
       </a>
     </li>
@@ -412,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/07_classi/" class="md-nav__link">
+      <a href="../../../01_python/07_classi/" class="md-nav__link">
         07 - Classi
       </a>
     </li>
@@ -454,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/01_intro/" class="md-nav__link">
+      <a href="../../../02_numpy/01_intro/" class="md-nav__link">
         01 - Introduzione a NumPy
       </a>
     </li>
@@ -466,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/02_array/" class="md-nav__link">
+      <a href="../../../02_numpy/02_array/" class="md-nav__link">
         02 - Introduzione agli array
       </a>
     </li>
@@ -478,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/03_costruzione/" class="md-nav__link">
+      <a href="../../../02_numpy/03_costruzione/" class="md-nav__link">
         03 - Costruzione di un array
       </a>
     </li>
@@ -490,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/04_indicizzazione/" class="md-nav__link">
+      <a href="../../../02_numpy/04_indicizzazione/" class="md-nav__link">
         04 - Indicizzazione di un array
       </a>
     </li>
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/05_operazioni/" class="md-nav__link">
+      <a href="../../../02_numpy/05_operazioni/" class="md-nav__link">
         05 - Operazioni base con gli array
       </a>
     </li>
@@ -514,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/06_algebra/" class="md-nav__link">
+      <a href="../../../02_numpy/06_algebra/" class="md-nav__link">
         06 - Algebra lineare
       </a>
     </li>
@@ -526,7 +526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/07_polinomi/" class="md-nav__link">
+      <a href="../../../02_numpy/07_polinomi/" class="md-nav__link">
         07 - Polinomi lineari
       </a>
     </li>
@@ -538,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/08_statistica/" class="md-nav__link">
+      <a href="../../../02_numpy/08_statistica/" class="md-nav__link">
         08 - Statistica
       </a>
     </li>
@@ -550,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/09_plotting.md" class="md-nav__link">
+      <a href="../../../02_numpy/09_plotting.md" class="md-nav__link">
         09 - Visualizzazione dei risultati
       </a>
     </li>
@@ -592,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_libs/01_matplotlib/" class="md-nav__link">
+      <a href="../../../03_libs/01_matplotlib/" class="md-nav__link">
         01 - Introduzione a Matplotlib e Seaborn
       </a>
     </li>
@@ -604,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_libs/02_scipy/" class="md-nav__link">
+      <a href="../../../03_libs/02_scipy/" class="md-nav__link">
         02 - Introduzione a SciPy
       </a>
     </li>
@@ -616,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_libs/03_jupyter/" class="md-nav__link">
+      <a href="../../../03_libs/03_jupyter/" class="md-nav__link">
         03 - Introduzione a Jupyter
       </a>
     </li>
@@ -648,55 +648,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#metriche" class="md-nav__link">
-    Metriche
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#algoritmi-di-regressione" class="md-nav__link">
-    Algoritmi di regressione
-  </a>
-  
-    <nav class="md-nav" aria-label="Algoritmi di regressione">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#regressione-lineare" class="md-nav__link">
-    Regressione lineare
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alberi-decisionali" class="md-nav__link">
-    Alberi decisionali
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metodi-ensemble" class="md-nav__link">
-    Metodi ensemble
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -708,20 +659,51 @@
               
                 
                 
-                <h1 id="il-problema-della-regressione">Il problema della regressione<a class="headerlink" href="#il-problema-della-regressione" title="Permanent link">&para;</a></h1>
-<p>Quello della <em>regressione</em> è un problema che si distingue dalla classificazione sotto diversi aspetti, pur conservando alcuni punti in comune con quest'ultima.</p>
-<p>La differenza che salta subito all'occhio è infatti che, laddove nella classificazione cerchiamo di caratterizzare la relazione tra una serie di feature in ingresso ed una classe, nella regressione la relazione è tra una serie di <em>variabili indipendenti</em> ed una o più <em>variabili dipendenti</em>.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Per essere precisi, occorre tenere conto anche di un termine di errore, che può essere più o meno rilevante.</p>
-</div>
-<p>Un esempio banale di regressione è quello che ci vede cercare la retta interpolate di una serie di punti in un piano cartesiano</p>
-<h2 id="metriche">Metriche<a class="headerlink" href="#metriche" title="Permanent link">&para;</a></h2>
-<h2 id="algoritmi-di-regressione">Algoritmi di regressione<a class="headerlink" href="#algoritmi-di-regressione" title="Permanent link">&para;</a></h2>
-<p>Così come per la classificazione, Scikit Learn offre una gran numero di algoritmi che possiamo utilizzare per la regressione. Anche stavolta, non descriveremo i singoli algoritmi, sottolineando comunque come l'interfaccia offerta da questi sia in tutto e per tutto omogenea, il che ci permette quindi di modificare facilmente l'algoritmo utilizzato.</p>
-<h3 id="regressione-lineare">Regressione lineare<a class="headerlink" href="#regressione-lineare" title="Permanent link">&para;</a></h3>
-<h3 id="alberi-decisionali">Alberi decisionali<a class="headerlink" href="#alberi-decisionali" title="Permanent link">&para;</a></h3>
-<h3 id="metodi-ensemble">Metodi ensemble<a class="headerlink" href="#metodi-ensemble" title="Permanent link">&para;</a></h3>
+                <h1 id="risoluzione-degli-esercizi">Risoluzione degli esercizi<a class="headerlink" href="#risoluzione-degli-esercizi" title="Permanent link">&para;</a></h1>
+<ol>
+<li>Scriviamo la funzione <code>somma_polinomi(pol_1, pol_2)</code> che permetta di sommare due polinomi di grandezza arbitraria.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">somma_polinomi</span><span class="p">(</span><span class="n">pol_1</span><span class="p">,</span> <span class="n">pol_2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_2</span><span class="p">):</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_2</span><span class="p">):</span>
+            <span class="n">pol_1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_1</span><span class="p">):</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_1</span><span class="p">):</span>
+            <span class="n">pol_2</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">pol_1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">pol_2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pol_1</span><span class="p">))]</span>
+
+<span class="n">somma_polinomi</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">somma_polinomi</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>    
+<span class="n">somma_polinomi</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> 
+</code></pre></div>
+<ol start="2">
+<li>Scriviamo la funzione <code>calcola_media(array, pesi)</code> che restituisce il valor medio di un array; usiamo una lista. Il parametro <code>pesi</code> è opzionale; nel caso sia lasciato il valore opzionale (lista vuota), la media sarà aritmetica; in caso contrario, verifichiamo la coerenza delle dimensioni dei vettori e restituiamo la media pesata.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">calcola_media</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">pesi</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="k">if</span> <span class="n">pesi</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pesi</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">sum</span><span class="p">([(</span><span class="n">pesi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">))])</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;La lunghezza dei pesi non corrisponde a quella degli array.&#39;</span><span class="p">)</span>
+
+<span class="n">calcola_media</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">calcola_media</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">calcola_media</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+<ol start="3">
+<li>Scriviamo la funzione <code>descrivi(array)</code> che permette di descrivere un array in termini non parametrici, individuando mediana, deviazione standard e range interquartile (ovvero tra il 25-percentile ed il 75-percentile).</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">descrivi</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">array</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">array</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="n">descrivi</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">]))</span>
+</code></pre></div>
                 
               
               
@@ -784,12 +766,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
-        <script src="../../js/config.js"></script>
+        <script src="../../../js/config.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
