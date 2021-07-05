@@ -12,6 +12,8 @@ nav:
     - Lezione 4 (eccezioni): esercizi/01_python/05_eccezioni.md
     - Lezione 5: esercizi/02_numpy/01_array.md
     - Lezione 6: esercizi/02_numpy/02_operazioni.md
+  - Notebook:
+    - Lezione 10: notebooks/base/lezioni/lezione_10.ipynb
   - Python:
     - 01 - Introduzione: 01_python/01_intro.md
     - 02 - Concetti base: 01_python/02_programmare.md
@@ -33,6 +35,7 @@ nav:
     - 01 - Introduzione a Matplotlib e Seaborn: 03_libs/01_matplotlib.md
     - 02 - Introduzione a SciPy: 03_libs/02_scipy.md
     - 03 - Introduzione a Jupyter: 03_libs/03_jupyter.md
+    - 04 - Pandas: 03_libs/04_pandas.md
   # - Appendici:
     # - Appendice A - Configurazioni: 04_appendici/a_configurazioni.md
     # - Appendice B - Tabelle Python: 04_appendici/b_python.md
