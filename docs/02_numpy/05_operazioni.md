@@ -382,4 +382,4 @@ array([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 ## Conclusioni
 
-In questa lezione, abbiamo visto alcuni fondamentali modi di manipolare un array che NumPy ci mette a disposizione. Nella [prossima](./06_op_matriciali.md), parleremo più in dettaglio delle operazioni algebriche.
+In questa lezione, abbiamo visto alcuni fondamentali modi di manipolare un array che NumPy ci mette a disposizione. Nella [prossima](./06_algebra.md), parleremo più in dettaglio delle operazioni algebriche.
