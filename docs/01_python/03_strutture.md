@@ -106,9 +106,6 @@ Tempo necessario con lista: 0.08756685256958008
 Tempo necessario con deque: 0.0
 ```
 
-!!!note "Nota"
-	Il codice per questo esercizio è fornito nella relativa sezione a [questo link](../esercizi/01_strutture.py).
-
 ## Conclusioni
 
 In questa lezione, abbiamo visto due applicazioni del concetto di lista. Nella prossima, introdurremo la tecnica della *list comprehension*.

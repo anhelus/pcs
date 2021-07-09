@@ -9,7 +9,7 @@ Finora abbiamo interagito direttamente con l'interprete Python, lanciandolo da t
 * non possiamo verificare facilmente il funzionamento del codice;
 * non possiamo modificare facilmente il codice.
 
-Appare evidente come quindi non si tratti di un modo *ottimale* di sviluppare codice Python. Per questo, oltre al supporto di una IDE (cfr. [Appendice A](../04_appendici/a_configurazioni.md)), dovremo definire dei veri e propri *script*, che saranno salvati sotto forma di file con estensione `py`, e conterranno le istruzioni relative al nostro programma.
+Appare evidente come quindi non si tratti di un modo *ottimale* di sviluppare codice Python. Per questo, oltre al supporto di una IDE, dovremo definire dei veri e propri *script*, che saranno salvati sotto forma di file con estensione `py`, e conterranno le istruzioni relative al nostro programma.
 
 ## Il primo script
 
