@@ -16,7 +16,7 @@
     
     
       
-        <title>Cosa è Scikit-Learn? - Python 4 Data Science</title>
+        <title>01 - Concetti di Machine Learning - Python 4 Data Science</title>
       
     
     
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cosa è Scikit-Learn?
+              01 - Concetti di Machine Learning
             
           </span>
         </div>
@@ -644,6 +644,258 @@
   
 
     
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      <label class="md-nav__link" for="__nav_8">
+        Scikit Learn ed il Machine Learning
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Scikit Learn ed il Machine Learning" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Scikit Learn ed il Machine Learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          01 - Concetti di Machine Learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        01 - Concetti di Machine Learning
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installazione-di-scikit-learn" class="md-nav__link">
+    Installazione di Scikit-Learn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#un-po-di-terminologia" class="md-nav__link">
+    Un po' di terminologia
+  </a>
+  
+    <nav class="md-nav" aria-label="Un po' di terminologia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dati-e-feature" class="md-nav__link">
+    Dati e feature
+  </a>
+  
+    <nav class="md-nav" aria-label="Dati e feature">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#campioni-e-sbilanciamento-del-dataset" class="md-nav__link">
+    Campioni e sbilanciamento del dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-e-feature-selection" class="md-nav__link">
+    Feature e feature selection
+  </a>
+  
+    <nav class="md-nav" aria-label="Feature e feature selection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curse-of-dimensionality" class="md-nav__link">
+    Curse of dimensionality
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipi-di-dati" class="md-nav__link">
+    Tipi di dati
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipi di dati">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dati-indipendenti-ed-identicamente-distribuiti" class="md-nav__link">
+    Dati indipendenti ed identicamente distribuiti
+  </a>
+  
+    <nav class="md-nav" aria-label="Dati indipendenti ed identicamente distribuiti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classificazione" class="md-nav__link">
+    Classificazione
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regressione" class="md-nav__link">
+    Regressione
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clustering" class="md-nav__link">
+    Clustering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serie-temporali" class="md-nav__link">
+    Serie temporali
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetti-base-di-scikit-learn" class="md-nav__link">
+    Concetti base di Scikit-Learn
+  </a>
+  
+    <nav class="md-nav" aria-label="Concetti base di Scikit-Learn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stimatori" class="md-nav__link">
+    Stimatori
+  </a>
+  
+    <nav class="md-nav" aria-label="Stimatori">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parametri-dello-stimatore" class="md-nav__link">
+    Parametri dello stimatore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metriche" class="md-nav__link">
+    Metriche
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocessing" class="md-nav__link">
+    Preprocessing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline" class="md-nav__link">
+    Pipeline
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train-test-e-cross-validazione" class="md-nav__link">
+    Train, test e cross-validazione
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -985,6 +1237,26 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../03_libs/04_pandas/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 04 - Pandas" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              04 - Pandas
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
