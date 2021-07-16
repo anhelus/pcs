@@ -40,9 +40,6 @@ nav:
     - 04 - Pandas: 03_libs/04_pandas.md
   - Scikit Learn ed il Machine Learning:
     - 01 - Concetti di Machine Learning: 04_ml/01_intro.md
-  # - Appendici:
-    # - Appendice A - Configurazioni: 04_appendici/a_configurazioni.md
-    # - Appendice B - Tabelle Python: 04_appendici/b_python.md
 
 
 theme:

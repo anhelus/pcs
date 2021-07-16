@@ -7,6 +7,8 @@
 | Lezione 10                            | [:link:](./base/lezioni/lezione_10.ipynb)     |
 | Lezione 11                            | [:link:](./base/lezioni/lezione_11.ipynb)     |
 | Lezione 12                            | [:link:](./base/lezioni/lezione_12.ipynb)     |
+| Lezione 13                            | [:link:](./base/lezioni/lezione_13.ipynb)     |
+| Lezione 14                            | [:link:](./base/lezioni/lezione_14.ipynb)     |
 
 ## Esercizi
 
