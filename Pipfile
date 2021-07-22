@@ -13,6 +13,8 @@ pandas = "*"
 jupyterlab = "*"
 tensorflow = "~=2.4.0"
 statsmodels = "*"
+seaborn = "*"
+pydot = "*"
 
 [dev-packages]
 
