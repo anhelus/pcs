@@ -8,3 +8,5 @@
 | Introduzione al machine learning      | [:link:](./assets/slides/04_intro_ml.pdf)    |
 | Il problema della classificazione     | [:link:](./assets/slides/05_class.pdf)       |
 | Il problema della regressione         | [:link:](./assets/slides/06_regr.pdf)        |
+| Il problema del clustering            | [:link:](./assets/slides/07_clust.pdf)       |
+| Corollario a Scikitl Learn            | [:link:](./assets/slides/08_cor.pdf)         |
