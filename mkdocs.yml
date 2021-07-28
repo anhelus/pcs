@@ -103,3 +103,7 @@ extra_css:
   - stylesheets/extra.css
 
 copyright: Copyright &copy; 2021 Angelo Cardellicchio - MIT License
+
+google_analytics:
+  - G-ZCZWPCYZJ9
+  - auto
