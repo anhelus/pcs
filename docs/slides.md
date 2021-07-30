@@ -9,4 +9,6 @@
 | Il problema della classificazione     | [:link:](./assets/slides/05_class.pdf)       |
 | Il problema della regressione         | [:link:](./assets/slides/06_regr.pdf)        |
 | Il problema del clustering            | [:link:](./assets/slides/07_clust.pdf)       |
-| Corollario a Scikitl Learn            | [:link:](./assets/slides/08_cor.pdf)         |
+| Corollario a Scikit Learn             | [:link:](./assets/slides/08_cor.pdf)         |
+| Introduzione alle serie temporali     | [:link:](./assets/slides/09_ts.pdf)          |
+| Introduzione al deep learning         | [:link:](./assets/slides/10_dl.pdf)          |
