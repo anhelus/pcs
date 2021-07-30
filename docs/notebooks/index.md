@@ -10,6 +10,8 @@
 | Lezione 13                            | [:link:](./base/lezioni/lezione_13.ipynb)     |
 | Lezione 14                            | [:link:](./base/lezioni/lezione_14.ipynb)     |
 | Lezione 15                            | [:link:](./base/lezioni/lezione_15.ipynb)     |
+| Lezione 19                            | [:link:](./base/lezioni/lezione_19.ipynb)     |
+| Lezione 20                            | [:link:](./base/lezioni/lezione_20.ipynb)     |
 
 ## Esercizi
 
@@ -24,3 +26,4 @@
 | Esercizi lezione 16                   | [:link:](./base/esercizi/esercizi_16.ipynb)   |
 | Esercizi lezione 18 - a               | [:link:](./base/esercizi/esercizi_18_a.ipynb) |
 | Esercizi lezione 18 - b               | [:link:](./base/esercizi/esercizi_18_b.ipynb) |
+| Esercizi lezione 21                   | [:link:](./base/esercizi/esercizi_21.ipynb)   |
