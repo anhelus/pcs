@@ -9,21 +9,21 @@
       
       
       
-        <link rel="canonical" href="https://python.angelocardellicchio.it/04_ml/04_clustering/">
+        <link rel="canonical" href="https://python.angelocardellicchio.it/04_ml/00_math/01_linear_alb/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.2">
     
     
       
-        <title>Il clustering - Python 4 Data Science</title>
+        <title>01 linear alb - Python 4 Data Science</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1118c9be.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ba0d045b.min.css">
         
       
     
@@ -38,7 +38,7 @@
     
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     
       
@@ -68,17 +68,12 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#il-clustering" class="md-skip">
-          Skip to content
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -87,7 +82,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+    <a href="../../.." title="Python 4 Data Science" class="md-header__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -106,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Il clustering
+              01 linear alb
             
           </span>
         </div>
@@ -171,7 +166,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
+    <a href="../../.." title="Python 4 Data Science" class="md-nav__button md-logo" aria-label="Python 4 Data Science" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -190,7 +185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -205,7 +200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../slides/" class="md-nav__link">
+      <a href="../../../slides/" class="md-nav__link">
         Slides
       </a>
     </li>
@@ -241,7 +236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/01_python/01_intro/" class="md-nav__link">
+      <a href="../../../esercizi/01_python/01_intro/" class="md-nav__link">
         Lezione 1
       </a>
     </li>
@@ -253,7 +248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/01_python/02_programmare/" class="md-nav__link">
+      <a href="../../../esercizi/01_python/02_programmare/" class="md-nav__link">
         Lezione 2
       </a>
     </li>
@@ -265,7 +260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/01_python/03_strutture/" class="md-nav__link">
+      <a href="../../../esercizi/01_python/03_strutture/" class="md-nav__link">
         Lezione 3
       </a>
     </li>
@@ -277,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/01_python/04_classi/" class="md-nav__link">
+      <a href="../../../esercizi/01_python/04_classi/" class="md-nav__link">
         Lezione 4 (classi)
       </a>
     </li>
@@ -289,7 +284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/01_python/05_eccezioni/" class="md-nav__link">
+      <a href="../../../esercizi/01_python/05_eccezioni/" class="md-nav__link">
         Lezione 4 (eccezioni)
       </a>
     </li>
@@ -301,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/02_numpy/01_array/" class="md-nav__link">
+      <a href="../../../esercizi/02_numpy/01_array/" class="md-nav__link">
         Lezione 5
       </a>
     </li>
@@ -313,7 +308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/02_numpy/02_operazioni/" class="md-nav__link">
+      <a href="../../../esercizi/02_numpy/02_operazioni/" class="md-nav__link">
         Lezione 6
       </a>
     </li>
@@ -325,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/02_numpy/03_algebra/" class="md-nav__link">
+      <a href="../../../esercizi/02_numpy/03_algebra/" class="md-nav__link">
         Lezione 7
       </a>
     </li>
@@ -337,7 +332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/02_numpy/04_polinomi/" class="md-nav__link">
+      <a href="../../../esercizi/02_numpy/04_polinomi/" class="md-nav__link">
         Lezione 8
       </a>
     </li>
@@ -349,7 +344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../esercizi/03_libs/02_scipy/" class="md-nav__link">
+      <a href="../../../esercizi/03_libs/02_scipy/" class="md-nav__link">
         Lezione 9
       </a>
     </li>
@@ -370,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notebooks/" class="md-nav__link">
+      <a href="../../../notebooks/" class="md-nav__link">
         Notebook
       </a>
     </li>
@@ -406,7 +401,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/01_intro/" class="md-nav__link">
+      <a href="../../../01_python/01_intro/" class="md-nav__link">
         01 - Introduzione
       </a>
     </li>
@@ -418,7 +413,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/02_programmare/" class="md-nav__link">
+      <a href="../../../01_python/02_programmare/" class="md-nav__link">
         02 - Concetti base
       </a>
     </li>
@@ -430,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/03_strutture/" class="md-nav__link">
+      <a href="../../../01_python/03_strutture/" class="md-nav__link">
         03 - Liste, code e pile
       </a>
     </li>
@@ -442,7 +437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/04_list_comprehension/" class="md-nav__link">
+      <a href="../../../01_python/04_list_comprehension/" class="md-nav__link">
         04 - List comprehension
       </a>
     </li>
@@ -454,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/05_tuple_dict/" class="md-nav__link">
+      <a href="../../../01_python/05_tuple_dict/" class="md-nav__link">
         05 - Tuple, set e dizionari
       </a>
     </li>
@@ -466,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/06_moduli/" class="md-nav__link">
+      <a href="../../../01_python/06_moduli/" class="md-nav__link">
         06 - Script, moduli e package
       </a>
     </li>
@@ -478,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python/07_classi/" class="md-nav__link">
+      <a href="../../../01_python/07_classi/" class="md-nav__link">
         07 - Classi
       </a>
     </li>
@@ -520,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/01_intro/" class="md-nav__link">
+      <a href="../../../02_numpy/01_intro/" class="md-nav__link">
         01 - Introduzione a NumPy
       </a>
     </li>
@@ -532,7 +527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/02_array/" class="md-nav__link">
+      <a href="../../../02_numpy/02_array/" class="md-nav__link">
         02 - Introduzione agli array
       </a>
     </li>
@@ -544,7 +539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/03_costruzione/" class="md-nav__link">
+      <a href="../../../02_numpy/03_costruzione/" class="md-nav__link">
         03 - Costruzione di un array
       </a>
     </li>
@@ -556,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/04_indicizzazione/" class="md-nav__link">
+      <a href="../../../02_numpy/04_indicizzazione/" class="md-nav__link">
         04 - Indicizzazione di un array
       </a>
     </li>
@@ -568,7 +563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/05_operazioni/" class="md-nav__link">
+      <a href="../../../02_numpy/05_operazioni/" class="md-nav__link">
         05 - Operazioni base con gli array
       </a>
     </li>
@@ -580,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/06_algebra/" class="md-nav__link">
+      <a href="../../../02_numpy/06_algebra/" class="md-nav__link">
         06 - Algebra lineare
       </a>
     </li>
@@ -592,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/07_polinomi/" class="md-nav__link">
+      <a href="../../../02_numpy/07_polinomi/" class="md-nav__link">
         07 - Polinomi lineari
       </a>
     </li>
@@ -604,7 +599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/08_statistica/" class="md-nav__link">
+      <a href="../../../02_numpy/08_statistica/" class="md-nav__link">
         08 - Statistica
       </a>
     </li>
@@ -646,7 +641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_libs/01_matplotlib/" class="md-nav__link">
+      <a href="../../../03_libs/01_matplotlib/" class="md-nav__link">
         01 - Introduzione a Matplotlib e Seaborn
       </a>
     </li>
@@ -658,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_libs/02_scipy/" class="md-nav__link">
+      <a href="../../../03_libs/02_scipy/" class="md-nav__link">
         02 - Introduzione a SciPy
       </a>
     </li>
@@ -670,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_libs/03_jupyter/" class="md-nav__link">
+      <a href="../../../03_libs/03_jupyter/" class="md-nav__link">
         03 - Introduzione a Jupyter
       </a>
     </li>
@@ -682,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_libs/04_pandas/" class="md-nav__link">
+      <a href="../../../03_libs/04_pandas/" class="md-nav__link">
         04 - Pandas
       </a>
     </li>
@@ -724,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_intro/" class="md-nav__link">
+      <a href="../../01_intro/" class="md-nav__link">
         01 - Concetti di Machine Learning
       </a>
     </li>
@@ -744,106 +739,15 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#algoritmi-di-clustering" class="md-nav__link">
-    Algoritmi di clustering
-  </a>
-  
-    <nav class="md-nav" aria-label="Algoritmi di clustering">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#k-means" class="md-nav__link">
-    K-Means
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clustering-gerarchico" class="md-nav__link">
-    Clustering gerarchico
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dbscan" class="md-nav__link">
-    DBSCAN
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#metriche" class="md-nav__link">
-    Metriche
-  </a>
-  
-    <nav class="md-nav" aria-label="Metriche">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#silhouette-score" class="md-nav__link">
-    Silhouette score
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adjusted-rand-index" class="md-nav__link">
-    Adjusted Rand Index
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                <h1 id="il-clustering">Il clustering<a class="headerlink" href="#il-clustering" title="Permanent link">&para;</a></h1>
-<h2 id="algoritmi-di-clustering">Algoritmi di clustering<a class="headerlink" href="#algoritmi-di-clustering" title="Permanent link">&para;</a></h2>
-<h3 id="k-means">K-Means<a class="headerlink" href="#k-means" title="Permanent link">&para;</a></h3>
-<h3 id="clustering-gerarchico">Clustering gerarchico<a class="headerlink" href="#clustering-gerarchico" title="Permanent link">&para;</a></h3>
-<h3 id="dbscan">DBSCAN<a class="headerlink" href="#dbscan" title="Permanent link">&para;</a></h3>
-<h2 id="metriche">Metriche<a class="headerlink" href="#metriche" title="Permanent link">&para;</a></h2>
-<h3 id="silhouette-score">Silhouette score<a class="headerlink" href="#silhouette-score" title="Permanent link">&para;</a></h3>
-<h3 id="adjusted-rand-index">Adjusted Rand Index<a class="headerlink" href="#adjusted-rand-index" title="Permanent link">&para;</a></h3>
+                  <h1>01 linear alb</h1>
+                
+                
                 
               
               
@@ -907,12 +811,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2b46852b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.2b46852b.min.js"></script>
       
-        <script src="../../js/config.js"></script>
+        <script src="../../../js/config.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
