@@ -1,1 +1,0 @@
-# Introduzione a Scikit-Learn

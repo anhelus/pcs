@@ -1,6 +1,0 @@
-# Classe
-
-# Ereditarietà
-
-# Classi astratte
-

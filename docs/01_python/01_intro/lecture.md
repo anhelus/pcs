@@ -1,8 +1,20 @@
-# Introduzione a Python
+# 1 - Introduzione a Python
 
-## Premessa: Python e tipizzazione
+Prima di iniziare a parlare del linguaggio Python, è opportuno verificare che l'interprete sia installato nel nostro sistema. Per farlo, apriamo un terminale (Shell o Command Prompt, a seconda del nostro sistema), e scriviamo:
 
-### Tipizzazione dinamica
+```sh
+$ python
+```
+
+Se apparirà una schermata simile a quella mostrata in figura, Python sarà già correttamente presente nel nostro sistema.
+
+![python_interpreter](./images/python_interpreter.png)
+
+In alternativa, dovremo provvedere ad installarlo seguendo la procedura indicata sul [sito ufficiale](https://www.python.org/), ed aggiungerlo al path di sistema.
+
+## 1.1 - Python e tipizzazione
+
+### 1.1.1 Tipizzazione dinamica
 
 Python è un linguaggio *interpretato* ed a *tipizzazione dinamica*. In breve, questo significa che l'interprete valuta il tipo di ciascuna variabile a runtime, e che questo può cambiare durante l'esecuzione del programma.
 
@@ -30,12 +42,12 @@ fVar + 1.1;
 In Python questo non sarà necessario, e potremo effettuare direttamente le operazioni desiderate:
 
 ```py
-var + 1.1
+var + 1.1			# Il risultato sarà 2.1
 ```
 
 Questo può apparentemente semplificare di molto la vita, in quanto non è più necessario preoccuparsi del tipo della variabile. Non è però tutto oro ciò che luccica: per comprenderlo, infatti, è il momento di parlare del (pilatesco) principio del *duck typing*.
 
-#### Duck Typing
+#### 1.1.1.1 - Duck Typing
 
 Il duck typing è riassumibile nella seguente massima:
 
@@ -50,26 +62,17 @@ Proviamo ora a sommare a `var` un valore pari ad `1.1`. Il risultato, come ovvio
 
 L'utilità del duck typing è evidente: permette allo sviluppatore di "risparmiare" numerose operazioni di cast, rendendo il codice più semplice da scrivere e manutenere. Tuttavia, occorre tenerne conto nel momento in cui si usano classi ed oggetti, in quanto l'interprete proverà ad inferire ed usare automaticamente un tipo in base al contesto in cui viene usata la variabile, con le comodità (ed i potenziali disastri) che questo comporta.
 
-## L'interprete Python
+## 1.2 - L'interprete Python
 
-Python offre un interprete accessibile al programmatore direttamente dalla riga di comando.
-
-Dopo averlo installato (è possibile farlo seguendo le istruzioni presenti sul [sito ufficiale](https://www.python.org/)) ed essersi assicurati che il launcher sia stato aggiunto al path di sistema, possiamo lanciarlo tramite riga di comando. Per prima cosa, comunque, assicuriamoci che sia tutto a posto controllando la versione installata di Python:
-
-```sh
-$ python --version
-python3.9.1
-```
-
-A questo punto, lanciamo l'interprete:
+Nella sezione introduttiva abbiamo visto come installare l'interprete Python, in modo da avere un ambiente di lavoro accessibile direttamente mediante riga di comando. Lanciamolo di nuovo usando il seguente comando da una shell:
 
 ```sh
 python
 ```
 
-Possiamo quindi iniziare ad usare Python.
+Potremo quindi finalmente iniziare ad utilizzare Python.
 
-## Calcoli e numeri
+## 1.3 - Calcoli e numeri
 
 Proviamo ad usare l'interprete come una semplice calcolatrice; per farlo, scriviamo direttamente dopo il simbolo `>>>` le operazioni che vogliamo eseguire, e premiamo il tasto `Invio`. Ad esempio:
 
@@ -82,7 +85,7 @@ Proviamo ad usare l'interprete come una semplice calcolatrice; per farlo, scrivi
 2
 ```
 
-### Divisioni
+### 1.3.1 - Divisioni
 
 Le divisioni restituiscono sempre un numero in virgola mobile. Ad esempio:
 
@@ -104,7 +107,7 @@ Proviamo ora ad usare altri due operatori, molto simili al classico operatore di
 
 Notiamo come in questi casi siano restituiti dei numeri interi. Il perché è presto detto: gli operatori `//` e `%` calcolano, rispettivamente, il *quoziente* ed il *resto* della divisione e, come sappiamo, entrambi sono dei valori interi.
 
-### Elevazione a potenza
+### 1.3.2 - Elevazione a potenza
 
 Per elevare un numero a potenza, è necessario usare l'operatore `**`, in cui l'operando sinistro è la base, mentre quello destro l'esponente:
 
@@ -118,7 +121,7 @@ Per elevare un numero a potenza, è necessario usare l'operatore `**`, in cui l'
 !!!note "Tipi numerici in Python"
 	Abbiamo finora parlato soltanto di numeri interi e decimali; tuttavia, Python supporta anche altri tipi, come ad esempio `Decimal` e `Fraction`. E' inoltre presente un supporto nativo ai numeri complessi, esprimibili usando il suffisso `j` per indicare la parte immaginaria.
 
-## Stringhe
+## 1.4 - Stringhe
 
 In Python le stringhe possono indifferentemente essere racchiuse tra virgolette singole e doppie.
 
@@ -149,7 +152,7 @@ SyntaxError: invalid syntax
 	  C:\nuova_cartella
 	  ```
 
-### Stringhe su righe multiple
+### 1.4.1 - Stringhe su righe multiple
 
 !!!note "Stringhe e liste"
 	La maggior parte dei concetti che vedremo nel seguito sono applicabili anche alle liste. Anzi, per essere precisi, derivano proprio dalle liste, in quanto Python considera una stringa un particolare tipo di lista.
@@ -168,7 +171,7 @@ Le stringhe possono articolarsi su più righe. Per farlo, possiamo usare le *tri
 !!!note "Nota"
 	Notiamo nel precedente snippet il carattere `\`, usato per evitare che venga automaticamente inserito dall'interprete il carattere *newline* (`\n`) al termine di ogni riga. Infatti, si vede come il newline non sia stato aggiunto nelle righe evidenziate, mentre sia presente nella riga 2.
 
-### Concatenazione di stringhe
+### 1.4.2 - Concatenazione di stringhe
 
 Concatenare due stringhe in Python è estremamente semplice, e basta usare l'operatore `+`:
 
@@ -217,7 +220,7 @@ Possiamo anche semplicemente porre le due stringhe l'una di seguito all'altra:
 !!!note "Nota"
 	Esistono modi più efficienti di concatenare delle stringhe, specialmente quando si ha a che fare con numerose operazioni di concatenazione in grossi cicli; l'approfondimento di tali metodi è demandato al lettore.
 
-### Indicizzazione di stringhe
+### 1.4.3 - Indicizzazione di stringhe
 
 Python definisce le stringhe come degli *array di caratteri*; è quindi possibile indicizzarli. Ad esempio:
 
@@ -242,7 +245,7 @@ Python permette di accedere anche usando degli indici *negativi*, considerando q
 'n'
 ```
 
-### Slicing su stringhe
+### 1.4.4 - Slicing su stringhe
 
 L'operazione di *slicing* permette di estrarre una certa parte di una stringa. In generale, assume la seguente forma:
 
@@ -303,7 +306,7 @@ mentre se volessimo prendere tutti i caratteri fino alla terzultima lettera (esc
 	  'Python'
 	  ```
 
-### Lunghezza di una stringa
+### 1.4.5 - Lunghezza di una stringa
 
 La funzione `len()` ci restituisce la lunghezza di una stringa:
 
@@ -312,7 +315,7 @@ La funzione `len()` ci restituisce la lunghezza di una stringa:
 6
 ```
 
-### Immutabilità di una stringa
+### 1.4.6 - Immutabilità di una stringa
 
 Le stringhe in Python sono *immutabili*. Come indica la parola stessa, questo significa che *non possono essere modificate*: se, ad esempio, provassimo a ridefinirne uno o più elementi, acceduti magari mediante indexing o slicing, avremmo un errore.
 
@@ -326,7 +329,7 @@ TypeError: 'str' object does not support item assignment
 !!!tip "Suggerimento"
 	Possiamo comunque assegnare il nome `stringa` ad una nuova variabile.
 
-## Liste
+## 1.5 - Liste
 
 Abbiamo già detto che una stringa altro non è se non un caso particolare di *lista*. La domanda che sorge spontanea è quindi: *cosa è una lista*?
 
@@ -339,7 +342,7 @@ Possiamo creare una lista in questo modo:
 [1, 2, 3, 4, 5]
 ```
 
-### Concatenazione, indicizzazione e slicing su liste
+### 1.5.1 - Concatenazione, indicizzazione e slicing su liste
 
 Come sulle stringhe, sulle liste è possibile effettuare operazioni di indicizzazione, slicing e concatenazione:
 
@@ -355,7 +358,7 @@ Come sulle stringhe, sulle liste è possibile effettuare operazioni di indicizza
 [1, 2, 3, 4, 5, 6]
 ```
 
-### Alcuni esempi
+### 1.5.2 - Alcuni esempi
 
 Ecco alcuni esempi di slicing su lista, con annessi risultati ottenibili.
 
@@ -407,7 +410,7 @@ Prendiamo gli elementi agli indici pari in ordine inverso:
 [6, 4, 2]
 ```
 
-### Mutabilità di una lista
+### 1.5.3 - Mutabilità di una lista
 
 A differenza delle stringhe, le liste sono oggetti *mutabili*. Di conseguenza, possiamo modificarne il contenuto:
 
@@ -417,7 +420,7 @@ A differenza delle stringhe, le liste sono oggetti *mutabili*. Di conseguenza, p
 [99, 2, 3, 4, 5]
 ```
 
-### Operazioni sulle liste
+### 1.5.4 - Operazioni sulle liste
 
 Possiamo anche eliminare elementi da una lista usando l'operatore `[]` combinato all'operazione di slicing:
 
@@ -455,7 +458,3 @@ Proviamo ad estendere ulteriormente la lista cambiando il primo elemento con una
 >>> lista
 ['Python', 2, 3, 4, [1, 2, 3]]
 ```
-
-## Conclusioni
-
-Abbiamo dato una rapida introduzione al linguaggio Python, soffermandoci su alcune dei tipi di dati più usati, come numeri, stringhe e liste. Nelle prossime sezioni, torneremo sulle liste, ed approfondiremo altri tipi di iterabili, come tuple e dizionari.
