@@ -1,25 +1,22 @@
-# Cosa è Scikit-Learn?
+# 17 - Cosa è Scikit-Learn?
 
-Scikit-Learn è una delle principali librerie per il machine learning disponibili per Python. Il fatto che sia ampiamente utilizzata è legato soprattutto al fatto che supporta un gran numero di algoritmi, risulta abbastanza semplice da utilizzare, ed è perfettamente integrata con NumPy e Pandas.
+Scikit-Learn è una delle principali librerie per il machine learning disponibili per Python. Il suo ampio utilizzo è legato soprattutto a tre fattori:
 
-In questa lezione, daremo una panoramica ad ampio spettro delle capacità di Scikit-Learn, per poi passare a trattare più nel dettaglio diversi scenari di utilizzo nelle prossime lezioni.
+* l'ampio supporto ad un gran numero di algoritmi;
+* la facilità di utilizzo;
+* la perfetta integrazione con NumPy e Pandas.
 
-## Installazione di Scikit-Learn
+Vediamo quindi una panoramica ad ampio spettro delle potenzialità di Scikit-Learn.
 
-Per prima cosa, installiamo la libreria, al solito globalmente o nel nostro ambiente virtuale.
+## 17.1 - Installazione di Scikit-Learn
 
-==="Pip" 
-	```sh
-	pip install scikit-learn
-	```
-==="Pipenv"
-	```sh
-	pipenv install scikit-learn
-	```
+Come di consueto, la prima cosa da fare è installare la libreria. Per farlo, spostiamoci (eventualmente) nell'ambiente virtuale usato per il corso, ed usiamo il seguente comando:
 
-Fatto questo, prima di procedere a "sporcarci le mani", è necessario introdurre un po' della terminologia usata in ambito machine learning.
+```sh
+pip install scikit-learn
+```
 
-## Un po' di terminologia
+## 17.2 - Un po' di terminologia
 
 ### Dati e feature
 
