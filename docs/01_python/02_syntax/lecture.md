@@ -1,108 +1,137 @@
-# 2 Programmare in Python
+# 2 - Programmare in Python
+
+## 2.1 - Alcuni concetti sintattici fondamentali
 
 Oltre al duck typing, esistono altri concetti che caratterizzano la sintassi di Python. Vediamoli brevemente.
 
-1. Le **parentesi**:
-	* **tonde** sono usate soltanto nel caso di chiamata a funzione, oltre che per esprimere la precedenza nelle operazioni. In tutti gli altri casi, sono opzionali e possono essere omesse;
-	* **quadre** sono usate per la creazione e l'accesso agli elementi di una lista;
-	* **graffe** sono usate per la creazione di un dizionario.
-2. **Il termine di un'istruzione viene indicato andando a capo**.
-3. **L'ambito del codice è definito mediante il numero di tabulazioni**. Come regola generale, il codice indentato ad un certo livello di tabulazione appartiene al medesimo ambito.
+### 2.1.1 - Uso delle parentesi
 
-## 2.1 - Programmazione strutturata
+1. Le **parentesi tonde** sono usate soltanto nel caso di chiamata a funzione, oltre che per esprimere la precedenza nelle operazioni. In tutti gli altri casi, sono opzionali e possono essere omesse. Ad esempio:
+
+	```py
+	a = 2
+	b = 3
+	c = 4
+	r_1 = a + b * c 	# Valore restituito: 14
+	r_2 = (a + b) * c	# Valore restituito: 24
+	
+	if a > 2:
+		# Questa notazione è valida, ed è equivalente ad (a > 2)
+	```
+2. Le **parentesi quadre** sono usate per la creazione e l'accesso agli elementi di una struttura dati.
+
+	```py
+	# Creo una lista
+	lista = [1, 2, 3]
+	# Accedo al secondo elemento della lista
+	lista[1]			# Il valore acceduto è 2
+	```
+3. Le **parentesi graffe** sono usate per la creazione di un dizionario.
+	```py
+	dizionario = {'a': 1, 'b': 2}
+	# Notiamo che per accedere ad una chiave di un dizionario useremo comunque la parentesi quadra.
+	dizionario[a]		# Il valore acceduto è 1, ovvero quello relativo alla chiave 'a'
+	```
+
+### 2.1.2 - Ambito e termine di un'istruzione
+
+A differenza del C, che prevede che ogni istruzione sia terminata da un punto e virgola, Python prevede che un'istruzione termini quando si va a capo. Quindi:
+
+```py
+a = 1			# L'istruzione di assegnazione è terminata!
+```
+
+In altre parole, si può omettere il punto e virgola.
+
+Per quello che riguarda invece la definizione di un ambito, ad esempio locale all'interno di una funzione, Python si affida ai *due punti*, che sostituiscono la parentesi graffa di apertura, ed al numero di *indentazioni*.
+
+!!!tip "Ambito e indentazioni"
+	In generale, possiamo dire che le istruzioni allo stesso livello di indentazione sono considerate dall'interprete Python come istruzioni appartenenti al medesimo ambito.
+
+Quindi:
+
+```py
+# L'inizio della funzione, e quindi dell'ambito 
+# che questa delimita, è contrassegnato dai due punti
+def funzione():	# Inizio ambito
+	# Il codice deve essere allo stesso livello di indentazione
+	a = 1
+	a + 1
+	# ...
+	return 0
+```
+
+!!!tip "Le indentazioni"
+	Per ottenere l'indentazione, occorre usare il tasto *tab* sulla tastiera, oppure quattro spazi. E' comunque *estremamente importante* non mescolare le due tecniche.
+
+## 2.2 - Programmazione strutturata
 
 Il linguaggio Python utilizza una sintassi per le strutture di controllo differente da quella usata nei tipici linguaggi C-like.
 
-### 2.1.1 - Istruzioni condizionali (`if`)
+### 2.2.1 - Istruzioni condizionali (`if`)
 
-Partiamo dall'istruzione condizionale `if`, mostrando la differenza tra l'implementazione in C/C++ e quella Python.
+Partiamo dall'istruzione condizionale `if`. Questa, in Python, ha una sintassi di questo tipo.
 
-=== "Python"
-	```py
-	a = 5
-	if a < 5:
-	    print('a è minore di 5')
-	elif a == 5:
-	    print('a è uguale a 5')
-	else:
-	    print('a è maggiore di 5')
-	```
+```py
+if condizione:
+	istruzioni()
+elif altra_condizione:
+	altre_istruzioni()
+else:
+	ultime_istruzioni()
+```
 
-=== "C/C++"
-	```cpp
-	#include <iostream>
+Notiamo l'utilizzo della keyword `elif` come crasi della forma `else if` utilizzata in altri linguaggi di programmazione. Ad esempio, se volessimo verificare il valore di una variabile intera, potremmo scrivere:
 
-	using namespace std;
+```py
+a = 5
+if a < 5:
+	print('a è minore di 5')
+elif a == 5:
+	print('a è uguale a 5')
+else:
+	print('a è maggiore di 5')
+```
 
-	int main ()
-	{
-		int a = 5;
-		if (a < 5) {
-			std::cout << "a è minore di 5" << std::endl;
-		}
-		else if (a == 5) {
-			std::cout << "a è uguale a 5" << std::endl;
-		}
-		else {
-			std::cout << "a è maggiore a 5" << std::endl;
-		}
-	}
-	```
-
-In entrambi i casi l'output a schermo sarà:
+L'output di questo controllo sarà:
 
 ```bash
 a è uguale a 5
 ```
 
-La sintassi è, in realtà, abbastanza simile, anche se si tiene conto delle regole sintattiche indicate in precedenza.
-
-### 2.1.2 - Pattern matching
+### 2.2.2 - Pattern matching
 
 Fino alla versione 3.10, Python non offriva il costrutto `switch/case`. A partire da quest'ultima, però, il *pattern matching* è stato implementato usando questa sintassi:
 
 ```py
 match command:
-	case "case 1":
-		case_1()
-	case "case 2":
-		case()
-	case unknown_command:
+	case "caso 1":
+		istruzioni()
+	case "altro caso":
 		print("Comando sconosciuto")
 ```
 
-!!!warning "Attenzione"
-	La versione 3.10 di Python è, al momento, ancora sperimentale. Non sarà quindi possibile nell'arco del corso ricorrere al pattern matching!
+### 2.2.3 - Cicli
 
-### 2.1.3 - Cicli
+#### 2.2.3.1 - Ciclo `for`
 
-#### 2.1.3.1 - Ciclo `for`
+Il ciclo `for` itera su una *sequenza*, come una lista o una stringa, ed ha una sintassi del tipo:
 
-Un ciclo `for` in Python differisce leggermente da quelli classici presenti in C/C++; infatti, laddove questi ultimi sono delle una vera e propria progressioni aritmetiche, contraddistinte da un valore iniziale, un incremento ed un valore terminale, in Python un ciclo `for` itera su una sequenza, come una lista o una stringa. Per fare un esempio, nel seguente blocco di codice vediamo come mostrare a schermo in maniera iterativa i numeri che vanno da 0 a 5:
+```py
+for elemento in sequenza:
+	istruzioni()
+```
 
-=== "Python"
-	```py
-	>>> vals = [0,1,2,3,4]
-	>>> for i in vals:
-	...     print(i)
-	```
+Per fare un esempio, nel seguente blocco di codice vediamo come mostrare a schermo in maniera iterativa i numeri che vanno da 0 a 5:
 
-=== "C/C++"
-	```cpp
-	#include <iostream>
+```py
+vals = [0,1,2,3,4]
+for i in vals:
+    print(i)
+```
 
-	using namespace std;
 
-	int main ()
-	{
-		for (int i = 0; i < 5; i++) {
-			cout << i << endl;
-		}
-		return 0;
-	}
-	```
-
-In entrambi i casi, il risultato che sarà stampato a schermo è:
+Il risultato che sarà stampato a schermo è:
 
 ```bash
 0
@@ -112,31 +141,13 @@ In entrambi i casi, il risultato che sarà stampato a schermo è:
 4
 ```
 
-Rispetto ai linguaggi "classici", quindi, occorre modificare tutti i "range di iterazione" in liste o, più genericamente, *iterabili*. Questo sforzo però è ampiamente ripagato dalla maggiore semplicità del codice; per fare un esempio, mostriamo come sia più semplice iterare su una stringa:
+Rispetto ai linguaggi "classici", quindi, il ciclo `for` opera esclusivamente sugli *iterabili*, per cui potrebbe in qualche caso occorrere una riprogettazione del codice. Tuttavia, questa caratteristica di Python comporta anche una maggiore semplicità del codice; ad esempio, vediamo come è molto semplice iterare su una stringa:
 
-=== "Python"
-	```py
-	>>> string = "Python"
-	>>> for char in string:
-	...     print(char)
-	```
-
-=== "C/C++"
-	```cpp
-	#include <iostream>
-	#include <string>
-
-	using namespace std;
-
-	int main ()
-	{
-		string str ("C/C++");
-		for (int i = 0; i < str.size(); i++) {
-			cout << str[i] << endl;
-		}
-		return 0;
-	}
-	```
+```py
+string = "Python"
+for char in string:
+    print(char)
+```
 
 A schermo vedremo in entrambi i casi il seguente risultato:
 
@@ -149,48 +160,33 @@ A schermo vedremo in entrambi i casi il seguente risultato:
 	n
 ```
 
-!!!warning "Attenzione"
-	La maggiore semplicità sintattica offerta da Python non è indolore, ma ha un costo. Uno script Python, infatti, per quanto ottimizzato, non potrà quasi mai offrire performance paragonabili ad un codice ottimizzato in C o C++, a meno di non usare particolari (ed avanzati) accorgimenti. Tuttavia, il compromesso costi/benefici propende, per i nostri scopi, nettamente a favore di Python.
+!!!warning "No free lunches!"
+	Come ci ricorda il *no free lunches theorem*, **non esistono pasti gratuiti**! Infatti, la maggiore semplicità sintattica offerta da Python non è indolore, ma ha un costo. Uno script Python, infatti, per quanto ottimizzato, non potrà quasi mai offrire performance paragonabili ad un codice ottimizzato in C o C++, a meno di non usare particolari (ed avanzati) accorgimenti.
 
-#### 2.1.3.2 - Ciclo `while`
+#### 2.2.3.2 - Ciclo `while`
 
-A differenza del ciclo `for`, il funzionamento del `while` è analogo a quello della controparte C/C++. Anche in questo caso, ciò che cambia è la sintassi:
+A differenza del ciclo `for`, il funzionamento del `while` è analogo a quello delle controparti negli altri linguaggi di programmazione. La sintassi generica è:
 
-=== "Python"
-	```py
-	>>> i = True
-	>>> while (i):
-	...     if randint(-5, 5) > 0:
-	...         print("Continuo!")
-	...     else:
-	...         print("Esco!")
-	...             i = False
-	```
+```py
+while(condizione):
+	istruzioni()
+```
 
-=== "C/C++"
+Ad esempio:
 
-	```cpp
-	#include <iostream>
-	#include <cstdlib>
+```py
+i = True
+while (i):
+    if randint(-5, 5) > 0:
+        print("Continuo!")
+    else:
+        print("Esco!")
+		i = False
+```
 
-	using namespace std;
+Il codice nel blocco precedente non fa altro che generare un valore numerico intero casuale nell'intervallo $[-5, 5]$ mediante la funzione `randint`. Se tale valore è superiore a $0$, il ciclo continua, altrimenti si esce dallo stesso.
 
-	int main ()
-	{
-		bool i = true;
-		while (i) {
-			int randn = -5 + (rand() % (5 + 5 + 1));
-			if (randn > 0) {
-				cout << "Continuo!" << endl;
-			} else {
-				cout << "Esco!" << endl;
-				i = false;
-			}
-		}
-	}
-	```
-
-A schermo vedremo:
+A schermo vedremo, ad esempio:
 
 ```bash
 Continuo!
@@ -201,21 +197,21 @@ Esco!
 !!!note "I valori booleani in Python"
 	I più attenti avranno notato come i valori booleani in Python siano stati scritti come `True` e `False`. Questo non è un refuso: la prima lettera è proprio una maiuscola.
 
-#### 2.1.3.3 - La funzione `range()`
+## 2.4 - La funzione `range()`
 
-Torniamo adesso al precedente ciclo `for` per Python, che riportiamo di seguito.
+Riprendiamo adesso il ciclo `for` visto in precedenza.
 
 ```py
->>> vals = [0,1,2,3,4]
->>> for i in vals:
-...     print(i)
+vals = [0,1,2,3,4]
+for i in vals:
+    print(i)
 ```
 
 Nonostante il codice sia già compatto, scrivere manualmente la sequenza da iterare può facilmente diventare un'operazione abbastanza complessa. Python ci viene quindi in aiuto tramite la funzione `range(i, j, s)`, che genera una sequenza avente tutti i numeri compresi tra `i` (incluso) e `j` (escluso) a passo `s`. Ad esempio, per generare i numeri compresi tra 0 e 4 scriveremo:
 
 ```py
->>> r = range(0, 5, 1)
->>> print(list(r))
+r = range(0, 5, 1)
+print(list(r))
 [0, 1, 2, 3, 4]
 ```
 
@@ -238,35 +234,41 @@ E' anche possibile specificare una sequenza *decrementale* ponendo `i > j` ed `s
 [5, 4, 3, 2]
 ```
 
-##### 2.1.3.3.1 Iterare su tutti gli elementi di una lista
+**Esercizio**: Proviamo ad iterare su tutti i valori della lista `['Pippo', 'Pluto', 5, 'Paperino']`.
 
-Usando la funzione `range()` assieme alla funzione `len()` è possibile iterare sui singoli elementi di una lista:
+**Soluzione**: Usiamo la funzione `range()` assieme alla funzione `len()`:
 
 ```py
->>> l = ['Pippo', 'Pluto', 5, 'Paperino']
->>> for i in range(len(l)):
-...     print(l[i])
+l = ['Pippo', 'Pluto', 5, 'Paperino']
+for i in range(len(l)):
+    print(l[i])
+# Output
 Pippo
 Pluto
 5
 Paperino
 ```
 
-#### 2.1.3.4 - Istruzioni `break` e `continue`
+In pratica, dato che la funzione `len(l)` ci restituisce il numero di elementi nella lista, ovvero $4$, stiamo andando a definire un range che va da 0 a 3. A questo punto, ci basterà *elemento per elemento* ai valori contenuti all'interno della lista, ed avremo ottenuto il risultato sperato.
+
+## 2.5 - Istruzioni `break` e `continue`
 
 Le istruzioni `break` e `continue` permettono rispettivamente di *uscire dal ciclo* o di *saltare all'iterazione successiva*. Ad esempio:
 
 ```py
->>> while (True):
-...     if randint(-5, 5) > 0:
-...         print("Continuo!")
-...			continue
-...     else:
-...         print("Esco!")
-...         break
+while (True):
+    if randint(-5, 5) > 0:
+        print("Continuo!")
+		continue
+    else:
+        print("Esco!")
+        break
+print("Sono uscito!")
 ```
 
-## 2.2 - Definire una funzione
+Le istruzioni precedenti *usciranno* dal ciclo quando viene generato casualmente un numero negativo, mentre continueranno ad iterare quando viene generato casualmente un numero positivo.
+
+## 2.6 - Definire una funzione
 
 In Python è possibile definire una funzione in questo modo:
 
@@ -280,58 +282,54 @@ E' importante notare che:
 
 * non è necessario definire un tipo, ma soltanto un *valore* di ritorno. Qualora la funzione non restituisca alcun valore, potrà essere omessa l'istruzione `return`;
 * non è (strettamente) necessario definire il tipo di ciascuno dei parametri passati;
-* è consentito inserire dei parametri di default.
+* è consentito inserire dei parametri *opzionali*, con valori di default.
 
-### 2.2.1 - Esempio di funzioni
+**Esercizio**: Creiamo una funzione che concateni ad una lista il doppio dei singoli valori presenti nella stessa.
 
-La seguente funzione concatena ad una lista il doppio dei singoli valori nella lista stessa:
+**Soluzione**: usiamo la funzione `append` per mettere in coda i nuovi elementi della lista.
 
 ```py
->>> def raddoppia_lista(lista):
-...     for i in range(len(lista)):
-...             lista.append(l[i] * 2)
-...
->>> l = [1,2]
->>> raddoppia_lista(l)
->>> l
-[1, 2, 2, 4]
+def raddoppia_lista(lista):
+    for i in range(len(lista)):
+        lista.append(l[i] * 2)
+l = [1,2]
+raddoppia_lista(l) 			# Risultato atteso: [1, 2, 2, 4]
 ```
 
-In questa funzione, invece, usiamo un parametro opzionale per specificare la lunghezza della lista generata in output:
+**Esercizio**: Creiamo una funzione che generi una lista di elementi casuali tra $0$ e $10$, usando un parametro *opzionale* per specificarne la lunghezza.
+
+**Soluzione**: usiamo la funzione `append()` in accoppiata alla funzione `randint()`.
 
 ```py
->>> def genera_lista_casuale(lunghezza=5):
-...     l = []
-...     for i in range(lunghezza):
-...             l.append(randint(0, 10))
-...     return l
+def genera_lista_casuale(lunghezza=5):
+    l = []
+    for i in range(lunghezza):
+        l.append(randint(0, 10))
+    return l
 ...
->>> genera_lista_casuale()
-[3, 1, 2, 0, 6]
->>> genera_lista_casuale(10)
-[7, 9, 1, 10, 2, 4, 9, 1, 4, 8]
+genera_lista_casuale() 		# Possibile risultato: [3, 1, 2, 0, 6]
+genera_lista_casuale(10)	# Possibile risultato: [7, 9, 1, 10, 2, 4, 9, 1, 4, 8]
 ```
 
 !!!warning "Tipo dei parametri di ingresso"
 	Il duck typing fa sì che non venga effettuato alcun controllo sui parametri in ingresso. Ciò però non significa che non si possa provare a chiamare (ad esempio) la funzione `genera_lista_casuale()` passando come parametro una stringa; ciò tuttavia causerà un (prevedibile) errore.
 
-### 2.2.2 - Passaggio di parametri a funzione
+### 2.6.1 - Passaggio di parametri a funzione
 
 Python prevede che i parametri siano passati ad una funzione *esclusivamente per valore*. Ad esempio:
 
 ```py
->>> def raddoppia(valore):
-...     valore = valore * 2
-...
->>> val = 1
->>> raddoppia(val)
->>> val
-1
+def raddoppia(valore):
+    valore = valore * 2
+
+val = 1
+raddoppia(val)
+print(val)					# Il risultato sarà 1
 ```
 
 Come evidente, la funzione `raddoppia()` non ha avuto alcun effetto sulla variabile `val`; ciò avviene proprio perché il passaggio è stato effettuato proprio per valore. Questo è il motivo per cui, qualora non si voglia avere un valore di ritorno in una ben determinata funzione, è necessario usare dei tipi mutabili (come nel caso della funzione `raddoppia_lista`, che accetta una lista, ovvero un tipo mutabile), oppure utilizzare le funzioni nell'ambito di una classe (torneremo su questo in avanti).
 
-### 2.2.3 - L'istruzione `pass`
+### 2.6.2 - L'istruzione `pass`
 
 Chiudiamo accennando all'istruzione `pass`. Questa non fa assolutamente nulla; è utile, ad esempio, quando vogliamo inserire una funzione (o una classe) vuota, che definiremo per qualche motivo in seguito:
 

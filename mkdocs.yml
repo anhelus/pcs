@@ -1,45 +1,29 @@
-site_name: Python 4 Data Science
+site_name: Python per il Calcolo Scientifico
 site_url: https://python.angelocardellicchio.it
 
 nav:
   - Home: index.md
-  - Slides: slides.md
-  - Esercizi:
-    - Lezione 1: esercizi/01_python/01_intro.md
-    - Lezione 2: esercizi/01_python/02_programmare.md
-    - Lezione 3: esercizi/01_python/03_strutture.md
-    - Lezione 4 (classi): esercizi/01_python/04_classi.md
-    - Lezione 4 (eccezioni): esercizi/01_python/05_eccezioni.md
-    - Lezione 5: esercizi/02_numpy/01_array.md
-    - Lezione 6: esercizi/02_numpy/02_operazioni.md
-    - Lezione 7: esercizi/02_numpy/03_algebra.md
-    - Lezione 8: esercizi/02_numpy/04_polinomi.md
-    - Lezione 9: esercizi/03_libs/02_scipy.md
-  - Notebook: notebooks/index.md
-  - Python:
-    - 01 - Introduzione: 01_python/01_intro.md
-    - 02 - Concetti base: 01_python/02_programmare.md
-    - 03 - Liste, code e pile: 01_python/03_strutture.md
-    - 04 - List comprehension: 01_python/04_list_comprehension.md
-    - 05 - Tuple, set e dizionari: 01_python/05_tuple_dict.md
-    - 06 - Script, moduli e package: 01_python/06_moduli.md
-    - 07 - Classi: 01_python/07_classi.md
-  - NumPy:
-    - 01 - Introduzione a NumPy: 02_numpy/01_intro.md
-    - 02 - Introduzione agli array: 02_numpy/02_array.md
-    - 03 - Costruzione di un array: 02_numpy/03_costruzione.md
-    - 04 - Indicizzazione di un array: 02_numpy/04_indicizzazione.md
-    - 05 - Operazioni base con gli array: 02_numpy/05_operazioni.md
-    - 06 - Algebra lineare: 02_numpy/06_algebra.md
-    - 07 - Polinomi lineari: 02_numpy/07_polinomi.md
-    - 08 - Statistica: 02_numpy/08_statistica.md
-  - Cenni all'ecosistema SciPy:
-    - 01 - Introduzione a Matplotlib e Seaborn: 03_libs/01_matplotlib.md
-    - 02 - Introduzione a SciPy: 03_libs/02_scipy.md
-    - 03 - Introduzione a Jupyter: 03_libs/03_jupyter.md
-    - 04 - Pandas: 03_libs/04_pandas.md
-  - Scikit Learn ed il Machine Learning:
-    - 01 - Concetti di Machine Learning: 04_ml/01_intro.md
+  - Parte 1 - Concetti base di Python:
+    - Introduzione al linguaggio: 01_python/01_intro/lecture.md
+    - Elementi sintattici fondamentali: 01_python/02_syntax/lecture.md
+    - Strutture dati: 01_python/03_data_structures/lecture.md
+    - Classi: 01_python/04_classes/lecture.md
+    - Moduli: 01_python/05_modules/lecture.md
+  - Parte 2 - Librerie per il Calcolo Scientifico:
+    - Numpy:
+      - Introduzione a Numpy: 02_numpy/06_intro/lecture.md
+      - Array: 02_numpy/07_array/lecture.md
+      - Indicizzazione: 02_numpy/08_indexing/lecture.md
+      - Operazioni aritmetiche: 02_numpy/09_arithmetics/lecture.md
+      - Algebra lineare: 02_numpy/10_algebra/lecture.md
+      - Operazioni polinomiali: 02_numpy/11_polynomials/lecture.md
+      - Statistica: 02_numpy/12_statistics/lecture.md
+    - Jupyter e i Notebook: 03_libs/13_jupyter/lecture.md
+    - Matplotlib e Seaborn: 03_libs/14_matplotlib/lecture.md
+    - Cenni a SciPy: 03_libs/15_scipy/lecture.md
+    - Pandas: 03_libs/16_pandas/lecture.md
+  - Parte 2 - Scikit Learn ed il Machine Learning:
+    - Concetti base: 04_sklearn/17_intro_ml/lecture.md
 
 
 theme:
@@ -91,7 +75,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/anhelus
     - icon: fontawesome/solid/paper-plane
-      link: mailto:angelo.cardellicchio@uniba.it
+      link: mailto:angelo.cardellicchio@stiima.cnr.it
   # disqus: finance-programiq-it
 
 extra_javascript:
@@ -102,7 +86,7 @@ extra_javascript:
 extra_css:
   - stylesheets/extra.css
 
-copyright: Copyright &copy; 2021 Angelo Cardellicchio - MIT License
+copyright: Copyright &copy; Angelo Cardellicchio - MIT License
 
 google_analytics:
   - G-ZCZWPCYZJ9

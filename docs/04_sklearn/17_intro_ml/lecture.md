@@ -55,49 +55,55 @@ La conseguenza immediata di ciò, e che è alla base della curse of dimensionali
 
 Un altro aspetto fondamentale nell'analisi dei dati è la valutazione del *tipo* di problema cui siamo di fronte, il che determina, di conseguenza, la scelta dell'algoritmo da utilizzare. In tal senso, esistono due tipi di problema: da un lato, ci sono quelli che riguardano i *dati indipendenti ed identicamente distribuiti* (*IID*), mentre dall'alto vi sono le *serie temporali*.
 
-TODO: da qui
+### 17.2.1 - Problemi con dati IID
 
-#### Dati indipendenti ed identicamente distribuiti
+I problemi con dati IID prevedono l'analisi di dati che, come suggerisce il nome stesso, sono *indipendenti* l'uno dall'altro. In altre parole, il meccanismo di generazione dei dati fa in modo che ogni istanza del processo non sia generata a partire da un'altra, ma soltanto secondo le regole del meccanismo stesso.
 
-I dati IID sono, come dice il nome stesso, *indipendenti* l'uno dall'altro; inoltre, tutti i dati fanno parte dello stesso meccanismo di generazione dei dati, e quindi si suppone *sottendano alla stessa distribuzione*. In altri termini, ciò significa che il valore di un campione non dipende dal valore di un altro.
+Per chiarire l'esempio, immaginiamo di avere un dataset che raccolga tutti gli studenti all'interno di un corso di laurea. In tal senso, le caratteristiche di ogni studente saranno *indipendenti* da quelle degli altri, in quanto non determinate a partire da questi ultimi. Per capirci, l'età e la media voto dello studente A non dipenderà dall'età o dalla media voto dello studente B, così come i nomi e cognomi dei due, l'andamento dei loro esami, e così via.
 
-Un esempio sono le immagini di diversi oggetti, che possono essere usate per creare un algoritmo di identificazione degli oggetti, oppure gli stessi passeggeri del Titanic.
+!!!warning "Gli studenti sono veramente indipendenti tra loro?"
+    I più attenti tra i lettori noteranno come nel caso degli studenti siano state fatte delle ipotesi *semplificative*. Infatti, l'età, il nome ed il cognome degli studenti potrebbero influenzarsi in caso di familiari, mentre la media voto potrebbe essere simile per studenti abituati a studiare in gruppo. Tuttavia, molto spesso dovremo effettuare ipotesi di questo tipo, supponendo trascurabili situazioni nei fatti *marginali* come quelle descritte in precedenza.
 
-<!-- TODO: da slide -->
+!!!note "Definizione sintetica di IID"
+    Diamo una definizione sintetica di dati IID: **i dati IID sottendono alla stessa distribuzione**, ed il valore di un campione dipende solo da quest'ultima.
 
-Tipicamente, su questo tipo di dati sono usate tre tipi di algoritmi, ovvero *regressione*, *classificazione* e *clustering*.
+Tipicamente, esistono tre tipi di problemi che possono essere utilizzati per caratterizzare dati IID, ovvero *classificazione*, *regressione* e *clustering*.
 
-##### Classificazione
+* La *classificazione* di dati IID prevede che ad ogni dato sia assegnata una determinata *classe*, intesa come "raggruppamento" di cui il singolo campione fa parte. Ad esempio, nel caso degli studenti, potremmo utilizzare le classi "Matricola", "In corso" e "Fuori corso" per determinare la possibilità di uno studente di accedere ad uno specifico appello, mentre nel caso dei passeggeri del Titanic potremmo classificare tra "Sopravvissuti" e "Non sopravvissuti".
+* La *regressione* di dati IID cerca invece una relazione tra le feature di ciascun campione ed un dato valore numerico (continuo). Rimanendo ai passeggeri del Titanic, potremmo voler valutare il rapporto esistente tra l'età del passeggero ed il prezzo che questi ha pagato per il biglietto.
+* In ultimo, il *clustering* prova ad inferire dei "raggruppamenti", chiamati appunto *cluster*, di dati omogenei, separando contestualmente dati eterogenei.
 
-Le tecniche di classificazione prevedono che ad ogni dato sia assegnata una *classe*, comportando di conseguenza un "raggruppamento" degli stessi in base alle indicazioni sulle classi.
+!!!note "Tecniche supervisionate e non supervisionate"
+    Di solito, le tecniche di classificazione sono spesso *supervisionate*, ovvero prevedono la presenza di un insieme di dati precedente *etichettato* da un *esperto di dominio* mediante una procedura di *labeling*. Di contro, le tecniche di clustering sono *non superivisionate*, ed inferiscono eventuali omogeneità a partire dai dati stessi.
 
-Un esempio sono le classificazioni delle immagini rispetto al tipo di oggetto raffigurato: le immagini relative ad un'auto apparterranno alla classe omonima, mentre le immagini di un cane apparteranno ad un'altra classe, e via dicendo. Altro esempio sono è una possibile classificazione dei passeggeri del Titanic sulla base del fatto che siano sopravvissuti o meno.
+### 17.2.2 - Problemi con serie temporali
 
-<!-- TODO: slide -->
+A differenza dei dati IID, le serie temporali sono composte da dati tra loro interdipendenti, e "correlati" da appositi vincoli temporali. Facciamo un paio di esempi di dati di questo tipo.
 
-##### Regressione
+* Il primo esempio è quello di un *video*, il quale è composto da una *sequenza*, o *serie*, di immagini disposte in un ben preciso ordine temporale. Ad esempio, osserviamo i frame riportati nelle figure 1 e 2: è facile ntoare come il secondo, successivo al primo, comporti dei movimenti del calciatore con la palla *causati* dalle azioni che questi ha compiuto nel frame precedente. In tal senso, le informazioni contenute nel secondo frame sono quindi legate a quelle contenute nel primo da un rapporto di *causalità*, per cui si parla di serie temporale.
 
-Le tecniche di regressione cercano invece di trovare una relazione tra le feature di ciascun dato ed un valore numerico (TODO: verificare se continuo o discreto).
+![frame_1 alt ><](./images/frame_1.png){: width='400'}
+<p align='center' style='font-size: small'>
+    <b>
+        Figura 1: frame 1
+    </b>
+</p>
 
-Rimanendo ai passeggeri del Titanic, potremmo voler valutare il rapporto esistente tra l'età del passeggero ed il prezzo che questi ha pagato per il biglietto.
+![frame_2 alt ><](./images/frame_2.png){: width='400'}
+<p align='center' style='font-size: small'>
+    <b>
+        Figura 2: frame 2
+    </b>
+</p>
 
-<!-- TODO: slide -->
+* Il secondo esempio è quello di una *serie di letture* di un sensore di temperatura, prese ad una frequenza di un minuto, come mostrato nella figura successiva. In questo caso, è facile evidenziare come la lettura al tempo $t$ sia influenzata (almeno) dalla lettura al tempo $t-1$.
 
-##### Clustering
+![series alt ><](./images/temp.png){: width='400'}
+<p align='center' style='font-size: small'>
+    <b>
+        Figura 3: serie temporale
+    </b>
+</p>
 
-In ultimo, le tecniche di clustering provano ad inferire dei "raggruppamenti", chiamati formalmente *cluster*, di dati. Ovviamente, i dati appartenenti ad un cluster sono da considerarsi *affini*, mentre i dati appartenenti a cluster differenti sono da considerarsi *differenti*.
-
-Il clustering non prevede la presenza di alcuna classe. Di conseguenza, queste tecniche di apprendimento sono dette *non supervisionate*, in quanto non è necessario l'intervento di un esperto di dominio per definire le classi cui appartengono i dati su cui viene addestrato l'algoritmo.
-
-<!-- TODO: slide -->
-
-#### Serie temporali
-
-A dìfferenza dei dati IID, le serie temporali sono composte da dati tra loro interdipendenti, e "correlati" da vincoli temporali.
-
-Esempi di questo tipo di dati sono i video, composti da *sequenze* di immagini disposte in un ben preciso ordine temporale, oppure ancora le acquisizioni derivate da un sensore.
-
-<!-- TODO: fare slide -->
-
-!!!note "Nota"
-	Parleremo più estensivamente delle serie temporali nella lezione su StatsModels.
+!!!note "Sulle influenze di una serie temporale"
+    Si noti come abbiamo usato la parola *almeno* in merito alle influenze temporali. Questo è legato al fatto che, per semplicità, abbiamo rappresentato la serie temporale delle letture di temperatura come un fenomeno *univariato*, ossia dipendente soltanto dal valore dello stesso in istanti precedenti. Nella realtà, invece, molto spesso i fenomeni osservati sono *multivariati*, e dipendono da un numero più o meno alto di variabili in gioco.

@@ -1,8 +1,23 @@
-# Introduzione a NumPy
+# 6. Introduzione a NumPy
 
-La libreria **NumPy** (abbreviazione che sta per *Num*erical *Py*thon) è quella maggiormente usata nel campo del calcolo scientifico in Python, e ne rappresenta uno standard *de facto*, in quanto le classi ed i metodi messi a disposizione da NumPy sono estensivamente utilizzate dalla quasi totalità degli altri package dedicati alle scienze ed all'ingegneria.
+La libreria **NumPy**, nome derivante dalla crasi tra *Num*erical *Py*thon, è una tra le più utilizzate nelle applicazioni di calcolo scientifico in Python.
 
-## Installazione
+Nella pratica, possiamo pensare a NumPy come ad uno standard *de facto*: infatti, le classi ed i metodi messi a disposizione dalla libreria sono estensivamente utilizzate nella quasi totalità degli altri tool Python per le scienze matematiche, chimiche e fisiche, oltre che per l'ingegneria.
+
+Partiamo nella nostra disamina dalla procedura di installazione della libreria.
+
+!!!note "Nota"
+    In realtà, partiremo sempre dalla procedura di installazione, qualunque sia la libreria che analizzeremo.
+
+## 6.1 Installare NumPy
+
+Premettiamo che, per installare una libreria, abbiamo a disposizione diverse opzioni. Vediamole nel dettaglio.
+
+### 6.1.1
+
+La prima, e forse la più utilizzata universalmente, è quella di utilizzare il *package manager* (ovvero, il gestore di pacchetti) integrato in Python, chiamato `pip`.
+
+Possia
 
 Per installare NumPy è possibile optare per due opzioni. La prima è usare una distribuzione scientifica "predefinita" di Python (la più conosciuta è [Anaconda](https://www.anaconda.com)); la seconda, che è anche quella che seguiremo, è creare un apposito *ambiente virtuale* (cfr. Appendice B) con il gestore delle dipendenze [pipenv](https://pypi.org/project/pipenv/).
 
