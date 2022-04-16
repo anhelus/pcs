@@ -38,7 +38,7 @@ A differenza delle altre librerie, non avremo bisogno di importare Jupyter; tutt
 
 A questo punto saremo davanti ad una schermata molto simle a quella mostrata in figura.
 
-![intro](../assets/images/03_libs/03_jupyter/intro.png)
+![intro](../assets/images/03_libs/03_jupyter/intro.png){: .center}
 
 Creiamo il nostro primo notebook premendo il pulsante *Python 3* nel menu *Notebook*. Una volta terminata la procedura, potremo iniziare ad interagire con l'ambiente. Prima di procedere, però, definiamo il nome del nostro notebook dal menu a sinistra.
 
@@ -68,7 +68,7 @@ fig, ax = plt.subplots()
 ax.plot(np.arange(1, 6), a)
 ```
 
-![sample](../assets/images/03_libs/03_jupyter/sample.png)
+![sample](../assets/images/03_libs/03_jupyter/sample.png){: .center}
 
 Vedremo immediatamente sotto la cella la figura rappresentativa del vettore che abbiamo creato.
 
@@ -90,7 +90,7 @@ Possiamo anche decidere di cancellare una cella; per farlo, selezioniamola e pre
 
 E' possibile abilitare una serie di estensioni a partire dal menu indicato nella seguente immagine.
 
-![sample](../assets/images/03_libs/03_jupyter/extensions.png)
+![sample](../assets/images/03_libs/03_jupyter/extensions.png){: .center}
 
 !!!tip "Suggerimento"
 	Esistono delle estensioni per la visualizzazione delle variabili in stile Matlab. Tuttavia, è plausibile che sorgano delle problematiche di compatibilità con le ultime versioni di Jupyter Lab.

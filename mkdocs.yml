@@ -24,6 +24,8 @@ nav:
     - Pandas: 03_libs/16_pandas/lecture.md
   - Parte 2 - Scikit Learn ed il Machine Learning:
     - Concetti base: 04_sklearn/17_intro_ml/lecture.md
+  - Appendici:
+    - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
 
 
 theme:

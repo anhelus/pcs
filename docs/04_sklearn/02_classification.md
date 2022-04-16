@@ -143,7 +143,7 @@ Un albero decisionale agisce sulle singole feature, impostando delle "regole" su
 
 Un classificatore basato su albero decisionale prevede una struttura di questo tipo.
 
-![decision_tree](../assets/images/04_ml/02_classification/decision_tree.jpg)
+![decision_tree](../assets/images/04_ml/02_classification/decision_tree.jpg){: .center}
 
 Comprendere il funzionamento di un albero decisionale è abbastanza semplice. L'obiettivo di un albero decisionale è quello di creare un modello che predica il valore di una variabile obiettivo imparando delle semplici regole decisionali apprese a partire dalle feature dei dati. In pratica, possiamo pensare ad un albero come ad un percorso "a step", nel quale ad ogni step vi è un'approssimazione successiva verso il risultato finale.
 
@@ -166,7 +166,7 @@ Le *Support Vector Machine* (*SVM*) operano sulla disposizione dei dati nell'ipe
 
 Nella figura successiva, presa da WikiMedia e creata da [Zack Weinberg](https://commons.wikimedia.org/w/index.php?curid=22877598), vediamo un esempio in un piano a due dimensioni.
 
-![svm_plane](../assets/images/04_ml/02_classification/svm_plane.png)
+![svm_plane](../assets/images/04_ml/02_classification/svm_plane.png){: .center}
 
 Le SVM calcolano la distanza tra i campioni mediante un'apposita funzione, chiamata *kernel*. Ve ne sono di diversi tipi, ognuno dei quali permette di ottenere risultati più o meno validi a seconda delle diverse situazioni.
 

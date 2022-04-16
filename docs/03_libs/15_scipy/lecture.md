@@ -74,7 +74,7 @@ Per terminare, generemo due subplot, uno relativo alla funzione densità di prob
 
 Il risultato dovrebbe essere simile a quello mostrato in figura:
 
-![pdf](../assets/images/03_libs/02_scipy/pdfs.png)
+![pdf](../assets/images/03_libs/02_scipy/pdfs.png){: .center}
 
 ## Esempio 2: calcolo del determinante e dell'inversa
 
@@ -115,7 +115,7 @@ plt.show()
 
 Nell'esempio precedente, generiamo 1000 campioni equidistanziati tra 0 e 10, e quindi creiamo il vettore `y` la cui formula sarà associata a $f(x) = 2\pi x$. A quel punto, calcoliamo la trasformata di Fourier di `y`, e ne visualizziamo a schermo il modulo.
 
-![fft_sin](../assets/images/03_libs/02_scipy/fft_sin.png)
+![fft_sin](../assets/images/03_libs/02_scipy/fft_sin.png){: .center}
 
 !!!warning "Attenzione"
 	Ricordiamo che la trasformata di Fourier è simmetrica. Per questo, visualizzeremo soltanto la prima metà dei valori estratti per il modulo.
@@ -130,7 +130,7 @@ ax.plot(np.abs(y_trf[0:500]))
 
 Come si deve dalla figura, avremo come risultato due impulsi:
 
-![fft_two_sins](../assets/images/03_libs/02_scipy/fft_two_sins.png)
+![fft_two_sins](../assets/images/03_libs/02_scipy/fft_two_sins.png){: .center}
 
 In ultimo, possiamo valutare anche cosa accade riducendo l'ampiezza di una delle due sinusoidi:
 
@@ -140,7 +140,7 @@ y_trf = fft(y_tr)
 ax.plot(np.abs(y_trf[0:500]))
 ```
 
-![fft_two_sins_red](../assets/images/03_libs/02_scipy/fft_two_sins_red.png)
+![fft_two_sins_red](../assets/images/03_libs/02_scipy/fft_two_sins_red.png){: .center}
 
 ## Conclusioni
 

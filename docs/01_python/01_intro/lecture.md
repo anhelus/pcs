@@ -8,7 +8,7 @@ $ python
 
 Se apparirà una schermata simile a quella mostrata in figura, Python sarà già correttamente presente nel nostro sistema.
 
-![python_interpreter](./images/python_interpreter.png)
+![python_interpreter](./images/python_interpreter.png){: .center}
 
 In alternativa, dovremo provvedere ad installarlo seguendo la procedura indicata sul [sito ufficiale](https://www.python.org/), ed aggiungerlo al path di sistema.
 

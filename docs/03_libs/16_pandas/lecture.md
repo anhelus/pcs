@@ -357,7 +357,7 @@ Pandas offre un supporto nativo ad un *backend* Matplotlib per la visualizzazion
 
 Il risultato sarà mostrato in figura.
 
-![plot_ages](../assets/images/03_libs/04_pandas/plot_ages.png)
+![plot_ages](../assets/images/03_libs/04_pandas/plot_ages.png){: .center}
 
 Possiamo anche fare il plot dell'intero `DataFrame`:
 
@@ -368,7 +368,7 @@ Possiamo anche fare il plot dell'intero `DataFrame`:
 
 Il risultato è mostrato in figura.
 
-![plot_titanic](../assets/images/03_libs/04_pandas/plot_titanic.png)
+![plot_titanic](../assets/images/03_libs/04_pandas/plot_titanic.png){: .center}
 
 ### Istogrammi ed altro
 
@@ -381,7 +381,7 @@ Ovviamente, è possibile usare Pandas anche per fare il plot di altri tipi di gr
 
 Il risultato è mostrato in figura.
 
-![ages_hist](../assets/images/03_libs/04_pandas/hist_ages.png)
+![ages_hist](../assets/images/03_libs/04_pandas/hist_ages.png){: .center}
 
 ## Statistiche su un `DataFrame`
 

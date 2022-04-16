@@ -82,14 +82,14 @@ A differenza dei dati IID, le serie temporali sono composte da dati tra loro int
 
 * Il primo esempio è quello di un *video*, il quale è composto da una *sequenza*, o *serie*, di immagini disposte in un ben preciso ordine temporale. Ad esempio, osserviamo i frame riportati nelle figure 1 e 2: è facile ntoare come il secondo, successivo al primo, comporti dei movimenti del calciatore con la palla *causati* dalle azioni che questi ha compiuto nel frame precedente. In tal senso, le informazioni contenute nel secondo frame sono quindi legate a quelle contenute nel primo da un rapporto di *causalità*, per cui si parla di serie temporale.
 
-![frame_1 alt ><](./images/frame_1.png){: width='400'}
+![frame_1](./images/frame_1.png){: .center}
 <p align='center' style='font-size: small'>
     <b>
         Figura 1: frame 1
     </b>
 </p>
 
-![frame_2 alt ><](./images/frame_2.png){: width='400'}
+![frame_2 alt ><](./images/frame_2.png){: .center}
 <p align='center' style='font-size: small'>
     <b>
         Figura 2: frame 2
@@ -98,7 +98,7 @@ A differenza dei dati IID, le serie temporali sono composte da dati tra loro int
 
 * Il secondo esempio è quello di una *serie di letture* di un sensore di temperatura, prese ad una frequenza di un minuto, come mostrato nella figura successiva. In questo caso, è facile evidenziare come la lettura al tempo $t$ sia influenzata (almeno) dalla lettura al tempo $t-1$.
 
-![series alt ><](./images/temp.png){: width='400'}
+![series](./images/temp.png){: .center}
 <p align='center' style='font-size: small'>
     <b>
         Figura 3: serie temporale

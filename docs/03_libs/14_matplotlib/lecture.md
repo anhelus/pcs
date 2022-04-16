@@ -39,7 +39,7 @@ plt.show()
 
 Se tutto è andato per il verso giusto, dovremmo vedere a schermo un'immagine simile a questa (data la natura casuale di `y`):
 
-![first_plot](../assets/images/03_libs/01_matplotlib/first_plot.png)
+![first_plot](../assets/images/03_libs/01_matplotlib/first_plot.png){: .center}
 
 A questo punto, è arrivato il momento di descrivere maggiormente nel dettaglio ciò che abbiamo fatto.
 
@@ -111,7 +111,7 @@ plt.show()
 
 Il risultato ottenuto è mostrato in figura.
 
-![simple_plot](../assets/images/03_libs/01_matplotlib/simple_plot.png)
+![simple_plot](../assets/images/03_libs/01_matplotlib/simple_plot.png){: .center}
 
 ### Esempio 2: Subplot
 
@@ -147,7 +147,7 @@ plt.show()
 
 Il risultato sarà simile a quello mostrato in figura:
 
-![multi_subplot](../assets/images/03_libs/01_matplotlib/multi_subplots.png)
+![multi_subplot](../assets/images/03_libs/01_matplotlib/multi_subplots.png){: .center}
 
 ### Esempio 3: Rappresentazione di un istogramma
 
@@ -178,7 +178,7 @@ plt.show()
 
 Il risultato sarà simile a quello mostrato nella figura successiva.
 
-![hist](../assets/images/03_libs/01_matplotlib/hist.png)
+![hist](../assets/images/03_libs/01_matplotlib/hist.png){: .center}
 
 ### Esempio 4: Plot tridimensionale
 
@@ -207,7 +207,7 @@ plt.show()
 
 Il risultato che otterremo sarà simile a questo.
 
-![3d](../assets/images/03_libs/)
+![3d](../assets/images/03_libs/){: .center}
 
 ## Seaborn
 
@@ -248,7 +248,7 @@ plt.show()
 
 Il risultato che otterremo sarà simile a questo:
 
-![heatmap](../assets/images/03_libs/01_matplotlib/heatmap.png)
+![heatmap](../assets/images/03_libs/01_matplotlib/heatmap.png){: .center}
 
 ## Conclusioni
 

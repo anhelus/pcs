@@ -1,10 +1,12 @@
-# Alcune applicazioni delle liste
+# 3 - Strutture dati in Python
 
-## Liste, pile e code
+## 3.1 - Liste, pile e code
 
-Python ci offre una grande varietà di metodi per gestire le liste; troviamo un elenco esaustivo a [questo indirizzo](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists). Grazie a questi metodi, è possibile costruire una pila o una coda in modo molto più semplice rispetto ad altri linguaggi.
+Python ci offre una grande varietà di metodi per gestire le liste; troviamo un elenco esaustivo a [questo indirizzo](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
 
-### Pila
+Grazie a questi metodi, è possibile costruire una pila o una coda in modo molto più semplice rispetto ad altri linguaggi.
+
+### 3.1.1 - Pila
 
 Una *pila* (in inglese *stack*) adotta una strategia di accesso ai dati di tipo *Last-In, First-Out* (*LIFO*). Questo significa che il primo elemento ad uscire (ovvero ad essere analizzato) è quello in cima alla pila, ovvero l'ultimo ad esservi entrato.
 
