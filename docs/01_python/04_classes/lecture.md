@@ -1,6 +1,41 @@
-# Classi in Python
+# 4 - Programmazione orientata agli oggetti in Python
 
-Python offre un esteso supporto alla *programmazione orientata agli oggetti*.
+Python offre un esteso supporto alla programmazione orientata agli oggetti. Prima di proseguire, però, è opportuno introdurre brevemente questo concetto.
+
+## 4.1 - La programmazione orientata agli oggetti
+
+Quello della *programmazione orientata agli oggetti* (OOP) è un paradigma di programmazione che permette di creare nuovi tipi definiti dall'utente, da intendersi come complementari ai tipi definiti dal linguaggio di programmazione. In tal senso, la OOP sposta il focus dalle *funzioni*, centrali nei linguaggi come il C e nel paradigma procedurale, ai *dati*.
+
+In tal senso, si arriva a dire che *nella OOP tutto è un oggetto*.
+
+### 4.1.1 - Classi
+
+Una *classe* è un prototipo per un determinato tipo di dati definito dall'utente. Ad esempio:
+
+* la classe `Studente` rappresenta tutte le proprietà e le azioni associate ad uno studente;
+* la classe `Auto` rappresenta tutte le proprietà e le azioni associate ad un'auto;
+* la classe `Motore` definisce i comportamenti dei motori;
+
+e via discorrendo.
+
+In generale, quindi, può esistere una classe per ogni tipologia di oggetti presenti nel mondo, sia esso reale o informatico.
+
+Importante è non confondere la classe con il *singolo oggetto*, chiamato *istanza*. Ad esempio:
+
+* lo studente Angelo Cardellicchio è un'istanza della classe `Studente`;
+* l'auto Opel Corsa targata AB 123 CD è un'istanza della classe `Auto`;
+* l'auto Hyundai Tucson CD 321 AB è un'istanza della classe `Auto`;
+* l'auto Opel Corsa targata AA 123 CC è un'altra istanza della classe `Auto`.
+
+#### 4.1.1.1 - Metodi ed attributi
+
+Ogni classe ha dei *metodi*, che caratterizzano delle azioni che è possibile effettuare su ogni istanza della classe, e degli *attributi*, ovvero delle caratteristiche dell'istanza.
+
+In particolare, ogni nuovo tipo, chiamato *classe*, avrà opportuni *attributi* e *metodi*, ognuno dei quali accessibile dall'esterno mediante opportuni *modificatori*.
+
+Ad esempio, l'auto Opel Corsa targata AB 123 CD ha una casa costruttrice (Opel), un modello (Corsa), una targa (AB 123 CD), una cilindrata, e via dicendo.
+
+## 4.2 - Classi in Python
 
 Per definire una classe, dovremo usare la parola chiave `class`:
 
@@ -11,10 +46,7 @@ class NomeClasse(ClasseBase):
 
 Con la sintassi precedente, abbiamo creato una classe chiamata `NomeClasse` discendente da una classe base (`ClasseBase`).
 
-!!!note "Nota sulla OOP"
-	Per approfondire i concetti alla base della programmazione orientata agli oggetti, è opportuno consultare l'[appendice C].
-
-## Costruttori
+## 4.3 - Il metodo `__init__`
 
 La maggior parte dei linguaggi di programmazione utilizza il concetto di *costruttore* per creare un'istanza di una classe. Il Python, tuttavia, non prevede l'utilizzo di un costruttore vero e proprio, quanto piuttosto di un metodo di *inizializzazione* dei singoli attributi dell'istanza. Da qui deriva il nome del metodo, ovvero `__init__`:
 
@@ -50,7 +82,7 @@ Questo snippet ci permette di evidenziare quattro punti:
 
 Approfondiamo brevemente il punto 4.
 
-## Modificatori di accesso
+## 4.4 - Modificatori di accesso
 
 Python prevede l'uso di modificatori di accesso ai dati; nello specifico, troviamo i classici `public`, `protected` e `private`. Tuttavia, a differenza di altri linguaggi, per distinguere tra i tre modificatori di accesso si utilizzano uno o due *underscore* come suffisso al nome dell'attributo; in particolare, usare un *underscore* singolo indica un attributo protected, mentre un *underscore* doppio indica un attributo `private`. Nel nostro caso:
 
@@ -86,9 +118,9 @@ class Persona(object):
 Questa sintassi può ovviamente essere utilizzata per definire dei metodi protetti o privati.
 
 !!!tip "Suggerimento"
-	La sintassi che abbiamo mostrato nello snippet precedente è relativa alla *gestione delle eccezioni*. Ne troverete accenno nell'[appendice B].
+	La sintassi che abbiamo mostrato nello snippet precedente è relativa alla *gestione delle eccezioni*.
 
-## Classi e metodi
+## 4.5 - Metodi
 
 La sintassi per definire il metodo di una classe è analoga a quella usata per definire una funzione.
 
@@ -101,8 +133,8 @@ Esiste tuttavia una differenza fondamentale: infatti, il primo attributo di un m
 
 ```py
 # ...
-p = Persona()
-p.metodo(parametro)
+p = Persona()			# p è un'istanza di Persona
+p.metodo(parametro)		# richiamo il metodo dall'istanza
 # ...
 ```
 
@@ -110,7 +142,7 @@ Nel codice precedente, abbiamo usato l'operatore `.` per accedere a `metodo` def
 
 Approfondiamo adesso alcune particolari tipologie di metodi, ottenibili usando determinati decorator (cfr. appendice B).
 
-### I metodi di classe
+### 4.5.1 - Metodi di classe
 
 Il decorator `@classmethod` ci permette di definire i cosiddetti *metodi di classe*:
 
@@ -134,9 +166,9 @@ Per richiamare un metodo di classe occorre riferirsi al nome della classe stessa
 Bobby Munson
 ```
 
-### I metodi statici
+### 4.5.2 - Metodi statici
 
-Mediante il decoratore `@staticmethod` possiamo definire un metodo *statico*. L'accezione comune del metodo statico è descritta nell'appendice C; tuttavia, nel Python il funzionamento di un metodo di questo tipo è riassumibile in un comportamento assimilabile ad una funzione "semplice", definita però all'interno della classe, e richiamabile su istanze della stessa. Ad esempio:
+Mediante il decoratore `@staticmethod` possiamo definire un metodo *statico*. In Python il funzionamento di un metodo di questo tipo è riassumibile in un comportamento assimilabile ad una funzione "semplice", definita però all'interno della classe, e richiamabile su istanze della stessa. Ad esempio:
 
 ```py
 @staticmethod
@@ -161,7 +193,7 @@ Un'altra possibilità è richiamarlo sulla classe stessa:
 False
 ```
 
-### I metodi astratti
+### 4.5.3 - Metodi astratti
 
 Possiamo definire dei metodi *astratti* (cfr. Appendice C) mediante il decorator `@abstractmethod`. Per farlo, la nostra classe deve discendere dalla classe `ABC` (acronimo che sta per *Abstract Base Class*), contenuta nel package `abc`:
 
@@ -188,7 +220,7 @@ class ClasseDerivata(ClasseBase):
 		# ...
 ```
 
-## Le proprietà
+## 4.6 - Le proprietà
 
 In molti linguaggi di programmazione si usano tradizionalmente i metodi *accessori* (*getter*) e *modificatori* (*setter*) per accedere agli attributi delle istanze di una classe. Python non vieta di farlo: ad esempio, possiamo scrivere un metodo `get_nome(self)` per accedere al nome di una persona, ed un metodo `set_nome(self, nome)` per impostare detta proprietà.
 
@@ -206,8 +238,6 @@ In particolare:
 * `doc` è la funzione per documentare e descrivere l'attributo.
 
 Grazie a `property`, potremo seguire le "best practice" della OOP, rendendo privati gli attributi della classe ed accedendovi mediante opportuni metodi.
-
-Riscriviamo quindi la classe `Persona` facendo uso del decorator `@property`:
 
 ```py
 class Persona():

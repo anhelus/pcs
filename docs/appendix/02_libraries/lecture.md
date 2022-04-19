@@ -1,4 +1,4 @@
-# Appendice C: Installazione di una libreria Python
+# Appendice B: Installazione di una libreria Python
 
 Per installare una libreria Python abbiamo a disposizione diverse opzioni. Vediamole nel dettaglio, immaginando di voler installare la libreria NumPy.
 
