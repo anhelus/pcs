@@ -1,10 +1,10 @@
-# E4 - Esercizi sulla OOP
+# E4 - Programmazione orientata agli oggetti in Python
 
 ## E4.1
 
 Scrivere una classe `Persona` applicando i concetti visti durante la lezione.
 
-### Soluzione
+### S4.1 - Soluzione
 
 Scriviamo la classe `Persona` come segue:
 
@@ -74,7 +74,7 @@ Notiamo che, dal punto di vista dello script che richiama la classe, non ci sono
 
 Creiamo due classi: la prima è la classe `Quadrato`, che modella tutti i quadrati; la seconda è la classe `Cerchio`, che modella tutti i cerchi. Entrambe devono discendere da una classe base chiamata `Figura`.
 
-### Soluzione
+### S4.2 - Soluzione
 
 ```py
 from abc import ABC, abstractmethod

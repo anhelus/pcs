@@ -4,8 +4,8 @@ site_url: https://python.angelocardellicchio.it
 nav:
   - Home: index.md
   - Parte 1 - Concetti base di Python:
-    - Introduzione al linguaggio: 01_python/01_intro/lecture.md
-    - Elementi sintattici fondamentali: 01_python/02_syntax/lecture.md
+    - Introduzione a Python: 01_python/01_intro/lecture.md
+    - Programmare in Python: 01_python/02_syntax/lecture.md
     - Strutture dati: 01_python/03_data_structures/lecture.md
     - Classi: 01_python/04_classes/lecture.md
     - Moduli: 01_python/05_modules/lecture.md
@@ -25,7 +25,10 @@ nav:
   - Parte 2 - Scikit Learn ed il Machine Learning:
     - Concetti base: 04_sklearn/17_intro_ml/lecture.md
   - Esercizi svolti:
+    - E1 - Introduzione a Python: 01_python/01_intro/exercises.md
+    - E2 - Programmare in Python: 01_python/02_syntax/exercises.md
     - E3 - Strutture dati in Python: 01_python/03_data_structures/exercises.md
+    - E4 - Programmazione orientata agli oggetti in Python: 01_python/04_classes/exercised.md
   - Appendici:
     - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
 

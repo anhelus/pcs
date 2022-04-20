@@ -2,26 +2,37 @@
 
 Benvenuti nel corso di **Python per il Calcolo Scientifico** (**PCS**).
 
-In questa pagina saranno pubblicati i materiali e le informazioni relative al corso, nonché quelle pertinenti l'esame e le lezioni.
+In questa pagina viene pubblicato il materiale e le informazioni relative al corso, nonché le slides proiettate a lezione.
 
-## Risultati esame A.A. 2020/2021
+## Modalità di esame
 
-I risultati dell'esame sono pubblicati nel gruppo Teams, canale Generale, sezione File, con nome "Esito finale".
+Le modalità di esame previste sono due:
 
-### Integrazione voto
+* un esame **orale**, costituito da un colloquio nel quale saranno poste al candidato tre domande, due di natura teorica, ed una di natura pratica, strettamente inerenti i contenuti del corso;
+* un **tema d'anno**, costituito da un progetto a scelta degli studenti, organizzati in gruppi da **massimo tre (3) componenti**. Il tema d'anno dovrà essere prettamente pratico, e corredato da una breve presentazione (**massimo dodici (12) slides**) ed una relazione sul lavoro svolto (**massimo quattro (4) pagine**).
 
-Viene data la possibilità di integrare l'esame ottenuto mediante un tema d'anno, assegnato dal docente. L'integrazione può comportare una modifica del voto (sia in positivo, sia in negativo) di al più tre trentesimi.
+## Date di appello
 
-Nel tema d'anno, dovranno essere inseriti:
+Le date di appello indicative sono le seguenti:
 
-1. una relazione (in formato PDF/A) in cui sono descritti nel dettaglio ed approfonditamente i procedimenti usati, sia dal punto di vista delle scelte effettuate, sia dal punto di vista delle funzioni e delle tecniche Python utilizzate;
-2. un Notebook Python funzionante e comprovante l'attività svolta;
-3. una set di slide, da presentare oralmente, nelle quali è descritta l'attività svolta.
+| Numero appello | Data indicativa |
+| -------------- | --------------- |
+| Primo          | 14/07/2022      |
+| Secondo        | 28/07/2022      |
+| Terzo          | 08/09/2022      |
+| Quarto         | 22/09/2022      |
+| Quinto         | 14/11/2022      |
+| Sesto          | 26/01/2023      |
+| Settimo        | 09/02/2023      |
+| Ottavo         | 16/02/2023      |
 
-Il termine ultimo per richiedere il tema d'anno è il **6 agosto 2021**.
 
-La consegna dei temi d'anno è fissata per il **6 settembre 2021**. 
+Salvo differenti disposizioni legate a recrudescenze della situazione pandemica, l'**esame sarà sostenuto in presenza**, in un'aula del Dipartimento di Matematica da definirsi.
 
-I temi d'anno saranno discussi a partire dal **10 settembre 2021**.
+## Calendario delle lezioni
 
-https://github.com/anhelus/pcs-ex
+Il calendario delle lezioni è disponibile a [questo link](https://www.dm.uniba.it/didattica/competenze-trasversali/2021-22-laboratorio-matematico-informatico-ii/orario-python.pdf).
+
+## Ricevimento
+
+E' possibile concordare un ricevimento con inviando una e-mail all'indirizzo angelo.cardellicchio@stiima.cnr.it.

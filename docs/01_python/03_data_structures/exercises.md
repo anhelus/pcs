@@ -4,7 +4,7 @@
 
 Proviamo a valutare il tempo necessario alle operazioni di `insert` e `pop` su una coda in Python usando la libreria `time`. Confrontiamo il risultato ottenuto con quello ottenibile implementando una coda come una struttura di tipo `deque` e usando gli opportuni metodi `appendleft` e `popleft`.
 
-### Soluzione
+### S3.1 - Soluzione
 
 ```py
 from time import time
@@ -58,7 +58,7 @@ lista_nomi = [
 
 Facciamolo usando un ciclo ed una list comprehension.
 
-### Soluzione
+### S3.2 - Soluzione
 
 Usando un ciclo:
 
@@ -79,7 +79,7 @@ output = [nome for nome in lista_nomi if nome[0] == "B"]
 
 Ottenere una lista che abbia al suo interno tutti i quadrati dei numeri che vanno da 1 a 10
 
-### Soluzione
+### S3.3 - Soluzione
 
 Usando un ciclo:
 
@@ -102,7 +102,7 @@ output = [quadrato(i) for i in range(1, 11)]
 
 Ottenere una lista che abbia la stringa `pari` in corrispondenza dei numeri pari, mentre quella `dispari` in corrispondenza dei numeri dispari, per tutti i numeri che vanno da 1 a 10.
 
-### Soluzione
+### S3.4 - Soluzione
 
 Usando un ciclo:
 
@@ -147,7 +147,7 @@ dizionario = {
 
 In particolare, il dizionario `vecchio_o_giovane` avrà le stesse chiavi del dizionario di partenza, a cui sarà associato il valore `giovane` soltanto se il valore della chiave del dizionario di partenza è inferiore a 65.
 
-### Soluzione
+### S3.5 - Soluzione
 
 ```py
 vecchio_o_giovane = { k: 'vecchio' if v > 65 else 'giovane' for (k, v) in dizionario.items() }
@@ -155,4 +155,3 @@ vecchio_o_giovane = { k: 'vecchio' if v > 65 else 'giovane' for (k, v) in dizion
 
 !!!note "Nota"
 	Per iterare sul dizionario originale, usiamo il metodo `items()` che, come visto in precedenza, ci restituisce un oggetto di tipo `dict_items` il quale è, per l'appunto, iterabile.
-

@@ -1,6 +1,10 @@
-# Risoluzione degli esercizi
+# E2 - Programmare in Python
 
-1. Scriviamo una funzione che iteri fino a che il valore associato ad un contatore intero è minore di 10. Usiamo un ciclo `while`.
+## E2.1
+
+Scriviamo una funzione che iteri fino a che il valore associato ad un contatore intero è minore di 10. Usiamo un ciclo `while`.
+
+### S2.1 - Soluzione
 
 ```py
 def itera_while():
@@ -26,7 +30,11 @@ Il risultato ottenuto sarà:
 10-ma iterazione
 ```
 
-2. Scriviamo una funzione che iteri fino a che una condizione booleana non è `False`. Usiamo un ciclo `for`, ponendo come numero massimo di iterazioni 100 e se necessario, usando il metodo [`random.randint(a, b)`](https://docs.python.org/3/library/random.html#random.randint).
+## E2.2
+
+Scriviamo una funzione che iteri fino a che una condizione booleana non è `False`. Usiamo un ciclo `for`, ponendo come numero massimo di iterazioni 100 e se necessario, usando il metodo [`random.randint(a, b)`](https://docs.python.org/3/library/random.html#random.randint).
+
+### S2.2 - Soluzione
 
 ```py
 def itera_for():
@@ -58,7 +66,11 @@ Esco
 False
 ```
 
-3. Estraiamo tutti gli indici pari di una lista arbitraria di dieci elementi in ordine inverso. Per farlo, usiamo sia la funzione `range` sia lo slicing.
+## E2.3
+
+Estraiamo tutti gli indici pari di una lista arbitraria di dieci elementi in ordine inverso. Per farlo, usiamo sia la funzione `range` sia lo slicing.
+
+### S2.3 - Soluzione
 
 ```py
 def estrai_con_slice(lista):

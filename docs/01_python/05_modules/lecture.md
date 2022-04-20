@@ -1,19 +1,16 @@
-# Script e moduli
+# 5 - Script e moduli
 
-## Un approccio migliore
+Quando si usa Python la tentazione è quella di interagire direttamente con l'interprete, lanciandolo da terminale ed eseguendo di volta in volta le istruzioni necessarie. Ovviamente questo approccio, seppur immediato, presenta diversi svantaggi. Ad esempio:
 
-Finora abbiamo interagito direttamente con l'interprete Python, lanciandolo da terminale ed eseguendo di volta in volta le istruzioni necessarie. Ovviamente questo approccio, seppur immediato, presenta diversi svantaggi, tra cui:
+* non avremo a disposizione il syntax highlighting offerto da una normale IDE;
+* non potremo recuperare il codice una volta chiuso l'interprete;
+* non potremo né modificare, né verificare facilmente il funzionamento del codice.
 
-* non abbiamo il *syntax highlighting*;
-* non siamo in grado di recuperare il codice una volta chiuso l'interprete;
-* non possiamo verificare facilmente il funzionamento del codice;
-* non possiamo modificare facilmente il codice.
+Appare quindi evidente come usare l'interprete *non* sia un modo ottimale di sviluppare codice Python. Di conseguenza, sarà necessario definire, mediante la nostra IDE di riferimento, dei veri e propri *script* che saranno salvati sotto forma di file con estensione `.py`, ognuno dei quali contenenti una serie di istruzioni necessarie all'esecuzione del nostro programma.
 
-Appare evidente come quindi non si tratti di un modo *ottimale* di sviluppare codice Python. Per questo, oltre al supporto di una IDE, dovremo definire dei veri e propri *script*, che saranno salvati sotto forma di file con estensione `py`, e conterranno le istruzioni relative al nostro programma.
+## 5.1 - Il primo script
 
-## Il primo script
-
-Possiamo quindi provare a creare il nostro primo script Python. Per farlo, apriamo Visual Studio Code (o la nostra IDE di riferimento), e creiamo un file chiamato `main.py`, all'interno del quale inseriremo questo codice:
+Proviamo quindi a creare il nostro primo script Python. Per farlo, apriamo la nostra IDE di riferimento, come Visual Studio Code, e creiamo un file chiamato `main.py`, all'interno del quale inseriremo il seguente codice:
 
 ```py
 # main.py
@@ -26,21 +23,24 @@ hello_world()
 Adesso apriamo un terminale, spostiamoci nella cartella nel quale abbiamo salvato questo script, ed eseguiamolo:
 
 ```sh
-$ cd cartella_dove_risiede_lo_script
-$ python main.py
+cd cartella_dove_risiede_lo_script
+python main.py
 ```
 
-A schermo, dovrebbe apparire la scritta `Hello, world`:
+Le due istruzioni precedenti:
+
+* servono a cambiare cartella (*change directory*, `cd`), spostandoci nella cartella dove risiede lo script;
+* dicono all'interprete Python di lanciare lo script `main.py`.
+
+A schermo, se tutto è andato per il verso giusto, apparirà la scritta `Hello, world`:
 
 ```sh
 Hello, world
 ```
 
-## L'approccio modulare
+## 5.2 - I moduli
 
-Utilizzare gli script permette di ovviare a diversi tra gli inconvenienti evidenziati in precedenza; tuttavia, quando le dimensioni della nostra *code base* (ovvero, la quantità di codice che scriviamo nei nostri programmi) iniziano ad essere "ingombranti", è opportuno adottare un approccio *modulare*, che prevede una separazione "fisica", ancorché logica, di parti di codice delegate a funzioni differenti.
-
-### Un esempio
+Quando le dimensioni della nostra *code base* (ovvero la quantità di codice che scriviamo nel nostro programma) iniziano ad essere particolarmente "ingombranti", è opportuno adottare un approccio *modulare*, separando in file differenti parti di codice delegate a funzioni eterogenee. Facciamo un esempio.
 
 Immaginiamo di voler scrivere un programma che definisca delle funzioni per calcolare l'area delle principali figure geometriche. Modifichiamo quindi il nostro file `main.py` come segue:
 
@@ -81,12 +81,12 @@ Cosa succederebbe se volessimo integrare delle funzioni di calcolo integrale, o 
 Questi file, che conterranno al loro interno prevalentemente funzioni (ma non solo), sono chiamati *moduli*.
 
 !!!note "Nota"
-	La linea che contraddistingue gli script dai moduli è molto sottile, e nei fatti è facile fare confusione ed utilizzarli in maniera "intercambiabile". Sottolineamo però che, idealmente, gli script devono contenere al loro interno soltanto del codice che sarà *eseguito*, mentre i moduli solo del codice che sarà *invocato* da uno o più script.
+	La linea che distingue gli script dai moduli è molto sottile, e nei fatti è facile fare confusione ed utilizzarli in maniera "intercambiabile". Sottolineamo però che, idealmente, gli script devono contenere al loro interno soltanto del codice che sarà *eseguito*, mentre i moduli solo del codice che sarà *invocato* da uno o più script.
 
 !!!note "Interprete e nome di un modulo"
 	L'interprete è in grado di risalire al nome di un modulo dal nome del file in cui è contenuto. Se, ad esempio, definiamo un modulo nel file `geometria.py`, l'interprete associerà a quel modulo il nome `geometria`. Detto nome è inoltre accessibile globalmente e dall'interno del modulo richiamando la variabile globale `__name__`.
 
-#### I moduli `geometria` e `trigonometria`
+### 5.2.1 - I moduli `geometria` e `trigonometria`
 
 Creiamo adesso il file `geometria.py`, all'interno del quale "sposteremo" le funzioni definite in precedenza per il calcolo geometrico.
 
@@ -131,7 +131,7 @@ Possiamo notare due cose.
 
 Proviamo a lanciare lo script; per farlo, digitiamo l'istruzione `python main.py` da terminale. A schermo, se tutto è andato per il verso giusto, vedremo i valori dell'area di un quadrato e della tangente di $\pi$.
 
-## Usare gli import
+## 5.3 - Usare gli import
 
 Relativamente al modulo `geometria`, abbiamo usato esclusivamente la funzione `calcola_area_quadrato()`, "trascurando" le altre due funzioni comunque presenti nel modulo. In queste circostanze, possiamo usare una versione modificata della direttiva `import`, che assume la seguente forma:
 
@@ -147,7 +147,7 @@ from geometria import calcola_area_quadrato
 
 In questo modo, possiamo importare solamente quello che ci serve, il che risulta particolarmente utile a migliorare l'efficienza del nostro codice; il perché sarà chiaro a breve.
 
-### Alias
+### 5.3.1 - Alias
 
 La direttiva `import` ci permette di definire anche degli alias, particolarmente utili nel caso si usino dei nomi di package complessi. Ad esempio:
 
@@ -157,7 +157,7 @@ import trigonometria as tr
 print(tr.calcola_tangente(math.pi))
 ```
 
-### La funzione dir()
+## 5.4 - La funzione `dir()`
 
 La funzione `dir()` restituisce una lista con tutti i nomi (sia di funzione, sia di classe) definiti da un modulo. Ad esempio:
 
@@ -178,7 +178,7 @@ if __name__ == "__main__":
 
 Notiamo che saremo in grado di accedere alla variabile `__file__` del modulo `geometria`, che indica il percorso relativo dello stesso all'interno del file system. Ovviamente, questa variabile non è quasi mai utile, ma comporta un ulteriore carico sul codice, da cui diventa evidente l'importanza dell'opportuno uso della direttiva `from`.
 
-### Moduli della libreria standard
+## 5.5 - Moduli della libreria standard
 
 Python ha diversi moduli appartenenti ad una libreria standard, i quali sono automaticamente disponibili a valle dell'installazione dell'interprete. Alcuni tra i più utilizzati sono:
 
@@ -190,7 +190,7 @@ Python ha diversi moduli appartenenti ad una libreria standard, i quali sono aut
 
 Per una lista esaustiva, si rimanda alla [Python Library Reference](https://docs.python.org/3/library/).
 
-## Package
+## 5.6 - Package
 
 Chiudiamo la trattazione con un accenno ai *package*, ovvero a delle vere e proprie "collezioni" che raggruppano moduli tra loro coerenti, in modo da facilitarne il successivo accesso. In pratica, i package non sono altro se non delle cartelle contenenti più moduli (quindi, file con estensione `nome_modulo.py`), oltre ad un file, chiamato `__init__.py`, che permette all'interprete di riconoscere quella cartella come package e, occasionalmente, contiene delle istruzioni di inizializzazione del package.
 
