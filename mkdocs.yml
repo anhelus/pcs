@@ -4,31 +4,31 @@ site_url: https://python.angelocardellicchio.it
 nav:
   - Home: index.md
   - Parte 1 - Concetti base di Python:
-    - Introduzione a Python: 01_python/01_intro/lecture.md
-    - Programmare in Python: 01_python/02_syntax/lecture.md
-    - Strutture dati: 01_python/03_data_structures/lecture.md
-    - Classi: 01_python/04_classes/lecture.md
-    - Moduli: 01_python/05_modules/lecture.md
-  - Parte 2 - Librerie per il Calcolo Scientifico:
-    - Numpy:
-      - Introduzione a Numpy: 02_numpy/06_intro/lecture.md
-      - Array: 02_numpy/07_array/lecture.md
-      - Indicizzazione: 02_numpy/08_indexing/lecture.md
-      - Operazioni aritmetiche: 02_numpy/09_arithmetics/lecture.md
-      - Algebra lineare: 02_numpy/10_algebra/lecture.md
-      - Operazioni polinomiali: 02_numpy/11_polynomials/lecture.md
-      - Statistica: 02_numpy/12_statistics/lecture.md
-    - Jupyter e i Notebook: 03_libs/13_jupyter/lecture.md
-    - Matplotlib e Seaborn: 03_libs/14_matplotlib/lecture.md
-    - Cenni a SciPy: 03_libs/15_scipy/lecture.md
-    - Pandas: 03_libs/16_pandas/lecture.md
-  - Parte 2 - Scikit Learn ed il Machine Learning:
-    - Concetti base: 04_sklearn/17_intro_ml/lecture.md
+    - Introduzione a Python: material/01_python/01_intro/lecture.md
+    - Programmare in Python: material/01_python/02_syntax/lecture.md
+    - Strutture dati: material/01_python/03_data_structures/lecture.md
+    - Classi: material/01_python/04_classes/lecture.md
+    - Moduli: material/01_python/05_modules/lecture.md
+  # - Parte 2 - Librerie per il Calcolo Scientifico:
+  #   - Numpy:
+  #     - Introduzione a Numpy: 02_numpy/06_intro/lecture.md
+  #     - Array: 02_numpy/07_array/lecture.md
+  #     - Indicizzazione: 02_numpy/08_indexing/lecture.md
+  #     - Operazioni aritmetiche: 02_numpy/09_arithmetics/lecture.md
+  #     - Algebra lineare: 02_numpy/10_algebra/lecture.md
+  #     - Operazioni polinomiali: 02_numpy/11_polynomials/lecture.md
+  #     - Statistica: 02_numpy/12_statistics/lecture.md
+  #   - Jupyter e i Notebook: 03_libs/13_jupyter/lecture.md
+  #   - Matplotlib e Seaborn: 03_libs/14_matplotlib/lecture.md
+  #   - Cenni a SciPy: 03_libs/15_scipy/lecture.md
+  #   - Pandas: 03_libs/16_pandas/lecture.md
+  # - Parte 2 - Scikit Learn ed il Machine Learning:
+  #   - Concetti base: 04_sklearn/17_intro_ml/lecture.md
   - Esercizi svolti:
-    - E1 - Introduzione a Python: 01_python/01_intro/exercises.md
-    - E2 - Programmare in Python: 01_python/02_syntax/exercises.md
-    - E3 - Strutture dati in Python: 01_python/03_data_structures/exercises.md
-    - E4 - Programmazione orientata agli oggetti in Python: 01_python/04_classes/exercised.md
+    - E1 - Introduzione a Python: material/01_python/01_intro/exercises.md
+    - E2 - Programmare in Python: material/01_python/02_syntax/exercises.md
+    - E3 - Strutture dati in Python: material/01_python/03_data_structures/exercises.md
+    - E4 - Programmazione orientata agli oggetti in Python: material/01_python/04_classes/exercised.md
   - Appendici:
     - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
 
