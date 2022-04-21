@@ -1,0 +1,1092 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://python.angelocardellicchio.it/material/01_python/03_data_structures/lecture/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>Strutture dati - Python per il Calcolo Scientifico</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-strutture-dati-in-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Python per il Calcolo Scientifico" class="md-header__button md-logo" aria-label="Python per il Calcolo Scientifico" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python per il Calcolo Scientifico
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Strutture dati
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Python per il Calcolo Scientifico" class="md-nav__button md-logo" aria-label="Python per il Calcolo Scientifico" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Python per il Calcolo Scientifico
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Parte 1 - Concetti base di Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Parte 1 - Concetti base di Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Parte 1 - Concetti base di Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/lecture/" class="md-nav__link">
+        Introduzione a Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/lecture/" class="md-nav__link">
+        Programmare in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Strutture dati
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Strutture dati
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-liste-pile-e-code" class="md-nav__link">
+    3.1 - Liste, pile e code
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 - Liste, pile e code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-pila" class="md-nav__link">
+    3.1.1 - Pila
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-coda" class="md-nav__link">
+    3.1.2 - Coda
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-list-comprehension" class="md-nav__link">
+    3.2 - List comprehension
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 - List comprehension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-forma-estesa-con-if-else" class="md-nav__link">
+    3.2.1 - Forma estesa con if-else
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-le-assignment-expressions" class="md-nav__link">
+    3.3 - Le assignment expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-tuple" class="md-nav__link">
+    3.4 - Tuple
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-set" class="md-nav__link">
+    3.5 - Set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-dizionari" class="md-nav__link">
+    3.6 - Dizionari
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 - Dizionari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361-chiavi-e-valori" class="md-nav__link">
+    3.6.1 - Chiavi e valori
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362-creazione-di-un-dizionario-non-vuoto" class="md-nav__link">
+    3.6.2 - Creazione di un dizionario (non vuoto)
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6.2 - Creazione di un dizionario (non vuoto)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3621-uso-delloperatore" class="md-nav__link">
+    3.6.2.1 - Uso dell'operatore {}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3622-uso-del-costruttore-dict" class="md-nav__link">
+    3.6.2.2 - Uso del costruttore dict()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3623-uso-della-funzione-zip" class="md-nav__link">
+    3.6.2.3 - Uso della funzione zip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3624-dict-comprehension" class="md-nav__link">
+    3.6.2.4 - Dict comprehension
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_classes/lecture/" class="md-nav__link">
+        Classi
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_modules/lecture/" class="md-nav__link">
+        Moduli
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Esercizi svolti
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Esercizi svolti" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Esercizi svolti
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/exercises/" class="md-nav__link">
+        E1 - Introduzione a Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/exercises/" class="md-nav__link">
+        E2 - Programmare in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercises/" class="md-nav__link">
+        E3 - Strutture dati in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_classes/exercised.md" class="md-nav__link">
+        E4 - Programmazione orientata agli oggetti in Python
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Appendici
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Appendici" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Appendici
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/01_python_vs_code/guide/" class="md-nav__link">
+        Installazione di Python e Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-liste-pile-e-code" class="md-nav__link">
+    3.1 - Liste, pile e code
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 - Liste, pile e code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-pila" class="md-nav__link">
+    3.1.1 - Pila
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-coda" class="md-nav__link">
+    3.1.2 - Coda
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-list-comprehension" class="md-nav__link">
+    3.2 - List comprehension
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 - List comprehension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-forma-estesa-con-if-else" class="md-nav__link">
+    3.2.1 - Forma estesa con if-else
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-le-assignment-expressions" class="md-nav__link">
+    3.3 - Le assignment expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-tuple" class="md-nav__link">
+    3.4 - Tuple
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-set" class="md-nav__link">
+    3.5 - Set
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-dizionari" class="md-nav__link">
+    3.6 - Dizionari
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 - Dizionari">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361-chiavi-e-valori" class="md-nav__link">
+    3.6.1 - Chiavi e valori
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362-creazione-di-un-dizionario-non-vuoto" class="md-nav__link">
+    3.6.2 - Creazione di un dizionario (non vuoto)
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6.2 - Creazione di un dizionario (non vuoto)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3621-uso-delloperatore" class="md-nav__link">
+    3.6.2.1 - Uso dell'operatore {}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3622-uso-del-costruttore-dict" class="md-nav__link">
+    3.6.2.2 - Uso del costruttore dict()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3623-uso-della-funzione-zip" class="md-nav__link">
+    3.6.2.3 - Uso della funzione zip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3624-dict-comprehension" class="md-nav__link">
+    3.6.2.4 - Dict comprehension
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="3-strutture-dati-in-python">3 - Strutture dati in Python<a class="headerlink" href="#3-strutture-dati-in-python" title="Permanent link">&para;</a></h1>
+<h2 id="31-liste-pile-e-code">3.1 - Liste, pile e code<a class="headerlink" href="#31-liste-pile-e-code" title="Permanent link">&para;</a></h2>
+<p>Python ci offre una grande varietà di metodi per gestire le liste; troviamo un elenco esaustivo a <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">questo indirizzo</a>.</p>
+<p>Grazie a questi metodi, è possibile costruire una pila o una coda in modo molto più semplice rispetto ad altri linguaggi.</p>
+<h3 id="311-pila">3.1.1 - Pila<a class="headerlink" href="#311-pila" title="Permanent link">&para;</a></h3>
+<p>Una <em>pila</em> (in inglese <em>stack</em>) adotta una strategia di accesso ai dati di tipo <em>Last-In, First-Out</em> (<em>LIFO</em>). Questo significa che il primo elemento ad uscire (ovvero ad essere analizzato) è quello in cima alla pila, ovvero l'ultimo ad esservi entrato.</p>
+<div class="admonition tip">
+<p class="admonition-title">Esempio di pila</p>
+<p>Un tipico esempio di pila è quella dei piatti da lavare. Quasi sicuramente, il piatto in cima alla pila sarà l'ultimo che avremo preso dal tavolo; tuttavia, sarà anche il primo ad essere lavato.</p>
+</div>
+<p>Per implementare una pila a partire da una lista possiamo usare due metodi:</p>
+<ul>
+<li>il metodo <code>append()</code> ci permette di inserire un nuovo elemento in cima alla pila (ovvero alla posizione <span class="arithmatex">\(n-1\)</span>-ma, con una lista ad <span class="arithmatex">\(n\)</span> componenti);</li>
+<li>il metodo <code>pop(pos)</code> ci permette di estrarre l'elemento in posizione <code>pos</code>. Di default, non specificando alcun valore di <code>pos</code>, estrarremo l'elemento in posizione <span class="arithmatex">\(n-1\)</span>-ma.</li>
+</ul>
+<p>Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>         <span class="c1"># s sarà pari a [1, 2, 3, 4]</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>         <span class="c1"># e sarà pari a 4, mentre s sarà pari a [1, 2, 3]</span>
+</code></pre></div>
+<h3 id="312-coda">3.1.2 - Coda<a class="headerlink" href="#312-coda" title="Permanent link">&para;</a></h3>
+<p>Una <em>coda</em> (in inglese <em>queue</em>) adotta una strategia di accesso ai dati di tipo <em>First-In, First-Out</em> (<em>FIFO</em>). In questo caso, il primo elemento ad uscire è presente da più tempo in coda.</p>
+<div class="admonition tip">
+<p class="admonition-title">Esempio di coda</p>
+<p>Un tipico esempio di coda è quella che tutti quanti, prima o poi, abbiamo fatto alle Poste: il primo ad arrivare è il primo ad essere servito, poi il secondo, il terzo, e via così.</p>
+</div>
+<p>Per implementare una coda a partire da una lista, possiamo usare il metodo <code>pop(pos)</code> con <code>pos = 0</code>, che ci permetterà quindi di estrarre il primo elemento della coda, ed il metodo <code>insert(pos, el)</code> ci permette di inserire alla posizione <code>pos</code> l'elemento <code>el</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">q</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>      <span class="c1"># q sarà pari a [4, 1, 2, 3]</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>        <span class="c1"># e sarà pari a 4, q sarà pari a [1, 2, 3]</span>
+</code></pre></div>
+<p>Questo approccio, per quanto semplice, ha uno svantaggio: infatti, i metodi <code>insert()</code> e <code>pop()</code> sono computazionalmente onerosi, in quanto fanno in modo di riallocare lo spazio occupato dagli elementi della lista.</p>
+<p>In alternativa, possiamo usare una struttura contenuta nella libreria <code>collections</code> e chiamata <code>deque</code>. Il vantaggio sta nel fatto che la <code>deque</code> è progettata specificamente per eseguire in maniera efficiente i metodi <code>append()</code> e <code>pop()</code> <em>da entrambi i capi</em> della struttura dati:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">q</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="c1"># q sarà pari a [4, 1, 2, 3]</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>     <span class="c1"># e sarà pari a 4, q sarà pari a [1, 2, 3]</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Sottolineamo che <code>q</code> non è più una lista, ma una <code>deque</code>.</p>
+</div>
+<h2 id="32-list-comprehension">3.2 - List comprehension<a class="headerlink" href="#32-list-comprehension" title="Permanent link">&para;</a></h2>
+<p>Una delle tecniche più usate per effettuare delle operazioni sugli elementi di una lista è usare la tecnica della <em>list comprehension</em>, che permette di sostituire <em>quasi</em> completamente i classici cicli.</p>
+<p>Nella forma base, una list comprehension ha una sintassi di questo tipo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">lista_output</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista_input</span><span class="p">]</span>
+</code></pre></div>
+<p>In altre parole, otterremo in output una lista (<code>lista_output</code>) applicando ad ogni <code>elemento</code> della lista originaria (<code>lista_input</code>) la funzione <code>f()</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Per essere precisi, più che di lista, sarebbe opportuno parlare di iterabile di input.</p>
+</div>
+<h3 id="321-forma-estesa-con-if-else">3.2.1 - Forma estesa con if-else<a class="headerlink" href="#321-forma-estesa-con-if-else" title="Permanent link">&para;</a></h3>
+<p>La list comprehension può anche includere delle istruzioni condizionali. Un primo esempio è la seguente forma:</p>
+<div class="highlight"><pre><span></span><code><span class="n">lista_output_if</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista_input</span> <span class="k">if</span> <span class="n">condizione</span><span class="p">]</span>
+</code></pre></div>
+<p>In questo caso, la funzione <code>f()</code> sarà chiamata esclusivamente sugli elementi che soddisfano la <code>condizione</code> indicata. Invece, se usassimo questa forma:</p>
+<div class="highlight"><pre><span></span><code><span class="n">lista_output_if_else</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="k">if</span> <span class="n">condizione</span> <span class="k">else</span> <span class="n">g</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista_input</span><span class="p">]</span>
+</code></pre></div>
+<p>la funzione <code>f()</code> sarebbe invocata su tutti gli elementi che soddisfano la <code>condizione</code>, mentre la funzione <code>g()</code> su tutti quelli che non la soddisfano.</p>
+<div class="admonition tip">
+<p class="admonition-title">Perché usare le list comprehension?</p>
+<p>Le list comprehension sono utili e versatili, e permettono, in molti casi, di sostituire i classici cicli con una sintassi più snella. Tuttavia, bisogna fare attenzione a non abusare di questo strumento: infatti, facendolo si rischia di complicare inutilmente il nostro programma, rendendolo poco leggibile e manutenibile. Come regola generale, quindi, ricordiamo il principio del rasoio di Occam: anche se è facile innamorarsi delle list comprehension, è bene ricordarsi che anche i cicli sono <em>leciti e funzionali</em>, per cui non è sempre necessario trovare a tutti i costi una soluzione usando una list comprehension.</p>
+</div>
+<h2 id="33-le-assignment-expressions">3.3 - Le assignment expressions<a class="headerlink" href="#33-le-assignment-expressions" title="Permanent link">&para;</a></h2>
+<p>Come apparso dalla trattazione, le list comprehension sono state pensate per approcci puramente iterativi. Di conseguenza, risulta complesso implementare forme di ricorsione. Per ovviare a questo inconveniente, Python introduce, a partire dalla versione 3.8, le <em>assignment expression</em>.</p>
+<p>Da un punto di vista "formale", un'assignment expression permette di <em>assegnare</em> e <em>restituire</em> un valore all'interno di un'unica istruzione mediante il cosiddetto <em>walrus operator</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">enjoy</span> <span class="o">:=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="kc">True</span>
+</code></pre></div>
+<p>Vediamo come utilizzare questo concetto per combinare ricorsione e list comprehension. Definiamo i valori di <span class="arithmatex">\(F_0\)</span> ed <span class="arithmatex">\(F_1\)</span> per la <a href="https://it.wikipedia.org/wiki/Successione_di_Fibonacci">sequenza di Fibonacci</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">fib</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>Vediamo cosa succede se proviamo ad usare una assignment expression in modo da restituire una lista che abbia come primo elemento il secondo della precedente (ovvero <code>1</code>), e come secondo la somma di tutti gli elementi della lista (ovvero <code>0 + 1</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">fib</span> <span class="o">:=</span> <span class="p">[</span><span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fib</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fib</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>Notiamo che l'operazione ha modificato il valore della lista <code>fib</code>! A noi, però, interessa soltanto la somma degli elementi precedenti della lista (e quindi il secondo valore ottenuto). Per isolarlo, possiamo adoperare l'operatore booleano <code>and</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">fib</span> <span class="o">:=</span> <span class="p">[</span><span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fib</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span> <span class="ow">and</span> <span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="mi">1</span>
+</code></pre></div>
+<p>Proviamo a combinare i due passaggi precedenti, ed usare una list comprehension per concatenare i risultati ottenuti per i numeri che vanno fino ad <span class="arithmatex">\(F_9\)</span>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">fib</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fib</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">fib</span> <span class="o">:=</span> <span class="p">[</span><span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fib</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span> <span class="ow">and</span> <span class="n">fib</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fib</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">89</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="34-tuple">3.4 - Tuple<a class="headerlink" href="#34-tuple" title="Permanent link">&para;</a></h2>
+<p>Le <em>tuple</em> permettono di rappresentano un insieme di valori eterogenei separadoli da una virgola. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+</code></pre></div>
+<p>Un po' come avviene per le liste, uno dei valori della tupla può a sua volta essere un'altra tupla. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<p>A differenza di una lista, però, le <em>tuple sono immutabili</em>. Ciò non implica però che non possano contenere al loro interno oggetti mutabili. Guardiamo il seguente esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div>
+<p>La tupla avrà al suo interno due stringhe (immutabili) ed una lista (mutabile). Proviamo a modificare la lista:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+<p>Apparirà un errore simile a questo:</p>
+<div class="highlight"><pre><span></span><code>Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+File <span class="s2">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, <span class="k">in</span> &lt;module&gt;
+TypeError: <span class="s1">&#39;tuple&#39;</span> object does not support item assignment
+</code></pre></div>
+<p>Come prevedibile, abbiamo avuto un errore di assegnazione legato all'immutabilità della tupla. Proviamo adesso però a modificare <em>direttamente la lista</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">tupla</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>         <span class="c1"># La tupla sarà (&#39;hello&#39;, &#39;world&#39;, [2, 2, 3])</span>
+</code></pre></div>
+<p>L'operazione è evidentemente ammissibile, ed il risultato è stato proprio quello atteso.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tuple e liste</p>
+<p>Ad un attento osservatore non sfuggirà come tuple e liste siano simili dal punto di vista sintattico, e differiscano in buona sostanza per la mutabilità. Da qui discende che le tuple sono estremamente efficaci nel caso si debba esclusivamente accedere agli elementi contenuti, mentre le liste devono essere usate quando è anche necessario modificare all'occorrenza detti elementi.</p>
+</div>
+<h2 id="35-set">3.5 - Set<a class="headerlink" href="#35-set" title="Permanent link">&para;</a></h2>
+<p>Anche i <em>set</em> sono molto simili alle liste dal punto di vista sintattico, ma offrono una significativa differenza: infatti, in un set <em>non possono esserci elementi ripetuti</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Notiamo un'evidente analogia con il concetto matematico di insieme.</p>
+</div>
+<p>La sintassi da usare per creare un set è la seguente.</p>
+<div class="highlight"><pre><span></span><code><span class="n">insieme</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;stringa&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span>
+</code></pre></div>
+<p>Il set ammette al suo interno dati eterogenei, tuttavia non può contenere al suo interno delle liste o dei dizionari. Questo è legato al fatto che i set (così come gli stessi dizionari) sono delle <a href="https://it.wikipedia.org/wiki/Hash_table">hash table</a>, e quindi sfruttano il concetto di <em>hash</em> per rappresentare i dati contenuti in maniera compatta ed efficiente. Il fatto che le liste ed i dizionari non possano essere rappresentati in questo modo li esclude in automatico dall'includibilità all'interno di un set.</p>
+<p>Un'altra considerazione da fare è che il set <em>non è ordinato</em>: ciò rende impossibile accedere ad (e <em>modificare</em>) un elemento del set mediante il suo indice, come succedeva per liste e tuple.</p>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>I set possono essere usati per isolare gli elementi univoci presenti in una lista. Per farlo, basta convertire la lista in set:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>      <span class="c1"># La lista sarà [1, 2, 2, 3]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>            <span class="c1"># Il set sarà [1, 2, 3]</span>
+</code></pre></div>
+</blockquote>
+</div>
+<h2 id="36-dizionari">3.6 - Dizionari<a class="headerlink" href="#36-dizionari" title="Permanent link">&para;</a></h2>
+<p>Il quarto ed ultimo tipo di contenitore per sequenze di dati è il <em>dizionario</em>, presente anche in altri linguaggi di programmazione con il nome di <em>array associativo</em> o <em>hash map</em>.</p>
+<p>L'elemento base di un dizionario è la <em>coppia chiave - valore</em>, nella quale un certo valore (di qualsiasi tipo) è associato ad una determinata chiave (di tipo immutabile).</p>
+<p>I dizionari hanno diverse caratteristiche comuni ai set, dall'inutilizzabilità delle liste come chiavi al fatto di non permettere chiavi ripetute. Inoltre, le coppie chiave - valore sono accedute, per l'appunto, per chiave, e non in base all'ordine delle coppie.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Una differenza tra set e dizionari sta nel fatto che questi ultimi sono <em>ordinati</em> a partire da Python 3.7.</p>
+</div>
+<p>Per creare un dizionario, possiamo usare una sintassi simile a quella usata per i set. Ad esempio, per creare un dizionario vuoto:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dizionario</span> <span class="o">=</span> <span class="p">{}</span>
+</code></pre></div>
+<p>Possiamo quindi inserire delle coppie chiave - valore in questo modo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dizionario</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;v&#39;</span>
+<span class="n">dizionario</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span>         <span class="c1"># Il dizionario sarà {&#39;k&#39;: &#39;v&#39;, 1: &#39;n&#39;}</span>
+</code></pre></div>
+<p>Per accedere al valore associato ad una determinata chiave:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dizionario</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>               <span class="c1"># Il valore restituito sarà &#39;n&#39;</span>
+</code></pre></div>
+<h3 id="361-chiavi-e-valori">3.6.1 - Chiavi e valori<a class="headerlink" href="#361-chiavi-e-valori" title="Permanent link">&para;</a></h3>
+<p>E' possibile recuperare la lista di tutte le chiavi presenti in un dizionario usando il metodo <code>keys()</code>, che restituisce un oggetto di tipo <code>dict_keys</code>, a sua volta convertibile in lista:</p>
+<div class="highlight"><pre><span></span><code><span class="n">chiavi</span> <span class="o">=</span> <span class="n">dizionario</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>          <span class="c1"># Restituisce dict_keys([&#39;k&#39;, 1]), che non è una lista!</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">chiavi</span><span class="p">)</span>                        <span class="c1"># Restituisce [&#39;k&#39;, 1], che è una lista!</span>
+</code></pre></div>
+<p>In modo analogo, si può accedere a tutti i valori presenti nel dizionario mediante il metodo <code>values()</code>, che restituirà un oggetto di tipo <code>dict_values</code>, da convertire anch'esso in lista:</p>
+<div class="highlight"><pre><span></span><code><span class="n">valori</span> <span class="o">=</span> <span class="n">dizionario</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>        <span class="c1"># Restituisce dict_values([&#39;v&#39;, &#39;n&#39;]), che non è una lista!</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">valori</span><span class="p">)</span>                        <span class="c1"># Restituisce [&#39;v&#39;, &#39;n&#39;], che è una lista!</span>
+</code></pre></div>
+<p>Possiamo accedere anche a tutte le coppie chiave - valore mediante il metodo <code>items()</code>, che ci restituisce un oggetto di tipo <code>dict_items</code>, il quale può essere convertito in una lista di tuple:</p>
+<div class="highlight"><pre><span></span><code><span class="n">coppie</span> <span class="o">=</span> <span class="n">dizionario</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>         <span class="c1"># Restituisce dict_items([(&#39;k&#39;, &#39;v&#39;), (1, &#39;n&#39;)])</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">coppie</span><span class="p">)</span>                        <span class="c1"># Restituisce una lista di tuple</span>
+</code></pre></div>
+<h3 id="362-creazione-di-un-dizionario-non-vuoto">3.6.2 - Creazione di un dizionario (non vuoto)<a class="headerlink" href="#362-creazione-di-un-dizionario-non-vuoto" title="Permanent link">&para;</a></h3>
+<p>Abbiamo diversi modi per creare un dizionario non vuoto.</p>
+<h4 id="3621-uso-delloperatore">3.6.2.1 - Uso dell'operatore <code>{}</code><a class="headerlink" href="#3621-uso-delloperatore" title="Permanent link">&para;</a></h4>
+<p>Il più semplice, che è quello che useremo più spesso, è quello di dichiarare nell'operatore <code>{}</code> le coppie chiave - valore iniziali:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span>
+<span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+</code></pre></div>
+<h4 id="3622-uso-del-costruttore-dict">3.6.2.2 - Uso del costruttore <code>dict()</code><a class="headerlink" href="#3622-uso-del-costruttore-dict" title="Permanent link">&para;</a></h4>
+<p>Un altro modo è usare il metodo costruttore <code>dict()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">dizionario</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">k1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>       <span class="c1"># Il dizionario sarà {&#39;k1&#39;: 1, &#39;k2&#39;: 2}</span>
+</code></pre></div>
+<h4 id="3623-uso-della-funzione-zip">3.6.2.3 - Uso della funzione <code>zip</code><a class="headerlink" href="#3623-uso-della-funzione-zip" title="Permanent link">&para;</a></h4>
+<p>Possiamo poi usare la funzione <code>zip</code> per creare un dizionario a partire da due liste:</p>
+<div class="highlight"><pre><span></span><code><span class="n">chiavi</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;k1&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">]</span>
+<span class="n">valori</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">dizionario</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">chiavi</span><span class="p">,</span> <span class="n">valori</span><span class="p">))</span>
+</code></pre></div>
+<h4 id="3624-dict-comprehension">3.6.2.4 - Dict comprehension<a class="headerlink" href="#3624-dict-comprehension" title="Permanent link">&para;</a></h4>
+<p>Un modo per ottenere un dizionario a partire da un altro oggetto iterabile è la <em>dict comprehension</em>, che ha una forma del tipo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">output</span> <span class="o">=</span> <span class="p">{</span> <span class="n">chiave</span><span class="p">:</span> <span class="n">valore</span> <span class="k">for</span> <span class="n">valore</span> <span class="ow">in</span> <span class="n">iterabile</span> <span class="p">}</span>
+</code></pre></div>
+<p>Possiamo ad esempio creare un dizionario contenente come chiave i numeri da 1 a 9, e come valori corrispondenti i quadrati degli stessi:</p>
+<div class="highlight"><pre><span></span><code><span class="n">quadrati</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">):</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">quadrati</span><span class="p">)</span>
+<span class="c1"># Risultato: {&#39;1&#39;: 1, &#39;2&#39;: 4, &#39;3&#39;: 9, &#39;4&#39;: 16, &#39;5&#39;: 25, &#39;6&#39;: 36, &#39;7&#39;: 49, &#39;8&#39;: 64, &#39;9&#39;: 81}</span>
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../02_syntax/lecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Programmare in Python" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Programmare in Python
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../04_classes/lecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Classi" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Classi
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Angelo Cardellicchio - MIT License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/anhelus" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:angelo.cardellicchio@stiima.cnr.it" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="m511.6 36.86-64 415.1a32.008 32.008 0 0 1-31.65 27.147c-4.188 0-8.319-.815-12.29-2.472l-122.6-51.1-50.86 76.29C226.3 508.5 219.8 512 212.8 512c-11.5 0-20.8-9.3-20.8-20.8v-96.18c0-7.115 2.372-14.03 6.742-19.64L416 96 122.3 360.3 19.69 317.5C8.438 312.8.812 302.2.062 289.1s5.47-23.72 16.06-29.77l448-255.1c10.69-6.109 23.88-5.547 34 1.406S513.5 24.72 511.6 36.86z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+        <script src="../../../../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

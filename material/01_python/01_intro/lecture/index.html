@@ -1,0 +1,1288 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://python.angelocardellicchio.it/material/01_python/01_intro/lecture/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>Introduzione a Python - Python per il Calcolo Scientifico</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduzione-a-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Python per il Calcolo Scientifico" class="md-header__button md-logo" aria-label="Python per il Calcolo Scientifico" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python per il Calcolo Scientifico
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduzione a Python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Python per il Calcolo Scientifico" class="md-nav__button md-logo" aria-label="Python per il Calcolo Scientifico" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Python per il Calcolo Scientifico
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Parte 1 - Concetti base di Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Parte 1 - Concetti base di Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Parte 1 - Concetti base di Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduzione a Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Introduzione a Python
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-python-e-tipizzazione" class="md-nav__link">
+    1.1 - Python e tipizzazione
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 - Python e tipizzazione">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-tipizzazione-dinamica" class="md-nav__link">
+    1.1.1 Tipizzazione dinamica
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1.1 Tipizzazione dinamica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1111-duck-typing" class="md-nav__link">
+    1.1.1.1 - Duck Typing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-linterprete-python" class="md-nav__link">
+    1.2 - L'interprete Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-calcoli-e-numeri" class="md-nav__link">
+    1.3 - Calcoli e numeri
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 - Calcoli e numeri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-divisioni" class="md-nav__link">
+    1.3.1 - Divisioni
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-elevazione-a-potenza" class="md-nav__link">
+    1.3.2 - Elevazione a potenza
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-stringhe" class="md-nav__link">
+    1.4 - Stringhe
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 - Stringhe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-stringhe-su-righe-multiple" class="md-nav__link">
+    1.4.1 - Stringhe su righe multiple
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-concatenazione-di-stringhe" class="md-nav__link">
+    1.4.2 - Concatenazione di stringhe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143-indicizzazione-di-stringhe" class="md-nav__link">
+    1.4.3 - Indicizzazione di stringhe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144-slicing-su-stringhe" class="md-nav__link">
+    1.4.4 - Slicing su stringhe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#145-lunghezza-di-una-stringa" class="md-nav__link">
+    1.4.5 - Lunghezza di una stringa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#146-immutabilita-di-una-stringa" class="md-nav__link">
+    1.4.6 - Immutabilità di una stringa
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-liste" class="md-nav__link">
+    1.5 - Liste
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 - Liste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151-concatenazione-indicizzazione-e-slicing-su-liste" class="md-nav__link">
+    1.5.1 - Concatenazione, indicizzazione e slicing su liste
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-alcuni-esempi" class="md-nav__link">
+    1.5.2 - Alcuni esempi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#153-mutabilita-di-una-lista" class="md-nav__link">
+    1.5.3 - Mutabilità di una lista
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#154-operazioni-sulle-liste" class="md-nav__link">
+    1.5.4 - Operazioni sulle liste
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/lecture/" class="md-nav__link">
+        Programmare in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_data_structures/lecture/" class="md-nav__link">
+        Strutture dati
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_classes/lecture/" class="md-nav__link">
+        Classi
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_modules/lecture/" class="md-nav__link">
+        Moduli
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Esercizi svolti
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Esercizi svolti" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Esercizi svolti
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercises/" class="md-nav__link">
+        E1 - Introduzione a Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/exercises/" class="md-nav__link">
+        E2 - Programmare in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_data_structures/exercises/" class="md-nav__link">
+        E3 - Strutture dati in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_classes/exercised.md" class="md-nav__link">
+        E4 - Programmazione orientata agli oggetti in Python
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Appendici
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Appendici" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Appendici
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/01_python_vs_code/guide/" class="md-nav__link">
+        Installazione di Python e Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-python-e-tipizzazione" class="md-nav__link">
+    1.1 - Python e tipizzazione
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 - Python e tipizzazione">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-tipizzazione-dinamica" class="md-nav__link">
+    1.1.1 Tipizzazione dinamica
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1.1 Tipizzazione dinamica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1111-duck-typing" class="md-nav__link">
+    1.1.1.1 - Duck Typing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-linterprete-python" class="md-nav__link">
+    1.2 - L'interprete Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-calcoli-e-numeri" class="md-nav__link">
+    1.3 - Calcoli e numeri
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 - Calcoli e numeri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-divisioni" class="md-nav__link">
+    1.3.1 - Divisioni
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-elevazione-a-potenza" class="md-nav__link">
+    1.3.2 - Elevazione a potenza
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-stringhe" class="md-nav__link">
+    1.4 - Stringhe
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 - Stringhe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-stringhe-su-righe-multiple" class="md-nav__link">
+    1.4.1 - Stringhe su righe multiple
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-concatenazione-di-stringhe" class="md-nav__link">
+    1.4.2 - Concatenazione di stringhe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143-indicizzazione-di-stringhe" class="md-nav__link">
+    1.4.3 - Indicizzazione di stringhe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144-slicing-su-stringhe" class="md-nav__link">
+    1.4.4 - Slicing su stringhe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#145-lunghezza-di-una-stringa" class="md-nav__link">
+    1.4.5 - Lunghezza di una stringa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#146-immutabilita-di-una-stringa" class="md-nav__link">
+    1.4.6 - Immutabilità di una stringa
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-liste" class="md-nav__link">
+    1.5 - Liste
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 - Liste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151-concatenazione-indicizzazione-e-slicing-su-liste" class="md-nav__link">
+    1.5.1 - Concatenazione, indicizzazione e slicing su liste
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-alcuni-esempi" class="md-nav__link">
+    1.5.2 - Alcuni esempi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#153-mutabilita-di-una-lista" class="md-nav__link">
+    1.5.3 - Mutabilità di una lista
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#154-operazioni-sulle-liste" class="md-nav__link">
+    1.5.4 - Operazioni sulle liste
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="1-introduzione-a-python">1 - Introduzione a Python<a class="headerlink" href="#1-introduzione-a-python" title="Permanent link">&para;</a></h1>
+<p>Prima di iniziare a parlare del linguaggio Python, è opportuno verificare che l'interprete sia installato nel nostro sistema. Per farlo, apriamo un terminale (Shell o Command Prompt, a seconda del nostro sistema), e scriviamo:</p>
+<div class="highlight"><pre><span></span><code>$ python
+</code></pre></div>
+<p>Se apparirà una schermata simile a quella mostrata in figura, Python sarà già correttamente presente nel nostro sistema.</p>
+<p><img alt="python_interpreter" class="center" src="../images/python_interpreter.png" /></p>
+<p>In alternativa, dovremo provvedere ad installarlo seguendo la procedura indicata sul <a href="https://www.python.org/">sito ufficiale</a>, ed aggiungerlo al path di sistema.</p>
+<h2 id="11-python-e-tipizzazione">1.1 - Python e tipizzazione<a class="headerlink" href="#11-python-e-tipizzazione" title="Permanent link">&para;</a></h2>
+<h3 id="111-tipizzazione-dinamica">1.1.1 Tipizzazione dinamica<a class="headerlink" href="#111-tipizzazione-dinamica" title="Permanent link">&para;</a></h3>
+<p>Python è un linguaggio <em>interpretato</em> ed a <em>tipizzazione dinamica</em>. In breve, questo significa che l'interprete valuta il tipo di ciascuna variabile a runtime, e che questo può cambiare durante l'esecuzione del programma.</p>
+<p>Ma, a conti fatti, in cosa si traduce per il programmatore? Beh, molto semplice.</p>
+<p>Immaginiamo di dover definire ed inizializzare una variabile di tipo intero in un linguaggio a tipizzazione <em>statica</em>, come ad esempio il C++. Per farlo, scriveremo qualcosa simile a:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>In Python, potremo omettere il tipo, che sarà inferito direttamente dal valore assegnato alla variabile:</p>
+<div class="highlight"><pre><span></span><code><span class="n">var</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+<p>Immaginiamo ora che la nostra variabile debba diventare un decimale. In C++, dovremo effettuare il casting:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="n">fVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">float</span><span class="p">(</span><span class="n">var</span><span class="p">);</span><span class="w"></span>
+<span class="n">fVar</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.1</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<p>In Python questo non sarà necessario, e potremo effettuare direttamente le operazioni desiderate:</p>
+<div class="highlight"><pre><span></span><code><span class="n">var</span> <span class="o">+</span> <span class="mf">1.1</span>           <span class="c1"># Il risultato sarà 2.1</span>
+</code></pre></div>
+<p>Questo può apparentemente semplificare di molto la vita, in quanto non è più necessario preoccuparsi del tipo della variabile. Non è però tutto oro ciò che luccica: per comprenderlo, infatti, è il momento di parlare del (pilatesco) principio del <em>duck typing</em>.</p>
+<h4 id="1111-duck-typing">1.1.1.1 - Duck Typing<a class="headerlink" href="#1111-duck-typing" title="Permanent link">&para;</a></h4>
+<p>Il duck typing è riassumibile nella seguente massima:</p>
+<div class="admonition quote">
+<p class="admonition-title">Duck Typing</p>
+<p><em>If it walks like a duck and it quacks like a duck, then it must be a duck.</em></p>
+</div>
+<p>che in italiano suona più o meno <em>Se cammina come un papero, e starnazza come un papero, deve essere un papero</em>. Traduciamola brevemente in "informatichese". </p>
+<p>Immaginiamo di istruire il nostro interprete Python ad assegnare alla nostra variabile <code>var</code> il valore di <code>1</code>. L'interprete nota che la variabile si "comporta" come un numero intero, e quindi "stabilirà" che si tratti proprio di questo.</p>
+<p>Proviamo ora a sommare a <code>var</code> un valore pari ad <code>1.1</code>. Il risultato, come ovvio, sarà un numero decimale, e quindi l'interprete "cambierà idea", in quanto i comportamenti assunti da <code>var</code> sono adesso assimilabili ad una variabile di tipo <code>float</code>.</p>
+<p>L'utilità del duck typing è evidente: permette allo sviluppatore di "risparmiare" numerose operazioni di cast, rendendo il codice più semplice da scrivere e manutenere. Tuttavia, occorre tenerne conto nel momento in cui si usano classi ed oggetti, in quanto l'interprete proverà ad inferire ed usare automaticamente un tipo in base al contesto in cui viene usata la variabile, con le comodità (ed i potenziali disastri) che questo comporta.</p>
+<h2 id="12-linterprete-python">1.2 - L'interprete Python<a class="headerlink" href="#12-linterprete-python" title="Permanent link">&para;</a></h2>
+<p>Nella sezione introduttiva abbiamo visto come installare l'interprete Python, in modo da avere un ambiente di lavoro accessibile direttamente mediante riga di comando. Lanciamolo di nuovo usando il seguente comando da una shell:</p>
+<div class="highlight"><pre><span></span><code>python
+</code></pre></div>
+<p>Potremo quindi finalmente iniziare ad utilizzare Python.</p>
+<h2 id="13-calcoli-e-numeri">1.3 - Calcoli e numeri<a class="headerlink" href="#13-calcoli-e-numeri" title="Permanent link">&para;</a></h2>
+<p>Proviamo ad usare l'interprete come una semplice calcolatrice; per farlo, scriviamo direttamente dopo il simbolo <code>&gt;&gt;&gt;</code> le operazioni che vogliamo eseguire, e premiamo il tasto <code>Invio</code>. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="mi">15</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">10</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="mi">2</span>
+</code></pre></div>
+<h3 id="131-divisioni">1.3.1 - Divisioni<a class="headerlink" href="#131-divisioni" title="Permanent link">&para;</a></h3>
+<p>Le divisioni restituiscono sempre un numero in virgola mobile. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">16</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="mf">5.333333333333333</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="mf">2.0</span>
+</code></pre></div>
+<p>Proviamo ora ad usare altri due operatori, molto simili al classico operatore di divisione:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">16</span> <span class="o">//</span> <span class="mi">3</span>
+<span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">16</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="mi">1</span>
+</code></pre></div>
+<p>Notiamo come in questi casi siano restituiti dei numeri interi. Il perché è presto detto: gli operatori <code>//</code> e <code>%</code> calcolano, rispettivamente, il <em>quoziente</em> ed il <em>resto</em> della divisione e, come sappiamo, entrambi sono dei valori interi.</p>
+<h3 id="132-elevazione-a-potenza">1.3.2 - Elevazione a potenza<a class="headerlink" href="#132-elevazione-a-potenza" title="Permanent link">&para;</a></h3>
+<p>Per elevare un numero a potenza, è necessario usare l'operatore <code>**</code>, in cui l'operando sinistro è la base, mentre quello destro l'esponente:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="mi">9</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">8</span>
+<span class="mi">256</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Tipi numerici in Python</p>
+<p>Abbiamo finora parlato soltanto di numeri interi e decimali; tuttavia, Python supporta anche altri tipi, come ad esempio <code>Decimal</code> e <code>Fraction</code>. E' inoltre presente un supporto nativo ai numeri complessi, esprimibili usando il suffisso <code>j</code> per indicare la parte immaginaria.</p>
+</div>
+<h2 id="14-stringhe">1.4 - Stringhe<a class="headerlink" href="#14-stringhe" title="Permanent link">&para;</a></h2>
+<p>In Python le stringhe possono indifferentemente essere racchiuse tra virgolette singole e doppie.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;una stringa&quot;</span>
+<span class="s1">&#39;una stringa&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;un</span><span class="se">\&#39;</span><span class="s1">altra stringa&#39;</span>
+<span class="s2">&quot;un&#39;altra stringa&quot;</span>
+</code></pre></div>
+<p>Notiamo nella seconda istruzione l'uso del carattere di escape (<code>\</code>) che precede l'apostrofo; se lo omettessimo, l'interprete ci restituirebbe un errore sintattico (<code>SyntaxError</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;un&#39;</span><span class="n">altra</span> <span class="n">stringa</span><span class="s1">&#39;</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="s1">&#39;un&#39;</span><span class="n">altra</span> <span class="n">stringa</span>
+            <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Tutti i caratteri preceduti dal simbolo <code>\</code> saranno interpretati come escape character, a meno di aggiungere il simbolo <code>r</code> prima dell'inizio della stringa:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;C:</span><span class="se">\n</span><span class="s1">uova_cartella&#39;</span><span class="p">)</span>
+<span class="n">C</span><span class="p">:</span>
+<span class="n">uova_cartella</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\nuova_cartella&#39;</span><span class="p">)</span>
+<span class="n">C</span><span class="p">:</span>\<span class="n">nuova_cartella</span>
+</code></pre></div>
+</blockquote>
+</div>
+<h3 id="141-stringhe-su-righe-multiple">1.4.1 - Stringhe su righe multiple<a class="headerlink" href="#141-stringhe-su-righe-multiple" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Stringhe e liste</p>
+<p>La maggior parte dei concetti che vedremo nel seguito sono applicabili anche alle liste. Anzi, per essere precisi, derivano proprio dalle liste, in quanto Python considera una stringa un particolare tipo di lista.</p>
+</div>
+<p>Le stringhe possono articolarsi su più righe. Per farlo, possiamo usare le <em>triple-quotes</em>, ovvero tre virgolette di seguito, per indicare l'inizio e la fine della stringa:</p>
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Questo è un esempio</span><span class="se">\</span>
+</span><span class="s2">         di</span>
+<span class="hll"><span class="s2">        riga multipla</span><span class="se">\</span>
+</span><span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">Questo</span> <span class="n">è</span> <span class="n">un</span> <span class="n">esempio</span> <span class="n">di</span>
+    <span class="n">riga</span> <span class="n">multipla</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Notiamo nel precedente snippet il carattere <code>\</code>, usato per evitare che venga automaticamente inserito dall'interprete il carattere <em>newline</em> (<code>\n</code>) al termine di ogni riga. Infatti, si vede come il newline non sia stato aggiunto nelle righe evidenziate, mentre sia presente nella riga 2.</p>
+</div>
+<h3 id="142-concatenazione-di-stringhe">1.4.2 - Concatenazione di stringhe<a class="headerlink" href="#142-concatenazione-di-stringhe" title="Permanent link">&para;</a></h3>
+<p>Concatenare due stringhe in Python è estremamente semplice, e basta usare l'operatore <code>+</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa_a</span> <span class="o">=</span> <span class="s2">&quot;Prima stringa&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">stringa_b</span> <span class="o">=</span> <span class="s2">&quot;Seconda stringa&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">stringa_a</span> <span class="o">+</span> <span class="s2">&quot; - &quot;</span> <span class="o">+</span> <span class="n">stringa_b</span><span class="p">)</span>
+<span class="n">Prima</span> <span class="n">stringa</span> <span class="o">-</span> <span class="n">Seconda</span> <span class="n">stringa</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se usiamo l'operatore <code>*</code> possiamo concatenare più volte la stessa stringa:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span> <span class="o">*</span> <span class="s1">&#39;co.&#39;</span>
+<span class="s1">&#39;co.co.co.&#39;</span>
+</code></pre></div>
+</blockquote>
+</div>
+<p>Possiamo anche semplicemente porre le due stringhe l'una di seguito all'altra:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="s2">&quot;Py&quot;</span> <span class="s2">&quot;thon&quot;</span>
+<span class="s1">&#39;Python&#39;</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Attenzione</p>
+<p>Bisogna fare particolare attenzione a non concatenare un <em>literal</em> (ovvero una stringa racchiusa tra virgolette) ad una <em>variabile di tipo stringa</em>. Se proviamo a farlo, l'interprete ci restituirà questo errore:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">py</span><span class="o">=</span><span class="s2">&quot;Py&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">py</span> <span class="s2">&quot;thon&quot;</span>
+<span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">py</span> <span class="s2">&quot;thon&quot;</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</code></pre></div>
+</blockquote>
+<p>Lo stesso errore si presenterebbe se al posto della variabile <code>py</code> usassimo il risultato di una operazione di concatenazione:</p>
+<blockquote>
+<p><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="s1">&#39;p&#39;</span> <span class="o">+</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="s1">&#39;thon&#39;</span>
+<span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="p">(</span><span class="s1">&#39;p&#39;</span> <span class="o">+</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="s1">&#39;thon&#39;</span>
+                  <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</code></pre></div><br />
+Il consiglio, in questi casi "ibridi", è quello di usare l'operatore standard di concatenazione, ovvero il <code>+</code>.</p>
+</blockquote>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esistono modi più efficienti di concatenare delle stringhe, specialmente quando si ha a che fare con numerose operazioni di concatenazione in grossi cicli; l'approfondimento di tali metodi è demandato al lettore.</p>
+</div>
+<h3 id="143-indicizzazione-di-stringhe">1.4.3 - Indicizzazione di stringhe<a class="headerlink" href="#143-indicizzazione-di-stringhe" title="Permanent link">&para;</a></h3>
+<p>Python definisce le stringhe come degli <em>array di caratteri</em>; è quindi possibile indicizzarli. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s1">&#39;P&#39;</span>
+</code></pre></div>
+<p>Anche i singoli caratteri sono considerati come delle stringhe, ovviamente di lunghezza unitaria:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lettera</span> <span class="o">=</span> <span class="s1">&#39;P&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lettera</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="s1">&#39;P&#39;</span>
+</code></pre></div>
+<p>Python permette di accedere anche usando degli indici <em>negativi</em>, considerando quindi gli elementi che vanno da destra verso sinistra. In questo caso, l'indice del primo elemento da destra sarà indicato con <code>-1</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="s1">&#39;n&#39;</span>
+</code></pre></div>
+<h3 id="144-slicing-su-stringhe">1.4.4 - Slicing su stringhe<a class="headerlink" href="#144-slicing-su-stringhe" title="Permanent link">&para;</a></h3>
+<p>L'operazione di <em>slicing</em> permette di estrarre una certa parte di una stringa. In generale, assume la seguente forma:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">:</span><span class="n">s</span><span class="p">]</span>
+</code></pre></div>
+<p>dove <code>i</code> è l'indice iniziale, <code>j</code> quello finale ed <code>s</code> lo step utilizzato. E' importante sottolineare come <strong>l'elemento all'indice iniziale sarà incluso, mentre quello all'indice finale sarà escluso</strong>.</p>
+<p>Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="s1">&#39;Py&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="s1">&#39;tho&#39;</span>
+</code></pre></div>
+<p>Se volessimo considerare <em>tutti i caratteri fino a <code>j</code></em> (escluso), dovremmo usare la seguente notazione:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span> <span class="p">[:</span><span class="n">j</span><span class="p">]</span>
+</code></pre></div>
+<p>Se invece volessimo considerare <em>tutti i caratteri a partire da <code>i</code></em> (incluso), dovremmo usare la seguente notazione:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span> <span class="p">[</span><span class="n">i</span><span class="p">:]</span>
+</code></pre></div>
+<p>Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="s1">&#39;ython&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="s1">&#39;Pytho&#39;</span>
+</code></pre></div>
+<p>Anche in questo caso, è possibile usare degli indici negativi. Ad esempio, se volessimo prendere tutti i caratteri dalla terzultima lettera fino alla fine, potremmo scrivere:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
+<span class="s1">&#39;hon&#39;</span>
+</code></pre></div>
+<p>mentre se volessimo prendere tutti i caratteri fino alla terzultima lettera (esclusa):</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="s1">&#39;Pyt&#39;</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>E' possibile ottenere un'intera stringa mediante l'operazione di slicing in questo modo:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[:]</span>
+<span class="s1">&#39;Python&#39;</span>
+</code></pre></div>
+</blockquote>
+</div>
+<h3 id="145-lunghezza-di-una-stringa">1.4.5 - Lunghezza di una stringa<a class="headerlink" href="#145-lunghezza-di-una-stringa" title="Permanent link">&para;</a></h3>
+<p>La funzione <code>len()</code> ci restituisce la lunghezza di una stringa:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">stringa</span><span class="p">)</span>
+<span class="mi">6</span>
+</code></pre></div>
+<h3 id="146-immutabilita-di-una-stringa">1.4.6 - Immutabilità di una stringa<a class="headerlink" href="#146-immutabilita-di-una-stringa" title="Permanent link">&para;</a></h3>
+<p>Le stringhe in Python sono <em>immutabili</em>. Come indica la parola stessa, questo significa che <em>non possono essere modificate</em>: se, ad esempio, provassimo a ridefinirne uno o più elementi, acceduti magari mediante indexing o slicing, avremmo un errore.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span><span class="c1"># Errore!</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>Possiamo comunque assegnare il nome <code>stringa</code> ad una nuova variabile.</p>
+</div>
+<h2 id="15-liste">1.5 - Liste<a class="headerlink" href="#15-liste" title="Permanent link">&para;</a></h2>
+<p>Abbiamo già detto che una stringa altro non è se non un caso particolare di <em>lista</em>. La domanda che sorge spontanea è quindi: <em>cosa è una lista</em>?</p>
+<p>Le liste sono uno dei quattro tipi di strutture <em>built-in</em> che Python offre per memorizzare sequenze di dati. Da un punto di vista puramente "concettuale", potremmo considerarle alla stregua degli array presenti in altri linguaggi di programmazione, seppur con alcune, significative differenze.</p>
+<p>Possiamo creare una lista in questo modo:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="151-concatenazione-indicizzazione-e-slicing-su-liste">1.5.1 - Concatenazione, indicizzazione e slicing su liste<a class="headerlink" href="#151-concatenazione-indicizzazione-e-slicing-su-liste" title="Permanent link">&para;</a></h3>
+<p>Come sulle stringhe, sulle liste è possibile effettuare operazioni di indicizzazione, slicing e concatenazione:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lista_due</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span> <span class="o">+</span> <span class="n">lista_due</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span> <span class="o">+</span> <span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="152-alcuni-esempi">1.5.2 - Alcuni esempi<a class="headerlink" href="#152-alcuni-esempi" title="Permanent link">&para;</a></h3>
+<p>Ecco alcuni esempi di slicing su lista, con annessi risultati ottenibili.</p>
+<p>Consideriamo la seguente stringa:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</code></pre></div>
+<p>Prendiamo gli elementi sugli indice pari (ovvero 0, 2 e 4):</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div>
+<p>Prendiamo tutti gli elementi a partire dal terzultimo e con indice pari:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</code></pre></div>
+<p>Partiamo dal terzultimo elemento, e proseguiamo all'indietro verso l'origine:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>Partiamo dall'ultimo elemento e proseguiamo sino al terz'ultimo dall'origine:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[:</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div>
+<p>Prendiamo gli ultimi tre elementi in ordine inverso:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre></div>
+<p>Prendiamo gli elementi agli indici pari in ordine inverso:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="p">[::</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="153-mutabilita-di-una-lista">1.5.3 - Mutabilità di una lista<a class="headerlink" href="#153-mutabilita-di-una-lista" title="Permanent link">&para;</a></h3>
+<p>A differenza delle stringhe, le liste sono oggetti <em>mutabili</em>. Di conseguenza, possiamo modificarne il contenuto:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span>
+<span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="154-operazioni-sulle-liste">1.5.4 - Operazioni sulle liste<a class="headerlink" href="#154-operazioni-sulle-liste" title="Permanent link">&para;</a></h3>
+<p>Possiamo anche eliminare elementi da una lista usando l'operatore <code>[]</code> combinato all'operazione di slicing:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span>
+<span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>I più attenti avranno notato che l'operatore <code>[]</code> non fa altro che indicare una lista vuota.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>Possiamo eliminare tutti gli elementi contenuti in una lista mediante lo slicing e l'operatore <code>[]</code>:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span>
+<span class="p">[]</span>
+</code></pre></div>
+</blockquote>
+</div>
+<p>Una lista può contenere elementi tra loro eterogenei. E' addirittura consentito contenere degli <em>iterabili</em>, tra cui altre liste:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span>
+<span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+</code></pre></div>
+<p>Nell'esempio precedente, abbiamo usato la funzione <code>append()</code> per inserire un elemento in coda alla lista. E' interessante notare l'elemento inserito in coda sia esso stesso una lista, e "conviva" tranquillamente con gli altri elementi di tipo numerico.</p>
+<p>Proviamo ad estendere ulteriormente la lista cambiando il primo elemento con una stringa:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">stringa</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lista</span>
+<span class="p">[</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../02_syntax/lecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Programmare in Python" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Programmare in Python
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Angelo Cardellicchio - MIT License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/anhelus" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:angelo.cardellicchio@stiima.cnr.it" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="m511.6 36.86-64 415.1a32.008 32.008 0 0 1-31.65 27.147c-4.188 0-8.319-.815-12.29-2.472l-122.6-51.1-50.86 76.29C226.3 508.5 219.8 512 212.8 512c-11.5 0-20.8-9.3-20.8-20.8v-96.18c0-7.115 2.372-14.03 6.742-19.64L416 96 122.3 360.3 19.69 317.5C8.438 312.8.812 302.2.062 289.1s5.47-23.72 16.06-29.77l448-255.1c10.69-6.109 23.88-5.547 34 1.406S513.5 24.72 511.6 36.86z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+        <script src="../../../../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

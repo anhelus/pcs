@@ -1,0 +1,1063 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://python.angelocardellicchio.it/material/01_python/04_classes/lecture/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>Classi - Python per il Calcolo Scientifico</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i%7CUbuntu+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Ubuntu";--md-code-font:"Ubuntu Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-programmazione-orientata-agli-oggetti-in-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Python per il Calcolo Scientifico" class="md-header__button md-logo" aria-label="Python per il Calcolo Scientifico" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python per il Calcolo Scientifico
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Classi
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Python per il Calcolo Scientifico" class="md-nav__button md-logo" aria-label="Python per il Calcolo Scientifico" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Python per il Calcolo Scientifico
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Parte 1 - Concetti base di Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Parte 1 - Concetti base di Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Parte 1 - Concetti base di Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/lecture/" class="md-nav__link">
+        Introduzione a Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/lecture/" class="md-nav__link">
+        Programmare in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_data_structures/lecture/" class="md-nav__link">
+        Strutture dati
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Classi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Classi
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-la-programmazione-orientata-agli-oggetti" class="md-nav__link">
+    4.1 - La programmazione orientata agli oggetti
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 - La programmazione orientata agli oggetti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-classi" class="md-nav__link">
+    4.1.1 - Classi
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.1 - Classi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4111-metodi-ed-attributi" class="md-nav__link">
+    4.1.1.1 - Metodi ed attributi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-classi-in-python" class="md-nav__link">
+    4.2 - Classi in Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-il-metodo-__init__" class="md-nav__link">
+    4.3 - Il metodo __init__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-modificatori-di-accesso" class="md-nav__link">
+    4.4 - Modificatori di accesso
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-metodi" class="md-nav__link">
+    4.5 - Metodi
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 - Metodi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-metodi-di-classe" class="md-nav__link">
+    4.5.1 - Metodi di classe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-metodi-statici" class="md-nav__link">
+    4.5.2 - Metodi statici
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#453-metodi-astratti" class="md-nav__link">
+    4.5.3 - Metodi astratti
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-le-proprieta" class="md-nav__link">
+    4.6 - Le proprietà
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_modules/lecture/" class="md-nav__link">
+        Moduli
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Esercizi svolti
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Esercizi svolti" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Esercizi svolti
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/exercises/" class="md-nav__link">
+        E1 - Introduzione a Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/exercises/" class="md-nav__link">
+        E2 - Programmare in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_data_structures/exercises/" class="md-nav__link">
+        E3 - Strutture dati in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercised.md" class="md-nav__link">
+        E4 - Programmazione orientata agli oggetti in Python
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Appendici
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Appendici" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Appendici
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/01_python_vs_code/guide/" class="md-nav__link">
+        Installazione di Python e Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#41-la-programmazione-orientata-agli-oggetti" class="md-nav__link">
+    4.1 - La programmazione orientata agli oggetti
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 - La programmazione orientata agli oggetti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-classi" class="md-nav__link">
+    4.1.1 - Classi
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1.1 - Classi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4111-metodi-ed-attributi" class="md-nav__link">
+    4.1.1.1 - Metodi ed attributi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-classi-in-python" class="md-nav__link">
+    4.2 - Classi in Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-il-metodo-__init__" class="md-nav__link">
+    4.3 - Il metodo __init__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-modificatori-di-accesso" class="md-nav__link">
+    4.4 - Modificatori di accesso
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-metodi" class="md-nav__link">
+    4.5 - Metodi
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 - Metodi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-metodi-di-classe" class="md-nav__link">
+    4.5.1 - Metodi di classe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-metodi-statici" class="md-nav__link">
+    4.5.2 - Metodi statici
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#453-metodi-astratti" class="md-nav__link">
+    4.5.3 - Metodi astratti
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-le-proprieta" class="md-nav__link">
+    4.6 - Le proprietà
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="4-programmazione-orientata-agli-oggetti-in-python">4 - Programmazione orientata agli oggetti in Python<a class="headerlink" href="#4-programmazione-orientata-agli-oggetti-in-python" title="Permanent link">&para;</a></h1>
+<p>Python offre un esteso supporto alla programmazione orientata agli oggetti. Prima di proseguire, però, è opportuno introdurre brevemente questo concetto.</p>
+<h2 id="41-la-programmazione-orientata-agli-oggetti">4.1 - La programmazione orientata agli oggetti<a class="headerlink" href="#41-la-programmazione-orientata-agli-oggetti" title="Permanent link">&para;</a></h2>
+<p>Quello della <em>programmazione orientata agli oggetti</em> (OOP) è un paradigma di programmazione che permette di creare nuovi tipi definiti dall'utente, da intendersi come complementari ai tipi definiti dal linguaggio di programmazione. In tal senso, la OOP sposta il focus dalle <em>funzioni</em>, centrali nei linguaggi come il C e nel paradigma procedurale, ai <em>dati</em>.</p>
+<p>In tal senso, si arriva a dire che <em>nella OOP tutto è un oggetto</em>.</p>
+<h3 id="411-classi">4.1.1 - Classi<a class="headerlink" href="#411-classi" title="Permanent link">&para;</a></h3>
+<p>Una <em>classe</em> è un prototipo per un determinato tipo di dati definito dall'utente. Ad esempio:</p>
+<ul>
+<li>la classe <code>Studente</code> rappresenta tutte le proprietà e le azioni associate ad uno studente;</li>
+<li>la classe <code>Auto</code> rappresenta tutte le proprietà e le azioni associate ad un'auto;</li>
+<li>la classe <code>Motore</code> definisce i comportamenti dei motori;</li>
+</ul>
+<p>e via discorrendo.</p>
+<p>In generale, quindi, può esistere una classe per ogni tipologia di oggetti presenti nel mondo, sia esso reale o informatico.</p>
+<p>Importante è non confondere la classe con il <em>singolo oggetto</em>, chiamato <em>istanza</em>. Ad esempio:</p>
+<ul>
+<li>lo studente Angelo Cardellicchio è un'istanza della classe <code>Studente</code>;</li>
+<li>l'auto Opel Corsa targata AB 123 CD è un'istanza della classe <code>Auto</code>;</li>
+<li>l'auto Hyundai Tucson CD 321 AB è un'istanza della classe <code>Auto</code>;</li>
+<li>l'auto Opel Corsa targata AA 123 CC è un'altra istanza della classe <code>Auto</code>.</li>
+</ul>
+<h4 id="4111-metodi-ed-attributi">4.1.1.1 - Metodi ed attributi<a class="headerlink" href="#4111-metodi-ed-attributi" title="Permanent link">&para;</a></h4>
+<p>Ogni classe ha dei <em>metodi</em>, che caratterizzano delle azioni che è possibile effettuare su ogni istanza della classe, e degli <em>attributi</em>, ovvero delle caratteristiche dell'istanza.</p>
+<p>In particolare, ogni nuovo tipo, chiamato <em>classe</em>, avrà opportuni <em>attributi</em> e <em>metodi</em>, ognuno dei quali accessibile dall'esterno mediante opportuni <em>modificatori</em>.</p>
+<p>Ad esempio, l'auto Opel Corsa targata AB 123 CD ha una casa costruttrice (Opel), un modello (Corsa), una targa (AB 123 CD), una cilindrata, e via dicendo.</p>
+<h2 id="42-classi-in-python">4.2 - Classi in Python<a class="headerlink" href="#42-classi-in-python" title="Permanent link">&para;</a></h2>
+<p>Per definire una classe, dovremo usare la parola chiave <code>class</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">NomeClasse</span><span class="p">(</span><span class="n">ClasseBase</span><span class="p">):</span>
+    <span class="c1"># Attributi e metodi di classe...</span>
+</code></pre></div>
+<p>Con la sintassi precedente, abbiamo creato una classe chiamata <code>NomeClasse</code> discendente da una classe base (<code>ClasseBase</code>).</p>
+<h2 id="43-il-metodo-__init__">4.3 - Il metodo <code>__init__</code><a class="headerlink" href="#43-il-metodo-__init__" title="Permanent link">&para;</a></h2>
+<p>La maggior parte dei linguaggi di programmazione utilizza il concetto di <em>costruttore</em> per creare un'istanza di una classe. Il Python, tuttavia, non prevede l'utilizzo di un costruttore vero e proprio, quanto piuttosto di un metodo di <em>inizializzazione</em> dei singoli attributi dell'istanza. Da qui deriva il nome del metodo, ovvero <code>__init__</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">NomeClasse</span><span class="p">(</span><span class="n">ClasseBase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># ...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arg_1</span> <span class="o">=</span> <span class="n">arg_1</span>
+        <span class="c1"># ...</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Unpacking</p>
+<p>Con la sintassi <code>*args</code> e <code>**kwargs</code> vogliamo rappresentare l'azione di <em>unpacking</em> di (rispettivamente) una lista ed un dizionario, mediante la quale stiamo passando tutti i valori contenuti all'interno della sequenza.</p>
+</div>
+<p>Occorre prestare particolare attenzione all'uso della keyword <code>self</code>, che permette di riferirsi alla specifica istanza di una classe (per chi ha familiarità con i linguaggi come il C++, è concettualmente simile alla parola chiave <code>this</code>). Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Persona</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cognome</span> <span class="o">=</span> <span class="n">cognome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span> <span class="o">=</span> <span class="n">eta</span>
+</code></pre></div>
+<p>Questo snippet ci permette di evidenziare quattro punti:</p>
+<ol>
+<li>la classe generica <code>object</code>, da cui derivano <strong>tutte</strong> le classi Python (ma la cui dichiarazione può comunque essere omessa);</li>
+<li>il funzionamento della parola chiave <code>self</code>, che permette di associare agli attributi della singola istanza un determinato valore;</li>
+<li>la possibilità di inserire tra i parametri dei valori opzionali e di default (in questo caso <code>eta</code>, che di default vale <code>18</code>);</li>
+<li>la presenza di uno o due simboli <code>_</code> (<em>underscore</em>) davanti ad alcuni attributi.</li>
+</ol>
+<p>Approfondiamo brevemente il punto 4.</p>
+<h2 id="44-modificatori-di-accesso">4.4 - Modificatori di accesso<a class="headerlink" href="#44-modificatori-di-accesso" title="Permanent link">&para;</a></h2>
+<p>Python prevede l'uso di modificatori di accesso ai dati; nello specifico, troviamo i classici <code>public</code>, <code>protected</code> e <code>private</code>. Tuttavia, a differenza di altri linguaggi, per distinguere tra i tre modificatori di accesso si utilizzano uno o due <em>underscore</em> come suffisso al nome dell'attributo; in particolare, usare un <em>underscore</em> singolo indica un attributo protected, mentre un <em>underscore</em> doppio indica un attributo <code>private</code>. Nel nostro caso:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Persona</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>                <span class="c1"># Membro &quot;public&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cognome</span> <span class="o">=</span> <span class="n">cognome</span>         <span class="c1"># Membro &quot;protected&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span> <span class="o">=</span> <span class="n">eta</span>                <span class="c1"># Membro &quot;private&quot;</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Attenzione</p>
+<p>Nonostante il modificatore di accesso, è possibile accedere ai membri protetti dall'esterno della classe. Infatti:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="s1">&#39;Jax&#39;</span><span class="p">,</span> <span class="s1">&#39;Teller&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">nome</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">_cognome</span><span class="p">)</span>
+<span class="n">Jax</span>
+<span class="n">Teller</span>
+</code></pre></div>
+</blockquote>
+<p>Questo non vale per gli attributi privati:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; try:
+&gt;&gt;&gt;     print<span class="o">(</span>p.__eta<span class="o">)</span>
+&gt;&gt;&gt; except AttributeError:
+&gt;&gt;&gt;     print<span class="o">(</span><span class="s1">&#39;Età è privato!&#39;</span><span class="o">)</span>
+Età è privato!
+</code></pre></div>
+</blockquote>
+</div>
+<p>Questa sintassi può ovviamente essere utilizzata per definire dei metodi protetti o privati.</p>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>La sintassi che abbiamo mostrato nello snippet precedente è relativa alla <em>gestione delle eccezioni</em>.</p>
+</div>
+<h2 id="45-metodi">4.5 - Metodi<a class="headerlink" href="#45-metodi" title="Permanent link">&para;</a></h2>
+<p>La sintassi per definire il metodo di una classe è analoga a quella usata per definire una funzione.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">metodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<p>Esiste tuttavia una differenza fondamentale: infatti, il primo attributo di un metodo appartenente ad una classe è <em>sempre</em> un riferimento all'istanza tramite la parola chiave <code>self</code>. Tale riferimento non va specificato quando il metodo viene chiamato dall'esterno:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ...</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">()</span>           <span class="c1"># p è un&#39;istanza di Persona</span>
+<span class="n">p</span><span class="o">.</span><span class="n">metodo</span><span class="p">(</span><span class="n">parametro</span><span class="p">)</span>     <span class="c1"># richiamo il metodo dall&#39;istanza</span>
+<span class="c1"># ...</span>
+</code></pre></div>
+<p>Nel codice precedente, abbiamo usato l'operatore <code>.</code> per accedere a <code>metodo</code> definito all'interno della classe <code>Persona</code>.</p>
+<p>Approfondiamo adesso alcune particolari tipologie di metodi, ottenibili usando determinati decorator (cfr. appendice B).</p>
+<h3 id="451-metodi-di-classe">4.5.1 - Metodi di classe<a class="headerlink" href="#451-metodi-di-classe" title="Permanent link">&para;</a></h3>
+<p>Il decorator <code>@classmethod</code> ci permette di definire i cosiddetti <em>metodi di classe</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">builder_stringa</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stringa</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span> <span class="o">=</span> <span class="n">stringa</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Persona</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
+</code></pre></div>
+<p>A differenza dei metodi standard, i metodi di classe hanno un riferimento alla classe (<code>cls</code>) e non all'istanza (<code>self</code>). Questo significa che sono dei metodi che si <em>applicano all'intera classe</em>, e non alla singola istanza. Un tipico esempio di utilizzo di un metodo di classe è mostrato nello snippet precedente, nel quale stiamo creando un oggetto di classe <code>Persona</code> a partire da una stringa.</p>
+<div class="admonition tip">
+<p class="admonition-title">Curiosità</p>
+<p>Il metodo precedente è, di fatto, un'implementazione del design pattern Builder.</p>
+</div>
+<p>Per richiamare un metodo di classe occorre riferirsi al nome della classe stessa, e non ad una singola istanza:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">persona</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">builder_stringa</span><span class="p">(</span><span class="s1">&#39;Bobby Munson 58&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">persona</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span> <span class="n">persona</span><span class="o">.</span><span class="n">_cognome</span><span class="p">))</span>
+<span class="n">Bobby</span> <span class="n">Munson</span>
+</code></pre></div>
+<h3 id="452-metodi-statici">4.5.2 - Metodi statici<a class="headerlink" href="#452-metodi-statici" title="Permanent link">&para;</a></h3>
+<p>Mediante il decoratore <code>@staticmethod</code> possiamo definire un metodo <em>statico</em>. In Python il funzionamento di un metodo di questo tipo è riassumibile in un comportamento assimilabile ad una funzione "semplice", definita però all'interno della classe, e richiamabile su istanze della stessa. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="k">def</span> <span class="nf">nome_valido</span><span class="p">(</span><span class="n">nome</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nome</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+<p>Questo metodo è quindi liberamente richiamabile mediante l'operatore <code>.</code> da una singola istanza:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">persona</span><span class="o">.</span><span class="n">nome_valido</span><span class="p">(</span><span class="s1">&#39;Li&#39;</span><span class="p">))</span>
+<span class="kc">True</span>
+</code></pre></div>
+<p>Un'altra possibilità è richiamarlo sulla classe stessa: </p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Persona</span><span class="o">.</span><span class="n">nome_valido</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">))</span>
+<span class="kc">False</span>
+</code></pre></div>
+<h3 id="453-metodi-astratti">4.5.3 - Metodi astratti<a class="headerlink" href="#453-metodi-astratti" title="Permanent link">&para;</a></h3>
+<p>Possiamo definire dei metodi <em>astratti</em> (cfr. Appendice C) mediante il decorator <code>@abstractmethod</code>. Per farlo, la nostra classe deve discendere dalla classe <code>ABC</code> (acronimo che sta per <em>Abstract Base Class</em>), contenuta nel package <code>abc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span>
+
+<span class="k">class</span> <span class="nc">ClasseBase</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">metodo_da_sovrascrivere</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</code></pre></div>
+<p>I metodi contrassegnati con il decorator <code>@abstractmethod</code> dovranno essere implementati nelle classi derivate (in altre parole, dovremo farne l'<em>override</em>):</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ClasseDerivata</span><span class="p">(</span><span class="n">ClasseBase</span><span class="p">):</span>
+
+    <span class="c1"># ...</span>
+
+    <span class="k">def</span> <span class="nf">metodo_da_sovrascrivere</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># ...</span>
+</code></pre></div>
+<h2 id="46-le-proprieta">4.6 - Le proprietà<a class="headerlink" href="#46-le-proprieta" title="Permanent link">&para;</a></h2>
+<p>In molti linguaggi di programmazione si usano tradizionalmente i metodi <em>accessori</em> (<em>getter</em>) e <em>modificatori</em> (<em>setter</em>) per accedere agli attributi delle istanze di una classe. Python non vieta di farlo: ad esempio, possiamo scrivere un metodo <code>get_nome(self)</code> per accedere al nome di una persona, ed un metodo <code>set_nome(self, nome)</code> per impostare detta proprietà.</p>
+<p>Tuttavia, è possibile usare una sintassi più compatta (e, in definitiva, maggiormente <em>pythonic</em>) mediante il decorator <code>@property</code>, che rappresenta una funzione a quattro parametri:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">property</span><span class="p">(</span><span class="n">fget</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fdel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>In particolare:</p>
+<ul>
+<li><code>fget</code> è la funzione usata per recuperare il valore dell'attributo;</li>
+<li><code>fset</code> è la funzione usata per impostare il valore dell'attributo;</li>
+<li><code>fdel</code> è la funzione per rimuovere l'attributo;</li>
+<li><code>doc</code> è la funzione per documentare e descrivere l'attributo.</li>
+</ul>
+<p>Grazie a <code>property</code>, potremo seguire le "best practice" della OOP, rendendo privati gli attributi della classe ed accedendovi mediante opportuni metodi.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Persona</span><span class="p">():</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cognome</span> <span class="o">=</span> <span class="n">cognome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nome</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nome</span>
+
+    <span class="nd">@nome</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;La lunghezza del nome non può essere inferiore a due caratteri.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__nome</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cognome</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cognome</span>
+
+    <span class="nd">@cognome</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">cognome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;La lunghezza del cognome non può essere inferiore a due caratteri.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cognome</span> <span class="o">=</span> <span class="n">value</span>  
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">eta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span>
+
+    <span class="nd">@eta</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">eta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;L&#39;età non può essere negativa.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span> <span class="o">=</span> <span class="n">value</span>
+</code></pre></div>
+<p>Alcune note:</p>
+<ul>
+<li>abbiamo riscritto la classe <code>Persona</code> in modo da trasformare tutti gli attributi in proprietà;</li>
+<li>per ogni proprietà, abbiamo specificato un getter, che restituisce il valore della stessa;</li>
+<li>oltre al getter, è stato specificato un setter, nel quale vi è anche una forma di validazione del valore passato in input.</li>
+</ul>
+<p>Vediamo come usare la nostra nuova classe:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">draco</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="s1">&#39;Draco&#39;</span><span class="p">,</span> <span class="s1">&#39;Malfoy&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">draco</span><span class="o">.</span><span class="n">nome</span><span class="p">)</span>
+<span class="n">Draco</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">draco</span><span class="o">.</span><span class="n">eta</span><span class="p">)</span>
+<span class="mi">12</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">hermione</span> <span class="o">=</span> <span class="n">PersonProperty</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;Granger&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">La</span> <span class="n">lunghezza</span> <span class="k">del</span> <span class="n">nome</span> <span class="n">non</span> <span class="n">può</span> <span class="n">essere</span> <span class="n">inferiore</span> <span class="n">a</span> <span class="n">due</span> <span class="n">caratteri</span><span class="o">.</span>
+</code></pre></div>
+<p>Notiamo che, dal punto di vista dello script che richiama la classe, non ci sono differenze di sorta; tuttavia, la logica di validazione ci permette di evitare errori e situazioni incoerenti, ed è inoltre possibile sfruttare le proprietà per accedere agli attributi privati della classe.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../03_data_structures/lecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Strutture dati" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Strutture dati
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../05_modules/lecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Moduli" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Moduli
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Angelo Cardellicchio - MIT License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/anhelus" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:angelo.cardellicchio@stiima.cnr.it" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="m511.6 36.86-64 415.1a32.008 32.008 0 0 1-31.65 27.147c-4.188 0-8.319-.815-12.29-2.472l-122.6-51.1-50.86 76.29C226.3 508.5 219.8 512 212.8 512c-11.5 0-20.8-9.3-20.8-20.8v-96.18c0-7.115 2.372-14.03 6.742-19.64L416 96 122.3 360.3 19.69 317.5C8.438 312.8.812 302.2.062 289.1s5.47-23.72 16.06-29.77l448-255.1c10.69-6.109 23.88-5.547 34 1.406S513.5 24.72 511.6 36.86z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+        <script src="../../../../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
