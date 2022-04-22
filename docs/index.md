@@ -35,4 +35,4 @@ Il calendario delle lezioni è disponibile a [questo link](https://www.dm.uniba.
 
 ## Ricevimento
 
-E' possibile concordare un ricevimento con inviando una e-mail all'indirizzo angelo.cardellicchio@stiima.cnr.it.
+E' possibile concordare un ricevimento inviando una e-mail all'indirizzo angelo.cardellicchio@stiima.cnr.it.
