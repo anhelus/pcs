@@ -3,7 +3,8 @@ site_url: https://python.angelocardellicchio.it
 
 nav:
   - Home: index.md
-  - Parte 1 - Concetti base di Python:
+  - Slides proiettate a lezione: material/slides/index.md
+  - Parte 1 - Concetti base:
     - Introduzione a Python: material/01_python/01_intro/lecture.md
     - Programmare in Python: material/01_python/02_syntax/lecture.md
     - Strutture dati: material/01_python/03_data_structures/lecture.md
