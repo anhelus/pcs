@@ -42,7 +42,7 @@ fVar + 1.1;
 In Python questo non sarà necessario, e potremo effettuare direttamente le operazioni desiderate:
 
 ```py
-var + 1.1			# Il risultato sarà 2.1
+var + 1.1			# Il risultato sarà 1.1
 ```
 
 Questo può apparentemente semplificare di molto la vita, in quanto non è più necessario preoccuparsi del tipo della variabile. Non è però tutto oro ciò che luccica: per comprenderlo, infatti, è il momento di parlare del (pilatesco) principio del *duck typing*.
