@@ -93,7 +93,7 @@ Le divisioni restituiscono sempre un numero in virgola mobile. Ad esempio:
 >>> 16 / 3
 5.333333333333333
 >>> 2 / 2
-2.0
+1.0
 ```
 
 Proviamo ora ad usare altri due operatori, molto simili al classico operatore di divisione:
