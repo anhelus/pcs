@@ -11,7 +11,7 @@ Partiamo nella nostra disamina dalla procedura di installazione della libreria.
 
 ## 6.1 Installare NumPy
 
-Premettiamo che, per installare una libreria, abbiamo a disposizione diverse opzioni. Vediamole nel dettaglio.
+Ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'[appendice B](../../appendix/02_libraries/lecture.md). Nel nostro caso, installeremo NumPy mediante 
 
 ### 6.1.1
 
