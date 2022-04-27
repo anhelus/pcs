@@ -316,18 +316,48 @@ genera_lista_casuale(10)	# Possibile risultato: [7, 9, 1, 10, 2, 4, 9, 1, 4, 8]
 
 ### 2.6.1 - Passaggio di parametri a funzione
 
-Python prevede che i parametri siano passati ad una funzione *esclusivamente per valore*. Ad esempio:
+Python prevede che i parametri siano passati ad una funzione secondo una modalità ibrida chiamata *call-by-assignment*. In pratica, il passaggio avviene *esclusivamente per valore*, ma con effetti differenti su tipi mutabili ed immutabili.
+
+Ad esempio, provando a passare un valore primitivo (come un intero), Python si comporterà come se si stesse effettuando un passaggio per valore:
 
 ```py
-def raddoppia(valore):
-    valore = valore * 2
-
-val = 1
-raddoppia(val)
-print(val)					# Il risultato sarà 1
+def raddoppia(intero):
+	intero = intero * 2
+	print(f'Valore all\'interno della funzione: {intero}')
 ```
 
-Come evidente, la funzione `raddoppia()` non ha avuto alcun effetto sulla variabile `val`; ciò avviene proprio perché il passaggio è stato effettuato proprio per valore. Questo è il motivo per cui, qualora non si voglia avere un valore di ritorno in una ben determinata funzione, è necessario usare dei tipi mutabili (come nel caso della funzione `raddoppia_lista`, che accetta una lista, ovvero un tipo mutabile), oppure utilizzare le funzioni nell'ambito di una classe (torneremo su questo in avanti).
+Il risultato sarà:
+
+```py
+>>> intero = 1
+>>> raddoppia(intero)
+"Valore all'interno della funzione: 2"
+>>> print(f'Valore all\'esterno della funzione: {intero}')
+"Valore all'interno della funzione: 1"
+```
+
+Ciò è legato al fatto che il passaggio viene effettuato per valore, per cui la funzione `raddoppia` agirà su una *copia* della variabile passata come argomento, e non sulla variabile originaria. Se invece usassimo una funzione che modifica una lista:
+
+```py
+def aggiungi_a_lista(lista, elemento):
+	lista.append(elemento)
+	print(f'Valore all\'interno della funzione: {lista}')
+```
+
+Il risultato sarà:
+
+```py
+>>> lista = [1, 2]
+>>> aggiungi_a_lista(lista, 3)
+"Valore all'interno della funzione: [1, 2, 3]"
+>>> print(f'Valore all\'esterno della funzione: {lista}')
+"Valore all'interno della funzione: [1, 2, 3]"
+```
+
+In questo caso, essendo la lista mutabile, il passaggio viene effettuato nei fatti per *reference*: ciò significa che le operazioni comppiute all'interno della funzione `aggiungi_a_lista` agiranno sulla lista originaria.
+
+!!!note "Shallow e deep copy"
+	Di default, Python copia le variabili per mezzo di una *shallow copy*: ciò significa che un'operazione di assignment del tipo `a = b` fa in modo che `a` punti allo stesso indirizzo di memoria di `b` e, di conseguenza, ogni modifica a `b` si rifletta su `a`. Per evitare un fenomeno di questo tipo occorre usare una *deep copy* grazie alla funzione `deepcopy` della libreria `copy`.
 
 ### 2.6.2 - L'istruzione `pass`
 

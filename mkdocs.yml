@@ -10,6 +10,8 @@ nav:
     - Strutture dati: material/01_python/03_data_structures/lecture.md
     - Classi: material/01_python/04_classes/lecture.md
     - Moduli: material/01_python/05_modules/lecture.md
+  - Parte 2 - Librerie:
+    - 
   # - Parte 2 - Librerie per il Calcolo Scientifico:
   #   - Numpy:
   #     - Introduzione a Numpy: 02_numpy/06_intro/lecture.md
@@ -31,8 +33,9 @@ nav:
     - E3 - Strutture dati in Python: material/01_python/03_data_structures/exercises.md
     - E4 - Programmazione orientata agli oggetti in Python: material/01_python/04_classes/exercised.md
   - Appendici:
-    - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
-
+    - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
+    - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
+    - C - Ambito di una variabile: material/appendix/03_scope/lecture.md
 
 theme:
   name: material
