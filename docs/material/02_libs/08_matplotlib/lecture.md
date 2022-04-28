@@ -39,7 +39,7 @@ plt.show()
 
 Se tutto è andato per il verso giusto, dovremmo vedere a schermo un'immagine simile a questa (data la natura casuale di `y`):
 
-![first_plot](../assets/images/03_libs/01_matplotlib/first_plot.png){: .center}
+![first_plot](./images/first_plot.png){: .center}
 
 A questo punto, è arrivato il momento di descrivere maggiormente nel dettaglio ciò che abbiamo fatto.
 
@@ -111,7 +111,7 @@ plt.show()
 
 Il risultato ottenuto è mostrato in figura.
 
-![simple_plot](../assets/images/03_libs/01_matplotlib/simple_plot.png){: .center}
+![simple_plot](./images/simple_plot.png){: .center}
 
 ### Esempio 2: Subplot
 
@@ -147,7 +147,7 @@ plt.show()
 
 Il risultato sarà simile a quello mostrato in figura:
 
-![multi_subplot](../assets/images/03_libs/01_matplotlib/multi_subplots.png){: .center}
+![multi_subplot](./images/multi_subplots.png){: .center}
 
 ### Esempio 3: Rappresentazione di un istogramma
 
@@ -178,7 +178,7 @@ plt.show()
 
 Il risultato sarà simile a quello mostrato nella figura successiva.
 
-![hist](../assets/images/03_libs/01_matplotlib/hist.png){: .center}
+![hist](./images/hist.png){: .center}
 
 ### Esempio 4: Plot tridimensionale
 
@@ -248,8 +248,8 @@ plt.show()
 
 Il risultato che otterremo sarà simile a questo:
 
-![heatmap](../assets/images/03_libs/01_matplotlib/heatmap.png){: .center}
+![heatmap](./images/heatmap.png){: .center}
 
 ## Conclusioni
 
-In questa lezione, abbiamo dato una panoramica su due delle librerie più usate per la visualizzazione dei dati in Python. Nella prossima lezione, toccheremo brevemente un'altra libreria, molto usata soprattutto in ambito scientifico, ovvero [SciPy](./02_scipy.md).
+In questa lezione, abbiamo dato una panoramica su due delle librerie più usate per la visualizzazione dei dati in Python. Nella prossima lezione, toccheremo brevemente un'altra libreria, molto usata soprattutto in ambito scientifico, ovvero SciPy.

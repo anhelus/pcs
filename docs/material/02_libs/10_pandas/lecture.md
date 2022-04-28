@@ -29,7 +29,7 @@ Un `DataFrame` altro non è se non una *struttura dati* di tipo bidimensionale, 
 
 ## Il primo `DataFrame`
 
-Facciamo un esempio. Scarichiamo il [Titanic Dataset](../notebooks/base/dataset/train.csv), e scompattiamo l'archivio. Al suo interno, troveremo tre file, ovvero *gender_submission.csv*, *test.csv* e *train.csv*. Per gli scopi di questa lezione, ci concentreremo soltanto sull'ultimo.
+Facciamo un esempio. Scarichiamo il [Titanic Dataset](../../../notebooks/base/dataset/train.csv), e scompattiamo l'archivio. Al suo interno, troveremo tre file, ovvero *gender_submission.csv*, *test.csv* e *train.csv*. Per gli scopi di questa lezione, ci concentreremo soltanto sull'ultimo.
 
 Spostiamolo per prima cosa all'interno della nostra cartella di lavoro. A quel punto, usiamo questo codice per caricarlo all'interno di un `DataFrame`:
 
@@ -357,7 +357,7 @@ Pandas offre un supporto nativo ad un *backend* Matplotlib per la visualizzazion
 
 Il risultato sarà mostrato in figura.
 
-![plot_ages](../assets/images/03_libs/04_pandas/plot_ages.png){: .center}
+![plot_ages](./images/plot_ages.png){: .center}
 
 Possiamo anche fare il plot dell'intero `DataFrame`:
 
@@ -368,7 +368,7 @@ Possiamo anche fare il plot dell'intero `DataFrame`:
 
 Il risultato è mostrato in figura.
 
-![plot_titanic](../assets/images/03_libs/04_pandas/plot_titanic.png){: .center}
+![plot_titanic](./images/plot_titanic.png){: .center}
 
 ### Istogrammi ed altro
 
@@ -381,7 +381,7 @@ Ovviamente, è possibile usare Pandas anche per fare il plot di altri tipi di gr
 
 Il risultato è mostrato in figura.
 
-![ages_hist](../assets/images/03_libs/04_pandas/hist_ages.png){: .center}
+![ages_hist](./images/hist_ages.png){: .center}
 
 ## Statistiche su un `DataFrame`
 

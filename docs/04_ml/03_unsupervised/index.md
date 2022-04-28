@@ -1,6 +1,0 @@
-gmm
-clustering
-biclustering
-maxtrix factrization
-novelty/outlier detection
-neural networks
