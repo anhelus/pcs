@@ -4,6 +4,9 @@ Benvenuti nel corso di **Python per il Calcolo Scientifico** (**PCS**).
 
 In questa pagina viene pubblicato il materiale e le informazioni relative al corso, nonché le slides proiettate a lezione.
 
+!!!warning "Attenzione"
+    **Le dispense sono attualmente in fase di aggiornamento.**
+
 ## Modalità di esame
 
 Le modalità di esame previste sono due:

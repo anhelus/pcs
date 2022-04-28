@@ -11,7 +11,7 @@ matplotlib = "*"
 scipy = "*"
 pandas = "*"
 jupyterlab = "*"
-tensorflow = "~=2.4.0"
+tensorflow = "*"
 statsmodels = "*"
 seaborn = "*"
 pydot = "*"
@@ -19,4 +19,4 @@ pydot = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3.10"

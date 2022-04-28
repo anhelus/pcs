@@ -15,7 +15,7 @@ Vediamo adesso come creare ed utilizzare il nostro primo notebook.
 
 ## 6.2 - Installazione e lancio di Jupyter Lab
 
-Per prima cosa, installiamo Jupyter scegliendo una tra le opzioni mostrate in [appendice](../../material/appendix/02_libraries/lecture.md).
+Per prima cosa, installiamo Jupyter scegliendo una tra le opzioni mostrate in [appendice](../../appendix/02_libraries/lecture.md).
 
 ```sh
 pip install jupyterlab
