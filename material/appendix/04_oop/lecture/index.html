@@ -1087,9 +1087,61 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          D - Programmazione orientata agli oggetti
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         D - Programmazione orientata agli oggetti
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-classe-persona" class="md-nav__link">
+    La classe Persona
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetto-1-ereditarieta" class="md-nav__link">
+    Concetto 1: Ereditarietà
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetto-2-incapsulamento" class="md-nav__link">
+    Concetto 2: Incapsulamento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetto-3-polimorfismo" class="md-nav__link">
+    Concetto 3: Polimorfismo
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1151,6 +1203,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-classe-persona" class="md-nav__link">
+    La classe Persona
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetto-1-ereditarieta" class="md-nav__link">
+    Concetto 1: Ereditarietà
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetto-2-incapsulamento" class="md-nav__link">
+    Concetto 2: Incapsulamento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetto-3-polimorfismo" class="md-nav__link">
+    Concetto 3: Polimorfismo
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1164,6 +1252,46 @@
 
 
 <h1 id="appendice-d-principi-di-programmazione-orientata-agli-oggetti">Appendice D - Principi di Programmazione Orientata agli Oggetti<a class="headerlink" href="#appendice-d-principi-di-programmazione-orientata-agli-oggetti" title="Permanent link">&para;</a></h1>
+<p>La programmazione orientata agli oggetti (in inglese <em>object-oriented programming</em>, <em>OOP</em>) è un paradigma di programmazione che sposta il focus dalle <em>funzioni</em> ai <em>dati</em>. In particolare, la OOP prevede che tutto sia un <em>oggetto</em>: una qualsiasi variabile è interpretata come un oggetto, così come anche le funzioni stesse (in alcuni linguaggi).</p>
+<p>Ciò si estende ovviamente anche ai tipi definiti dall'utente, che assumono il nome di <em>classi</em>. Facciamo un esempio.</p>
+<h2 id="la-classe-persona">La classe <code>Persona</code><a class="headerlink" href="#la-classe-persona" title="Permanent link">&para;</a></h2>
+<p>Immaginiamo di voler definire una struttura dati che contenga al suo interno le informazioni necessarie a definire una persona, come nome, cognome, genere ed età. Per farlo, ovviamente, dovremo "unire" tra di loro diversi dati primitivi: potremo usare una stringa per il nome, una per il cognome, una per il genere e, infine, un intero per l'età.</p>
+<p>In tal senso, possiamo creare quindi la <em>classe</em> <code>Persona</code>, che avrà quattro <em>attributi</em>, come mostrato in figura.</p>
+<p><img alt="tab_persona" class="center" src="../images/tab_persona.png" /></p>
+<p>Sottolineamo come una classe rappresenti <em>tutte le possibili persone</em>: infatti, si cerca di creare delle strutture dati <em>generiche</em>, che abbiano degli attributi comuni a tutte le possibili <em>istanze</em>. Nel nostro caso, sappiamo che ogni persona ha un nome, un cognome, un genere ed un'età, quindi usiamo questi quattro valori come attributi di classe.</p>
+<div class="admonition note">
+<p class="admonition-title">Differenza tra classe ed istanza</p>
+<p>Abbiamo detto che una classe rappresenta tutte le possibili istanze della stessa. Ciò si traduce, nel nostro esempio, nel fatto che la classe <code>Persona</code> è in grado di rappresentare tutte le persone, e un'istanza della classe <code>Persona</code> è una singola variabile, o oggetto, che rappresenta una certa persona. Per capirci: un'istanza di <code>Persona</code> è "Angelo, Cardellicchio, Uomo, 37", mentre un'altra istanza è data da "Frank, Hood, Uomo, 42", un'altra ancora da "Camilla, Lilla, Donna, 55", e così via.</p>
+</div>
+<p>Ovviamente, potremo in qualche modo agire con degli opportuni <em>metodi</em> su questi attributi. Ad esempio, se avessimo a disposizione anche il luogo e la data di nascita, potremmo creare un metodo <code>calcola_cf</code> che, per l'appunto, permette di generare il codice fiscale di una singola istanza.</p>
+<p>Oltre al concetto di classe, tuttavia, la OOP definisce altri tre concetti base. Vediamoli di seguito.</p>
+<h2 id="concetto-1-ereditarieta">Concetto 1: Ereditarietà<a class="headerlink" href="#concetto-1-ereditarieta" title="Permanent link">&para;</a></h2>
+<p>Per <em>ereditarietà</em> si intende la capacità di una classe di "discendere" da un'altra. Non dobbiamo, però, pensare al nostro albero genealogico: infatti, noi abbiamo <em>parte</em> delle caratteristiche di ciascuno dei nostri genitori, mentre una classe figlia eredita <em>in toto</em> le caratteristiche di una classe madre.</p>
+<p>Ad esempio, potremmo definire la classe <code>Studente</code> come figlia della classe <code>Persona</code>, cui aggiungerà i seguenti attributi:</p>
+<p><img alt="tab_studente" class="center" src="../images/tab_studente.png" /></p>
+<p>Possiamo visualizzare questa relazione in ordine gerarchico come segue:</p>
+<p><img alt="hier_persona" class="center" src="../images/hier_persona.png" /></p>
+<p>Da notare che la classe <code>Studente</code> può aggiungere anche dei metodi, oltre che degli attributi a quelli offerti da <code>Persona</code>, come ad esempio <code>genera_media_voto</code>.</p>
+<p>In ultimo, notiamo come ogni istanza di <code>Studente</code> è un'istanza di <code>Persona</code>, <em>ma non è vero il contrario</em>, e quindi non tutte le persone sono degli studenti. Per aiutarci a comprendere questo concetto, possiamo visualizzare gli insiemi delle istanze di <code>Persona</code> e di <code>Studente</code>:</p>
+<p><img alt="set_persona" class="center" src="../images/set_persona.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Generalizzazione e specializzazione</p>
+<p>La relazione di ereditarietà può anche essere vista in termini di <em>generalizzazione</em> e <em>specializzazione</em>. In questo contesto, la classe <code>Studente</code> è una <em>specializzazione</em> di <code>Persona</code>, in quanto sottende ad un insieme più specifico; al contrario, le persone sono viste come una <em>generalizzazione</em> degli studenti.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Ereditarietà multipla e multilivello</p>
+<p>Alcuni linguaggi, compreso Python, offrono la possibilità di ereditare da più classi; tale concetto è chiamato <em>ereditarietà multipla</em>. Se invece stabiliamo una vera e propria gerarchia di classi, con una classe "nonna", una "madre" ed una "figlia", avremo una struttura <em>multilivello</em>.</p>
+</div>
+<h2 id="concetto-2-incapsulamento">Concetto 2: Incapsulamento<a class="headerlink" href="#concetto-2-incapsulamento" title="Permanent link">&para;</a></h2>
+<p>Il concetto di <em>incapsulamento</em> prevede che sia possibile accedere ad un metodo (o anche ad un attributo) di una classe <em>esclusivamente mediante la sua interfaccia verso il mondo esterno</em>. Vediamo cosa significa.</p>
+<p>Immaginiamo di voler calcolare il codice fiscale di una persona: dovremo seguire una procedura ben precisa e moderatamente complessa, che potremo tranquillamente "nascondere" al codice che usa la classe <code>Persona</code>, il quale dovrà semplicemente invocare il metodo <code>calcola_cf</code>. Tuttavia, se volessimo seguire il principio di modularità, che ci suggerisce di "suddividere" funzioni complesse in maniera tale da renderle più semplici, dovremmo creare altre funzioni ausiliarie, che potrebbero calcolare la rappresentazione di nome e cognome (<code>calcola_nc</code>) e i dati alfanumerici derivanti da luogo e data di nascita (<code>calcola_ld</code>). Ovviamente, non vi è il bisogno di accedere dall'esterno della classe a questi metodi, in quanto hanno valenza esclusiva nell'ambito del calcolo del codice fiscale: per questo motivo, li si potrà dichiarare come <em>privati</em>, e potranno essere acceduti <em>soltanto dall'interno della classe</em>.</p>
+<p>In questo modo, la classe mantiene un'interfaccia <em>stabile</em> ed <em>essenziale</em> verso l'esterno: il codice che usa la classe avrà sempre un punto di accesso ben definito e, nel caso si debbano modificare dei comportamenti interni alla classe, non sarà influenzato da dette modifiche. Ad esempio, infatti, se per qualche motivo si decidesse di cambiare l'ordine con cui si mostrano nel codice fiscale la rappresentazione del cognome e del nome, basterebbe modificare il metodo <code>calcola_nome_cognome_codice_fiscale</code>, ed il resto dell'implementazione (sia della classe, sia del codice chiamante) non ne sarebbe influenzata.</p>
+<p><img alt="encapsulation" class="center" src="../images/encapsulation.png" /></p>
+<h2 id="concetto-3-polimorfismo">Concetto 3: Polimorfismo<a class="headerlink" href="#concetto-3-polimorfismo" title="Permanent link">&para;</a></h2>
+<p>Il concetto di <em>polimorfismo</em> prevede che sia possibile modificare il comportamento associato ad un metodo a seconda della classe che lo utilizza.</p>
+<p>Immaginiamo ad esempio di specializzare la classe <code>Studente</code> in due ulteriori rappresentazioni, ovvero <code>StudenteUniversitario</code> e <code>StudenteScolastico</code>. Ovviamente, il metodo <code>genera_media_voto</code> sarà ereditato da entrambe le classi; tuttavia, l'implementazione dovrà essere necessariamente differente, in quanto la media di laurea è pesata in modo diverso rispetto alla classica media aritmetica usata nelle scuole fino alla secondaria.</p>
+<p>Il polimorfismo ci permette di raggiungere questo obiettivo: potremo effettuare una procedura di <em>override</em> del metodo <code>genera_media_voto</code> che, pur conservando la stessa firma, avrà differenti implementazioni nelle classi <code>StudenteUniversitario</code> e <code>StudenteScolastico</code>. Ovviamente, il fatto che il metodo conservi la stessa firma rappresenta un vantaggio paragonabile a quello ottenuto mediante il polimorfismo: infatti, un programmatore potrà usare il metodo <code>genera_media_voto</code> alla stessa maniera per uno studente universitario ed uno di scuola media secondaria, senza per questo dover tenere a mente due diverse interfacce.</p>
+<p><img alt="polymorphism" class="center" src="../images/polymorphism.png" /></p>
 
               
             </article>

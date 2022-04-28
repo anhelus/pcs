@@ -101,42 +101,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/06_intro/lecture/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/06_statistics/lecture/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/07_array/lecture/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/08_indexing/lecture/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/09_arithmetics/lecture/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/10_algebra/lecture/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/11_polynomials/lecture/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/12_statistics/lecture/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
