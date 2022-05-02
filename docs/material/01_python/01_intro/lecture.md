@@ -378,9 +378,12 @@ Prendiamo gli elementi sugli indice pari (ovvero 0, 2 e 4):
 Prendiamo tutti gli elementi a partire dal terzultimo e con indice pari:
 
 ```py
->>> l[-3::2]
-[4, 6]
+>>> l[(-3 + 1)::2]
+[5]
 ```
+
+!!!note "Nota"
+	Nell'esempio precedente, usato un piccolo "trucco" per tenere in conto il fatto che l'indicizzazione parte da 0 e non da 1.
 
 Partiamo dal terzultimo elemento, e proseguiamo all'indietro verso l'origine:
 
