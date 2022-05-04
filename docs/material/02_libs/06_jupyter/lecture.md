@@ -15,10 +15,14 @@ Vediamo adesso come creare ed utilizzare il nostro primo notebook.
 
 ## 6.2 - Installazione e lancio di Jupyter Lab
 
-Per prima cosa, installiamo Jupyter scegliendo una tra le opzioni mostrate in [appendice](../../appendix/02_libraries/lecture.md).
+!!!note "Installazione di una libreria"
+    Ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'[appendice B](../../../appendix/02_libraries/lecture.md).
+
+Per installare Jupyter Lab, ricorriamo all'utilizzo di `pip`, preferibilmente all'interno di un ambiente virtuale:
 
 ```sh
-pip install jupyterlab
+workon my-virtual-env
+(my-virtual-env) pip install jupyterlab
 ```
 
 A differenza delle altre librerie, Jupyter non andrà (necessariamente) importato; infatti, è possibile lanciare un ambiente interattivo utilizzando la seguente istruzione da riga di comando:
