@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://python.angelocardellicchio.it/material/02_libs/11_sklearn/04_regression/lecture/">
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.12">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.27ad92d8.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.e411adfe.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -42,6 +42,16 @@
     <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-ZCZWPCYZJ9"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-ZCZWPCYZJ9",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCZWPCYZJ9"></script>
+
 
     
     
@@ -677,43 +687,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#metriche" class="md-nav__link">
-    Metriche
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#algoritmi-di-regressione" class="md-nav__link">
-    Algoritmi di regressione
-  </a>
-  
-    <nav class="md-nav" aria-label="Algoritmi di regressione">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#regressione-lineare" class="md-nav__link">
     Regressione lineare
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alberi-decisionali" class="md-nav__link">
-    Alberi decisionali
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metodi-ensemble" class="md-nav__link">
-    Metodi ensemble
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1225,43 +1201,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#metriche" class="md-nav__link">
-    Metriche
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#algoritmi-di-regressione" class="md-nav__link">
-    Algoritmi di regressione
-  </a>
-  
-    <nav class="md-nav" aria-label="Algoritmi di regressione">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#regressione-lineare" class="md-nav__link">
     Regressione lineare
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alberi-decisionali" class="md-nav__link">
-    Alberi decisionali
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metodi-ensemble" class="md-nav__link">
-    Metodi ensemble
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1287,12 +1229,25 @@
 <p>Per essere precisi, occorre tenere conto anche di un termine di errore, che può essere più o meno rilevante.</p>
 </div>
 <p>Un esempio banale di regressione è quello che ci vede cercare la retta interpolate di una serie di punti in un piano cartesiano</p>
-<h2 id="metriche">Metriche<a class="headerlink" href="#metriche" title="Permanent link">&para;</a></h2>
-<h2 id="algoritmi-di-regressione">Algoritmi di regressione<a class="headerlink" href="#algoritmi-di-regressione" title="Permanent link">&para;</a></h2>
-<p>Così come per la classificazione, Scikit Learn offre una gran numero di algoritmi che possiamo utilizzare per la regressione. Anche stavolta, non descriveremo i singoli algoritmi, sottolineando comunque come l'interfaccia offerta da questi sia in tutto e per tutto omogenea, il che ci permette quindi di modificare facilmente l'algoritmo utilizzato.</p>
-<h3 id="regressione-lineare">Regressione lineare<a class="headerlink" href="#regressione-lineare" title="Permanent link">&para;</a></h3>
-<h3 id="alberi-decisionali">Alberi decisionali<a class="headerlink" href="#alberi-decisionali" title="Permanent link">&para;</a></h3>
-<h3 id="metodi-ensemble">Metodi ensemble<a class="headerlink" href="#metodi-ensemble" title="Permanent link">&para;</a></h3>
+<h2 id="regressione-lineare">Regressione lineare<a class="headerlink" href="#regressione-lineare" title="Permanent link">&para;</a></h2>
+<p>Un modello di regressione lineare predice il target come la somma pesata dlle feature in ingresso. La linearità della relazione appresa rende l'interpretazione del modello semplice. I modelli di regressione lineare sono stati a lungo usati dagli statistici per affrontare problemi di tipo quantitativo.</p>
+<p>I modelli lineari possono essere usati per modellare la dipendenza di un obiettivo di regressione <span class="arithmatex">\(y\)</span> rispetto ad un insieme di feature <span class="arithmatex">\(X\)</span>. Le relazioni apprese sono lineari, e possono essere scritte per una singola istanza <span class="arithmatex">\(i\)</span> come segue:</p>
+<div class="arithmatex">\[
+y = \beta_0 + \beta_1 x_1 + \ldots + \beta_p x_p + \epsilon
+\]</div>
+<p>In sostanza, la predizione <span class="arithmatex">\(y\)</span> sarà data dalla somma pesata delle <span class="arithmatex">\(p\)</span> feature in ingresso. I valori <span class="arithmatex">\(\beta_i\)</span> rappresentao i pesi o coefficienti; il primo peso <span class="arithmatex">\(\beta_0\)</span> è rappreentato dall'intercetta, mentre il valore di <span class="arithmatex">\(\epsilon\)</span> descrve l'errore, dato dalla differenza tra la predizione <span class="arithmatex">\(\hat{y}\)</span> e il valore vero e proprio. In particolare si presuppone che questi errori seguano una distribuzione gaussiana, per cui diremo che può assumere valore negativo o positivo, e probabilmente più faremo errori piccoli che grandi.</p>
+<p>Diversi metodi possono essere usati per stimare il peso otimale. Il metodo ai minimi quadrati è normalmente usato per indiviuare i pesi che minimizzano la differenza al quadrato tra il valore reale e la stima ottenuta.</p>
+<p>il vantaggio principale di un modello di regressione lineare è appunto la linearità: rende la procedura di stima semplice e, ancora più importante, queste equazioni lineari hanno un'interpretazione semplice da capire, data dai pesi. Questo è uno dei motivi principali per cui il modello lineare e tutti quelli simili sono molto diffusi in campi scientifici come medicina, sociologia, psciologia e molti altri campi di ricerca quantitativi. Ad esempio, in campo medico, non solo è importante predire il valore di uscita di un paziente, ma anche quantificare l'influenza della farmaco e allo stesso momento del genere, età, essso, ed altre feature, in modo da interpretare i risultati.</p>
+<p>I pesi stimati hanno degli intervalli di confidenza, ovvero dei range che coprono il peso "vero" con un certo grado di confidenza. ad esempio, un intervallodi confidenza del 95% per un peso di due potrebbe essere nei valori che vanno da 1 a 3. L'interpretazione di questo intervallo sarebbe: se ripetiamo la stima 100 volte con dati appena campionati, l'intervallo di confidenza conterrà il valore vero 95 volte su 100, supposto che il modello di regressione lineare sia quello corretto per i dati.</p>
+<p>la correttezza del modello dipende sempre da alcuni presupposti. In questo caso particolare, questi sono i seguetni:</p>
+<ul>
+<li>linearità: il modello di regressione lineare fa in modo che le predizioni siano una combinazione lineare di feature, il che rappresenta sia il grande vantaggio che il grande limite di questo modello. La linearità conduce a modelli interpretabili: gli effetti lineari sono facili da quantificare e descrivere. Sono inoltre additivi, per cui è facile separare i singoli effetti. Se sospettivamo interazioni tra le singole feature o associazioni non lineari di una feature con il valore targetm potremmo usare dei modelli non lineari.</li>
+<li>normaltà: si suppone che il risutato date le feature segua una distribuzione di tipo nomale. Se questo assunot viene violato, gli intervalli di confidneza stimati dei pesi delle feature non sono validi.</li>
+<li>omoschedasticità (varianza costante): la varianza del termine di errore deve essere constante nell'intero spazio delle feature. Supponiamo divoler predire il valore di una casa data la metratura. Stimiamo un modello lineare che assume che, indipendentemente dalle dimensioni della casa, l'errore sulla risposta predetta ha sempre la stessa varianza. Questo assunto spesso viene violato nella realtà. nell'esempio delle case, è plausibile che la varianza del termine di errore attorno al prezzo predetto sia più grande per case più grandi, dal momento che i prezzi sono più alti e vi è più spazio per le fluttuazioni di prezzo. Supponiamo un errore medio di 50k euro: se assumiamo l'omoschedatsticità, si dice che questo sia lo stesso per le case che costano un milione e per quelle che costano solo 40k. Questo ovviamente non è ragionevole perché significherebbe che ci aspettiamo prezzi negativi per alcune case.</li>
+<li>indipendenza: si presuppone che ogni istanza sia indipendente dalle altre istanze. se effettuiamo misure ripetute, come ad esempio più test sanguinei per ogni paziente, i data point non sono indipendenti.</li>
+<li>feature fisse: le feature in ingresso sono considerate "fisse", il che significa che sono trattate come costanti e non come variabili statsticihe. Questo implica che sono libere da errori di misurazione. Questo è un assunto non realistico, però se non ci fosse dovremmo fittare dei modelli molto complessi di misura che tengano in conto dell'errore di misura delle feature di input.</li>
+<li>assenza di multicollinearità: non vogliamo delle feature fortemente correlate, in quanto questo rende problematica la stima dei pesi. In una situazione dove due feature sono fortemente correlate, diventa problematico stimare i pesi perché gli effetti delle feature sono additivi, e dienta indeterminabile a quale delle feature correlate attrbuire detti effetti.</li>
+</ul>
 
               
             </article>

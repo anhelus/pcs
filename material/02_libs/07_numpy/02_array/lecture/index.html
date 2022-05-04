@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://python.angelocardellicchio.it/material/02_libs/07_numpy/02_array/lecture/">
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.12">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.27ad92d8.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.e411adfe.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -42,6 +42,16 @@
     <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-ZCZWPCYZJ9"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-ZCZWPCYZJ9",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZCZWPCYZJ9"></script>
+
 
     
     
@@ -63,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduzione-agli-array" class="md-skip">
+        <a href="#72-gli-array" class="md-skip">
           Skip to content
         </a>
       
@@ -478,30 +488,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#array-e-liste" class="md-nav__link">
-    Array e liste
+  <a href="#721-array-e-liste" class="md-nav__link">
+    7.2.1 - Array e liste
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#la-classe-ndarray" class="md-nav__link">
-    La classe ndarray
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creazione-ed-inizializzazione" class="md-nav__link">
-    Creazione ed inizializzazione
-  </a>
-  
-    <nav class="md-nav" aria-label="Creazione ed inizializzazione">
+    <nav class="md-nav" aria-label="7.2.1 - Array e liste">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#array-eterogenei" class="md-nav__link">
-    Array eterogenei
+  <a href="#7211-array-eterogenei" class="md-nav__link">
+    7.2.1.1 - Array eterogenei
   </a>
   
 </li>
@@ -512,66 +508,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#il-numero-di-elementi-di-un-array" class="md-nav__link">
-    Il numero di elementi di un array
+  <a href="#722-il-numero-di-elementi-di-un-array" class="md-nav__link">
+    7.2.2 - Il numero di elementi di un array
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#costruzione-di-un-array" class="md-nav__link">
-    Costruzione di un array
+  <a href="#723-altri-metodi-per-creare-un-array" class="md-nav__link">
+    7.2.3 - Altri metodi per creare un array
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#costruire-un-array-alcuni-modi-alternativi" class="md-nav__link">
-    Costruire un array: alcuni modi alternativi
-  </a>
-  
-    <nav class="md-nav" aria-label="Costruire un array: alcuni modi alternativi">
+    <nav class="md-nav" aria-label="7.2.3 - Altri metodi per creare un array">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#array-con-valori-zero-ed-unitari" class="md-nav__link">
-    Array con valori zero ed unitari
+  <a href="#7231-array-con-valori-zero-ed-unitari" class="md-nav__link">
+    7.2.3.1 - Array con valori zero ed unitari
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#array-vuoti" class="md-nav__link">
-    Array vuoti
+  <a href="#7232-array-vuoti" class="md-nav__link">
+    7.2.3.2 - Array vuoti
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#matrice-identita" class="md-nav__link">
-    Matrice identità
+  <a href="#7234-matrice-identita" class="md-nav__link">
+    7.2.3.4 - Matrice identità
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#matrici-diagonali" class="md-nav__link">
-    Matrici diagonali
-  </a>
-  
-    <nav class="md-nav" aria-label="Matrici diagonali">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#da-vettore-a-matrice" class="md-nav__link">
-    Da vettore a matrice
+  <a href="#7235-matrici-diagonali" class="md-nav__link">
+    7.2.3.5 - Matrici diagonali
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#da-matrice-a-vettore" class="md-nav__link">
-    Da matrice a vettore
+  <a href="#7236-matrici-triangolari" class="md-nav__link">
+    7.2.3.6 - Matrici triangolari
   </a>
   
 </li>
@@ -580,16 +561,39 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#matrici-triangolari" class="md-nav__link">
-    Matrici triangolari
+      
+        <li class="md-nav__item">
+  <a href="#724-accesso-agli-elementi-di-un-array" class="md-nav__link">
+    7.2.4 - Accesso agli elementi di un array
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#725-maschere-booleane" class="md-nav__link">
+    7.2.5 - Maschere booleane
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#726-slicing-degli-array" class="md-nav__link">
+    7.2.6 - Slicing degli array
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#727-la-funzione-nonzero" class="md-nav__link">
+    7.2.7 - La funzione nonzero()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#727-fancy-indexing" class="md-nav__link">
+    7.2.7 - Fancy indexing
+  </a>
   
 </li>
       
@@ -1300,30 +1304,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#array-e-liste" class="md-nav__link">
-    Array e liste
+  <a href="#721-array-e-liste" class="md-nav__link">
+    7.2.1 - Array e liste
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#la-classe-ndarray" class="md-nav__link">
-    La classe ndarray
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creazione-ed-inizializzazione" class="md-nav__link">
-    Creazione ed inizializzazione
-  </a>
-  
-    <nav class="md-nav" aria-label="Creazione ed inizializzazione">
+    <nav class="md-nav" aria-label="7.2.1 - Array e liste">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#array-eterogenei" class="md-nav__link">
-    Array eterogenei
+  <a href="#7211-array-eterogenei" class="md-nav__link">
+    7.2.1.1 - Array eterogenei
   </a>
   
 </li>
@@ -1334,66 +1324,51 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#il-numero-di-elementi-di-un-array" class="md-nav__link">
-    Il numero di elementi di un array
+  <a href="#722-il-numero-di-elementi-di-un-array" class="md-nav__link">
+    7.2.2 - Il numero di elementi di un array
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#costruzione-di-un-array" class="md-nav__link">
-    Costruzione di un array
+  <a href="#723-altri-metodi-per-creare-un-array" class="md-nav__link">
+    7.2.3 - Altri metodi per creare un array
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#costruire-un-array-alcuni-modi-alternativi" class="md-nav__link">
-    Costruire un array: alcuni modi alternativi
-  </a>
-  
-    <nav class="md-nav" aria-label="Costruire un array: alcuni modi alternativi">
+    <nav class="md-nav" aria-label="7.2.3 - Altri metodi per creare un array">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#array-con-valori-zero-ed-unitari" class="md-nav__link">
-    Array con valori zero ed unitari
+  <a href="#7231-array-con-valori-zero-ed-unitari" class="md-nav__link">
+    7.2.3.1 - Array con valori zero ed unitari
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#array-vuoti" class="md-nav__link">
-    Array vuoti
+  <a href="#7232-array-vuoti" class="md-nav__link">
+    7.2.3.2 - Array vuoti
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#matrice-identita" class="md-nav__link">
-    Matrice identità
+  <a href="#7234-matrice-identita" class="md-nav__link">
+    7.2.3.4 - Matrice identità
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#matrici-diagonali" class="md-nav__link">
-    Matrici diagonali
-  </a>
-  
-    <nav class="md-nav" aria-label="Matrici diagonali">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#da-vettore-a-matrice" class="md-nav__link">
-    Da vettore a matrice
+  <a href="#7235-matrici-diagonali" class="md-nav__link">
+    7.2.3.5 - Matrici diagonali
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#da-matrice-a-vettore" class="md-nav__link">
-    Da matrice a vettore
+  <a href="#7236-matrici-triangolari" class="md-nav__link">
+    7.2.3.6 - Matrici triangolari
   </a>
   
 </li>
@@ -1402,16 +1377,39 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#matrici-triangolari" class="md-nav__link">
-    Matrici triangolari
+      
+        <li class="md-nav__item">
+  <a href="#724-accesso-agli-elementi-di-un-array" class="md-nav__link">
+    7.2.4 - Accesso agli elementi di un array
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#725-maschere-booleane" class="md-nav__link">
+    7.2.5 - Maschere booleane
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#726-slicing-degli-array" class="md-nav__link">
+    7.2.6 - Slicing degli array
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#727-la-funzione-nonzero" class="md-nav__link">
+    7.2.7 - La funzione nonzero()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#727-fancy-indexing" class="md-nav__link">
+    7.2.7 - Fancy indexing
+  </a>
   
 </li>
       
@@ -1429,77 +1427,72 @@
                 
 
 
-<h1 id="introduzione-agli-array">Introduzione agli array<a class="headerlink" href="#introduzione-agli-array" title="Permanent link">&para;</a></h1>
-<p>Nella <a href="../../01_intro/lecture/">scorsa lezione</a>, abbiamo introdotto gli <em>array</em>, ovvero la struttura dati "centrale" all'interno dell'ecosistema di NumPy. In questa lezione e nelle successive ne approfondiremo gli aspetti e le caratteristiche principali.</p>
-<h2 id="array-e-liste">Array e liste<a class="headerlink" href="#array-e-liste" title="Permanent link">&para;</a></h2>
-<p>La prima impressione che si può avere è che gli array siano molto simili alle classiche liste. Esistono però alcune differenze, cui abbiamo già accennato nella scorsa lezione.</p>
-<p>In linea di massima, però, è preferibile usare un array quando si ha a che fare con operazioni di tipo <em>matematico</em> su dati <em>omogenei</em>, ovvero dello stesso tipo. Questo è collegato essenzialmente a questioni di <em>ottimizzazione</em>: NumPy sfrutta per le operazioni matematiche del codice precompilato in C, ed inoltre gli array sono più compatti e veloci da utilizzare rispetto alle liste.</p>
-<h2 id="la-classe-ndarray">La classe <code>ndarray</code><a class="headerlink" href="#la-classe-ndarray" title="Permanent link">&para;</a></h2>
-<p>Alle volte, ci si può riferire ad un array con il termine <code>ndarray</code>, abbreviazione che sta per <span class="arithmatex">\(n\)</span>-dimensional array. Questa è, in realtà, la rappresentazione più generica degli array di NumPy, e permette di caratterizzare delle strutture dati con un numero arbitrario di dimensioni (<span class="arithmatex">\(n\)</span>, per l'appunto).</p>
-<div class="admonition note">
-<p class="admonition-title">Vettori, matrici e tensori</p>
-<p>Una struttura di tipo algebrico ad <span class="arithmatex">\(n\)</span> dimensioni, con <span class="arithmatex">\(n &gt; 2\)</span>, è detta <em>tensore</em>. Se <span class="arithmatex">\(n = 1\)</span>, abbiamo un <em>vettore</em>, mentre con <span class="arithmatex">\(n = 2\)</span> abbiamo una <em>matrice</em>.</p>
-</div>
-<h2 id="creazione-ed-inizializzazione">Creazione ed inizializzazione<a class="headerlink" href="#creazione-ed-inizializzazione" title="Permanent link">&para;</a></h2>
-<p>Il primo passo per utilizzare un <code>ndarray</code> è, ovviamente, crearlo! Per farlo, ci sono diversi metodi, ma il più semplice è sicuramente quello di passare al metodo <code>array()</code> di NumPy una lista di elementi. Ad esempio:</p>
+<h1 id="72-gli-array">7.2 - Gli array<a class="headerlink" href="#72-gli-array" title="Permanent link">&para;</a></h1>
+<p>Nella lezione precedente abbiamo introdotto il concetto gli array, ovvero la struttura dati "centrale" nell'ecosistema di NumPy. In questa lezione (e nelle successive) ne approfondiremo aspetti e caratteristiche principali.</p>
+<h2 id="721-array-e-liste">7.2.1 - Array e liste<a class="headerlink" href="#721-array-e-liste" title="Permanent link">&para;</a></h2>
+<p>Di primo acchito, l'impressione che si può avere osservando gli array è che questi siano molto simili alle classiche liste. Tuttavia, come abbiamo già visto, esistono diverse differenze notevoli, riassumibili in linea di massima affermando che è preferibile usare un array quando si devono svolgere operazioni di tipo matematico su dati omogenei.</p>
+<p>Gli array NumPy sono istanze della classe <code>ndarray</code>, crasi che sta per <span class="arithmatex">\(n\)</span>-dimensional array. Mediante questa classe possiamo rappresentare strutture dati con un numero arbitrario di dimensioni, ovvero vettori, matrici e tensori.</p>
+<p>Il primo passo per utilizzare un array è, come accennato in precedenza, crearlo. In tal senso, ci sono diversi metodi, ma ricordiamo di seguito quello più "semplice", che prevede l'uso del costruttore <code>array()</code> a cui passare una lista di elementi dello stesso tipo:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
 <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 </code></pre></div>
-<p>Possiamo passare anche una "lista di liste", in modo da ottenere un array multidimensionale:</p>
+<p>Passando invece una lista i cui elementi sono a loro volta delle liste, potremo ottenere in uscita un array multidimensionale:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 </code></pre></div>
-<p>Gli array non sono necessariamente numerici. Possiamo, ad esempio, creare un array di stringhe:</p>
+<p>Notiamo infine che gli array non sono necessariamente numerici. Possiamo, ad esempio, creare un array di stringhe:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;s1&quot;</span><span class="p">,</span> <span class="s2">&quot;s2&quot;</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">c</span>
 <span class="n">array</span><span class="p">([</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;&lt;U2&#39;</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="array-eterogenei">Array eterogenei<a class="headerlink" href="#array-eterogenei" title="Permanent link">&para;</a></h3>
-<p>Abbiamo già detto che gli array, a differenza delle stringhe, devono contenere dati <em>omogenei</em>, ovvero dello stesso tipo. Cosa succede se proviamo a passare al metodo <code>numpy.array()</code> una lista composta da dati di tipo differente? Facciamo un esempio.</p>
+<h3 id="7211-array-eterogenei">7.2.1.1 - Array eterogenei<a class="headerlink" href="#7211-array-eterogenei" title="Permanent link">&para;</a></h3>
+<p>In precedenza si è accennato al fatto che gli array, a differenza delle liste, debbano contenere dati omogenei. Cosa succederebbe quindi se provassimo a passare al metodo <code>array()</code> una lista composta da dati di tipo eterogeneo? Partiamo verificando cosa accade ad esempio usando un intero ed un float.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
 <span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
 </code></pre></div>
-<p>Abbiamo passato al metodo <code>array()</code> un valore intero ed un float. Possiamo notare che è stato effettuato un <em>casting</em> in maniera implicita, e <em>tutti</em> i valori passati sono stati convertiti in float. Vediamo cosa accade se provassimo a passare un intero ed una stringa.</p>
+<p>Notiamo subito che è stata effettuata in maniera implicita ed automatica un'operazione di conversione di tipo, e tutti i valori passati sono stati convertiti in formato float. </p>
+<p>Interessante è anche valutare cosa accade se proviamo a passare una lista contenente un numero ed una stringa:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;s3&quot;</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">e</span>
 <span class="n">array</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;s3&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;&lt;U11&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>Anche in questo caso, è stata effettuata la conversione dei dati in automatico, passando stavolta da intero a stringa.</p>
-<p>La regola da tenere a mente, ad ogni modo, è che NumPy (e, in generale, Python) seguono il principio dell'<em>upcasting</em>: in altre parole, quando deve essere fatta una conversione tra diversi tipi di dati, si farà in modo da convertire tutte le variabili nel tipo <em>a più alta precisione</em>, allo scopo di evitare perdite di informazioni.</p>
-<h2 id="il-numero-di-elementi-di-un-array">Il numero di elementi di un array<a class="headerlink" href="#il-numero-di-elementi-di-un-array" title="Permanent link">&para;</a></h2>
-<p>Abbiamo detto che un array è un "contenitore", a dimensione prefissata, per oggetti di un ben determinato tipo e dimensione. Il numero di dimensioni e gli oggetti contenuti all'interno di un array sono definiti a partire da una proprietà chiamata <code>shape</code>, liberamente traducibile in "forma". Quest'ultima è una tupla di numeri interi, ovviamente non negativi, che permette di determinare la dimensionalità dell'array lungo ogni <em>asse</em> (ovvero <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span>, <span class="arithmatex">\(z\)</span>, etc.).</p>
-<p>Ad esempio, potremo dire che il seguente array bidimensionale ha due assi, il primo di lunghezza due, il secondo di lunghezza tre:</p>
+<p>Notiamo come anche in questo caso sia stata effettuata una conversione di tipo, passando stavolta da intero a stringa.</p>
+<div class="admonition note">
+<p class="admonition-title">Upcasting</p>
+<p>La regola da tenere a mente è che NumPy (e, in generale, Python) seguono il principio dell'<em>upcasting</em>: in altre parole, quando deve essere fatta una conversione tra diversi tipi di dati, si fa in modo di scegliere il tipo a più alta precisione, minimizzando i rischi di perdita di informazioni.</p>
+</div>
+<h2 id="722-il-numero-di-elementi-di-un-array">7.2.2 - Il numero di elementi di un array<a class="headerlink" href="#722-il-numero-di-elementi-di-un-array" title="Permanent link">&para;</a></h2>
+<p>Gli array NumPy hanno dimensione prefissata, e sono quindi in grado di contenere un numero fisso di oggetti di un certo tipo. Per definire (o conoscere) questo valore si utilizza una proprietà chiamata <code>shape</code> che, a grandi linee, rappresenta la <em>forma</em> dell'array. La shape di un array è in pratica una tupla di numeri interi, ovviamente non negativi, ciascuno dei quali determina il numero di elementi per ciascuna delle dimensioni dell'array.</p>
+<p>Creiamo ad esempio un array che rappresenti una matrice <span class="arithmatex">\(2 \times 3\)</span>, ovvero a due righe e tre colonne:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 </code></pre></div>
-<p>Proviamo a valutare la proprietà <code>shape</code> del precedente array:</p>
+<p>Vediamo che valore assume la proprietà <code>shape</code> di questo array:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
 <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="costruzione-di-un-array">Costruzione di un array<a class="headerlink" href="#costruzione-di-un-array" title="Permanent link">&para;</a></h2>
-<p>Nella lezione precedente abbiamo visto come sia possibile creare un array NumPy usando la funzione <code>np.array()</code>, che ci permette di crearlo a partire da una semplice lista:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-</code></pre></div>
-<p>Volendo, però, possiamo usare anche il costruttore della classe <code>ndarray</code>, cui dovremo passare come minimo la <code>shape</code> desiderata:</p>
+<p>Come ci aspettavamo, il nostro array ha cardinalità due sulla prima dimensione (ovvero il numero di righe) e tre sulla seconda (ovvero il numero di colonne).</p>
+<h2 id="723-altri-metodi-per-creare-un-array">7.2.3 - Altri metodi per creare un array<a class="headerlink" href="#723-altri-metodi-per-creare-un-array" title="Permanent link">&para;</a></h2>
+<p>Oltre al metodo visto in precedenza, possiamo creare un array utilizzando direttamente il costruttore della classe <code>ndarray</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>       <span class="c1"># oppure a = np.ndarray(shape=(3,3))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
 <span class="n">array</span><span class="p">([[</span><span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">],</span>
        <span class="p">[</span><span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">3.02368175e-321</span><span class="p">],</span>
        <span class="p">[</span><span class="mf">6.69431255e+151</span><span class="p">,</span> <span class="mf">1.68534231e+246</span><span class="p">,</span> <span class="mf">6.69431467e+151</span><span class="p">]])</span>
 </code></pre></div>
+<p>Notiamo che il costruttore accetta una lista contenente la shape dell'array, che in questo caso diverrà un <span class="arithmatex">\(3 \times 3\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>I numeri con cui viene "riempito" l'array sono casuali, ed andranno definiti solo in seguito.</p>
+<p>Notiamo come i numeri con cui viene "riempito" l'array sono al momento casuali.</p>
 </div>
-<p>Al di là di questi metodi base, esistono altri modi per costruire tipi di array ben specifici. Vediamoli brevemente.</p>
-<h2 id="costruire-un-array-alcuni-modi-alternativi">Costruire un array: alcuni modi alternativi<a class="headerlink" href="#costruire-un-array-alcuni-modi-alternativi" title="Permanent link">&para;</a></h2>
-<h3 id="array-con-valori-zero-ed-unitari">Array con valori zero ed unitari<a class="headerlink" href="#array-con-valori-zero-ed-unitari" title="Permanent link">&para;</a></h3>
+<p>Oltre a questa tecnica base, esistono diversi modi per creare array di un certo tipo. Vediamoli in breve.</p>
+<h3 id="7231-array-con-valori-zero-ed-unitari">7.2.3.1 - Array con valori zero ed unitari<a class="headerlink" href="#7231-array-con-valori-zero-ed-unitari" title="Permanent link">&para;</a></h3>
 <p>Possiamo creare un array di dimensioni arbitrarie in cui tutti gli elementi sono pari ad 1. Per farlo, usiamo la funzione <code>ones()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">u</span>
@@ -1514,7 +1507,7 @@
        <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
        <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]])</span>
 </code></pre></div>
-<h3 id="array-vuoti">Array vuoti<a class="headerlink" href="#array-vuoti" title="Permanent link">&para;</a></h3>
+<h3 id="7232-array-vuoti">7.2.3.2 - Array vuoti<a class="headerlink" href="#7232-array-vuoti" title="Permanent link">&para;</a></h3>
 <p>Possiamo creare un array vuoto mediante la funzione <code>empty()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">e</span>
@@ -1525,9 +1518,9 @@
 <p>Questa funzione può risultare utile quando vogliamo preallocare spazio per un array.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>I più attenti avranno notato che, in realtà, l'array generato da <code>empty()</code> non è vuoto, ma contiene valori casuali.</p>
+<p>I più attenti avranno notato che, in realtà, l'array generato da <code>empty()</code> non è vuoto, ma contiene valori casuali. In tal senso, dà risultati equivalenti all'uso diretto del costruttore <code>ndarray</code>.</p>
 </div>
-<h3 id="matrice-identita">Matrice identità<a class="headerlink" href="#matrice-identita" title="Permanent link">&para;</a></h3>
+<h3 id="7234-matrice-identita">7.2.3.4 - Matrice identità<a class="headerlink" href="#7234-matrice-identita" title="Permanent link">&para;</a></h3>
 <p>Possiamo creare una matrice identità usando la funzione <code>eye()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">i</span>
@@ -1539,30 +1532,27 @@
 <p class="admonition-title">Attenzione</p>
 <p>In questo caso, notiamo come non si possa passare una tupla o una lista per indicare le dimensioni dell'array. Tuttavia, possiamo specificare sia il numero delle righe (con il primo parametro) che il numero delle colonne (con il secondo parametro).</p>
 </div>
-<h3 id="matrici-diagonali">Matrici diagonali<a class="headerlink" href="#matrici-diagonali" title="Permanent link">&para;</a></h3>
-<p>La funzione <code>diag()</code> viene usata sia per <em>creare</em> una matrice diagonale a partire da un vettore (che, ovviamente, sarà poi la diagonale della matrice), sia per <em>estrarre</em> la diagonale di una matrice. Facciamo alcuni esempi.</p>
-<h4 id="da-vettore-a-matrice">Da vettore a matrice<a class="headerlink" href="#da-vettore-a-matrice" title="Permanent link">&para;</a></h4>
-<p>Immaginiamo di avere un vettore riga a tre elementi.</p>
+<h3 id="7235-matrici-diagonali">7.2.3.5 - Matrici diagonali<a class="headerlink" href="#7235-matrici-diagonali" title="Permanent link">&para;</a></h3>
+<p>La funzione <code>diag()</code> viene usata sia per <em>creare</em> una matrice diagonale a partire da un vettore (che, ovviamente, sarà poi la diagonale della matrice), sia per <em>estrarre</em> la diagonale di una matrice. Per capire questa dualità, immaginiamo per prima cosa di avere a disposizione un vettore riga a tre elementi, che vogliamo trasformare in modo tale che si comporti come la diagonale di una matrice.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
 <span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </code></pre></div>
-<p>Possiamo creare una matrice diagonale passando questo vettore come argomento alla funzione <code>diag()</code>:</p>
+<p>Potremo creare una matrice diagonale a partire da questo vettore passandolo come parametro alla funzione <code>diag()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
 </code></pre></div>
-<h4 id="da-matrice-a-vettore">Da matrice a vettore<a class="headerlink" href="#da-matrice-a-vettore" title="Permanent link">&para;</a></h4>
-<p>Affrontiamo adesso il problema duale. Immaginiamo di avere il seguente array, e volerne estrarre la diagonale:</p>
+<p>Vediamo invece come affrontare il problema duale. Immaginiamo di avere quindi un array, e volerne estrarre la diagonale:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 </code></pre></div>
-<p>Per farlo, dovremo anche questa volta usare la funzione <code>diag()</code>, passando però l'array:</p>
+<p>Per farlo, dovremo anche questa volta usare la funzione <code>diag()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
 <span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
@@ -1573,9 +1563,9 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Attenzione</p>
-<p>La funzione <code>diag()</code> accetta solo input monodimensionali (vettori) e bidimensionali (matrici)!</p>
+<p>Ovviamente, la funzione <code>diag()</code> accetta solo input monodimensionali (vettori) e bidimensionali (matrici)!</p>
 </div>
-<h3 id="matrici-triangolari">Matrici triangolari<a class="headerlink" href="#matrici-triangolari" title="Permanent link">&para;</a></h3>
+<h3 id="7236-matrici-triangolari">7.2.3.6 - Matrici triangolari<a class="headerlink" href="#7236-matrici-triangolari" title="Permanent link">&para;</a></h3>
 <p>Concludiamo questa breve carrellata mostrando due metodi in grado di estrarre la matrice triangolare, rispettivamente superiore ed inferiore.</p>
 <p>Supponiamo di avere la matrice x definita in precedenza. Per estrarre la matrice triangolare superiore, dovremo usare la funzione <code>triu()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">tu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -1593,28 +1583,26 @@
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Suggerimento</p>
-<p>In questo caso, le funzioni <code>tril()</code> e <code>triu()</code> possono tranquillamente essere applicate agli array n-dimensionali. Inoltre, non è richiesto che l'array sia quadrato.</p>
+<p>In questo caso, le funzioni <code>tril()</code> e <code>triu()</code> possono tranquillamente essere applicate agli array n-dimensionali. Inoltre, non è richiesto le diverse dimensioni dell'array abbiano la stessa cardinalità.</p>
 </div>
-<h1 id="accedere-agli-elementi-di-un-array">Accedere agli elementi di un array<a class="headerlink" href="#accedere-agli-elementi-di-un-array" title="Permanent link">&para;</a></h1>
-<p>Il modo più immediato per accedere al valore di un elemento in un array è usare l'operatore <code>[]</code>, specificando contestualmente l'indice dell'elemento cui si vuole accedere, proprio come avviene per le liste. </p>
-<p>Ad esempio, possiamo selezionare il primo elemento di un array con questa sintassi:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<h2 id="724-accesso-agli-elementi-di-un-array">7.2.4 - Accesso agli elementi di un array<a class="headerlink" href="#724-accesso-agli-elementi-di-un-array" title="Permanent link">&para;</a></h2>
+<p>Così come per le liste, il modo più immediato per accedere al valore di un elemento in un array è usare l'operatore <code>[]</code>, specificando contestualmente l'indice dell'elemento cui si vuole accedere. Ad esempio, per selezionare il primo elemento di un vettore:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="mi">1</span>
 </code></pre></div>
-<p>Nel caso di array ad <span class="arithmatex">\(n\)</span> dimensioni, è necessario indicare l'indice per ciascuna delle dimensioni dell'array. Nel caso di un array bidimensionale, potremmo selezionare l'elemento alla prima riga e prima colonna con una sintassi di questo tipo:</p>
+<p>Nel caso di array ad <span class="arithmatex">\(n\)</span> dimensioni, è necessario indicare l'indice per ciascuna delle dimensioni dell'array. Ad esempio, per un array bidimensionale potremmo selezionare l'elemento alla prima riga e prima colonna con una sintassi di questo tipo:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="mi">1</span>
 </code></pre></div>
-<h2 id="maschere-booleane">Maschere booleane<a class="headerlink" href="#maschere-booleane" title="Permanent link">&para;</a></h2>
-<p>Possiamo accedere ad un sottoinsieme di elementi dell'array mediante una "maschera", che consiste in un array di dimensioni uguali a quelle di partenza, ma composto soltanto da valori booleani; ovviamente, saranno estratti solo gli elementi il cui indice nella maschera è a <code>True</code>.</p>
-<p>Ad esempio, possiamo selezionare tutti gli elementi appartenenti alla prima colonna dell'array <code>b</code>:</p>
+<h2 id="725-maschere-booleane">7.2.5 - Maschere booleane<a class="headerlink" href="#725-maschere-booleane" title="Permanent link">&para;</a></h2>
+<p>Possiamo accedere ad un sottoinsieme di elementi dell'array mediante una "maschera", ovvero un altro array, di dimensioni uguali a quelle di partenza, al cui interno sono presenti esclusivamente dei valori booleani. Così facendo, estrarremo soltanto gli elementi la cui corrispondente posizione all'interno della mascher ha valore <code>True</code>. Ad esempio, possiamo selezionare tutti gli elementi appartenenti alla prima colonna dell'array <code>b</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mask</span> <span class="o">=</span> <span class="p">([</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </code></pre></div>
-<p>Oppure possiamo scegliere tutti gli elementi che soddisfano una certa condizione logico/matematica:</p>
+<p>Ancora, possiamo scegliere tutti gli elementi che soddisfano una certa condizione logico/matematica:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">mask</span>
 <span class="n">array</span><span class="p">([[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
@@ -1622,7 +1610,7 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 <span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 </code></pre></div>
-<p>La precedente notazione può essere ulteriormente sintetizzata "prendendo in prestito" i principi della programmazione funzionale:</p>
+<p>Interessante notare come la precedente notazione possa essere ulteriormente sintetizzata usando delle relazioni logiche:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 </code></pre></div>
@@ -1632,40 +1620,71 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)]</span>
 <span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </code></pre></div>
-<h2 id="slicing-degli-array">Slicing degli array<a class="headerlink" href="#slicing-degli-array" title="Permanent link">&para;</a></h2>
-<p>Così come le liste, gli array consentono di effettuare lo slicing:</p>
+<h2 id="726-slicing-degli-array">7.2.6 - Slicing degli array<a class="headerlink" href="#726-slicing-degli-array" title="Permanent link">&para;</a></h2>
+<p>Così come le liste, anche gli array consentono le operazioni di slicing:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </code></pre></div>
-<p>Per gli array multidimensionali, lo slicing si intende sulla n-ma dimensione dell'array. Questo concetto è facile da comprendere se si visualizza l'array ad n-dimensioni come un array di array:</p>
+<p>Per gli array multidimensionali, lo slicing si intende sulla <span class="arithmatex">\(n\)</span>-ma dimensione dell'array. Questo concetto è facile da comprendere se si visualizza l'array ad n-dimensioni come un array di array:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>              <span class="c1"># Lo slicing avviene sulla seconda dimensione</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 </code></pre></div>
-<h2 id="la-funzione-nonzero">La funzione <code>nonzero()</code><a class="headerlink" href="#la-funzione-nonzero" title="Permanent link">&para;</a></h2>
+<h2 id="727-la-funzione-nonzero">7.2.7 - La funzione <code>nonzero()</code><a class="headerlink" href="#727-la-funzione-nonzero" title="Permanent link">&para;</a></h2>
 <p>Possiamo usare la funzione <code>nonzero()</code> per selezionare gli elementi e gli indici di un array il cui valore non sia pari a zero. Ad esempio:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-</code></pre></div>
-<p>Applicando la funzione <code>nonzero()</code>, avremo una tupla con gli indici per riga e colonna degli elementi diversi da zero:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">))</span>
 </code></pre></div>
-<p>Notiamo che nella tupla è presente un array per ciascuna delle dimensioni dell'array <code>x</code>. In questo caso, il primo array rappresenta gli indici relativi alla prima dimensione dei valori non nulli (in questo caso, gli indici di riga), mentre il secondo gli indici relativi alla seconda dimensione (indici di colonna). </p>
-<p>Volendo, è possibile ottenere una lista di tuple rappresentative delle coppie di indici rappresentative dei valori non nulli, ad esempio mediante la funzione <code>zip()</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">coords</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">coords</span>
-<span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
-</code></pre></div>
-<h2 id="fancy-indexing">Fancy indexing<a class="headerlink" href="#fancy-indexing" title="Permanent link">&para;</a></h2>
-<p>Una tecnica estremamente interessante è quella del <em>fancy indexing</em>. Concettualmente, questa indicizzazione prevede che venga passato un array di indici, in modo da accedere a più elementi di un array contemporaneamente.</p>
-<p>Facciamo un esempio.</p>
+<p>La funzione <code>nonzero()</code> restituisce una tupla con gli indici per riga e colonna degli elementi diversi da zero. In particolare, la tupla risultante avrà un numero di elementi pari a ciascuna delle dimensioni dell'array <code>x</code> di ingresso, e l'<span class="arithmatex">\(i\)</span>-mo vettore individuerà gli indici relativi alla <span class="arithmatex">\(i\)</span>-ma dimensione. Ad esempio, in questo caso, il primo array rappresenta gli indici relativi alla prima dimensione dei valori non nulli (in questo caso, gli indici di riga), mentre il secondo gli indici relativi alla seconda dimensione (indici di colonna). Notiamo quindi che avremo i seguenti elementi diversi da zero:</p>
+<table>
+<thead>
+<tr>
+<th>Indice di riga</th>
+<th>Indice di colonna</th>
+<th>Valore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Ottenere una lista di tuple</p>
+<p>Possiamo ottenere una lista di tuple rappresentative delle coppie di indici per gli elementi non nulli sfruttando la funzione <code>zip</code>:<br />
+    &gt; <code>py
+    &gt;&gt;&gt; coords = list(zip(s[0], s[1]))
+    &gt;&gt;&gt; coords
+    [(0, 0), (1, 1), (2, 0), (2, 1)]</code></p>
+</div>
+<h2 id="727-fancy-indexing">7.2.7 - Fancy indexing<a class="headerlink" href="#727-fancy-indexing" title="Permanent link">&para;</a></h2>
+<p>Chiudiamo questa lezione parlando di una tecnica molto interessante chiamata <em>fancy indexing</em>, consistente nell'usare un array di indici per accedere a più elementi contemporaneamente. Ad esempio:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
@@ -1682,9 +1701,6 @@
 <li>restituendo, mediante il fancy indexing, un array con le dimensioni di <code>indexes</code> e gli elementi di <code>x</code> presi nelle posizioni indicate da <code>indexes</code>.</li>
 </ol>
 <p>La potenza del fancy indexing sta proprio in questo: non solo siamo in grado di accedere facilmente a più elementi di un array mediante un'unica operazione, ma possiamo anche ridisporre questi elementi come più ci aggrada!</p>
-<!-- ## Conclusioni
-
-In questa lezione, abbiamo visto alcuni metodi per l'accesso agli elementi di un array NumPy. Nella [prossima](./05_manipolazione.md), inizieremo a parlare della manipolazione e trasformazione degli array ai nostri scopi. -->
 
               
             </article>
