@@ -1,12 +1,12 @@
-# Operazioni matriciali
+# 7.4 - Operazioni matriciali
 
-La maggior parte delle operazioni matriciali possono essere svolte usando il package `linalg` di NumPy. Tutti gli esempi che faremo nel prosieguo, quindi, prevederanno l'importazione di questo package; facciamolo scrivendo l'opportuna istruzione `import`.
+NumPy mette a disposizione il package `linalg` per permettere di effettuare numerose operazioni matriciali. La maggior parte degli esempi che vedremo nel seguito prevedono l'utilizzo di questo package, per cui possiamo partire importandolo.
 
 ```py
 from numpy import linalg
 ```
 
-## Trasposta di una matrice
+## 7.4.1 - Matrice trasposta
 
 La prima operazione che vedremo *non* richiede l'uso del modulo `linalg`, ed è quella che ci permette di effettuare la trasposta di una matrice. Per farlo, usiamo la funzione `transpose`.
 
