@@ -1,4 +1,4 @@
-# Il modulo `polynomial`
+# 7.5 Il modulo `polynomial`
 
 Il modulo `numpy.polynomial.polynomial` ci offre numerose classi e funzionalità per il trattamento dei polinomi. Vediamo insieme quali sono le principali.
 
