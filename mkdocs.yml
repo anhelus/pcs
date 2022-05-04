@@ -102,7 +102,6 @@ extra:
       link: https://github.com/anhelus
     - icon: fontawesome/solid/paper-plane
       link: mailto:angelo.cardellicchio@stiima.cnr.it
-  # disqus: finance-programiq-it
   analytics:
     provider: google
     property: G-ZCZWPCYZJ9
