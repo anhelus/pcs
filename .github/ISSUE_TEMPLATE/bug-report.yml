@@ -1,0 +1,56 @@
+name: 🐛 Segnalazione bug
+# title: " "
+description: Modulo di segnalazione errori per il corso di Python per il Calcolo Scientifico
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per la segnalazione del bug!
+
+  - type: checkboxes
+    attributes:
+      label: Hai già controllato?
+      description: >
+        Hai già controllato la sezione relativa agli [issue](https://github.com/anhelus/python-calcolo-numerico/issues) per vedere se è già stato segnalato?
+      options:
+        - label: >
+            Certo!
+          required: true
+
+  - type: dropdown
+    attributes:
+      label: Dove hai trovato l'errore?
+      description: |
+        Per cortesia, indica a cosa si riferisce l'errore segnalato.
+      multiple: true
+      options:
+        - "Dispense"
+        - "Slides"
+        - "Esercizi"
+        - "Notebook"
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Errore
+      description: Per cortesia, specifica quale errore hai riscontrato.
+      placeholder: |
+        💡 Cerca di includere quante più informazioni possibile!
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Informazioni aggiuntive
+      description: Vuoi condividere ulteriori informazioni?
+
+  - type: checkboxes
+    attributes:
+      label: Vuoi creare una pull request?
+      description: >
+        (Opzionale) Puoi creare una [Pull Request](https://github.com/anhelus/python-calcolo-numerico/pulls) (PR) per mettere a disposizione di tutti le migliorie proposte!
+        Per cortesia, controlla le [Contributing Guidelines](https://github.com/anhelus/python-calcolo-numerico/blob/master/CONTRIBUTING.md) per iniziare.
+      options:
+        - label: Sì, vorrei creare una Pull Request!
