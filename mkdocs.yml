@@ -103,6 +103,9 @@ extra:
     - icon: fontawesome/solid/paper-plane
       link: mailto:angelo.cardellicchio@stiima.cnr.it
   # disqus: finance-programiq-it
+  analytics:
+    provider: google
+    property: G-ZCZWPCYZJ9
 
 extra_javascript:
   - js/config.js
@@ -113,7 +116,3 @@ extra_css:
   - stylesheets/extra.css
 
 copyright: Copyright &copy; Angelo Cardellicchio - MIT License
-
-google_analytics:
-  - G-ZCZWPCYZJ9
-  - auto
