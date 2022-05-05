@@ -1,6 +1,10 @@
-# Risoluzione degli esercizi
+# E7.5 - Operazioni polinomiali in NumPy
 
-1. Scriviamo la funzione `somma_polinomi(pol_1, pol_2)` che permetta di sommare due polinomi di grandezza arbitraria.
+## Esercizio E7.5.1
+
+Scriviamo la funzione `somma_polinomi(pol_1, pol_2)` che permetta di sommare due polinomi di grandezza arbitraria.
+
+### Soluzione S7.5.1
 
 ```py
 def somma_polinomi(pol_1, pol_2):
@@ -17,7 +21,11 @@ somma_polinomi([1, 2], [2, 2, 1])
 somma_polinomi([1, 2], [2, 2, 2, 1]) 
 ```
 
-2. Scriviamo la funzione `calcola_media(array, pesi)` che restituisce il valor medio di un array; usiamo una lista. Il parametro `pesi` è opzionale; nel caso sia lasciato il valore opzionale (lista vuota), la media sarà aritmetica; in caso contrario, verifichiamo la coerenza delle dimensioni dei vettori e restituiamo la media pesata.
+## Esercizio E7.5.2
+
+Scriviamo la funzione `calcola_media(array, pesi)` che restituisce il valor medio di un array; usiamo una lista. Il parametro `pesi` è opzionale; nel caso sia lasciato il valore opzionale (lista vuota), la media sarà aritmetica; in caso contrario, verifichiamo la coerenza delle dimensioni dei vettori e restituiamo la media pesata.
+
+### Soluzione S7.5.2
 
 ```py
 def calcola_media(array, pesi=[]):

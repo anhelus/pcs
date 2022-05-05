@@ -6,7 +6,7 @@ Scriviamo una funzione che restituisca il prodotto riga per colonna di due vetto
 
 Provare ad effettuare la stessa operazione in NumPy.
 
-### S7.2.1 - Soluzione
+### Soluzione S7.2.1
 
 Ecco una possibile soluzione:
 
@@ -47,7 +47,7 @@ Scriviamo una funzione `crea_array(dim_1, dim_2, val_min, val_max)` che crei arr
 
 Provare ad effettuare la stessa operazione in NumPy.
 
-### S7.2.2 - Soluzione
+### Soluzione S7.2.2
 
 Ecco una possibile soluzione:
 
