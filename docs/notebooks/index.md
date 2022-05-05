@@ -4,6 +4,9 @@
 
 | Notebook                              | Link                                          |
 | ------------------------------------- | --------------------------------------------- |
+| Lezione 7.4                           | [:link:](../material/02_libs/07_numpy/04_algebra/notebook.ipynb) |
+| Lezione 7.5                           | [:link:](../material/02_libs/07_numpy/05_polynomials/notebook.ipynb) |
+| Lezione 7.6                           | [:link:](../material/02_libs/07_numpy/06_statistics/notebook.ipynb) |
 | Lezione 10                            | [:link:](./base/lezioni/lezione_10.ipynb)     |
 | Lezione 11                            | [:link:](./base/lezioni/lezione_11.ipynb)     |
 | Lezione 12                            | [:link:](./base/lezioni/lezione_12.ipynb)     |
