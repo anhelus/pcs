@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#risoluzione-degli-esercizi" class="md-skip">
+        <a href="#e75-operazioni-polinomiali-in-numpy" class="md-skip">
           Skip to content
         </a>
       
@@ -981,9 +981,73 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          E7.5 - Polinomi in NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         E7.5 - Polinomi in NumPy
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e751" class="md-nav__link">
+    Esercizio E7.5.1
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizio E7.5.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluzione-s751" class="md-nav__link">
+    Soluzione S7.5.1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e752" class="md-nav__link">
+    Esercizio E7.5.2
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizio E7.5.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluzione-s752" class="md-nav__link">
+    Soluzione S7.5.2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1161,6 +1225,54 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e751" class="md-nav__link">
+    Esercizio E7.5.1
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizio E7.5.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluzione-s751" class="md-nav__link">
+    Soluzione S7.5.1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e752" class="md-nav__link">
+    Esercizio E7.5.2
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizio E7.5.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluzione-s752" class="md-nav__link">
+    Soluzione S7.5.2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1173,10 +1285,10 @@
                 
 
 
-<h1 id="risoluzione-degli-esercizi">Risoluzione degli esercizi<a class="headerlink" href="#risoluzione-degli-esercizi" title="Permanent link">&para;</a></h1>
-<ol>
-<li>Scriviamo la funzione <code>somma_polinomi(pol_1, pol_2)</code> che permetta di sommare due polinomi di grandezza arbitraria.</li>
-</ol>
+<h1 id="e75-operazioni-polinomiali-in-numpy">E7.5 - Operazioni polinomiali in NumPy<a class="headerlink" href="#e75-operazioni-polinomiali-in-numpy" title="Permanent link">&para;</a></h1>
+<h2 id="esercizio-e751">Esercizio E7.5.1<a class="headerlink" href="#esercizio-e751" title="Permanent link">&para;</a></h2>
+<p>Scriviamo la funzione <code>somma_polinomi(pol_1, pol_2)</code> che permetta di sommare due polinomi di grandezza arbitraria.</p>
+<h3 id="soluzione-s751">Soluzione S7.5.1<a class="headerlink" href="#soluzione-s751" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">somma_polinomi</span><span class="p">(</span><span class="n">pol_1</span><span class="p">,</span> <span class="n">pol_2</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_2</span><span class="p">):</span>
         <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">pol_2</span><span class="p">):</span>
@@ -1190,9 +1302,9 @@
 <span class="n">somma_polinomi</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>    
 <span class="n">somma_polinomi</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> 
 </code></pre></div>
-<ol start="2">
-<li>Scriviamo la funzione <code>calcola_media(array, pesi)</code> che restituisce il valor medio di un array; usiamo una lista. Il parametro <code>pesi</code> è opzionale; nel caso sia lasciato il valore opzionale (lista vuota), la media sarà aritmetica; in caso contrario, verifichiamo la coerenza delle dimensioni dei vettori e restituiamo la media pesata.</li>
-</ol>
+<h2 id="esercizio-e752">Esercizio E7.5.2<a class="headerlink" href="#esercizio-e752" title="Permanent link">&para;</a></h2>
+<p>Scriviamo la funzione <code>calcola_media(array, pesi)</code> che restituisce il valor medio di un array; usiamo una lista. Il parametro <code>pesi</code> è opzionale; nel caso sia lasciato il valore opzionale (lista vuota), la media sarà aritmetica; in caso contrario, verifichiamo la coerenza delle dimensioni dei vettori e restituiamo la media pesata.</p>
+<h3 id="soluzione-s752">Soluzione S7.5.2<a class="headerlink" href="#soluzione-s752" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">calcola_media</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">pesi</span><span class="o">=</span><span class="p">[]):</span>
     <span class="k">if</span> <span class="n">pesi</span> <span class="o">==</span> <span class="p">[]:</span>
         <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>

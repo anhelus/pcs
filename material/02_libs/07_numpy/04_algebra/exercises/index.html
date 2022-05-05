@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#risoluzione-degli-esercizi" class="md-skip">
+        <a href="#e74-operazioni-algebriche-in-numpy" class="md-skip">
           Skip to content
         </a>
       
@@ -967,9 +967,93 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          E7.4 - Algebra in NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         E7.4 - Algebra in NumPy
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e741" class="md-nav__link">
+    Esercizio E7.4.1
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizio E7.4.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluzione-s741" class="md-nav__link">
+    Soluzione S7.4.1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e742" class="md-nav__link">
+    Esercizio E7.4.2
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizio E7.4.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluzione-s742" class="md-nav__link">
+    Soluzione S7.4.2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e743" class="md-nav__link">
+    Esercizio E7.4.3
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizio E7.4.3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluzione-s743" class="md-nav__link">
+    Soluzione S7.4.3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1161,6 +1245,74 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e741" class="md-nav__link">
+    Esercizio E7.4.1
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizio E7.4.1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluzione-s741" class="md-nav__link">
+    Soluzione S7.4.1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e742" class="md-nav__link">
+    Esercizio E7.4.2
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizio E7.4.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluzione-s742" class="md-nav__link">
+    Soluzione S7.4.2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e743" class="md-nav__link">
+    Esercizio E7.4.3
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizio E7.4.3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#soluzione-s743" class="md-nav__link">
+    Soluzione S7.4.3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1173,18 +1325,30 @@
                 
 
 
-<h1 id="risoluzione-degli-esercizi">Risoluzione degli esercizi<a class="headerlink" href="#risoluzione-degli-esercizi" title="Permanent link">&para;</a></h1>
-<ol>
-<li>Scriviamo la funzione <code>calcola_determinante(mat)</code> che permetta di calcolare il determinante di una matrice <span class="arithmatex">\(2 \times 2\)</span>.</li>
-</ol>
+<h1 id="e74-operazioni-algebriche-in-numpy">E7.4 - Operazioni algebriche in NumPy<a class="headerlink" href="#e74-operazioni-algebriche-in-numpy" title="Permanent link">&para;</a></h1>
+<h2 id="esercizio-e741">Esercizio E7.4.1<a class="headerlink" href="#esercizio-e741" title="Permanent link">&para;</a></h2>
+<p>Verificare che il prodotto tra una matrice invertibile e la sua inversa sia la matrice identità.</p>
+<h3 id="soluzione-s741">Soluzione S7.4.1<a class="headerlink" href="#soluzione-s741" title="Permanent link">&para;</a></h3>
+<p>Ecco una possibile soluzione.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="n">mat_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="n">mat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat_inv</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="esercizio-e742">Esercizio E7.4.2<a class="headerlink" href="#esercizio-e742" title="Permanent link">&para;</a></h2>
+<p>Scriviamo la funzione <code>calcola_determinante(mat)</code> che permetta di calcolare il determinante di una matrice <span class="arithmatex">\(2 \times 2\)</span> <strong>senza usare l'apposita funzione NumPy</strong>.</p>
+<h3 id="soluzione-s742">Soluzione S7.4.2<a class="headerlink" href="#soluzione-s742" title="Permanent link">&para;</a></h3>
+<p>Ecco una possibile soluzione:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">calcola_determinante</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">mat</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;La matrice non ha le dimensioni attese.&#39;</span><span class="p">)</span>
 </code></pre></div>
-<ol start="2">
-<li>Scriviamo la funzione <code>inverti_se_inveribile(mat)</code> che, data una matrice bidimensionale, restituisca l'inversa soltanto se <code>mat</code> è bidimensionale e quadrata, ed il determinante è diverso da zero. Usare esclusivamente le istruzioni <code>if</code>.</li>
-</ol>
+<h2 id="esercizio-e743">Esercizio E7.4.3<a class="headerlink" href="#esercizio-e743" title="Permanent link">&para;</a></h2>
+<p>Scriviamo la funzione <code>inverti_se_inveribile(mat)</code> che, data una matrice bidimensionale, restituisca l'inversa soltanto se <code>mat</code> è bidimensionale e quadrata, ed il determinante è diverso da zero. Usare esclusivamente le istruzioni <code>if</code>.</p>
+<h3 id="soluzione-s743">Soluzione S7.4.3<a class="headerlink" href="#soluzione-s743" title="Permanent link">&para;</a></h3>
+<p>Ecco una possibile soluzione:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">inverti_se_invertibile</span><span class="p">(</span><span class="n">mat</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> \
         <span class="ow">and</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> \
