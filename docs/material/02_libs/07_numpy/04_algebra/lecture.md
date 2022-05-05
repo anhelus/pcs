@@ -1,27 +1,32 @@
-# Operazioni matriciali
+# 7.4 - Operazioni matriciali
 
-La maggior parte delle operazioni matriciali possono essere svolte usando il package `linalg` di NumPy. Tutti gli esempi che faremo nel prosieguo, quindi, prevederanno l'importazione di questo package; facciamolo scrivendo l'opportuna istruzione `import`.
+NumPy mette a disposizione il package `linalg` per permettere di effettuare numerose operazioni matriciali. La maggior parte degli esempi che vedremo nel seguito prevedono l'utilizzo di questo package, per cui possiamo partire importandolo.
 
 ```py
 from numpy import linalg
 ```
 
-## Trasposta di una matrice
+## 7.4.1 - Matrice trasposta
 
-La prima operazione che vedremo *non* richiede l'uso del modulo `linalg`, ed è quella che ci permette di effettuare la trasposta di una matrice. Per farlo, usiamo la funzione `transpose`.
+La prima operazione che vediamo *non* richiede l'uso del modulo `linalg`, ed è quella che ci permette di effettuare la trasposta di una matrice. Per farlo, usiamo la funzione `transpose`.
 
 ```py
->>> np.transpose(x)
+x = np.array([[1, 2, 3], [4, 5, 6]])
+np.transpose(x)
+
+array([[1, 4],
+       [2, 5],
+       [3, 6]])
 ```
 
-## Matrice inversa
+## 7.4.2 - Matrice inversa
 
 Possiamo calcolare l'inversa di una matrice usando la funzione `inv(mat)` del package `linalg`, dove `mat` è la matrice da invertire. Ad esempio:
 
 ```py
->>> mat = np.array([[5, 0, 0], [0, 2, 0], [0, 0, 4]])
->>> mat_inv = linalg.inv(mat)
->>> mat_inv
+mat = np.array([[5, 0, 0], [0, 2, 0], [0, 0, 4]])
+linalg.inv(mat)
+
 array([[0.2 , 0.  , 0.  ],
        [0.  , 0.5 , 0.  ],
        [0.  , 0.  , 0.25]])
@@ -30,8 +35,9 @@ array([[0.2 , 0.  , 0.  ],
 Ovviamente, la matrice `mat` deve essere invertibile. Nel caso passassimo una matrice rettangolare, infatti,verrebbe lanciato un `LinAlgError`:
 
 ```py
->>> mat = np.array([[1,2,3], [4,5,6]])
->>> linalg.inv(mat)
+mat = np.array([[1,2,3], [4,5,6]])
+linalg.inv(mat)
+
 Traceback (most recent call last):
 numpy.linalg.LinAlgError: Last 2 dimensions of the array must be square
 ```
@@ -39,26 +45,18 @@ numpy.linalg.LinAlgError: Last 2 dimensions of the array must be square
 Lo stesso accade per una matrice singolare:
 
 ```py
->>> mat = np.array([[1,1,1],[2,2,2],[0,0,1]])
->>> linalg.inv(mat)
+mat = np.array([[1,1,1],[2,2,2],[0,0,1]])
+linalg.inv(mat)
+
 Traceback (most recent call last):
 numpy.linalg.LinAlgError: Singular matrix
 ```
 
-!!!note "Curiosità"
-	La matrice inversa che viene calcolata dalla funzione `inv()` è quella che, moltiplicata per la matrice iniziale, restituisce la matrice identità. Verifichiamolo:
-	> ```py
-	  >>> mat.dot(mat_inv)
-	  array([[1., 0., 0.],
-		  [0., 1., 0.],
-		  [0., 0., 1.]])
-	  ```
+## 7.4.3 - Prodotti vettoriali e matriciali
 
-## Prodotti vettoriali e matriciali
+### 7.4.3.1 - La funzione `dot()`
 
-### La funzione `dot()`
-
-Abbiamo già visto nella lezione precedente un esempio di uso della funzione `dot(a, b)`, utile a calcolare il prodotto matriciale tra gli array `a` ed `b`. Ovviamente, si applicano tutte le regole valevoli per il calcolo del prodotto matriciale (ovvero quello relativo alla moltiplicazione righe per colonne); riassumiamole nella seguente tabella sulla base delle dimensionalità di `a` ed `b`.
+Nella scorsa lezione abbiamo visto un esempio di uso della funzione `dot(a, b)`, necessaria a calcolare il prodotto matriciale tra gli array `a` ed `b`. Ovviamente, si applicano tutte le regole valevoli per il calcolo del prodotto matriciale (ovvero quello relativo alla moltiplicazione righe per colonne); riassumiamole nella seguente tabella sulla base delle dimensionalità di `a` ed `b`.
 
 | Dimensionalità `a` | Dimensionalità `b` | Risultato | Note |
 | ---------------- | ----- | --------- | ---- |
@@ -67,26 +65,38 @@ Abbiamo già visto nella lezione precedente un esempio di uso della funzione `do
 | Scalare | N-dimensionale | Prodotto scalare per array N-dimensionale | Preferire la funzione `multiply(a, b)` o l'operatore `*` |
 | N-dimensionale | Scalare | Prodotto scalare per array N-dimensionale | Preferire la funzione `multiply(a, b)` o l'operatore `*` |
 
-Nel caso entrambi gli array siano N-dimensionali, si applicano altre regole che non approfondiremo in questa sede (è possibile recuperarle a [questo indirizzo](https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot)).
+Nel caso entrambi gli array siano N-dimensionali, si applicano altre regole, che è possibile recuperare a [questo indirizzo](https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot).
 
-### Prodotto interno
+### 7.4.3.2 - Prodotto interno
 
 Possiamo usare la funzione `inner(a, b)` per calcolare il *prodotto interno* (o *scalare*) tra i vettori `a` e `b`:
 
 ```py
->>> np.inner(a, b)
-11
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+np.inner(a, b)
+
+32
 ```
 
-### Prodotto esterno
+!!!note "Definizione di prodotto interno"
+	Ricordiamo che per due generici vettori monodimensionali $v_1 = [v_{11}, \ldots, v_{1j}], v_2 = [v_{21}, \ldots, v_{2j}]$ il prodotto scalare è dato da:
+	> $$p = \sum_{i=1}^j v_{1i} * v_{2i}$$
+
+### 7.4.3.2 - Prodotto esterno
 
 Possiamo usare la funzione `outer(a, b)` per calcolare il *prodotto esterno* tra due vettori. In particolare, dati due vettori $a = [a_1, a_2, \ldots, a_n]$ e $b = [b_1, b_2, \ldots, b_n]$, il prodotto esterno è definito come la matrice $P$ tale che:
 
-```py
-P = [[a_1 * b_1 ... a_1*b_n],
-	...,
-	[a_n * b_1 ... a_n*b_n]]
-```
+$$
+P = \left[
+	\begin{array}{ccc}
+		a_1 * b_1 & \ldots & a_1 * b_n \\
+		\vdots & \ddots & \vdots \\
+		a_n * b_1 & \ldots & a_n * b_n
+	\end{array}
+\right]
+$$
 
 Ad esempio:
 
@@ -96,113 +106,68 @@ array([[3, 4],
        [6, 8]])
 ```
 
-### La funzione `matmul`
+### 7.4.3.3 - La funzione `matmul`
 
 Quando abbiamo parlato della funzione `dot(a, b)` abbiamo visto come sia possibile usarla per effettuare il prodotto matriciale tra le matrici `mat_1` e `mat_2`. Tuttavia, esiste un'altra possibilità, che è anche quella *consigliata*, ovvero usare la funzione `matmul(a, b)`:
 
 ```py
->>> a = np.array([[1, 2], [3, 4]])
->>> b = np.array([[5, 6], [7, 8]])
->>> np.matmul(a, b)
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [7, 8]])
+
+np.matmul(a, b)
 array([[19, 22],
        [43, 50]])
 ```
 
 La funzione `matmul()` ha una differenza fondamentale rispetto alla funzione `dot()`, in quanto non accetta scalari come parametro (anche se è possibile passare vettori ed array N-dimensionali). Esiste in realtà un'altra differenza importante, che riguarda le operazioni N-dimensionali, ma che non tratteremo in questa sede.
 
-## Potenza di matrice
+## 7.4.4 - Potenza di matrice
 
 La funzione `matrix_power(a, n)` del package `linalg` permette di elevare a potenza `n` della matrice `a`. Ad esempio:
 
 ```py
->>> matrix_power(a, 5)
+matrix_power(a, 5)
+
 array([[1069, 1558],
        [2337, 3406]])
 ```
 
-## Decomposizione di matrice
+## 7.4.5 - Decomposizione ai valori singolari
 
-### Decomposizione QR
+La *decomposizione ai valori singolari*, detta anche *SVD* dall'acronimo inglese *Singular Value Decomposition*, è una tecnica di decomposizione di una matrice che permette di scomporla in modo da semplificarci la vita in alcune situazioni.
 
-La *decomposizione* (o *fattorizzazione*) $QR$ di una matrice invertibile $A$ si definisce come il prodotto di una matrice ortogonale $Q$ è una matrice ortogonale per una matrice triangolare superiore $R$:
+!!!tip "Approfondimento"
+	Per un'approfondimento sui principi alla base della SVD, consultare l'[appendice E.1](../../../appendix/06_algorithms/01_svd/lecture.md).
 
-$$
-A = QR
-$$
-
-!!!tip "Matrice ortogonale"
-	Una matrice ortogonale è una matrice quadrata la cui inversa coincide con la trasposta.
-
-NumPy ci offre un metodo per effettuare la decomposizione QR in un'unica istruzione mediante la funzione `qr(a)` del package `linalg`. Ad esempio:
+L'implementazione da zero della SVD è estremamente complessa; tuttavia, NumPy ci viene quindi in aiuto con la funzione `svd(mat)` del package `linalg`:
 
 ```py
->>> (q, r) = qr(mat)
->>> q
-array([[-0.74535599, -0.28151707, -0.60431166],
-       [-0.2981424 , -0.67001063,  0.67985062],
-       [-0.59628479,  0.68690166,  0.41546427]])
->>> r
-array([[ -6.70820393,  -1.19256959, -14.16176386],
-       [  0.        ,  -3.94686936,   5.03915561],
-       [  0.        ,   0.        ,   0.22661687]])
+(u, s, v) = linalg.svd(a)
+
+u: [[-0.40455358 -0.9145143 ]
+ [-0.9145143   0.40455358]] 
+s: [5.4649857  0.36596619] 
+v: [[-0.57604844 -0.81741556]
+ [ 0.81741556 -0.57604844]]
 ```
 
-Notiamo che il valore restituito dalla funzione è una tupla il cui primo elemento è la matrice $Q$, mentre il secondo è $R$.
-
-## Decomposizione ai valori singolari
-
-La *decomposizione ai valori singolari*, detta anche *SVD* (dall'inglese *Singular Value Decomposition*), è un tipo di fattorizzazione basato sul concetto di *autovalore* ed *autovettore*. In particolare, data una matrice $A$ di dimensioni $m \times n$, questa è decomponibile come segue:
-
-$$
-A = U \Sigma V^*
-$$
-
-dove $U$ è una matrice unitaria di dimensioni $m \times m$, $\Sigma$ è una matrice diagonale rettangolare di dimensioni $m \times n$, e $V^*$ è la trasposta coinugata di una matrice unitaria di dimensioni $n \times n$.
-
-!!!tip "Trasposta coniugata"
-	La trasposta coniugata di una matrice è ottenuta effettuandone la trasposizione e scambiando ogni elemento con il suo complesso coniugato.
-
-Anche in questo caso, la SVD è estremamente complessa da implementare a partire dalle sue funzioni basilari. NumPy ci viene quindi in aiuto con la funzione `svd(mat)` del package `linalg`. Ad esempio:
-
-```py
->>> (u, s, v) = linalg.svd(mat)
->>> u
-array([[-0.62732922, -0.48645199, -0.60813034],
-       [-0.10481126, -0.72105629,  0.68490322],
-       [-0.77166874,  0.49339871,  0.40135404]])
->>> s
-array([16.33118238,  4.61369058,  0.07963155])
->>> v
-array([[-0.39390556, -0.00157703, -0.91914956],
-       [-0.41198638, -0.89361655,  0.17809178],
-       [-0.82164812,  0.44882844,  0.35135082]])
-```
-
-## Autovalori ed autovettori
-
-I concetti di autovalore ed autovettore hanno ampia applicazione in numerose discipline scientifiche, arrivando a definire la base su cui vengono elaborati alcuni degli approcci più avanzati al machine learning.
-
-Formalmente, data una matrice quadrata $A$ di ordine $n$ con valori in uno spazio $\mathbb{K}$, uno scalare $\lambda_0 \in \mathbb{K}$ è definito *autovalore* di $A$ se esiste un vettore colonna non nullo $v_0 \in K^n$ tale che:
-
-$$
-Av = \lambda_0v
-$$
-
-Dal punto di vista "fisico", un autovettore non cambia la sua direzione a seguito dell'applicazione di una trasformazione lineare. Possiamo, ad esempio, ruotarlo, ma la sua direzione non verrà modificata; l'unico effetto che potremo notare sarà una modifica nel modulo o nel verso, a seconda del suo autovalore.
+## 7.4.6 - Autovalori ed autovettori
 
 Per calcolare gli autovalori e gli autovettori di una matrice, NumPy ci mette a disposizione la funzione `eig(a)`, sempre appartenente al package `linalg`, che restituisce gli autovalori e gli autovettori destri di una matrice quadrata:
 
 ```py
->>> (w, v) = linalg.eig(mat)
->>> w
+(w, v) = linalg.eig(mat)
+
+w
 array([15.23391422,  0.08412242,  4.68196336])
->>> v
+
+v
 array([[-0.66930729, -0.82394712, -0.68445786],
        [-0.16856631,  0.44469209, -0.70619627],
        [-0.72361119,  0.35122656,  0.18111947]])
 ```
 
-## Norma
+## 7.4.7 - Norma
 
 La funzione `linalg.norm(a)` ci permette di calcolare la norma di una matrice. Opzionalmente, possiamo specificare tre parametri, ovvero:
 
@@ -213,11 +178,12 @@ La funzione `linalg.norm(a)` ci permette di calcolare la norma di una matrice. O
 Per calcolare la norma di Frobenius della matrice `mat` possiamo usare questa sintassi:
 
 ```py
->>> linalg.norm(mat)
+linalg.norm(mat)
+
 16.97056274847714
 ```
 
-## Determinante, rango e traccia
+## 7.4.8 - Determinante, rango e traccia
 
 Possiamo calcolare rapidamente determinante, rango e traccia di una matrice mediante le funzioni `det(a)`, `matrix_rank(a)` e `trace(a)`, quest'ultima **non** appartenente al package `linalg`. Ad esempio:
 
@@ -230,32 +196,29 @@ Possiamo calcolare rapidamente determinante, rango e traccia di una matrice medi
 20
 ```
 
-!!!note "Nota"
-	La funzione `trace` può anche essere usata per calcolare la sommatoria delle sovra/sotto diagonali specificando il parametro `offset`. Ad esempio:
-	> ```py
-	  >>> mat
-	  array([[ 5,  2,  9],
-		  [ 2,  3,  1],
-		  [ 4, -2, 12]])
-	  >>> np.trace(mat, offset=1)
-	  3
-	  >>> np.trace(mat, offset=-1)
-	  0
-	  ```
+La funzione `trace` può anche essere usata per calcolare la sommatoria delle sovra/sotto diagonali specificando il parametro `offset`. Ad esempio:
 
-## Risoluzione di sistemi
+```py
+mat = np.array([[ 5,  2,  9],
+	[ 2,  3,  1],
+	[ 4, -2, 12]])
+
+np.trace(mat, offset=1)
+3
+
+np.trace(mat, offset=-1)
+0
+```
+
+## 7.4.9 - Risoluzione di sistemi di equazioni lineari
 
 Chiudiamo questa (necessariamente breve!) carrellata sulle operazioni di algebra lineare con la funzione `solve(a, b)`, che permette di risolvere un sistema di equazioni lineari nel quale la matrice `a` è la matrice dei coefficienti, mentre il vettore `b` è il vettore dei termini noti. Ad esempio:
 
 ```py
->>> b = np.array([3, 2, 3])
->>> linalg.solve(mat, b)
+b = np.array([3, 2, 3])
+linalg.solve(mat, b)
+
 array([-7.5,  4.5,  3.5])
 ```
 
-!!!note "Nota"
-	Ovviamente, la matrice `a` deve essere quadrata, mentre il vettore `b` deve avere esattamente `n` elementi, con `n` ordine di `a`!
-
-## Conclusioni
-
-In questa lezione, abbiamo visto come NumPy ci offra dei metodi per effettuare le operazioni base di algebra lineare in poche e semplici operazioni. Nella successiva, vedremo i metodi che ci vengono dati per trattare i polinomi reali.
+Ovviamente, la matrice `a` deve essere quadrata, mentre il vettore `b` deve avere esattamente `n` elementi, con `n` ordine di `a`!

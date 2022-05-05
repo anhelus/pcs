@@ -1,6 +1,28 @@
-# Risoluzione degli esercizi
+# E7.4 - Operazioni algebriche in NumPy
 
-1. Scriviamo la funzione `calcola_determinante(mat)` che permetta di calcolare il determinante di una matrice $2 \times 2$.
+## Esercizio E7.4.1
+
+Verificare che il prodotto tra una matrice invertibile e la sua inversa sia la matrice identità.
+
+### Soluzione S7.4.1
+
+Ecco una possibile soluzione.
+
+```py
+import numpy as np
+
+mat = np.array([[5, 0, 1], [0, 2, 2], [0, 0, 3]])
+mat_inv = np.linalg.inv(mat)
+np.eye(3) == mat.dot(mat_inv)
+```
+
+## Esercizio E7.4.2
+
+Scriviamo la funzione `calcola_determinante(mat)` che permetta di calcolare il determinante di una matrice $2 \times 2$ **senza usare l'apposita funzione NumPy**.
+
+### Soluzione S7.4.2
+
+Ecco una possibile soluzione:
 
 ```py
 def calcola_determinante(mat):
@@ -9,7 +31,13 @@ def calcola_determinante(mat):
     raise ValueError('La matrice non ha le dimensioni attese.')
 ```
 
-2. Scriviamo la funzione `inverti_se_inveribile(mat)` che, data una matrice bidimensionale, restituisca l'inversa soltanto se `mat` è bidimensionale e quadrata, ed il determinante è diverso da zero. Usare esclusivamente le istruzioni `if`.
+## Esercizio E7.4.3
+
+Scriviamo la funzione `inverti_se_inveribile(mat)` che, data una matrice bidimensionale, restituisca l'inversa soltanto se `mat` è bidimensionale e quadrata, ed il determinante è diverso da zero. Usare esclusivamente le istruzioni `if`.
+
+### Soluzione S7.4.3
+
+Ecco una possibile soluzione:
 
 ```py
 def inverti_se_invertibile(mat):
