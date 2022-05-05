@@ -1,4 +1,4 @@
-# Appendice A - Python
+# Appendice E - Python
 
 ## Tabella degli operatori booleani
 
