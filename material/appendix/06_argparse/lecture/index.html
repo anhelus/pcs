@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://python.angelocardellicchio.it/material/01_python/05_modules/lecture/">
+        <link rel="canonical" href="https://python.angelocardellicchio.it/material/appendix/06_argparse/lecture/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
     
     
       
-        <title>5 - Moduli - Python per il Calcolo Scientifico</title>
+        <title>F - Il modulo argparse - Python per il Calcolo Scientifico</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#5-script-e-moduli" class="md-skip">
+        <a href="#appendice-f-il-modulo-argparse" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5 - Moduli
+              F - Il modulo argparse
             
           </span>
         </div>
@@ -220,14 +220,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
@@ -262,7 +260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_intro/lecture/" class="md-nav__link">
+      <a href="../../../01_python/01_intro/lecture/" class="md-nav__link">
         1 - Introduzione a Python
       </a>
     </li>
@@ -276,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_syntax/lecture/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/lecture/" class="md-nav__link">
         2 - Programmare in Python
       </a>
     </li>
@@ -290,7 +288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_data_structures/lecture/" class="md-nav__link">
+      <a href="../../../01_python/03_data_structures/lecture/" class="md-nav__link">
         3 - Strutture dati
       </a>
     </li>
@@ -304,7 +302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04_classes/lecture/" class="md-nav__link">
+      <a href="../../../01_python/04_classes/lecture/" class="md-nav__link">
         4 - Classi
       </a>
     </li>
@@ -316,113 +314,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          5 - Moduli
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../01_python/05_modules/lecture/" class="md-nav__link">
         5 - Moduli
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#51-il-primo-script" class="md-nav__link">
-    5.1 - Il primo script
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#52-i-moduli" class="md-nav__link">
-    5.2 - I moduli
-  </a>
-  
-    <nav class="md-nav" aria-label="5.2 - I moduli">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#521-i-moduli-geometria-e-trigonometria" class="md-nav__link">
-    5.2.1 - I moduli geometria e trigonometria
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#53-usare-gli-import" class="md-nav__link">
-    5.3 - Usare gli import
-  </a>
-  
-    <nav class="md-nav" aria-label="5.3 - Usare gli import">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#531-alias" class="md-nav__link">
-    5.3.1 - Alias
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#54-la-funzione-dir" class="md-nav__link">
-    5.4 - La funzione dir()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#55-moduli-della-libreria-standard" class="md-nav__link">
-    5.5 - Moduli della libreria standard
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#56-package" class="md-nav__link">
-    5.6 - Package
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -976,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_intro/exercises/" class="md-nav__link">
+      <a href="../../../01_python/01_intro/exercises/" class="md-nav__link">
         E1 - Introduzione a Python
       </a>
     </li>
@@ -990,7 +886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_syntax/exercises/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/exercises/" class="md-nav__link">
         E2 - Programmare in Python
       </a>
     </li>
@@ -1004,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_data_structures/exercises/" class="md-nav__link">
+      <a href="../../../01_python/03_data_structures/exercises/" class="md-nav__link">
         E3 - Strutture dati in Python
       </a>
     </li>
@@ -1018,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04_classes/exercises/" class="md-nav__link">
+      <a href="../../../01_python/04_classes/exercises/" class="md-nav__link">
         E4 - Programmazione orientata agli oggetti in Python
       </a>
     </li>
@@ -1108,12 +1004,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -1150,7 +1048,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/01_python_vs_code/guide/" class="md-nav__link">
+      <a href="../../01_python_vs_code/guide/" class="md-nav__link">
         A - Installazione di Python e Visual Studio Code
       </a>
     </li>
@@ -1164,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/02_libraries/lecture/" class="md-nav__link">
+      <a href="../../02_libraries/lecture/" class="md-nav__link">
         B - Le librerie in Python
       </a>
     </li>
@@ -1178,7 +1076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/03_scope/lecture/" class="md-nav__link">
+      <a href="../../03_scope/lecture/" class="md-nav__link">
         C - Ambito di una variabile
       </a>
     </li>
@@ -1192,7 +1090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/04_oop/lecture/" class="md-nav__link">
+      <a href="../../04_oop/lecture/" class="md-nav__link">
         D - Programmazione orientata agli oggetti
       </a>
     </li>
@@ -1206,7 +1104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/05_tips/lecture/" class="md-nav__link">
+      <a href="../../05_tips/lecture/" class="md-nav__link">
         E - Tips
       </a>
     </li>
@@ -1218,11 +1116,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../appendix/06_argparse/lecture/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         F - Il modulo argparse
       </a>
+      
     </li>
   
 
@@ -1269,82 +1177,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#51-il-primo-script" class="md-nav__link">
-    5.1 - Il primo script
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#52-i-moduli" class="md-nav__link">
-    5.2 - I moduli
-  </a>
-  
-    <nav class="md-nav" aria-label="5.2 - I moduli">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#521-i-moduli-geometria-e-trigonometria" class="md-nav__link">
-    5.2.1 - I moduli geometria e trigonometria
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#53-usare-gli-import" class="md-nav__link">
-    5.3 - Usare gli import
-  </a>
-  
-    <nav class="md-nav" aria-label="5.3 - Usare gli import">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#531-alias" class="md-nav__link">
-    5.3.1 - Alias
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#54-la-funzione-dir" class="md-nav__link">
-    5.4 - La funzione dir()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#55-moduli-della-libreria-standard" class="md-nav__link">
-    5.5 - Moduli della libreria standard
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#56-package" class="md-nav__link">
-    5.6 - Package
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1357,151 +1189,150 @@
                 
 
 
-<h1 id="5-script-e-moduli">5 - Script e moduli<a class="headerlink" href="#5-script-e-moduli" title="Permanent link">&para;</a></h1>
-<p>Quando si usa Python la tentazione è quella di interagire direttamente con l'interprete, lanciandolo da terminale ed eseguendo di volta in volta le istruzioni necessarie. Ovviamente questo approccio, seppur immediato, presenta diversi svantaggi. Ad esempio:</p>
-<ul>
-<li>non avremo a disposizione il syntax highlighting offerto da una normale IDE;</li>
-<li>non potremo recuperare il codice una volta chiuso l'interprete;</li>
-<li>non potremo né modificare, né verificare facilmente il funzionamento del codice.</li>
-</ul>
-<p>Appare quindi evidente come usare l'interprete <em>non</em> sia un modo ottimale di sviluppare codice Python. Di conseguenza, sarà necessario definire, mediante la nostra IDE di riferimento, dei veri e propri <em>script</em> che saranno salvati sotto forma di file con estensione <code>.py</code>, ognuno dei quali contenenti una serie di istruzioni necessarie all'esecuzione del nostro programma.</p>
-<h2 id="51-il-primo-script">5.1 - Il primo script<a class="headerlink" href="#51-il-primo-script" title="Permanent link">&para;</a></h2>
-<p>Proviamo quindi a creare il nostro primo script Python. Per farlo, apriamo la nostra IDE di riferimento, come Visual Studio Code, e creiamo un file chiamato <code>main.py</code>, all'interno del quale inseriremo il seguente codice:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># main.py</span>
-<span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world&#39;</span><span class="p">)</span>
-
-<span class="n">hello_world</span><span class="p">()</span>
-</code></pre></div>
-<p>Adesso apriamo un terminale, spostiamoci nella cartella nel quale abbiamo salvato questo script, ed eseguiamolo:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> cartella_dove_risiede_lo_script
-python main.py
-</code></pre></div>
-<p>Le due istruzioni precedenti:</p>
-<ul>
-<li>servono a cambiare cartella (<em>change directory</em>, <code>cd</code>), spostandoci nella cartella dove risiede lo script;</li>
-<li>dicono all'interprete Python di lanciare lo script <code>main.py</code>.</li>
-</ul>
-<p>A schermo, se tutto è andato per il verso giusto, apparirà la scritta <code>Hello, world</code>:</p>
-<div class="highlight"><pre><span></span><code>Hello, world
-</code></pre></div>
-<h2 id="52-i-moduli">5.2 - I moduli<a class="headerlink" href="#52-i-moduli" title="Permanent link">&para;</a></h2>
-<p>Quando le dimensioni della nostra <em>code base</em> (ovvero la quantità di codice che scriviamo nel nostro programma) iniziano ad essere particolarmente "ingombranti", è opportuno adottare un approccio <em>modulare</em>, separando in file differenti parti di codice delegate a funzioni eterogenee. Facciamo un esempio.</p>
-<p>Immaginiamo di voler scrivere un programma che definisca delle funzioni per calcolare l'area delle principali figure geometriche. Modifichiamo quindi il nostro file <code>main.py</code> come segue:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">calcola_area_quadrato</span><span class="p">(</span><span class="n">lato</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">lato</span> <span class="o">*</span> <span class="n">lato</span>
-
-
-<span class="k">def</span> <span class="nf">calcola_area_rettangolo</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">altezza</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">base</span> <span class="o">*</span> <span class="n">altezza</span>
-
-
-<span class="k">def</span> <span class="nf">calcola_area_triangolo</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">altezza</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">base</span> <span class="o">*</span> <span class="n">altezza</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-
-
-<span class="n">area_quadrato</span> <span class="o">=</span> <span class="n">calcola_area_quadrato</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">area_rettangolo</span> <span class="o">=</span> <span class="n">calcola_area_rettangolo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">area_triangolo</span> <span class="o">=</span> <span class="n">calcola_area_triangolo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</code></pre></div>
-<p>Immaginiamo di voler quindi aggiungere una funzione di calcolo trigonometrico:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="k">def</span> <span class="nf">calcola_tangente</span><span class="p">(</span><span class="n">angolo</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angolo</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angolo</span><span class="p">)</span>
-
-
-<span class="n">tangente_pi</span> <span class="o">=</span> <span class="n">calcola_tangente</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-</code></pre></div>
-<p>Il codice del nostro file <code>main.py</code> comprenderà adesso funzioni di tipo geometrico e trigonometrico.</p>
-<p>Cosa succederebbe se volessimo integrare delle funzioni di calcolo integrale, o di altro tipo? Ovviamente, ci sarebbe da un lato un aumento delle dimensioni della code base, dall'altro un "mix" tra funzioni che afferiscono ad ambiti differenti (seppur simili tra loro). Una buona idea sarebbe quindi quella di <em>separare</em> le diverse parti del programma, magari raggruppando le funzioni geometriche nel file <code>geometria.py</code>, le funzioni trigonometriche nel file <code>trigonometria.py</code>, e via discorrendo.</p>
-<p>Questi file, che conterranno al loro interno prevalentemente funzioni (ma non solo), sono chiamati <em>moduli</em>.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>La linea che distingue gli script dai moduli è molto sottile, e nei fatti è facile fare confusione ed utilizzarli in maniera "intercambiabile". Sottolineamo però che, idealmente, gli script devono contenere al loro interno soltanto del codice che sarà <em>eseguito</em>, mentre i moduli solo del codice che sarà <em>invocato</em> da uno o più script.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Interprete e nome di un modulo</p>
-<p>L'interprete è in grado di risalire al nome di un modulo dal nome del file in cui è contenuto. Se, ad esempio, definiamo un modulo nel file <code>geometria.py</code>, l'interprete associerà a quel modulo il nome <code>geometria</code>. Detto nome è inoltre accessibile globalmente e dall'interno del modulo richiamando la variabile globale <code>__name__</code>.</p>
-</div>
-<h3 id="521-i-moduli-geometria-e-trigonometria">5.2.1 - I moduli <code>geometria</code> e <code>trigonometria</code><a class="headerlink" href="#521-i-moduli-geometria-e-trigonometria" title="Permanent link">&para;</a></h3>
-<p>Creiamo adesso il file <code>geometria.py</code>, all'interno del quale "sposteremo" le funzioni definite in precedenza per il calcolo geometrico.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># geometria.py</span>
-<span class="k">def</span> <span class="nf">calcola_area_quadrato</span><span class="p">(</span><span class="n">lato</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">lato</span> <span class="o">*</span> <span class="n">lato</span>
-
-
-<span class="k">def</span> <span class="nf">calcola_area_rettangolo</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">altezza</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">base</span> <span class="o">*</span> <span class="n">altezza</span>
-
-
-<span class="k">def</span> <span class="nf">calcola_area_triangolo</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">altezza</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">base</span> <span class="o">*</span> <span class="n">altezza</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-</code></pre></div>
-<p>Analogamente, nel file <code>trigonometria.py</code> andremo a definire la funzione per il calcolo della tangente.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">math</span>
-
-<span class="k">def</span> <span class="nf">calcola_tangente</span><span class="p">(</span><span class="n">angolo</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angolo</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angolo</span><span class="p">)</span>
-</code></pre></div>
-<p>Riscriviamo ora il file <code>main.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">geometria</span>
-<span class="kn">import</span> <span class="nn">trigonometria</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">geometria</span><span class="o">.</span><span class="n">calcola_area_quadrato</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">trigonometria</span><span class="o">.</span><span class="n">calcola_tangente</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-</code></pre></div>
-<p>Possiamo notare due cose.</p>
+<h1 id="appendice-f-il-modulo-argparse">Appendice F - Il modulo <code>argparse</code><a class="headerlink" href="#appendice-f-il-modulo-argparse" title="Permanent link">&para;</a></h1>
+<p>Il modulo <code>argparse</code> ci permette di inserire degli argomenti da passare al nostro script Python mediante riga di comando.</p>
+<p>Per farlo, dobbiamo seguire un processo articolato in quattro step:</p>
 <ol>
-<li>In primis, stiamo richiamando le funzioni <code>calcola_area_quadrato()</code> e <code>calcola_tangente()</code> definite nei moduli <code>geometria</code> e <code>trigonometria</code>, rispettivamente. Questi moduli sono importati all'interno del nostro script mediante la direttiva <code>import</code>.</li>
-<li>Alle righe 5 e 6, la "strana" sintassi mostrata serve a dichiarare quello che è il <code>main</code>, ovvero il punto di "accesso" al codice del nostro programma. Il <code>main</code> è normalmente presente in tutti i linguaggi di programmazione, alle volte sotto forme un po' differenti da quella qui mostrata; tuttavia, nel caso di script particolarmente semplici, il <code>main</code> può essere tranquillamente omesso, in quanto l'interprete riuscirà ad eseguirlo in maniera autonoma.</li>
+<li>creiamo un oggetto di classe <code>ArgumentParser</code>;</li>
+<li>aggiungiamo gli argomenti di cui intendiamo fare il parsing;</li>
+<li>effettuiamo il parsing di questi argomenti;</li>
+<li>usiamo gli argomenti per chiamare il metodo opportuno</li>
 </ol>
-<p>Proviamo a lanciare lo script; per farlo, digitiamo l'istruzione <code>python main.py</code> da terminale. A schermo, se tutto è andato per il verso giusto, vedremo i valori dell'area di un quadrato e della tangente di <span class="arithmatex">\(\pi\)</span>.</p>
-<h2 id="53-usare-gli-import">5.3 - Usare gli import<a class="headerlink" href="#53-usare-gli-import" title="Permanent link">&para;</a></h2>
-<p>Relativamente al modulo <code>geometria</code>, abbiamo usato esclusivamente la funzione <code>calcola_area_quadrato()</code>, "trascurando" le altre due funzioni comunque presenti nel modulo. In queste circostanze, possiamo usare una versione modificata della direttiva <code>import</code>, che assume la seguente forma:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">modulo</span> <span class="kn">import</span> <span class="n">funzione_o_classe</span>
-</code></pre></div>
-<p>il che, nel nostro caso specifico, diventa:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">geometria</span> <span class="kn">import</span> <span class="n">calcola_area_quadrato</span>
-</code></pre></div>
-<p>In questo modo, possiamo importare solamente quello che ci serve, il che risulta particolarmente utile a migliorare l'efficienza del nostro codice; il perché sarà chiaro a breve.</p>
-<h3 id="531-alias">5.3.1 - Alias<a class="headerlink" href="#531-alias" title="Permanent link">&para;</a></h3>
-<p>La direttiva <code>import</code> ci permette di definire anche degli alias, particolarmente utili nel caso si usino dei nomi di package complessi. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">trigonometria</span> <span class="k">as</span> <span class="nn">tr</span>
+<p>Vediamo un esempio.</p>
+<p>Supponiamo di avere una classe <code>Persona</code>, e di voler scrivere uno script per creare un oggetto di questa classe mediante riga di comando. Potremo scrivere:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">calcola_tangente</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-</code></pre></div>
-<h2 id="54-la-funzione-dir">5.4 - La funzione <code>dir()</code><a class="headerlink" href="#54-la-funzione-dir" title="Permanent link">&para;</a></h2>
-<p>La funzione <code>dir()</code> restituisce una lista con tutti i nomi (sia di funzione, sia di classe) definiti da un modulo. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="n">geometria</span><span class="p">)</span>
-<span class="p">[</span><span class="s1">&#39;__builtins__&#39;</span><span class="p">,</span> <span class="s1">&#39;__cached__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__file__&#39;</span><span class="p">,</span> <span class="s1">&#39;__loader__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__package__&#39;</span><span class="p">,</span> <span class="s1">&#39;__spec__&#39;</span><span class="p">,</span> <span class="s1">&#39;calcola_area_quadrato&#39;</span><span class="p">,</span> <span class="s1">&#39;calcola_area_rettangolo&#39;</span><span class="p">,</span> <span class="s1">&#39;calcola_area_triangolo&#39;</span><span class="p">]</span>
-</code></pre></div>
-<p>E' interessante notare come, oltre a funzioni, classi e variabili da noi definite, nel modulo <code>geometria</code> siano automaticamente definite <em>altre</em> variabili, che saranno importate usando import:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">geometria</span>
+<span class="k">class</span> <span class="nc">Persona</span><span class="p">():</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">geometria</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">geometria</span><span class="o">.</span><span class="n">calcola_area_quadrato</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cognome</span> <span class="o">=</span> <span class="n">cognome</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nome</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cognome</span><span class="si">}</span><span class="s1">&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Definiamo il metodo `run` che sarà invocato</span>
+<span class="sd">    ad ogni esecuzione dello script.</span>
+<span class="sd">    Il metodo accetta un parametro args che rappresenta</span>
+<span class="sd">    gli argomenti di cui è stato effettuato il parsing.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">cognome</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Step 1: creiamo un oggetto di classe `ArgumentParser`</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="c1"># Step 2: aggiungiamo due argomenti al parser</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s1">&#39;-n&#39;</span><span class="p">,</span>                       <span class="c1"># abbreviazione con cui invocare l&#39;argomento</span>
+        <span class="s1">&#39;--nome&#39;</span><span class="p">,</span>                   <span class="c1"># nome completo dell&#39;argomento</span>
+        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Nome della persona&#39;</span><span class="p">,</span>  <span class="c1"># messaggio di aiuto per descrivere l&#39;argomento</span>
+        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Pippo&#39;</span><span class="p">,</span>            <span class="c1"># valore di default dell&#39;argomento</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s1">&#39;-c&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;--cognome&#39;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Cognome della persona&#39;</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span>               <span class="c1"># indica che l&#39;argomento non può essere omesso</span>
+    <span class="p">)</span>
+    <span class="c1"># Step 3: facciamo il parsing degli argomenti</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>      <span class="c1"># gli argomenti saranno salvati in args</span>
+    <span class="c1"># Step 4: passiamo gli argomenti al metodo run</span>
+    <span class="n">run</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div>
-<p>Notiamo che saremo in grado di accedere alla variabile <code>__file__</code> del modulo <code>geometria</code>, che indica il percorso relativo dello stesso all'interno del file system. Ovviamente, questa variabile non è quasi mai utile, ma comporta un ulteriore carico sul codice, da cui diventa evidente l'importanza dell'opportuno uso della direttiva <code>from</code>.</p>
-<h2 id="55-moduli-della-libreria-standard">5.5 - Moduli della libreria standard<a class="headerlink" href="#55-moduli-della-libreria-standard" title="Permanent link">&para;</a></h2>
-<p>Python ha diversi moduli appartenenti ad una libreria standard, i quali sono automaticamente disponibili a valle dell'installazione dell'interprete. Alcuni tra i più utilizzati sono:</p>
-<ul>
-<li><code>sys</code>: è il modulo integrato nell'interprete, ed offre diverse utility necessarie al suo funzionamento;</li>
-<li><code>os</code>: modulo delegato all'interazione con il sistema operativo su cui gira l'interprete;</li>
-<li><code>time</code>: modulo usato per tutte le utility riguardanti il "cronometraggio" del tempo di esecuzione di una funzione;</li>
-<li><code>datetime</code>: modulo usato per le funzionalità di data ed ora;</li>
-<li><code>copy</code>: modulo usato per gestire, tra le altre cose, la deep copy di un oggetto.</li>
-</ul>
-<p>Per una lista esaustiva, si rimanda alla <a href="https://docs.python.org/3/library/">Python Library Reference</a>.</p>
-<h2 id="56-package">5.6 - Package<a class="headerlink" href="#56-package" title="Permanent link">&para;</a></h2>
-<p>Chiudiamo la trattazione con un accenno ai <em>package</em>, ovvero a delle vere e proprie "collezioni" che raggruppano moduli tra loro coerenti, in modo da facilitarne il successivo accesso. In pratica, i package non sono altro se non delle cartelle contenenti più moduli (quindi, file con estensione <code>nome_modulo.py</code>), oltre ad un file, chiamato <code>__init__.py</code>, che permette all'interprete di riconoscere quella cartella come package e, occasionalmente, contiene delle istruzioni di inizializzazione del package.</p>
-<p>Per poter accedere ad un modulo contenuto all'interno di un package, possiamo usare la direttiva <code>import</code>, modificandola come segue:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">nome_package.nome_modulo</span>
-<span class="c1"># oppure...</span>
-<span class="kn">from</span> <span class="nn">nome_package.nome_modulo</span> <span class="kn">import</span> <span class="n">nome_funzione</span>
+<p>Proviamo a salvare questo script in un file <code>run.py</code>, ed eseguiamolo usando la notazione abbreviata:</p>
+<div class="highlight"><pre><span></span><code>python run.py -n Nome -c Cognome
 </code></pre></div>
+<p>A schermo vedremo:</p>
+<div class="highlight"><pre><span></span><code>Nome Cognome
+</code></pre></div>
+<p>Possiamo anche omettere il nome, ma non il cognome, in quanto è un parametro richiesto:</p>
+<div class="highlight"><pre><span></span><code>python run.py -c Cognome
+Pippo Cognome
+</code></pre></div>
+<p>Possiamo poi invocare l'help scrivendo:</p>
+<div class="highlight"><pre><span></span><code>python run.py -h
+</code></pre></div>
+<p>Proviamo infine ad utilizzare la notazione completa:</p>
+<div class="highlight"><pre><span></span><code>python run.py --nome Nome --cognome Cognome
+Nome Cognome
+</code></pre></div>
+<p>Proviamo adesso a modificare la classe <code>Persona</code> inserendovi l'età. In tal senso, specifichiamo che l'età deve essere un valore intero; qualora questo non avvenga, sarà lanciata un'eccezione.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Persona</span><span class="p">():</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cognome</span> <span class="o">=</span> <span class="n">cognome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">eta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eta</span>
+
+    <span class="nd">@eta</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">eta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Fornire un intero per l&#39;età.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_eta</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nome</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cognome</span><span class="si">}</span><span class="s1">&#39;</span>
+</code></pre></div>
+<p>Modifichiamo il resto dello script per adattarci alle nuove esigenze. Partiamo dal metodo <code>run</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Definiamo il metodo `run` che sarà invocato</span>
+<span class="sd">    ad ogni esecuzione dello script.</span>
+<span class="sd">    Il metodo accetta un parametro args che rappresenta</span>
+<span class="sd">    gli argomenti di cui è stato effettuato il parsing.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<span class="hll">    <span class="n">p</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">cognome</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">eta</span><span class="p">)</span>
+</span>    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</code></pre></div>
+<p>Aggiungiamo poi un altro argomento al <code>parser</code>:</p>
+<p><code>``py hl_lines "16 17 18 19 20"
+if __name__ == '__main__':
+    # Step 1: creiamo un oggetto di classe</code>ArgumentParser`<br />
+    parser = ArgumentParser()<br />
+    # Step 2: aggiungiamo due argomenti al parser<br />
+    parser.add<em>argument(<br />
+        '-n',                       # abbreviazione con cui invocare l'argomento<br />
+        '--nome',                   # nome completo dell'argomento<br />
+        help='Nome della persona',  # messaggio di aiuto per descrivere l'argomento<br />
+        default='Pippo',            # valore di default dell'argomento<br />
+    )<br />
+    parser.add</em>argument(<br />
+        '-c',<br />
+        '--cognome',<br />
+        help='Cognome della persona',<br />
+        required=True               # indica che l'argomento non può essere omesso<br />
+    )<br />
+    parser.add<em>argument(<br />
+        '-e',<br />
+        '--eta',<br />
+        help='Età della persona'<br />
+    )<br />
+    # Step 3: facciamo il parsing degli argomenti<br />
+    args = parser.parse</em>args()      # gli argomenti saranno salvati in args<br />
+    # Step 4: passiamo gli argomenti al metodo run<br />
+    run(args)<br />
+<div class="highlight"><pre><span></span><code>Proviamo ad eseguire di nuovo lo script:
+
+```sh
+python run.py -n Nome -c Cognome -e 18
+</code></pre></div></p>
+<p>Vedremo che viene lanciato un errore, in quanto gli argomenti passati mediante argparse sono normalmente interpretati come delle stringhe.</p>
+<p>Per risolvere questo problema dovremo specificare il parametro <code>type</code>, ponendolo ad <code>int</code>:</p>
+<p><code>py hl_lines "5"
+parser.add_argument(
+    '-e',
+    '--eta',
+    help='Età della persona',
+    type=int
+)</code></p>
+<p>Se proviamo ad eseguire nuovamente lo script non riscontreremo alcun errore.</p>
 
               
             </article>
@@ -1520,7 +1351,7 @@ python main.py
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../04_classes/lecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4 - Classi" rel="prev">
+        <a href="../../05_tips/lecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: E - Tips" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1529,20 +1360,20 @@ python main.py
               <span class="md-footer__direction">
                 Previous
               </span>
-              4 - Classi
+              E - Tips
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../../02_libs/06_jupyter/lecture/" class="md-footer__link md-footer__link--next" aria-label="Next: 6 - Jupyter" rel="next">
+        <a href="../../../../notebooks/" class="md-footer__link md-footer__link--next" aria-label="Next: Notebook" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              6 - Jupyter
+              Notebook
             </div>
           </div>
           <div class="md-footer__button md-icon">
