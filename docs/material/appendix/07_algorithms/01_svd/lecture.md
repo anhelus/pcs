@@ -1,4 +1,4 @@
-# Appendice F.1 - Decomposizione ai valori singolari
+# Appendice G.1 - Decomposizione ai valori singolari
 
 La *decomposizione ai valori singolari* (SVD) è una tecnica di *decomposizione matriciale*, che permette quindi di trovare un prodotto di matrice che equivalga alla matrice iniziale. 
 
