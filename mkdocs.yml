@@ -5,22 +5,22 @@ nav:
   - Home: index.md
   - Slides proiettate a lezione: material/slides/index.md
   - Parte 1 - Concetti base:
-    - 01 - Introduzione a Python: material/01_python/01_intro/lecture.md
-    - 02 - Programmare in Python: material/01_python/02_syntax/lecture.md
-    - 03 - Strutture dati: material/01_python/03_data_structures/lecture.md
-    - 04 - Classi: material/01_python/04_classes/lecture.md
-    - 05 - Moduli: material/01_python/05_modules/lecture.md
+    - 1 - Introduzione a Python: material/01_python/01_intro/lecture.md
+    - 2 - Programmare in Python: material/01_python/02_syntax/lecture.md
+    - 3 - Strutture dati: material/01_python/03_data_structures/lecture.md
+    - 4 - Classi: material/01_python/04_classes/lecture.md
+    - 5 - Moduli: material/01_python/05_modules/lecture.md
   - Parte 2 - Librerie:
-    - 06 - Jupyter: material/02_libs/06_jupyter/lecture.md
-    - 07 - NumPy:
-      - 07.1 - Introduzione a Numpy: material/02_libs/07_numpy/01_intro/lecture.md
-      - 07.2 - Gli Array: material/02_libs/07_numpy/02_array/lecture.md
-      - 07.3 - Aritmetica in NumPy: material/02_libs/07_numpy/03_arithmetics/lecture.md
-      - 07.4 - Algebra in NumPy: material/02_libs/07_numpy/04_algebra/lecture.md
-      - 07.5 - Polinomi in NumPy: material/02_libs/07_numpy/05_polynomials/lecture.md
-      - 07.6 - Statistica in NumPy: material/02_libs/07_numpy/06_statistics/lecture.md
-    - 08 - Visualizzazione di dati: material/02_libs/08_matplotlib/lecture.md
-    - 09 - Introduzione a SciPy: material/02_libs/09_scipy/lecture.md
+    - 6 - Jupyter: material/02_libs/06_jupyter/lecture.md
+    - 7 - NumPy:
+      - 7.1 - Introduzione a Numpy: material/02_libs/07_numpy/01_intro/lecture.md
+      - 7.2 - Gli Array: material/02_libs/07_numpy/02_array/lecture.md
+      - 7.3 - Aritmetica in NumPy: material/02_libs/07_numpy/03_arithmetics/lecture.md
+      - 7.4 - Algebra in NumPy: material/02_libs/07_numpy/04_algebra/lecture.md
+      - 7.5 - Polinomi in NumPy: material/02_libs/07_numpy/05_polynomials/lecture.md
+      - 7.6 - Statistica in NumPy: material/02_libs/07_numpy/06_statistics/lecture.md
+    - 8 - Visualizzazione di dati: material/02_libs/08_matplotlib/lecture.md
+    - 9 - Introduzione a SciPy: material/02_libs/09_scipy/lecture.md
     - 10 - Introduzione a Pandas: material/02_libs/10_pandas/lecture.md
     - 11 - Machine learning in Python:
       - 11.1 - Introduzione al Machine Learning: material/02_libs/11_sklearn/01_intro_ml/lecture.md
@@ -50,6 +50,7 @@ nav:
     - C - Ambito di una variabile: material/appendix/03_scope/lecture.md
     - D - Programmazione orientata agli oggetti: material/appendix/04_oop/lecture.md
     - E - Tips: material/appendix/05_tips/lecture.md
+    - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
   - Notebook: notebooks/index.md
 
 theme:
