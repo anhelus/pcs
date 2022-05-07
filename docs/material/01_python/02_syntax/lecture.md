@@ -203,7 +203,7 @@ Esco!
 Riprendiamo adesso il ciclo `for` visto in precedenza.
 
 ```py
-vals = [0,1,2,3,4]
+vals = [0, 1, 2, 3, 4]
 for i in vals:
     print(i)
 ```
