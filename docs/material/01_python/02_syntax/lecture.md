@@ -122,7 +122,7 @@ for elemento in sequenza:
 	istruzioni()
 ```
 
-Per fare un esempio, nel seguente blocco di codice vediamo come mostrare a schermo in maniera iterativa i numeri che vanno da 0 a 5:
+Per fare un esempio, nel seguente blocco di codice vediamo come mostrare a schermo in maniera iterativa i numeri che vanno da 0 a 5 (escluso):
 
 ```py
 vals = [0,1,2,3,4]
