@@ -175,9 +175,10 @@ while(condizione):
 Ad esempio:
 
 ```py
+import random
 i = True
 while (i):
-    if randint(-5, 5) > 0:
+    if random.randint(-5, 5) > 0:
         print("Continuo!")
     else:
         print("Esco!")
