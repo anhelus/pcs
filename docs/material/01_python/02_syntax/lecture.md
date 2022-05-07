@@ -292,7 +292,10 @@ E' importante notare che:
 ```py
 def raddoppia_lista(lista):
     for i in range(len(lista)):
-        lista.append(l[i] * 2)
+        lista.append(lista[i] * 2)
+    return print(lista)
+
+
 l = [1,2]
 raddoppia_lista(l) 			# Risultato atteso: [1, 2, 2, 4]
 ```
