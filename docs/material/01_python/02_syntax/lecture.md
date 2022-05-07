@@ -13,8 +13,8 @@ Oltre al duck typing, esistono altri concetti che caratterizzano la sintassi di 
 	b = 3
 	c = 4
 	r_1 = a + b * c 	# Valore restituito: 14
-	r_2 = (a + b) * c	# Valore restituito: 24
-	
+	r_2 = (a + b) * c	# Valore restituito: 20
+
 	if a > 2:
 		# Questa notazione è valida, ed è equivalente ad (a > 2)
 	```
@@ -51,7 +51,7 @@ Per quello che riguarda invece la definizione di un ambito, ad esempio locale al
 Quindi:
 
 ```py
-# L'inizio della funzione, e quindi dell'ambito 
+# L'inizio della funzione, e quindi dell'ambito
 # che questa delimita, è contrassegnato dai due punti
 def funzione():	# Inizio ambito
 	# Il codice deve essere allo stesso livello di indentazione
