@@ -13,7 +13,7 @@ Oltre al duck typing, esistono altri concetti che caratterizzano la sintassi di 
 	b = 3
 	c = 4
 	r_1 = a + b * c 	# Valore restituito: 14
-	r_2 = (a + b) * c	# Valore restituito: 24
+	r_2 = (a + b) * c	# Valore restituito: 20
 	
 	if a > 2:
 		# Questa notazione è valida, ed è equivalente ad (a > 2)
@@ -122,7 +122,7 @@ for elemento in sequenza:
 	istruzioni()
 ```
 
-Per fare un esempio, nel seguente blocco di codice vediamo come mostrare a schermo in maniera iterativa i numeri che vanno da 0 a 5:
+Per fare un esempio, nel seguente blocco di codice vediamo come mostrare a schermo in maniera iterativa i numeri che vanno da 0 a 5 (escluso):
 
 ```py
 vals = [0,1,2,3,4]
@@ -152,12 +152,12 @@ for char in string:
 A schermo vedremo in entrambi i casi il seguente risultato:
 
 ```bash
-	P
-	y
-	t
-	h
-	o
-	n
+P
+y
+t
+h
+o
+n
 ```
 
 !!!warning "No free lunches!"
@@ -175,9 +175,11 @@ while(condizione):
 Ad esempio:
 
 ```py
+import random
+
 i = True
 while (i):
-    if randint(-5, 5) > 0:
+    if random.randint(-5, 5) > 0:
         print("Continuo!")
     else:
         print("Esco!")
@@ -202,16 +204,16 @@ Esco!
 Riprendiamo adesso il ciclo `for` visto in precedenza.
 
 ```py
-vals = [0,1,2,3,4]
+vals = [0, 1, 2, 3, 4]
 for i in vals:
     print(i)
 ```
 
 Nonostante il codice sia già compatto, scrivere manualmente la sequenza da iterare può facilmente diventare un'operazione abbastanza complessa. Python ci viene quindi in aiuto tramite la funzione `range(i, j, s)`, che genera una sequenza avente tutti i numeri compresi tra `i` (incluso) e `j` (escluso) a passo `s`. Ad esempio, per generare i numeri compresi tra 0 e 4 scriveremo:
 
-```py
-r = range(0, 5, 1)
-print(list(r))
+```pycon
+>>> r = range(0, 5, 1)
+>>> print(list(r))
 [0, 1, 2, 3, 4]
 ```
 
@@ -242,11 +244,12 @@ E' anche possibile specificare una sequenza *decrementale* ponendo `i > j` ed `s
 l = ['Pippo', 'Pluto', 5, 'Paperino']
 for i in range(len(l)):
     print(l[i])
+
 # Output
-Pippo
-Pluto
-5
-Paperino
+# Pippo
+# Pluto
+# 5
+# 	Paperino
 ```
 
 In pratica, dato che la funzione `len(l)` ci restituisce il numero di elementi nella lista, ovvero $4$, stiamo andando a definire un range che va da 0 a 3. A questo punto, ci basterà *elemento per elemento* ai valori contenuti all'interno della lista, ed avremo ottenuto il risultato sperato.
@@ -291,7 +294,8 @@ E' importante notare che:
 ```py
 def raddoppia_lista(lista):
     for i in range(len(lista)):
-        lista.append(l[i] * 2)
+        lista.append(lista[i] * 2)
+	return print(lista)
 l = [1,2]
 raddoppia_lista(l) 			# Risultato atteso: [1, 2, 2, 4]
 ```
