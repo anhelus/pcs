@@ -242,11 +242,12 @@ E' anche possibile specificare una sequenza *decrementale* ponendo `i > j` ed `s
 l = ['Pippo', 'Pluto', 5, 'Paperino']
 for i in range(len(l)):
     print(l[i])
-# Output
-Pippo
-Pluto
-5
-Paperino
+
+# Output:
+# Pippo
+# Pluto
+# 5
+# Paperino
 ```
 
 In pratica, dato che la funzione `len(l)` ci restituisce il numero di elementi nella lista, ovvero $4$, stiamo andando a definire un range che va da 0 a 3. A questo punto, ci basterà *elemento per elemento* ai valori contenuti all'interno della lista, ed avremo ottenuto il risultato sperato.
