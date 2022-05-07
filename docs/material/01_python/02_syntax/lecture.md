@@ -209,9 +209,9 @@ for i in vals:
 
 Nonostante il codice sia già compatto, scrivere manualmente la sequenza da iterare può facilmente diventare un'operazione abbastanza complessa. Python ci viene quindi in aiuto tramite la funzione `range(i, j, s)`, che genera una sequenza avente tutti i numeri compresi tra `i` (incluso) e `j` (escluso) a passo `s`. Ad esempio, per generare i numeri compresi tra 0 e 4 scriveremo:
 
-```py
-r = range(0, 5, 1)
-print(list(r))
+```pycon
+>>> r = range(0, 5, 1)
+>>> print(list(r))
 [0, 1, 2, 3, 4]
 ```
 
