@@ -152,12 +152,12 @@ for char in string:
 A schermo vedremo in entrambi i casi il seguente risultato:
 
 ```bash
-	P
-	y
-	t
-	h
-	o
-	n
+P
+y
+t
+h
+o
+n
 ```
 
 !!!warning "No free lunches!"
