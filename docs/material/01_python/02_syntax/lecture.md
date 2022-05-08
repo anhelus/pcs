@@ -306,11 +306,12 @@ raddoppia_lista(l) 			# Risultato atteso: [1, 2, 2, 4]
 **Soluzione**: usiamo la funzione `append()` in accoppiata alla funzione `randint()`.
 
 ```py
+import random
 def genera_lista_casuale(lunghezza=5):
     l = []
     for i in range(lunghezza):
-        l.append(randint(0, 10))
-    return l
+        l.append(random.randint(0, 10))
+    return print(l)
 ...
 genera_lista_casuale() 		# Possibile risultato: [3, 1, 2, 0, 6]
 genera_lista_casuale(10)	# Possibile risultato: [7, 9, 1, 10, 2, 4, 9, 1, 4, 8]
