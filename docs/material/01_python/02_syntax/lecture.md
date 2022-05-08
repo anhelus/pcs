@@ -360,7 +360,7 @@ Il risultato sarà:
 "Valore all'interno della funzione: [1, 2, 3]"
 ```
 
-In questo caso, essendo la lista mutabile, il passaggio viene effettuato nei fatti per *reference*: ciò significa che le operazioni compiute all'interno della funzione `aggiungi_a_lista` agiranno sulla lista originaria.
+In questo caso, essendo la lista mutabile, il passaggio viene effettuato nei fatti per *reference*: ciò significa che le operazioni compiute all'interno della funzione `aggiungi_a_lista()` agiranno sulla lista originaria.
 
 !!!note "Shallow e deep copy"
 	Di default, Python copia le variabili per mezzo di una *shallow copy*: ciò significa che un'operazione di assignment del tipo `a = b` fa in modo che `a` punti allo stesso indirizzo di memoria di `b` e, di conseguenza, ogni modifica a `b` si rifletta su `a`. Per evitare un fenomeno di questo tipo occorre usare una *deep copy* grazie alla funzione `deepcopy` della libreria `copy`.
