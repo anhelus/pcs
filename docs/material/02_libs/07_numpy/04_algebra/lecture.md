@@ -82,7 +82,7 @@ np.inner(a, b)
 
 !!!note "Definizione di prodotto interno"
 	Ricordiamo che per due generici vettori monodimensionali $v_1 = [v_{11}, \ldots, v_{1j}], v_2 = [v_{21}, \ldots, v_{2j}]$ il prodotto scalare è dato da:
-	> $$p = \sum_{i=1}^j v_{1i} * v_{2i}$$
+	$$p = \sum_{i=1}^j v_{1i} * v_{2i}$$
 
 ### 7.4.3.2 - Prodotto esterno
 
@@ -178,9 +178,7 @@ La funzione `linalg.norm(a)` ci permette di calcolare la norma di una matrice. O
 Per calcolare la norma di Frobenius della matrice `mat` possiamo usare questa sintassi:
 
 ```py
-linalg.norm(mat)
-
-16.97056274847714
+linalg.norm(mat)				# Il risultato sarà 16.97...
 ```
 
 ## 7.4.8 - Determinante, rango e traccia
@@ -188,12 +186,9 @@ linalg.norm(mat)
 Possiamo calcolare rapidamente determinante, rango e traccia di una matrice mediante le funzioni `det(a)`, `matrix_rank(a)` e `trace(a)`, quest'ultima **non** appartenente al package `linalg`. Ad esempio:
 
 ```py
->>> linalg.det(mat)
-6.000000000000001
->>> linalg.matrix_rank(mat)
-3
->>> np.trace(mat)
-20
+linalg.det(mat)					# Il risultato sarà 6
+linalg.matrix_rank(mat)			# Il risultato sarà 3
+np.trace(mat)					# Il risultato sarà 20
 ```
 
 La funzione `trace` può anche essere usata per calcolare la sommatoria delle sovra/sotto diagonali specificando il parametro `offset`. Ad esempio:
@@ -203,11 +198,8 @@ mat = np.array([[ 5,  2,  9],
 	[ 2,  3,  1],
 	[ 4, -2, 12]])
 
-np.trace(mat, offset=1)
-3
-
-np.trace(mat, offset=-1)
-0
+np.trace(mat, offset=1)			# Il risultato sarà 3
+np.trace(mat, offset=-1)		# Il risultato sarà 0
 ```
 
 ## 7.4.9 - Risoluzione di sistemi di equazioni lineari
@@ -216,9 +208,7 @@ Chiudiamo questa (necessariamente breve!) carrellata sulle operazioni di algebra
 
 ```py
 b = np.array([3, 2, 3])
-linalg.solve(mat, b)
-
-array([-7.5,  4.5,  3.5])
+linalg.solve(mat, b)			# Il risultato sarà array([-7.5,  4.5,  3.5])
 ```
 
 Ovviamente, la matrice `a` deve essere quadrata, mentre il vettore `b` deve avere esattamente `n` elementi, con `n` ordine di `a`!

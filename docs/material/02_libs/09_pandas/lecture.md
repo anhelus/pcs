@@ -1,4 +1,6 @@
-# Introduzione a Pandas
+# 9. Introduzione a Pandas
+
+Pandas è una delle librerie più importanti dell'ecosistema SciPy, e viene usata per la lettura ed elaborazione dei dati provenienti da sorgenti di vario tipo, quali 
 
 Pandas è l'ultima delle librerie dell'ecosistema SciPy che tratteremo, ma ciò non toglie che è un pezzo *fondamentale* dell'intero framework, in quanto viene usata per la lettura ed elaborazione dei dati provenienti da sorgenti di vario tipo.
 
