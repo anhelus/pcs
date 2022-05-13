@@ -1,39 +1,38 @@
-# L'ecosistema SciPy
+# 11 - L'ecosistema SciPy
 
-Finora abbiamo parlato prevalentemente di NumPy e (soltanto in piccola parte) di Matplotlib. Tuttavia, entrambe queste librerie fanno parte di un ecosistema più ampio per il calcolo scientifico, comprendente anche le librerie *SciPy*, *iPython*, *Pandas* e *SimPy*. Questo ecosistema è, per l'appunto, chiamato come una delle librerie che lo compongono, che è anche quella di cui tratteremo (giocoforza limitatamente) in questa lezione, ovvero *SciPy*.
+Ai lettori più attenti può apparire evidente come tutte le librerie viste finora facciano parte di una sorta di "ecosistema" pensato per permettere un'interazione tra *tipi* e *classi* il quanto più possibile "semplice" e coesa.
 
-## La *libreria* SciPy
+Questo è dovuto al fatto che librerie come NumPy, Matplotlib, Pandas e Seaborn fanno tutte parte di un unico *ecosistema* chiamato *SciPy*, pensato per dare delle fondamenta comuni su cui costruire l'intera disciplina del calcolo scientifico in Python.
 
-La libreria SciPy rappresenta un insieme di algoritmi e funzioni matematiche costruite a partire da NumPy. Tuttavia, come è possibile vedere dalla [reference](https://docs.scipy.org/doc/scipy/reference/), il numero e la varietà delle funzioni offerte è notevolmente maggiore rispetto a NumPy.
+Tuttavia, abbiamo omesso una delle librerie fondamentali di questo ecosistema, talmente importante che prende il nome del framework stesso: ovviamente, stiamo parlando della libreria SciPy.
 
-Per iniziare, quindi, procediamo installandola nel nostro ambiente di sviluppo.
+## 11.1 - La libreria SciPy
 
-==="Pip" 
-	```sh
-	pip install scipy
-	```
-==="Pipenv"
-	```sh
-	pipenv install scipy
-	```
+La libreria SciPy presenta un [vastissimo insieme di algoritmi e funzioni matematiche](https://docs.scipy.org/doc/scipy/reference/) costruite a partire dagli oggetti definiti da NumPy.
 
-Nel prosieguo, presupporremo che siano stati già importati NumPy e Matplotlib.
+Al solito, la libreria va installata usando ad esempio `pip`:
 
-```py
-import numpy as np
-import matplotlib as mpl
-import matplotlib.pyplot as plt
+```sh
+pip install scipy
 ```
 
-## Esempio 1: Distribuzione di probabilità
+In questa *giocoforza* brevissima introduzione, vedremo alcune delle potenzialità di SciPy, basandoci su un paio di casi d'uso (più o meno) reali.
+
+### 11.1.1 - Calcolo della distribuzione di probabilità
+
+Proviamo a vedere come viene visualizzato il valore (teorico) assunto da due distribuzioni di probabilità "classiche", ovvero la distribuzione uniforme e quella normale.
 
 Vediamo come comparare visivamente il valore teorico assunto da due distribuzioni di probabilità "standard" (ovvero la uniforme e la normale) e l'istogramma ottenuto a partire da un elevato numero di elementi generati casualmente ma appartenenti a quella distribuzione.
 
-Useremo questo codice:
+In primis, iniziamo importando i moduli `norm` ed `uniform` dal package `stats`, atti a modellare tutte le istruzioni riguardanti le distribuzioni normali ed uniformi:
 
-```py linenums="1"
+```py
 from scipy.stats import norm, uniform
+```
 
+Generiamo adesso 100 campioni equidistanziati e compresi tra l'1 ed il 99 percentile delle distribuzioni:
+
+```py
 x_1 = np.linspace(norm.ppf(0.01), norm.ppf(0.99), 100)
 x_2 = np.linspace(uniform.ppf(0.01), uniform.ppf(0.99), 100)
 
