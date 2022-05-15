@@ -2,29 +2,28 @@
 
 Finora ci siamo limitati a visualizzare dati e risultati ottenuti usando prima la riga di comando, e poi i metodi forniti dai notebook Jupyter. Tuttavia, è chiaro come questo modo di procedere sia limitante: cosa ne è di tutti i coloratissimi grafici che possiamo ammirare in siti ed articoli scientifici?
 
-Nella realtà, per ottenerli dovremo necessariamente integrare il nostro ambiente di lavoro con altre librerie: ne esistono diverse, ma la più importante ed utilizzata è senza ombra di dubbio [Matplotlib](https://matplotlib.org/), cui si può affiancare [Seaborn](https://seaborn.pydata.org/).
+Nella realtà, per ottenerli dovremo necessariamente integrare il nostro ambiente di lavoro con altre librerie: ne esistono diverse, ma la più importante ed utilizzata è senza ombra di dubbio [Matplotlib](https://matplotlib.org/), cui si può affiancare [Seaborn](https://seaborn.pydata.org/), che tratteremo in una delle prossime lezioni.
 
-## 8.1.1 - Installazione delle librerie
+## 8.1.1 - Installazione della libreria
 
 Per prima cosa, installiamo le librerie. Al solito, potrete consultare le diverse opzioni in [appendice](../../appendix/02_libraries/lecture.md); qui riportiamo l'opzione di installazione mediante `pip`:
 
 ```sh
-pip install matplotlib seaborn
+pip install matplotlib
 ```
 
-Per importare le librerie all'interno del nostro codice, usiamo degli alias:
+Per importare la libreria all'interno del nostro codice, usiamo un alias:
 
 ```py
 import matplotlib.pylot as plt		# import di matplotlib
-import seaborn as sns				# import di seaborn
 ```
 
 !!!note "L'API `pyplot`"
 	Sottolineamo l'uso dell'API [`pyplot`](https://matplotlib.org/stable/tutorials/introductory/pyplot.html) per Matplotlib al posto dell'API "standard". In tal modo, avremo a disposizione una serie di funzioni per il plot che ricorda molto quella usata dal MATLAB.
 
-## 8.1.2 - Il primo plot (con Matplotlib)
+## 8.1.2 - Il primo plot
 
-Dopo aver installato le due librerie, proviamo a creare il nostro primo plot utilizzando Matplotlib. Per farlo, possiamo usare uno script, un terminale o un notebook, ed inserire il seguente codice:
+Dopo aver installato la libreria, proviamo a creare il nostro primo plot. Per farlo, possiamo usare uno script, un terminale o un notebook, ed inserire il seguente codice:
 
 
 ```py linenums="1"
@@ -45,7 +44,7 @@ Se tutto è andato per il verso giusto, dovremmo vedere a schermo questa immagin
 
 Cerchiamo adesso di approfondire i concetti di funzionamento di Matplotlib.
 
-## 8.1.3 - Figure, assi ed artisti
+## 8.1.3 - Figure ed assi
 
 Alla base del funzionamento di Matplotlib abbiamo quattro classi fondamentali.
 
@@ -193,34 +192,3 @@ plt.show()
 Il risultato sarà simile a quello mostrato nella figura successiva.
 
 ![hist](./images/hist.png){: .center}
-
-<!-- ### 8.1.4.4: Plot tridimensionale
-
-https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html 
-
-Concludiamo questa breve carrellata mostrando un esempio di plot a tre dimensioni. Questa volta, dovremo passare alla funzione `subplots` l'argomento `'projection': '3d'`, per indicargli che il plot ha tre assi al posto dei soliti due.
-
-```py
-fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-```
-
-Creiamo i nostri dati, avendo cura di usare la funzione `meshgrid()` per creare una griglia rettangolare a partire dai valori iniziali degli array `x` ed `y`, grazie a cui potremo poi creare la figura tridimensionale vera e propria.
-
-```py
-x = np.arange(-10, 10, 0.25)
-y = np.arange(-5, 15, 0.25)
-x, y = np.meshgrid(z, y)
-z = np.cos(np.sqrt(x**2 + y**2))
-```
-
-A questo punto, usiamo la funzione `plot_surface()` per plottare i tre assi, impostiamone il titolo e mostriamo l'immagine a schermo.
-
-```py
-ax.plot_surface(x, y, z)
-ax.set_title('Un esempio di plot tridimensionale')
-plt.show()
-```
-
-Il risultato che otterremo sarà simile a questo.
-
-![3d](../assets/images/03_libs/){: .center} -->

@@ -49,19 +49,19 @@ np.amax(b, axis=(0, 1))
 
 ## 7.6.2 - Percentile e quantile
 
-Ricordiamo che il *q-percentile* di un vettore $V$ di lunghezza $N$ è il valore sotto il quale ricade il $q$% degli elementi di $V$.
+Ricordiamo che il *q-percentile* di un vettore $V$ di lunghezza $N$ è definito come il valore pari a $\frac{q}{100}$ calcolato a partire da una copia ordinata di $V$.
 
-Per fare un esempio, supponiamo di avere un vettore ordinato di elementi che vanno da 1 a 10:
+Per fare un esempio, supponiamo di avere un vettore ordinato di elementi che vanno da 1 a 10, e di calcolare il 50-percentile mediante la funzione `percentile()` di Python.
 
 ```py
 a = np.arange(1, 11)
+np.percentile(a, 50)
+
+# Risultato ottenuto
+5.5
 ```
 
-Possiamo calcolare il 50-percentile usando la formula classica, che ci dice che questo è pari a:
-
-$$
-n = \frac{q}{100} * N = \frac{50}{100} * 10 = 5
-$$
+Esistono diversi modi di calcolare il q-percentile; in tal senso, è opportuno consultare la [reference](https://numpy.org/doc/stable/reference/generated/numpy.percentile.html) e l'articolo [*Sample quantiles in statistical packages di Hyndman, R. J., & Fan, Y*](https://www.tandfonline.com/doi/abs/10.1080/00031305.1996.10473566).
 
 In realtà, la funzione `percentile(a, q)` usa, per il 50-percentile, il calcolo della mediana, per cui è equivalente alla funzione `median(a)`. In questo caso specifico, avremo un discostamento dal risultato atteso, dovuto ad errori di interpolazione introdotti da NumPy:
 
