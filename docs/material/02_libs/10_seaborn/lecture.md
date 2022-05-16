@@ -104,6 +104,8 @@ In alternativa, potremmo usare dei violin plot che sfruttano la KDE per rapprese
 
 sns.catplot(data=tips, kind="violin", x="day", y="total_bill", hue="smoker", split=True)
 
+![catplot_tips](./images/catplot_tips.png)
+
 ## 10.4 - Esempio: Heatmap
 
 La sintassi usata da Seaborn è molto simile a quella usata da Matplotlib, con qualche piccola ed ovvia differenza. 
