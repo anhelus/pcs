@@ -1,12 +1,12 @@
-# 8.1 - Visualizzare i dati in Python
+# 8 - Visualizzare i dati in Python
 
 Finora ci siamo limitati a visualizzare dati e risultati ottenuti usando prima la riga di comando, e poi i metodi forniti dai notebook Jupyter. Tuttavia, è chiaro come questo modo di procedere sia limitante: cosa ne è di tutti i coloratissimi grafici che possiamo ammirare in siti ed articoli scientifici?
 
 Nella realtà, per ottenerli dovremo necessariamente integrare il nostro ambiente di lavoro con altre librerie: ne esistono diverse, ma la più importante ed utilizzata è senza ombra di dubbio [Matplotlib](https://matplotlib.org/), cui si può affiancare [Seaborn](https://seaborn.pydata.org/), che tratteremo in una delle prossime lezioni.
 
-## 8.1.1 - Installazione della libreria
+## 8.1 - Installazione della libreria
 
-Per prima cosa, installiamo le librerie. Al solito, potrete consultare le diverse opzioni in [appendice](../../appendix/02_libraries/lecture.md); qui riportiamo l'opzione di installazione mediante `pip`:
+Per prima cosa, installiamo le libreria. Al solito, potrete consultare le diverse opzioni in [appendice](../../appendix/02_libraries/lecture.md); qui riportiamo l'opzione di installazione mediante `pip`:
 
 ```sh
 pip install matplotlib
@@ -21,10 +21,9 @@ import matplotlib.pylot as plt		# import di matplotlib
 !!!note "L'API `pyplot`"
 	Sottolineamo l'uso dell'API [`pyplot`](https://matplotlib.org/stable/tutorials/introductory/pyplot.html) per Matplotlib al posto dell'API "standard". In tal modo, avremo a disposizione una serie di funzioni per il plot che ricorda molto quella usata dal MATLAB.
 
-## 8.1.2 - Il primo plot
+## 8.2 - Il primo plot
 
 Dopo aver installato la libreria, proviamo a creare il nostro primo plot. Per farlo, possiamo usare uno script, un terminale o un notebook, ed inserire il seguente codice:
-
 
 ```py linenums="1"
 rng = np.random.default_rng(42)
@@ -44,7 +43,7 @@ Se tutto è andato per il verso giusto, dovremmo vedere a schermo questa immagin
 
 Cerchiamo adesso di approfondire i concetti di funzionamento di Matplotlib.
 
-## 8.1.3 - Figure ed assi
+## 8.3 - Figure ed assi
 
 Alla base del funzionamento di Matplotlib abbiamo quattro classi fondamentali.
 
@@ -75,9 +74,9 @@ In ultimo, abbiamo mostrato a schermo la figura usando la funzione `plt.show()`.
 
 Vediamo adesso qualche esempio maggiormente "corposo".
 
-## 8.1.4 - Esempi con Matplotlib
+## 8.4 - Esempi con Matplotlib
 
-### 8.1.4.1: Plot di più funzioni
+### 8.4.1: Plot di più funzioni
 
 In questo esempio, vogliamo mostrare sullo stesso `Axes` il plot di due diverse funzioni, in particolare una retta ed un seno. Ricordiamo che questo è possibile grazie al fatto che i plot vengono considerati degli artist, e quindi è possibile inserirne un numero arbitrario.
 
@@ -122,7 +121,7 @@ Il risultato ottenuto è mostrato in figura.
 
 ![simple_plot](./images/simple_plot.png){: .center}
 
-### 8.1.4.2: Subplot
+### 8.4.2: Subplot
 
 Abbiamo detto che possiamo definire più `Axes` per un'unica `Figure`; per farlo, possiamo parametrizzare la funzione `subplots(i, j)`, in maniera tale che vengano creati $i \times j$ plot all'interno della stessa figura.
 
@@ -160,7 +159,7 @@ Il risultato sarà simile a quello mostrato in figura:
 
 ![multi_subplot](./images/multi_subplots.png){: .center}
 
-### 8.1.4.3: Rappresentazione di un istogramma
+### 8.4.3: Rappresentazione di un istogramma
 
 Abbiamo già parlato degli istogrammi in precedenza. Tuttavia, la loro vera potenza sta nella rappresentazione visiva che offrono, ed in tal senso Matplotlib ci viene in soccorso offrendoci la funzione `hist`.
 

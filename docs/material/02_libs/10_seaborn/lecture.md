@@ -1,32 +1,38 @@
-# 8.2 - Seaborn
+# 10 - Seaborn
 
-Seaborn è una libreria che estende Matplotlib grazie a nuove funzionalità ed un'integrazione nativa con Pandas, libreria che tratteremo in una delle prossime lezioni.
+*Seaborn* è una libreria che estende [Matplotlib](../08_matplotlib/lecture.md) aggiungendone diverse funzionalità, tutte nell'ottica della data analysis, e sulla scia di quello che abbiamo presentato in Pandas nella lezione precedente. Ciò permette quindi di mantenere un'interfaccia molto simile a quella di Matplotlib, estendendone al contempo le possibilità. Vediamo qualche esempio.
 
-In particolare, Seaborn offre una serie di strumenti già pronti per l'analisi statistica, offrendo un'interfaccia molto simile a quella di Matplotlib.
+## 10.1 - Installazione della libreria
 
-Vediamo qualche esempio.
+Come in ogni altro caso, partiamo dall'installazione della libreria:
 
-## 8.2.1 - Relazioni all'interno di un dataset
-
-Due dei metodi tradizionalmente utilizzati per mostrare le potenzialità di Seaborn sono `load_dataset()`, che ci permette di caricare uno dei dataset presenti con la libreria, e `relplot()`, funzione che ci mostra la relazione tra i dati presenti nel dataset caricato con la `load_dataset()`.
-
-Per prima cosa, quindi, carichiamo il dataset `tips`, che contiene una serie di dati inerenti le mance fornite dai clienti ad un locale.
-
-```py
-tips = sns.load_dataset('tips')
+```sh
+pip install seaborn
 ```
 
-Iniziamo analizzando la struttura dei dati.
-
-Vediamo che abbiamo una sorta di *tabella* nella quale:
-
-* ogni riga è associata ad una specifica ordinazione;
-* le colonne sono associate rispettivamente a conto (`total_bill`), mancia (`tip`), genere (`sex`), fumatore (smoker), giorno (`day`), orario (`time`) e numero di attendenti (`size`).
-
-La struttura della tabella è quindi la seguente:
+Una volta installata, potremo importarla utilizzando un alias:
 
 ```py
-   total_bill   tip     sex smoker  day    time  size
+import seaborn as sns
+```
+
+## 10.1 - Lettura dei dati
+
+Abbiamo detto che Seaborn è utile specialmente nel momento in cui si vogliono valutare visiamente le relazioni che intercorrono tra diverse feature presenti all'interno di un dataset.
+
+In tal senso, proviamo innanzitutto a caricare un insieme di dati, affidandoci al metodo `load_dataset()`, che estrae uno dei dataset già presenti nella libreria. Ad esempio:
+
+```py
+tips = load_dataset('tips')
+```
+
+!!!note "I dataset"
+    L'elenco dei dataset supportati da Seaborn è presente a [questo indirizzo](https://github.com/mwaskom/seaborn-data).
+
+Ispezionando il tipo di `tips` possiamo scoprire che si tratta di un dataframe; di conseguenza, possiamo esplorarne liberamente la struttura utilizzando Pandas. In particolare, vediamo che questi sono organizzati secondo la seguente tabella:
+
+```sh
+  total_bill   tip     sex smoker  day    time  size
 0       16.99  1.01  Female     No  Sun  Dinner     2
 1       10.34  1.66    Male     No  Sun  Dinner     3
 2       21.01  3.50    Male     No  Sun  Dinner     3
@@ -34,39 +40,61 @@ La struttura della tabella è quindi la seguente:
 4       24.59  3.61  Female     No  Sun  Dinner     4
 ```
 
-Mediante la funzione `relplot()` possiamo ad esempio analizzare il rapporto tra conto e mancia al variare della giornata:
+La struttura della tabella è la seguente:
+
+* ogni riga è associata ad una specifica ordinazione;
+* le colonne sono associate rispettivamente a conto (`total_bill`), mancia (`tip`), genere (`sex`), fumatore (smoker), giorno (`day`), orario (`time`) e numero di attendenti (`size`).
+
+### 10.1.1 - Visualizzare le relazioni tra dati
+
+Seaborn ci offre la funzione `relplot()` che ci permette di analizzare velocemente diversi aspetti inclusi del dataset. Ad esempio, potremmo vedere come cambiano contro e mancia al variare della giornata:
 
 ```py
 sns.relplot(
     data=tips,
-    x="total_bill", y="tip", col="day"
+    x='total_bill',
+    y='tip',
+    col='day'
 )
 ```
 
-In particolare, metteremo sull'asse delle ascisse il valore totale del conto, su quello delle ordinate la mancia ricevuta, e genereremo un numero di plot pari ai valori assunti dal dataset nella colonna `day`, come mostrato nella seguente figura.
+Notiamo che abbiamo passato al parametro `data` il valore `tips`, indicando quindi la sorgente dei dati. Metteremo poi sull'asse delle ascisse il conto totale, mentre su quello delle ascisse la mancia ricevuta. In ultimo, il parametro `col` ci permette di generare tanti grafici quanti sono i diversi valori presenti nella tabella `day`, ognuno dei quali rappresenterà ovviamente l'andamento dei conti e delle mance per quello specifico giorno.
 
-![relplot_1](./images/relplot_1.png)
+![relplot_1](./images/relplot_1.png){: .center}
 
 Un altro esperimento è quello che vede valutare la differenza tra conto e mance pagati da uomini e donne. In questo caso, inoltre, andiamo ad aumentare la dimensione del punto in maniera direttamente proporzionale alla mancia percepita.
 
 ```py
 sns.relplot(
     data=tips,
-    x='total_bill', y='tip', col='sex', size='tip'
-)
+    x='total_bill',
+    y='tip',
+    col='sex',
+    size='tip')
 ```
 
-![relplot_2](./images/relplot_2.png)
+![relplot_2](./images/relplot_2.png){: .center}
 
-## 8.2.2 - Stima di una distribuzione
+Una funzione simile alla `relplot()` è la `lmplot()`, che permette anche di mostrare un'approssimazione ai minimi quadrati.
 
-Oltre all'analisi delle relazioni intercorrenti 
+## 10.2 - Analisi della distribuzione dati
 
-Di solito l'analisi statistica prevede della conoscenza a riguardo della distribuzione delle variabili nel nostro dataset. La funzione displot() permette di visualizzare le distribuzioni, per esempio usadno degli istrogrammi ed effettuando delle stime come quella basata sulla KDE:
+Possiamo anche effettuare un'analisi della distribuzione delle variabili all'interno del nostro dataset. In tal senso, la funzione `displot()` ci permette di vedere come si vanno a distribuire i dati in base a determinate condizioni mediante l'uso di un istogramma.
 
-sns.displot(data=tips, x="total_bill", col="time", kde=True)
+Ad esempio, potremmo visualizzare la distribuzione dei clienti in base al loro genere ed al momento della giornata in cui effettuano la consumazione:
 
-## plot dati categorici
+```py
+sns.displot(
+    data=tips,
+    x='sex',
+    col='time')
+```
+
+![distplot_tips](./images/distplot_tips.png)
+
+## 10.3 - plot dati categorici
+
+TODO: da qui
 
 Esistono anche dei plot specializzati in seaborn ed orientati verso la visualizzazione di dati di tipo categorico. Questi possono essere aceduti mediante la funzione catplot(). Questi plot offrono diversi livelli di granularità. Al livello più fine, potremmo voler vedere ogni osservazione disegnando uno "swarm" plot, ovvero uno scatter plot che modfica la posizione dei punti lungo l'asse delle categorie in modo che non si sovrappongano.
 
@@ -76,7 +104,7 @@ In alternativa, potremmo usare dei violin plot che sfruttano la KDE per rapprese
 
 sns.catplot(data=tips, kind="violin", x="day", y="total_bill", hue="smoker", split=True)
 
-### Esempio: Heatmap
+## 10.4 - Esempio: Heatmap
 
 La sintassi usata da Seaborn è molto simile a quella usata da Matplotlib, con qualche piccola ed ovvia differenza. 
 
