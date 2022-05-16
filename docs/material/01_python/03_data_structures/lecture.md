@@ -108,9 +108,8 @@ Vediamo come utilizzare questo concetto per combinare ricorsione e list comprehe
 
 Vediamo cosa succede se proviamo ad usare una assignment expression in modo da restituire una lista che abbia come primo elemento il secondo della precedente (ovvero `1`), e come secondo la somma di tutti gli elementi della lista (ovvero `0 + 1`):
 
-```py
+```pycon
 >>> (fib := [fib[1], fib[0] + fib[1]])
->>> fib
 [1, 1]
 ```
 
