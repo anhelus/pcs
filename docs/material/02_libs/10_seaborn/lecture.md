@@ -75,7 +75,18 @@ sns.relplot(
 
 ![relplot_2](./images/relplot_2.png){: .center}
 
-Una funzione simile alla `relplot()` è la `lmplot()`, che permette anche di mostrare un'approssimazione ai minimi quadrati.
+Una funzione simile alla `relplot()` è la `lmplot()`, che permette anche di mostrare un'approssimazione ai minimi quadrati dei dati. Ad esempio:
+
+```py
+sns.lmplot(
+    data=tips,
+    x='total_bill',
+    y='tip',
+    col='time',
+    hue='day')
+```
+
+![lmplot](./images/lmplot.png){: .center}
 
 ## 10.2 - Analisi della distribuzione dati
 
@@ -92,34 +103,40 @@ sns.displot(
 
 ![distplot_tips](./images/distplot_tips.png)
 
-## 10.3 - plot dati categorici
+## 10.3 - Plot di dati categorici
 
-TODO: da qui
+Seaborn offre anche dei plot specializzati per la creazione e visualizzazione di dati (o feature) di tipo *categorico*, ovvero dati appartenenti ad una tra diverse possibili categorie. In tal senso, un esempio di feature categorica è il genere dei clienti del ristorante, che nel dataset sono soltanto uomini o donne.
 
-Esistono anche dei plot specializzati in seaborn ed orientati verso la visualizzazione di dati di tipo categorico. Questi possono essere aceduti mediante la funzione catplot(). Questi plot offrono diversi livelli di granularità. Al livello più fine, potremmo voler vedere ogni osservazione disegnando uno "swarm" plot, ovvero uno scatter plot che modfica la posizione dei punti lungo l'asse delle categorie in modo che non si sovrappongano.
-
-sns.catplot(data=tips, kind="swarm", x="day", y="total_bill", hue="smoker")
-
-In alternativa, potremmo usare dei violin plot che sfruttano la KDE per rappresentare la distribuzione sottostante dei punti.
-
-sns.catplot(data=tips, kind="violin", x="day", y="total_bill", hue="smoker", split=True)
-
-![catplot_tips](./images/catplot_tips.png)
-
-## 10.4 - Esempio: Heatmap
-
-La sintassi usata da Seaborn è molto simile a quella usata da Matplotlib, con qualche piccola ed ovvia differenza. 
-
-Una funzione molto utile è quella che ci permette di visualizzare le *heatmap*, che ci permettono di visualizzare rapidamente i valori in diversi tipi di matrici, come ad esempio quelle di correlazione (o, come vedremo più avanti, quelle di confusione). Questa funzione, quasi "banalmente", è chiamata `heatmap()`, e richiede almeno un parametro in ingresso, rappresentativo della matrice da cui sarà estratta la figura:
+I plot di questo tipo possono essere generati mediante la funzione [`catplot()`](https://seaborn.pydata.org/generated/seaborn.catplot.html), delegata alla definizione di plot a diversi livelli di granularità, come ad esempio i *violin plot*.
 
 ```py
-a = rng.integers(low=0, high=100, size=(20, 20))
-coeff = np.corrcoef(a)
-fig, ax = plt.subplots()
-sns.heatmap(corr)
-plt.show()
+sns.catplot(
+    data=tips,
+    kind='violin',
+    x='day',
+    y='tip',
+    hue='sex',
+    split=True)
 ```
 
-Il risultato che otterremo sarà simile a questo:
+![catplot_tips](./images/violinplot.png)
+
+In particolare, il grafico mostrato in figura descrive la distribuzione delle mance giorno per giorno al variare del genere del cliente.
+
+## 10.4 - Heatmap
+
+Un'ultima funzione che vale la pena menzionare è quella che ci permette di visualizzare le *heatmap*, ovvero delle strutture grafiche che ci permettono di visualizzare rapidamente gli intervalli in cui ricadono i valori di diversi tipi di matrici. QUesta funzione è, per l'appunto, chiamata [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html), e richiede in ingresso almeno il parametro relativo alla matrice da cui sarà estratta la figura. Ad esempio:
+
+```py
+ar = np.array([[5, 12], [4, 3]])
+sns.heatmap(
+    ar,
+    cmap='jet',
+    annot=True,
+    xticklabels=False,
+    yticklabels=False)
+```
+
+Nella precedente invocazione della funzione `heatmap()` specifichiamo i parametri indicati in modo da passare un array (o similari) come primo argomento, seguito da una *colormap*, ovvero i colori da utilizzare. Specifichiamo inoltre che vogliamo inserire i valori dell'array su ciascuna delle celle dell'heatmap (mediante il parametro `annot`) e che non vogliamo visualizzare i label sugli assi X ed Y (`xticklabels` ed `yticklabels` rispettivamente). Otterremo questo risultato:
 
 ![heatmap](./images/heatmap.png){: .center}
