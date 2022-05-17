@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://python.angelocardellicchio.it/material/02_libs/07_numpy/06_statistics/lecture/">
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.13">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.e411adfe.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.c382b1dc.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
@@ -468,8 +468,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_arithmetics/lecture/" class="md-nav__link">
-        7.3 - Aritmetica in NumPy
+      <a href="../../03_fundamentals/lecture/" class="md-nav__link">
+        7.3 - Operazioni fondamentali sugli array
       </a>
     </li>
   
@@ -621,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../09_scipy/lecture/" class="md-nav__link">
+      <a href="../../../09_scipy/lecture.md" class="md-nav__link">
         9 - Introduzione a SciPy
       </a>
     </li>
@@ -635,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../10_pandas/lecture/" class="md-nav__link">
+      <a href="../../../10_pandas/lecture.md" class="md-nav__link">
         10 - Introduzione a Pandas
       </a>
     </li>
@@ -687,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11_sklearn/01_intro_ml/lecture/" class="md-nav__link">
+      <a href="../../../11_sklearn/01_intro_ml/lecture.md" class="md-nav__link">
         11.1 - Introduzione al Machine Learning
       </a>
     </li>
@@ -701,7 +701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11_sklearn/02_intro_sk/lecture/" class="md-nav__link">
+      <a href="../../../11_sklearn/02_intro_sk/lecture.md" class="md-nav__link">
         11.2 - Introduzione a Scikit-Learn
       </a>
     </li>
@@ -715,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11_sklearn/03_classification/lecture/" class="md-nav__link">
+      <a href="../../../11_sklearn/03_classification/lecture.md" class="md-nav__link">
         11.3 - Classificazione in Scikit-Learn
       </a>
     </li>
@@ -729,7 +729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11_sklearn/04_regression/lecture/" class="md-nav__link">
+      <a href="../../../11_sklearn/04_regression/lecture.md" class="md-nav__link">
         11.4 - Regressione in Scikit-Learn
       </a>
     </li>
@@ -743,7 +743,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../11_sklearn/05_clustering/lecture/" class="md-nav__link">
+      <a href="../../../11_sklearn/05_clustering/lecture.md" class="md-nav__link">
         11.5 - Clustering in Scikit-Learn
       </a>
     </li>
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../12_time/01_statsmodels/lecture/" class="md-nav__link">
+      <a href="../../../12_time/01_statsmodels/lecture.md" class="md-nav__link">
         12.1 - Statsmodels
       </a>
     </li>
@@ -810,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../12_time/02_sktime/lecture/" class="md-nav__link">
+      <a href="../../../12_time/02_sktime/lecture.md" class="md-nav__link">
         12.2 - Scikit-Time
       </a>
     </li>
@@ -863,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../13_dl/01_intro_dl/lecture/" class="md-nav__link">
+      <a href="../../../13_dl/01_intro_dl/lecture.md" class="md-nav__link">
         13.1 - Introduzione al deep learning
       </a>
     </li>
@@ -877,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../13_dl/02_keras/lecture/" class="md-nav__link">
+      <a href="../../../13_dl/02_keras/lecture.md" class="md-nav__link">
         13.2 - Introduzione a Keras
       </a>
     </li>
@@ -1022,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03_arithmetics/exercises/" class="md-nav__link">
+      <a href="../../03_fundamentals/exercises/" class="md-nav__link">
         E7.3 - Aritmetica in NumPy
       </a>
     </li>
@@ -1064,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../09_scipy/exercises/" class="md-nav__link">
+      <a href="../../../09_scipy/exercises.md" class="md-nav__link">
         E9 - Introduzione a SciPy
       </a>
     </li>
@@ -1339,14 +1339,15 @@
 <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 <h2 id="762-percentile-e-quantile">7.6.2 - Percentile e quantile<a class="headerlink" href="#762-percentile-e-quantile" title="Permanent link">&para;</a></h2>
-<p>Ricordiamo che il <em>q-percentile</em> di un vettore <span class="arithmatex">\(V\)</span> di lunghezza <span class="arithmatex">\(N\)</span> è il valore sotto il quale ricade il <span class="arithmatex">\(q\)</span>% degli elementi di <span class="arithmatex">\(V\)</span>.</p>
-<p>Per fare un esempio, supponiamo di avere un vettore ordinato di elementi che vanno da 1 a 10:</p>
+<p>Ricordiamo che il <em>q-percentile</em> di un vettore <span class="arithmatex">\(V\)</span> di lunghezza <span class="arithmatex">\(N\)</span> è definito come il valore pari a <span class="arithmatex">\(\frac{q}{100}\)</span> calcolato a partire da una copia ordinata di <span class="arithmatex">\(V\)</span>.</p>
+<p>Per fare un esempio, supponiamo di avere un vettore ordinato di elementi che vanno da 1 a 10, e di calcolare il 50-percentile mediante la funzione <code>percentile()</code> di Python.</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Risultato ottenuto</span>
+<span class="mf">5.5</span>
 </code></pre></div>
-<p>Possiamo calcolare il 50-percentile usando la formula classica, che ci dice che questo è pari a:</p>
-<div class="arithmatex">\[
-n = \frac{q}{100} * N = \frac{50}{100} * 10 = 5
-\]</div>
+<p>Esistono diversi modi di calcolare il q-percentile; in tal senso, è opportuno consultare la <a href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html">reference</a> e l'articolo <a href="https://www.tandfonline.com/doi/abs/10.1080/00031305.1996.10473566"><em>Sample quantiles in statistical packages di Hyndman, R. J., &amp; Fan, Y</em></a>.</p>
 <p>In realtà, la funzione <code>percentile(a, q)</code> usa, per il 50-percentile, il calcolo della mediana, per cui è equivalente alla funzione <code>median(a)</code>. In questo caso specifico, avremo un discostamento dal risultato atteso, dovuto ad errori di interpolazione introdotti da NumPy:</p>
 <div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 </code></pre></div>
@@ -1534,7 +1535,7 @@ R_{ij} = \frac{C_{ij}}{\sqrt{C_{ii} * C_{jj}}}
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.indexes", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
         <script src="../../../../../js/config.js"></script>
       
