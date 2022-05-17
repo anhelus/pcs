@@ -84,6 +84,78 @@ np.inner(a, b)
 	Ricordiamo che per due generici vettori monodimensionali $v_1 = [v_{11}, \ldots, v_{1j}], v_2 = [v_{21}, \ldots, v_{2j}]$ il prodotto scalare è dato da:
 	$$p = \sum_{i=1}^j v_{1i} * v_{2i}$$
 
+Un lettore attento avrà notato che, nella pratica, per vettori monodimensionali, le funzioni inner() e dot() restituiscono lo stesso risultato:
+
+```py
+np.inner(a, b)		# Output: 32
+a.dot(b)			# Output: 32, stesso di b.dot()
+```
+
+La differenza tra le due funzioni è visibile quando si utilizzano array a dimensionalità maggiore di 1 (anche comuni matrici vanno bene). Infatti:
+
+```py
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [7, 8]])
+
+# Risultato con inner
+np.inner(a, b)
+array([[17, 23],
+       [39, 53]])
+
+a.dot(b)
+# Risultato con dot
+array([[19, 22],
+       [43, 50]])
+```
+
+In pratica, riprendendo la documentazione:
+
+* per quello che riguarda la funzione `dot()`, questa è equivalente a `matmul()`, e quindi rappresenta una moltiplicazione matriciale che, nel caso di vettori monodimensionali, equivale al prodotto vettoriale, mentre per N dimensioni è la somma dei prodotti tra l'ultima dimensione del primo vettore e delle dimensioni che vanno da 2 ad N del secondo;
+* per quello che riguarda la funzione `inner()`, rappresenta il prodotto vettoriale nel caso ad una dimensione, mentre nel caso di N dimensioni rappresenta la somma dei prodotti lungo l'ultima dimensione.
+
+In altri termini:
+
+```py
+a.dot(b) == sum(a[i, :] * b[:, j])
+np.inner(a, b) == sum(a[i, :] * b[j, i])
+```
+
+ovvero:
+
+$$
+dot = \left(\begin{array}{cc}
+1 & 2\\
+3 & 4
+\end{array}\right)
+\left(\begin{array}{cc}
+5 & 6\\
+7 & 8
+\end{array}\right) = \\
+= \left(\begin{array}{cc}
+1 * 5 + 2*7 & 1*6+2*8\\
+3*5+4*7 & 1*6+4*8
+\end{array}\right)
+= \left(\begin{array}{cc}
+19 & 22\\
+43 & 50
+\end{array}\right)
+$$
+
+$$
+inner = \left(\begin{array}{cc}
+1 & 2\\
+3 & 4
+\end{array}\right)
+\left(\begin{array}{cc}
+5 & 6\\
+7 & 8
+\end{array}\right) = \\
+= \left(\begin{array}{cc}
+17 & 23\\
+39 & 53
+\end{array}\right)
+$$
+
 ### 7.4.3.2 - Prodotto esterno
 
 Possiamo usare la funzione `outer(a, b)` per calcolare il *prodotto esterno* tra due vettori. In particolare, dati due vettori $a = [a_1, a_2, \ldots, a_n]$ e $b = [b_1, b_2, \ldots, b_n]$, il prodotto esterno è definito come la matrice $P$ tale che:
