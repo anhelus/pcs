@@ -82,7 +82,79 @@ np.inner(a, b)
 
 !!!note "Definizione di prodotto interno"
 	Ricordiamo che per due generici vettori monodimensionali $v_1 = [v_{11}, \ldots, v_{1j}], v_2 = [v_{21}, \ldots, v_{2j}]$ il prodotto scalare è dato da:
-	> $$p = \sum_{i=1}^j v_{1i} * v_{2i}$$
+	$$p = \sum_{i=1}^j v_{1i} * v_{2i}$$
+
+Un lettore attento avrà notato che, nella pratica, per vettori monodimensionali, le funzioni inner() e dot() restituiscono lo stesso risultato:
+
+```py
+np.inner(a, b)		# Output: 32
+a.dot(b)			# Output: 32, stesso di b.dot()
+```
+
+La differenza tra le due funzioni è visibile quando si utilizzano array a dimensionalità maggiore di 1 (anche comuni matrici vanno bene). Infatti:
+
+```py
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [7, 8]])
+
+# Risultato con inner
+np.inner(a, b)
+array([[17, 23],
+       [39, 53]])
+
+a.dot(b)
+# Risultato con dot
+array([[19, 22],
+       [43, 50]])
+```
+
+In pratica, riprendendo la documentazione:
+
+* per quello che riguarda la funzione `dot()`, questa è equivalente a `matmul()`, e quindi rappresenta una moltiplicazione matriciale che, nel caso di vettori monodimensionali, equivale al prodotto vettoriale, mentre per N dimensioni è la somma dei prodotti tra l'ultima dimensione del primo vettore e delle dimensioni che vanno da 2 ad N del secondo;
+* per quello che riguarda la funzione `inner()`, rappresenta il prodotto vettoriale nel caso ad una dimensione, mentre nel caso di N dimensioni rappresenta la somma dei prodotti lungo l'ultima dimensione.
+
+In altri termini:
+
+```py
+a.dot(b) == sum(a[i, :] * b[:, j])
+np.inner(a, b) == sum(a[i, :] * b[j, i])
+```
+
+ovvero:
+
+$$
+dot = \left(\begin{array}{cc}
+1 & 2\\
+3 & 4
+\end{array}\right)
+\left(\begin{array}{cc}
+5 & 6\\
+7 & 8
+\end{array}\right) = \\
+= \left(\begin{array}{cc}
+1 * 5 + 2*7 & 1*6+2*8\\
+3*5+4*7 & 1*6+4*8
+\end{array}\right)
+= \left(\begin{array}{cc}
+19 & 22\\
+43 & 50
+\end{array}\right)
+$$
+
+$$
+inner = \left(\begin{array}{cc}
+1 & 2\\
+3 & 4
+\end{array}\right)
+\left(\begin{array}{cc}
+5 & 6\\
+7 & 8
+\end{array}\right) = \\
+= \left(\begin{array}{cc}
+17 & 23\\
+39 & 53
+\end{array}\right)
+$$
 
 ### 7.4.3.2 - Prodotto esterno
 
@@ -178,9 +250,7 @@ La funzione `linalg.norm(a)` ci permette di calcolare la norma di una matrice. O
 Per calcolare la norma di Frobenius della matrice `mat` possiamo usare questa sintassi:
 
 ```py
-linalg.norm(mat)
-
-16.97056274847714
+linalg.norm(mat)				# Il risultato sarà 16.97...
 ```
 
 ## 7.4.8 - Determinante, rango e traccia
@@ -188,12 +258,9 @@ linalg.norm(mat)
 Possiamo calcolare rapidamente determinante, rango e traccia di una matrice mediante le funzioni `det(a)`, `matrix_rank(a)` e `trace(a)`, quest'ultima **non** appartenente al package `linalg`. Ad esempio:
 
 ```py
->>> linalg.det(mat)
-6.000000000000001
->>> linalg.matrix_rank(mat)
-3
->>> np.trace(mat)
-20
+linalg.det(mat)					# Il risultato sarà 6
+linalg.matrix_rank(mat)			# Il risultato sarà 3
+np.trace(mat)					# Il risultato sarà 20
 ```
 
 La funzione `trace` può anche essere usata per calcolare la sommatoria delle sovra/sotto diagonali specificando il parametro `offset`. Ad esempio:
@@ -203,11 +270,8 @@ mat = np.array([[ 5,  2,  9],
 	[ 2,  3,  1],
 	[ 4, -2, 12]])
 
-np.trace(mat, offset=1)
-3
-
-np.trace(mat, offset=-1)
-0
+np.trace(mat, offset=1)			# Il risultato sarà 3
+np.trace(mat, offset=-1)		# Il risultato sarà 0
 ```
 
 ## 7.4.9 - Risoluzione di sistemi di equazioni lineari
@@ -216,9 +280,7 @@ Chiudiamo questa (necessariamente breve!) carrellata sulle operazioni di algebra
 
 ```py
 b = np.array([3, 2, 3])
-linalg.solve(mat, b)
-
-array([-7.5,  4.5,  3.5])
+linalg.solve(mat, b)			# Il risultato sarà array([-7.5,  4.5,  3.5])
 ```
 
 Ovviamente, la matrice `a` deve essere quadrata, mentre il vettore `b` deve avere esattamente `n` elementi, con `n` ordine di `a`!

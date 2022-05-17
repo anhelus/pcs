@@ -65,7 +65,7 @@ Usando un ciclo:
 ```py
 output_for = []
 for nome in lista_nomi:
-    if nomi[0] == "B":
+    if nome[0] == "B":
         output_for.append(nome)
 ```
 
@@ -108,7 +108,7 @@ Usando un ciclo:
 
 ```py
 output = []
-for i in range(1, 10):
+for i in range(1, 11):
     if i % 2 == 0:
         output.append("pari")
     else:
@@ -118,7 +118,7 @@ for i in range(1, 10):
 Usando una list comprehension:
 
 ```py
-output = ["pari" if i % 2 == 0 else "dispari" for i in range(1, 10)]
+output = ["pari" if i % 2 == 0 else "dispari" for i in range(1, 11)]
 ```
 
 !!!tip "Suggerimento"

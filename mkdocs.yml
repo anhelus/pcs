@@ -15,7 +15,7 @@ nav:
     - 7 - NumPy:
       - 7.1 - Introduzione a Numpy: material/02_libs/07_numpy/01_intro/lecture.md
       - 7.2 - Gli Array: material/02_libs/07_numpy/02_array/lecture.md
-      - 7.3 - Aritmetica in NumPy: material/02_libs/07_numpy/03_arithmetics/lecture.md
+      - 7.3 - Operazioni fondamentali sugli array: material/02_libs/07_numpy/03_fundamentals/lecture.md
       - 7.4 - Algebra in NumPy: material/02_libs/07_numpy/04_algebra/lecture.md
       - 7.5 - Polinomi in NumPy: material/02_libs/07_numpy/05_polynomials/lecture.md
       - 7.6 - Statistica in NumPy: material/02_libs/07_numpy/06_statistics/lecture.md
@@ -40,7 +40,7 @@ nav:
     - E3 - Strutture dati in Python: material/01_python/03_data_structures/exercises.md
     - E4 - Programmazione orientata agli oggetti in Python: material/01_python/04_classes/exercises.md
     - E7.2 - Gli Array: material/02_libs/07_numpy/02_array/exercises.md
-    - E7.3 - Aritmetica in NumPy: material/02_libs/07_numpy/03_arithmetics/exercises.md
+    - E7.3 - Aritmetica in NumPy: material/02_libs/07_numpy/03_fundamentals/exercises.md
     - E7.4 - Algebra in NumPy: material/02_libs/07_numpy/04_algebra/exercises.md
     - E7.5 - Polinomi in NumPy: material/02_libs/07_numpy/05_polynomials/exercises.md
     - E9 - Introduzione a SciPy: material/02_libs/09_scipy/exercises.md

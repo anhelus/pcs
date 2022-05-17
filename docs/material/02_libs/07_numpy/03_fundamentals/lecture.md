@@ -1,4 +1,4 @@
-# 7.3 - Operazioni sugli array
+# 7.3 - Operazioni fondamentali sugli array
 
 ## 7.3.1 - Operazioni algebriche di base
 
@@ -277,7 +277,7 @@ Non specificando alcun asse, infine, si inserisce l'elemento specificato nella m
 array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
 ```
 
-### 7.3.6.3 - La funzione `append`
+### 7.3.6.3 - La funzione `append()`
 
 La funzione `append(arr, values, axis=None)` permette di inserire in coda ad un array i valori specificati. I parametri accettati dalla funzione sono:
 
