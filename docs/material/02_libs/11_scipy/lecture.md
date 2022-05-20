@@ -18,7 +18,7 @@ pip install scipy
 
 In questa *giocoforza* brevissima introduzione, vedremo alcune delle potenzialità di SciPy, basandoci su un paio di casi d'uso (più o meno) reali.
 
-### 11.1.1 - Calcolo della distribuzione di probabilità
+## 11.2 - Calcolo della distribuzione di probabilità
 
 Proviamo a vedere come viene visualizzato il valore (teorico) assunto da due distribuzioni di probabilità "classiche", ovvero la distribuzione uniforme e quella normale.
 
@@ -35,49 +35,26 @@ Generiamo adesso 100 campioni equidistanziati e compresi tra l'1 ed il 99 percen
 ```py
 x_1 = np.linspace(norm.ppf(0.01), norm.ppf(0.99), 100)
 x_2 = np.linspace(uniform.ppf(0.01), uniform.ppf(0.99), 100)
-
-r_1 = norm.rvs(size=1000)
-r_2 = uniform.rvs(size=1000)
-
-fig, (ax_1, ax_2) = plt.subplots(2, 1)
-
-ax_1.plot(x_1, norm.pdf(x_1))
-ax_1.hist(r_1, density=True)
-
-ax_2.plot(x_2, uniform.pdf(x_2))
-ax_2.hist(r_2, density=True)
-
-plt.show()
 ```
 
-In primis, importiamo i moduli `norm` ed `uniform` del package `scipy.stats`, che contengono tutto quello di cui abbiamo bisogno per la modellazione delle distribuzioni normali (`norm`) ed uniformi (`uniform`).
+Stiamo usando la funzione `linspace` per generare dei campioni equidistanziati e compresi tra `dist.ppf(0.01)` e `dist.ppf(0.99)`, dove `dist` può essere `norm` o `uniform`, rispettivamente, mentre `ppf(0.01)` rappresenta l'1-percentile della distribuzione (ed analogamente `ppf(0.99)` rappresenta il 99-percentile). In parole povere, stiamo generando cento campioni equidistanziati tra l'1-percentile ed il 99-percentile della distribuzione `dist`.
 
-Successivamente, usiamo la funzione `linspace` di NumPy, il cui funzionamento è molto simile a `range` ed `arange`, ma che restituisce risultati consistenti anche nel caso di uso di step non interi (il che non è sempre garantito con `arange`). In particolare, genereremo 100 campioni equidistanziati e compresi tra l'1 ed il 99 percentile delle funzioni; per individuare questi valori, usiamo la funzione `ppf(p)`:
-
-```py
-x_1 = np.linspace(norm.ppf(0.01), norm.ppf(0.99), 100)
-x_2 = np.linspace(uniform.ppf(0.01), uniform.ppf(0.99), 100)
-```
-
-!!!note "Nota"
-	Intuitivamente, individuare 100 valori compresi tra l'1 ed il 99 percentile significa in pratica modellare la maggior parte dell'intervallo dei valori assunti "normalmente" dalla funzione.
-
-A questo punto, calcoliamo 1000 valori generati casualmente seguendo entrambe le distribuzioni mediante la funzione `rvs()`:
+Successivamente, utilizziamo la funzione `rvs()` per generare casualmente un "gran" numero di valori che però siano distribuiti secondo le due distribuzioni considerate:
 
 ```py
 r_1 = norm.rvs(size=1000)
 r_2 = uniform.rvs(size=1000)
 ```
 
-Per terminare, generemo due subplot, uno relativo alla funzione densità di probabilità normale, ed uno relativo alla funzione densità di probabilità uniforme. Nei subplot, compareremo i valori equispaziati generati in precedenza (`x_1` ed `x_2`) con l'istogramma dei 1000 valori generati casualmente (`r_1` ed `r_2`); ovviamente, ricordiamo di inserire il valore `density=True` per normalizzare l'istogramma.
+A questo punto, possiamo plottare l'istogramma dei valori `r_i`, e verificare che segua la distribuzione di probabilità `pdf(x)` per ciascuno dei due tipi di distribuzione. Ricordiamo di inserire il valore `density=True` per normalizzare l'istogramma.
 
 Il risultato dovrebbe essere simile a quello mostrato in figura:
 
 ![pdf](./images/pdfs.png){: .center}
 
-## Esempio 2: calcolo del determinante e dell'inversa
+## 11.3 - Calcolo del determinante e dell'inversa
 
-Un altro esempio delle potenzialità offerte da SciPy sta nel calcolo algebrico, che offre molte più funzioni rispetto a quelle presenti in NumPy, specialmente per quello che riguarda la fattorizzazione di matrici.
+SciPy offre anche la possibilità di effettuare calcoli algebrici grazie ad un numero di funzioni molto più elevato rispetto a quelle presenti in NumPy.
 
 Per fare un rapido esempio, vediamo come è possibile calcolare il determinante e l'inversa di una matrice.
 
@@ -95,52 +72,26 @@ i = linalg.inv(mat)
 !!!note "Nota"
 	E' molto semplice otare come la sintassi richiami quella di NumPy e, in realtà, anche il funzionamento sia il medesimo, per cui è possibile usare indifferentemente entrambe le librerie. Dove SciPy "spicca" è in tutte quelle funzioni che non sono presenti in NumPy.
 
-## Esempio 3: Trasformata di Fourier
+## 11.4 - Filtraggio di un segnale
 
-SciPy non è limitato al calcolo algebrico e matriciale, e può essere usato, come dicevamo, in molti altri ambiti, come ad esempio il signal processing. Ad esempio, possiamo sfruttarlo per calcolare la trasformata di Fourier di un segnale sinusoidale:
+SciPy ha al suo interno diverse librerie per l'elaborazione dei segnali a diverse dimensionalità.
 
-```py
-from scipy.fft import fft
+Per fare un esempio, proviamo ad utilizzare un filtro di Savitzky-Golay su un array monodimensionale mediante la funzione [`savgol_filter()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.savgol_filter.html).
 
-x = np.linspace(0., 10, 1000)
-y = np.sin(2.0 * np.pi * x)
-yf = fft(y)
-
-fig, ax = plt.subplots()
-
-ax.plot(np.abs(yf[0:500]))
-plt.show()
-```
-
-Nell'esempio precedente, generiamo 1000 campioni equidistanziati tra 0 e 10, e quindi creiamo il vettore `y` la cui formula sarà associata a $f(x) = 2\pi x$. A quel punto, calcoliamo la trasformata di Fourier di `y`, e ne visualizziamo a schermo il modulo.
-
-![fft_sin](./images/fft_sin.png){: .center}
-
-!!!warning "Attenzione"
-	Ricordiamo che la trasformata di Fourier è simmetrica. Per questo, visualizzeremo soltanto la prima metà dei valori estratti per il modulo.
-
-Possiamo estendere il precedente esperimento vedendo cosa accade per una somma di seni:
+Creiamo un array casuale mediante NumPy:
 
 ```py
-y_tr = np.sin(2.0 * np.pi * x) + np.sin(20 * 2.0 * np.pi * x)
-y_trf = fft(y_tr)
-ax.plot(np.abs(y_trf[0:500]))
+noisy = np.random.normal(0, 1, size=(100,))
 ```
 
-Come si deve dalla figura, avremo come risultato due impulsi:
-
-![fft_two_sins](./images/fft_two_sins.png){: .center}
-
-In ultimo, possiamo valutare anche cosa accade riducendo l'ampiezza di una delle due sinusoidi:
+Filtriamo questo segnale usando un filtro di Savitzky-Golay con finestra di lunghezza pari a 7 campioni e mediante un polinomio approssimante di secondo grado:
 
 ```py
-y_tr = np.sin(2.0 * np.pi * x) + 0.5 * np.sin(20 * 2.0 * np.pi * x)
-y_trf = fft(y_tr)
-ax.plot(np.abs(y_trf[0:500]))
+from scipy.signal import savgol_filter
+
+filtered = savgol_filter(noisy, 7, 2)
 ```
 
-![fft_two_sins_red](./images/fft_two_sins_red.png){: .center}
+Otterremo un risultato simile a quello mostrato in figura:
 
-## Conclusioni
-
-In questa lezione, abbiamo dato una breve panoramica sulle possibilità offerte da SciPy. Nelle prossime, vedremo come funzionano altre due librerie, ovvero *iPython* e *Pandas*.
+![savgol_filter](./images/savgol.png)
