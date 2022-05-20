@@ -1,8 +1,10 @@
-# 17 - Concetti introduttivi al machine learning
+# 17.1 - Concetti introduttivi al machine learning
 
 ## 17.1 - Il dataset
 
-Un dataset, in senso lato, serve a modellare un dato fenomeno sotto osservazione; nel caso del dataset *Titanic*, infatti, stiamo modellando, o per meglio dire *caratterizzando*, i passeggeri presenti sul Titanic durante l'unico, sfortunato, viaggio della nave.
+Un *dataset* serve a raccogliere le osservazioni relative ad un dato fenomeno.
+
+Pensiamo ad esempio al dataset Titanic: questo ci permette di caratterizzare i passeggeri presenti sulla nave durante l'unico viaggio compiuto dalla nave.
 
 !!!note "Sui dataset"
     Al giorno d'oggi, esistono dataset su praticamente ogni cosa, dalle saldature, alla videosorveglianza, passando per la qualità dell'aria, e chi più ne ha, più ne metta. TODO: inserire link a repository online
