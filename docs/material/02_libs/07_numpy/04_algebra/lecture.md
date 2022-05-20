@@ -117,7 +117,7 @@ In altri termini:
 
 ```py
 a.dot(b) == sum(a[i, :] * b[:, j])
-np.inner(a, b) == sum(a[i, :] * b[j, i])
+np.inner(a, b) == sum(a[i, :] * b[j, :])
 ```
 
 ovvero:
