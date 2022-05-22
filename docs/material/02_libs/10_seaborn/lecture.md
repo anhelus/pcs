@@ -1,4 +1,4 @@
-# 10 - Seaborn
+# 10 - Visualizzazione di dati in Seaborn
 
 *Seaborn* è una libreria che estende [Matplotlib](../08_matplotlib/lecture.md) aggiungendone diverse funzionalità, tutte nell'ottica della data analysis, e sulla scia di quello che abbiamo presentato in Pandas nella lezione precedente. Ciò permette quindi di mantenere un'interfaccia molto simile a quella di Matplotlib, estendendone al contempo le possibilità. Vediamo qualche esempio.
 
@@ -98,7 +98,8 @@ Ad esempio, potremmo visualizzare la distribuzione dei clienti in base al loro g
 sns.displot(
     data=tips,
     x='sex',
-    col='time')
+    col='time',
+    kde=True)
 ```
 
 ![distplot_tips](./images/distplot_tips.png)
@@ -125,7 +126,7 @@ In particolare, il grafico mostrato in figura descrive la distribuzione delle ma
 
 ## 10.4 - Heatmap
 
-Un'ultima funzione che vale la pena menzionare è quella che ci permette di visualizzare le *heatmap*, ovvero delle strutture grafiche che ci permettono di visualizzare rapidamente gli intervalli in cui ricadono i valori di diversi tipi di matrici. QUesta funzione è, per l'appunto, chiamata [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html), e richiede in ingresso almeno il parametro relativo alla matrice da cui sarà estratta la figura. Ad esempio:
+Un'ultima funzione che vale la pena menzionare è quella che ci permette di visualizzare le *heatmap*, ovvero delle strutture grafiche che ci permettono di visualizzare rapidamente gli intervalli in cui ricadono i valori di diversi tipi di matrici. Questa funzione è, per l'appunto, chiamata [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html), e richiede in ingresso almeno il parametro relativo alla matrice da cui sarà estratta la figura. Ad esempio:
 
 ```py
 ar = np.array([[5, 12], [4, 3]])

@@ -1,12 +1,20 @@
-# COsa è il machine learning?
+# 12 - Introduzione al machine learning
 
-Il machine learning è alla base di alcune tra le tecnologie più importanti usate al giorno d'oggi, dalle app di traduzione automatica ai veicoli autonomi.
+Il *machine learning* è alla base di alcune tra le più importanti tecnologie odierne. Le sue applicazioni sono molteplici: si va dagli strumenti di traduzione automatica fino ai veicoli autonomi, passando per sistemi di videosorveglianza e software per scrivere codice.
 
-Il ml offre un nuovo modo di risolvere i problemi e rispondere a questioni complesse. In termini basilari, il ML è il processi di addestrare un software, chiamato modello, per fare delle predizioni uitli a partire dai dati. Un modello di ML rappresenta quindi la relazione matematica tra gli elementi dei dati che un sistema di ML usa per effettuare delle predizioni.
+In pratica, l'avvento del machine learning ha offerto un modo alternativo, e *più efficace*, di risolvere problemi estremamente complessi. Volendo riassumere il concetto alla base del machine learning, potremmo dire che questo rappresenta il procedimento che insegna ad un software, chiamato *modello*, a fare predizioni significative a partire da un insieme di dati. In altri termini:
 
-Ad esempio, suppioniamo di creare un'app che predica le pioggie. Possiamo usare un approccio tradizionale o un approccio di ML. Usando un approccio tradizionale, creiamo una rappresentazione fisica dell'atmosfera terrestre e della superficie, calcolando grandi quantità di equiazioni di fluidodinamica. Questo risulta ovviamente essere incredibilmente difficile.
+!!!quote "Modello di machine learning"
+    Un modello di machine learning rappresenta la relazione matematica intercorrente tra i dati che il sistema derivante utilizza per effettuare predizioni.
 
-Usando un approccio basato sul ML, diamo al modello di ML un quantiativo enorme di dati sul tempo fino a che il modello stesso *apprende* le relazioni matematiche tra i pattern del tempo che producono diversi quantitativi di pioggia. Daremo quindi al modello i dati attuali sul tempo, e predirremo il quantitativo di pioggia.
+Come esempio, immaginiamo di creare un software che effettui la predizione del quantitativo di pioggia che cadrà in una zona. Per farlo, possiamo usare due approcci:
+
+* nell'approccio *tradizionale*, creeremo una rappresentazione fisica dell'atmosfera e della superficie terrestre, risolvendo equazioni estremamente complesse come le Navier-Stokes;
+* nell'approccio *basato sul machine learning*, daremo ad un modello un quantitativo adeguato (e, molto spesso, *enorme*) di dati riguardanti le condizioni meteorologiche, fino a che il modello stesso non apprenderà le relazioni sottostanti i diversi pattern di feature meteorologiche che permettono di produrre diversi quantitativi di pioggia.
+
+In entrambi i casi, una volta completata l'implementazione (per l'approccio tradizionale) o l'addestramento (per l'approccio basato su machine learning) passeremo al software i dati sulla condizione meteorologica attuale, per poi predire il quantitativo di pioggia previsto.
+
+TODO: DA QUI
 
 # tipi di sistemi ML
 
@@ -45,4 +53,6 @@ Il clustering differisce dalla classificazione perché le categorie non sono def
 
 ## il reinforcement learning
 
-il reinforcement learning fa delle predizioni ottenendo delle ricompense oi
+il reinforcement learning fa delle predizioni ottenendo delle ricompense o pnealità basate su azioni effettuate all'interndo di un ambiente. Un sistema di reinforcement leraning genera una policy che definisce la migliore strategia per ottenere la maggior parte dei requisiti.
+
+Al momento, le applicazioni del reinforcement learning sono varie, come l'addestramento di robot per effetutare determinati task, come camminare ion una stanza, oppure creare dei programmi come Alpha Go che giochino al gioco del go.
