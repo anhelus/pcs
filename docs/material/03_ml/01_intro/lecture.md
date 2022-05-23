@@ -14,45 +14,39 @@ Come esempio, immaginiamo di creare un software che effettui la predizione del q
 
 In entrambi i casi, una volta completata l'implementazione (per l'approccio tradizionale) o l'addestramento (per l'approccio basato su machine learning) passeremo al software i dati sulla condizione meteorologica attuale, per poi predire il quantitativo di pioggia previsto.
 
-TODO: DA QUI
+## 12.1 - Tipi di sistemi di machine learning
 
-# tipi di sistemi ML
+I sistemi di machine learning ricadono in tre diverse categorie, distinte sulla base di come "apprendono" a fare determinate predizioni.
 
-I sistemi di ML ricadono in tre diverse categorie a seconda di come apprendono a fare predizioni:
+### 12.1.1 - Sistemi ad apprendimento supervisionato
 
-* supervisionati
-* non supervisionati
-* reinforcement
+I sistemi ad *apprendimento supervisionato* (*supervised learning*) effettuano una predizione dopo aver appreso le relazioni intercorrenti tra un numero più o meno grande di dati ed i corrispondenti valori da predire. Per intenderci, un sistema di questo tipo è un po' come uno studente di matematica che, dopo aver appreso i metodi per la risoluzione di un problema di analisi mediante la risoluzione di un gran numero degli stessi, si prepara a sostenere l'esame.
 
-## supervisioned
+!!!note "Perché supervisionato?"
+    L'appellativo *supervisionato* deriva dal fatto che è (di solito) un esperto di dominio a fornire al sistema i dati con i risultati corretti.
 
-Il supervised learning effettua delle predizione dopo aver visto un gran numero di dati con le risposte corrette e quindi scopre le conessioni tra gli elementi nei dati che producono le risposte corrette. Questo è un po' come uno studente che apprende nuove nozioni studiando vecchi esami che contengono sia domande che risposte. Una volta che lo studente è stato addestrato sugli esami vecchi, è preparato a sostenere un nuovo esame. Questi sismtemi di ML sono chiamati supervisioanti in quanto un umano dà al suisteam i dat con i risultati corretti.
+I più importanti approcci all'apprendimento supervisionato sono la *regressione* e la *classificazione*.
 
-Due dei casi d'uso comuni per il supoervsied learning sono la regressione e la classificazione.
+#### 12.1.1.1 - Modelli di regressione
 
-## regressione
+Un *modello di regressione* predice un valore numerico. Ad esempio, un modello meteorologico di regressione potrebbe predire il quantitativo di pioggia in millimetri, mentre un altro modello di regressione potrebbe valutare l'andamento dei prezzi delle proprietà immobiliari sulla base di dati come i metri quadri, la posizione e le caratteristiche della casa, nonché la situazione attuale dei mercati finanziario ed immobiliare.
 
-Un modello di regressione predice un valore numerico. Ad esempio, un modello sul tempo che predice il quantitativo di pioggia in millimetri è un modello di regressione. Altri esempi sono:
+#### 12.1.1.2 - Modelli di classificazione
 
-* prezzi future delle case: dati metri quadri, località, numero di bagni e camere da letto, rati di interesse, costi di costruzioni ed altro, predice il prezzo della casa
-* tempo necessario per arrivare ad una località: dato lo storico delle condizioni di traffico, preso da smartphone, sensori di traffico ed altro, la distanza dalla destinazione e le condizioni meteo, restituisce il tempo in minuti e secondi per arrivare a destinazione
+A differenza dei modelli di regressione, il cui output è rappresentato da un numero, i *modelli di classificazione* restituiscono in uscita un valore che stabilisce la possibilità che un certo campione appartenga ad una data categoria. Ad esempio, un modello di classificazione potrebbe essere usato per predire se un'email è un messaggio di spam, o se una foto contiene invece un gatto o un cane.
 
-## classificazione
+Esistono due macrocategorie di modelli di classificazione, ovvero quelli *binari* e quelli *multiclasse*. In particolare, i modelli di classificazione binaria distinguono esclusivamente tra due valori: ad esempio, un modello di classificazione delle email potrebbe indicare se il messaggio è di spam o meno. I modelli di classificazione multiclasse invece riescono a distinguere tra più classi: ad esempio, il nostro modello di riconoscimento delle foto potrebbe riconoscere oggetti di "classe" gatto, cane, gallina ed oca.
 
-i modelli di classificazione predicono la possibilità che qualcosa appartenga ad una categoria. a differenza dei modelli di regressione, il cui otuput è un numero, i modelli di classificazione mandano in output un valore che stabilise se qualcosa apparetenga o meno ad una certa cageoria. ad esempio, i modelli di classificzione sono usati per predire se un'email è di spam o se una foto contiene ungatto.
+### 12.1.2 - Sistemi ad apprendimento non supervisionato
 
-I modelli di classificzione si dividonon in due gruppi: i modelli di classificazione bianria e quelli di classificazione mlticlasse. I modelli di classificazione binaria mandano in output un valore da una classe che contiene solo due valori, ad esempio, un modello manda in output o pioggia o no pioggia. I modelli multiclasse invece mandano in output un valore da una classe che contiene più di due valori, ad esempioun modello che può amndare in usicta sia pioggia, neve, grandine o temporale.
+I *sistemi di apprendimento non supervisionato* compiono delle predizioni a partire da dati che non contengono alcuna informazione sulla classe di appartenenza o sul valore di regressione. In pratica, i modelli non supervisionati hanno il compito di identificare pattern significativi *direttamente nei dati*, senza alcun "indizio" a priori, ma limitandosi ad inferire automaticamente le proprie regole.
 
-## apprendimento non supervisionato
+Algoritmi comunemente utilizzati in tal senso sono quelli di *clustering*, nei quali il modello individua come i dati vanno a "disporsi" utilizzando delle regole basate su distanze o capacità di "agglomerarsi".
 
-I modelli di apprendimento non supervisionato fanno rpedizioni a partire da dait che non contengono delle riposte corrette. Un modello di apprendimento non superivsioanto ha come oibettivo identificare dei patterns ignificativi tra dati. In altre parole, il modello non ha alcun indizio di come categorizzare ogni pezzo di dato, ma invece deve inferire le sue regole.
+Il clustering differisce dagli algoritmi supervisionati, ed in particolare dalla classificazione, principalmente perché le categorie non sono definite a priori da un esperto di dominio. Ad esempio, un algoritmo di clustering potrebbe raggruppare i campioni in un dataset meteo sulla base esclusivamente delle temperature, rivelando delle suddivisioni che definiscono le diverse stagioni, oppure ancora gli orari del giorno. Sarà poi nostro compito "provare" a dare un nome a questi cluster sulla base della nostra interpretazione del dataset.
 
-Un modello comunemente utilizzato pè quello che usa la tecnica chiamata clustering. Il modello individua dei punti che vanno a disposrsi secondo dei raggurppamenti naturali.
+### 12.1.3 - Sistemi di reinforcement learning
 
-Il clustering differisce dalla classificazione perché le categorie non sono definite da noi. Ad esempio, un modello non supervisionato può effettuare un raggruppamento di un dataset sul tempo sulla base delle temperature, rivelando delle suddivisioni che definiscono le stagioni. Possiamo quindi provare a dare un nome a questi cluster in abse a come "comprendiamo" il dataset.
+I sistemi di reinforcement learning effettuano delle predizioni a partire da ricompense o penalità basate sulle azioni effettuate da un *agente* all'interno di un *ambiente*. Sulla base di queste osservazioni, il sistema di reinforcement learning genera una *policy* che definisce la strategia migliore per raggiungere lo scopo prefissato.
 
-## il reinforcement learning
-
-il reinforcement learning fa delle predizioni ottenendo delle ricompense o pnealità basate su azioni effettuate all'interndo di un ambiente. Un sistema di reinforcement leraning genera una policy che definisce la migliore strategia per ottenere la maggior parte dei requisiti.
-
-Al momento, le applicazioni del reinforcement learning sono varie, come l'addestramento di robot per effetutare determinati task, come camminare ion una stanza, oppure creare dei programmi come Alpha Go che giochino al gioco del go.
+Le applicazioni dei sistemi di questo tipo sono varie, e spaziano dall'addestramento dei robot per svolgere task anche complessi, alla creazione di programmi come Alpha Go che sfidino (e battano) gli umani al gioco del Go.
