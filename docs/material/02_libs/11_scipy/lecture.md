@@ -18,7 +18,7 @@ pip install scipy
 
 In questa *giocoforza* brevissima introduzione, vedremo alcune delle potenzialità di SciPy, basandoci su un paio di casi d'uso (più o meno) reali.
 
-## 11.2 - Calcolo della distribuzione di probabilità
+## 11.2 - Validazione empirica di due distribuzioni
 
 Proviamo a vedere come viene visualizzato il valore (teorico) assunto da due distribuzioni di probabilità "classiche", ovvero la distribuzione uniforme e quella normale.
 
@@ -70,7 +70,7 @@ i = linalg.inv(mat)
 ```
 
 !!!note "Nota"
-	E' molto semplice otare come la sintassi richiami quella di NumPy e, in realtà, anche il funzionamento sia il medesimo, per cui è possibile usare indifferentemente entrambe le librerie. Dove SciPy "spicca" è in tutte quelle funzioni che non sono presenti in NumPy.
+	E' molto semplice notare come la sintassi richiami quella di NumPy e, in realtà, anche il funzionamento sia il medesimo, per cui è possibile usare indifferentemente entrambe le librerie. Dove SciPy "spicca" è in tutte quelle funzioni che non sono presenti in NumPy.
 
 ## 11.4 - Filtraggio di un segnale
 

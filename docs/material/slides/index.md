@@ -10,4 +10,5 @@
 | 05 - Introduzione a NumPy | [:link:](05_intro_numpy.pdf) |
 | 06 - Operazioni in NumPy | [:link:](06_numpy_ops.pdf) |
 | 07 - Matplotlib | [:link:](07_matplotlib.pdf) |
+| 08 - Pandas | [:link:](08_pandas.pdf) |
 | Appendice D - Principi di OOP | [:link:](app_d_oop.pdf) |

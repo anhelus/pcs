@@ -20,30 +20,11 @@ nav:
       - 7.5 - Polinomi in NumPy: material/02_libs/07_numpy/05_polynomials/lecture.md
       - 7.6 - Statistica in NumPy: material/02_libs/07_numpy/06_statistics/lecture.md
     - 8 - Visualizzazione di dati: material/02_libs/08_matplotlib/lecture.md
-    - 9 - Introduzione a SciPy: material/02_libs/09_scipy/lecture.md
-    - 10 - Introduzione a Pandas: material/02_libs/10_pandas/lecture.md
-    - 11 - Machine learning in Python:
-      - 11.1 - Introduzione al Machine Learning: material/02_libs/11_sklearn/01_intro_ml/lecture.md
-      - 11.2 - Introduzione a Scikit-Learn: material/02_libs/11_sklearn/02_intro_sk/lecture.md
-      - 11.3 - Classificazione in Scikit-Learn: material/02_libs/11_sklearn/03_classification/lecture.md
-      - 11.4 - Regressione in Scikit-Learn: material/02_libs/11_sklearn/04_regression/lecture.md
-      - 11.5 - Clustering in Scikit-Learn: material/02_libs/11_sklearn/05_clustering/lecture.md
-    - 12 - Analisi di serie temporali in Python:
-      - 12.1 - Statsmodels: material/02_libs/12_time/01_statsmodels/lecture.md
-      - 12.2 - Scikit-Time: material/02_libs/12_time/02_sktime/lecture.md
-    - 13 - Deep learning in Python:
-      - 13.1 - Introduzione al deep learning: material/02_libs/13_dl/01_intro_dl/lecture.md
-      - 13.2 - Introduzione a Keras: material/02_libs/13_dl/02_keras/lecture.md
-  - Esercizi svolti:
-    - E1 - Introduzione a Python: material/01_python/01_intro/exercises.md
-    - E2 - Programmare in Python: material/01_python/02_syntax/exercises.md
-    - E3 - Strutture dati in Python: material/01_python/03_data_structures/exercises.md
-    - E4 - Programmazione orientata agli oggetti in Python: material/01_python/04_classes/exercises.md
-    - E7.2 - Gli Array: material/02_libs/07_numpy/02_array/exercises.md
-    - E7.3 - Aritmetica in NumPy: material/02_libs/07_numpy/03_fundamentals/exercises.md
-    - E7.4 - Algebra in NumPy: material/02_libs/07_numpy/04_algebra/exercises.md
-    - E7.5 - Polinomi in NumPy: material/02_libs/07_numpy/05_polynomials/exercises.md
-    - E9 - Introduzione a SciPy: material/02_libs/09_scipy/exercises.md
+    - 9 - Introduzione a Pandas: material/02_libs/09_pandas/lecture.md
+    - 10 - Visualizzazione di dati in Seaborn: material/02_libs/10_seaborn/lecture.md
+    - 11 - Introduzione a SciPy: material/02_libs/11_scipy/lecture.md
+  - Parte 3 - Machine learning:
+    - 12 - Introduzione al machine learning: material/03_ml/12_intro/lecture.md
   - Appendici:
     - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
     - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
@@ -51,7 +32,10 @@ nav:
     - D - Programmazione orientata agli oggetti: material/appendix/04_oop/lecture.md
     - E - Tips: material/appendix/05_tips/lecture.md
     - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
-  - Notebook: notebooks/index.md
+    - G - Algoritmi:
+      - SVD: material/appendix/07_algorithms/01_svd/lecture.md
+  - Notebook: material/notebooks/index.md
+  - Esercizi: material/exercises/index.md
 
 theme:
   name: material

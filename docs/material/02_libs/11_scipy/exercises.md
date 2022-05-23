@@ -1,23 +1,78 @@
-# Risoluzione degli esercizi
+# E11 - Introduzione a SciPy
 
-1. Scrivere due funzioni tali che:
-    * la prima restituisca un booleano se una matrice passata in ingresso è invertibile;
-    * la seconda inverta la matrice in base ai risultati della funzione precedente.
-Usare SciPy.
+## Esercizio E11.1
+
+Scrivere una funzione che restituisca `True` se la matrice passata in ingresso è invertibile, `False` altrimenti. Usare SciPy.
+
+### Soluzione S10.1
+
+Ecco una possibile soluzione:
 
 ```py
 from scipy import linalg
 
 def invertibile(mat):
+	""" Usiamo un operatore ternario.
+	
+	Il risultato è analogo alla seguente:
 	if linalg.det(mat) != 0.:
 		return True
 	else:
 		return False
+	"""
+	return True if linalg.det(mat) != 0. else False
+```
 
+## Esercizio E11.2
 
-def inverti_se_invertibile(mat):
-	if invertibile(mat):
-		return linalg.inv(mat)
-	else:
-		return None
+Scrivere una classe che, incorporando la funzione precedente, permetta di invertire una matrice.
+
+### Soluzione S11.2
+
+Ecco una possibile soluzione:
+
+```py
+from scipy import linalg
+import warnings
+
+class InversoreMatrici():
+
+	def __init__(self, mat):
+		self.mat = mat
+	
+	@property
+	def mat(self):
+		return self.__mat
+	
+	@mat.setter
+	def mat(self, value):
+		if value is None:
+			raise ValueError('La matrice non può essere nulla')
+		self.__mat = value
+	
+	@property
+	def inv(self):
+		return self.__inv
+
+	@inv.setter
+	def inv(self, value):
+		if value is None:
+			raise ValueError("L'inversa non può essere nulla")
+		self.__inv = value
+	
+	@property
+	def invertibilita(self):
+		return self.__invertibilita
+	
+	@invertibilita.setter
+	def invertibilita(self, value):
+		if value is None:
+			raise ValueError("La determinazione dell'invertibilità non può essere nulla")
+		self.__invertibilita = True if linalg.det(mat) != 0. else False
+	
+	def inverti(self):
+		if self.invertibilita:
+			self.inv = linalg.inv(self.mat)
+		else:
+			warnings.warn('La matrice non è invertibile')
 ```
