@@ -1,7 +1,5 @@
 # Indice dei notebook
 
-## Lezioni
-
 | Notebook                              | Link                                          |
 | ------------------------------------- | --------------------------------------------- |
 | Lezione 7.4                           | [:link:](../02_libs/07_numpy/04_algebra/notebook.ipynb) |

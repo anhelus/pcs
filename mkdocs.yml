@@ -23,17 +23,8 @@ nav:
     - 9 - Introduzione a Pandas: material/02_libs/09_pandas/lecture.md
     - 10 - Visualizzazione di dati in Seaborn: material/02_libs/10_seaborn/lecture.md
     - 11 - Introduzione a SciPy: material/02_libs/11_scipy/lecture.md
-  - Esercizi svolti:
-    - E1 - Introduzione a Python: material/01_python/01_intro/exercises.md
-    - E2 - Programmare in Python: material/01_python/02_syntax/exercises.md
-    - E3 - Strutture dati in Python: material/01_python/03_data_structures/exercises.md
-    - E4 - Programmazione orientata agli oggetti in Python: material/01_python/04_classes/exercises.md
-    - E7.2 - Gli Array: material/02_libs/07_numpy/02_array/exercises.md
-    - E7.3 - Aritmetica in NumPy: material/02_libs/07_numpy/03_fundamentals/exercises.md
-    - E7.4 - Algebra in NumPy: material/02_libs/07_numpy/04_algebra/exercises.md
-    - E7.5 - Polinomi in NumPy: material/02_libs/07_numpy/05_polynomials/exercises.md
-    - E10 - Visualizzazione di dati in Seaborn: material/02_libs/10_seaborn/exercises.md
-    - E11 - Introduzione a SciPy: material/02_libs/11_scipy/exercises.md
+  - Parte 3 - Machine learning:
+    - 12 - Introduzione al machine learning: material/03_ml/12_intro/lecture.md
   - Appendici:
     - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
     - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
@@ -41,7 +32,10 @@ nav:
     - D - Programmazione orientata agli oggetti: material/appendix/04_oop/lecture.md
     - E - Tips: material/appendix/05_tips/lecture.md
     - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
+    - G - Algoritmi:
+      - SVD: material/appendix/07_algorithms/01_svd/lecture.md
   - Notebook: material/notebooks/index.md
+  - Esercizi: material/exercises/index.md
 
 theme:
   name: material

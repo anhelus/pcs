@@ -22,7 +22,7 @@ Pandas gestisce prevalentemente dati *strutturati* sotto forma *tabellare*, ossi
 
 I dataframe sono quindi delle strutture atte a contenere dati di ogni tipo. Questi sono normalmente organizzati in righe e colonne, in maniera del tutto analoga a quella in cui sono organizzati i fogli di calcolo ed i database. Importante anche sottolineare come, per convenzione, le singole righe rappresentino i *campioni* del dataset, mentre le colonne siano associati ai valori assunti dalle diverse caratteristiche, o *feature*, di ciascun campione.
 
-Facciamo un esempio usando il dataset [Titanic](../../../assets/data/titanic.csv), che è uno tra i più utilizzati a scopi di sperimentazione. Per prima cosa, generiamo un dataframe rappresentativo dei dati contenuti nel dataset:
+Facciamo un esempio usando il dataset [Titanic](../../data/titanic.csv), che è uno tra i più utilizzati a scopi di sperimentazione. Per prima cosa, generiamo un dataframe rappresentativo dei dati contenuti nel dataset:
 
 ```py
 df = pd.read_csv('titanic.csv')

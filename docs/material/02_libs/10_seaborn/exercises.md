@@ -37,4 +37,4 @@ sns.catplot(
     split=True)
 ```
 
-![catplot](./images/catplot.png){: .center}
+![catplot](./images/catplot_tips.png){: .center}
