@@ -1,9 +1,9 @@
-# 17 - Cosa è Scikit-Learn?
+# 13 - Introduzione a Scikit-Learn
 
-Scikit-Learn è una delle principali librerie per il machine learning disponibili per Python. Il suo ampio utilizzo è legato soprattutto a tre fattori:
+*Scikit-Learn* è una tra le librerie per il machine learning più utilizzate in Python. Ciò avviene principalmente per tre fattori:
 
-* l'ampio supporto ad un gran numero di algoritmi;
-* la facilità di utilizzo;
+* il supporto ad un numero molto elevato di algoritmi di machine learning;
+* la semplicità di utilizzo della libreria;
 * la perfetta integrazione con NumPy e Pandas.
 
 Vediamo quindi una panoramica ad ampio spettro delle potenzialità di Scikit-Learn.
