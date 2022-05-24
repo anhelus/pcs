@@ -98,7 +98,8 @@ Ad esempio, potremmo visualizzare la distribuzione dei clienti in base al loro g
 sns.displot(
     data=tips,
     x='sex',
-    col='time')
+    col='time',
+    kde=True)
 ```
 
 ![distplot_tips](./images/distplot_tips.png)
