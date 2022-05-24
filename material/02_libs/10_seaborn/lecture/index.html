@@ -1088,6 +1088,8 @@
     <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p><img alt="distplot_tips" src="../images/distplot_tips.png" /></p>
+<p>Specificando il parametro <code>kde</code>, è possibile ottenere un'approssimazione della distribuzione mediante kernel density estimation, come mostrato nella figura seguente.</p>
+<p><img alt="distplot_kde" src="../images/distplotkde.png" /></p>
 <h2 id="103-plot-di-dati-categorici">10.3 - Plot di dati categorici<a class="headerlink" href="#103-plot-di-dati-categorici" title="Permanent link">&para;</a></h2>
 <p>Seaborn offre anche dei plot specializzati per la creazione e visualizzazione di dati (o feature) di tipo <em>categorico</em>, ovvero dati appartenenti ad una tra diverse possibili categorie. In tal senso, un esempio di feature categorica è il genere dei clienti del ristorante, che nel dataset sono soltanto uomini o donne.</p>
 <p>I plot di questo tipo possono essere generati mediante la funzione <a href="https://seaborn.pydata.org/generated/seaborn.catplot.html"><code>catplot()</code></a>, delegata alla definizione di plot a diversi livelli di granularità, come ad esempio i <em>violin plot</em>.</p>
@@ -1101,6 +1103,10 @@
 </code></pre></div>
 <p><img alt="catplot_tips" src="../images/violinplot.png" /></p>
 <p>In particolare, il grafico mostrato in figura descrive la distribuzione delle mance giorno per giorno al variare del genere del cliente.</p>
+<div class="admonition tip">
+<p class="admonition-title">Catplot con dati non categorici</p>
+<p>In realtà, è possibile usare la <code>catplot()</code> con dati non categorici, come numeri interi. Tuttavia, vi è il rischio (o meglio, la <em>certezza</em>) che il risultato sia <em>non interpretabile</em>, in quanto la funzione assegnerà una categoria ad ogni possibile valore assunto dalla feature di riferimento, il che ovviamente comporterà l'illeggibilità del grafico nel caso di valori reali.</p>
+</div>
 <h2 id="104-heatmap">10.4 - Heatmap<a class="headerlink" href="#104-heatmap" title="Permanent link">&para;</a></h2>
 <p>Un'ultima funzione che vale la pena menzionare è quella che ci permette di visualizzare le <em>heatmap</em>, ovvero delle strutture grafiche che ci permettono di visualizzare rapidamente gli intervalli in cui ricadono i valori di diversi tipi di matrici. Questa funzione è, per l'appunto, chiamata <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html"><code>heatmap()</code></a>, e richiede in ingresso almeno il parametro relativo alla matrice da cui sarà estratta la figura. Ad esempio:</p>
 <div class="highlight"><pre><span></span><code><span class="n">ar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
