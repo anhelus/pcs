@@ -39,6 +39,7 @@ class InversoreMatrici():
 
 	def __init__(self, mat):
 		self.mat = mat
+		self.invertibilita = mat
 	
 	@property
 	def mat(self):
@@ -68,11 +69,16 @@ class InversoreMatrici():
 	def invertibilita(self, value):
 		if value is None:
 			raise ValueError("La determinazione dell'invertibilità non può essere nulla")
-		self.__invertibilita = True if linalg.det(mat) != 0. else False
+		self.__invertibilita = True if linalg.det(value) != 0. else False
 	
 	def inverti(self):
 		if self.invertibilita:
 			self.inv = linalg.inv(self.mat)
 		else:
 			warnings.warn('La matrice non è invertibile')
+
+a = np.array([[1, 2], [2, 5]])
+i = InversoreMatrici(a)
+i.inverti()
+i.inv
 ```
