@@ -104,6 +104,10 @@ sns.displot(
 
 ![distplot_tips](./images/distplot_tips.png)
 
+Specificando il parametro `kde`, è possibile ottenere un'approssimazione della distribuzione mediante kernel density estimation, come mostrato nella figura seguente.
+
+![distplot_kde](./images/distplotkde.png)
+
 ## 10.3 - Plot di dati categorici
 
 Seaborn offre anche dei plot specializzati per la creazione e visualizzazione di dati (o feature) di tipo *categorico*, ovvero dati appartenenti ad una tra diverse possibili categorie. In tal senso, un esempio di feature categorica è il genere dei clienti del ristorante, che nel dataset sono soltanto uomini o donne.
@@ -123,6 +127,9 @@ sns.catplot(
 ![catplot_tips](./images/violinplot.png)
 
 In particolare, il grafico mostrato in figura descrive la distribuzione delle mance giorno per giorno al variare del genere del cliente.
+
+!!!tip "Catplot con dati non categorici"
+    In realtà, è possibile usare la `catplot()` con dati non categorici, come numeri interi. Tuttavia, vi è il rischio (o meglio, la *certezza*) che il risultato sia *non interpretabile*, in quanto la funzione assegnerà una categoria ad ogni possibile valore assunto dalla feature di riferimento, il che ovviamente comporterà l'illeggibilità del grafico nel caso di valori reali.
 
 ## 10.4 - Heatmap
 
