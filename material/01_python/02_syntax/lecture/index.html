@@ -1177,7 +1177,7 @@
 <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">c</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">r_1</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span>     <span class="c1"># Valore restituito: 14</span>
-<span class="n">r_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span>   <span class="c1"># Valore restituito: 24</span>
+<span class="n">r_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">*</span> <span class="n">c</span>   <span class="c1"># Valore restituito: 20</span>
 
 <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
     <span class="c1"># Questa notazione è valida, ed è equivalente ad (a &gt; 2)</span>
@@ -1206,7 +1206,7 @@
 <p>In generale, possiamo dire che le istruzioni allo stesso livello di indentazione sono considerate dall'interprete Python come istruzioni appartenenti al medesimo ambito.</p>
 </div>
 <p>Quindi:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># L&#39;inizio della funzione, e quindi dell&#39;ambito </span>
+<div class="highlight"><pre><span></span><code><span class="c1"># L&#39;inizio della funzione, e quindi dell&#39;ambito</span>
 <span class="c1"># che questa delimita, è contrassegnato dai due punti</span>
 <span class="k">def</span> <span class="nf">funzione</span><span class="p">():</span> <span class="c1"># Inizio ambito</span>
     <span class="c1"># Il codice deve essere allo stesso livello di indentazione</span>
@@ -1256,7 +1256,7 @@
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">sequenza</span><span class="p">:</span>
     <span class="n">istruzioni</span><span class="p">()</span>
 </code></pre></div>
-<p>Per fare un esempio, nel seguente blocco di codice vediamo come mostrare a schermo in maniera iterativa i numeri che vanno da 0 a 5:</p>
+<p>Per fare un esempio, nel seguente blocco di codice vediamo come mostrare a schermo in maniera iterativa i numeri che vanno da 0 a 5 (escluso):</p>
 <div class="highlight"><pre><span></span><code><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -1274,12 +1274,12 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
 </code></pre></div>
 <p>A schermo vedremo in entrambi i casi il seguente risultato:</p>
-<div class="highlight"><pre><span></span><code>    P
-    y
-    t
-    h
-    o
-    n
+<div class="highlight"><pre><span></span><code>P
+y
+t
+h
+o
+n
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">No free lunches!</p>
@@ -1291,9 +1291,10 @@
     <span class="n">istruzioni</span><span class="p">()</span>
 </code></pre></div>
 <p>Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">i</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">while</span> <span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Continuo!&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Esco!&quot;</span><span class="p">)</span>
@@ -1311,14 +1312,14 @@ Esco!
 </div>
 <h2 id="24-la-funzione-range">2.4 - La funzione <code>range()</code><a class="headerlink" href="#24-la-funzione-range" title="Permanent link">&para;</a></h2>
 <p>Riprendiamo adesso il ciclo <code>for</code> visto in precedenza.</p>
-<div class="highlight"><pre><span></span><code><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 <p>Nonostante il codice sia già compatto, scrivere manualmente la sequenza da iterare può facilmente diventare un'operazione abbastanza complessa. Python ci viene quindi in aiuto tramite la funzione <code>range(i, j, s)</code>, che genera una sequenza avente tutti i numeri compresi tra <code>i</code> (incluso) e <code>j</code> (escluso) a passo <code>s</code>. Ad esempio, per generare i numeri compresi tra 0 e 4 scriveremo:</p>
-<div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="go">[0, 1, 2, 3, 4]</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -1339,11 +1340,12 @@ Esco!
 <div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Pippo&#39;</span><span class="p">,</span> <span class="s1">&#39;Pluto&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Paperino&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<span class="c1"># Output</span>
-<span class="n">Pippo</span>
-<span class="n">Pluto</span>
-<span class="mi">5</span>
-<span class="n">Paperino</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># Pippo</span>
+<span class="c1"># Pluto</span>
+<span class="c1"># 5</span>
+<span class="c1"># Paperino</span>
 </code></pre></div>
 <p>In pratica, dato che la funzione <code>len(l)</code> ci restituisce il numero di elementi nella lista, ovvero <span class="arithmatex">\(4\)</span>, stiamo andando a definire un range che va da 0 a 3. A questo punto, ci basterà <em>elemento per elemento</em> ai valori contenuti all'interno della lista, ed avremo ottenuto il risultato sperato.</p>
 <h2 id="25-istruzioni-break-e-continue">2.5 - Istruzioni <code>break</code> e <code>continue</code><a class="headerlink" href="#25-istruzioni-break-e-continue" title="Permanent link">&para;</a></h2>
@@ -1374,17 +1376,21 @@ Esco!
 <p><strong>Soluzione</strong>: usiamo la funzione <code>append</code> per mettere in coda i nuovi elementi della lista.</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">raddoppia_lista</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">)):</span>
-        <span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+
+
 <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">raddoppia_lista</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>          <span class="c1"># Risultato atteso: [1, 2, 2, 4]</span>
 </code></pre></div>
 <p><strong>Esercizio</strong>: Creiamo una funzione che generi una lista di elementi casuali tra <span class="arithmatex">\(0\)</span> e <span class="arithmatex">\(10\)</span>, usando un parametro <em>opzionale</em> per specificarne la lunghezza.</p>
 <p><strong>Soluzione</strong>: usiamo la funzione <code>append()</code> in accoppiata alla funzione <code>randint()</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">genera_lista_casuale</span><span class="p">(</span><span class="n">lunghezza</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+<span class="k">def</span> <span class="nf">genera_lista_casuale</span><span class="p">(</span><span class="n">lunghezza</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
     <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lunghezza</span><span class="p">):</span>
-        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">l</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 <span class="o">...</span>
 <span class="n">genera_lista_casuale</span><span class="p">()</span>      <span class="c1"># Possibile risultato: [3, 1, 2, 0, 6]</span>
 <span class="n">genera_lista_casuale</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>    <span class="c1"># Possibile risultato: [7, 9, 1, 10, 2, 4, 9, 1, 4, 8]</span>
@@ -1407,7 +1413,7 @@ Esco!
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valore all</span><span class="se">\&#39;</span><span class="s1">esterno della funzione: </span><span class="si">{</span><span class="n">intero</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="s2">&quot;Valore all&#39;interno della funzione: 1&quot;</span>
 </code></pre></div>
-<p>Ciò è legato al fatto che il passaggio viene effettuato per valore, per cui la funzione <code>raddoppia</code> agirà su una <em>copia</em> della variabile passata come argomento, e non sulla variabile originaria. Se invece usassimo una funzione che modifica una lista:</p>
+<p>Ciò è legato al fatto che il passaggio viene effettuato per valore, per cui la funzione <code>raddoppia()</code> agirà su una <em>copia</em> della variabile passata come argomento, e non sulla variabile originaria. Se invece usassimo una funzione che modifica una lista:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">aggiungi_a_lista</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">elemento</span><span class="p">):</span>
     <span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valore all</span><span class="se">\&#39;</span><span class="s1">interno della funzione: </span><span class="si">{</span><span class="n">lista</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -1419,10 +1425,10 @@ Esco!
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valore all</span><span class="se">\&#39;</span><span class="s1">esterno della funzione: </span><span class="si">{</span><span class="n">lista</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="s2">&quot;Valore all&#39;interno della funzione: [1, 2, 3]&quot;</span>
 </code></pre></div>
-<p>In questo caso, essendo la lista mutabile, il passaggio viene effettuato nei fatti per <em>reference</em>: ciò significa che le operazioni comppiute all'interno della funzione <code>aggiungi_a_lista</code> agiranno sulla lista originaria.</p>
+<p>In questo caso, essendo la lista mutabile, il passaggio viene effettuato nei fatti per <em>reference</em>: ciò significa che le operazioni compiute all'interno della funzione <code>aggiungi_a_lista()</code> agiranno sulla lista originaria.</p>
 <div class="admonition note">
 <p class="admonition-title">Shallow e deep copy</p>
-<p>Di default, Python copia le variabili per mezzo di una <em>shallow copy</em>: ciò significa che un'operazione di assignment del tipo <code>a = b</code> fa in modo che <code>a</code> punti allo stesso indirizzo di memoria di <code>b</code> e, di conseguenza, ogni modifica a <code>b</code> si rifletta su <code>a</code>. Per evitare un fenomeno di questo tipo occorre usare una <em>deep copy</em> grazie alla funzione <code>deepcopy</code> della libreria <code>copy</code>.</p>
+<p>Di default, Python copia le variabili per mezzo di una <em>shallow copy</em>: ciò significa che un'operazione di assignment del tipo <code>a = b</code> fa in modo che <code>a</code> punti allo stesso indirizzo di memoria di <code>b</code> e, di conseguenza, ogni modifica a <code>b</code> si rifletta su <code>a</code>. Per evitare un fenomeno di questo tipo occorre usare una <em>deep copy</em> grazie alla funzione <code>deepcopy()</code> della libreria <code>copy</code>.</p>
 </div>
 <h3 id="262-listruzione-pass">2.6.2 - L'istruzione <code>pass</code><a class="headerlink" href="#262-listruzione-pass" title="Permanent link">&para;</a></h3>
 <p>Chiudiamo accennando all'istruzione <code>pass</code>. Questa non fa assolutamente nulla; è utile, ad esempio, quando vogliamo inserire una funzione (o una classe) vuota, che definiremo per qualche motivo in seguito:</p>
