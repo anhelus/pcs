@@ -36,4 +36,23 @@ Ad ogni modo, mentre si collezionano i dati, è utile avere una definizione più
 
 ### affidabilità
 
-l'affidabilità si riferisce al grado di confidenza che possiamo avere nei nostri dati. Un modello addestrato su dati affidabili è più probabile +
+l'affidabilità si riferisce al grado di confidenza che possiamo avere nei nostri dati. Un modello addestrato su dati affidabili è più probabile che dia predizioni utili rispetto ad un modello addestrato su dati non affidabikli. Nelal misurazione dell'affidabilità, occorre determinare:
+
+* quanto sono comuni gli errori sulle leabel? per esempio, se i dati sono etichettati dagli umani, alle volte questi fanno degli errori.
+* le feature sono rumorose? per esempio, le misurazioni del GPS fluttuano. Un po' di rumore va bene: non saremo mai in grado di  rimuovere tutto il rumore.
+* i dati sono filtrati in maniera appropriata? per esempipo, i nostri dati dovrebbero includere immagini come disegni? se stiamo provando a modellare un problema realistico, forse la risposta potrebbe essere no.
+
+Cosa rende i dati non affidabili? Ecco alcuen motivazioni:
+
+* valori mancanti: per esempio, una mancata lettura da parte di un sensore
+* esempi duplicati: per esempio, il sensore ha mandato al stessa lettura due volte
+* label sbagliate: per esmpio, una persona ha sbagliato ad etichettare una foto di un pino con una quercia
+* valore sbagliato della feature: per esempio, alcune letture sono in kelvin, altre in gradi centrigradi
+
+## rappreesntazione delle feature
+
+La rappresentazione è il mapping dei dati a feature utili. Vogliamo considerare le seguenti questioni:
+
+* come sono mostrati i dati al modello?
+* dovremmo normalizzare i valori numerici?
+* come dovremmo gestire gli outlier?
