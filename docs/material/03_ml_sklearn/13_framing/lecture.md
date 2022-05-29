@@ -14,11 +14,11 @@ Una volta verificato che il problema può essere risolto mediante approcci di ma
 
 | Applicazione | Obiettivo del problema | Output del modello |
 | ------------ | ---------------------- | ------------------ |
-| Applicazione meteo | Calcolare le precipitazioni orarie in una determinata zona | Predizione delle precipitazione orarie |
-| Applicazione mail | Individuare lo spam | Alert per un possibile spam |
-| Applicazione bancaria | Identificare transazioni fraudolente | Blocco transazioni sospette |
+| Previsioni meteo | Calcolare le precipitazioni orarie in una determinata zona | Predizione delle precipitazione orarie |
+| Spam detector | Individuare lo spam | Alert per un possibile spam |
+| Prevenzione bancaria | Identificare transazioni fraudolente | Blocco transazioni sospette |
 
-## 13.2 - Determinare i dati
+## 13.2 - Comprendere i dati
 
 La disponibilità di dati per l'analisi è alla base del machine learning. Per effettuare delle predizioni efficaci, infatti, abbiamo bisogno di usare dati dotati di un certo potere predittivo. In particolare, i dati devono essere:
 
