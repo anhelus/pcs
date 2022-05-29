@@ -23,8 +23,13 @@ nav:
     - 9 - Introduzione a Pandas: material/02_libs/09_pandas/lecture.md
     - 10 - Visualizzazione di dati in Seaborn: material/02_libs/10_seaborn/lecture.md
     - 11 - Introduzione a SciPy: material/02_libs/11_scipy/lecture.md
-  - Parte 3 - Machine learning:
-    - 12 - Introduzione al machine learning: material/03_ml/12_intro/lecture.md
+  - Parte 3 - Machine learning e Scikit Learn:
+    - 12 - Introduzione al machine learning: material/03_ml_sklearn/12_intro_ml/lecture.md
+    - 13 - Definizione del problema: material/03_ml_sklearn/13_framing/lecture.md
+    - 14 - Preparazione dei dati: material/03_ml_sklearn/14_data_prep/lecture.md
+    - 15 - Introduzione a Scikit Learn: material/03_ml_sklearn/15_intro_sklearn/lecture.md
+    # 16 TODO supervised
+    # 17 TODO classificazione in Scikit Learn
   - Appendici:
     - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
     - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
