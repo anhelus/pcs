@@ -105,12 +105,74 @@ In quest'ultima situazione vedremo che il segno del gradiente sarà diventato po
 !!!note "Minimi locali"
     Il nostro banale esempio presuppone che la funzione di costo non abbia alcun minimo locale. Ciò non è ovviamente vero, e delle scelte sbagliate in termini di punto di partenza o learning rate potrebbero farci finire all'interno di un minimo locale, impedendoci di arrivare a convergenza.
 
-### 16.5.2 - Regolarizzazione
+### 16.5.2 - Overfitting e regolarizzazione
 
 Alle volte, accade che il nostro modello sia in grado di arrivare ad una loss estremamente bassa sui dati di training, ma che tuttavia inizia ad aumentare sui dati di validazione, un po' come nella figura successiva:
 
-![reg](./images/reg.png)
+![reg](./images/reg.png){: .center}
 
-## 16.5 La regressione in Scikit Learn
+Ciò può accadere per diversi motivi, come errori nei parametri di addestramento o dati non ben bilanciati. Ad ogni modo, questo fenomeno prende il nome di *overfitting*, e comporta che il modello, che si comporta benissimo sui dati di training, non riesca a *generalizzare*, comportandosi in maniera meno egregia sui dati di validazione. L'overfitting si manifesta all'aumentare delle epoche di training, quando il nostro modello diventa sempre più "complesso", ed apprende sempre meglio a caratterizzare relazioni di complessità crescente intercorrenti tra feature e label.
 
-TODO
+Per arginare il fenomeno dell'overfitting, oltre ad agire sui dati e sui parametri del modello, si inserisce spesso un termine di *regolarizzazione*, che tende a penalizzare un modello in grado di caratterizzare relazioni eccessivamente complesse. Il termine di regolarizzazione interviene direttamente sul valore trattato dall'ottimizzatore, che non avrà più come unico obiettivo quello di minimizzare la loss, ma quello di *minimizzare congiuntamente la loss e la complessità del modello ottenuto*.
+
+Una funzione di regolarizzazione molto usata è la *regolarizzazione $L_2$*, definita come la somma dei quadrati dei pesi associati alle feature:
+
+$$
+L_2 = ||w||_2^2 = w_1^2 + w_2^2 + \ldots + w_n^2
+$$
+
+Minimizzare questo termine significa dare meno "importanza" ad alcuni pesi che inficiano la complessità totale del modello. Se, ad esempio, avessimo i seguenti pesi:
+
+$$
+{w_1 = 0.1, w_2 = 0.025, w_3 = 0.4, w_4 = 10}
+$$
+
+il termine di regolarizzazione $L_2$ diverrebbe pari a:
+
+$$
+L_2 = 0.01 + 0,000625 + 0.16 + 100 \sim 100.17
+$$
+
+E' evidente come la maggior parte del contributo sia data dal quarto peso, per cui risulta essere necessario diminuirne l'influenza nel modello allo scopo di bilanciare l'overfitting.
+
+## 16.6 La regressione lineare in Scikit Learn
+
+La regressione lineare in Scikit Learn è implementata mediante gli oggetti di classe [`LinearRegression()`](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html) contenuti all'interno del package `linear_model` delal libreria.
+
+Oggetti di questo tipo sono degli estimator, e funzionano in questo modo:
+
+```py
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+reg = LinearRegression()
+data = np.array([[0, 0], [1, 1], [2, 2]])
+reg.fit(data)
+```
+
+Nel codice precedente stiamo creando un oggetto di classe `LinearRegression()` ed un array NumPy chiamato genericamente `data`. Per effettuare l'addestramento del nostro modello, dovremo chiamare il metodo `fit` di `reg` passandogli `data`; fatto questo, l'istanza `reg` sarà stata regolarmente addestrata, e sarà pronta per effettuare le predizioni.
+
+In tal senso, dovremo usare il metodo `predict()`:
+
+```py
+reg.predict([[4, 4]])
+```
+
+Per accedere ai parametri dello stimatore (ovvero al coefficiente angolare ed all'intercetta) dovremo usare gli attributi `coef_` ed `intercept_`:
+
+```py
+reg.coef_
+```
+
+La classe `LinearRegression()` ci mette a disposizione anche il metodo `score()`, che ci permette di ottenere il coefficiente $R^2$ ottenuto dal modello di regressione. Questo è pari a:
+
+$$
+R^2 = (1 - \frac{u}{v})
+$$
+
+dove:
+
+* $u$ è pari alla sommatoria dei quadrati dei *residui*, ovvero $\sum (y - y')^2$;
+* $v$ è pari alla sommatoria della differenza tra i valori veri ed il valor medio, ovvero $\sum (y - \mu(y))^2$.
+
+Conoscere il valore di $R^2$ è importante per avere un'idea della bontà del modello. Nel caso ideale, infatti, questo valore è $1$, mentre valori inferiori (o addirittura negativi) rappresentano delle possibili criticità del modello.
