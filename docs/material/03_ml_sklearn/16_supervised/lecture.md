@@ -1,65 +1,116 @@
-# apprendimento supervisionato
+# 16 - Apprendimento supervisionato: la regressione
 
-l'apprendimento supervisioato è+ probabilmente la forma di machine learning più diffusa. Siccome i task di questo tipo son ben definiti, come l'identificazione di spam o la predizione di pioggia, ci sono più casi d'uso potenziali di quelli presenti nell'apprendimento non supervisioanto ed il reinforcement learning.
+Quelli di apprendimento supervisionato sono probabilmente tra i sistemi di machine learning più diffusi, soprattutto a causa dei numerosi casi d'uso disponibili. Abbiamo detto che esistono fondamentalmente due tipi di tecniche di apprendimento supervisionato, ovvero *regressione* e *classificazione*. Vediamole maggiormente nel dettaglio.
 
-## Dati
+## 16.1 - Un esempio di regressione
 
-I dati sono la forza che governa il ML. I dati sono di vario tipo: possono essere stinghe e numeri memrozziati all'interno di tabelle, o valori di pixelk e forme dìonda catturati all'interno di immaagini o file audio. I dati tra loro correlati sono memorizzati all'interno di dataset. Ad esempio, potremmo avere un dataset dei seguenti:
+A tutti noi è intuitivamente noto che i millimetri di pioggia che cadono sono in qualche modo correlati alle temperature medie che abbiamo durante la giornata. Immaginiamo quindi di avere un dataset che contenga al suo interno i dati medi sui millimetri di pioggia degli ultimi dieci anni per undici valori differenti di temperatura. Se provassimo a visualizzare i dati mediante un `relplot()`, otterremmo la seguente figura.
 
-* immagini di gatti
-* prezzi delle case
-* informazioni meteo
+![rain_temp](./images/rain_temp.png)
 
-I dataset sono fatti da singoli *campioni* che contengono *feature* ed una label nel caso di apprendimento supervisionato. Si può pensare ad un campione come ad una singola riga in un foglio di calcolo. Le feature sono i valori che un modello supervisioanto usa per predire la label. La label è la rispota, o il vlaore che vogliamo predire. In un modello meteo che predice le precipitazioni, le feature possono essere latitudine, longitudine, tempraatura, umidità, copertura delle nubi, direzione del vento e pressione atmosferica. La label potrebbe essere il quantitativo di pioggia caduto.
+Proviamo ad usare la funzione `lmplot()` che, ricordiamo, effettua una *regressione* tra i dati.
 
-Degli esempi che hano sia le feature che le label sono chiamati campioni etichettati.
+![rain_temp_lr](./images/rain_temp_lr.png)
 
-Esistono anche dei campiioni non etichettati, i quali contengono le feature, ma non le label. Dopo che creiamo il modello, questo può prediore l,e label a partire dalle feature.
+## 16.2 - Rappresentazione analitica del modello
 
-## caratteristichye di un dataset
+Notiamo subito che, come prevedibile, i millimetri di pioggia attesi diminuiscono all'aumentare della temperatura, andando a definire una sorta di *relazione lineare* tra i dati sull'asse delle ascisse (ovvero i gradi) e quelli sull'asse delle ordinate (ovvero la pioggia).
 
-Un dataset è caratterizzato dalla dimensione (ovvero il numero dei campioni) e dall'eterogeneità (ovvero il range di casi che questi campioni sono in grado di trattare). Un buon dataset è grande e molto eterogeneo.
+Ovviamente, la retta di regressione non tocca direttamente tutti i punti, ma li *approssima*. Possiamo quindi dire che la relazione tra gradi e mm di pioggia è riconducibile ad una forma del tipo:
 
-Alle volte peòr alcuni dataset sono sì grandi, ma hanno scarsa eterogeneità, mentre altri sono piccoli ed estremamente eterogenei. In altre parole, un grosso dataset non garantisce sempre adeguata eterogeneità, ed un dataset molto eterogeneo non sempre ha un numero sufficiente di campioni.
+$$
+y = mx + b
+$$
 
-ADd esempio, un dataset meteo potrebbe contenere acquisizioni per ben cento anni, ma soltanto per il mese di luglio. Usare questo dataset per predire le precipitazioni in gennaio, ovviamente, produrrebbe dei risultati alquanto discutibili. Di converso, und ataset potrebbe contenere solo pochi anni, ma tutti i mesi. Qusto dataset potrebbe anch'esso produrre dei risultati non ottimali perchP non ha abbastanza anni per tenere in conto la variabilitàò.
+dove:
 
-## modello
+* $y$ sono i millimetri di pioggia medi caduti nell'arco di tutte le giornate con un dato valore medio di temperatura;
+* $x$ è il valore medio di temperatura;
+* $m$ è il coefficiente angolare della retta di regressione;
+* $b$ è l'incercetta della retta di regressione.
 
-Un modello è normalmente una collezione più o meno complessa di numeri che definiscono la relazione matematica tra uno specifico pattern di feature in ingresso ad uno specifico valore di una label di uscita. Il modello scopre questi pattern attraverso un processo di addestramento.
+Questa notazione analitica si traduce in un modello usando la seguente notazione:
 
-## addestramento
+$$
+y' = b + w_1 x_1
+$$
 
-Prima che un modello possa effettuare delle predizioni deve essere addestrato. Per addestrare un modello, gli diamo un dataset con degli esempi etichettati. L'obiettivo è quindi quelo di trovar ela migliore soluzione per predire i valori a partire dalla feature. Il modello trova la migliroe soluzione comparando il valore predetto al valore vero e proprio della label. Sulla base della differenza tra il valore predetto e quello vero (chiamato *loss*, o costo), il mdoello aggiorna la sua soluzione. In altre parole, il modello apprende la relazione matematica tra le feature e la label in modo che possa fare la igliroe predizione su dati che non ha anocra visto.
+dove:
 
-Ad esempio, se il modello predice che a partire da un certo insieme di valori per le feature sono attese 10 cm di pioggia, ma il valore vero è di 5 cm, allora il modello modifica la sua soluzione in modo che la predizione sia più vicina a 5 cm. Dopo che il modello ha visto ad ogni esempio nel dataset (in alcuni casi più volte) arriva ad una soluzione che effettua la migliore predizione, in media, per ciascuno dei campioni.
+* $y'$ è l'output predetto dal modello;
+* $b$ è il *bias*, equivalente al concetto analitico di intercetta;
+* $w_1$ è il peso della prima feature, equivalente al concetto analitico di coefficiente angolare;
+* $x_1$ è il valore di ingresso assunto dalla prima feature.
 
-Graficamente:
+Per *inferire* un nuovo valore di $y'$ ci basterà quindi cambiare il valore assunto da $x1$. In pratica, potremo prevedere che per una temperatura di 8 gradi, avremo un valore di precipitazioni pari a 25 mm, mentre per una temperatura di 32 gradi il valore di precipitazioni sarà pari a 0.
 
-1. il modello prende un singolo esempio e fornisce una predizione
+!!!note "Nota"
+    In questo caso, abbiamo presupposto che vi sia un'unica variabile indipendente, o feature, a determinare il valore dell'output. Esistono ovviamente casi più complessi, nei quali il valore di $y'$ è determinato a partire da più feature come $y' = b + w_1 x_1 + \ldots + w_n x_n$.
 
-FIGURA 1 GOOGLE
+## 16.3 - Addestramento e funzione di costo
 
-2. il modello compara il suo valore predetto con il valore vero e proprio, ed aggiorna la sua soluzione
+Addestrare un modello significa fare in modo che determini dei valori ottimali per tutti i pesi ed i bias a partire dagli esempi dotati di label. Per determinare tali valori, i modelli ad apprendimento supervisionato provano ad esaminare iterativamente tutti i campioni presenti nel set di addestramento alla ricerca di un modo per minimizzare un *costo*, il quale rappresenta una certa *penalità* assegnata al modello in caso di predizione errata.
 
-FIGURA 2 GOOGLE
+In pratica, il costo (o, in inglese, *loss*) è un numero che determina se la predizione effettuata dal modello su un singolo è stata più o meno conforme alla label assegnata. In caso di predizione perfetta, la loss è pari a $0$; tuttavia, nel caso la predizione sia sbagliata, la loss sarà tanto più grande quanto più il valore predetto sarà divergente dal valore atteso. Proviamo ad interpretare graficamente questo concetto, riferendoci ai modelli di regressione:
 
+![loss](./images/loss.png)
 
-3. il modello ripete questo processo per ogni campione etichettato nel dataset
+In particolare, nella figura precedente, le frecce rappresentano la loss, mentre il segmento blu rappresenta la predizione. Appare evidente come il secondo esempio abbia una loss complessiva inferiore rispetto al primo.
 
-FIGURA 3 GOOGLE
+Per calcolare la loss complessiva del modello su un insieme di campioni è possibile utilizzare una *funzione di costo*, o *loss function*. Esistono molteplici esempi di funzioni di costo; tuttavia, uno dei più semplici da comprendere è l'*errore quadratico medio*, calcolato a partire dalla seguente formula:
 
-In questo modo, il modello apprende gradualmente la relazione corretta tra le feature e la label.  Questo graduale comprensione è il motivo per cui dataseet grossi ed eterogenei producono modelli mikgliori. Il modello ha visto più dati con un range più ampio di valrori, e ha rifinito la sua comprensione della relazione tra le feature e la label.
+$$
+MSE = \frac{1}{N} \sum_{(x, y) \in D} (y - y')^2
+$$
 
-Druante il training, possono essere fatti dei piccoli modifiche alle configurazioni e feature usate dal modello per effettuare predizioni. Ad esempio, alcune feature hanno un potere predittivo superiore ad altre. Quindi si possono scegliere quali feature usare durante l'addestramento: ad esempio, supponiamo che un cdataset meteo contenga orario come feature: in questo caso, possiamo scegliere di aggiungere o rimuovere questa feature dirante l'addetramento per vedere se il mdoello fa delle previsioni migliori o peggiori con o seznza quest afeature.
+Nella formula precedente:
 
-## validaizone
+* $(x, y)$ è una coppia di feature e label;
+* $y'$ è il valore predetto della label a partire dall'applicazione del modello;
+* $D$ è il nostro dataset etichettato;
+* $N$ è il numero di campioni prensenti in $D$.
 
-il modello addestrato viene valutato per determinare come è andato l'apprendimento. Quando valutiamo un modello usiamo un dataset na diamo solo al modello le feature del dataset. Quindi compariamo le predizioni del modello ai valori veri delle label.
+In pratica, l'MSE è tanto più alto quanto maggiore è la distanza quadratica *complessiva* tra ogni label "vera" ed il rispettivo valore predetto dall'algoritmo di machine learning. Nel caso precedente, è chiaro come l'MSE sia maggiore per la prima approssimazione rispetto alla seconda.
 
-A seconda delle predizioni del modello, si può scegliere di effettuare un ulteriore addestramento e validazione prima di effetturane il deploy in un'applciazione reale.
+## 16.5 - Addestramento iterativo
 
-## ionferenza
+Gli algoritmi di machine learning tendono ad essere addestrati seguendo un approccio iterativo, che prevede che al termine di ciascuna iterazione i valori dei pesi siano *aggiornati* in maniera da ridurre ulteriormente il valore della funzione di costo. Questo è riassumibile nel seguente schema:
 
-Una volta che siamo soddisfatti dal risultato della validaizone del modello, possiamo usarlo per fare predizione (chiamata inferenza) su esempi non etichettati. nell'esempio dell'applicazione meteo, daremmo al modello le condizioni meteo attuali, e questo predirrà il quantitativo di pioggia.
+![weight_upgrade](./images/weight_upgrade.png){: .center}
 
+In pratica, durante l'addestramento, ad ogni iterazione il modello effettua una predizione sulle feature. Questa predizione viene comparata con la label, e la loss viene calcolata. I pesi sono quindi aggiornati in base ad una determinata *regola di ottimizzazione*, ed il ciclo si ripete.
+
+!!!note "Nota"
+    Le iterazioni non sono *infinite*: normalmente, si imposta un numero preciso di *epoche di training*, oppure si aspetta che l'algoritmo arrivi ad una sorta di "convergenza", nella quale il valore della loss non decresce ulteriormente.
+
+### 16.5.1 - Ottimizzazione della loss
+
+Abbiamo in precedenza accennato al fatto che l'aggiornamento dei pesi segue una certa regola di ottimizzazione volta a minimizzare la loss. Ne esistono diverse versioni, ma in generale si rifanno al concetto di *discesa di gradiente*, illustrato nella seguente immagine.
+
+![gd](./images/gd.png)
+
+Spieghiamo brevemente cosa accade guardando da sinistra verso destra.
+
+Possiamo immaginare la funzione che modella la nostra loss come una sorta di paraboloide, dotato di un valore minimo prossimo allo zero che viene raggiunto in corrispondenza di una determinata combinazione dei valori dei pesi.
+
+Ipotizzando di trovarci all'inizio dell'addestramento nella situazione raffigurata nella figura a sinistra, ovvero con dei pesi nel ramo sinistro del paraboloide, il nostro obiettivo sarà quello di muoverci verso "destra", ovvero verso il minimo globale della funzione. Per farlo, intuitivamente, dovremo valutare la *derivata* o, nel caso di funzioni ad $n$ dimensioni, con $n$ numero di feature, il **gradiente** della nostra funzione di costo, ed aggiornare i pesi in maniera tale che questo assuma, alla successiva iterazione, un valore inferiore.
+
+Questo aggiornamento ci porta alla figura centrale, in cui vediamo che il gradiente si è spostato dal punto rosso al punto blu. In questa iterazione dovremo ancora *aumentare* il valore dei pesi affinchè il valore della funzione di costo diminuisca, portandoci quindi nella situazione raffigurata nella figura a destra.
+
+In quest'ultima situazione vedremo che il segno del gradiente sarà diventato positivo, in quanto ci troveremo su una parte ascendente del paraboloide; di conseguenza, dovremo *diminuire* i pesi per far convergere l'algoritmo.
+
+!!!note "Learning rate"
+    Il "quantitativo" di cui sono aggiornati i pesi è spesso denotato come *learning rate*. Un learning rate troppo basso porta ad una convergenza molto lenta dell'algoritmo, che potrebbe "esaurire" le iterazioni prima di arrivare al minimo della funzione di costo. Un learning rate eccessivamente altro potrebbe invece fare in modo che l'algoritmo "salti" da una parte all'altra del minimo, non arrivando neanche in questo caso a convergenza.
+
+!!!note "Minimi locali"
+    Il nostro banale esempio presuppone che la funzione di costo non abbia alcun minimo locale. Ciò non è ovviamente vero, e delle scelte sbagliate in termini di punto di partenza o learning rate potrebbero farci finire all'interno di un minimo locale, impedendoci di arrivare a convergenza.
+
+### 16.5.2 - Regolarizzazione
+
+Alle volte, accade che il nostro modello sia in grado di arrivare ad una loss estremamente bassa sui dati di training, ma che tuttavia inizia ad aumentare sui dati di validazione, un po' come nella figura successiva:
+
+![reg](./images/reg.png)
+
+## 16.5 La regressione in Scikit Learn
+
+TODO
