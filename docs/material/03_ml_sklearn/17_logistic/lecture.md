@@ -48,3 +48,5 @@ dove:
 * $y'$ è il valore predetto.
 
 ## 17.3 - Regressione logistica in Scikit Learn
+
+

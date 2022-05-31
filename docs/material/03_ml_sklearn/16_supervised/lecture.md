@@ -1,4 +1,4 @@
-# 16 - Apprendimento supervisionato: la regressione
+# 16 - Apprendimento supervisionato: la regressione lineare
 
 Quelli di apprendimento supervisionato sono probabilmente tra i sistemi di machine learning più diffusi, soprattutto a causa dei numerosi casi d'uso disponibili. Abbiamo detto che esistono fondamentalmente due tipi di tecniche di apprendimento supervisionato, ovvero *regressione* e *classificazione*. Vediamole maggiormente nel dettaglio.
 
