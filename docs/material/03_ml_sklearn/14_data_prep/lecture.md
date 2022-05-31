@@ -22,7 +22,7 @@ Una volta completata la procedura di campionamento, dovremo passare ad effettuar
 
 Una volta completato questo passaggio, potremo passare alle azioni maggiormente rilevanti dal punto di vista scientifico.
 
-### 14.2.1 - Rimozione di dati non affidabili
+### 14.2.1 - Pulizia dei dati
 
 Abbiamo in precedenza sottolineato come l'affidabilità del dataset sia essenziale a garantire performance ottimali del modello addestrato. In tal senso, occorre determinare diversi fattori, tra cui:
 
