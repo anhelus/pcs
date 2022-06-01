@@ -8,10 +8,10 @@ $$
 p(mail|unknown)
 $$
 
-Se il modello predice che la probabilità $p(mail|unknown) = 0.5$, allora, su $1.000$ mail ricevute, $5$ saranno di spam:
+Se il modello predice che la probabilità $p(mail|unknown) = 0.05$, allora, su $100$ mail ricevute da indirizzi sconosciuti, $5$ saranno di spam:
 
 $$
-spam = p(mail|unknown) \cdot mail_rec = 0.5 * 1000 = 5
+spam = p(mail|unknown) \cdot mail_rec = 0.05 * 100 = 5
 $$
 
 Questo è un esempio di utilizzo della probabilità *as is*. In molti casi, tuttavia, mapperemo l'output della soluzione su un problema di classificazione binario, nel quale l'obiettivo è predire correttamente uno di due possibili label (in questo caso, *spam* o *non spam*).
