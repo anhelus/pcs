@@ -1,4 +1,4 @@
-# E16 - Apprendimento supervisionato: la regressione lineare
+# E16 - Apprendimento supervisionato e regressione lineare
 
 ## Esercizio E16.1
 

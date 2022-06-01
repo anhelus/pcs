@@ -49,6 +49,6 @@ dove:
 
 ## 17.3 - Regressione logistica in Scikit Learn
 
-In Scikit Learn la regressione logistica è implementata mediante la classe [`LogisticRegressor()`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression). 
+In Scikit Learn la regressione logistica è implementata mediante la classe [`LogisticRegression()`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression). 
 
 E' importante sottolineare come la regressione logistica, nonostante il nome, si comporti a tutti gli effetti come un *classificatore*: di conseguenza, l'output del modello sarà una classe, e non un valore di regressione.
