@@ -12,3 +12,5 @@
 | E7.5 - Polinomi in NumPy | [:link:](../02_libs/07_numpy/05_polynomials/exercises.md) |
 | E10 - Visualizzazione di dati in Seaborn | [:link:](../02_libs/10_seaborn/exercises.md) |
 | E11 - Introduzione a SciPy | [:link:](../02_libs/11_scipy/exercises.md) |
+| E15 - Introduzione a Scikit Learn | [:link:](../03_ml_sklearn/15_intro_sklearn/exercises.md) |
+| E16 - Regressione lineare | [:link:](../03_ml_sklearn/16_lin_reg/exercises.md) |
