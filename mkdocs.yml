@@ -28,6 +28,7 @@ nav:
     - 13 - Definizione del problema: material/03_ml_sklearn/13_framing/lecture.md
     - 14 - Preparazione dei dati: material/03_ml_sklearn/14_data_prep/lecture.md
     - 15 - Introduzione a Scikit Learn: material/03_ml_sklearn/15_intro_sklearn/lecture.md
+    - 16 - Regressione lineare: material/03_ml_sklearn/16_lin_reg/lecture.md
     # 16 TODO supervised
     # 17 TODO classificazione in Scikit Learn
   - Appendici:
@@ -39,8 +40,8 @@ nav:
     - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
     - G - Algoritmi:
       - SVD: material/appendix/07_algorithms/01_svd/lecture.md
-  - Notebook: material/notebooks/index.md
-  - Esercizi: material/exercises/index.md
+  - Indice dei Notebook: material/notebooks/index.md
+  - Indice degli Esercizi: material/exercises/index.md
 
 theme:
   name: material

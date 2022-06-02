@@ -51,3 +51,23 @@ questo approccio alclustering assume che i dati siano composti da distribuzioni 
 ### hierarchical
 
 il clustering gerarchico crea un albero di cluster. In maniera non sorprendente è adatto a dati gerarchici, come le tassonomie. Inoltre, un piccolo numreo di cluster può esserescelto tagliando l'albero al livello giusto.
+
+## workflow del clustering
+
+per effettuare il clustering, dobbiamo:
+
+### preparare i dati
+
+così come negli altri problemi di machine learnning, dobbiamo normalizzare, scalare e trasformare le feature. quando si effettua il clustering, tuttavia, occorre assicurarsi del fatto che i dati preparati ci permettano di calcolare in maniera accurata la similarità tra i campioni.
+
+### creare una metrica di similiartà
+
+prima che un algoritmo di clustering possa raggruppare i dati, deve sapere come individuare le coppie di esempi simili. Quantifichiamo la similarità tra i campioni creando una metrica di similiarità. Questo richiede di comprendere i dati e come derivare la similarità a partire dalle nostre feature.
+
+### eseguire gli algoritmi di clustering
+
+un algoritmo di clustering usa la metrica di simialrità per effettuare il clustering dei dati.
+
+### interpretare risultati e modificare
+
+controllare la qualità dell'output del clustering è un processo iterativo ed esplorativo in quanto il clustering non ha a disposizione delle label per verificare l'output. Di conseguenza, verifichiamo i risultati manualmente, e migliorare i risultati richiede un approccio di tipo iterativo.

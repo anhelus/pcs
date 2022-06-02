@@ -11,4 +11,11 @@
 | 06 - Operazioni in NumPy | [:link:](06_numpy_ops.pdf) |
 | 07 - Matplotlib | [:link:](07_matplotlib.pdf) |
 | 08 - Pandas | [:link:](08_pandas.pdf) |
+| 09 - Seaborn | [:link:](09_seaborn.pdf) |
+| 10 - SciPy | [:link:](10_scipy.pdf) |
+| 11 - Introduzione al machine learning | [:link:](11_intro_ml.pdf) |
+| 12 - Definizione del problema | [:link:](12_framing.pdf) |
+| 13 - Preparazione dei dati | [:link:](13_data_prep.pdf) |
+| 14 - Introduzione a Scikit Learn | [:link:](14_intro_sklearn.pdf) |
+| 15 - Regressione lineare | [:link:](15_lin_reg.pdf) |
 | Appendice D - Principi di OOP | [:link:](app_d_oop.pdf) |
