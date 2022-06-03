@@ -1,114 +1,156 @@
-# 
+# 18 - Accuratezza, precisione e recall
 
-## thresholding
+Abbiamo visto come la regressione logistca restituisca una probabilità, che grazie alla classe `LogisticRegression()` viene automaticamente convertita in un valore relativo ad una classe.
 
-La regressione logistica restituisce una probabilità, che però viene automaticamente convertita in un valore binario o multiclasse.
+Torniamo al nostro spam detector. Un modello di regressione logistica che restituisca una probabilità $p = 0.999$ ci sta dicendo che, molto probabilmente, questo è di spam; di converso, se il modello restituisce $p = 0.003$ allora è molto probabile che il messaggio non sia spam. Cosa accade però nel caso in cui $p = 0.505$?
 
-Immaginiamo il caso binario per semplicità. Un modello di regressione logistica che restituisce 0.9995 per un dato messaggio di email sta predicendo che è molto probabile che sia spam. Di converso, se un altro messaggio ha una probabilità di 0.003 è molto improbabile che isa spam. Che succede però nel caso di un messaggio email con un punteggio di predizione di 0.6? Per arrivare dalla probabilità alla classificazione abbiamo bisogno di definire una *soglia di decisione*. Un valore oltre questa soglia indica "spam", uno al di sotto di questa soglia indica "assenza di spam". La tentazione potrebbe essere quella di presupporre che la soglia di decisione sia sempre 0.5, ma in realtà questa dipende dal problema, e quindi è un valore che bisogna adattare sulla base della situazione.
+## 18.1 - Soglia di decisione
 
-Vediamo adesso le metriche che possiamo usare per valutare le predizioni di un classificatore, così come l'impatto delle modifiche della soglia di decisione su queste predizioni.
+L'esempio precedente ci fa comprendere come per passare da una probabilità ad una classe sia necessario definire una *soglia di decisione*: un valore oltre questa soglia indicherà, ad esempio, che la mail ricevuta è di spam, mentre uno al di sotto della soglia ci suggerirà che non lo è.
 
-## true false positive negative
+Ovviamente, la tentazione potrebbe essere quella di presupporre che la soglia di decisione sia sempre pari a $0.5$: questo, ovviamente, non è vero, in quanto la soglia dipende dal problema, ed è un valore che bisogna stabilire in base al problema affrontato. Introduciamo alcune metriche che possono essere usate in tal senso.
 
-Prima di procedere, è il caso di introdurre il concetto di *classe positiva* e classe negativa.
+## 18.2 - Veri positivi, falsi negativi
 
-TODO: ESEMPIO
+Continuiamo a concentrarci sul caso della classificazione dello spam, ed introduciamo il concetto di *classe positiva* e *classe negativa*.
 
-Un true positive è un'uscita dove il modello predice corretatamnte la classe positiva. In modo simile, un true negative è un'uscita vero il modello predice correttamente la classe negativa.
+In particolare, la classe positiva sarà rappresentata da tutte le mail di spam, mentre la classe negativa sarà rappresentata dalle mail non spam. In tal senso, le predizioni del modello potranno essere di quattro tipi:
 
-Un falso positivo è un'uscita dove il modello predice in maniera non corretta la classe positiva. Ed un falso negativo è un'uscita dove il modello predice in maneira non corretta laclasse negativa.
+* nel primo caso, il modello *classificherà correttamente una mail di spam*. In questo caso, si parla di *vero positivo*, o *true positive* (TP);
+* nel secondo caso, il modello *classificherà correttamente una mail legittima*. In questo caso, si parla di *vero negativo*, o *true negative* (TN);
+* nel terzo caso, il modello *classificherà una mail di spam come legittima*. In questo caso, si parla di *falso negativo*, o *false negative* (FN);
+* nel quarto caso, il modello *classificherà una mail legittima come di spam*. In questo caso, si parla di *falso positivo*, o *false positive* (FP).
 
-## accuracy
+In pratica, un TP (TN) si ha quando il modello predice correttamente la classe positiva (negativa), mentre un FP (FN) si ha quando il modello predice in maniera non corretta la classe positiva (negativa).
 
-L'accuratezza è una metrica per valutare i modelli di classificazione. Informalmente, l'accuratezza è la frazione delle predizioni che i nostri modelli hanno preso. Formalmente l'accuratezza ha la seguente definzione:
+## 18.3 - Accuratezza
+
+L'*accuratezza* è la prima metrica che vedremo per la valutazione dei modelli di classificazione. Informalmente, possiamo definirla come la percentuale di predizioni corrette effettuate dal nostro modello, e definirla come:
 
 $$
 AC = \frac{C}{T}
 $$
 
-dove $C$ è il numero totale di predizioni corrette, mentre $T$ è il numero totale di predizioni. Per la classificazione binaria, l'accuratezza può essere calcolata in termini di positivi e negativi come segue:
+dove $C$ è il numero totale di predizioni corrette, mentre $T$ è il numero totale di predizioni. Nel caso della classificazione binaria, possiamo calcolare l'accuratezza come segue:
 
 $$
 AC = \frac{TP + TN}{TP + TN + FP + FN}
 $$
 
-dove $TP$ è il numero di veri positivi, $TN$ il numero di veri negativi, $FP$ il numero di falsi positivi e $FN$ il numero di falsi negativi.
+Immaginiamo ad esempio di aver ricevuto $100$ email, tra cui $10$ di spam. Il nostro spam detector ha individuato correttamente $5$ messaggi di spam, e classificato per sbaglio come spam $5$ messaggi legittimi. Allora:
+
+$$
+AC = \frac{TP+TN}{TP+TN+FP+FN}=\frac{5+85}{5+85+5+5}
+$$
+
+In questo caso, l'accuratezza del modello è pari a $0.90$, o del $90\%$, il che significa che il nostro modello è in grado di fare $90$ predizioni su $100$. Buon risultato, giusto?
+
+In realtà, non necessariamente. Infatti, delle mail che abbiamo ricevuto, $90$ sono legittime, e $10$ di spam. Questo significa che il modello è stato in grado di individuare soltanto il $50\%$ dello spam ricevuto, ed ha inoltre classificato un buon $7\%$ delle email legittime come spam. Tra cui, prevedibilmente, quella che ci comunicava notizie di vitale importanza. In sostanza, il nostro modello ha un'efficacia "vera e propria" al più in un caso su due.
+
+Di conseguenza, l'accuratezza non ci racconta "tutta la storia" quando lavoriamo su un dataset sbilanciato come questo, dove vi è una disparità significativa tra la classe positiva e quella negativa.
+
+### 18.3.1 - Accuratezza in Scikit Learn
+
+L'accuratezza delle predizioni effettuate da un classificatore è ottenuta in Scikit Learn utilizzando il metodo `accuracy_score()`.
 
 Ad esempio:
 
+```py
+from sklearn.metrics import accuracy_score
 
+clf = LogisticRegression(max_iter=1000)
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
 
-L'accuracy è pari a:
+accuracy_score(y_test, y_pred)
+```
 
-$$
-AC = \frac{TP+TN}{TP+TN+FP+FN}=\frac{1+90}{1+90+1+8}
-$$
+## 18.2 - La precisione
 
-L'accuratezza è pari a $0.91$, o del $91\%$, il che significa che ci sono $91$ predizioni corrette su $100$ campioni totali. Questo significa che il nostro classificatore sta facendo un buon lavoro, giusto?
+La *precisione* è una metrica che prova a risolvere alcuni dei problemi dell'accuratezza valutando quale sia la proporzione di valori per la classe positiva identificati correttamente.
 
-Vediamo più da vicino l'analisi dei positivi e dei negativi per avere più indizi sulle performance del modello. Dei nostri $100$ esempi, $91$ sono benigni (90 $TN$ e 1 $FP$), mentre $9$ sono maligni (1 TP e 8 FN). Questo singifica che dei 9 tumori maligni il modello è stao in grado di identificare soltanto uno come maligno, un'uscita terribile, in quanto 8 di 9 maligni non sono stati diagnosticati.
-
-In questo caso specifico, il nostro modello non è essenzialmente migliore di uno che abbia un'abilità di predizione nulla in grado di distinguere i tumori maligni da quelli benigni.
-
-L'accuratezza non ci dice quindi la storia vera quando stiamo lavorando su un dataset sbilanciato come questo, dove vi è una dispartià significantetra il numero delle etichette positive e negative.
-
-### precisione
-
-La precisione prova a rispondere a questa questione, ovvero:
-
-* quale proporzioni di identificazione positiva è corretta?
-
-La precisione è definita come segue:
+La definizione analitica della precisione è la seguente:
 
 $$
 PR = \frac{TP}{TP+FP}
 $$
 
-Proviamo a calcolare la precisione del modello ML che abbiamo visto prima:
-
+In pratica, riferendoci al nostro solito esempio, la precisione è data dal rapporto tra le mail di spam riconosciute come tali e la somma tra queste e le mail legittime riconosciute come spam. Provando a calcolarla:
 
 $$
-PR = \frac{TP}{TP+FP} = \frac{1}{1+1} = 0.5
+PR = \frac{5}{5+5} = 0.5
 $$
 
-Il modello ha quindi una precisione di $0.5$, ovvero, quando predice un tumore maligno, è corretto il $50\%$ delle volte.
+Il modello ha quindi una precisione del $50\%$ nel riconoscere una mail di spam.
 
-### recall
 
-Il recall prova a rispondere alla seguente questine:
+### 18.3.1 - Precisione in Scikit Learn
 
-* quale proporzione dei positivi veri è stata identificata correttamente?
+La precisione delle predizioni effettuate da un classificatore è ottenuta in Scikit Learn utilizzando il metodo `precision_score()`.
 
-Matematicamente, il recall è stato definito come segue:
+Ad esempio:
+
+```py
+from sklearn.metrics import precision_score
+
+precision_score(y_test, y_pred)
+```
+
+## 18.3 - Il recall
+
+Il *recall*, traducibile in italiano come *richiamo*, verifica la porzione di veri positivi correttamente identificata dall'algoritmo, ed è espresso come:
 
 $$
 R = \frac{TP}{TP+FN}
 $$
 
-Calcoliamo ilr ecall per il nostro classificatore:
+Nel nostro caso, il recall sarà quindi dato dal rapporto tra le mail correttamente indicate come spam e la somma tra le stesse e quelle erroneamente indicate come legittime. Va da sè che anche in questo caso possiamo calcolarlo:
 
 $$
-R = \frac{TP}{TP+FN}=\frac{1}{1+8}=0.11
+R = \frac{5}{5+5}
 $$
 
-Il modello ha un recall $0.11$, in altre parole, identifica correttamente l'$11\%$ dei tumori maligni.
+Così come la precisione, il recall è pari a $0.5$, ovvero è del $50\%$.
 
-per valutare l'efficacia del modello, occcorre esaminare sia la precisione sia il recall. Purtroppo, la precisione ed il recall sono spesso l'uno contrapposto all'altro. Questo significa che migliorare la precisione tipicamente riduce il recall e viceversa. Per capire questo cocnettovediamo quest'immagine. Le mail a destra del classification threshold sono classificate come spam, mentre quelle a sinistra sono classificate come non spam.
+### 18.3.1 - Recall in Scikit Learn
 
-Calcoliamo la precisione e il recall in questo caso.
+Ovviamente, anche il recall ha una rappresentazione in Scikit Learn mediante la funzione `recall_score()`:
 
-La precisione misura le percentuali di email segnalate come spam classificati correttamente, ovvero la perctenuale di èunti a destra della soglia che sono verdi nella figura 1.
+```py
+from sklearn.metrics import recall_score
+
+recall_score(y_test, y_pred)
+```
+
+## 18.4 - Tuning della soglia di decisione
+
+Per valutare l'effiacia del modello dobbiamo esaminare congiuntamente la precisione ed il recall. Sfortunatamente, questi due valori sono spesso in contrapposizione: spesso, infatti, migliorare la precisione riduce il recall, e viceversa. Per comprendere empiricamente questo concetto, facciamo un esempio con il nostro spam detector, immaginando di aver impostato la soglia di decisione a $0.6$. I risultati sono mostrati nella figura successiva.
+
+![results](./images/results.png)
+
+Calcoliamo la precisione e il recall in questo caso:
 
 $$
-P = \frac{TP}{TP+FP}=\frac{8}{8+2} = 0.8
+P = \frac{TP}{TP+FP}=\frac{4}{4+1} = 0.8 \\
+R = \frac{TP}{TP+FN}=\frac{4}{4+2} = 0.66
 $$
 
-Il recall misura la percentuale di email di spam che sono state correttamente classificate - ovvero, la percentuale di puntini verdi che sono alla destra della soglia:
+Proviamo ad aumentare la soglia di decisione, portandola al $75\%$.
+
+![results_1](./images/results_1.png)
 
 $$
-R = \frac{TP}{TP+FN} = \frac{8}{8+3} = 0.73
+P = \frac{TP}{TP+FP}=\frac{3}{3} = 1 \\
+R = \frac{TP}{TP+FN}=\frac{3}{3+3} = 0.5
 $$
 
-Se aumentassimo la detection trheshold, il numero di falsi positivi diminuirebbe, aumentando tuttavia quello di falsi negativi. Come risultato, la precisione aumenta, ma il recall diminuisce. Al contrario, diminuendo la classification threshold, la precisione diminuisce ed il recall aumenta.
+Proviamo infine a diminuire la soglia di decisione, portandola al $50%$.
 
-TODO: rivedere 
+![results_2](./images/results_2.png)
+
+$$
+P = \frac{TP}{TP+FP}=\frac{4}{4+3} \approx 0.57 \\
+R = \frac{TP}{TP+FN}=\frac{4}{4+2} = 0.66
+$$
+
+Come possiamo vedere, la soglia di detection agisce su precisione e recall; non è però possibile aumentarli contemporaneamente, per cui occorre scegliere un valore tale per cui, ad esempio, si massimizzi la media. La realtà è che, però, dipende sempre dall'applicazione: se non abbiamo paura di perdere mail legittime, allora possiamo abbassare la soglia di decisione, aumentando il recall; viceversa, se siamo disposti ad eliminare manualmente un po' di spam, potremo alzare la soglia di decisione, aumentando la precisione.
