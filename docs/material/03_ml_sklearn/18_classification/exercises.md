@@ -7,4 +7,4 @@ Consideriamo il regressore logistico usato nell'[esercizio 17.1](../17_logistic/
 Proviamo poi a verificare l'andamento dei valori di accuratezza, precisione e recall per diversi valori della soglia di decisione. In tal senso, utilizziamo il metodo `predict_proba(X)` del `LogisticRegressor()`.
 
 !!!note "Soluzione"
-    La soluzione a queto esercizio è contenuta in [questo notebook](solution.ipynb).
+    La soluzione a questo esercizio è contenuta in [questo notebook](solution.ipynb).
