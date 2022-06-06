@@ -8,7 +8,7 @@ $$
 p(mail|unknown)
 $$
 
-Se il modello predice che la probabilità $p(mail|unknown) = 0.05$, allora, su $100$ mail ricevute da indirizzi sconosciuti, $5$ saranno di spam:
+Se il modello afferma che la probabilità $p(mail|unknown) = 0.05$, allora, su $100$ mail ricevute da indirizzi sconosciuti, $5$ saranno di spam:
 
 $$
 spam = p(mail|unknown) \cdot mail_rec = 0.05 * 100 = 5

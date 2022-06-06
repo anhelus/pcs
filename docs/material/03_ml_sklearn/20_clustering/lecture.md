@@ -1,73 +1,80 @@
-Supponiamo di stare apprendendo delle cose su qualcosa, magari sulla musica. UN approccio potrebbe essere vedere dei gruppi o delle collezioni significativi. Potremmo voler organizzare la musica per genere, mentre i nostri amici organizzano la musica per decadi. Come scegliamo i gruppi di oggetti ci aiuta a capire più di questi come parti individuali della musica. POtremmo vedere che abbiamo un'affinità abbastanza profonda con il punk rock e andare a suddividere ulterioremente il genere in diversi approcci o in musica da diverse località. D'altro canto, il nostor amico potrebbe vedere alla musica degli anni 80 ed essere in grado di capire come la musica a quell'epoca influenzava il clima sociale e politico. In entmrabi i casi, sia noi sia il nostro amico abbiamo appreso qualcosa di interessante sulla musica, anche se abbiamo considerato diversi approcci.
+# 19 - Il clustering
 
-Anche nel machine learning, spesso categorizziamo i campioni come primo passo per comprendere un soggeto (il dataset). Raggruppare degli esempi senza label è chiamato *clustering*. 
+Il *clustering* è l'operazione di categorizzare dei campioni in un dataset senza che questi abbiano necessariamente un'etichetta determinata a priori.
 
-Dato che gli esempi non hanno una label, il clustering si affida all'apprendimento non supervisionato. Se gli esempi fossero etichettati, allora il clustering diventerebbe *classificazione*.
+Per fare un esempio, potremmo suddividere i nostri album musicali sulla base delle sonorità ispirate dal loro ascolto: in questo caso, non ci staremmo affidando ad una certa "etichetta", come ad esempio l'anno di produzione o l'artista, ma ad un concetto molto più "empirico", ovvero la vicinanza o meno dell'album ai nostri gusti musicali.
 
-pirma di raggrupapre tra loro campioni simili, dovremmo per prima cosa trovare il concetto di similitudine. Possiamo misurare la somiglianza tra gli esempi combiando i dati delle feature in una metrica chiamata *similarity measure*. Quano ogni campione è definito da uno o due feature, è facile misurare la similarità. Ade sempio, possiamo trovare dei libri simili a seconda degli autori. Man mano che il numero di feature aumetnta, creare una misura di simiglianza diventa più complesso. Vedremo dopo come creare una misura di somiglianza in diversi scenari.
+Ovviamente, dato che nel clustering i campioni non considerano una label, stiamo parlando di apprendimento *non* supervisionato. Se i campioni fossero etichettati, avremmo una normale procedura di classificazione.
 
-## quali sono le applicazioni del clustering?
+Il clustering può avere numerose applicazioni: ad esempio, potrebbe essere usato per segmentare il mercato mediante dei profili di clientela simili, oppure per suddividere le immagini in zone simili, o ancora per individuare delle anomalie all'interno di un insieme di dati.
 
-Il clustering ha una miriade di usi in diverse industrie. Alcune applicazioni comuni per il clustering includono le seguenti:
+Una volta che il clustering è completo, ad ogni cluster viene assegnato un certo *identificativo*, che ci permette in qualche modo di "condensare" e "riassumere" le informazioni dell'intero cluster. Quest'assegnazione può anche essere usata come ingresso ad altri sistemi di machine learning, ad esempio di classificazione, che possono usare l'identificativo assegnato come una vera e propria label.
 
-* segmentazione del mercato
-* analisi delle reti sociali
-* segmentazione delle immagini
-* individuazione di anomalie
+## 19.1 - Tipi di clustering
 
-Dopo il clustering, ad ogni cluster viene assegnato un numero chiamato *cluster ID*. ORa, possiamo condensare l'intero isieme delle feature per esempio nel suo cluster ID. Rappresentare un esempio complesso mediante un unico ID rende il clustering estremamente potente. Estendendo l'idea, il clustering di dati può semplificare i grossi dataset.
+La scelta di un algoritmo di clustering deve essere condotta sulla base della scalabilità dello stesso. Infatti, laddove alcuni algoritmi di clustering confrontano tra loro ogni possibile coppia di dati, con una complessità $O(n^2)$ per $n$ campioni, altri, come il k-means, effettuano un numero molto più limitato di operazioni, ottenendo una complessità nell'ordine di $O(n)$, il che cambia radicalmente la situazione nel caso di dataset con milioni di campioni. Tuttavia, ogni algoritmo ha anche diversi vantaggi e svantaggi che devono essere valutati sulla base dell'applicazione scelta.
 
-ad esempio, possiamo raggruppare gli oggetti secondo diverse feature, come dimostrato nei seguenti esempi:
+In generale, abbiamo quattro diverse categorie di clustering:
 
-* raggruppare le stelle per luminosità
-* raggruppare i documenti per topic
+* nel *centroid-based clustering*, i dati sono organizzati secondo la loro distanza da dei *centroidi*, ovvero dei campioni considerati come "base" per ciascun cluster. Questo tipo di algoritmi risulta essere mediamente efficace, ma è sensibile alle condizioni iniziali ed alla presenza di eventuali outliers;
+* nel *density-based clustering*, i dati sono organizzati in aree ad alta densità. Ciò permette la connessione di cluster di forma arbitraria, e facilita inoltre l'individuazione di outlier, che per definizione sono nelle zone a minore densità di campioni. Possono però essere sensibili a dataset con densità variabile ed alta dimensionalità;
+* nel *distribution-based clustering*, si suppone che i dati abbiano distribuzione gaussiana, e siano quindi suddivisibili come tali. Questo tipo di algoritmi non è efficiente se non si conosce a priori il tipo di distribuzione dei dati;
+* nello *hierarchical clustering* viene creato un albero a partire dai dati. Questo tipo di clustering è particolarmente efficace nel caso si trattino certi tipi di dati, come ad esempio le tassonomie, e prevede che possa essere selezionato un numero ridotto di cluster tagliando l'albero al giusto livello.
 
-i sistemi di machine learning possono usare uesti ID per semplificare l'elaborazione di grossi dataset. Quindi, l'output del clustering serve come dei feature data per i sistemi ML in uscita.
+## 19.2 - Workflow del clustering
 
-## generalizzaizoni
+L'esecuzione di un algoritmo di clustering prevede tre step:
 
-quando alcuni campioni in un cluster hanno delle feature mancanti, possiamo inferire i dati mancanti da altri esempi nel cluster. 
+1. nel primo, dobbiamo *preparare i dati*, effettuando le operazioni che abbiamo visto in precedenza per la classificazione e la regressione;
+2. nel secondo, dovremo *definire una metrica di similarità*;
+3. nel terzo, eseguiremo l'algoritmo vero e proprio.
 
-## data compression
+Concentriamoci per un attimo sul secondo step. Definire una metrica di similarità significa nella pratica stabilire quando due campioni risultano essere simili tra loro. In tal senso, è possibile operare in due modi:
 
-abbiamo detto che i feature data per tutti i campioni in un cluster possono essere rimpiazzati a partire dall'ID del cluster. questo rimpiazzo semplifica la feature data, e risparmia memoria. Questi benefici potrebbero diventare significativi quando si scala su grossi dataset. Inoltre, i sistemi di machine learning possono usare il cluster ID come ingresso invece dell'intero dataset delle feature. Ridurre la complessità dei dei dati di input rende il modello di machine learning semplice e veloce.
+* la metrica può essere scelta *manualmente*, ovvero scegliendo le feature da considerare nella valutazione della distanza tra i campioni;
+* oppure, la metrica può essere scelta in maniera *automatica* a partire da un *embedding*, ovvero da una rappresentazione a dimensionalità ridotta del dato iniziale.
 
-## tipi di clustering
+Nel primo caso questo avviene in modo abbastanza intuitivo: se, ad esempio, volessimo suddividere un insieme di scarpe in base a taglia e prezzo, potremmo considerare la distanza euclidea come rappresentativa dello "spazio" che intercorre tra due campioni. Questo approccio, tuttavia, è efficace soltanto nel caso di campioni a bassa dimensionalità.
 
-quando scegliamo un algoritmo di clustering, dobbiamo considerare se il nostro algoritmo è in grado di essere scalabile a sufficienza per il nostro dataset. I dataset nel machine learning possono avere milioni di esempi, ma non tutti gli algoritmi di clustering sono in grado dis calare in maniera efficace. Molti algoritmi di clutering funzionano calcolando le similarità tra tutte le coppie di esempi. Questo significa che il lroo runtiem aumenta come il quadrato del numero di campioni $n$, ovvero $O(n^2)$. Un buon algoritmo per iniziare è invec il k-means, che ha un $O(n)$, il che significa che scala linearmente con $n$.
+Il secondo caso è invece preferibile nel momento in cui si vanno a considerare dei dati ad alta dimensionalità: infatti, in queste situazioni si rischia di incorrere nel fenomeno della *curse of dimensionality*, che rende difficile distinguere tra due campioni differenti, per cui si tende ad estrarre delle rappresentazioni "ridotte" dei dati a partire dalle quali applicare il concetto di distanza.
 
-### centrod-based clustering
+## 19.3 - Applicazione di un algoritmo di clustering: il K-Means
 
-Il centroid-based clustering organizza i dati in cluster non gerarchici. Il k-means è la tecnica più usata in tal senso. Questo tipo di algoritmi è molto efficace, ma è sensibile alle condizioni inzialie ed agli outliers.
+Vediamo adesso come usare il più conosciuto ed utilizzato algoritmo di clustering, ovvero il *k-means*, algoritmo centroid-based che raggruppa i campioni in $k$ diversi cluster assegnando ogni dato in base alla distanza dal centroide del cluster stesso. Il k-means ha diverse ipotesi alla base, tra cui la più restrittiva è una, ovvero quella legata alla conoscenza del numero iniziale di cluster $k$.
 
-### dnesity based
+Una volta fissato questo valore, l'algoritmo lavora in tre step successivi:
 
-il cluster density based connette aree di campioni ad alta densità in cluster. Questo permette a distribuzioni a forma arbitraria di essere connesse fino a che sono dense. Questi algoritmi hanno delle difficoltà con dati con densità variabili ed a alta dimensionalità. Inoltre, questi algoritmi non assegnano gli outlier ai cluster per questioni di design.
+1. al primo step, l'algoritmo sceglie casualmente $k$ centroidi tra i diversi dati a disposizione;
+2. al secondo step, l'algoritmo assegna ogni punto al centroide più vicino, definendo i $k$ cluster iniziali;
+3. al terzo step, l'algoritmo ricalcola il centroide considerando il valore medio di tutti i punti del cluster, e ritorna allo step 2.
 
-## distribution-based
+Il k-means proseguirà fino a che i cluster calcolati al punto 2 non saranno stabili o, nei casi più complessi, fino a che non sarà raggiunto il numero massimo di iterazioni impostato in fase di inizializzazione. In figura possiamo osservare una spiegazione visiva del funzionamento dell'algoritmo.
 
-questo approccio alclustering assume che i dati siano composti da distribuzioni come quelli gaussiana. Ad esempio, l'algoritmo in ifgura mostra tre cluster basati su tre distribuzioni gaussiane. Man mano che la distanza dal centro della distribuzione aumenta, la probabilità che un punto appartenga alla distribuzione decresce. Quando non sappiamo il tipo di distribuzione nei dati, dovremmo scegliere un algoritmo differente.
+![kmeans_conv](./images/kmeans_conv.gif)
 
-### hierarchical
+## 19.4 - Clustering in Scikit Learn
 
-il clustering gerarchico crea un albero di cluster. In maniera non sorprendente è adatto a dati gerarchici, come le tassonomie. Inoltre, un piccolo numreo di cluster può esserescelto tagliando l'albero al livello giusto.
+Per implementare un algoritmo di clustering in Scikit Learn dovremo fare affidamento sulla classe [`KMeans()`](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html), utilizzabile come segue:
 
-## workflow del clustering
+```py
+from sklearn.cluster import KMeans
+import numpy as np
 
-per effettuare il clustering, dobbiamo:
+X = np.array([[1, 2], [2, 1], [5, 2], [3, 3]])
+cl = KMeans()
+cl.fit(X)
+```
 
-### preparare i dati
+## 19.5 - Scelta del valore ottimale di cluster
 
-così come negli altri problemi di machine learnning, dobbiamo normalizzare, scalare e trasformare le feature. quando si effettua il clustering, tuttavia, occorre assicurarsi del fatto che i dati preparati ci permettano di calcolare in maniera accurata la similarità tra i campioni.
+La scelta del valore ottimale di $k$ è un procedimento emnpirico, in quanto non abbiamo a disposizione delle vere e proprie label per la verifica dell'uscita dell'algoritmo. In tal senso, abbiamo a disposizione sia delle metriche, che vedremo in seguito, sia degli approcci più qualitativi, che dipendono dai concetti di *cardinalità* e *magnitudine* del clustering.
 
-### creare una metrica di similiartà
+In particolare, per *cardinalità* si intende il numero di campioni per ogni cluster, mentre per *magnitudine* la somma delle distanze di tutti i campioni in un cluster dal centroide. Immaginiamo di essere in un caso come quello descritto nella seguente figura.
 
-prima che un algoritmo di clustering possa raggruppare i dati, deve sapere come individuare le coppie di esempi simili. Quantifichiamo la similarità tra i campioni creando una metrica di similiarità. Questo richiede di comprendere i dati e come derivare la similarità a partire dalle nostre feature.
+![clustering_eval](./images/clustering_eval.png)
 
-### eseguire gli algoritmi di clustering
+Prevedibilmente, il rapporto tra cardinalità e magnitudine dovrebbe essere all'incirca lineare. Quindi, come si può vedere dalla figura precedente, ci potrebbe essere qualcosa che non va con il cluster $4$.
 
-un algoritmo di clustering usa la metrica di simialrità per effettuare il clustering dei dati.
+A questo punto, avendo valutato empiricamente la possibile presenza di un problema qualitativo con il clustering, possiamo provare ad eseguire l'algoritmo per un valore crescente di $k$. Proviamo a plottare questo valore in rapporto alla somma delle magnitudini del risultato, che diminuirà all'aumentare di $k$; un valore ottimale per $k$ è quello che si ottiene quando questo grafico tende a stabilizzarsi, ad esempio considerando il valore per cui la derivata diventa maggiore di -1 (e quindi l'angolo della funzione dei $k$ è maggiore di $135°$).
 
-### interpretare risultati e modificare
-
-controllare la qualità dell'output del clustering è un processo iterativo ed esplorativo in quanto il clustering non ha a disposizione delle label per verificare l'output. Di conseguenza, verifichiamo i risultati manualmente, e migliorare i risultati richiede un approccio di tipo iterativo.
+![clustering_k](./images/clustering_k.png)
