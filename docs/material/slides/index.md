@@ -18,4 +18,6 @@
 | 13 - Preparazione dei dati | [:link:](13_data_prep.pdf) |
 | 14 - Introduzione a Scikit Learn | [:link:](14_intro_sklearn.pdf) |
 | 15 - Regressione lineare | [:link:](15_lin_reg.pdf) |
+| 16 - Regressione logistica | [:link:](16_log_reg.pdf) |
+| 17 - Metriche | [:link:](17_metrics.pdf) |
 | Appendice D - Principi di OOP | [:link:](app_d_oop.pdf) |
