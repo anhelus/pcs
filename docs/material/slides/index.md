@@ -20,4 +20,5 @@
 | 15 - Regressione lineare | [:link:](15_lin_reg.pdf) |
 | 16 - Regressione logistica | [:link:](16_log_reg.pdf) |
 | 17 - Metriche | [:link:](17_metrics.pdf) |
+| 18 - Classificatori e regressori | [:link:](18_class_reg.pdf) |
 | Appendice D - Principi di OOP | [:link:](app_d_oop.pdf) |

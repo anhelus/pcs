@@ -1,4 +1,4 @@
-# 19 - Il clustering
+# 20 - Il clustering
 
 Il *clustering* è l'operazione di categorizzare dei campioni in un dataset senza che questi abbiano necessariamente un'etichetta determinata a priori.
 
@@ -10,7 +10,7 @@ Il clustering può avere numerose applicazioni: ad esempio, potrebbe essere usat
 
 Una volta che il clustering è completo, ad ogni cluster viene assegnato un certo *identificativo*, che ci permette in qualche modo di "condensare" e "riassumere" le informazioni dell'intero cluster. Quest'assegnazione può anche essere usata come ingresso ad altri sistemi di machine learning, ad esempio di classificazione, che possono usare l'identificativo assegnato come una vera e propria label.
 
-## 19.1 - Tipi di clustering
+## 20.1 - Tipi di clustering
 
 La scelta di un algoritmo di clustering deve essere condotta sulla base della scalabilità dello stesso. Infatti, laddove alcuni algoritmi di clustering confrontano tra loro ogni possibile coppia di dati, con una complessità $O(n^2)$ per $n$ campioni, altri, come il k-means, effettuano un numero molto più limitato di operazioni, ottenendo una complessità nell'ordine di $O(n)$, il che cambia radicalmente la situazione nel caso di dataset con milioni di campioni. Tuttavia, ogni algoritmo ha anche diversi vantaggi e svantaggi che devono essere valutati sulla base dell'applicazione scelta.
 
@@ -21,7 +21,7 @@ In generale, abbiamo quattro diverse categorie di clustering:
 * nel *distribution-based clustering*, si suppone che i dati abbiano distribuzione gaussiana, e siano quindi suddivisibili come tali. Questo tipo di algoritmi non è efficiente se non si conosce a priori il tipo di distribuzione dei dati;
 * nello *hierarchical clustering* viene creato un albero a partire dai dati. Questo tipo di clustering è particolarmente efficace nel caso si trattino certi tipi di dati, come ad esempio le tassonomie, e prevede che possa essere selezionato un numero ridotto di cluster tagliando l'albero al giusto livello.
 
-## 19.2 - Workflow del clustering
+## 20.2 - Workflow del clustering
 
 L'esecuzione di un algoritmo di clustering prevede tre step:
 
@@ -38,7 +38,7 @@ Nel primo caso questo avviene in modo abbastanza intuitivo: se, ad esempio, vole
 
 Il secondo caso è invece preferibile nel momento in cui si vanno a considerare dei dati ad alta dimensionalità: infatti, in queste situazioni si rischia di incorrere nel fenomeno della *curse of dimensionality*, che rende difficile distinguere tra due campioni differenti, per cui si tende ad estrarre delle rappresentazioni "ridotte" dei dati a partire dalle quali applicare il concetto di distanza.
 
-## 19.3 - Applicazione di un algoritmo di clustering: il K-Means
+## 20.3 - Applicazione di un algoritmo di clustering: il K-Means
 
 Vediamo adesso come usare il più conosciuto ed utilizzato algoritmo di clustering, ovvero il *k-means*, algoritmo centroid-based che raggruppa i campioni in $k$ diversi cluster assegnando ogni dato in base alla distanza dal centroide del cluster stesso. Il k-means ha diverse ipotesi alla base, tra cui la più restrittiva è una, ovvero quella legata alla conoscenza del numero iniziale di cluster $k$.
 
@@ -52,7 +52,7 @@ Il k-means proseguirà fino a che i cluster calcolati al punto 2 non saranno sta
 
 ![kmeans_conv](./images/kmeans_conv.gif)
 
-## 19.4 - Clustering in Scikit Learn
+## 20.4 - Clustering in Scikit Learn
 
 Per implementare un algoritmo di clustering in Scikit Learn dovremo fare affidamento sulla classe [`KMeans()`](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html), utilizzabile come segue:
 
@@ -65,7 +65,7 @@ cl = KMeans()
 cl.fit(X)
 ```
 
-## 19.5 - Scelta del valore ottimale di cluster
+## 20.5 - Scelta del valore ottimale di cluster
 
 La scelta del valore ottimale di $k$ è un procedimento emnpirico, in quanto non abbiamo a disposizione delle vere e proprie label per la verifica dell'uscita dell'algoritmo. In tal senso, abbiamo a disposizione sia delle metriche, che vedremo in seguito, sia degli approcci più qualitativi, che dipendono dai concetti di *cardinalità* e *magnitudine* del clustering.
 

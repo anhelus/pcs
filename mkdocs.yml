@@ -30,7 +30,8 @@ nav:
     - 15 - Introduzione a Scikit Learn: material/03_ml_sklearn/15_intro_sklearn/lecture.md
     - 16 - Regressione lineare: material/03_ml_sklearn/16_lin_reg/lecture.md
     - 17 - Regressione logistica: material/03_ml_sklearn/17_logistic/lecture.md
-    # - 18 - Metriche: material/03_ml_sklearn/18_metrics/lecture.md
+    - 18 - Metriche: material/03_ml_sklearn/18_metrics/lecture.md
+    - 19 - Classificatori e regressori: material/03_ml_sklearn/19_classifiers_regressors/lecture.md
   - Appendici:
     - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
     - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
