@@ -608,6 +608,10 @@
         
           
         
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5">
@@ -700,6 +704,34 @@
     <li class="md-nav__item">
       <a href="../../17_logistic/lecture/" class="md-nav__link">
         17 - Regressione logistica
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../18_metrics/lecture/" class="md-nav__link">
+        18 - Metriche
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../19_classifiers_regressors/lecture/" class="md-nav__link">
+        19 - Classificatori e regressori
       </a>
     </li>
   
@@ -967,6 +999,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#esercizio-e203" class="md-nav__link">
+    Esercizio E20.3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e204" class="md-nav__link">
+    Esercizio E20.4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esercizio-e205" class="md-nav__link">
+    Esercizio E20.5
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -983,9 +1036,19 @@
 
 <h1 id="e20-il-clustering">E20 - Il clustering<a class="headerlink" href="#e20-il-clustering" title="Permanent link">&para;</a></h1>
 <h2 id="esercizio-e201">Esercizio E20.1<a class="headerlink" href="#esercizio-e201" title="Permanent link">&para;</a></h2>
-<p>Consideriamo l'insieme dei dati numerici presenti nei dataset Titanic e Tips. Utilizziamo l'algoritmo K-means per determinare un valore ottimale per il numero di cluster presenti all'interno degli stessi. Per farlo, sfruttiamo l'approccio empirico discusso a lezione.</p>
+<p>Il dataset Iris contiene i dati riguardanti lunghezza ed ampiezza di steli e petali per tre classi di fiori, ed è uno dei dataset "standard" per l'analisi dei dati nel machine learning. In tal senso, usiamo il metodo <code>load_iris</code> del package <code>datasets</code> di Scikit Learn per caricarlo. Una volta caricato in memoria, proviamo ad effettuare un primo clustering usando l'algoritmo k-means con 3 cluster.</p>
 <h2 id="esercizio-e202">Esercizio E20.2<a class="headerlink" href="#esercizio-e202" title="Permanent link">&para;</a></h2>
-<p>Il dataset Iris contiene i dati riguardanti lunghezza ed ampiezza di steli e petali per tre classi di fiori, ed è uno dei dataset "standard" per l'analisi dei dati nel machine learning. In tal senso, usiamo il metodo <code>load_iris</code> del package <code>datasets</code> di Scikit Learn per caricarlo. Una volta caricato in memoria, proviamo ad effettuare un primo clustering usando l'algoritmo k-means con 3 cluster, e verificare l'<em>adjusted rand score</em></p>
+<p>Verifichiamo l'andamento di magnitudine e cardinalità nell'esercizio precedente.</p>
+<h2 id="esercizio-e203">Esercizio E20.3<a class="headerlink" href="#esercizio-e203" title="Permanent link">&para;</a></h2>
+<p>Valutiamo il valore migliore per il numero di cluster da utilizzare per il K-means utilizzando il dataset Iris e l'approccio empirico discusso a lezione. Usiamo valori per il clustering compresi tra 2 e 4.</p>
+<h2 id="esercizio-e204">Esercizio E20.4<a class="headerlink" href="#esercizio-e204" title="Permanent link">&para;</a></h2>
+<p>Il K-Means parte da alcune ipotesi sulla natura dei diversi cluster in cui sono organizzati i dati, ovvero che questi siano <em>isotropi</em>, <em>ad egual varianza</em> ed aventi un numero di campioni uniforme. Verifichiamo questi assunti su dati generati dal metodo <a href="http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html"><code>make_blobs()</code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Questo esercizio si "ispira" ad un tutorial analogo proposto da Scikit Learn.</p>
+</div>
+<h2 id="esercizio-e205">Esercizio E20.5<a class="headerlink" href="#esercizio-e205" title="Permanent link">&para;</a></h2>
+<p>TODO: uso di DBSCAN</p>
 <div class="admonition note">
 <p class="admonition-title">Soluzione</p>
 <p>Le soluzioni a questi esercizi sono contenute in <a href="../solution.ipynb">questo notebook</a>.</p>
