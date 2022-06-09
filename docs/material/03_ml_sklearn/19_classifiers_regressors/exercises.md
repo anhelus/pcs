@@ -14,7 +14,7 @@ Esploriamo i risultati ottenuti dall'albero decisionale nell'[esercizio E19.1](#
 
 ## Esercizio E19.4
 
-Proviamo a variare leggermente alcuni parametri per i classificatori ed i regressori usati negli esercizi precedenti. Confrontiamo i risultati ottenuti nei termini delle metriche usate per i regressori ed i classificatori.
+Proviamo a variare leggermente alcuni parametri per i classificatori ed i regressori usati negli esercizi precedenti. Confrontiamo i risultati ottenuti nei termini delle metriche viste in precedenza.
 
 !!!note "Soluzione"
     Le soluzioni a questi esercizi sono contenute in [questo notebook](solution.ipynb).

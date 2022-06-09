@@ -14,3 +14,6 @@
 | E11 - Introduzione a SciPy | [:link:](../02_libs/11_scipy/exercises.md) |
 | E15 - Introduzione a Scikit Learn | [:link:](../03_ml_sklearn/15_intro_sklearn/exercises.md) |
 | E16 - Regressione lineare | [:link:](../03_ml_sklearn/16_lin_reg/exercises.md) |
+| E17 - Regressione logistica | [:link:](../03_ml_sklearn/17_logistic/exercises.md) |
+| E18 - Metriche | [:link:](../03_ml_sklearn/18_metrics/exercises.md) |
+| E19 - Classificatori e regressori | [:link:](../03_ml_sklearn/19_classifiers_regressors/exercises.md) |
