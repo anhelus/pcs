@@ -17,3 +17,4 @@
 | E17 - Regressione logistica | [:link:](../03_ml_sklearn/17_logistic/exercises.md) |
 | E18 - Metriche | [:link:](../03_ml_sklearn/18_metrics/exercises.md) |
 | E19 - Classificatori e regressori | [:link:](../03_ml_sklearn/19_classifiers_regressors/exercises.md) |
+| E20 - Clustering | [:link:](../03_ml_sklearn/20_clustering/exercises.md) |

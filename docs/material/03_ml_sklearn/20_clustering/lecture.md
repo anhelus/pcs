@@ -50,7 +50,10 @@ Una volta fissato questo valore, l'algoritmo lavora in tre step successivi:
 
 Il k-means proseguirà fino a che i cluster calcolati al punto 2 non saranno stabili o, nei casi più complessi, fino a che non sarà raggiunto il numero massimo di iterazioni impostato in fase di inizializzazione. In figura possiamo osservare una spiegazione visiva del funzionamento dell'algoritmo.
 
-![kmeans_conv](./images/kmeans_conv.gif)
+<figure markdown>
+  ![kmeans_conv](./images/kmeans_conv.gif){ width="450" }
+  <figcaption>Figura 20.1 - Step dell'algoritmo K-Means</figcaption>
+</figure>
 
 ## 20.4 - Clustering in Scikit Learn
 
@@ -71,10 +74,30 @@ La scelta del valore ottimale di $k$ è un procedimento emnpirico, in quanto non
 
 In particolare, per *cardinalità* si intende il numero di campioni per ogni cluster, mentre per *magnitudine* la somma delle distanze di tutti i campioni in un cluster dal centroide. Immaginiamo di essere in un caso come quello descritto nella seguente figura.
 
-![clustering_eval](./images/clustering_eval.png)
+<figure markdown>
+  ![clustering_eval](./images/clustering_eval.png){ width="500" }
+  <figcaption>Figura 20.2 - Rapporto tra cardinalità e magnitudine dei cluster</figcaption>
+</figure>
 
 Prevedibilmente, il rapporto tra cardinalità e magnitudine dovrebbe essere all'incirca lineare. Quindi, come si può vedere dalla figura precedente, ci potrebbe essere qualcosa che non va con il cluster $4$.
 
 A questo punto, avendo valutato empiricamente la possibile presenza di un problema qualitativo con il clustering, possiamo provare ad eseguire l'algoritmo per un valore crescente di $k$. Proviamo a plottare questo valore in rapporto alla somma delle magnitudini del risultato, che diminuirà all'aumentare di $k$; un valore ottimale per $k$ è quello che si ottiene quando questo grafico tende a stabilizzarsi, ad esempio considerando il valore per cui la derivata diventa maggiore di -1 (e quindi l'angolo della funzione dei $k$ è maggiore di $135°$).
 
-![clustering_k](./images/clustering_k.png)
+<figure markdown>
+  ![clustering_k](./images/clustering_k.png){ width="450" }
+  <figcaption>Figura 20.3 - Rapporto tra il numero dei cluster e la magnitudine</figcaption>
+</figure>
+
+## 20.6 - Un altro algoritmo: il DBSCAN
+
+Il [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN) è un algoritmo di clustering di tipo agglomerativo density-based che opera considerando due parametri principali:
+
+* la *distanza massima* $\epsilon$ per considerare due punti come appartenenti allo stesso cluster;
+* il *numero minimo di campioni* $m$ per il quale è possibile definire un cluster.
+
+Nella pratica, il DBSCAN seleziona un campione casuale tra quelli non visitati, e valuta se ci sono $m$ campioni all'interno della distanza $\epsilon$, nel qual caso si ha un *core point*. In alternativa, se il numero di campioni presenti in $\epsilon$ è minore di $m$, ma comunque maggiore di 0, i campioni si dicono $density reachable$ e, se connessi ad un *core point*, appartengono allo stesso cluster. Infine, se non vi sono campioni presenti in $\epsilon$, allora il punto è isolato, ed è interpretato come un outlier. Un'interpretazione visiva è quella proposta in figura; in particolare, i punti in rosso definiscono diversi *core points*, i punti in giallo sono *density reachable*, e quindi fanno parte dello stesso cluster dei core points, mentre $N$ è un outlier.
+
+<figure markdown>
+  ![dbscan](./images/dbscan.png){ width="300" }
+  <figcaption>Figura 20.4 - Algoritmo DBSCAN. <br/> Di Chire - Opera propria, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=17045963">Wikipedia</a></figcaption>
+</figure>

@@ -14,14 +14,26 @@ Valutiamo il valore migliore per il numero di cluster da utilizzare per il K-mea
 
 ## Esercizio E20.4
 
-Il K-Means parte da alcune ipotesi sulla natura dei diversi cluster in cui sono organizzati i dati, ovvero che questi siano *isotropi*, *ad egual varianza* ed aventi un numero di campioni uniforme. Verifichiamo questi assunti su dati generati dal metodo [`make_blobs()`](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html).
+Il K-Means parte da alcune ipotesi sulla natura dei diversi cluster in cui sono organizzati i dati, ovvero che questi siano:
 
-!!!note "Nota"
-    Questo esercizio si "ispira" ad un tutorial analogo proposto da Scikit Learn.
+1. *isotropi*, e quindi che abbiano una forma "identica" in tutte le direzioni;
+2. *ad eguale varianza*, e quindi che non vi siano dei cluster di varianza sensibilmente superiore o inferiore alla varianza media dell'insieme degli stessi;
+3. *ad eguale cardinalità*, e quindi che il numero di campioni per i diversi cluster sia all'incirca costante.
+
+Verifichiamo questi assunti su dati generati dal metodo [`make_blobs()`](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html).
+
+!!!note "Note"
+    1. Per ottenere l'anisotropia, potete applicare una rotazione all'insieme dei dati. Questa può essere definita in questo modo:
+    > ```py
+      t = np.tan(np.radians(60))
+      rot = np.array([[1, t], [0, 1]])
+      X_an = X.dot(rot)
+      ```
+    2. Per ottenere dei cluster a diversa cardinalità, proviamo a selezionare diversi sottoinsiemi dei dati originari in base al loro valore di `y`.
 
 ## Esercizio E20.5
 
-TODO: uso di DBSCAN
+Proviamo ad utilizzare l'algoritmo DBSCAN, implementato mediante la classe [`DBSCAN()`](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) del package `cluster`, nelle tre diverse situazioni ispirate dall'esercizio precedente.
 
 !!!note "Soluzione"
     Le soluzioni a questi esercizi sono contenute in [questo notebook](solution.ipynb).

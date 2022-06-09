@@ -209,7 +209,7 @@ array([[1069, 1558],
 La *decomposizione ai valori singolari*, detta anche *SVD* dall'acronimo inglese *Singular Value Decomposition*, è una tecnica di decomposizione di una matrice che permette di scomporla in modo da semplificarci la vita in alcune situazioni.
 
 !!!tip "Approfondimento"
-	Per un'approfondimento sui principi alla base della SVD, consultare l'[appendice E.1](../../../appendix/06_algorithms/01_svd/lecture.md).
+	Per un'approfondimento sui principi alla base della SVD, consultare l'[appendice E.1](../../../appendix/07_algorithms/01_svd/lecture.md).
 
 L'implementazione da zero della SVD è estremamente complessa; tuttavia, NumPy ci viene quindi in aiuto con la funzione `svd(mat)` del package `linalg`:
 
