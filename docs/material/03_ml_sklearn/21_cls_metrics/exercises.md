@@ -12,4 +12,4 @@ Inoltre, proviamo a vedere cosa accade per i seguenti parametri:
 Per ognuno dei due algoritmi, infine, riportiamo a schermo solo i valori dei parametri per i quali le metriche assumono valore massimo.
 
 !!!note "Soluzione"
-    La soluziona a questo esercizio è contenuta in [questo notebook](solution.ipynb).
+    La soluzione a questo esercizio è contenuta in [questo notebook](solution.ipynb).
