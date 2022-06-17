@@ -5,19 +5,38 @@ nav:
   - Home: index.md
   - Slides proiettate a lezione: material/slides/index.md
   - Parte 1 - Concetti base:
-    - 1 - Introduzione a Python: material/01_python/01_intro/lecture.md
-    - 2 - Programmare in Python: material/01_python/02_syntax/lecture.md
-    - 3 - Strutture dati: material/01_python/03_data_structures/lecture.md
-    - 4 - Classi: material/01_python/04_classes/lecture.md
-    - 5 - Moduli: material/01_python/05_modules/lecture.md
+    - 1 - Introduzione a Python: 
+      - Dispense: material/01_python/01_intro/lecture.md
+      - Esercizi: material/01_python/01_intro/exercises.md
+    - 2 - Programmare in Python:
+      - Dispense: material/01_python/02_syntax/lecture.md
+      - Esercizi: material/01_python/02_syntax/exercises.md
+    - 3 - Strutture dati:
+      - Dispense: material/01_python/03_data_structures/lecture.md
+      - Esercizi: material/01_python/03_data_structures/exercises.md
+    - 4 - Classi:
+      - Dispense: material/01_python/04_classes/lecture.md
+      - Esercizi: material/01_python/04_classes/exercises.md
+    - 5 - Moduli:
+      - Dispense: material/01_python/05_modules/lecture.md
   - Parte 2 - Librerie:
-    - 6 - Jupyter: material/02_libs/06_jupyter/lecture.md
+    - 6 - Jupyter:
+      - Dispense: material/02_libs/06_jupyter/lecture.md
     - 7 - NumPy:
-      - 7.1 - Introduzione a Numpy: material/02_libs/07_numpy/01_intro/lecture.md
-      - 7.2 - Gli Array: material/02_libs/07_numpy/02_array/lecture.md
-      - 7.3 - Operazioni fondamentali sugli array: material/02_libs/07_numpy/03_fundamentals/lecture.md
-      - 7.4 - Algebra in NumPy: material/02_libs/07_numpy/04_algebra/lecture.md
-      - 7.5 - Polinomi in NumPy: material/02_libs/07_numpy/05_polynomials/lecture.md
+      - 7.1 - Introduzione a Numpy: 
+        - Dispense: material/02_libs/07_numpy/01_intro/lecture.md
+      - 7.2 - Gli Array:
+        - Dispense: material/02_libs/07_numpy/02_array/lecture.md
+        - Esercizi: material/02_libs/07_numpy/02_array/exercises.md
+      - 7.3 - Operazioni fondamentali sugli array:
+        - Dispense: material/02_libs/07_numpy/03_fundamentals/lecture.md
+        - Esercizi: material/02_libs/07_numpy/03_fundamentals/exercises.md
+      - 7.4 - Algebra in NumPy:
+        - Dispense: material/02_libs/07_numpy/04_algebra/lecture.md
+        - Esercizi: material/02_libs/07_numpy/04_algebra/exercises.md
+      - 7.5 - Polinomi in NumPy:
+        - Dispense: material/02_libs/07_numpy/05_polynomials/lecture.md
+        - Exercises: material/02_libs/07_numpy/05_polynomials/exercises.md
       - 7.6 - Statistica in NumPy: material/02_libs/07_numpy/06_statistics/lecture.md
     - 8 - Visualizzazione di dati: material/02_libs/08_matplotlib/lecture.md
     - 9 - Introduzione a Pandas: material/02_libs/09_pandas/lecture.md
@@ -32,6 +51,9 @@ nav:
     - 17 - Regressione logistica: material/03_ml_sklearn/17_logistic/lecture.md
     - 18 - Metriche: material/03_ml_sklearn/18_metrics/lecture.md
     - 19 - Classificatori e regressori: material/03_ml_sklearn/19_classifiers_regressors/lecture.md
+    - 20 - Clustering: material/03_ml_sklearn/20_clustering/lecture.md
+    - 21 - Metriche di clustering: material/03_ml_sklearn/21_cls_metrics/lecture.md
+    - 22 - Tips & Tricks: material/03_ml_sklearn/22_sklearn_tricks/lecture.md
   - Appendici:
     - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
     - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
@@ -84,6 +106,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tabbed # auto tabs
   - pymdownx.tilde # strike through cross out text
+  - md_in_html
 
 plugins:
   - search

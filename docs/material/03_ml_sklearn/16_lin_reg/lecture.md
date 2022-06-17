@@ -176,3 +176,6 @@ dove:
 * $v$ è pari alla sommatoria della differenza tra i valori veri ed il valor medio, ovvero $\sum (y - \mu(y))^2$.
 
 Conoscere il valore di $R^2$ è importante per avere un'idea della bontà del modello. Nel caso ideale, infatti, questo valore è $1$, mentre valori inferiori (o addirittura negativi) rappresentano delle possibili criticità del modello.
+
+!!!note "Intervalli di confidenza"
+    Scikit Learn non fornisce un intervallo di confidenza per le predizioni ottenute; più informazioni su questa scelta di design [qui](https://github.com/scikit-learn/scikit-learn/issues/6773). Tuttavia, è possibile implementare questa funzionalità usando NumPy, come descritto [qui](https://datascience.stackexchange.com/questions/41934/obtaining-a-confidence-interval-for-the-prediction-of-a-linear-regression), o in alternativa usare il package Statsmodels.
