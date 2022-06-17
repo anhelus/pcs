@@ -37,7 +37,8 @@ nav:
       - 7.5 - Polinomi in NumPy:
         - Dispense: material/02_libs/07_numpy/05_polynomials/lecture.md
         - Exercises: material/02_libs/07_numpy/05_polynomials/exercises.md
-      - 7.6 - Statistica in NumPy: material/02_libs/07_numpy/06_statistics/lecture.md
+      - 7.6 - Statistica in NumPy:
+        - Dispense: material/02_libs/07_numpy/06_statistics/lecture.md
     - 8 - Visualizzazione di dati: material/02_libs/08_matplotlib/lecture.md
     - 9 - Introduzione a Pandas: material/02_libs/09_pandas/lecture.md
     - 10 - Visualizzazione di dati in Seaborn: material/02_libs/10_seaborn/lecture.md
