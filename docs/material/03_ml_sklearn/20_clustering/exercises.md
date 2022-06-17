@@ -6,7 +6,7 @@ Il dataset Iris contiene i dati riguardanti lunghezza ed ampiezza di steli e pet
 
 ## Esercizio E20.2
 
-Verifichiamo l'andamento di magnitudine e cardinalità nell'esercizio precedente.
+Verificare il valore di magnitudine e cardinalità per i cluster identificati nell'esercizio precedente.
 
 ## Esercizio E20.3
 

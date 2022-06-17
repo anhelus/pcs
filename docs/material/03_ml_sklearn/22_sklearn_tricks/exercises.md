@@ -10,11 +10,11 @@ Usiamo un column transformer per filtrare e pre-elaborare i dati contenuti nel d
 
 ## Esercizio E22.3
 
-Utilizziamo la tecnica della grid search per automatizzare le prove effettuate in precedenza al variare dei parametri.
+Utilizziamo la tecnica della grid search per automatizzare la prova fatta nell'esercizio E22.1. In particolare, andiamo a variare il numero di cluster (`n_clusters`) tra 3 ed 8 e l'algoritmo usato dal kmeans (`algorithm`) tra `lloyd` ed `elkan`.
 
 ## Esercizio E22.4
 
-Utilizziamo la tecnica di feature selection più semplice offerta da Scikit Learn, ovvero [`VarianceThreshold()`](http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.VarianceThreshold.html), per effettuare una procedura di feature selection sul dataset Titanic. Filtriamo in tal senso tutte le feature con varianza inferiore a 0.5.
+Utilizziamo la tecnica di feature selection più semplice offerta da Scikit Learn, ovvero [`VarianceThreshold()`](http://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.VarianceThreshold.html) per effettuare una procedura di feature selection sul dataset Titanic. In tal senso, integriamo tale procedura nel transformer per i dati di tipo numerico usati nell'esercizio E22.2, e proviamo ad effettuare una grid search impostando due threshold (0 e 0.05) e facendo variare il numero di cluster tra 3 ed 8.
 
 !!!note "Soluzione"
     La soluzione a questo esercizio è contenuta in [questo notebook](solution.ipynb).

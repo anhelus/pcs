@@ -114,7 +114,7 @@ ct = ColumnTransformer(
 
 ## 22.3 - Crossvalidazione
 
-Quando abbiamo parlato di preparazione dei dati abbiamo visto come sia necessario [suddividere gli stessi in due insiemi]((../14_data_prep/lecture.md#1424---suddivisione-dei-dati)), ovvero quello di training e quello di validazione, allo scopo di assicurarsi che il modello sia in grado di generalizzare.
+Quando abbiamo parlato di preparazione dei dati abbiamo visto come sia necessario [suddividere gli stessi in due insiemi](../14_data_prep/lecture.md#1424---suddivisione-dei-dati), ovvero quello di training e quello di validazione, allo scopo di assicurarsi che il modello sia in grado di generalizzare.
 
 Tuttavia, questa procedura spesso non è sufficiente, perché all'interno dei dati di training o testing, anche se scelti con meccanismi casuali, è possibile che siano presenti dei particolari meccanismi di generazione *propri di quel sottinsieme*. In altre parole, c'è il rischio che l'algoritmo vada comunque in overfitting sui dati di training!
 
