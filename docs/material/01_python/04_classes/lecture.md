@@ -104,7 +104,7 @@ class Persona(object):
 	  Jax
 	  Teller
 	  ```
-	
+
 	Questo non vale per gli attributi privati:
 
 	> ```bash
@@ -186,7 +186,7 @@ Questo metodo è quindi liberamente richiamabile mediante l'operatore `.` da una
 True
 ```
 
-Un'altra possibilità è richiamarlo sulla classe stessa: 
+Un'altra possibilità è richiamarlo sulla classe stessa:
 
 ```py
 >>> print(Persona.nome_valido('X'))
@@ -246,33 +246,33 @@ class Persona():
 		self.nome = nome
 		self.cognome = cognome
 		self.eta = eta
-	
+
 	@property
 	def nome(self):
 		return self.__nome
-	
+
 	@nome.setter
 	def nome(self, value):
 		if len(value) < 2:
 			raise ValueError('La lunghezza del nome non può essere inferiore a due caratteri.')
 		else:
 			self.__nome = value
-	
+
 	@property
 	def cognome(self):
 		return self.__cognome
-	
+
 	@cognome.setter
 	def cognome(self, value):
 		if len(value) < 2:
 			raise ValueError('La lunghezza del cognome non può essere inferiore a due caratteri.')
 		else:
-			self.__cognome = value	
-	
+			self.__cognome = value
+
 	@property
 	def eta(self):
 		return self.__eta
-	
+
 	@eta.setter
 	def eta(self, value):
 		if value < 0:
@@ -292,10 +292,14 @@ Vediamo come usare la nostra nuova classe:
 ```py
 >>> draco = Persona('Draco', 'Malfoy', 12)
 >>>	print(draco.nome)
-Draco
+'Draco'
 >>> print(draco.eta)
 12
->>> hermione = PersonProperty('', 'Granger', 18)
+>>> hermione = Person('', 'Granger', 18)
+Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+    File "<stdin>", line 3, in __init__
+    File "<stdin>", line 12, in nome
 ValueError: La lunghezza del nome non può essere inferiore a due caratteri.
 ```
 
