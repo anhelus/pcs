@@ -117,6 +117,7 @@ Vediamo cosa succede se proviamo ad usare una assignment expression in modo da r
 Notiamo che l'operazione ha modificato il valore della lista `fib`! A noi, però, interessa soltanto la somma degli elementi precedenti della lista (e quindi il secondo valore ottenuto). Per isolarlo, possiamo adoperare l'operatore booleano `and`:
 
 ```py
+>>> fib = [0, 1]
 >>> (fib := [fib[1], fib[0] + fib[1]]) and fib[1]
 1
 ```
@@ -235,21 +236,21 @@ E' possibile recuperare la lista di tutte le chiavi presenti in un dizionario us
 
 ```py
 chiavi = dizionario.keys()			# Restituisce dict_keys(['k', 1]), che non è una lista!
-list(chiavi)						# Restituisce ['k', 1], che è una lista!
+print(list(chiavi))						# Restituisce ['k', 1], che è una lista!
 ```
 
 In modo analogo, si può accedere a tutti i valori presenti nel dizionario mediante il metodo `values()`, che restituirà un oggetto di tipo `dict_values`, da convertire anch'esso in lista:
 
 ```py
 valori = dizionario.values()		# Restituisce dict_values(['v', 'n']), che non è una lista!
-list(valori)						# Restituisce ['v', 'n'], che è una lista!
+print(list(valori))						# Restituisce ['v', 'n'], che è una lista!
 ```
 
 Possiamo accedere anche a tutte le coppie chiave - valore mediante il metodo `items()`, che ci restituisce un oggetto di tipo `dict_items`, il quale può essere convertito in una lista di tuple:
 
 ```py
 coppie = dizionario.items()			# Restituisce dict_items([('k', 'v'), (1, 'n')])
-list(coppie)						# Restituisce una lista di tuple
+print(list(coppie))						# Restituisce una lista di tuple
 ```
 
 ### 3.6.2 - Creazione di un dizionario (non vuoto)
@@ -261,7 +262,7 @@ Abbiamo diversi modi per creare un dizionario non vuoto.
 Il più semplice, che è quello che useremo più spesso, è quello di dichiarare nell'operatore `{}` le coppie chiave - valore iniziali:
 
 ```py
->>> dizionario = { 'k1': 1, 'k2': 2 }
+>>> dizionario = {'k1': 1, 'k2': 2}
 >>> dizionario
 {'k1': 1, 'k2': 2}
 ```
@@ -289,7 +290,7 @@ dizionario = dict(zip(chiavi, valori))
 Un modo per ottenere un dizionario a partire da un altro oggetto iterabile è la *dict comprehension*, che ha una forma del tipo:
 
 ```py
-output = { chiave: valore for valore in iterabile }
+output = {chiave: valore for valore in iterabile}
 ```
 
 Possiamo ad esempio creare un dizionario contenente come chiave i numeri da 1 a 9, e come valori corrispondenti i quadrati degli stessi:
