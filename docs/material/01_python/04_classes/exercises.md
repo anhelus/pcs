@@ -61,7 +61,7 @@ Vediamo come usare la nostra nuova classe:
 ```py
 >>> draco = Persona('Draco', 'Malfoy', 12)
 >>>	print(draco.nome)
-`Draco`
+'Draco'
 >>> print(draco.eta)
 12
 >>> hermione = Persona('', 'Granger', 18)
