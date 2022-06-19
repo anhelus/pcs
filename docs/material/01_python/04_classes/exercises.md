@@ -15,33 +15,33 @@ class Persona():
 		self.nome = nome
 		self.cognome = cognome
 		self.eta = eta
-	
+
 	@property
 	def nome(self):
 		return self.__nome
-	
+
 	@nome.setter
 	def nome(self, value):
 		if len(value) < 2:
 			raise ValueError('La lunghezza del nome non può essere inferiore a due caratteri.')
 		else:
 			self.__nome = value
-	
+
 	@property
 	def cognome(self):
 		return self.__cognome
-	
+
 	@cognome.setter
 	def cognome(self, value):
 		if len(value) < 2:
 			raise ValueError('La lunghezza del cognome non può essere inferiore a due caratteri.')
 		else:
-			self.__cognome = value	
-	
+			self.__cognome = value
+
 	@property
 	def eta(self):
 		return self.__eta
-	
+
 	@eta.setter
 	def eta(self, value):
 		if value < 0:
@@ -61,10 +61,14 @@ Vediamo come usare la nostra nuova classe:
 ```py
 >>> draco = Persona('Draco', 'Malfoy', 12)
 >>>	print(draco.nome)
-Draco
+`Draco`
 >>> print(draco.eta)
 12
->>> hermione = PersonProperty('', 'Granger', 18)
+>>> hermione = Persona('', 'Granger', 18)
+Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+    File "<stdin>", line 3, in __init__
+    File "<stdin>", line 12, in nome
 ValueError: La lunghezza del nome non può essere inferiore a due caratteri.
 ```
 
@@ -89,11 +93,11 @@ class Figura(ABC):
     @property
     def area(self):
         return self.__area
-    
+
     @abstractmethod
     def perimetro(self):
         pass
-    
+
     @abstractmethod
     def area(self):
         pass
@@ -103,18 +107,18 @@ class Quadrato(Figura):
 
     def __init__(self, lato):
         self.lato = lato
-    
+
     @property
     def lato(self):
         return self.__lato
-    
+
     @lato.setter
     def lato(self, value):
         self.__lato = value
-    
+
     def perimetro(self):
         return self.lato * 4
-    
+
     def area(self):
         return self.lato ** 2
 
@@ -123,18 +127,18 @@ class Cerchio(Figura):
 
     def __init__(self, raggio):
         self.raggio = raggio
-    
+
     @property
     def raggio(self):
         return self.__raggio
-    
+
     @raggio.setter
     def raggio(self, value):
         self.__raggio = value
-    
+
     def perimetro(self):
         return 2 * pi * self.raggio
-    
+
     def area(self):
         return pi * (self.raggio ** 2)
 
