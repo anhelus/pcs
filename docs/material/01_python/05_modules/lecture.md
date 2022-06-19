@@ -45,6 +45,7 @@ Quando le dimensioni della nostra *code base* (ovvero la quantità di codice che
 Immaginiamo di voler scrivere un programma che definisca delle funzioni per calcolare l'area delle principali figure geometriche. Modifichiamo quindi il nostro file `main.py` come segue:
 
 ```py
+# main.py
 def calcola_area_quadrato(lato):
 	return lato * lato
 
@@ -65,6 +66,7 @@ area_triangolo = calcola_area_triangolo(2, 3)
 Immaginiamo di voler quindi aggiungere una funzione di calcolo trigonometrico:
 
 ```py
+# main.py
 import math
 
 def calcola_tangente(angolo):
@@ -107,6 +109,7 @@ def calcola_area_triangolo(base, altezza):
 Analogamente, nel file `trigonometria.py` andremo a definire la funzione per il calcolo della tangente.
 
 ```py
+# trigonometria.py
 import math
 
 def calcola_tangente(angolo):
@@ -116,6 +119,7 @@ def calcola_tangente(angolo):
 Riscriviamo ora il file `main.py`:
 
 ```py linenums="1"
+# main.py
 import geometria
 import trigonometria
 
