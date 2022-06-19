@@ -10,19 +10,19 @@ Proviamo a valutare il tempo necessario alle operazioni di `insert` e `pop` su u
 from time import time
 from collections import deque
 
-def queue(queue, pushed=1):
+def queue_classica(queue):
 	tic = time()
 	queue.insert(0, 4)
 	queue.pop()
 	toc = time()
-	return tic, toc
+	return toc - tic
 
 def queue_con_deque(queue, pushed=1):
 	tic = time()
 	queue.appendleft(pushed)
 	queue.popleft()
 	toc = time()
-	return tic, toc
+	return toc - tic
 ```
 
 Proviamo a chiamare le due funzioni:
@@ -53,7 +53,8 @@ lista_nomi = [
     "Billy Butcher",
     "Luke Skywalker",
     "Bobby Singer",
-    "Johnny Lawrence"]
+    "Johnny Lawrence"
+]
 ```
 
 Facciamolo usando un ciclo ed una list comprehension.
@@ -100,7 +101,7 @@ output = [quadrato(i) for i in range(1, 11)]
 
 ## E3.4
 
-Ottenere una lista che abbia la stringa `pari` in corrispondenza dei numeri pari, mentre quella `dispari` in corrispondenza dei numeri dispari, per tutti i numeri che vanno da 1 a 10.
+Ottenere una lista che abbia la stringa `'pari'` in corrispondenza dei numeri pari, mentre quella `'dispari'` in corrispondenza dei numeri dispari, per tutti i numeri che vanno da 1 a 10.
 
 ### S3.4 - Soluzione
 
@@ -142,15 +143,16 @@ dizionario = {
     'Billy Butcher': 41,
     'Luke Skywalker': 79,
     'Bobby Singer': 68,
-    'Johnny Lawrence': 49}
+    'Johnny Lawrence': 49
+}
 ```
 
-In particolare, il dizionario `vecchio_o_giovane` avrà le stesse chiavi del dizionario di partenza, a cui sarà associato il valore `giovane` soltanto se il valore della chiave del dizionario di partenza è inferiore a 65.
+In particolare, il dizionario `vecchio_o_giovane` avrà le stesse chiavi del dizionario di partenza, a cui sarà associato il valore `'giovane'` soltanto se il valore della chiave del dizionario di partenza è inferiore a 65.
 
 ### S3.5 - Soluzione
 
 ```py
-vecchio_o_giovane = { k: 'vecchio' if v > 65 else 'giovane' for (k, v) in dizionario.items() }
+vecchio_o_giovane = {k: 'vecchio' if v > 65 else 'giovane' for (k, v) in dizionario.items()}
 ```
 
 !!!note "Nota"
