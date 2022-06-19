@@ -4,6 +4,9 @@ Benvenuti nel corso di **Python per il Calcolo Scientifico** (**PCS**).
 
 In questa pagina viene pubblicato il materiale e le informazioni relative al corso, nonché le slides proiettate a lezione.
 
+!!!tip "Disponibilità registrazioni"
+    Le registrazioni delle lezioni sono disponibili in una playlist YouTube a [questo indirizzo](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS).
+
 !!!warning "Attenzione"
     **Le dispense sono attualmente in fase di aggiornamento.**
 
