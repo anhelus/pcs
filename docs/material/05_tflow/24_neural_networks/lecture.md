@@ -48,7 +48,7 @@ Queste funzioni, che vediamo nella figura successiva, prendono il nome di *funzi
 
 TODO: immagine con funzioni di attivazione
 
-Ovviamente, man mano che inseiriamo più layer, l'impatto delle non linearità diventa maggiore. Aggiungere non linearità su non linearità fa in modo che si inseriscano delle relazioni anche molto complesse tra gli input e gli output predetti. In breve, ogni layer sta effettivamente apprendendo una funzione *più complessa* degli input.
+Ovviamente, man mano che inseiriamo più layer, l'impatto delle non linearità diventa maggiore. Aggiungere non linearità su non linearità fa in modo che si inseriscano delle relazioni anche molto complesse tra gli input e gli output predetti. In breve, ogni layer sta effettivamente apprendendo una funzione *più complessa* degli  input.
 
 Le funzioni di attivazione più utilizzate in passato erano quelle di tipo sigmoidale, simili, per intenderci, alla funzione che abbiamo visto in uscita alla regressione logistica.
 
