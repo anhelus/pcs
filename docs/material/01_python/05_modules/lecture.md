@@ -45,6 +45,7 @@ Quando le dimensioni della nostra *code base* (ovvero la quantità di codice che
 Immaginiamo di voler scrivere un programma che definisca delle funzioni per calcolare l'area delle principali figure geometriche. Modifichiamo quindi il nostro file `main.py` come segue:
 
 ```py
+# main.py
 def calcola_area_quadrato(lato):
 	return lato * lato
 
@@ -65,6 +66,7 @@ area_triangolo = calcola_area_triangolo(2, 3)
 Immaginiamo di voler quindi aggiungere una funzione di calcolo trigonometrico:
 
 ```py
+# main.py
 import math
 
 def calcola_tangente(angolo):
@@ -107,6 +109,7 @@ def calcola_area_triangolo(base, altezza):
 Analogamente, nel file `trigonometria.py` andremo a definire la funzione per il calcolo della tangente.
 
 ```py
+# trigonometria.py
 import math
 
 def calcola_tangente(angolo):
@@ -116,6 +119,7 @@ def calcola_tangente(angolo):
 Riscriviamo ora il file `main.py`:
 
 ```py linenums="1"
+# main.py
 import geometria
 import trigonometria
 
@@ -127,7 +131,7 @@ if __name__ == "__main__":
 Possiamo notare due cose.
 
 1. In primis, stiamo richiamando le funzioni `calcola_area_quadrato()` e `calcola_tangente()` definite nei moduli `geometria` e `trigonometria`, rispettivamente. Questi moduli sono importati all'interno del nostro script mediante la direttiva `import`.
-2. Alle righe 5 e 6, la "strana" sintassi mostrata serve a dichiarare quello che è il `main`, ovvero il punto di "accesso" al codice del nostro programma. Il `main` è normalmente presente in tutti i linguaggi di programmazione, alle volte sotto forme un po' differenti da quella qui mostrata; tuttavia, nel caso di script particolarmente semplici, il `main` può essere tranquillamente omesso, in quanto l'interprete riuscirà ad eseguirlo in maniera autonoma.
+2. Al rigo 5, la "strana" sintassi mostrata serve a dichiarare quello che è il `main`, ovvero il punto di "accesso" al codice del nostro programma. Il `main` è normalmente presente in tutti i linguaggi di programmazione, alle volte sotto forme un po' differenti da quella qui mostrata; tuttavia, nel caso di script particolarmente semplici, il `main` può essere tranquillamente omesso, in quanto l'interprete riuscirà ad eseguirlo in maniera autonoma.
 
 Proviamo a lanciare lo script; per farlo, digitiamo l'istruzione `python main.py` da terminale. A schermo, se tutto è andato per il verso giusto, vedremo i valori dell'area di un quadrato e della tangente di $\pi$.
 

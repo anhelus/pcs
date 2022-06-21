@@ -100,14 +100,14 @@ class Persona(object):
 	> ```py
 	  >>> p = Persona('Jax', 'Teller')
 	  >>> print(p.nome)
+      'Jax'
 	  >>> print(p._cognome)
-	  Jax
-	  Teller
+	  'Teller'
 	  ```
-	
+
 	Questo non vale per gli attributi privati:
 
-	> ```bash
+	> ```py
 	  >>> try:
 	  >>>     print(p.__eta)
 	  >>> except AttributeError:
@@ -138,7 +138,7 @@ p.metodo(parametro)		# richiamo il metodo dall'istanza
 # ...
 ```
 
-Nel codice precedente, abbiamo usato l'operatore `.` per accedere a `metodo` definito all'interno della classe `Persona`.
+Nel codice precedente, abbiamo usato l'operatore `.` per accedere a `metodo()` definito all'interno della classe `Persona`.
 
 Approfondiamo adesso alcune particolari tipologie di metodi, ottenibili usando determinati decorator (cfr. appendice B).
 
@@ -161,7 +161,7 @@ A differenza dei metodi standard, i metodi di classe hanno un riferimento alla c
 Per richiamare un metodo di classe occorre riferirsi al nome della classe stessa, e non ad una singola istanza:
 
 ```py
->>> persona = Person.builder_stringa('Bobby Munson 58')
+>>> persona = Persona.builder_stringa('Bobby Munson 58')
 >>> print("{} {}".format(persona.nome, persona._cognome))
 Bobby Munson
 ```
@@ -182,11 +182,11 @@ def nome_valido(nome):
 Questo metodo è quindi liberamente richiamabile mediante l'operatore `.` da una singola istanza:
 
 ```py
->>> print(persona.nome_valido('Li'))
+>>> print(Persona.nome_valido('Li'))
 True
 ```
 
-Un'altra possibilità è richiamarlo sulla classe stessa: 
+Un'altra possibilità è richiamarlo sulla classe stessa:
 
 ```py
 >>> print(Persona.nome_valido('X'))
@@ -246,33 +246,33 @@ class Persona():
 		self.nome = nome
 		self.cognome = cognome
 		self.eta = eta
-	
+
 	@property
 	def nome(self):
 		return self.__nome
-	
+
 	@nome.setter
 	def nome(self, value):
 		if len(value) < 2:
 			raise ValueError('La lunghezza del nome non può essere inferiore a due caratteri.')
 		else:
 			self.__nome = value
-	
+
 	@property
 	def cognome(self):
 		return self.__cognome
-	
+
 	@cognome.setter
 	def cognome(self, value):
 		if len(value) < 2:
 			raise ValueError('La lunghezza del cognome non può essere inferiore a due caratteri.')
 		else:
-			self.__cognome = value	
-	
+			self.__cognome = value
+
 	@property
 	def eta(self):
 		return self.__eta
-	
+
 	@eta.setter
 	def eta(self, value):
 		if value < 0:
@@ -292,10 +292,14 @@ Vediamo come usare la nostra nuova classe:
 ```py
 >>> draco = Persona('Draco', 'Malfoy', 12)
 >>>	print(draco.nome)
-Draco
+'Draco'
 >>> print(draco.eta)
 12
->>> hermione = PersonProperty('', 'Granger', 18)
+>>> hermione = Persona('', 'Granger', 18)
+Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+    File "<stdin>", line 3, in __init__
+    File "<stdin>", line 12, in nome
 ValueError: La lunghezza del nome non può essere inferiore a due caratteri.
 ```
 
