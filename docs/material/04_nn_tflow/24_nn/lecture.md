@@ -1,6 +1,6 @@
 # 25 - Anatomia di una rete neurale
 
-Le reti neurali sono ormai sulla bocca di tutti: chiunque le usa per risolvere con successo ogni tipo di problema. Tuttavia, prima di poterle usare, bisogna capire effettivamente *a cosa servono*: per far questo, è il caso di introdurre il discorso relativo ai *problemi non lineari*.
+Le reti neurali sono ormai sulla bocca di tutti: chiunque le usa per risolvere con successo ogni tipo di problema. Tuttavia, il passo giusto prima di usarle è quello di comprendere effettivamente a cosa servono: in tal senso, introduciamo il concetto di *problema non lineare*.
 
 ## 25.1 - Problemi non lineari
 
@@ -17,7 +17,10 @@ $$
 y = ax_1 + bx_2 + c
 $$
 
-che permetta di determinare $y$ a partire da $x_1$ ed $x_2$.
+che permetta di determinare $y$ a partire dalle feature $x_1$ ed $x_2$.
+
+!!!tip "Numero di feature"
+    Ovviamente, se il numero di feature fosse più elevato, il sommatore lineare dovrebbe considerare un maggior numero di variabili indipendenti.
 
 I lettori più audaci potrebbero provare ad usare delle approssimazioni lineari a tratti. Costoro dovrebbero considerare la figura 25.2.
 
@@ -28,55 +31,52 @@ I lettori più audaci potrebbero provare ad usare delle approssimazioni lineari 
 
 ## 25.2 - Reti neurali e problemi non lineari
 
-Per capire come le reti neurali ci aiutano a modellare un problema non lineare, occorre partire da un semplice sommatore pesato.
+Per capire come le reti neurali ci aiutano a modellare un problema non lineare, visualizziamo un semplice sommatore pesato.
 
 <figure markdown>
   ![linear_1](./images/linear_1.png){ width="450" }
   <figcaption>Figura 25.3 - Un sommatore lineare</figcaption>
 </figure>
 
-In questo semplice modello, abbiamo tre input ed un oputput. Ovviamente, essendo un sommatore pesato, dobbiamo adattarlo per fare in modo che isa in grado di gestire dei problemi non lineari.
+In questo semplice caso abbiamo tre input ed un output. Proviamo ad aggiungere un ulteriore strato.
 
 <figure markdown>
   ![linear_2](./images/linear_2.png){ width="450" }
   <figcaption>Figura 25.4 - Un sommatore lineare a più strati</figcaption>
 </figure>
 
-Il primo step è quello di aggiungere uno *strato nascosto*, rappresentativo di una serie di valori intermedi. L'output in questo caso non sarà più una somma pesata degli input, ma *una somma pesata dei valori in uscita dallo strato nascosto*, che a loro volta sono dipendenti dall'input.
+Lo strato che abbiamo aggiunto è detto *nascosto*, e rappresenta una serie di valori intermedi considerati dal sommatore nel calcolo dell'uscita. Quest'ultima non sarà più una somma pesata degli input, ma *una somma pesata dei valori in uscita dallo strato nascosto*, che a loro volta sono dipendenti dall'input.
 
-Tuttavia, il modello rimane lineare: in realtà, possiamo aggiungere quanti strati nascosti vogliamo, ma il modello rimarrà sempre e comunque lineare, a meno che non usiamo un accorgimento.
+Tuttavia, il modello *rimane lineare*: potremo aggiungere un numero arbitrario di strati nascosti, ma questo sarà sempre vero, a meno che non si usi una particolare funzione, detta di *attivazione*.
 
 ### 25.2.1 - Funzioni di attivazione
 
-Per mdoellare un problema non lineare, abbiamo la necessità di introdudre delle *non linearità* all'interno dello stesso. In pratica, dovremo insierire delle funzioni non lineari tra uno strato e l'altro.
-
-Queste funzioni, che vediamo nella figura successiva, prendono il nome di *funzioni di attivazione*.
+La modellazione di un problema non lineare prevede l'introduzione di (appunto) non linearità all'interno del modello. Nella pratica, potremo inserire delle opportune funzioni non lineari tra i diversi strati della rete. Queste funzioni sono dette *di attivazione*.
 
 <figure markdown>
   ![nn](./images/nn.png){ width="450" }
   <figcaption>Figura 25.5 - Semplice rete neurale con funzioni di attivazione</figcaption>
 </figure>
 
-Ovviamente, man mano che inseiriamo più layer, l'impatto delle non linearità diventa maggiore. Aggiungere non linearità su non linearità fa in modo che si inseriscano delle relazioni anche molto complesse tra gli input e gli output predetti. In breve, ogni layer sta effettivamente apprendendo una funzione *più complessa* degli  input.
+Ovviamente, con un maggior numero di strati nascosti, l'impatto delle non linearità diventa maggiore: in questo modo, saremo in grado di inferire delle relazioni anche molto complesse tra gli input e gli output (predetti).
 
-Le funzioni di attivazione più utilizzate in passato erano quelle di tipo sigmoidale, simili, per intenderci, alla funzione che abbiamo visto in uscita alla regressione logistica.
+Le funzioni di attivazione più utilizzate in passato erano di tipo sigmoidale (simili, per intenderci, alla funzione che abbiamo visto in uscita alla regressione logistica). Attualmente, le funzioni più usate sono le *rectified linear unit*, o *ReLU*, che hanno risultati comparabili in termini di accuratezza del modello alla sigmoidale, ma risultano essere significativamente meno complesse dal punto di vista computazionale.
 
-Attualmente, le funzioni più in voga sono le *rectified linear unit*, o *ReLU*, che hanno risultati comparabili in termini di accuratezza del modello alla sigmoidale, ma risultano essere significativamente meno complesse dal punto di vista computazionale.
-
-Le ReLU sono espresse come segue:
+Le ReLU sono espresse dalla seguente funzione:
 
 $$
 y = max(0, x)
 $$
 
-ed hanno una funzione di questo tipo:
+che graficamente si traduce in una forma espressa come:
 
 <figure markdown>
   ![relu](./images/relu.png){ width="450" }
   <figcaption>Figura 25. - ReLU</figcaption>
 </figure>
 
-In pratica, una ReLU "fa passare" soltanto i valori positivi, portando a zero tutti quelli negativi.
+!!!tip "ReLU nella pratica"
+    In pratica, una ReLU "fa passare" soltanto i valori positivi, portando a zero tutti quelli negativi.
 
 Riassumendo:
 
