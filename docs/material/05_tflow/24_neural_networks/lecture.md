@@ -30,11 +30,17 @@ I lettori più audaci potrebbero provare ad usare delle approssimazioni lineari 
 
 Per capire come le reti neurali ci aiutano a modellare un problema non lineare, occorre partire da un semplice sommatore pesato.
 
-TODO: immagine
+<figure markdown>
+  ![linear_1](./images/linear_1.png){ width="450" }
+  <figcaption>Figura 25.3 - Un sommatore lineare</figcaption>
+</figure>
 
 In questo semplice modello, abbiamo tre input ed un oputput. Ovviamente, essendo un sommatore pesato, dobbiamo adattarlo per fare in modo che isa in grado di gestire dei problemi non lineari.
 
-TODO: immagine con strato nascosto
+<figure markdown>
+  ![linear_2](./images/linear_2.png){ width="450" }
+  <figcaption>Figura 25.4 - Un sommatore lineare a più strati</figcaption>
+</figure>
 
 Il primo step è quello di aggiungere uno *strato nascosto*, rappresentativo di una serie di valori intermedi. L'output in questo caso non sarà più una somma pesata degli input, ma *una somma pesata dei valori in uscita dallo strato nascosto*, che a loro volta sono dipendenti dall'input.
 
@@ -46,7 +52,10 @@ Per mdoellare un problema non lineare, abbiamo la necessità di introdudre delle
 
 Queste funzioni, che vediamo nella figura successiva, prendono il nome di *funzioni di attivazione*.
 
-TODO: immagine con funzioni di attivazione
+<figure markdown>
+  ![nn](./images/nn.png){ width="450" }
+  <figcaption>Figura 25.5 - Semplice rete neurale con funzioni di attivazione</figcaption>
+</figure>
 
 Ovviamente, man mano che inseiriamo più layer, l'impatto delle non linearità diventa maggiore. Aggiungere non linearità su non linearità fa in modo che si inseriscano delle relazioni anche molto complesse tra gli input e gli output predetti. In breve, ogni layer sta effettivamente apprendendo una funzione *più complessa* degli  input.
 

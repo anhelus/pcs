@@ -55,6 +55,8 @@ nav:
     - 20 - Clustering: material/03_ml_sklearn/20_clustering/lecture.md
     - 21 - Metriche di clustering: material/03_ml_sklearn/21_cls_metrics/lecture.md
     - 22 - Tips & Tricks: material/03_ml_sklearn/22_sklearn_tricks/lecture.md
+  - Parte 4 - Reti neurali, TensorFlow e Keras:
+    - 23 - Anatomia di una rete neurale: material/04_nn_tflow/24_nn/lecture.md
   - Appendici:
     - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
     - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
