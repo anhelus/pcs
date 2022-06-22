@@ -31,3 +31,6 @@ Ripetere gli stessi step degli esercizi precedenti per il dataset Iris.
 ## E23.8
 
 Comparare, per mezzo di due pipeline, i risultati ottenuti effettuando il clustering mediante algoritmo KMeans sui dati di Iris con e senza feature selection.
+
+!!!note "Soluzione"
+    La soluzione a questo esercizio è contenuta in [questo notebook](solution.ipynb).
