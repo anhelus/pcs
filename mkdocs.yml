@@ -4,6 +4,8 @@ site_url: https://python.angelocardellicchio.it
 nav:
   - Home: index.md
   - Slides proiettate a lezione: material/slides/index.md
+  - Temi d'anno: material/projects/index.md
+  - Notebook: material/notebooks/index.md
   - Parte 1 - Concetti base:
     - 1 - Introduzione a Python: 
       - Dispense: material/01_python/01_intro/lecture.md
@@ -36,25 +38,55 @@ nav:
         - Esercizi: material/02_libs/07_numpy/04_algebra/exercises.md
       - 7.5 - Polinomi in NumPy:
         - Dispense: material/02_libs/07_numpy/05_polynomials/lecture.md
-        - Exercises: material/02_libs/07_numpy/05_polynomials/exercises.md
+        - Esercizi: material/02_libs/07_numpy/05_polynomials/exercises.md
       - 7.6 - Statistica in NumPy:
         - Dispense: material/02_libs/07_numpy/06_statistics/lecture.md
-    - 8 - Visualizzazione di dati: material/02_libs/08_matplotlib/lecture.md
-    - 9 - Introduzione a Pandas: material/02_libs/09_pandas/lecture.md
-    - 10 - Visualizzazione di dati in Seaborn: material/02_libs/10_seaborn/lecture.md
-    - 11 - Introduzione a SciPy: material/02_libs/11_scipy/lecture.md
+    - 8 - Visualizzazione di dati:
+      - Dispense: material/02_libs/08_matplotlib/lecture.md
+    - 9 - Introduzione a Pandas:
+      - Dispense: material/02_libs/09_pandas/lecture.md
+    - 10 - Visualizzazione di dati in Seaborn:
+      - Dispense: material/02_libs/10_seaborn/lecture.md
+      - Esercizi: material/02_libs/10_seaborn/exercises.md
+    - 11 - Introduzione a SciPy:
+      - Dispense: material/02_libs/11_scipy/lecture.md
+      - Esercizi: material/02_libs/11_scipy/exercises.md
   - Parte 3 - Machine learning e Scikit Learn:
-    - 12 - Introduzione al machine learning: material/03_ml_sklearn/12_intro_ml/lecture.md
-    - 13 - Definizione del problema: material/03_ml_sklearn/13_framing/lecture.md
-    - 14 - Preparazione dei dati: material/03_ml_sklearn/14_data_prep/lecture.md
-    - 15 - Introduzione a Scikit Learn: material/03_ml_sklearn/15_intro_sklearn/lecture.md
-    - 16 - Regressione lineare: material/03_ml_sklearn/16_lin_reg/lecture.md
-    - 17 - Regressione logistica: material/03_ml_sklearn/17_logistic/lecture.md
-    - 18 - Metriche: material/03_ml_sklearn/18_metrics/lecture.md
-    - 19 - Classificatori e regressori: material/03_ml_sklearn/19_classifiers_regressors/lecture.md
-    - 20 - Clustering: material/03_ml_sklearn/20_clustering/lecture.md
-    - 21 - Metriche di clustering: material/03_ml_sklearn/21_cls_metrics/lecture.md
-    - 22 - Tips & Tricks: material/03_ml_sklearn/22_sklearn_tricks/lecture.md
+    - 12 - Introduzione al machine learning:
+      - Dispense: material/03_ml_sklearn/12_intro_ml/lecture.md
+    - 13 - Definizione del problema:
+      - Dispense: material/03_ml_sklearn/13_framing/lecture.md
+    - 14 - Preparazione dei dati:
+      - Dispense: material/03_ml_sklearn/14_data_prep/lecture.md
+    - 15 - Introduzione a Scikit Learn:
+      - Dispense: material/03_ml_sklearn/15_intro_sklearn/lecture.md
+      - Esercizi: material/03_ml_sklearn/15_intro_sklearn/exercises.md
+    - 16 - Regressione lineare:
+      - Dispense: material/03_ml_sklearn/16_lin_reg/lecture.md
+      - Esercizi: material/03_ml_sklearn/16_lin_reg/exercises.md
+    - 17 - Regressione logistica:
+      - Dispense: material/03_ml_sklearn/17_logistic/lecture.md
+      - Esercizi: material/03_ml_sklearn/17_logistic/exercises.md
+    - 18 - Metriche:
+      - Dispense: material/03_ml_sklearn/18_metrics/lecture.md
+      - Esercizi: material/03_ml_sklearn/18_metrics/exercises.md
+    - 19 - Classificatori e regressori:
+      - Dispense: material/03_ml_sklearn/19_classifiers_regressors/lecture.md
+      - Esercizi: material/03_ml_sklearn/19_classifiers_regressors/exercises.md
+    - 20 - Clustering:
+      - Dispense: material/03_ml_sklearn/20_clustering/lecture.md
+      - Esercizi: material/03_ml_sklearn/20_clustering/exercises.md
+    - 21 - Metriche di clustering:
+      - Dispense: material/03_ml_sklearn/21_cls_metrics/lecture.md
+      - Esercizi: material/03_ml_sklearn/21_cls_metrics/exercises.md
+    - 22 - Tips & Tricks:
+      - Dispense: material/03_ml_sklearn/22_sklearn_tricks/lecture.md
+      - Esercizi: material/03_ml_sklearn/22_sklearn_tricks/exercises.md
+    - 23 - Esercitazione su Scikit Learn:
+      - Esercizi: material/03_ml_sklearn/23_sklearn_ex/exercises.md
+  - Parte 4 - Reti neurali, TensorFlow e Keras:
+    - 23 - Anatomia di una rete neurale:
+      - Dispense: material/04_nn_tflow/24_nn/lecture.md
   - Appendici:
     - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
     - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
@@ -64,8 +96,7 @@ nav:
     - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
     - G - Algoritmi:
       - SVD: material/appendix/07_algorithms/01_svd/lecture.md
-  - Indice dei Notebook: material/notebooks/index.md
-  - Indice degli Esercizi: material/exercises/index.md
+  - Crediti: contributors.md
 
 theme:
   name: material

@@ -1,0 +1,1 @@
+# 26. Utilizzo di TensorFlow e Keras con GPU

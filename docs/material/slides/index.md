@@ -22,4 +22,5 @@
 | 17 - Metriche | [:link:](17_metrics.pdf) |
 | 18 - Classificatori e regressori | [:link:](18_class_reg.pdf) |
 | 19 - Clustering | [:link:](19_clustering.pdf) |
+| 21 - Reti neurali | [:link:](21_nn.pdf) |
 | Appendice D - Principi di OOP | [:link:](app_d_oop.pdf) |
