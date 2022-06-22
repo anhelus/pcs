@@ -13,3 +13,4 @@ In questa pagina è presente la raccolta dei notebook presentati durante le lezi
 | Lezione 11 - SciPy | [:link:](../02_libs/11_scipy/notebook.ipynb) |
 | Lezione 16 - Regressione lineare | [:link:](../03_ml_sklearn/16_lin_reg/notebook.ipynb) |
 | Lezione 17 - Regressione logistica | [:link:](../03_ml_sklearn/17_logistic/notebook.ipynb) |
+| Lezione 25 - Tensorflow | [:link:](../04_nn_tflow/25_intro_tflow/notebook.ipynb) |
