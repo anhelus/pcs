@@ -83,3 +83,5 @@ Riassumendo:
 * una rete neurale è data da un insieme di nodi, o *neuroni*, organizzati in uno o più *strati*;
 * ogni neurone è connesso a quelli dello strato successivo mediante dei *pesi*, che rappresentano la "forza" della connessione;
 * esiste una funzione di attivazione che trasforma l'uscita di ogni neurone verso lo strato successivo inserendo delle non linearità.
+
+<!-- TODO: teorema dell'approssimazione universale -->
