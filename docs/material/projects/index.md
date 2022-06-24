@@ -13,19 +13,19 @@ Per prenotare un tema d'anno, è necessario compilare il form a [questo indirizz
 !!!tip "Suggerimento"
     La data da segnalare sul modulo è, ovviamente, indicativa. Tuttavia, anche per permettere una migliore organizzazione del lavoro a tutti, si consiglia di "bloccare" un tema di interesse soltanto se si è effettivamente sicuri di sostenere l'esame in questa modalità.
 
-| Ambito | Tema d'anno | Disponibile |
-| ------ | ----------- | ------------- |
-| Scikit Learn | Support Vector Machines | :white_check_mark: |
-| Scikit Learn | Algoritmi multiclasse-multioutput | :white_check_mark: |
-| Scikit Learn | Novelty/Outlier detection | :white_check_mark: |
-| Scikit Learn | Reti neurali non supervisionate | :white_check_mark: |
-| Scipy | Clustering | :white_check_mark: |
-| Scipy | Problemi di ottimizzazione | :white_check_mark: |
-| Scipy | Fattorizzazione di matrici | :white_check_mark: |
-| TensorFlow/Keras | Tuning degli iperparametri | :white_check_mark: |
-| TensorFlow/Keras | AutoML | :white_check_mark: |
-| TensorFlow/Keras | Image segmentation | :white_check_mark: |
-| TensorFlow/Keras | Classificazione del testo con RNN | :white_check_mark: |
-| TensorFlow/Keras | Classificazione del testo con BERT | :white_check_mark: |
-| TensorFlow/Keras | Predizione di serie temporali | :white_check_mark: |
-| TensorFlow/Keras | Autoencoders | :white_check_mark: |
+| Ambito | Tema d'anno | Disponibile | Assegnatari |
+| ------ | ----------- | ----------- | ----------- |
+| Scikit Learn | Support Vector Machines | :white_check_mark: | |
+| Scikit Learn | Algoritmi multiclasse-multioutput | :white_check_mark: | |
+| Scikit Learn | Novelty/Outlier detection | :x: | Leserri |
+| Scikit Learn | Reti neurali non supervisionate | :white_check_mark: | |
+| Scipy | Clustering | :x: | Giorgio - Tota - Susca |
+| Scipy | Problemi di ottimizzazione | :x: | Cagnazzi - Rago |
+| Scipy | Fattorizzazione di matrici | :x: | De Rosa - Leone |
+| TensorFlow/Keras | Tuning degli iperparametri | :white_check_mark: | |
+| TensorFlow/Keras | AutoML | :white_check_mark: | |
+| TensorFlow/Keras | Image segmentation | :x: | Bellino - Gentile |
+| TensorFlow/Keras | Classificazione del testo con RNN | :white_check_mark: | |
+| TensorFlow/Keras | Classificazione del testo con BERT | :white_check_mark: | |
+| TensorFlow/Keras | Predizione di serie temporali | :white_check_mark: | |
+| TensorFlow/Keras | Autoencoders | :white_check_mark: | |
