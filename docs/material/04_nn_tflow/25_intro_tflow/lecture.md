@@ -1,1 +1,1 @@
-# 25. Introduzione a TensorFlow e Keras
+# 25 - Introduzione a TensorFlow (e Keras)
