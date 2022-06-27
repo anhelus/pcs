@@ -2,327 +2,337 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://python.angelocardellicchio.it/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/contributors/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/01_python/01_intro/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/01_python/01_intro/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/01_python/02_syntax/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/01_python/02_syntax/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/01_python/03_data_structures/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/01_python/03_data_structures/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/01_python/04_classes/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/01_python/04_classes/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/01_python/05_modules/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/06_jupyter/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/01_intro/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/02_array/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/02_array/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/03_fundamentals/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/03_fundamentals/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/04_algebra/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/04_algebra/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/05_polynomials/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/05_polynomials/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/07_numpy/06_statistics/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/08_matplotlib/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/09_pandas/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/10_seaborn/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/10_seaborn/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/11_scipy/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/02_libs/11_scipy/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/12_intro_ml/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/13_framing/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/14_data_prep/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/15_intro_sklearn/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/15_intro_sklearn/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/16_lin_reg/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/16_lin_reg/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/17_logistic/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/17_logistic/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/18_metrics/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/18_metrics/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/19_classifiers_regressors/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/19_classifiers_regressors/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/20_clustering/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/20_clustering/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/21_cls_metrics/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/21_cls_metrics/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/22_sklearn_tricks/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/22_sklearn_tricks/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/03_ml_sklearn/23_sklearn_ex/exercises/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/24_nn/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/25_intro_tflow/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/26_layer_nn/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/26_dropout_reg/exercises/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/26_dropout_reg/lecture/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/27_tflow_images/exercises/</loc>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/27_tflow_images/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/28_keras_tricks/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/28_tricks/exercises/</loc>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/29_data/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/28_tricks/lecture/</loc>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://python.angelocardellicchio.it/material/04_nn_tflow/30_tfhub/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <loc>https://python.angelocardellicchio.it/material/05_time_series/29_ts/lecture/</loc>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/appendix/01_python_vs_code/guide/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/appendix/02_libraries/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/appendix/03_scope/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/appendix/04_oop/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/appendix/05_tips/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/appendix/06_argparse/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/appendix/07_algorithms/01_svd/lecture/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/notebooks/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/projects/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://python.angelocardellicchio.it/material/slides/</loc>
-         <lastmod>2022-06-24</lastmod>
+         <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
