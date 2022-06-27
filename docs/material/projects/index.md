@@ -25,7 +25,7 @@ Per prenotare un tema d'anno, è necessario compilare il form a [questo indirizz
 | TensorFlow/Keras | Tuning degli iperparametri | :white_check_mark: | |
 | TensorFlow/Keras | AutoML | :white_check_mark: | |
 | TensorFlow/Keras | Image segmentation | :x: | Bellino - Gentile |
-| TensorFlow/Keras | Classificazione del testo con RNN | :white_check_mark: | |
+| TensorFlow/Keras | Classificazione del testo con RNN | :x: | Maldera |
 | TensorFlow/Keras | Classificazione del testo con BERT | :white_check_mark: | |
 | TensorFlow/Keras | Predizione di serie temporali | :white_check_mark: | |
 | TensorFlow/Keras | Autoencoders | :white_check_mark: | |

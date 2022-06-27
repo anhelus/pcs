@@ -1,21 +1,76 @@
 # 28 - TensorFlow & Keras: Tips & Tricks
 
-## 28.1 - Creazione di un dataset
+## 28.1 - Dataset
 
-Per dati di grosse dimensioni, TensorFlow potrebbe richiedere l'uso di un oggetto di tipo `Dataset`.
+I dati che abbiamo utilizzato finora erano organizzati sotto forma di array NumPy. Tuttavia, per dataset di grosse dimensioni, potrebbe essere necessario utilizzare degli oggetti di tipo [`Dataset`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset). In tal senso, Keras ci mette a disposizione diverse tecniche; vediamone alcuni.
 
 ### 28.1.1 - Immagini
 
-Finora ci siamo limitati ad utilizzare dati
+Per caricare un dataset di immagini a partire da una cartella, possiamo usare la funzione [`image_dataset_from_directory`](https://www.tensorflow.org/api_docs/python/tf/keras/utils/image_dataset_from_directory), che ha una sintassi di questo tipo:
+
+```py
+train = tf.keras.utils.image_dataset_from_directory(
+    data_dir,
+    validation_split=0.2,
+    subset='training',
+    image_size=(img_height, img_width),
+    batch_size=batch_size,
+    seed=seed)
+
+val = tf.keras.utils.image_dataset_from_directory(
+    data_dir,
+    validation_split=0.2,
+    subset='validation',
+    image_size=(img_height, img_width),
+    batch_size=batch_size,
+    seed=seed)
+```
+
+Nel precedente esempio:
+
+* `data_dir` è la cartella dove sono presenti i dati;
+* `validation_split` indica quanti dati usare per la validazione. Il valore deve essere coerente tra il dataset di train e quello di validazione;
+* `subset` indica se il dataset è indirizzato al training o alla validazione;
+* `image_size` rappresenta la dimensione (in pixel) dell'immagine;
+* `batch_size` rappresenta la dimensione del batch di dati da usare;
+* `seed` è un parametro che ci assicura la coerenza tra le immagini scelte per il training e quelle scelte per il test.
+
+La cartella `data_dir` deve essere organizzata come segue:
+
+```bash
+data_dir/
+...class1/
+......1.png
+......2.png
+...class2/
+......1.png
+......2.png
+......3.png
+```
+
+A questo punto possiamo passare `train` e `val` direttamente al metodo `fit` del nostro modello.
+
+```py
+model.fit(
+    train,
+    validation_data=val,
+    epochs=10)
+```
+
+!!!note "Nota"
+    Un accorgimento utile a migliorare le prestazioni della nostra rete è quello di inserire un layer di *rescaling* qualora si abbia a che fare con immagini a colori. Infatti, i canali RGB possono assumere valori all'interno del range $[0, 255]$, mentre è consigliabile usare per una rete neurale valori compresi nell'intervallo $[0, 1]$. Keras ci mette a disposizione un apposito layer:
+    > ```py
+    tf.keras.layers.Rescaling(1./255)
+    ```
 
 ### 28.1.2 - Testo
 
-Così come per le immagini, Keras offre un modo per creare un dataset testuale a partire da una cartella. Per farlo, occorre usare il metodo [`text_dataset_from_directory`](https://www.tensorflow.org/api_docs/python/tf/keras/utils/text_dataset_from_directory).
+Keras offre un metodo simile per creare un dataset a partire da un insieme di file di testo, utilizzando il metodo [`text_dataset_from_directory`](https://www.tensorflow.org/api_docs/python/tf/keras/utils/text_dataset_from_directory).
 
 Analogamente al metodo usato per le immagini, `text_dataset_from_directory` si aspetta una cartella in una certa forma:
 
 ```bash
-data/
+data_dir/
 ...class1/
 ......1.txt
 ......2.txt
@@ -28,16 +83,14 @@ data/
 Per caricare il nostro dataset possiamo usare una forma analoga a quella delle immagini:
 
 ```py
-# Dataset di training
-train_ds = text_dataset_from_direcotry(
+train = text_dataset_from_direcotry(
     data_dir,
     batch_size=batch_size,
     validation_split=0.2,
     subset='training',
     seed=seed)
 
-# Dataset di validazione
-val_ds = text_dataset_from_directory(
+val = text_dataset_from_directory(
     data_dir,
     batch_size=batch_size,
     validation_split=0.2,
@@ -45,118 +98,126 @@ val_ds = text_dataset_from_directory(
     seed=seed)
 ```
 
-#### preparazione dati testuali per il trainng
+I parametri sono esattamente gli stessi, a meno dell'assenza del parametro `image_size`.
 
-Una volta scaricati i dati, effettueremo la standarizzaione, tokenizzazione e vettorizzazione usando il layer [`TextVectorization`](https://www.tensorflow.org/api_docs/python/tf/keras/layers/TextVectorization). I tre passi si riferiscono a:
+#### 28.1.2.1 - preparazione dati testuali per il trainng
 
-* standardizzazione è una procedura di preprocessing del testo, ripicamente rimozione di punteggiatura o elementi HTML per semplificare il daset
-* la tokenizzazione si riferisce alla suddivisione di stringhe in token (per esempio, suddividere una frase in parole individuali)
-* la vettoprizzazione prevede che i token siano convertiti in numeri per poter poi essere passati ad una rete neurale
+Rispetto alle immagini, i dati testuali richiedono tre ulteriori operazioni, ovvero:
 
-Notiamo che:
+* *standardizzazione*: si tratta di una procedura di preprocessing sul testo, che consiste tipicamente nella rimozione della punteggiatura. Di default, questa operazione converte l'intero testo in minuscolo e rimuove la punteggiatura;
+* *tokenizzazione*: si tratta di una procedura di suddivisione delle stringhe in *token*. Ad esempio, si può suddividere una frase nelle singole parole. Di default, questa operazione suddivide i token in base allo spazio;
+* *vettorizzazione*: si tratta della procedura di conversione dei token in valori numerici trattabili da un modello di rete neurale. Di default, il metodo di vettorizzazione è `int`.
 
-* la standardizzazione di default converte il testo in minuscolo e rimuove la punteggiatura
-* il tokenizer di default suddivide i token in base allo spazio
-* il modo di vettorizzazione di default è int, ovvero dà degli indici interi (uno per token)
+Questi tre step sono gestiti in automatico da un layer chiamato [`TextVectorization`](https://www.tensorflow.org/api_docs/python/tf/keras/layers/TextVectorization).
 
-Ad esempio:
+Procediamo quindi a creare un layer di TextVectorization utilizzando una vettorizzazione *binaria*:
 
 ```py
-int_vectorize_layer = TextVectorization(
+vectorize_layer = TextVectorization(
     max_tokens=VOCAB_SIZE,
-    output_mode='int',
-    output_sequence_length=MAX_SEQUENCE_LENGTH)
+    output_mode='binary')
 ```
-Qui specifichiamo VOCAB_SIZE come numero massimo di vocaboli consentiti, ed un valore massimo da considerare per la frase mediante il parametro `output_sequence_length`.
 
-A questo punto, provvederemo a chiamaere il mtodo adapt di TextVectgorization per efettuare il fitting dello stato del layer di preprocessing al dataset e convertire il dataset.
+In particolare, `max_tokens` permette di stabilire il numero massimo di vocaboli consentiti.
 
-int_vectorize_layer.adapt(train_text)
+A questo punto, occorre creare il dataset che sarà effettivamente passato al primo layer della rete neurale. In tal senso, dobbiamo tenere conto che i dataset che abbiamo creato mediante `text_dataset_from_directory` non sono ancora stati pre-elaborati, ed inoltre le singole coppie campione/label *non* sono accessibili mediante le tecniche standard di indicizzazione. Ciò è legato al fatto che le funzioni `*_dataset_from_directory` creano un oggetto di tipo `BatchDataset`, usato da TensorFlow per *ottimizzare* il caricamento in memoria di dataset di grosse dimensioni.
 
-Come passo finale, applichiamo il layer di TextVectorization ai test di training, validazione e test.
+Dobbiamo quindi creare un'apposita funzione che, dato un campione e la rispettiva label, restituisca il valore elaborato del campione, con la label intatta. Ad esempio:
 
-int_train_ds = raw_train_ds.map(int_vectorize_text)
-int_val_ds = raw_val_ds.map(int_vectorize_text)
-int_test_ds = raw_test_ds.map(int_vectorize_text)
+```py
+def sample_to_vector(text_vectorizer, sample_text, label):
+    sample_text = tf.expand_dims(sample_text, -1)
+    return text_vectorizer(sample_text), label
+```
+
+Nella funzione precedente:
+
+* la funzione `expand_dims` con parametro `-1` aggiunge una dimensione *in coda* a sample_text;
+* il `text_vectorizer` è il vettorizzatore creato in precedenza, passato alla funzione sotto forma di parametro.
+
+A questo punto, possiamo invocare in maniera sistematica la funzione `sample_to_vector` su tutti i campioni dei dataset di training e di validazione:
+
+```py
+train_ds = train.map(sample_to_vector)
+val_ds = val.map(sample_to_vector)
+```
+
+Fatto questo, saremo pronti per addestrare il nostro modello.
 
 ### 28.1.3 - Array NumPy
 
-## Immagini
-
-Esistono diversi modi per caricare ed effettuare il preprocessing di un dataset di immagini. In questo caso, vedremo delle utility di preprocessing di Keras, così come dei layer per leggere le immagini su disco.
-
-Per prima cosa, possiamo usare la funzione `image_dataset_from_directory` del package `utils` di Keras. Questa ci permette di caricare direttamente le immagini dalla cartella, ed ha una sintassi di questo tipo:
+Nel caso di un array NumPy, occorre utilizzare il metodo [`from_tensor_slices`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset#from_tensor_slices):
 
 ```py
-train = tf.keras.utils.image_dataset_from_directory(
-    data_dir,
-    validation_split=0.2,
-    subset='training',
-    image_size=(img_height, img_width),
-    batch_size=batch_size
-)
-val = tf.keras.utils.image_dataset_from_directory(
-    data_dir,
-    validation_split=0.2,
-    subset='validation',
-    image_size=(img_height, img_width),
-    batch_size=batch_size
-)
+train = from_tensor_slices((x_train, y_train))
+val = from_tensor_slices((x_test, y_test))
 ```
 
-Possiamo passare questi valiori direttamente ad un dataset; infatti, in pratica si tratta di una lista di *batch* dalla dimensione (batch, height, width, channel):
+## 28.2 - Callback
+
+Un *callback* è un'azione che il modello può effettuare durante diverse fasi dell'apprendimento.
+
+Keras ne offre di numerosi, che possono essere utilizzati ad esempio per monitorare le metriche che abbiamo scelto per la valutazione del modello, o salvare lo stesso su disco.
+
+Per usare i callback, dovremo crearne una lista, e passarla al parametro `callbacks` usato dal metodo `fit()` del nostro modello.
+
+Proviamo, ad esempio, a creare un insieme di callback che permetta di salvare i pesi del modello con una certa frequenza, e che termini il training se lo stesso sta andando in overfitting.
+
+Per prima cosa, creiamo un oggetto di tipo [`ModelCheckpoint`](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint), che ci permette di salvare i pesi del modello:
 
 ```py
-model.fit(
-    train,
-    validation_data=val,
-    epochs=10
-)
+mc_callback = keras.callbacks.ModelCheckpoint(
+    filepath=path_to_checkpoints,
+    save_weights_only=True,
+    monitor='val_accuracy',
+    save_best_only=True)
 ```
 
-Da notare che è bene inserire un layer di rescaling qualora si tratti di un'immagine RGB. Infatti, i canali RGB hanno valori all'interno del range [0, 255], il che non è ideale per una rete neurale, che funziona meglio con valori compresi tra [0, 1]. In tal senso, possiamo usare un layer di Rescaling:
+In particolare:
+
+* `filepath` indica il percorso del file nel quale salveremo i checkpoint;
+* `save_weights_only` istruisce Keras a salvare soltanto i pesi del modello, riducendo lo spazio occupato in memoria;
+* `monitor` indica la metrica da monitorare;
+* `save_best_only` istruisce Keras a salvare soltanto il modello "migliore", trascurando quelli ottenuti durante le altre iterazioni.
+
+Proviamo poi a creare un oggetto di tipo [`EarlyStopping`](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping), che ci permette di terminare l'addestramento qualora la metrica monitorata non presenti miglioramenti tra un'epoca e l'altra. Ad esempio:
 
 ```py
-tf.keras.layers.Rescaling(1./255)
+es_callback = keras.callbacks.EarlyStopping(
+    monitor='val_accuracy',
+    min_delta=0.1,
+    patience=3,
+    restore_best_weights=True)
 ```
 
+Nel codice precedente:
 
-# 27
+* `monitor` indica la metrica da monitorare;
+* `min_delta` indica il valore minimo da considerare migliorativo per la metrica;
+* `patience` indica il numero di epoche dopo il quale il training viene interrotto in assenza di miglioramenti;
+* `restore_best_weights` indica se ripristinare i valori migliori ottenuti per i parametri dopo il termine dell'addestramento, o se usare gli ultimi.
 
-## Callback modello
+Aggiungiamo infine un ultimo callback, da utilizzare per permettere di visualizzare i risultati del nostro training su un tool di visualizzazione chiamato TensorBoard.
 
-Un *callback* è un oggetto che può effettuare un'azione durante diversi stage del training.
+```py
+tb_callback = TensorBoard()
+```
 
-Si può usare un callback epr:
+Per TensorBoard, possiamo lasciare i parametri al loro valore di default. La reference completa è disponibile sulla [documentazione ufficiale](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/TensorBoard).
 
-* scrivere i log di tensorboard dopo ogni batch di training per monitorare le nostre metriche
-* salvare periodicamente il modello su disco
-* fare l'early stopping
-* avere una vista sugli stati e statistiche interne di un modello durante il training
+Possiamo adesso specificare i callback da utilizzare passando le precedenti variabili sotto forma di lista al metodo `fit()` del nostro modello.
 
-Per usarli, possiamo passare una lista di callback al parametro callbacks al metodo fit() di un modello.
+## 28.3 - Transfer learning e fine tuning
 
-### ModelCheckpoint
+Le reti neurali, e soprattutto le CNN, presentano un'interessante caratteristica, ovvero quella di apprendere delle feature di carattere *generico* nei loro primi strati, andandosi a specializzare man mano che si va in profondità nella rete.
 
-Questo callback ci permette di salvare un modello Keras o i suoi pesi con una certa frequenza, in modo che il modello o i pesi possano essere caricati successivamente per continuare il training dallo stato raggiunto.
+Partendo da questa considerazione è stata elaborata la tecnica del *transfer learning*, che consiste nel prendere il modello addestrato su un problema e riconfigurarlo per risolverne uno nuovo (ma, ovviamente, simile: ad esempio, un tool che permette di valutare la razza di un gatto può essere usato per distinguere tra leopardi e tigri). Questa tecnica permette anche di addestrare un numero limitato di parametri, per cui è possibile utilizzarla quando si ha a che fare con dataset di dimensioni limitate.
 
-Alcune opzioni importnati del ModelCheckpoint sono le seguenti:
+In tal senso, il transfer learning segue di solito questi step:
 
+* consideriamo i layer ed i pesi di un modello addestrato in precedenza;
+* effettuiamo il *freezing* (congelamento) di questi layer, fissando i valori dei pesi;
+* creiamo ed inseriamo alcuni layer successivi a quelli congelati per adattarli al nostro problema;
+* addestriamo i nuovi layer sul nostro problema.
 
-
-## Visualizzazione su TensorBoard
-
-## Transfer learning e fine tuning
-
-Il transfer learning consiste nel prendre dellef eature apprese su un problema e sfruttarle per risolvere un nuovo (e simile) problema. Ad esempio, le feature che sono state apprese per apprendere la razza di un felino possono essere usate epr apprendere la razza di un canide.
-
-Il transfer learning è spesso effettuato per i task dove il dataset ha pochi dati per permettere un addestramento da zero del nostro modello.
-
-L'incarnazione più conosciuta in tal senso del workflow da seguire è la seguetne:
-
-1. prendiamo i layer da un modello precedentemente addestrato;
-2. congeliamo detti layer, in modo da evitare di distruggere l'informazione che contengono durante futuri round di addestramento;
-3. aggiungiamo alcuni layer addestrabili sull'ultimo dei layer freezati. Questi impareranno quindi a modificare le vecchie feature in predizioni sul nuovo dataset.
-4. addestriamo i nuovi layer del nostro dataset
-
-Un ultimo step opzionale è il fine tuning, che prevede di "sbloccare" l'intero modello ottenuto in precedenza (o parte di esso) e riaddestrarlo sui nuovi dati con un learning rate molto blando. Questo può potenzialmente ottenre dei miglioramenti significativi adattando in maniera incrementale le feature precedentemente ottenute ai nuovi dati.
+Opzionalmente, è possibile effettuare un passaggio di *fine tuning*, "sbloccando" il modello ottenuto in precedenza e riaddestrandolo sull'intero dataset con un basso learning rate.

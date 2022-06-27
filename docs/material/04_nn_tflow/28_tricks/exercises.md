@@ -1,9 +1,84 @@
-# 
+# E28 - TensorFlow & Keras: Tips & Tricks
 
-## E
+## E28.1
 
-Scarichiamo il dataset *flowers* dall'indirizzo https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz. Addestriamo un semplice modello per la classificazione.
+Scarichiamo il dataset *flowers*. Per farlo, usiamo il seguente codice:
 
-## E
+```py
+import pathlib
+from tensorflow import keras
 
-Scarichiamo il dataset all'inidirizzo https://storage.googleapis.com/download.tensorflow.org/data/stack_overflow_16k.tar.gz. Usiamo le tecniche di preprocessing viste in precedenza per caricarlo ed addestrare un modello composto da due layer Dense, di cui il primo a 8 neuroni ed il secondoo a quattro.
+dataset_url = "https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz"
+data_dir = keras.utils.get_file(origin=dataset_url,
+                            fname='flower_photos',
+                            extract=True)
+data_dir = pathlib.Path(data_dir)
+```
+
+Utilizziamo i metodi di Keras per caricare il dataset in memoria ed addestrare un modello per la classificazione di questo tipo:
+
+```bash
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ rescaling (Rescaling)       (None, 150, 150, 3)       0         
+                                                                 
+ conv_1 (Conv2D)             (None, 148, 148, 32)      896       
+                                                                 
+ max_pool_1 (MaxPooling2D)   (None, 74, 74, 32)        0         
+                                                                 
+ conv_2 (Conv2D)             (None, 72, 72, 32)        9248      
+                                                                 
+ flatten_2 (Flatten)         (None, 165888)            0         
+                                                                 
+ classification (Dense)      (None, X)                 829445    
+                                                                 
+_________________________________________________________________
+```
+Inferiamo il numero di classi del dataset (ovvero la `X` nel precedente sommario) usando l'attributo `class_names` del dataset ottenuto da `image_dataset_from_directory`.
+
+!!!note "Soluzione"
+    La soluzione a questo esercizio è contenuta in [questo notebook](solution_1.ipynb).
+
+## E28.2
+
+Scarichiamo il dataset *Stack Overflow* mediante il seguente codice:
+
+```py
+import pathlib
+from tensorflow import keras
+
+dataset_url = "https://storage.googleapis.com/download.tensorflow.org/data/stack_overflow_16k.tar.gz"
+data_dir = keras.utils.get_file(origin=dataset_url,
+                            extract=True,
+                            cache_subdir='datasets/stack_overflow')
+
+data_dir = pathlib.Path(data_dir).parent
+train_dir = pathlib.Path(data_dir, 'train')
+test_dir = pathlib.Path(data_dir, 'test')
+```
+
+Utilizziamo i metodi di Keras per caricare il dataset in memoria ed addestrare un modello per la classificazione di questo tipo:
+
+```bash
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_1 (Dense)             (None, 64)                64064     
+                                                                 
+ dense_2 (Dense)             (None, 4)                 260       
+                                                                 
+_________________________________________________________________
+```
+
+Inferiamo il numero di classi del dataset (ovvero la `X` nel precedente sommario) usando l'attributo `class_names` del dataset ottenuto da `text_dataset_from_directory`.
+
+!!!note "Soluzione"
+    La soluzione a questo esercizio è contenuta in [questo notebook](solution_2.ipynb).
+
+## E28.3
+
+Utilizziamo gli opportuni callback per terminare l'addestramento del modello visto nell'esercizio 1 dopo 3 epoche nelle quali l'accuracy di validazione non migliora per più di `0.1`. Visualizziamo inoltre i risultati ottenuti in TensorBoard.
+
+!!!note "Soluzione"
+    La soluzione a questo esercizio è contenuta in [questo notebook](solution_1.ipynb).
