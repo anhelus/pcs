@@ -23,9 +23,17 @@ Per prenotare un tema d'anno, è necessario compilare il form a [questo indirizz
 | Scipy | Problemi di ottimizzazione | :x: | Cagnazzi - Rago |
 | Scipy | Fattorizzazione di matrici | :x: | De Rosa - Leone |
 | TensorFlow/Keras | Tuning degli iperparametri | :white_check_mark: | |
-| TensorFlow/Keras | AutoML | :white_check_mark: | |
+| TensorFlow/Keras | AutoML | :x: | Capodiferro - Nenna - Racanati |
 | TensorFlow/Keras | Image segmentation | :x: | Bellino - Gentile |
 | TensorFlow/Keras | Classificazione del testo con RNN | :x: | Maldera |
 | TensorFlow/Keras | Classificazione del testo con BERT | :white_check_mark: | |
-| TensorFlow/Keras | Predizione di serie temporali | :white_check_mark: | |
+| TensorFlow/Keras | Predizione di serie temporali | :x: | Disanto - Ginestra - Pisani |
 | TensorFlow/Keras | Autoencoders | :white_check_mark: | |
+
+## Proposte approvate
+
+Di seguito l'elenco delle proposte per il tema d'anno approvate.
+
+| Tema d'anno | Assegnatari |
+| ----------- | ----------- |
+| Decomposizione SVD | Gioiosa - Rubino - Nicoletti - Erione |

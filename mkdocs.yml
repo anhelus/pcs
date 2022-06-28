@@ -87,15 +87,20 @@ nav:
   - Parte 4 - Reti neurali, TensorFlow e Keras:
     - 24 - Anatomia di una rete neurale:
       - Dispense: material/04_nn_tflow/24_nn/lecture.md
-    - 25 - Overfitting e regolarizzazione:
-      - Dispense: material/04_nn_tflow/26_dropout/lecture.md
-      - Esercizi: material/04_nn_tflow/26_dropout/exercises.md
-    - 26 - Elaborazione delle immagini:
+    - 25 - Introduzione a TensorFlow:
+      - Dispense: material/04_nn_tflow/25_intro_tflow/lecture.md
+    - 26 - Overfitting e regolarizzazione:
+      - Dispense: material/04_nn_tflow/26_dropout_reg/lecture.md
+      - Esercizi: material/04_nn_tflow/26_dropout_reg/exercises.md
+    - 27 - Elaborazione delle immagini:
       - Dispense: material/04_nn_tflow/27_tflow_images/lecture.md
       - Esercizi: material/04_nn_tflow/27_tflow_images/exercises.md
-    - 27 - TensorFlow Tips & Tricks:
+    - 28 - TensorFlow Tips & Tricks:
       - Dispense: material/04_nn_tflow/28_tricks/lecture.md
-      - Dispense: material/04_nn_tflow/28_tricks/exercises.md
+      - Esercizi: material/04_nn_tflow/28_tricks/exercises.md
+  - Parte 5 - Serie temporali:
+    - 29 - Introduzione alle serie temporali:
+      - Dispense: material/05_time_series/29_ts/lecture.md
   - Appendici:
     - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
     - B - Le librerie in Python: material/appendix/02_libraries/lecture.md

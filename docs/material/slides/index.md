@@ -23,4 +23,7 @@
 | 18 - Classificatori e regressori | [:link:](18_class_reg.pdf) |
 | 19 - Clustering | [:link:](19_clustering.pdf) |
 | 21 - Reti neurali | [:link:](21_nn.pdf) |
+| 22 - Overfitting e regolarizzazione | [:link:](22_over_reg.pdf) |
+| 23 - Image classification | [:link:](23_img_proc.pdf) |
+| 24 - Serie temporali | [:link:](24_ts.pdf) |
 | Appendice D - Principi di OOP | [:link:](app_d_oop.pdf) |
