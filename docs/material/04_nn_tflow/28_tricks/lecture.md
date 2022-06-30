@@ -118,31 +118,39 @@ vectorize_layer = TextVectorization(
     output_mode='binary')
 ```
 
-In particolare, `max_tokens` permette di stabilire il numero massimo di vocaboli consentiti.
+In particolare, `max_tokens` permette di stabilire il numero massimo di vocaboli consentiti, mentre l'`output_mode` indica la modalità con cui sarà gestita la sequenza vettorizzat.
 
-A questo punto, occorre creare il dataset che sarà effettivamente passato al primo layer della rete neurale. In tal senso, dobbiamo tenere conto che i dataset che abbiamo creato mediante `text_dataset_from_directory` non sono ancora stati pre-elaborati, ed inoltre le singole coppie campione/label *non* sono accessibili mediante le tecniche standard di indicizzazione. Ciò è legato al fatto che le funzioni `*_dataset_from_directory` creano un oggetto di tipo `BatchDataset`, usato da TensorFlow per *ottimizzare* il caricamento in memoria di dataset di grosse dimensioni.
+A questo punto, occorre creare il dataset che sarà effettivamente passato al primo layer della rete neurale. In tal senso, dobbiamo tenere conto che i dataset che abbiamo creato mediante `text_dataset_from_directory` non sono ancora stati vettorizzati, ed inoltre le singole coppie campione/label *non* sono accessibili mediante le tecniche standard di indicizzazione. Ciò è legato al fatto che le funzioni `*_dataset_from_directory` creano un oggetto di tipo `BatchDataset`, usato da TensorFlow per *ottimizzare* il caricamento in memoria di dataset di grosse dimensioni.
 
-Dobbiamo quindi creare un'apposita funzione che, dato un campione e la rispettiva label, restituisca il valore elaborato del campione, con la label intatta. Ad esempio:
-
-```py
-def sample_to_vector(text_vectorizer, sample_text, label):
-    sample_text = tf.expand_dims(sample_text, -1)
-    return text_vectorizer(sample_text), label
-```
-
-Nella funzione precedente:
-
-* la funzione `expand_dims` con parametro `-1` aggiunge una dimensione *in coda* a sample_text;
-* il `text_vectorizer` è il vettorizzatore creato in precedenza, passato alla funzione sotto forma di parametro.
-
-A questo punto, possiamo invocare in maniera sistematica la funzione `sample_to_vector` su tutti i campioni dei dataset di training e di validazione:
+Di conseguenza, dovremo innanzitutto estrarre il testo *senza considerare le singole label*. Per farlo, possiamo usare la funzione `map()` del nostro dataset:
 
 ```py
-train_ds = train.map(sample_to_vector)
-val_ds = val.map(sample_to_vector)
+train_text = train.map(lambda text, labels: text)
 ```
 
-Fatto questo, saremo pronti per addestrare il nostro modello.
+La funzione `map()` non fa altro che applicare all'intero iterabile la funzione passata come argomento. In tal senso, il parametro passato altro non è se non una *lambda function*, ovvero una funzione anonima che assume una forma sintattica del tipo:
+
+```py
+lambda args : expression
+```
+
+e quindi applica l'espressione a valle dei `:` agli argomenti passati. In questo caso, stiamo semplicemente facendo in modo che tutte le coppie testo/label siano "mappate" sul semplice testo.
+
+Una volta estratto il testo, dovremo chiamare il metodo [`adapt`](https://www.tensorflow.org/api_docs/python/tf/keras/layers/TextVectorization#adapt) del layer di vettorizzazione in modo tale da creare il vocabolario che associ un determinato token numerico a ciascuna stringa.
+
+```py
+vectorize_layer.adapt(train_text)
+```
+
+Potremo quindi procedere ad integrare il layer di vettorizzazione all'interno del nostro modello.
+
+In tal senso, dovremo assicurarci che il modello abbia un input di forma `(1,)` e tipo stringa, facendo in modo che la rete abbia un'unica stringa in input per ciascun batch:
+
+```py
+model.add(
+    keras.Input(shape=(1,),
+    dtype=tf.string))
+```
 
 ### 28.1.3 - Array NumPy
 
@@ -169,7 +177,7 @@ Per prima cosa, creiamo un oggetto di tipo [`ModelCheckpoint`](https://www.tenso
 mc_callback = keras.callbacks.ModelCheckpoint(
     filepath=path_to_checkpoints,
     save_weights_only=True,
-    monitor='val_accuracy',
+    monitor='val_acc',
     save_best_only=True)
 ```
 
@@ -184,7 +192,7 @@ Proviamo poi a creare un oggetto di tipo [`EarlyStopping`](https://www.tensorflo
 
 ```py
 es_callback = keras.callbacks.EarlyStopping(
-    monitor='val_accuracy',
+    monitor='val_acc',
     min_delta=0.1,
     patience=3,
     restore_best_weights=True)
