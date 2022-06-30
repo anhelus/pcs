@@ -10,9 +10,9 @@ from tensorflow import keras
 
 dataset_url = "https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz"
 data_dir = keras.utils.get_file(origin=dataset_url,
-                            fname='flower_photos',
                             extract=True)
-data_dir = pathlib.Path(data_dir)
+data_dir = pathlib.Path(data_dir).parent
+data_dir = pathlib.Path(data_dir, 'flower_photos')
 ```
 
 Utilizziamo i metodi di Keras per caricare il dataset in memoria ed addestrare un modello per la classificazione di questo tipo:
@@ -21,7 +21,7 @@ Utilizziamo i metodi di Keras per caricare il dataset in memoria ed addestrare u
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- rescaling (Rescaling)       (None, 150, 150, 3)       0         
+ rescaling_1 (Rescaling)     (None, 150, 150, 3)       0         
                                                                  
  conv_1 (Conv2D)             (None, 148, 148, 32)      896       
                                                                  
@@ -29,18 +29,29 @@ _________________________________________________________________
                                                                  
  conv_2 (Conv2D)             (None, 72, 72, 32)        9248      
                                                                  
- flatten_2 (Flatten)         (None, 165888)            0         
+ max_pool_2 (MaxPooling2D)   (None, 36, 36, 32)        0         
                                                                  
- classification (Dense)      (None, X)                 829445    
+ dropout (Dropout)           (None, 36, 36, 32)        0         
                                                                  
+ flatten_1 (Flatten)         (None, 41472)             0         
+                                                                 
+ classification (Dense)      (None, 5)                 207365    
 _________________________________________________________________
 ```
+
 Inferiamo il numero di classi del dataset (ovvero la `X` nel precedente sommario) usando l'attributo `class_names` del dataset ottenuto da `image_dataset_from_directory`.
 
 !!!note "Soluzione"
     La soluzione a questo esercizio è contenuta in [questo notebook](solution_1.ipynb).
 
 ## E28.2
+
+Utilizziamo gli opportuni callback per terminare l'addestramento del modello visto nell'esercizio 1 dopo 3 epoche nelle quali l'accuracy di validazione non migliora per più di `0.01`. Visualizziamo inoltre i risultati ottenuti in TensorBoard.
+
+!!!note "Soluzione"
+    La soluzione a questo esercizio è contenuta in [questo notebook](solution_1.ipynb).
+
+## E28.3
 
 Scarichiamo il dataset *Stack Overflow* mediante il seguente codice:
 
@@ -71,14 +82,9 @@ _________________________________________________________________
 _________________________________________________________________
 ```
 
+Usiamo gli stessi callback utilizzati in precedenza.
+
 Inferiamo il numero di classi del dataset (ovvero la `X` nel precedente sommario) usando l'attributo `class_names` del dataset ottenuto da `text_dataset_from_directory`.
 
 !!!note "Soluzione"
     La soluzione a questo esercizio è contenuta in [questo notebook](solution_2.ipynb).
-
-## E28.3
-
-Utilizziamo gli opportuni callback per terminare l'addestramento del modello visto nell'esercizio 1 dopo 3 epoche nelle quali l'accuracy di validazione non migliora per più di `0.1`. Visualizziamo inoltre i risultati ottenuti in TensorBoard.
-
-!!!note "Soluzione"
-    La soluzione a questo esercizio è contenuta in [questo notebook](solution_1.ipynb).
