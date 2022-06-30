@@ -3095,23 +3095,24 @@ tf.keras.layers.Rescaling(1./255)</code></p>
     <span class="n">max_tokens</span><span class="o">=</span><span class="n">VOCAB_SIZE</span><span class="p">,</span>
     <span class="n">output_mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>In particolare, <code>max_tokens</code> permette di stabilire il numero massimo di vocaboli consentiti.</p>
-<p>A questo punto, occorre creare il dataset che sarà effettivamente passato al primo layer della rete neurale. In tal senso, dobbiamo tenere conto che i dataset che abbiamo creato mediante <code>text_dataset_from_directory</code> non sono ancora stati pre-elaborati, ed inoltre le singole coppie campione/label <em>non</em> sono accessibili mediante le tecniche standard di indicizzazione. Ciò è legato al fatto che le funzioni <code>*_dataset_from_directory</code> creano un oggetto di tipo <code>BatchDataset</code>, usato da TensorFlow per <em>ottimizzare</em> il caricamento in memoria di dataset di grosse dimensioni.</p>
-<p>Dobbiamo quindi creare un'apposita funzione che, dato un campione e la rispettiva label, restituisca il valore elaborato del campione, con la label intatta. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">sample_to_vector</span><span class="p">(</span><span class="n">text_vectorizer</span><span class="p">,</span> <span class="n">sample_text</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
-    <span class="n">sample_text</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">sample_text</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">text_vectorizer</span><span class="p">(</span><span class="n">sample_text</span><span class="p">),</span> <span class="n">label</span>
+<p>In particolare, <code>max_tokens</code> permette di stabilire il numero massimo di vocaboli consentiti, mentre l'<code>output_mode</code> indica la modalità con cui sarà gestita la sequenza vettorizzat.</p>
+<p>A questo punto, occorre creare il dataset che sarà effettivamente passato al primo layer della rete neurale. In tal senso, dobbiamo tenere conto che i dataset che abbiamo creato mediante <code>text_dataset_from_directory</code> non sono ancora stati vettorizzati, ed inoltre le singole coppie campione/label <em>non</em> sono accessibili mediante le tecniche standard di indicizzazione. Ciò è legato al fatto che le funzioni <code>*_dataset_from_directory</code> creano un oggetto di tipo <code>BatchDataset</code>, usato da TensorFlow per <em>ottimizzare</em> il caricamento in memoria di dataset di grosse dimensioni.</p>
+<p>Di conseguenza, dovremo innanzitutto estrarre il testo <em>senza considerare le singole label</em>. Per farlo, possiamo usare la funzione <code>map()</code> del nostro dataset:</p>
+<div class="highlight"><pre><span></span><code><span class="n">train_text</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">text</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="n">text</span><span class="p">)</span>
 </code></pre></div>
-<p>Nella funzione precedente:</p>
-<ul>
-<li>la funzione <code>expand_dims</code> con parametro <code>-1</code> aggiunge una dimensione <em>in coda</em> a sample_text;</li>
-<li>il <code>text_vectorizer</code> è il vettorizzatore creato in precedenza, passato alla funzione sotto forma di parametro.</li>
-</ul>
-<p>A questo punto, possiamo invocare in maniera sistematica la funzione <code>sample_to_vector</code> su tutti i campioni dei dataset di training e di validazione:</p>
-<div class="highlight"><pre><span></span><code><span class="n">train_ds</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sample_to_vector</span><span class="p">)</span>
-<span class="n">val_ds</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sample_to_vector</span><span class="p">)</span>
+<p>La funzione <code>map()</code> non fa altro che applicare all'intero iterabile la funzione passata come argomento. In tal senso, il parametro passato altro non è se non una <em>lambda function</em>, ovvero una funzione anonima che assume una forma sintattica del tipo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">lambda</span> <span class="n">args</span> <span class="p">:</span> <span class="n">expression</span>
 </code></pre></div>
-<p>Fatto questo, saremo pronti per addestrare il nostro modello.</p>
+<p>e quindi applica l'espressione a valle dei <code>:</code> agli argomenti passati. In questo caso, stiamo semplicemente facendo in modo che tutte le coppie testo/label siano "mappate" sul semplice testo.</p>
+<p>Una volta estratto il testo, dovremo chiamare il metodo <a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/TextVectorization#adapt"><code>adapt</code></a> del layer di vettorizzazione in modo tale da creare il vocabolario che associ un determinato token numerico a ciascuna stringa.</p>
+<div class="highlight"><pre><span></span><code><span class="n">vectorize_layer</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
+</code></pre></div>
+<p>Potremo quindi procedere ad integrare il layer di vettorizzazione all'interno del nostro modello.</p>
+<p>In tal senso, dovremo assicurarci che il modello abbia un input di forma <code>(1,)</code> e tipo stringa, facendo in modo che la rete abbia un'unica stringa in input per ciascun batch:</p>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">))</span>
+</code></pre></div>
 <h3 id="2813-array-numpy">28.1.3 - Array NumPy<a class="headerlink" href="#2813-array-numpy" title="Permanent link">&para;</a></h3>
 <p>Nel caso di un array NumPy, occorre utilizzare il metodo <a href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset#from_tensor_slices"><code>from_tensor_slices</code></a>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">train</span> <span class="o">=</span> <span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
@@ -3126,7 +3127,7 @@ tf.keras.layers.Rescaling(1./255)</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">mc_callback</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
     <span class="n">filepath</span><span class="o">=</span><span class="n">path_to_checkpoints</span><span class="p">,</span>
     <span class="n">save_weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_accuracy&#39;</span><span class="p">,</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_acc&#39;</span><span class="p">,</span>
     <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p>In particolare:</p>
@@ -3138,7 +3139,7 @@ tf.keras.layers.Rescaling(1./255)</code></p>
 </ul>
 <p>Proviamo poi a creare un oggetto di tipo <a href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping"><code>EarlyStopping</code></a>, che ci permette di terminare l'addestramento qualora la metrica monitorata non presenti miglioramenti tra un'epoca e l'altra. Ad esempio:</p>
 <div class="highlight"><pre><span></span><code><span class="n">es_callback</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span>
-    <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_accuracy&#39;</span><span class="p">,</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_acc&#39;</span><span class="p">,</span>
     <span class="n">min_delta</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
     <span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
     <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

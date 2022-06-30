@@ -2928,15 +2928,15 @@
 
 <span class="n">dataset_url</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz&quot;</span>
 <span class="n">data_dir</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="n">dataset_url</span><span class="p">,</span>
-                            <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;flower_photos&#39;</span><span class="p">,</span>
                             <span class="n">extract</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">data_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;flower_photos&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>Utilizziamo i metodi di Keras per caricare il dataset in memoria ed addestrare un modello per la classificazione di questo tipo:</p>
-<p><div class="highlight"><pre><span></span><code>_________________________________________________________________
+<div class="highlight"><pre><span></span><code>_________________________________________________________________
  Layer <span class="o">(</span><span class="nb">type</span><span class="o">)</span>                Output Shape              Param <span class="c1">#   </span>
 <span class="o">=================================================================</span>
- rescaling <span class="o">(</span>Rescaling<span class="o">)</span>       <span class="o">(</span>None, <span class="m">150</span>, <span class="m">150</span>, <span class="m">3</span><span class="o">)</span>       <span class="m">0</span>         
+ rescaling_1 <span class="o">(</span>Rescaling<span class="o">)</span>     <span class="o">(</span>None, <span class="m">150</span>, <span class="m">150</span>, <span class="m">3</span><span class="o">)</span>       <span class="m">0</span>         
 
  conv_1 <span class="o">(</span>Conv2D<span class="o">)</span>             <span class="o">(</span>None, <span class="m">148</span>, <span class="m">148</span>, <span class="m">32</span><span class="o">)</span>      <span class="m">896</span>       
 
@@ -2944,18 +2944,27 @@
 
  conv_2 <span class="o">(</span>Conv2D<span class="o">)</span>             <span class="o">(</span>None, <span class="m">72</span>, <span class="m">72</span>, <span class="m">32</span><span class="o">)</span>        <span class="m">9248</span>      
 
- flatten_2 <span class="o">(</span>Flatten<span class="o">)</span>         <span class="o">(</span>None, <span class="m">165888</span><span class="o">)</span>            <span class="m">0</span>         
+ max_pool_2 <span class="o">(</span>MaxPooling2D<span class="o">)</span>   <span class="o">(</span>None, <span class="m">36</span>, <span class="m">36</span>, <span class="m">32</span><span class="o">)</span>        <span class="m">0</span>         
 
- classification <span class="o">(</span>Dense<span class="o">)</span>      <span class="o">(</span>None, X<span class="o">)</span>                 <span class="m">829445</span>    
+ dropout <span class="o">(</span>Dropout<span class="o">)</span>           <span class="o">(</span>None, <span class="m">36</span>, <span class="m">36</span>, <span class="m">32</span><span class="o">)</span>        <span class="m">0</span>         
 
+ flatten_1 <span class="o">(</span>Flatten<span class="o">)</span>         <span class="o">(</span>None, <span class="m">41472</span><span class="o">)</span>             <span class="m">0</span>         
+
+ classification <span class="o">(</span>Dense<span class="o">)</span>      <span class="o">(</span>None, <span class="m">5</span><span class="o">)</span>                 <span class="m">207365</span>    
 _________________________________________________________________
-</code></pre></div><br />
-Inferiamo il numero di classi del dataset (ovvero la <code>X</code> nel precedente sommario) usando l'attributo <code>class_names</code> del dataset ottenuto da <code>image_dataset_from_directory</code>.</p>
+</code></pre></div>
+<p>Inferiamo il numero di classi del dataset (ovvero la <code>X</code> nel precedente sommario) usando l'attributo <code>class_names</code> del dataset ottenuto da <code>image_dataset_from_directory</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Soluzione</p>
 <p>La soluzione a questo esercizio è contenuta in <a href="../solution_1.ipynb">questo notebook</a>.</p>
 </div>
 <h2 id="e282">E28.2<a class="headerlink" href="#e282" title="Permanent link">&para;</a></h2>
+<p>Utilizziamo gli opportuni callback per terminare l'addestramento del modello visto nell'esercizio 1 dopo 3 epoche nelle quali l'accuracy di validazione non migliora per più di <code>0.01</code>. Visualizziamo inoltre i risultati ottenuti in TensorBoard.</p>
+<div class="admonition note">
+<p class="admonition-title">Soluzione</p>
+<p>La soluzione a questo esercizio è contenuta in <a href="../solution_1.ipynb">questo notebook</a>.</p>
+</div>
+<h2 id="e283">E28.3<a class="headerlink" href="#e283" title="Permanent link">&para;</a></h2>
 <p>Scarichiamo il dataset <em>Stack Overflow</em> mediante il seguente codice:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
@@ -2979,16 +2988,11 @@ Inferiamo il numero di classi del dataset (ovvero la <code>X</code> nel preceden
 
 _________________________________________________________________
 </code></pre></div>
+<p>Usiamo gli stessi callback utilizzati in precedenza.</p>
 <p>Inferiamo il numero di classi del dataset (ovvero la <code>X</code> nel precedente sommario) usando l'attributo <code>class_names</code> del dataset ottenuto da <code>text_dataset_from_directory</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Soluzione</p>
 <p>La soluzione a questo esercizio è contenuta in <a href="../solution_2.ipynb">questo notebook</a>.</p>
-</div>
-<h2 id="e283">E28.3<a class="headerlink" href="#e283" title="Permanent link">&para;</a></h2>
-<p>Utilizziamo gli opportuni callback per terminare l'addestramento del modello visto nell'esercizio 1 dopo 3 epoche nelle quali l'accuracy di validazione non migliora per più di <code>0.1</code>. Visualizziamo inoltre i risultati ottenuti in TensorBoard.</p>
-<div class="admonition note">
-<p class="admonition-title">Soluzione</p>
-<p>La soluzione a questo esercizio è contenuta in <a href="../solution_1.ipynb">questo notebook</a>.</p>
 </div>
 
               
