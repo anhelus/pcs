@@ -19,21 +19,7 @@ Le modalità di esame previste sono due:
 
 ## Date di appello
 
-Le date di appello indicative sono le seguenti:
-
-| Numero appello | Data indicativa |
-| -------------- | --------------- |
-| Primo          | 14/07/2022      |
-| Secondo        | 28/07/2022      |
-| Terzo          | 08/09/2022      |
-| Quarto         | 22/09/2022      |
-| Quinto         | 14/11/2022      |
-| Sesto          | 26/01/2023      |
-| Settimo        | 09/02/2023      |
-| Ottavo         | 16/02/2023      |
-
-
-Salvo differenti disposizioni legate a recrudescenze della situazione pandemica, l'**esame sarà sostenuto in presenza**, in un'aula del Dipartimento di Matematica da definirsi.
+Per informazioni sugli appelli, consultare la [bacheca](advices.md).
 
 ## Calendario delle lezioni
 
