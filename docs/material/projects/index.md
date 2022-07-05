@@ -37,3 +37,4 @@ Di seguito l'elenco delle proposte per il tema d'anno approvate.
 | Tema d'anno | Assegnatari |
 | ----------- | ----------- |
 | Decomposizione SVD | Gioiosa - Rubino - Nicoletti - Erione |
+| Color detection | De Giglio - Percoco |
