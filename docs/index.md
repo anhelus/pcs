@@ -7,8 +7,8 @@ In questa pagina viene pubblicato il materiale e le informazioni relative al cor
 !!!tip "Disponibilità registrazioni"
     Le registrazioni delle lezioni sono disponibili in una playlist YouTube a [questo indirizzo](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS).
 
-!!!warning "Attenzione"
-    **Le dispense sono attualmente in fase di aggiornamento.**
+<!-- !!!warning "Attenzione"
+    **Le dispense sono attualmente in fase di aggiornamento.** -->
 
 ## Modalità di esame
 

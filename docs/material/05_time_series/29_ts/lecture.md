@@ -1,7 +1,6 @@
 # 29 - Analisi di serie temporali
 
-!!!warning "Attenzione"
-    Dispensa in fase di stesura.
+A differenza dei dati *identicamente ed indipendentemente distribuiti*, le serie temporali sono delle *sequenze* i cui parametri variano con il variare del tempo.
 
 <!-- ## 29.1 - Introduzione alle serie temporali
 

@@ -4,6 +4,7 @@ site_url: https://python.angelocardellicchio.it
 nav:
   - Home: index.md
   - Slides proiettate a lezione: material/slides/index.md
+  - Bacheca avvisi: advices.md
   - Temi d'anno: material/projects/index.md
   - Notebook: material/notebooks/index.md
   - Parte 1 - Concetti base:
@@ -98,9 +99,9 @@ nav:
     - 28 - TensorFlow Tips & Tricks:
       - Dispense: material/04_nn_tflow/28_tricks/lecture.md
       - Esercizi: material/04_nn_tflow/28_tricks/exercises.md
-  - Parte 5 - Serie temporali:
-    - 29 - Introduzione alle serie temporali:
-      - Dispense: material/05_time_series/29_ts/lecture.md
+  # - Parte 5 - Serie temporali:
+  #   - 29 - Introduzione alle serie temporali:
+  #     - Dispense: material/05_time_series/29_ts/lecture.md
   - Appendici:
     - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
     - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
@@ -114,6 +115,7 @@ nav:
 
 theme:
   name: material
+  language: it
   font:
     text: Ubuntu
     code: Ubuntu Mono
