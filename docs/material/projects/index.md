@@ -15,10 +15,10 @@ Per prenotare un tema d'anno, è necessario compilare il form a [questo indirizz
 
 | Ambito | Tema d'anno | Disponibile | Assegnatari |
 | ------ | ----------- | ----------- | ----------- |
-| Scikit Learn | Support Vector Machines | :white_check_mark: | |
+| Scikit Learn | Support Vector Machines | :x: | Di Cosmo |
 | Scikit Learn | Algoritmi multiclasse-multioutput | :white_check_mark: | |
 | Scikit Learn | Novelty/Outlier detection | :x: | Leserri |
-| Scikit Learn | Reti neurali non supervisionate | :white_check_mark: | |
+| Scikit Learn | Reti neurali non supervisionate | :x: | Fazio - Ambrosio |
 | Scipy | Clustering | :x: | Giorgio - Tota - Susca |
 | Scipy | Problemi di ottimizzazione | :x: | Cagnazzi - Rago |
 | Scipy | Fattorizzazione di matrici | :x: | De Rosa - Leone |

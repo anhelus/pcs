@@ -111,6 +111,7 @@ nav:
     - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
     - G - Algoritmi:
       - SVD: material/appendix/07_algorithms/01_svd/lecture.md
+    # - H - XAI:
   - Crediti: contributors.md
 
 theme:
