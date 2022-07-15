@@ -22,7 +22,7 @@ Per prenotare un tema d'anno, è necessario compilare il form a [questo indirizz
 | Scipy | Clustering | :x: | Giorgio - Tota - Susca |
 | Scipy | Problemi di ottimizzazione | :x: | Cagnazzi - Rago |
 | Scipy | Fattorizzazione di matrici | :x: | De Rosa - Leone |
-| TensorFlow/Keras | Tuning degli iperparametri | :white_check_mark: | |
+| TensorFlow/Keras | Tuning degli iperparametri | :x: | Fiume |
 | TensorFlow/Keras | AutoML | :x: | Capodiferro - Nenna - Racanati |
 | TensorFlow/Keras | Image segmentation | :x: | Bellino - Gentile |
 | TensorFlow/Keras | Classificazione del testo con RNN | :x: | Maldera |
