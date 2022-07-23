@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://python.angelocardellicchio.it/material/02_libs/07_numpy/06_statistics/lecture/">
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
@@ -2891,91 +2891,117 @@
 
 
 <h1 id="76-statistica-in-numpy">7.6 - Statistica in NumPy<a class="headerlink" href="#76-statistica-in-numpy" title="Permanent link">&para;</a></h1>
-<p>NumPy ci mette a disposizione diverse funzioni per il calcolo statistico. Vediamone assieme una breve carrellata. </p>
+<p>NumPy ci mette a disposizione diverse funzioni per il calcolo statistico. Vediamone assieme una breve carrellata.</p>
 <h2 id="761-minimo-e-massimo-di-un-array">7.6.1 - Minimo e massimo di un array<a class="headerlink" href="#761-minimo-e-massimo-di-un-array" title="Permanent link">&para;</a></h2>
 <p>Partiamo con due funzioni che possono essere utili per determinare il valore massimo ed il valore minimo di un array <code>a</code>, ovvero <code>amin(a)</code> ed <code>amax(a)</code>. Entrambe queste funzioni accettano (opzionalmente) un valore per il parametro <code>axis</code>, indicante al solito la direzione lungo la quale viene effettuata l'operazione.</p>
 <p>Ad esempio, se volessimo trovare il minimo ed il massimo di un vettore generato casualmente:</p>
-<div class="highlight"><pre><span></span><code><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">7</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Attenzione</p>
-<p>Nel codice precedente abbiamo usato la funzione <code>default_rng</code> del package <code>random</code> di NumPy per generare un vettore di numeri casuali.</p>
+<p>Nel codice precedente abbiamo usato la funzione <code>default_rng()</code> del package <code>random</code> di NumPy per generare un vettore di numeri casuali.</p>
 </div>
 <p>Per una matrice, ed in generale per ogni array N-dimensionale, il procedimento da seguire è analogo:</p>
-<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="mi">9</span>
 </code></pre></div>
 <p>Immaginiamo adesso di voler trovare il minimo ed il massimo <em>per colonna</em> per <code>b</code>. Al solito, specifichiamo il parametro <code>axis</code>, che assumerà valore pari a <code>0</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span>
 </code></pre></div>
 <p>Ovviamente, per trovare il minimo ed il massimo <em>per riga</em>, dovremo cambiare il valore di <code>axis</code> in <code>1</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span>
 </code></pre></div>
 <p>Possiamo anche specificare una tupla per il valore del parametro <code>axis</code>; in tal caso, la ricerca del massimo o del minimo avverrà lungo tutti gli assi specificati dalla tupla. Ad esempio, specificando <code>(0, 1)</code>, effettueremo la ricerca del minimo (o del massimo) elemento nella matrice:</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="mi">9</span>
 </code></pre></div>
 <h2 id="762-percentile-e-quantile">7.6.2 - Percentile e quantile<a class="headerlink" href="#762-percentile-e-quantile" title="Permanent link">&para;</a></h2>
 <p>Ricordiamo che il <em>q-percentile</em> di un vettore <span class="arithmatex">\(V\)</span> di lunghezza <span class="arithmatex">\(N\)</span> è definito come il valore pari a <span class="arithmatex">\(\frac{q}{100}\)</span> calcolato a partire da una copia ordinata di <span class="arithmatex">\(V\)</span>.</p>
-<p>Per fare un esempio, supponiamo di avere un vettore ordinato di elementi che vanno da 1 a 10, e di calcolare il 50-percentile mediante la funzione <code>percentile()</code> di Python.</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-
-<span class="c1"># Risultato ottenuto</span>
+<p>Per fare un esempio, supponiamo di avere un vettore ordinato di elementi che vanno da <span class="arithmatex">\(1\)</span> a <span class="arithmatex">\(10\)</span>, e di calcolare il <span class="arithmatex">\(50\)</span>-percentile mediante la funzione <code>percentile()</code> di NumPy.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="mf">5.5</span>
 </code></pre></div>
 <p>Esistono diversi modi di calcolare il q-percentile; in tal senso, è opportuno consultare la <a href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html">reference</a> e l'articolo <a href="https://www.tandfonline.com/doi/abs/10.1080/00031305.1996.10473566"><em>Sample quantiles in statistical packages di Hyndman, R. J., &amp; Fan, Y</em></a>.</p>
-<p>In realtà, la funzione <code>percentile(a, q)</code> usa, per il 50-percentile, il calcolo della mediana, per cui è equivalente alla funzione <code>median(a)</code>. In questo caso specifico, avremo un discostamento dal risultato atteso, dovuto ad errori di interpolazione introdotti da NumPy:</p>
+<p>In realtà, la funzione <code>percentile(a, q)</code> usa, per il <span class="arithmatex">\(50\)</span>-percentile, il calcolo della mediana, per cui è equivalente alla funzione <code>median(a)</code>. In questo caso specifico, avremo un discostamento dal risultato atteso, dovuto ad errori di interpolazione introdotti da NumPy:</p>
 <div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 </code></pre></div>
-<p>Il concetto di <em>quantile</em> è analogo a quello di percentile; tuttavia, in questo caso, non abbiamo a che fare con valori percentuali, bensì con valori normalizzati tra 0 ed 1. Per cui, se usassimo la funzione <code>quantile(a, q)</code> come in precedenza:</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mf">.5</span><span class="p">)</span>
+<p>Il concetto di <em>quantile</em> è analogo a quello di percentile; tuttavia, in questo caso, non abbiamo a che fare con valori percentuali, bensì con valori normalizzati tra <span class="arithmatex">\(0\)</span> e <span class="arithmatex">\(1\)</span>. Per cui, se usassimo la funzione <code>quantile(a, q)</code> come in precedenza:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mf">.5</span><span class="p">)</span>
+<span class="mf">5.5</span>
 </code></pre></div>
-<p>Anche le funzioni <code>percentile</code> e <code>quantile</code> prevedono come argomento opzionale il parametro <code>axis</code>. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<p>Anche le funzioni <code>percentile()</code> e <code>quantile()</code> prevedono come argomento opzionale il parametro <code>axis</code>. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">8.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">6.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">])</span>
 </code></pre></div>
 <p>Come previsto, dando il valore <code>0</code> al parametro <code>axis</code> avremo il calcolo del percentile su ciascuna colonna, mentre passando il valore <code>1</code> avremo il calcolo del percentile su ciascuna riga.</p>
 <h2 id="763-media-aritmetica-e-media-pesata">7.6.3 - Media aritmetica e media pesata<a class="headerlink" href="#763-media-aritmetica-e-media-pesata" title="Permanent link">&para;</a></h2>
-<p>Per il calcolo del valore medio di un array NumPy ci mette a disposizione due metodi. Il primo è la funzione <code>average(a, weights)</code>, che viene usata per calcolare una media pesata degli elementi di <code>a</code> ponderati per gli elementi di <code>weights</code> (a patto che, ovviamente, le dimensioni dei due array siano coerenti). </p>
-<p>Il calcolo che viene effettuato da NumPy con la funzione <code>average</code> è quindi il seguente:</p>
+<p>Per il calcolo del valore medio di un array NumPy ci mette a disposizione due metodi. Il primo è la funzione <code>average(a, weights)</code>, che viene usata per calcolare una media pesata degli elementi di <code>a</code> ponderati per gli elementi di <code>weights</code> (a patto che, ovviamente, le dimensioni dei due array siano coerenti).</p>
+<p>Il calcolo che viene effettuato da NumPy con la funzione <code>average()</code> è quindi il seguente:</p>
 <div class="highlight"><pre><span></span><code><span class="n">avg</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
 </code></pre></div>
 <p>Per cui, se volessimo assegnare un peso maggiore al primo ed al quarto elemento di un array <code>a</code> generato casualmente, potremmo fare come segue:</p>
-<div class="highlight"><pre><span></span><code><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">w</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">w</span><span class="p">)</span>
+<span class="mf">3.2222222222222223</span>
 </code></pre></div>
 <p>Il risultato si discosta leggermente dalla semplice media, calcolata come:</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mf">4.2</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Suggerimento</p>
 <p>Teniamo sempre a mente che la media è <em>ponderata</em> per la sommatoria dei valori assunti dai pesi!</p>
 </div>
 <p>La funzione <code>mean(a)</code> è invece rappresentativa della media <em>aritmetica</em> degli elementi di un array, ed equivale alla funzione <code>average(a)</code> senza la specifica del vettore dei pesi. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mf">4.2</span>
 </code></pre></div>
-<p>Concludiamo ricordando che anche in questo caso possiamo specificare il valore del parametro axis:</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<p>Concludiamo ricordando che anche in questo caso possiamo specificare il valore del parametro <code>axis</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">6.33333333</span><span class="p">,</span> <span class="mf">2.33333333</span><span class="p">,</span> <span class="mf">6.</span>        <span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">4.66666667</span><span class="p">,</span> <span class="mf">2.33333333</span><span class="p">,</span> <span class="mf">7.66666667</span><span class="p">])</span>
 </code></pre></div>
 <h2 id="764-varianza-e-deviazione-standard">7.6.4 - Varianza e deviazione standard<a class="headerlink" href="#764-varianza-e-deviazione-standard" title="Permanent link">&para;</a></h2>
 <p>Non possono mancare le funzioni <code>std(a)</code> e <code>var(a)</code>, dedicate al calcolo della deviazione standard e della varianza di un vettore:</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mf">2.4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mf">5.76</span>
 </code></pre></div>
 <p>Anche in questo caso, possiamo specificare gli assi lungo i quali effettuare l'operazione desiderata:</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">9.55555556</span><span class="p">,</span> <span class="mf">10.88888889</span><span class="p">,</span>  <span class="mf">0.66666667</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">11.55555556</span><span class="p">,</span>  <span class="mf">4.22222222</span><span class="p">,</span>  <span class="mf">0.88888889</span><span class="p">])</span>
 </code></pre></div>
 <h2 id="765-matrice-di-covarianza">7.6.5 - Matrice di covarianza<a class="headerlink" href="#765-matrice-di-covarianza" title="Permanent link">&para;</a></h2>
-<p>La <em>matrice di covarianza</em> è la matrice che racchiude tutti i <em>coefficienti di correlazione</em>, che ci permetteno di valutare come una certa variabile <span class="arithmatex">\(x_i\)</span> varia al variare di un'altra variabile <span class="arithmatex">\(x_j\)</span>. </p>
+<p>La <em>matrice di covarianza</em> è la matrice che racchiude tutti i <em>coefficienti di correlazione</em>, che ci permettono di valutare come una certa variabile <span class="arithmatex">\(x_i\)</span> varia al variare di un'altra variabile <span class="arithmatex">\(x_j\)</span>.</p>
 <p>In generale, esistono diversi tipi di coefficienti di correlazione; il più semplice è quello di Pearson, che stima una correlazione di tipo <em>lineare</em> (ovvero, è tanto più alto quanto le due variabili crescono secondo un rapporto lineare), ed è quello usato dalle funzioni <code>cov(a)</code> e <code>corrcoef(a)</code>, la seconda delle quali riporta i valori normalizzati dei risultati ottenibili anche con la prima. In questo caso, <code>a</code> può essere monodimensionale o bidimensionale, ma ogni <em>riga</em> di <code>a</code> rappresenta una <em>variabile</em>, mentre ogni <em>colonna</em> rappresenta una <em>osservazione</em>.</p>
 <p>Facciamo qualche esempio. Immaginiamo di avere due variabili che assumono rispettivamente valori <code>[1, 2, 3]</code> e <code>[4, 5, 6]</code>. In questo caso, è evidente come la correlazione sia massima, in quanto le osservazioni della seconda variabile hanno un semplice <em>offset</em> (o <em>bias</em>) rispetto a quelle della prima. Proviamo a calcolare la matrice di correlazione:</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
@@ -2992,7 +3018,7 @@
        <span class="p">[</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">]])</span>
 </code></pre></div>
 <p>In questo caso, è evidente come le variabili siano <em>anticorrelate</em>, il che significa che quando la prima sale, la seconda scende, e viceversa.</p>
-<p>Per apprezzare le differenze tra le funzioni <code>cov</code> e <code>corrcoef</code>, dobbiamo usare valori differenti (e non banali) per <code>x</code>. Ad esempio:</p>
+<p>Per apprezzare le differenze tra le funzioni <code>cov()</code> e <code>corrcoef()</code>, dobbiamo usare valori differenti (e non banali) per <code>x</code>. Ad esempio:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([[</span> <span class="mf">4.33333333</span><span class="p">,</span>  <span class="mf">2.16666667</span><span class="p">,</span>  <span class="mf">0.66666667</span><span class="p">],</span>
@@ -3003,9 +3029,9 @@
        <span class="p">[</span> <span class="mf">0.5</span>       <span class="p">,</span>  <span class="mf">1.</span>        <span class="p">,</span> <span class="o">-</span><span class="mf">0.69337525</span><span class="p">],</span>
        <span class="p">[</span> <span class="mf">0.2773501</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.69337525</span><span class="p">,</span>  <span class="mf">1.</span>        <span class="p">]])</span>
 </code></pre></div>
-<p>In sostanza, <code>corrcoef</code> restituisce la matrice dei coefficienti <span class="arithmatex">\(R\)</span>, la cui relazione con la matrice di covarianza <span class="arithmatex">\(C\)</span> restituita da <code>cov</code> è:</p>
+<p>In sostanza, <code>corrcoef()</code> restituisce la matrice dei coefficienti <span class="arithmatex">\(R\)</span>, la cui relazione con la matrice di covarianza <span class="arithmatex">\(C\)</span> restituita da <code>cov()</code> è:</p>
 <div class="arithmatex">\[
-R_{ij} = \frac{C_{ij}}{\sqrt{C_{ii} * C_{jj}}}
+R_{ij} = \frac{C_{ij}}{\sqrt{C_{ii} \cdot C_{jj}}}
 \]</div>
 <h2 id="766-istogramma">7.6.6 - Istogramma<a class="headerlink" href="#766-istogramma" title="Permanent link">&para;</a></h2>
 <p>Un istogramma offre una visualizzazione grafica dei valori contenuti in un vettore, raggruppandoli all'interno di un certo numero di partizioni (<em>bin</em>).</p>
@@ -3020,7 +3046,7 @@ R_{ij} = \frac{C_{ij}}{\sqrt{C_{ii} * C_{jj}}}
 <p>In questo caso, abbiamo lasciato il valore di default di <code>bins</code>, ovvero 10.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Notiamo che la funzione <code>histogram</code> restituisce due valori: il primo è dato dai valori assunti dall'istogramma (ovvero dal numero di elementi che ricade in ciascun bin), mentre il secondo è dato dai limiti di ogni bin.</p>
+<p>Notiamo che la funzione <code>histogram()</code> restituisce due valori: il primo è dato dai valori assunti dall'istogramma (ovvero dal numero di elementi che ricade in ciascun bin), mentre il secondo è dato dai limiti di ogni bin.</p>
 </div>
 
               

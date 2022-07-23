@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://python.angelocardellicchio.it/material/02_libs/07_numpy/05_polynomials/lecture/">
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
@@ -1110,7 +1110,7 @@
       
         <li class="md-nav__item">
   <a href="#754-divisione-tra-polinomi" class="md-nav__link">
-    7.5.4 Divisione tra polinomi
+    7.5.4 - Divisione tra polinomi
   </a>
   
 </li>
@@ -2864,7 +2864,7 @@
       
         <li class="md-nav__item">
   <a href="#754-divisione-tra-polinomi" class="md-nav__link">
-    7.5.4 Divisione tra polinomi
+    7.5.4 - Divisione tra polinomi
   </a>
   
 </li>
@@ -2904,9 +2904,9 @@
                 
 
 
-<h1 id="75-operazioni-polinomiali-in-numpy">7.5 Operazioni polinomiali in NumPy<a class="headerlink" href="#75-operazioni-polinomiali-in-numpy" title="Permanent link">&para;</a></h1>
+<h1 id="75-operazioni-polinomiali-in-numpy">7.5 - Operazioni polinomiali in NumPy<a class="headerlink" href="#75-operazioni-polinomiali-in-numpy" title="Permanent link">&para;</a></h1>
 <p>Il modulo <code>numpy.polynomial.polynomial</code> ci offre numerose classi e funzionalità per il trattamento dei polinomi. Vediamo quali sono le principali.</p>
-<p>Immaginiamo di avere due diversi polinomi (cui non associeremo alcun significato fisico), ovvero:</p>
+<p>Immaginiamo di avere due diversi polinomi (cui non assoceremo alcun significato fisico), ovvero:</p>
 <div class="arithmatex">\[
 \begin{cases}
 c1: 2x + 1 \\
@@ -2914,60 +2914,68 @@ c2: x^2 + 3x + 2
 \end{cases}
 \]</div>
 <p>Vediamo come usare dei metodi forniti dal modulo <code>polynomial</code> per effettuare delle operazioni su di loro.</p>
-<p>Prima di partire, però, introduciamo gli oggetti di classe <code>poly1d</code>, che ci permettono di rappresentare in maniera compiuta un polinomio. In particolare, partendo dai coefficienti di un generico poliniomio <code>p</code>, potremo ottenere un oggetto <code>poly1d</code> invocando l'omonimo costruttore:</p>
+<p>Prima di partire, però, introduciamo gli oggetti di classe <code>poly1d</code>, che ci permettono di rappresentare in maniera compiuta un polinomio. In particolare, partendo dai coefficienti di un generico polinomio <code>p</code>, potremo ottenere un oggetto <code>poly1d</code> invocando l'omonimo costruttore:</p>
 <div class="highlight"><pre><span></span><code><span class="n">p_pol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 <p>Il vantaggio principale degli oggetti <code>poly1d</code> sta sia nella loro rappresentazione, sia nel fatto che possono essere direttamente utilizzati all'interno delle funzioni per il calcolo polinomiale che vedremo nel seguito.</p>
 <h2 id="751-addizione-di-polinomi">7.5.1 - Addizione di polinomi<a class="headerlink" href="#751-addizione-di-polinomi" title="Permanent link">&para;</a></h2>
 <p>Per effettuare l'addizione di due polinomi, possiamo usare il metodo <code>polyadd(c1, c2)</code>, che accetta come parametri due vettori <code>c1</code> e <code>c2</code> che rappresentano, rispettivamente, i coefficienti del polinomio 1 e 2. Volendo sommare il primo ed il secondo polinomio, potremo scrivere:</p>
-<div class="highlight"><pre><span></span><code><span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">c2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">poly</span><span class="o">.</span><span class="n">polyadd</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">polynomial</span> <span class="k">as</span> <span class="n">poly</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polyadd</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
 </code></pre></div>
 <p>Questa operazione ci darà il risultato atteso, ovvero <span class="arithmatex">\(x^2 + 5x + 3\)</span>.</p>
 <p>Notiamo come le dimensioni di <code>c1</code> e di <code>c2</code> debbano essere tra loro <em>coerenti</em>. Se infatti omettessimo il coefficiente <span class="arithmatex">\(0\)</span> al termine di secondo grado in <code>c1</code>, il risultato sarebbe il seguente:</p>
-<div class="highlight"><pre><span></span><code><span class="n">c3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="n">poly</span><span class="o">.</span><span class="n">polyadd</span><span class="p">(</span><span class="n">c3</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">c3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polyadd</span><span class="p">(</span><span class="n">c3</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
 </code></pre></div>
 <p>Ovviamente, il risultato precedente può essere errato in base al valore assunto dal polinomio <code>c3</code>.</p>
 <h2 id="752-sottrazione-di-polinomi">7.5.2 - Sottrazione di polinomi<a class="headerlink" href="#752-sottrazione-di-polinomi" title="Permanent link">&para;</a></h2>
-<p>Possiamo poi sottrarre due polinomi usando la funzione <code>polysub(c1, c2)</code>, i cui parametri sono identici a quelli passati a <code>polyadd</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">poly</span><span class="o">.</span><span class="n">polysub</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">c1</span><span class="p">)</span>
+<p>Possiamo poi sottrarre due polinomi usando la funzione <code>polysub(c1, c2)</code>, i cui parametri sono identici a quelli passati a <code>polyadd()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polysub</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">c1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
 </code></pre></div>
 <h2 id="753-moltiplicazione-di-polinomi">7.5.3 - Moltiplicazione di polinomi<a class="headerlink" href="#753-moltiplicazione-di-polinomi" title="Permanent link">&para;</a></h2>
 <p>Le considerazioni precedenti possono essere banalmente traslate al caso della moltiplicazione tra polinomi, ottenibile mediante la funzione <code>polymul(c1, c2)</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">poly</span><span class="o">.</span><span class="n">polymul</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polymul</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Attenzione!</p>
 <p>Nelle ultime versioni di NumPy, i coefficienti sono ordinati da quello a grado più basso a quello di grado più alto!</p>
 </div>
-<h2 id="754-divisione-tra-polinomi">7.5.4 Divisione tra polinomi<a class="headerlink" href="#754-divisione-tra-polinomi" title="Permanent link">&para;</a></h2>
+<h2 id="754-divisione-tra-polinomi">7.5.4 - Divisione tra polinomi<a class="headerlink" href="#754-divisione-tra-polinomi" title="Permanent link">&para;</a></h2>
 <p>La divisione tra polinomi è un'operazione leggermente più complessa delle altre, e prevede l'uso della funzione <code>polydiv(c1, c2)</code>, che restituirà stavolta due array: il primo, <code>q</code>, rappresenta i coefficienti del polinomio quoziente, mentre il secondo, <code>r</code>, indica i coefficienti del polinomio resto.</p>
 <p>Nel nostro caso:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">polydiv</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">polydiv</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">q</span><span class="p">;</span> <span class="n">r</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">])</span>
 </code></pre></div>
 <p>Anche in questo caso, i coefficienti sono ordinati da quello a grado più basso a quello a grado più alto.</p>
 <h2 id="755-elevazione-a-potenza">7.5.5 - Elevazione a potenza<a class="headerlink" href="#755-elevazione-a-potenza" title="Permanent link">&para;</a></h2>
 <p>Chiudiamo questa breve panoramica parlando dell'elevazione a potenza di un polinomio, effettuabile mediante la funzione <code>polypow(c, pow)</code>, con <code>c</code> vettore dei coefficienti, e <code>pow</code> potenza a cui elevare:</p>
-<div class="highlight"><pre><span></span><code><span class="n">poly</span><span class="o">.</span><span class="n">polypow</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polypow</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
 </code></pre></div>
 <p>Anche in questo caso, vengono riportati i termini pari a zero nei risultati.</p>
 <h2 id="756-valore-assunto-da-un-polinomio">7.5.6 - Valore assunto da un polinomio<a class="headerlink" href="#756-valore-assunto-da-un-polinomio" title="Permanent link">&para;</a></h2>
 <p>Per valutare il valore <span class="arithmatex">\(y\)</span> assunto dal polinomio per un determinato valore di <span class="arithmatex">\(x\)</span>, usiamo la funzione <code>polyval(x, p)</code>, che accetta come argomento un intero (o una lista di interi) <code>x</code> ed un polinomio <code>p</code>.</p>
-<p>Se volessimo valutare il valore assunto da <span class="arithmatex">\(y\)</span> per <span class="arithmatex">\(x \in [1, 2]\)</span> sulla retta rappresentata dal polinomio <code>c1</code>, ad esempio, potremmo usare <code>polyval</code> come segue:</p>
-<div class="highlight"><pre><span></span><code><span class="n">poly</span><span class="o">.</span><span class="n">polyval</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c1</span><span class="p">)</span>
+<p>Se volessimo valutare il valore assunto da <span class="arithmatex">\(y\)</span> per <span class="arithmatex">\(x \in [1, 2]\)</span> sulla retta rappresentata dal polinomio <code>c1</code>, ad esempio, potremmo usare <code>polyval()</code> come segue:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polyval</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">])</span>
 </code></pre></div>
 <h2 id="757-derivata-ed-integrale-di-funzioni-polinomiali">7.5.7 - Derivata ed integrale di funzioni polinomiali<a class="headerlink" href="#757-derivata-ed-integrale-di-funzioni-polinomiali" title="Permanent link">&para;</a></h2>
 <p>Concludiamo questa breve carrellata con due metodi in grado di calcolare, rispettivamente, la derivata e l'integrale di una funzione polinomiale.</p>
 <p>Il metodo <code>polyder(p, m)</code>, infatti, permette di calcolare la derivata di ordine <code>m</code> del polinomio <code>p</code> (di default, <code>m=2</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="n">poly</span><span class="o">.</span><span class="n">polyder</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polyder</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
 </code></pre></div>
 <p>Il metodo duale è <code>polyint(p, m)</code>, che prevedibilmente calcola l'integrale di ordine <code>m</code> del polinomio <code>p</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">poly</span><span class="o">.</span><span class="n">polyint</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
-<span class="n">array</span><span class="p">([</span><span class="mf">0.</span> <span class="p">,</span> <span class="mf">2.</span> <span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.33333333</span><span class="p">])</span>
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Attenzione</p>

@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://python.angelocardellicchio.it/material/02_libs/10_seaborn/lecture/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
@@ -2919,12 +2919,13 @@
 <p>L'elenco dei dataset supportati da Seaborn è presente a <a href="https://github.com/mwaskom/seaborn-data">questo indirizzo</a>.</p>
 </div>
 <p>Ispezionando il tipo di <code>tips</code> possiamo scoprire che si tratta di un dataframe; di conseguenza, possiamo esplorarne liberamente la struttura utilizzando Pandas. In particolare, vediamo che questi sono organizzati secondo la seguente tabella:</p>
-<div class="highlight"><pre><span></span><code>  total_bill   tip     sex smoker  day    <span class="nb">time</span>  size
-<span class="m">0</span>       <span class="m">16</span>.99  <span class="m">1</span>.01  Female     No  Sun  Dinner     <span class="m">2</span>
-<span class="m">1</span>       <span class="m">10</span>.34  <span class="m">1</span>.66    Male     No  Sun  Dinner     <span class="m">3</span>
-<span class="m">2</span>       <span class="m">21</span>.01  <span class="m">3</span>.50    Male     No  Sun  Dinner     <span class="m">3</span>
-<span class="m">3</span>       <span class="m">23</span>.68  <span class="m">3</span>.31    Male     No  Sun  Dinner     <span class="m">2</span>
-<span class="m">4</span>       <span class="m">24</span>.59  <span class="m">3</span>.61  Female     No  Sun  Dinner     <span class="m">4</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+  <span class="n">total_bill</span>   <span class="n">tip</span>     <span class="n">sex</span> <span class="n">smoker</span>  <span class="n">day</span>    <span class="n">time</span>  <span class="n">size</span>
+<span class="mi">0</span>       <span class="mf">16.99</span>  <span class="mf">1.01</span>  <span class="n">Female</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">2</span>
+<span class="mi">1</span>       <span class="mf">10.34</span>  <span class="mf">1.66</span>    <span class="n">Male</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">3</span>
+<span class="mi">2</span>       <span class="mf">21.01</span>  <span class="mf">3.50</span>    <span class="n">Male</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">3</span>
+<span class="mi">3</span>       <span class="mf">23.68</span>  <span class="mf">3.31</span>    <span class="n">Male</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">2</span>
+<span class="mi">4</span>       <span class="mf">24.59</span>  <span class="mf">3.61</span>  <span class="n">Female</span>     <span class="n">No</span>  <span class="n">Sun</span>  <span class="n">Dinner</span>     <span class="mi">4</span>
 </code></pre></div>
 <p>La struttura della tabella è la seguente:</p>
 <ul>
@@ -2999,7 +3000,7 @@
     <span class="n">xticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-<p>Nella precedente invocazione della funzione <code>heatmap()</code> specifichiamo i parametri indicati in modo da passare un array (o similari) come primo argomento, seguito da una <em>colormap</em>, ovvero i colori da utilizzare. Specifichiamo inoltre che vogliamo inserire i valori dell'array su ciascuna delle celle dell'heatmap (mediante il parametro <code>annot</code>) e che non vogliamo visualizzare i label sugli assi X ed Y (<code>xticklabels</code> ed <code>yticklabels</code> rispettivamente). Otterremo questo risultato:</p>
+<p>Nella precedente invocazione della funzione <code>heatmap()</code> specifichiamo i parametri indicati in modo da passare un array (o similari) come primo argomento, seguito da una <em>colormap</em>, ovvero i colori da utilizzare. Specifichiamo inoltre che vogliamo inserire i valori dell'array su ciascuna delle celle dell'heatmap (mediante il parametro <code>annot</code>) e che non vogliamo visualizzare i label sugli assi <span class="arithmatex">\(x\)</span> e <span class="arithmatex">\(y\)</span> (<code>xticklabels</code> ed <code>yticklabels</code> rispettivamente). Otterremo questo risultato:</p>
 <p><img alt="heatmap" class="center" src="../images/heatmap.png" /></p>
 
               

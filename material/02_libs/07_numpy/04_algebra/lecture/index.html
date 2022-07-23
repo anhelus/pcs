@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://python.angelocardellicchio.it/material/02_libs/07_numpy/04_algebra/lecture/">
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
     
     
       
@@ -3005,34 +3005,30 @@
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span>
 </code></pre></div>
 <h2 id="741-matrice-trasposta">7.4.1 - Matrice trasposta<a class="headerlink" href="#741-matrice-trasposta" title="Permanent link">&para;</a></h2>
-<p>La prima operazione che vediamo <em>non</em> richiede l'uso del modulo <code>linalg</code>, ed è quella che ci permette di effettuare la trasposta di una matrice. Per farlo, usiamo la funzione <code>transpose</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
-<span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
+<p>La prima operazione che vediamo <em>non</em> richiede l'uso del modulo <code>linalg</code>, ed è quella che ci permette di effettuare la trasposta di una matrice. Per farlo, usiamo la funzione <code>transpose()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 </code></pre></div>
 <h2 id="742-matrice-inversa">7.4.2 - Matrice inversa<a class="headerlink" href="#742-matrice-inversa" title="Permanent link">&para;</a></h2>
 <p>Possiamo calcolare l'inversa di una matrice usando la funzione <code>inv(mat)</code> del package <code>linalg</code>, dove <code>mat</code> è la matrice da invertire. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
-<span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([[</span><span class="mf">0.2</span> <span class="p">,</span> <span class="mf">0.</span>  <span class="p">,</span> <span class="mf">0.</span>  <span class="p">],</span>
        <span class="p">[</span><span class="mf">0.</span>  <span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span> <span class="mf">0.</span>  <span class="p">],</span>
        <span class="p">[</span><span class="mf">0.</span>  <span class="p">,</span> <span class="mf">0.</span>  <span class="p">,</span> <span class="mf">0.25</span><span class="p">]])</span>
 </code></pre></div>
-<p>Ovviamente, la matrice <code>mat</code> deve essere invertibile. Nel caso passassimo una matrice rettangolare, infatti,verrebbe lanciato un <code>LinAlgError</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
-<span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-
+<p>Ovviamente, la matrice <code>mat</code> deve essere invertibile. Nel caso passassimo una matrice rettangolare, infatti, verrebbe lanciato un <code>LinAlgError</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
 <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">LinAlgError</span><span class="p">:</span> <span class="n">Last</span> <span class="mi">2</span> <span class="n">dimensions</span> <span class="n">of</span> <span class="n">the</span> <span class="n">array</span> <span class="n">must</span> <span class="n">be</span> <span class="n">square</span>
 </code></pre></div>
 <p>Lo stesso accade per una matrice singolare:</p>
-<div class="highlight"><pre><span></span><code><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
 <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">LinAlgError</span><span class="p">:</span> <span class="n">Singular</span> <span class="n">matrix</span>
 </code></pre></div>
@@ -3059,59 +3055,55 @@
 <td>Bidimensionale (matrice)</td>
 <td>Bidimensionale (matrice)</td>
 <td>Prodotto matriciale</td>
-<td>Preferire la funzione <code>matmul</code></td>
+<td>Preferire la funzione <code>matmul()</code></td>
 </tr>
 <tr>
 <td>Scalare</td>
-<td>N-dimensionale</td>
-<td>Prodotto scalare per array N-dimensionale</td>
+<td><span class="arithmatex">\(n\)</span>-dimensionale</td>
+<td>Prodotto scalare per array <span class="arithmatex">\(n\)</span>-dimensionale</td>
 <td>Preferire la funzione <code>multiply(a, b)</code> o l'operatore <code>*</code></td>
 </tr>
 <tr>
-<td>N-dimensionale</td>
+<td><span class="arithmatex">\(n\)</span>-dimensionale</td>
 <td>Scalare</td>
-<td>Prodotto scalare per array N-dimensionale</td>
+<td>Prodotto scalare per array <span class="arithmatex">\(n\)</span>-dimensionale</td>
 <td>Preferire la funzione <code>multiply(a, b)</code> o l'operatore <code>*</code></td>
 </tr>
 </tbody>
 </table>
-<p>Nel caso entrambi gli array siano N-dimensionali, si applicano altre regole, che è possibile recuperare a <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot">questo indirizzo</a>.</p>
+<p>Nel caso entrambi gli array siano <span class="arithmatex">\(n\)</span>-dimensionali, si applicano altre regole, che è possibile recuperare a <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot">questo indirizzo</a>.</p>
 <h3 id="7432-prodotto-interno">7.4.3.2 - Prodotto interno<a class="headerlink" href="#7432-prodotto-interno" title="Permanent link">&para;</a></h3>
 <p>Possiamo usare la funzione <code>inner(a, b)</code> per calcolare il <em>prodotto interno</em> (o <em>scalare</em>) tra i vettori <code>a</code> e <code>b</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="mi">32</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Definizione di prodotto interno</p>
 <p>Ricordiamo che per due generici vettori monodimensionali <span class="arithmatex">\(v_1 = [v_{11}, \ldots, v_{1j}], v_2 = [v_{21}, \ldots, v_{2j}]\)</span> il prodotto scalare è dato da:<br />
-<span class="arithmatex">\(<span class="arithmatex">\(p = \sum_{i=1}^j v_{1i} * v_{2i}\)</span>\)</span></p>
+$$<br />
+p = \sum<em 1i="1i">{i=1}^j v</em> \cdot v_{2i}<br />
+$$</p>
 </div>
-<p>Un lettore attento avrà notato che, nella pratica, per vettori monodimensionali, le funzioni inner() e dot() restituiscono lo stesso risultato:</p>
+<p>Un lettore attento avrà notato che, nella pratica, per vettori monodimensionali, le funzioni <code>inner()</code> e <code>dot()</code> restituiscono lo stesso risultato:</p>
 <div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>      <span class="c1"># Output: 32</span>
 <span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>            <span class="c1"># Output: 32, stesso di b.dot()</span>
 </code></pre></div>
 <p>La differenza tra le due funzioni è visibile quando si utilizzano array a dimensionalità maggiore di 1 (anche comuni matrici vanno bene). Infatti:</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
-
-<span class="c1"># Risultato con inner</span>
-<span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Risultato con inner()</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">17</span><span class="p">,</span> <span class="mi">23</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">39</span><span class="p">,</span> <span class="mi">53</span><span class="p">]])</span>
-
-<span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="c1"># Risultato con dot</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>   <span class="c1"># Risultato con dot()</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">19</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">43</span><span class="p">,</span> <span class="mi">50</span><span class="p">]])</span>
 </code></pre></div>
 <p>In pratica, riprendendo la documentazione:</p>
 <ul>
-<li>per quello che riguarda la funzione <code>dot()</code>, questa è equivalente a <code>matmul()</code>, e quindi rappresenta una moltiplicazione matriciale che, nel caso di vettori monodimensionali, equivale al prodotto vettoriale, mentre per N dimensioni è la somma dei prodotti tra l'ultima dimensione del primo vettore e delle dimensioni che vanno da 2 ad N del secondo;</li>
-<li>per quello che riguarda la funzione <code>inner()</code>, rappresenta il prodotto vettoriale nel caso ad una dimensione, mentre nel caso di N dimensioni rappresenta la somma dei prodotti lungo l'ultima dimensione.</li>
+<li>per quello che riguarda la funzione <code>dot()</code>, questa è equivalente a <code>matmul()</code>, e quindi rappresenta una moltiplicazione matriciale che, nel caso di vettori monodimensionali, equivale al prodotto vettoriale, mentre per <span class="arithmatex">\(n\)</span> dimensioni è la somma dei prodotti tra l'ultima dimensione del primo vettore e delle dimensioni che vanno da 2 ad <span class="arithmatex">\(n\)</span> del secondo;</li>
+<li>per quello che riguarda la funzione <code>inner()</code>, rappresenta il prodotto vettoriale nel caso ad una dimensione, mentre nel caso di <span class="arithmatex">\(n\)</span> dimensioni rappresenta la somma dei prodotti lungo l'ultima dimensione.</li>
 </ul>
 <p>In altri termini:</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">b</span><span class="p">[:,</span> <span class="n">j</span><span class="p">])</span>
@@ -3128,8 +3120,8 @@ dot = \left(\begin{array}{cc}
 7 &amp; 8
 \end{array}\right) = \\
 = \left(\begin{array}{cc}
-1 * 5 + 2*7 &amp; 1*6+2*8\\
-3*5+4*7 &amp; 1*6+4*8
+1 \cdot 5 + 2 \cdot 7 &amp; 1 \cdot 6 + 2 \cdot 8   \\
+3 \cdot 5 + 4 \cdot 7 &amp; 1 \cdot 6 + 4 \cdot 8
 \end{array}\right)
 = \left(\begin{array}{cc}
 19 &amp; 22\\
@@ -3155,31 +3147,31 @@ inner = \left(\begin{array}{cc}
 <div class="arithmatex">\[
 P = \left[
     \begin{array}{ccc}
-        a_1 * b_1 &amp; \ldots &amp; a_1 * b_n \\
-        \vdots &amp; \ddots &amp; \vdots \\
-        a_n * b_1 &amp; \ldots &amp; a_n * b_n
+        a_1 \cdot b_1 &amp; \ldots &amp; a_1 \cdot b_n \\
+        \vdots        &amp; \ddots &amp; \vdots        \\
+        a_n \cdot b_1 &amp; \ldots &amp; a_n \cdot b_n
     \end{array}
 \right]
 \]</div>
 <p>Ad esempio:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="n">array</span><span class="p">([[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">32</span><span class="p">]])</span>
 </code></pre></div>
 <h3 id="7433-la-funzione-matmul">7.4.3.3 - La funzione <code>matmul</code><a class="headerlink" href="#7433-la-funzione-matmul" title="Permanent link">&para;</a></h3>
 <p>Quando abbiamo parlato della funzione <code>dot(a, b)</code> abbiamo visto come sia possibile usarla per effettuare il prodotto matriciale tra le matrici <code>mat_1</code> e <code>mat_2</code>. Tuttavia, esiste un'altra possibilità, che è anche quella <em>consigliata</em>, ovvero usare la funzione <code>matmul(a, b)</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">19</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">43</span><span class="p">,</span> <span class="mi">50</span><span class="p">]])</span>
 </code></pre></div>
-<p>La funzione <code>matmul()</code> ha una differenza fondamentale rispetto alla funzione <code>dot()</code>, in quanto non accetta scalari come parametro (anche se è possibile passare vettori ed array N-dimensionali). Esiste in realtà un'altra differenza importante, che riguarda le operazioni N-dimensionali, ma che non tratteremo in questa sede.</p>
+<p>La funzione <code>matmul()</code> ha una differenza fondamentale rispetto alla funzione <code>dot()</code>, in quanto non accetta scalari come parametro (anche se è possibile passare vettori ed array <span class="arithmatex">\(n\)</span>-dimensionali). Esiste in realtà un'altra differenza importante, che riguarda le operazioni <span class="arithmatex">\(n\)</span>-dimensionali, ma che non tratteremo in questa sede.</p>
 <h2 id="744-potenza-di-matrice">7.4.4 - Potenza di matrice<a class="headerlink" href="#744-potenza-di-matrice" title="Permanent link">&para;</a></h2>
 <p>La funzione <code>matrix_power(a, n)</code> del package <code>linalg</code> permette di elevare a potenza <code>n</code> della matrice <code>a</code>. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="n">matrix_power</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">linalg</span><span class="o">.</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">array</span><span class="p">([[</span><span class="mi">1069</span><span class="p">,</span> <span class="mi">1558</span><span class="p">],</span>
        <span class="p">[</span><span class="mi">2337</span><span class="p">,</span> <span class="mi">3406</span><span class="p">]])</span>
 </code></pre></div>
@@ -3190,25 +3182,24 @@ P = \left[
 <p>Per un'approfondimento sui principi alla base della SVD, consultare l'<a href="../../../../appendix/07_algorithms/01_svd/lecture/">appendice E.1</a>.</p>
 </div>
 <p>L'implementazione da zero della SVD è estremamente complessa; tuttavia, NumPy ci viene quindi in aiuto con la funzione <code>svd(mat)</code> del package <code>linalg</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-
-<span class="n">u</span><span class="p">:</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.40455358</span> <span class="o">-</span><span class="mf">0.9145143</span> <span class="p">]</span>
- <span class="p">[</span><span class="o">-</span><span class="mf">0.9145143</span>   <span class="mf">0.40455358</span><span class="p">]]</span> 
-<span class="n">s</span><span class="p">:</span> <span class="p">[</span><span class="mf">5.4649857</span>  <span class="mf">0.36596619</span><span class="p">]</span> 
-<span class="n">v</span><span class="p">:</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.57604844</span> <span class="o">-</span><span class="mf">0.81741556</span><span class="p">]</span>
- <span class="p">[</span> <span class="mf">0.81741556</span> <span class="o">-</span><span class="mf">0.57604844</span><span class="p">]]</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">u</span>
+<span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.40455358</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9145143</span> <span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">0.9145143</span> <span class="p">,</span>  <span class="mf">0.40455358</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">5.4649857</span> <span class="p">,</span> <span class="mf">0.36596619</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span>
+<span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.57604844</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.81741556</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.81741556</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.57604844</span><span class="p">]])</span>
 </code></pre></div>
 <h2 id="746-autovalori-ed-autovettori">7.4.6 - Autovalori ed autovettori<a class="headerlink" href="#746-autovalori-ed-autovettori" title="Permanent link">&para;</a></h2>
 <p>Per calcolare gli autovalori e gli autovettori di una matrice, NumPy ci mette a disposizione la funzione <code>eig(a)</code>, sempre appartenente al package <code>linalg</code>, che restituisce gli autovalori e gli autovettori destri di una matrice quadrata:</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
-
-<span class="n">w</span>
-<span class="n">array</span><span class="p">([</span><span class="mf">15.23391422</span><span class="p">,</span>  <span class="mf">0.08412242</span><span class="p">,</span>  <span class="mf">4.68196336</span><span class="p">])</span>
-
-<span class="n">v</span>
-<span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.66930729</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.82394712</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.68445786</span><span class="p">],</span>
-       <span class="p">[</span><span class="o">-</span><span class="mf">0.16856631</span><span class="p">,</span>  <span class="mf">0.44469209</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.70619627</span><span class="p">],</span>
-       <span class="p">[</span><span class="o">-</span><span class="mf">0.72361119</span><span class="p">,</span>  <span class="mf">0.35122656</span><span class="p">,</span>  <span class="mf">0.18111947</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">v</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.37228132</span><span class="p">,</span>  <span class="mf">5.37228132</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">w</span>
+<span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.82456484</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.41597356</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.56576746</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.90937671</span><span class="p">]])</span>
 </code></pre></div>
 <h2 id="747-norma">7.4.7 - Norma<a class="headerlink" href="#747-norma" title="Permanent link">&para;</a></h2>
 <p>La funzione <code>linalg.norm(a)</code> ci permette di calcolare la norma di una matrice. Opzionalmente, possiamo specificare tre parametri, ovvero:</p>
@@ -3218,26 +3209,30 @@ P = \left[
 <li><code>keepdims</code>, usata per restituire, opzionalmente, l'asse su cui viene calcolata la norma.</li>
 </ul>
 <p>Per calcolare la norma di Frobenius della matrice <code>mat</code> possiamo usare questa sintassi:</p>
-<div class="highlight"><pre><span></span><code><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>                <span class="c1"># Il risultato sarà 16.97...</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mf">5.477225575051661</span>
 </code></pre></div>
 <h2 id="748-determinante-rango-e-traccia">7.4.8 - Determinante, rango e traccia<a class="headerlink" href="#748-determinante-rango-e-traccia" title="Permanent link">&para;</a></h2>
 <p>Possiamo calcolare rapidamente determinante, rango e traccia di una matrice mediante le funzioni <code>det(a)</code>, <code>matrix_rank(a)</code> e <code>trace(a)</code>, quest'ultima <strong>non</strong> appartenente al package <code>linalg</code>. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>                 <span class="c1"># Il risultato sarà 6</span>
-<span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>         <span class="c1"># Il risultato sarà 3</span>
-<span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>                   <span class="c1"># Il risultato sarà 20</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">-</span><span class="mf">2.0000000000000004</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">5</span>
 </code></pre></div>
-<p>La funzione <code>trace</code> può anche essere usata per calcolare la sommatoria delle sovra/sotto diagonali specificando il parametro <code>offset</code>. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">9</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>         <span class="c1"># Il risultato sarà 3</span>
-<span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">offset</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>        <span class="c1"># Il risultato sarà 0</span>
+<p>La funzione <code>trace()</code> può anche essere usata per calcolare la sommatoria delle sovra/sotto diagonali specificando il parametro <code>offset</code>. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">mtrx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">9</span><span class="p">],</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span> <span class="p">[</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">mtrx</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">mtrx</span><span class="p">,</span> <span class="n">offset</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">0</span>
 </code></pre></div>
 <h2 id="749-risoluzione-di-sistemi-di-equazioni-lineari">7.4.9 - Risoluzione di sistemi di equazioni lineari<a class="headerlink" href="#749-risoluzione-di-sistemi-di-equazioni-lineari" title="Permanent link">&para;</a></h2>
 <p>Chiudiamo questa (necessariamente breve!) carrellata sulle operazioni di algebra lineare con la funzione <code>solve(a, b)</code>, che permette di risolvere un sistema di equazioni lineari nel quale la matrice <code>a</code> è la matrice dei coefficienti, mentre il vettore <code>b</code> è il vettore dei termini noti. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>            <span class="c1"># Il risultato sarà array([-7.5,  4.5,  3.5])</span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">7.5</span><span class="p">,</span>  <span class="mf">4.5</span><span class="p">,</span>  <span class="mf">3.5</span><span class="p">])</span>
 </code></pre></div>
 <p>Ovviamente, la matrice <code>a</code> deve essere quadrata, mentre il vettore <code>b</code> deve avere esattamente <code>n</code> elementi, con <code>n</code> ordine di <code>a</code>!</p>
 
