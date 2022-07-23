@@ -150,7 +150,11 @@ markdown_extensions:
   - pymdownx.magiclink # auto links
   - pymdownx.mark # highlight text
   - pymdownx.smartsymbols # special symbols
-  - pymdownx.superfences: # nest code blocks under other blocks   <-------
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist: # better tasks lists
       custom_checkbox: true
   - pymdownx.tabbed # auto tabs
