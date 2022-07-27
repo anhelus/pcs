@@ -112,7 +112,7 @@ nav:
     - G - Algoritmi:
       - SVD: material/appendix/07_algorithms/01_svd/lecture.md
     # - H - XAI:
-  - Crediti: contributors.md
+  - Ringraziamenti: contributors.md
 
 theme:
   name: material
@@ -163,7 +163,25 @@ markdown_extensions:
 
 plugins:
   - search
-
+  - with-pdf
+  - i18n:
+      default_language: it
+      languages:
+        it:
+          name: Italiano
+          site_name: Python per il Calcolo Scientifico
+          build: true
+        en:
+          name: English
+          site_name: Python for Data Science
+          build: true
+      nav_translations:
+        en:
+          Home: Home
+          Dispense: Lecture
+          Esercizi: Exercises
+          Parte 1 - Concetti base: Part 1 - Basic concepts
+          1 - Introduzione a Python: 1 - Introduction to the Python language
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -173,6 +191,13 @@ extra:
   analytics:
     provider: google
     property: G-ZCZWPCYZJ9
+  # alternate:
+  #   - name: Italian
+  #     link: /it/
+  #     lang: it
+  #   - name: English
+  #     link: /en/
+  #     lang: en
 
 extra_javascript:
   - js/config.js

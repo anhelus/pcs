@@ -3,12 +3,15 @@
 Prima di iniziare a parlare del linguaggio Python, è opportuno verificare che l'interprete sia installato nel nostro sistema. Per farlo, apriamo un terminale (Shell o Command Prompt, a seconda del nostro sistema), e scriviamo:
 
 ```sh
-$ python
+python
 ```
 
-Se apparirà una schermata simile a quella mostrata in figura, Python sarà già correttamente presente nel nostro sistema.
+Se apparirà una schermata simile a quella mostrata in figura 1.1, Python sarà già correttamente presente nel nostro sistema.
 
-![python_interpreter](./images/python_interpreter.png){: .center}
+<figure markdown>
+  ![interpreter](./images/python_interpreter.png){ width="450" }
+  <figcaption>Figura 1.1 - Interprete Python</figcaption>
+</figure>
 
 In alternativa, dovremo provvedere ad installarlo seguendo la procedura indicata sul [sito ufficiale](https://www.python.org/), ed aggiungerlo al path di sistema.
 
