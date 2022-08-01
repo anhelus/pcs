@@ -111,6 +111,7 @@ nav:
     - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
     - G - Algoritmi:
       - SVD: material/appendix/07_algorithms/01_svd/lecture.md
+      - Resnet: material/appendix/07_algorithms/cnn/resnet.md     # NOTE: EXPERIMENTAL
     # - H - XAI:
   - Ringraziamenti: contributors.md
 
@@ -191,6 +192,7 @@ extra:
   analytics:
     provider: google
     property: G-ZCZWPCYZJ9
+<<<<<<< Updated upstream
   # alternate:
   #   - name: Italian
   #     link: /it/
@@ -198,6 +200,15 @@ extra:
   #   - name: English
   #     link: /en/
   #     lang: en
+=======
+  alternate:
+    - name: Italian
+      link: /it/
+      lang: it
+    - name: English
+      link: /en/
+      lang: en
+>>>>>>> Stashed changes
 
 extra_javascript:
   - js/config.js

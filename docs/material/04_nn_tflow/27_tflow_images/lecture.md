@@ -21,7 +21,7 @@ Applicare sistematicamente lo stesso filtro su tutte le finestre possibili dell'
 
 Abbiamo accennato al fatto che l'output dell'applicazione di un filtro su di una finestra dell'immagine è un prodotto scalare. Di conseguenza, man mano cheil filtro scorre, viene creato un array bidimensionale di valori, che viene indicato come *mappa delle feature*, o *feature map*. Sarà proprio questa, e non l'immagine iniziale, ad essere passata al layer successivo.
 
-## 26.3 - Layer di pooling
+## 27.2 - Layer di pooling
 
 Abbiamo visto come i layer convoluzionali creino delle feature map che "sintetizzano" la presenza di determinate feature all'interno di un input. Un limite di queste mappature sta però nel fatto che registrano la posizione *precisa* della feature individuata all'interno dell'input: ciò significa quindi che anche *piccole* variazioni nella posizione di una feature risulterà in una feature map completamente differente, il che comporta un'estrema sensibilità della rete neurale a piccole trasformazioni dell'immagine di input.
 
@@ -33,3 +33,43 @@ Il layer di pooling non fa altro che applicare un filtro, di solito di dimension
 * *max pooling*: questo filtro associa ad ogni finestra dell'immagine in input il valore massimo presente nella finestra.
 
 Ottenendo quindi una versione "sottocampionata" dell'input, si raggiunge la cosiddetta *invarianza a traslazioni locali*, ovvero una sorta di "insensibilità" del modello a traslazioni o rotazioni di entità minima.
+
+## 27.3 - Creazione di una semplice rete neurale per l'elaborazione delle immagini
+
+Iniziamo creando una semplice rete neurale per l'elaborazione delle immagini digitali. Per farlo, useremo l'API `Sequential` di Keras, andando a creare una "pila" di layer. Ad esempio:
+
+```py
+from tensorflow import keras
+
+model = keras.Sequential(
+    [
+        keras.Input(shape=(28, 28, 1)),
+        keras.layers.Conv2D(
+            32,
+            (3, 3),
+            activation='relu',
+            name='first_conv_layer'),
+        keras.layers.Conv2D(
+            32,
+            (3, 3),
+            activation='relu',
+            name='second_conv_layer'),
+        keras.layers.Flatten(name='flatten_layer'),
+        keras.layers.Dense(
+            10,
+            activation='softmax',
+            name='layer_class')
+    ]
+)
+```
+
+Nel modello precedente:
+
+* creiamo un'architettura con due layer convoluzionali bidimensionali istanziando due oggetti di classe `Conv2D`;
+* ognuno di questi oggetti accetta come attributi:
+  * il **numero di filtri** da usare nel banco convoluzionale (in particolare, 32);
+  * la dimensione di ciascun filtro, in pixel ($3 \times 3$);
+  * la funzione di attivazione da usare (`activation = 'relu'`);
+  * opzionalmente, un nome.
+
+Dopo i due layer convoluzionali notiamo la presenza di un layer di vettorizzazione delle feature estratte, ottenuto tramite un oggetto di classe  `Flatten`, ed un layer completamente connesso con un numero di neuroni pari al numero di classi coinvolte nel nostro problema (in questo caso, dieci) ed attivazione `softmax`.
