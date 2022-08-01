@@ -76,7 +76,14 @@ In pratica, l'MSE è tanto più alto quanto maggiore è la distanza quadratica *
 
 Gli algoritmi di machine learning tendono ad essere addestrati seguendo un approccio iterativo, che prevede che al termine di ciascuna iterazione i valori dei pesi siano *aggiornati* in maniera da ridurre ulteriormente il valore della funzione di costo. Questo è riassumibile nel seguente schema:
 
-![weight_upgrade](./images/weight_upgrade.png){: .center}
+``` mermaid
+flowchart TB
+    A[Dataset] --> B[Feature] & C[Label];
+    B & C --> D[Prediction];
+    D --> E[Loss evaluation];
+    E --> F[Parameters update];
+    F --> D;
+```
 
 In pratica, durante l'addestramento, ad ogni iterazione il modello effettua una predizione sulle feature. Questa predizione viene comparata con la label, e la loss viene calcolata. I pesi sono quindi aggiornati in base ad una determinata *regola di ottimizzazione*, ed il ciclo si ripete.
 
