@@ -1,14 +1,7 @@
-# Python per il Calcolo Scientifico
-
-Benvenuti nel corso di **Python per il Calcolo Scientifico** (**PCS**).
-
-In questa pagina viene pubblicato il materiale e le informazioni relative al corso, nonché le slides proiettate a lezione.
+# Bacheca Python per il Calcolo Scientifico
 
 !!!tip "Disponibilità registrazioni"
     Le registrazioni delle lezioni sono disponibili in una playlist YouTube a [questo indirizzo](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS).
-
-<!-- !!!warning "Attenzione"
-    **Le dispense sono attualmente in fase di aggiornamento.** -->
 
 ## Modalità di esame
 
@@ -21,10 +14,18 @@ Le modalità di esame previste sono due:
 
 Per informazioni sugli appelli, consultare la [bacheca](advices.md).
 
+## Temi d'anno
+
+Per informazioni sui temi d'anno, consultare la [pagina apposita](projects.md).
+
+## Slides proiettate a lezione
+
+L'elenco delle slides proiettate a lezione è disponibile a [questo indirizzo](../../material/slides/pcs/index.md).
+
 ## Calendario delle lezioni
 
 Il calendario delle lezioni è disponibile a [questo link](https://www.dm.uniba.it/didattica/competenze-trasversali/2021-22-laboratorio-matematico-informatico-ii/orario-python.pdf).
 
 ## Ricevimento
 
-E' possibile concordare un ricevimento inviando una e-mail all'indirizzo angelo.cardellicchio@stiima.cnr.it.
+E' possibile concordare un ricevimento inviando una e-mail all'indirizzo [angelo.cardellicchio@stiima.cnr.it](mailto:angelo.cardellicchio@stiima.cnr.it).
