@@ -16,6 +16,7 @@ statsmodels = "*"
 seaborn = "*"
 pydot = "*"
 mkdocs-static-i18n = "*"
+mkdocs-with-pdf = "*"
 
 [dev-packages]
 mkdocs-with-pdf = "*"

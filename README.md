@@ -1,8 +1,5 @@
-# Python per il Calcolo Scientifico
-
-Questo è la repository per il materiale di riferimento per il corso di Python per il Calcolo Scientifico.
-
-Il sito è accessibile a [questo link](https://python.angelocardellicchio.it).
+<!-- **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
+`alp`, `twitter_handle`, `Algoritmi e Linguaggi di Programmazione Python/C`, `project_description` -->
 
 <!--
 *** Forked by Best-README-Template by Othneil Drew.
@@ -14,43 +11,33 @@ Il sito è accessibile a [questo link](https://python.angelocardellicchio.it).
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/anhelus/python-calcolo-numerico">
+  <!-- <a href="https://github.com/anhelus/pcs">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
   <h3 align="center">Python per il Calcolo Scientifico</h3>
 
   <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/anhelus/python-calcolo-numerico"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/anhelus/python-calcolo-numerico">View Demo</a>
-    ·
-    <a href="https://github.com/anhelus/python-calcolo-numerico/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/anhelus/python-calcolo-numerico/issues">Request Feature</a>
+    Questa è la repository relativa al materiale del di Python per il Calcolo Scientifico; il sito web del corso è disponibile a <a href="https://python.angelocardellicchio.it">questo indirizzo</href>.
   </p>
 </p>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary><h2 style="display: inline-block">Contenuti</h2></summary>
 
-  1. [About The Project](#about-the-project)
-  2. [Built With](#built-with)
-  3. [Getting Started](#getting-started)
-      * [Prerequisites](#prerequisites)
-      * [Installation](#installation)
-  4. [Usage](#usage)
+  1. [Dettagli sulla repository](#dettagli-sulla-repository)
+  2. [Creato con](#built-with)
+  3. [Usare il materiale del corso](#usare-il-materiale-del-corso)
+      * [Prerequisiti](#prerequisiti)
+      * [Installazione](#installazione)
+      * [Uso](#uso)
   5. [Roadmap](#roadmap)
-  6. [Contributing](#contributing)
+  6. [Contributi](#contributi)
   7. [License](#license)
   8. [Contact](#contact)
   9. [Acknowledgements](#acknowledgements)
@@ -58,96 +45,98 @@ Il sito è accessibile a [questo link](https://python.angelocardellicchio.it).
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Dettagli sulla repository
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com)a -->
 
-Here's a blank template to get started:
+Il corso di Python per il Calcolo Scientifico si tiene presso il CdL in Matematica dell'Università degli Studi di Bari come corso di Competenze Trasversali. In questa repository sono presenti i materiali, rilasciati sotto licenza MIT, su cui è basato l'intero corso.
 
-### Built With
+### Costruito con
 
-* []()
-* []()
-* []()
+* [Mkdocs](https://www.mkdocs.org/)
+* [Mkdocs Material](https://squidfunk.github.io/mkdocs-material/)
+* [Python](https://www.python.org/)
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Usare il materiale del corso
 
-To get a local copy up and running follow these simple steps.
+E' possibile usare il materiale del corso in locale. Per farlo, dobbiamo seguire i passi elencati di seguito.
 
-### Prerequisites
+### Prerequisiti
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Come prerequisiti, assicuriamoci di aver installato [Python](https://www.python.org) e `pipenv`:
 
-### Installation
+```sh
+pip install pipenv
+```
 
-1. Clone the repo
+### Installazione
+
+1. Per prima cosa, cloniamo questa repository.
    ```sh
-   git clone https://github.com/anhelus/python-calcolo-numerico.git
+   git clone https://github.com/anhelus/pcs.git
    ```
-2. Install NPM packages
+2. Creiamo un ambiente virtuale ed installiamo le librerie richieste.
    ```sh
-   npm install
+   pipenv install
    ```
 
 <!-- USAGE EXAMPLES -->
-## Usage
+### Uso
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+3. Lanciamo il nostro server mediante il seguente comando:
+    ```sh
+    pipenv shell mkdocs serve
+    ```
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+4. Il server sarà lanciato in automatico all'indirizzo http://127.0.0.1.
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/anhelus/python-calcolo-numerico/issues) for a list of proposed features (and known issues).
+Controllate i [problemi aperti](https://github.com/anhelus/pcs/issues) per una lista di feature da implementare e problemi conosciuti.
 
 <!-- CONTRIBUTING -->
-## Contributing
+## Contributi
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contribuire ai progetti rende la comunità open source un posto magnifico per apprendere, ispirare e creare. Di conseguenza, tutti i contributi sono *ben accetti*. Per farlo:
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. creiamo un fork del progetto;
+2. creiamo un branch con la feature da implementare (`git checkout -b feature/AmazingFeature`);
+3. sviluppiamo la feature e facciamo la commit delle nostre modifiche (`git commit -m 'Add some AmazingFeature'`);
+4. facciamo il push del nuovo branch (`git push origin feature/AmazingFeature`);
+5. creiamo una pull request!
+
+Ricordiamoci di seguire sempre le [linee guida](CONTRIBUTING.md)!
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Questa repository è distribuita seguendo la lincenza MIT. Per ulteriori informazioni, controllare il file [`LICENSE`](LICENSE).
 
 <!-- CONTACT -->
-## Contact
+## Contatti
 
-Angelo Cardellicchio - [mailto](mailto:me@angelocardellicchio.it)
+* [Email](mailto:angelo.cardellicchio@stiima.cnr.it)
+* [Repository del progetto](https://github.com/anhelus/pcs)
 
-Project Link: [https://github.com/anhelus/python-calcolo-numerico](https://github.com/anhelus/python-calcolo-numerico)
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
+<!-- ACKNOWLEDGEMENTS
+## Riconoscimenti
 
 * []()
 * []()
-* []()
+* []() -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/anhelus/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/anhelus/python-calcolo-numerico/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/anhelus/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/anhelus/python-calcolo-numerico/network/members
-[stars-shield]: https://img.shields.io/github/stars/anhelus/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/anhelus/python-calcolo-numerico/stargazers
-[issues-shield]: https://img.shields.io/github/issues/anhelus/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/anhelus/python-calcolo-numerico/issues
-[license-shield]: https://img.shields.io/github/license/anhelus/repo.svg?style=for-the-badge
-[license-url]: https://github.com/anhelus/repo/blob/master/LICENSE.md
+[contributors-shield]: https://img.shields.io/github/contributors/anhelus/pcs.svg?style=for-the-badge
+[contributors-url]: https://github.com/anhelus/pcs/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/anhelus/pcs.svg?style=for-the-badge
+[forks-url]: https://github.com/anhelus/pcs/network/members
+[stars-shield]: https://img.shields.io/github/stars/anhelus/pcs.svg?style=for-the-badge
+[stars-url]: https://github.com/anhelus/pcs/stargazers
+[issues-shield]: https://img.shields.io/github/issues/anhelus/pcs.svg?style=for-the-badge
+[issues-url]: https://github.com/anhelus/pcs/issues
+[license-shield]: https://img.shields.io/github/license/anhelus/pcs.svg?style=for-the-badge
+[license-url]: https://github.com/anhelus/pcs/blob/master/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/angelocardellicchio
-

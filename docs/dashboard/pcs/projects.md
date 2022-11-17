@@ -26,7 +26,7 @@ Per prenotare un tema d'anno, è necessario compilare il form a [questo indirizz
 | TensorFlow/Keras | AutoML | :x: | Capodiferro - Nenna - Racanati |
 | TensorFlow/Keras | Image segmentation | :x: | Bellino - Gentile |
 | TensorFlow/Keras | Classificazione del testo con RNN | :x: | Maldera |
-| TensorFlow/Keras | Classificazione del testo con BERT | :white_check_mark: | |
+| TensorFlow/Keras | Classificazione del testo con BERT | :x: | Cotimbo |
 | TensorFlow/Keras | Predizione di serie temporali | :x: | Disanto - Ginestra - Pisani |
 | TensorFlow/Keras | Autoencoders | :x: | Loizzo |
 
@@ -38,3 +38,4 @@ Di seguito l'elenco delle proposte per il tema d'anno approvate.
 | ----------- | ----------- |
 | Decomposizione SVD | Gioiosa - Rubino - Nicoletti - Erione |
 | Color detection | De Giglio - Percoco |
+| Big transfer | Antonacci - Pacucci |
