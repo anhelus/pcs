@@ -1,12 +1,7 @@
 site_name: Python
-site_url: https://python.angelocardellicchio.it
 
 nav:
   - Home: index.md
-  # - Slides proiettate a lezione: material/slides/index.md
-  # - Bacheca avvisi: advices.md
-  # - Temi d'anno: material/projects/index.md
-  # - Notebook: material/notebooks/index.md
   - Parte 1 - Concetti base:
     - 1 - Introduzione a Python: 
       - Dispense: material/01_python/01_intro/lecture.md
@@ -118,14 +113,6 @@ nav:
 theme:
   name: material
   language: it
-  font:
-    text: Ubuntu
-    code: Ubuntu Mono
-  features:
-    # - navigation.tabs
-    # - navigation.tabs.sticky
-    - navigation.indexes
-    - navigation.top
 
 markdown_extensions:
   - admonition # notes make pretty
@@ -164,25 +151,8 @@ markdown_extensions:
 
 plugins:
   - search
-  # - with-pdf
-  # - i18n:
-  #     default_language: it
-  #     languages:
-  #       it:
-  #         name: Italiano
-  #         site_name: Python per il Calcolo Scientifico
-  #         build: true
-  #       en:
-  #         name: English
-  #         site_name: Python for Data Science
-  #         build: true
-  #     nav_translations:
-  #       en:
-  #         Home: Home
-  #         Dispense: Lecture
-  #         Esercizi: Exercises
-  #         Parte 1 - Concetti base: Part 1 - Basic concepts
-  #         1 - Introduzione a Python: 1 - Introduction to the Python language
+  - encryptcontent: {}
+
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -192,13 +162,6 @@ extra:
   analytics:
     provider: google
     property: G-ZCZWPCYZJ9
-  # alternate:
-  #   - name: Italian
-  #     link: /it/
-  #     lang: it
-  #   - name: English
-  #     link: /en/
-  #     lang: en
 
 extra_javascript:
   - js/config.js
