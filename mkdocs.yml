@@ -2,21 +2,27 @@ site_name: Python
 
 nav:
   - Home: index.md
-  - Parte 1 - Concetti base:
-    - 1 - Introduzione a Python: 
-      - Dispense: material/01_python/01_intro/lecture.md
+  - Parte 1 - Programmare in Python:
+    - 1.1 - Introduzione a Python: 
+      - Lezione: material/01_python/01_intro/lecture.md
       - Esercizi: material/01_python/01_intro/exercises.md
-    - 2 - Programmare in Python:
-      - Dispense: material/01_python/02_syntax/lecture.md
+    - 1.2 - Programmare in Python:
+      - Lezione: material/01_python/02_syntax/lecture.md
       - Esercizi: material/01_python/02_syntax/exercises.md
-    - 3 - Strutture dati:
-      - Dispense: material/01_python/03_data_structures/lecture.md
+    - 1.3 - Strutture dati:
+      - Lezione: material/01_python/03_data_structures/lecture.md
       - Esercizi: material/01_python/03_data_structures/exercises.md
-    - 4 - Classi:
-      - Dispense: material/01_python/04_classes/lecture.md
+    - 1.4 - Classi:
+      - Lezione: material/01_python/04_classes/lecture.md
       - Esercizi: material/01_python/04_classes/exercises.md
-    - 5 - Moduli:
-      - Dispense: material/01_python/05_modules/lecture.md
+    - 1.5 - Moduli:
+      - Lezione: material/01_python/05_modules/lecture.md
+    - 1.6 - Eccezioni:
+      - Lezione: material/01_python/06_exceptions/lecture.md
+    - 1.7 - Map, filter, reduce:
+      - Lezione: material/01_python/07_func_prog/lecture.md
+    - 1.8 - Funzioni lambda:
+      - Lezione: material/01_python/08_lambda/lecture.md
   - Parte 2 - Librerie:
     - 6 - Jupyter:
       - Dispense: material/02_libs/06_jupyter/lecture.md
@@ -94,6 +100,7 @@ nav:
     - 28 - TensorFlow Tips & Tricks:
       - Dispense: material/04_nn_tflow/28_tricks/lecture.md
       - Esercizi: material/04_nn_tflow/28_tricks/exercises.md
+    - 29 - prova: material/04_nn_tflow/aggiunte/decision_trees.md
   # - Parte 5 - Serie temporali:
   #   - 29 - Introduzione alle serie temporali:
   #     - Dispense: material/05_time_series/29_ts/lecture.md
