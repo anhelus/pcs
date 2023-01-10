@@ -323,5 +323,102 @@ La seguente illustrazione mostra quesrta idea. Qui, testiamo se l'accuracy dik v
 
 DA FIGURA 14
 
-https://developers.google.com/machine-learning/decision-forests/overfitting-and-pruning?hl=en
+La segyunte figura illustra l'effetto di usare il 20% del dataset come validazione per effettaure il pruning dell'albero decisionale.
 
+
+Notiamo che l'uso di un dataset di validazioen riduce il numero di esempi disponibili per l'addestramento iniziale dell'albero decisionale.
+
+Molti modelli inoltre applicano più criteri. Ad sempio, possiamo usare i seguenti:
+
+* applicare un numero minimo di campioni per nodo foglia
+* applicare una profondità massima per limitare la crescita dell'albero decisionale
+* effettuare il pruning dell'albero decisionale
+
+Questi criteri introducono nuovi iperparametri che devono essere impostati (ad esempio, la massima profondità dell'albero), spesso con tuning degli iperparametri automatizzzato. Gli alberi decisionali sono in geenrale abbastanza veloci da addestrare usando l'ottimizzazione degli iperparametri in crss-validazione. Per esempio, su un dataset con "n" campioni:
+
+* dividiamo i campioni di training in $p$ gruppi non-sovrapposti, per esempio $p=10$.
+* per tutti i possibili valori degli iperprametri, valutiamo, su ogni gruppo, la qualità dell'albero decisionale addestrato sugli altri $p-1$ gruppi; facciamo poi la media delle valutazioni sui diversi gruppi;
+* selezioniamo i valori degli iperparametri con la migliore valutazione media;
+* addestriamo un albero decisionale finale usando tutti gli $n$ campioni con gli iperparametri selezionati.
+
+In questa sezione abbiamo discusso il modo in cui gli alberi decisionali limintano l'overfitting. Nononstante questi metodi, l'underfitting e l'overfitting sono delle debolezze degli alberi decisionali. Le foreste decisionali introducono nuovi metodi per limtiare l'overfitting, come vedremo dopo.
+
+## interpretazione diretta dell'albero decisionale
+
+Gli alberi decisionali sono facili da interpretare. Detto questo, cambiare anche pochi esempi può modificare completamente la struttura (e quindi l'interpretazione) dell'albero decisionale.
+
+!!!note "Nota"
+    Specialmente quando il dataset contiene molte feature in qualche modo simili, l'albero decisionale appreso è solo uno di più alberi decisionali più o meno equivalnetni che fittano i dati.
+
+Visto il modo in cui gli alberi decisionali sono costruiti, effettuando il partizionalmento dei campiioni di trainging, si può usare un albero decisioanle per interpretare il dataset (invece di modellarlo). Ogni foglia rappresnta un particolare angolo del dataset. 
+
+## Importanza delle variabili
+
+Per *importasnza delle variabili* (detto anche *feature importance*) si intende un punteggio che indica quanto "importante" sia una feature per il modello. Ad esempio, se per un dato modello con due feature in input $f_1$ ed $f_2$ l'importanza delle variabili sono $f_1 = 5.8, f_2=2.5$, allora la feature $f1$ è più importante per il modello della feature $f2$. Così come per altri modelli di machine learning, l'importanza delle variabili è un modo semplice di comprendere come funziona un albero decisionale.
+
+Possiamo definire l'importanza delle feature in modo agnostico usando metodi come permutation impotrance.
+
+Gli alberi decisionali hanno anche delle specifiche importanze per le variabili, come:
+
+* somma dei punteggi parziali associati ad unac erta feaature
+* numero di nodi con una data feature
+* profondità media della prima occorrenza di unaf eature in tutti  i percorsi dell'albero
+
+L'importanza delle variabili può differire in base a qualità come semantica, scala o proprietà. Inoltre, l'importanza delle variabili foirnisce diversi tipi di informazione circa modello, dataset, e processo di addestramento.
+
+Ad esempio, il numero di condizioni contenenti una certa feature indca quanto un albero decisionale sta guardando a quella specifica feature, il che può indicare l'importanza della variabile. Dopo tutto, l'algoritmo di apprendimento non avrebbe usato una feature in diverse condizioni se questa non avesse avuot importanza. Tuttavia, la stessa feature che appare in più condizioni può anche indicare che il modello sta provando a generalizzare il pattern per quella feature, fallendo. Ad esempio, questo può accadere quando una feature è specifica per ogni campione (il nome e cognome), senza alcuna infomrazione da generalizzare.
+
+D'altro canto, un alto valore di importanza per la variabile indica che rimuovere quella feature inficia il modello, il che è un'indicazione dell'importanza della variabile. Tuttavia, se il modello è robusto, rimuovere una qualsiasi delle feature non dovrebbe influenzare il modello.
+
+Dato che diverse variabili informano su diversi aspetti del modello, osservare contestualmente l'importanza di diverse varaibili è informativo. Ad esempio, se una feature è importante in accordo a tutte le altre, è plausibile che sia molto importante. 
+
+## Esempio con tensorflow-decision
+
+Vediamo come usare la libreria TF-DF per addestrare, rifinire ed interpretare un albero decisionale.
+
+Possiamo farlo sia in locale, sia da un notebook Colab. Per farlo, dovremo installare la libreria TensorFlow Decision Forests.
+
+```sh
+pipenv install tensorflow_decision_forests
+```
+
+All'apice del nostro codice, importiamo le seguenti librerie:
+
+```py
+import numpy as np
+import pandas as pd
+import tensorflow_decision_forests as tfdf
+```
+
+Useremo il dataset relativo ai Palmer Pengiuns, che contiene le misurazioni in termini di dimensione per tre specier di pinguini , ovvero il pigoscelide antartico (Chinstrap), il pinguino Gentoo, ed il pinguino di Adelia (Adelie).
+
+Per prima cosa, carichiamo il dataset in memoria utilizznado Pandas:
+
+```py
+path = "https://storage.googleapis.com/download.tensorflow.org/data/palmer_penguins/penguins.csv"
+dataset = pd.read_csv(path)
+```
+
+Visualizziamo la testa del dataset.
+
+```py
+dataset.head()
+```
+
+TODO: IMMAGINE
+
+Notiamo come il dataset contenga diversi tipi di dato, sia numerici (ad esempio, bill_length_mm), sia categorici (ad esempio, sex). Vi sono inoltre delle feature mancanti. A differenza delle reti nuerali, tuttavia, le foreste decisionali sono in grado di supportare tutti questi tipi di feature in maneira nativa, per cui non dobbiamo effettaure encoding, normalizzazioni o roba del genere.
+
+Per semplificare l'interpretabilità, convertiamo manualmente le specie dei pinguini in label intere:
+
+```py
+label = "species"
+
+classes = list(pandas_dataset[label].unique())
+print(f"Label classes: {classes}")
+# >> Label classes: ['Adelie', 'Gentoo', 'Chinstrap']
+
+pandas_dataset[label] = pandas_dataset[label].map(classes.index)
+```
+
+https://developers.google.com/machine-learning/decision-forests/practice?hl=en

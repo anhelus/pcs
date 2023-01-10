@@ -1,4 +1,4 @@
-# 5 - Script e moduli
+# 1.5 - Script e moduli
 
 Quando si usa Python la tentazione è quella di interagire direttamente con l'interprete, lanciandolo da terminale ed eseguendo di volta in volta le istruzioni necessarie. Ovviamente questo approccio, seppur immediato, presenta diversi svantaggi. Ad esempio:
 
@@ -8,7 +8,7 @@ Quando si usa Python la tentazione è quella di interagire direttamente con l'in
 
 Appare quindi evidente come usare l'interprete *non* sia un modo ottimale di sviluppare codice Python. Di conseguenza, sarà necessario definire, mediante la nostra IDE di riferimento, dei veri e propri *script* che saranno salvati sotto forma di file con estensione `.py`, ognuno dei quali contenenti una serie di istruzioni necessarie all'esecuzione del nostro programma.
 
-## 5.1 - Il primo script
+## 1.5.1 - Il primo script
 
 Proviamo quindi a creare il nostro primo script Python. Per farlo, apriamo la nostra IDE di riferimento, come Visual Studio Code, e creiamo un file chiamato `main.py`, all'interno del quale inseriremo il seguente codice:
 

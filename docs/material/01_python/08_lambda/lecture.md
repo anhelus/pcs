@@ -1,3 +1,5 @@
+# 1.8 - Calcolo lambda in Python
+
 Python ed altri linguaggi come Java, C#, ed anche C++, hanno avuto avuto delle funzioni lambda aggiunte alla loro sintassi, mentre linguaggi come LISP o F# usano le lambda come concetto core.
 
 Le lambda in Python sono delle piccole funzioni anonime, soggette ad una sintassi più restrittiva, ma concisa, rispetto alle funzioni regolari Python.

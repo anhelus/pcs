@@ -1,8 +1,8 @@
-# 1.6: Le eccezioni in Python
+# 1.6 - Le eccezioni in Python
 
 Un programma Python termina appena trova un errore. Un errore in Python può essere di due tipi: un errore di sintassi, o un'eccezione. In questa lezione, parleremo delle seconde.
 
-## 1.6.1 Eccezioni vs Errori di sintassi
+## 1.6.1 - Eccezioni vs Errori di sintassi
 
 Gli errori di sintassi avvengono quando il parser individua un'istruzione non corretta. Facciamo un breve esempio:
 
