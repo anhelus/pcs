@@ -1,10 +1,12 @@
-# 1.6 - Le eccezioni in Python
+# 1.6 - La gestione degli errori
 
-Un programma Python termina appena trova un errore. Un errore in Python può essere di due tipi: un errore di sintassi, o un'eccezione. In questa lezione, parleremo delle seconde.
+Nella maggior parte dei linguaggi interpretati, l'esecuzione di un programma termina non appena viene individuato un errore.
 
-## 1.6.1 - Eccezioni vs Errori di sintassi
+In Python, esistono due tipi di errore: il primo è quello *sintattico*, mentre il secondo è chiamato *eccezione*.
 
-Gli errori di sintassi avvengono quando il parser individua un'istruzione non corretta. Facciamo un breve esempio:
+## 1.6.1 - Errori sintattici ed eccezioni
+
+Gli errori di sintassi avvengono qunado il parser individua un'istruzione scritta in maniera non corretta. Ad esempio:
 
 ```py
 >>> print(0/0))
@@ -14,30 +16,42 @@ Gli errori di sintassi avvengono quando il parser individua un'istruzione non co
 SyntaxError: unmatched ')'
 ```
 
-In questo caso, le frecce indicano dove il parser ha trovato un errore sintattico. In particolare, vi era una parentesi di troppo. Se la rimuoviamo ed eseguiamo nuovamente il codcie:
+In questo caso, notiamo la presenza di una parentesi di chiusura di troppo. Di conseguenza, Python lancia un `SyntaxError`, indicandoci anche dove è occorso l'errore (in questo caso, mediante l'informazione `unmatched ')'`).
+
+Proviamo adesso a rimuovere la parentesi.
 
 ```py
 >>> print(0/0)
+```
+
+Se proviamo ad eseguire questa istruzione, avremo l'altro tipo di errore, ovvero l'eccezione. In questo caso, infatti, il codice risulta essere (sintatticamente) corretto, ma è comunque occorso un evento ritenuto "impossibile", che viene adeguatamente descritto nel `Traceback`:
+
+```py
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ZeroDivisionError: division by zero
 ```
 
-Stavolta abbiamo un altro tipo di errore, ovvero un'eccezione. Questo tipo di errore avviene quando del codice Python sintatticamente corretto ha un errore. L'ultima riga del messaggio indica che tipo di eccezione abbiamo riscontrato. In questo caso, era una ZeroDivisionError. Python offre diverse eccezioni integrate, così come la possibilità di creare eccezioni defintie da noi.
+In particolare, notiamo come il traceback ci dia diverse informazioni:
 
-## Lanciare un'eccezione
+* il *file* dove è stata generata l'eccezione. In questo caso, viene riportato `<stdin>` perché il codice precedente è stato inserito mediante interprete;
+* la *riga* dove è occorsa l'eccezione. In questo caso, notiamo che è riportato `line 1`;
+* il *tipo* di eccezione occorsa, con una breve descrizione dell'errore. In questo caso, notiamo come venga lanciata una [`ZeroDivisionError`](https://docs.python.org/3/library/exceptions.html#ZeroDivisionError), che occorre quando il secondo argomento della divisione è pari a 0.
 
-Possiamo usare la parola chaive `raise` per lanciare un'eccezione nel caso avvenga un'eccezione., L'istruzione può avere anche un'eccezione custom associata.
+!!!note "Eccezioni built-in"
+    Notiamo come l'eccezione `ZeroDivisionError` sia una *built-in exception*, ovvero un'eccezione già integrata nel linguaggio Python, che comunque ci offre la possibilità di definire da noi nuovi tipi di eccezione. Per una panoramica completa, consultare la [reference](https://docs.python.org/3/library/exceptions.html#built-in-exceptions).
 
-Se vogliamo lanciare un errore quando occorre una certa condizione usando raise, possiamo fare come segue:
+## 1.6.2 - Lanciare un'eccezione
+
+Possiamo lanciare una specifica eccezione all'occorrenza di una condizione non voluta all'interno del nosro codice utilizzando l'istruzione `raise`. Ad esempio, possiamo verificare che il valore di una variabile non sia superiore ad un dato numero:
 
 ```py
->>> x = 10
->>> if x > 5:
-...     raise Exception(f'x vale {x}. Non deve superare 5.')
+x = 10
+if x > 5:
+    raise Exception(f'x vale {x}. Non deve superare 5.')
 ```
 
-Quando eseguiamo questo codice, avremo il seguente risutlato.
+Provando ad eseguire il codice precedente, avremo il seguente risultato:
 
 ```py
 Traceback (most recent call last):
@@ -45,111 +59,120 @@ Traceback (most recent call last):
 Exception: x vale 10. Non deve superare 5.
 ```
 
-Il programma si ferma, e visualizza l'eccezione a schermo, offrendo dei suggerimenti chje indicano cosa sia andato storto.
+Dal traceback, notiamo come sia stata lanciata un'eccezione generica con il messaggio da noi elaborato.
 
-## L'eccezione AssertionError
+## 1.6.3 - L'istruzione assert
 
-Invece di attender che un programma termini, possiamo anche iniziare usando una *assertion*. In altre parole, affermiamo che avvenga una certa condizione. SE questa condizione è vera, il programma può continuare. Altrimenti, il programma può lanciare un'eccezione di tipo AssertionError.
+Un altro modo di gestire situaizoni impreviste è quello di utilizzare l'istruzione `assert`, che verifica la condizione passata come parametro. Se tale condizione risulta essere vera, il programma continuerà la sua esecuzione; in alternativa, sarà lanciata un'eccezione di tipo `AssertionError`.
 
-Facciamo un esempio. Verifichiamo, ad esempio, che il codice sia eseguito su un sistema Windows.
+Possiamo, ad esempio, verificare che il nostro codice sia eseguito su un sistema Windows.
 
 ```py
->>> import sys
->>> assert ('win32' in sys.platform), 'Questo codice può essere eseguito solo su Windows'
+import sys
+assert ('win32' in sys.platform), 'Questo codice può essere eseguito solo su una macchina Windows!'
 ```
 
-Se eseguiamo questo codice su una macchina Windwos, non accadrà nulla, ed il programma continuerà la sua esecuzione. Se invece il codice viene eseguito su una macchina Unix, avremo un'eccezione del seguente tipo:
+Eseguendo questa istruzione su una macchina Windows, non sarà lanciata alcuna eccezione, ed il programma continuerà tranquillamente l'esecuzione. Eseguendo invece lo stesso codice su una macchina Unix, sarà lanciata un'`AssertionError`, ed il programma terminerà:
 
 ```py
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-AssertionError: Questo codice può essere eseguito solo su Windows
+AssertionError: Questo codice può essere eseguito solo su una macchina Windows!
 ```
 
-Ovviamente, se viene incontrata un'eccezione di questo tipo, il programma si arresta. Tuttavia, cosa accadrebbe se volessimo che l'esecuzione continuasse?
+## 1.6.4 - Gestione delle eccezioni: il blocco try/except
 
-## Gestione delle eccezioni
+Abbiamo visto come le istruzioni `raise` ed `assert` permettano di verificare rispettivamente l'occorrenza di un errore o di una determinata condizione. Tuttavia, è possibile *gestire* le situazioni in cui avviene un errore; per farlo, è necessario utilizzare il blocco `try/except`.
 
-La gestione delle eccezioni in Python avviene mediante il blocco definito dalle istruzioni `try` ed `except`. Python esegue il codice contenuto in un'istruzione `try` come "ramo normale" del programma. Invece, il codice che segue l'istruzione `except` rappresenta la risposta del programma ad una qualsiasi eccezione trovata nella precedente clausola try.
+Nella pratica, durante l'esecuzione normale del programma, Python eseguirà regolarmente le istruzioni contenute nella clausola `try`. Tuttavia, se viene riscontrata un'eccezione, il controllo passerà direttamente alla clausola `except`, cui è delegato il compito di gestirla. Questo funzionamento è schematizzato nella figura successiva.
 
-Come abbiamo visto prima, quanod il coidce sintatticamente corretto trova un errore, Python lancerà un'eccezione. Questa farà terminare il programma se non correttamente gestita. Il blocco `except` determina come il programma risponda alle eccezioni.
+```mermaid
+---
+title: Flusso in un blocco try/except
+---
+stateDiagram-v2
+    state if_state <<choice>>
+    state join_state <<join>>
+    "Programma" --> "Blocco try/except"
+    "Clausola try" --> if_state
+    if_state --> "Clausola except": Eccezione
+    "Clausola except" --> join_state
+    if_state --> join_state
+    join_state --> "Programma"
+```
 
-La seguente funzione può aiutarci a comprendere il blocco `try/except`.
+Notiamo come l'esecuzione del programma debba (idealmente) continuare, che la clausola `except` venga eseguita o meno. Proviamo a definire la funzione `controlla_sistema_operativo()`, che controlla se siamo su Windows:
 
 ```py
-def su_windows():
-    assert ('win32' in sys.platform), 'Dobbiamo usare un sistema Windows'
-    print('Siamo su Windows!')
+def controlla_sistema_operativo():
+    assert ('win32' in sys.platform), 'Questo codice può essere eseguito solo su una macchina Windows!'
+    print('Il sistema operativo è Windows!')
 ```
 
-La funzione `su_windows()` può essere eseguita soltanto su un sistema Windows. L'istruzione `assert` infatti farà in modo che venga lanciata un'eccezione `AssertionError` se chiamiamo la funzione `su_windows()` su un sistema che non è di questo tipo.
-
-Proviamo a lanciare la funzione usando un `try/except`:
+Nella funzione `controlla_sistema_operativo()`, l'istruzione `assert` controlla che si sia su una macchina Windows; in caso contrario, sarà lanciata un'eccezione di tipo `AssertionError`. Proviamo ad integrare la funzione all'interno di un blocco `try/except`:
 
 ```py
 try:
-    su_windows()
+    controlla_sistema_operativo()
 except:
     pass
 ```
 
-Usando questa sintassi, gestiremo l'errore mediante un'istruzione `pass`. Se eseguiamo questo codice su una macchina Linux, non avremo nulla in output. L'unico risultato che saremo riusciti ad ottenree sarà che il programma non sarà andato in crash: tuttavia, sarebbe utile avere un qualche tipo di avviso o gestione dell'eccezione. Per farlo, proviamo a cambiare il codice precedente come segue:
+In questo caso, la gestione dell'errore sarà delegata ad un'istruzione `pass` che, come sappiamo, non fa nulla. Eseguendo questo codice su una macchina Windows, sarà mandato a schermo il messaggio `Il sistema operativo è Windows!`, indice del fatto che l'`assert` non ha lanciato un'eccezione di tipo `AssertionError`. Se invece dovessimo eseguire questa funzione su una macchina Linux, non avremmo alcun risultato: infatti, la clausola `try` catturerebbe l'`AssertionError` e ne delegherebbe la gestione alla clausola `except`, che si limita ad eseguire un'istruzione `pass`.
+
+Proviamo a modificare il codice precedente come segue:
 
 ```py
 try:
-    su_windows()
+    controlla_sistema_operativo()
 except:
     print('Sembra che non siamo su Windows!')
 ```
 
-Eseguiamo questo codice su una macchina Linux:
+Eseguendo questo codice su macchina Linux, avremo il seguente messaggio:
 
 ```sh
 Sembra che non siamo su Windows!
 ```
 
-Quando avviene un'eccezione in un programma che esegue questa funzione, il programma continuerà informandoci del fatto che la chiamata a funzione non ha avuto successo. Quello che non abbiamo visto è stato il tipo di errore lanciato come risultato della chiamata a funzione. Per vedere quello che è andato male, dobbiamo catturare l'errore lanciato dalla funzione.
+### 1.6.4.1 - Gestione di eccezioni specifiche
 
-Il seguente codice è un esempio dove catturiamo l'`AssertionError` e mandiamo a schermo questo messaggio:
+Come è possibile verificare dal codice precedente, qualora venga lanciata un'eccezione, non sarà più disponibile il Traceback visto in precedenza, bensì il messaggio `Sembra che non siamo su Windows!`. Ciò comporta un problema: infatti, non avremo informazioni a riguardo di *quale eccezione* sia stata lanciata. Per recuperare queste informazioni, dovremo fare una modifica all'istruzione `except`:
 
 ```py
 try:
-    su_windows()
+    controlla_sistema_operativo()
 except AssertionError as error:
     print(error)
-    print('La funzione su_windows() non è stata eseguita')
+    print('Sembra che non siamo su Windows!')
 ```
 
-Se eseguiamo questa funzione su una macchina Linux, avremo il seguente output:
+Eseguendo questa funzione su macchina Linux, l'output sarà stavolta il seguente:
 
 ```sh
-Dobbiamo usare un sistema Windows
-La funzione su_windows() non è stata eseguita
+Questo codice può essere eseguito solo su una macchina Windows!
+Sembra che non siamo su Windows!
 ```
 
-Il primo messaggio è dato dall'`AssertionError`, che ci dice che la fuznione può essere eseguita soltanto su una macchina Windows. Il secondo messaggio ci indica quale funzione non è stata eseguita.
+Il primo messaggio, quindi, è lanciato a valle della mancata verifica della condizione nella clausola `assert` specificata in `controlla_sistema_operativo()`, mentre il secondo è direttamente specificato nella clausola `except`.
 
-Nell'esempio precedente, abbiamo chiamato una funzione che abbiamo scritto noi stessi. Quando eseguiamo la funzione, catturiamo l'eccezione `AssertionError` e la stampiamo a schermo.
-
-Ecco un altro esempio dove apriamo un file ed usiamo un'eccezione built-in:
+Vediamo un altro esempio, nel quale proviamo ad aprire un file, gestendo l'eccezione lanciata quando questo non esiste:
 
 ```py
 try:
     with open('file.log') as file:
         read_data = file.read()
 except:
-    print('Impossibile aprire il file')
+    print('Impossibile aprire il file specificato.')
 ```
 
-Dato che file.log non esiste, il coidce precedente manderà in uscita il seguente:
+Eseguendo questo codice, una volta appurato che `file.log` non esiste, avremo il seguente messaggio:
 
 ```sh
-Impossibile aprire il file
+Impossibile aprire il file specificato.
 ```
 
-Questo è un messaggio abbastanza informativo, ed il nostro programma continuerà laa sua esecuzione. Nei [documenti Python](https://docs.python.org/3/library/exceptions.html), possiamo vedere come ci siano molte eccezioni built-in che è possibile utilizzare. Un'eccezione descritta su questa pagina è FileNotFoundError, che viene lanciata quanod il file o la cartella richiesti non esistono.
-
-Per catturare questo tipo di eccezione e mandarla a schermo, possiamo usare il codice seguente:
+Nonostante il messaggio sia abbastanza informativo, stiamo comunque gestendo *tutte* le possibili eccezioni all'interno della clausola `except`. Cerchiamo quindi di trovarne una più adatta al nostro scopo tra quelle specificate nella [reference Python](https://docs.python.org/3/library/exceptions.html). In particolare, scegliamo l'eccezione [FileNotFoundError](https://docs.python.org/3/library/exceptions.html#FileNotFoundError), e modifichiamo il codice come segue:
 
 ```py
 try:
@@ -159,74 +182,94 @@ except FileNotFoundError as error:
     print(error)
 ```
 
-In questo caso, se `file.log` non esiste, avremo il seguente output:
+In questo caso, se `file.log` non esiste, in output sarà mandato il messaggio associato all'eccezione `FileNotFoundError`, ovvero:
 
 ```sh
 [Errno 2] No such file or directory: 'file.log'
 ```
 
-Da notare che nell'istruzione `try` è possibile avere più di un'istruzione, e che l'`except` può gestire diverse eccezioni. Da notare inoltre come il codice nel `try` si fermerà non appena si trova un'eccezione.
+### 1.6.4.2 - Eccezioni multiple
 
-La gestione delle eccezioni "nasconde" i diversi errori che possono comparire nel codice, compresi quelli inattesi. Per questo motivo, dovremmo evitare di scrivere degli except "generici", ma dovremmo focalizzarci su specifiche classi di eccezione da gestire.
+A questo punto è importante sottolineare come il blocco `try/except` sia in grado di gestire situazioni anche abbastanza complesse. Infatti, laddove è evidente come la clausola `try` sia in grado di contenere diverse istruzioni, anche la clausola `except` può gestire diverse tipologie di eccezione.
 
-Vediamo questo esempio, nel quale prima chiamiamo `su_windows()` e poi proviamo ad aprire un file:
+In tal senso, proviamo a modificare il nostro codice, controllando dapprima il sistema operativo, e poi provando a leggere un file:
 
 ```py
 try:
-    su_windows()
+    controlla_sistema_operativo()
     with open('file.log') as file:
         read_data = file.read()
-except FileNotFoundError as fnf_error:
-    print(fnf_error)
+except FileNotFoundError:
+    print('Il file specificato non esiste.')
 except AssertionError as error:
     print(error)
-    print('La funzione su_windows() non è stata eseguita')
+    print('Sembra che non siamo su Windows!')
 ```
 
-Se `file.log` non esiste, eseguire questo codice su una macchina Linux darà in uscita i seguenti messaggi:
+Vediamo cosa succede in due diversi casi. Per prima cosa, eseguiamo il codice su macchina Linux, con `file.log` non esistente. In questo caso, il codice darà in output i seguenti messaggi:
 
 ```sh
-Dobbiamo usare un sistema Windows
-La funzione su_windows() non è stata eseguita
+Questo codice può essere eseguito solo su una macchina Windows!
+Sembra che non siamo su Windows!
 ```
 
-All'interno del `try`, abbiamo immediatamente riscontrato un'eccezione, non arrivando alla parte dove proviamo ad aprire `file.log`. Vediamoa desso cosa accade quando eseguiamo il codice su una macchina Windows.
+In pratica, la prima istruzione del `try`, delegata al controllo del sistema operativo, riscontra un'eccezione, per cui viene chiamata la seconda clausola `except`. Nel caso invece si esegua il codice su macchina Windows, e supponendo sempre l'assenza di `file.log`, il risultato sarà il seguente:
 
 ```sh
 Siamo su Windows!
-[Errno 2] No such file or directory: 'file.log'
+Il file specificato non esiste.
 ```
 
-Di conseguenza:
+In questo caso, la clausola `try` non ha riscontrato problemi nell'esecuzione della prima istruzione. Tuttavia, l'eccezione è stata lanciata in corrispondenza della fase di lettura del file, lanciando un'eccezione gestita dalla prima clausola `except`.
 
-* il `try` viene eseguito fino al punto dove si trova la prima eccezione;
-* all'interno dell'`except`, determiniamo come il programma risponde all'eccezione.
+## 1.6.5 - La clausola else
 
-In definitiva, è meglio *evitare l'utilizzo di `except` generici*.
-
-## L'else
-
-In Python l'uso dell'istruzione `else` ci permette di dire ad un programma di eseguire un certo blocco di codice soltanto ina ssenza di eccezioni.
-
-Vediamo il seguente esempio:
+La clausola `else` può essere usata in abbinamento al blocco `try/except` per eseguire un certo blocco di codice *soltanto in assenza di eccezioni*. Ad esempio:
 
 ```py
 try:
-    su_windows()
+    controlla_sistema_operativo()
 except AssertionError as error:
     print(error)
 else:
-    print('Eseguo la clausola else.')
+    print('Il sistema operativo è Windows!')
 ```
 
-Se eseguiamo questo codice su un sistgema Widnows, l'output sarà il seguente:
+Eseguendo questo codice su Windows, il programma non riscontrerà alcuna eccezione, e l'output sarà quello esplicitato nella clausola `else`:
 
 ```sh
 Siamo su Windows!
-Eseguo la clausola else.
+Il sistema operativo è Windows!
 ```
 
-Dato che il programma non ha trovato alcuna eccezione, è stata eseguita la clausola else. Possiamo anche provare ad eseguire del codice all'interno della clausola else, catturando le possibili eccezioni:
+Potremmo usare una clausola `else` per gestire ulteriori eccezioni. Ad esempio, proviamo ad eseguire questo blocco di codice su una macchina Windows (e senza il file `file.log`):
+
+```py
+try:
+    controlla_sistema_operativo()
+except AssertionError as error:
+    print(error)
+else:
+    try:
+        with open('file.log') as file:
+            read_data = file.read()
+    except FileNotFoundError:
+        print('Il file specificato non esiste.')
+```
+
+Il risultato sarà:
+
+```sh
+Siamo su Windows!
+Il file specificato non esiste.
+```
+
+!!!tip "Suggerimento"
+    Ricordiamo sempre che la clausola `else` viene eseguita *soltanto se non sono state trovate eccezioni*. Se è stata trovata un'eccezione, e gestita nell'`except`, il flusso del programma continuerà comunque la sua regolare esecuzione, ma l'`else` non sarà invocato.
+
+## 1.6.6 - La clausola finally
+
+La clausola `finally` ci permette di eseguire delle istruzioni indipendentemente dal fatto che siano state riscontrate o meno eccezioni in un blocco `try/except` antecedente. Andiamo a modificare leggermente il codice relativo all'ultimo esempio:
 
 ```py
 try:
@@ -237,55 +280,33 @@ else:
     try:
         with open('file.log') as file:
             read_data = file.read()
-    except FileNotFoundError as fnf_error:
-        print(fnf_error)
-```
-
-Proviamo ad eseguire questo codice su macchina Windows. Il risultato sarà:
-
-```sh
-Siamo su Windows!
-[Errno 2] No such file or directory: 'file.log'
-```
-
-Vediamo quindi come la funzione `su_windows()` sia stata correttamente eseguita. Dato che non è stata trovata alcuna eccezione, il programma ha provato ad aprire `file.log`. Tuttavia, questo file non esiste, ed invece di aprirlo, è stata catturata l'eccezione `FileNotFoundError`.
-
-## Pulizia dopo l'uso di finally
-
-Immaginiamo che dobbiamo sempre implementare un qualche tipo di azione per pulire il codice dopo l'esecuzione. Python ci permette di farlo mediante la clausola `finally`.
-
-Facciamo un esempio:
-
-```py
-try:
-    su_windows()
-except AssertionError as error:
-    print(error)
-else:
-    try:
-        with open('file.log') as file:
-            read_data = file.read()
-    except FileNotFoundError as fnf_error:
-        print(fnf_error)
+    except FileNotFoundError:
+        print('Il file specificato non esiste.')
 finally:
-    print('Istruzioni di pulizia. Eseguite indipendentemente dal resto del programma.')
+    print('Istruzioni eseguite indipendentemente dal resto del programma.')
 ```
 
-Nel codice precedente, ciò che è presente nella clausola `finally` sarà sempre eseguito. Non importa che si sia trovata un'eccezione nelle clausole `try` o `else`. Se provassimo ad eseguire questo codice su una macchina Windows, avremmo il seguente output:
+In questo caso, ciò che viene inserito nella clausola `finally` sarà sempre eseguito, indipendentemente da ciò che è accaduto nel codice precedente. Provando ad eseguire questo codice su macchina Windows in assenza di `file.log`, avremo il seguente output:
 
 ```sh
 Siamo su Windows!
-[Errno 2] No such file or directory: 'file.log'
-Istruzioni di pulizia. Eseguite indipendentemente dal resto del programma.
+Il file specificato non esiste.
+Istruzioni eseguite indipendentemente dal resto del programma.
 ```
 
-## Conclusioni
+!!!tip "L'utilità della clausola `finally`"
+    La clausola `finally` trova utilità in tutte quelle situazioni nelle quali è necessario effettuare delle operazioni a valle della gestione dell'eccezione. Queste operazioni sono spesso definite "di pulizia", perché prevedono l'eliminazione di stati o variabili che possono occupare memoria e che non sono più utili ai fini dell'esecuzione del programma.
 
-Abbiamo visto la differenza tra gli errori sintattici e le eccezioni, ed abbiamo visto come lanciare e gestire le eccezioni in Python. In particolare:
+## 1.6.6 - Per ricapitolare...
 
-* usando la clausola `raise`, potremo lanciare un'eccezione in qualsiasi momento;
-* mediante la clausola `assert`, potremo verificare se una certa condizione èp rispettata, e lanciare un eccezione se non lo è;
-* nella clausola `try`, tutte le istruzioni sono eseguite fino a che non si trova un'eccezione;
-* la clausola `except` è usata per catturare e gestire una o più eccezioni trovate nella clausola `try`;
-* la clausola `else`, in questo contesto, ci permette di eseguire blocchi di codice esclusivamente qunado non sono individuate delle eccezioni nel `try`;
-* la clausola `finally` ci permette di eseguire sezioni di codice *indipendentemente* dal fatto che si siano trovate o meno eccezioni in precedenza.
+In questa lezione, abbiamo:
+
+* visto la differenza tra *errore sintattico* ed *eccezione*;
+* utilizzato l'istruzione `raise` per lanciare un'eccezione in qualsiasi momento;
+* utilizzato l'istruzione `assert` per verificare il rispetto di una determinata condizione, lanciando in caso contrario un `AssertionError`;
+* utilizzato la clausola `try` per verificare l'occorrenza di eccezioni all'interno di un blocco di istruzioni;
+* utilizzato la clausola `except` per catturare e gestire una o più delle eccezioni trovate nella clausola `try` corrispondente;
+* utilizzato la clausola `else` per eseguire blocchi di codice *esclusivamente* nel caso non siano state individuate eccezioni nel `try` precedente;
+* utilizzato la clausola `finally` per eseguire blocchi di codice *indipendentemente* dal fatto che siano state individuate o meno eccezioni.
+
+Nella [prossima lezione](../07_func_prog/lecture.md) andremo ad introdurre i principi alla base della programmazione funzionale.
