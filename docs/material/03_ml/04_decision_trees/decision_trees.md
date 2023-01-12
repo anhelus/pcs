@@ -1,47 +1,31 @@
-# Introduzione agli alberi decisionali
+# X.X - Gli alberi decisionali
 
-In questa lezione, vedremo un'introduzione agli alberi decisionali.
+Gli *alberi decisionali* sono una tra le famiglie di modelli maggiormente utilizzate per l'apprendimento supervisionato, sia in fase di classificazione, sia in fase di regressione. Offrono alcuni benefici rispetto agli altri modelli, tra cui:
 
-Gli alberi decisionali sono una famiglia di modelli di apprendimento supervisionato. Forniscono i seguenti benefici:
+* una maggiore semplicità di configurazione rispetto alle reti neurali, legata alla presenza di meno iperparametri, il cui tuning, tra l'altro, risulta essere meno influente per le prestazioni finali (in pratica, è possibile utilizzare tranquillamente i valori di default);
+* la capacità di gestire feature di diverso tipo (ad esempio, numeriche, categoriche, o anche mancanti), il che comporta la possibilità di effettuare meno preprocessing rispetto ad altri modelli;
+* la possibilità di essere usati su dataset di piccole dimensioni con una maggiore efficienza rispetto a modelli più complessi come le rete neurali.
 
-* sono piu semplici da configurare rispetto alle reti neurali. Gli alberi decisionali hanno meno iperparmetri e, inoltre, questi sono di solito meno influenti (in pratica, possiamo tranquillamente usare i valori di default).
-* gestiscono in maniera nativa feature numeriche, categoriche e mancanti. Questo singifica possiamo scrivere molto meno codice di preprocessing rispetto a quello necessario quando si usa una rete neruale, il che ci permette di risparmiare tempo e ridurre le sorgenti di errore nel codice.
-* Spesso inoltre ci forniscono buoni risultati, sono robuste a dati rumorisi, ed hanno proprietà interpretabili.
-* possono essere usate su piccoli dataset (ovvero, tutti i dataset con meno di un milione di esempi) in modo molto piu rapido rispetto alle reti neurali.
+Da non sottovalutare, inoltre, il fatto che gli alberi decisionali forniscono spesso buoni risultati, sono robusti al rumore, ed hanno dei risultati che sono facilmente interpretabile.
 
-Gli alberi decisionali danno ottimi risultati nelle competizioni che prevedono il machine learnign, e sono molto usati in task di tipo industraile. Gli alberi decisionali sono pratici, efficienti, ed interpretabili. Possiamo usarli per molti task di apprendimento supervisionato, incluso classificazione e regressione.
+## X.X. - Dataset per gli alberi decisionali
 
-## Dati per DT
+Gli alberi decisionali risultano essere molto efficaci quando si ha a che fare con dataset di tipo tabulare, come file CSV o tabelle di un database. Un esempio è, ovviamente, il dataset Titanic. Inoltre, non abbiamo la necessità di effettuare operazioni di preprocessing, come normalizzazioni, one-hot encoding, o data imputation.
 
-Gli alberi decisionali sono efficaci quando abbiamo a che fare con un dataset tabellare (i dati che possiamo rappresentare ad esempio in un file CSV, o in una tabella di un database). I dati tabulari sono uno dei formati di dati piu comuni, e gli alberi decisionali dovrebbero essere unad delle soluzioni "di scelta" per modellarli.
-
-TODO: ESEMPIO
-
-A differenza delle reti neurali, gli alberi decisionali consumano nativamente dati tabellari. QUando si sviluppano gli alberi decisionali, non dobbiamo fare task come ad esempio:
-
-* preprocessing, come normalizzazione o one-hot encodign
-* data imputation: possiamo, ad esempio, rimpiazzare un valore mancante con -1.
-
-Tuttavia, gli alberi decisionali non sono adatti ad usare direttamente dati non tabellari (anche detti dati non strutturati), come immagini o testo. Esistono ovviamente dei trucchi per aggirare questa limitazione, ma le reti neurali normalmente sono piu adatte a gestire dati di questo tipo.
+Tuttavia, gli alberi decisionali non sono assolutamente adatti ad essere utilizzati su dati non tabulari (anche detti *non strutturati*), come ad esempio immagini o testo. 
 
 ## Performance
 
-Gli alberi decisionali sono *sample efficient*. Questo significa che sono adatti ad essere addestrati su piccoli dataset, o su dataaset dove il rapportot ra feature e numero di campioni è alto (possibilemnte piu grande di 1). Anche se gli alberi decisionali sono sample efficient, come tutti gli algoritmi di machine learning, funzionano meglio quando sono disponibili molti dati.
+Gli alberi decisionali possono essere addestrati con efficacia su piccoli dataset, o su dataset sui quali comunque il rapporto tra feature e numero di campioni non è di molto superiore ad 1.
 
-Gli alberi decisionali tipicamente effettuano l'inferenza piu velocemente di reti neurali comparabili. Ad esempio, un albero decisionale di medie dimensioni e in grado di eseguire l'inferenza in pochi microsecondi su una CPU moderna.
+!!!note "Efficacia degli alberi"
+    Anche se gli alberi decisionali sono efficaci in caso di rapporto quasi unitario tra feature e numero di campioni (*sample efficiency*), il funzionamento migliora quando sono disponibili molti dati, così come tutti gli algoritmi di machine learning.
 
-## Cosa sono gli alberi decisionali?ù
+## Funzionamento degli alberi decisionali
 
-Le foreste decisionali sono composte da alberi decsiionali. Gli algoritmi di questo tipo, conme le random forsetg, si affidano, almeno in parte, all'apprendimento negli alberi decisionali.
+Vediamo un esempio di funzionamento degli alberi decisionali.
 
-Vedremo quindi un piccolo datasaet di esempio, ed apprenderemo come addestarre un singolo albero decisionale. Nelle sezioni successive, apprenderemo come combinare gli alberi decisionali per addestrare una decision forest.
-
-## Il modello
-
-Un albero decisionale è un modello composto da un insieme di "domande" organizzate gerarchiamente sotto forma di un albero. Queste domande sono normalmente chiamente *condizioni*, *split*, o *test*.
- Ognuno dei nodi non-foglia dell'albero contiene una condizione, ed ogni foglia contiene una predizione.
-
-A differenza degli alberi "classici", che crescono con la radice alla base, gli alberi decisionali sono spesso rappresentrai con la radice (ovvero il primo nodo) all'apice.
+Un albero decisionale non è altro se non un modello composto da un insieme di *domande*, o per meglio dire *condizioni*, organizzate in maniera gerarchica sotto forma di albero. Ognuno dei nodi *non* foglia dell'albero descrive una condizione, mentre ogni nodo foglia contiene una predizione. Nella seguente figura vediamo un esempio di albero decisionale:
 
 ```mermaid
 flowchart TB
@@ -51,7 +35,9 @@ flowchart TB
   B -->|No| E(Gallina)
 ```
 
-L'inferenza di un modello di un albero decisionale viene calcolata eseguendo il routing di un campione dalla radice (all'apice) fino ad uno dei nodi foglia (alla base) a seconda dei valori delle condizioni. Il valore della foglia raggiunta rappresenta la predizione dell'albero decisionale. L'insieme di nodi visitati è chiamato *percorso di inferenza*. Per esempio, consideriamo un dato con due gambe e due occhi. Allora:
+L'inferenza dell'albero decisionale viene quindi calcolata eseguendo il routing di un campione dalla radice fino ad una delle foglie, a seconda dei valori assunti dalle feature; il valore della foglia raggiunta rappresenta la predizione raggiunta dall'albero, mentre l'insieme dei nodi visitati è detto *percorso di inferenza*. 
+
+Cerchiamo di capire cosa sta succedendo nel nostro esempio. Nel nodo radice, viene descritta la condizione relativa al fatto che il nostro campione abbia più o meno di due gambe. Nel nodo B, che non è un nodo foglia, viene valutata la presenza di un numero di occhi maggiore o minore di due. Nei tre nodi foglia, ovvero C, D ed E, abbiamo la *decisione* presa dall'albero (rispettivamente, cane, ragno o gallina). Ad esempio, consideriamo un campione avente due gambe e due occhi. Allora, partendo dalla radice ed arrivando alla foglia, avremo il seguente percorso di inferenza:
 
 ```mermaid
 flowchart TB
@@ -62,37 +48,37 @@ flowchart TB
   linkStyle 1,3 stroke-width:2px,fill:none,stroke:red;
 ``` 
 
-Nell'esempio precedente, le foglie dell'albero decisionale contengono delle predizioni di classificazione; in altre parole, ogni foglia contiene una specie di animali scelta tra un insieme di specie possibili.
-
-In modo simile, gli alberi decisionali possono predire valori numerici etichettando le foglie con predizioni di regressione (ovvero, valori numerici). Ad esempio, il seguente albero decisionale predice l'indice di tenerezza di un animale tra 0 e 10.
-
-TODO: ESEMPIO ALBERO DI REGRESSIONE
-
-## Condizioni
-
-## Axis-aligned vs. oblique
-
-Una condizione *axis-aligned* coinvolge una singola feature. Una *oblique condition* coinvolge più feature. Ad esempio, la condizione numero_gambe >= 2 è una axis aligned, mentre la condizione num_gambe >= num_occhi è una oblique condition.
-
-Spesso, gli alberi decisionali sono addestrati soltanto con condizioni axis-aligned. Tuttavia, usare delle obliqeue condition è più potente, perché possono esprimere pattern più complessi. Gli oblique condition alle volte producono risultati minori al costo di maggiori costi di training ed inferenza.
+In modo simile, è possibile fare in modo che un albero decisionale effettui una predizione di regressione su dei valori numerici. Ad esempio, possiamo predire l'indice di tenerezza di un animale:
 
 ```mermaid
 flowchart TB
-  A[Gambe>2] -->|No| B[Cane]
-  A -->|Sì| C(Gallina)
+  A[Pelosità>medio] -->|Si| B[Carineria>medio]
+  A -->|No| C(1)
+  B -->|Sì| D(3)
+  B -->|No| E(2)
 ```
 
-```mermaid
-flowchart TB
-  A(Gambe * Peso > 24) -->|No| B(Gatto)
-  A -->|Sì| C(Cane)
-```
+!!!tip "Risultati della regressione"
+    Dall'esempio precedente, è evidente come cani, gatti e pulcini siano gli animali che ispirano più tenerezza nell'essere umano, laddove aracnidi, insetti e serpenti risultino essere molto meno teneri.
 
-## condizioni binarie e non binarie
+Vediamo adesso come distinguere i diversi tipi di condizione descritti in un albero decisionale.
 
-le condizioni con due possibili uscite (ad esempio, vero o falso) sono chiamate condizioni binarie. Gli alberi decisioanli che contengono soltanto condizioni binarie sono chiamati alberi binari.
+## Tipi di condizione in un albero decisionale
 
-Le condizioni non-binarie hanno più di due possibili uscite. Quindi, le condizioni non binarie hanno un potere discriminativo magggiore delle condizioni binarie. Le decisioni che contengono una o più condizioni non binarie sono chiamate alberi decsiononali non binari.
+### Axis-aligned vs. oblique
+
+La prima distinzione che è possibile fare tra diverse condizioni riguarda il fatto che queste interessino una o più feature. In particolare, le condizioni *axis-aligned* interessano un'unica feature, mentre quelle *oblique* riguardano più feature. Tornando all'esempio precedente, la condizione $Gambe \geq 2$ è chiaramente axis-aligned, in quanto coinvolge solamente il numero di gambe dell'animale. Se, ad esempio, ci fosse stata una condizione del tipo $Gambe \geq Occhi$, avremmo avuto a che fare con una condizione oblique.
+
+Spesso, gli alberi decisionali vengono addestrati esclusivamente con condizioni axis-aligned. D'altro canto, l'uso di condizioni oblique è potenzialmente molto potente, in quanto queste sono in grado di esprimere relazioni molto complesse tra dati; tuttavia, nella pratica, molto spesso (ab)usare delle condizioni oblique comporta performance inferiori al netto di maggiori costi in termini di tempo di addestramento.
+
+
+
+
+## Binarie vs. non binarie
+
+La seconda distinzione che esiste tra diverse condizioni riguarda quelle *binarie*, che hanno soltanto due possibili esiti, e *non binarie*, che hanno più di due possibili esiti. Prevedibilmente, gli alberi decisionali contenenti soltanto condizioni binarie sono detti *alberi binari*, mentre gli alberi contenenti anche condizioni non binarie sono detti *non binari*.
+
+In questo caso, il compromesso è tra la generalizzazione 
 
 TODO ESEMPIO
 

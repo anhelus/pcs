@@ -1,4 +1,6 @@
-# Cosa sono le foreste decisionali?
+# X.X - Foreste decisionali
+
+Una *foresta decisionale* è un termine generico per descrivere i modelli composti da diversi alberi decisionali.
 
 Una foresta decisionale è un termine genrico per descrivere i modelli fatti di più alberi decsionali. La predizione in uscita da una foresta decisioanle è data dall'insieme delle predizione dei sui alberi decisionali.
 
