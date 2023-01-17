@@ -1,10 +1,10 @@
-# 6. iPython e Jupyter Lab
+# 2.1 - iPython e Jupyter Lab
 
 Fino a questo momento ci siamo limitati a lanciare script Python direttamente da riga di comando. Tuttavia, è evidente come questo approccio sia limitato, specialmente in applicazioni in ambito data science.
 
 Per ovviare a queste problematiche, all'interno del framework SciPy viene proposto [Jupyter Lab](https://jupyter.org/),  che introduce uno tra gli strumenti più utilizzati dai data analyst al giorno d'oggi, ovvero i *notebook*.
 
-## 6.1 - Anatomia di un notebook
+## 2.1.1 - Anatomia di un notebook
 
 Un notebook è, in poche parole, un *ambiente interattivo* che permette di *scrivere* e *testare* il nostro codice. In particolare, ptoremo scrivere una o più istruzioni, ed eseguirle in maniera separata dalle altre mediante il meccanismo delle *celle*, che altro non sono se non dei singoli "blocchi" di codice.
 
@@ -13,7 +13,7 @@ Un notebook è, in poche parole, un *ambiente interattivo* che permette di *scri
 
 Vediamo adesso come creare ed utilizzare il nostro primo notebook.
 
-## 6.2 - Installazione e lancio di Jupyter Lab
+## 2.1.2 - Installazione e lancio di Jupyter Lab
 
 !!!note "Installazione di una libreria"
     Ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'[appendice B](../../appendix/02_libraries/lecture.md).
@@ -34,7 +34,7 @@ jupyter lab
 !!!note "Importare iPython"
 	In teoria è possibile importare iPython ed utilizzare i metodi e le classi messe a disposizione come una qualsiasi libreria. Nei fatti, però, molto spesso ci si limita ad utilizzare l'ambiente interattivo offerto dai notebook.
 
-## 6.3 - Il primo notebook
+## 2.1.3 - Il primo notebook
 
 A questo punto ci troveremo davanti ad una schermata simile a quella mostrata nella figura successiva.
 
@@ -60,7 +60,7 @@ somma(5, 7)
 
 Eseguiamo l'istruzione; noteremo che al di sotto della cella apparirà il valore assunto dalla funzione.
 
-## 6.4 - Altre operazioni utili
+## 2.1.4 - Altre operazioni utili
 
 Jupyter ci permette di effettuare una serie di operazioni utili, tra cui:
 
