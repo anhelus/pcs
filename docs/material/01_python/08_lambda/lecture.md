@@ -1,104 +1,93 @@
-# 1.8 - Calcolo lambda in Python
+# 1.8 - Il calcolo lambda e la programmazione funzionale
 
-Python ed altri linguaggi come Java, C#, ed anche C++, hanno avuto avuto delle funzioni lambda aggiunte alla loro sintassi, mentre linguaggi come LISP o F# usano le lambda come concetto core.
+Le espressioni lambda, le quali saranno oggetto di questa lezione, affondano le loro origini nel *calcolo lambda*, modello computazionale inventato da Alonzo Church negli anni '30 del ventesimo secolo.
 
-Le lambda in Python sono delle piccole funzioni anonime, soggette ad una sintassi più restrittiva, ma concisa, rispetto alle funzioni regolari Python.
+Il calcolo lambda è un linguaggio puramente basato sul concetto di *astrazione*, ed è in grado di codificare ogni possibile algoritmo. Di conseguenza, risulta essere Turing-completo ma, contrariamente alla macchina di Turing, non mantiene al suo interno alcuna informazione sullo stato.
 
-!!!note "Nota"
-    Alcuni degli esempi di codice che utilizzano le lambda function potrebbe sembrare ignorino le best practice in temrini di stile di Python. Tuttavia, in questo caso, servono ad illustrare i concetti alla base delle funzioni lambda in Python, e saranno comujnque messi a confronto con alternative migliori nel codice.
+Da quello che abbiamo visto nella [lezione precedente](../07_func_prog/lecture.md), quindi, appare chiaro come la programmazione funzionale affondi le sue origini in questo tipo di calcolo. Contestualmente, possiamo dedurre come il modello computazionale basato sullo stato ed introdotto da Alan Turing sia alla base del paradigma imperativo.
 
-## Calcolo lambda
+!!!note "Tesi di Church-Turing"
+    I modelli basati sul calcolo lambda possono essere tradotti in quelli basati sulle macchine di Turing, e viceversa. Questa equivalenza è anche conosciuta come *ipotesi di Church-Turing*.
 
-Le espressioni lambda in Python ed in altri linguaggi di programmazione affondano le loro radici nel calcolo lambda, un modello computazionale inventato da Alonzo Church.
+## 1.8.1 - Le funzioni lambda
 
-Alonzo Church formalizzò il calcolo lambda, un linguaggio basato puramente sull'astrazione, negli anni '30. Le funzioni lambda sono anche riferite originariamente come *astrazioni lambda*, un riferimento diretto al modello astratto creato originariamente da Church.
+Le *funzioni lambda*, chiamate anche *funzioni anonime*, sono dei costrutti che permettono una sintassi più concisa rispetto alle normali funzioni e, nonostante una serie di restrizioni, lavorano assieme ai concetti visti in precedenza per implementare meccanismi di programmazione funzionale.
 
-Il calcolo lambda può codificare una qualsiasi elaborazione. E' Turing-completo ma, contrariamente al concetto di macchina di Turing, è puro e non mantiene alcuno stato.
+!!!note "Le funzioni lambda e le best practice Python"
+    Alcuni degli esempi che faremo ignoreranno deliberatamente le best practice definite da Python. Tuttavia, ci saranno utili ad illustrare i concetti alla base delle funzioni lambda.
 
-I linguaggi funzionali affondano le loro origini nella logica matematica e nel calcolo lambda, mentre i linguaggi di programmazione imperativi abbracciano il modello computazionale basato sullo stato ed inventato da ALan Turing. I due modelli di calcolo, il calcolo lambda e le macchine di Turing, possono essere tradotto l'uno nell'altro. Questa equivalenza è consocitua come *ipotesi di Church-Turing*.
+### 1.8.1.1 - Le prime funzioni lambda
 
-I linguaggi funzionali ereditano direttamente la filosofia del calcolo lambda, adottando un approccio di programmazione dichiarativo che enfasizza l'astrazione, la trasformazione dei dati, la composizione, e la purezza (nessuno stato o side effect). Esempi di linguaggi funzionali sono Lisp o Erlang.
-
-In contrasto, la macchian di Turing ha condotto alla programmazione imperativa che è possibile osservare in linguaggi come Fortran, C, o Python.
-
-Lo stile imperativo consiste nella programmazione con istruzioni, conducendo il flusso del programma passo dopo passo con istruzioni dettagliate. QUesto approccio promuove il mutamento, e richiede la gestione dello stato.
-
-La separazione tra le famiglie in realtà presenta alcuni punti in comune: alcuni linguaggi incorporano feature imperative, mentre ci sono delle feature funzionali che permeano la famiglia dei linguaggi imperativi, in particoalre con l'introduzione delle funzioni lambda in linguaggi come Java o Python.
-
-Python non è intrinsecamente un linguaggio funzionale, ma ha adottato alcuni concetti funzionali abbastanza presto: infatti, gli operatori map(), filter() e reduce() vennero aggiunti al linguaggio già nel gennaio del 1994.
-
-## Primo esempio
-
-Ecco alcuni esempi per darci un'idea per qualche codice Python in puro stile funzionale.
-
-La funzione identità, una funzione che restituisce il suo argomento, è espresso con una funzione standard Python definita come segue:
+Iniziamo con un banale esempio, definendo una funzione `identita()` che restituisce l'argomento passatogli.
 
 ```py
-def identity(x):
+def identita(x):
     return x
 ```
 
-`identity()` prende come argomento `x`, e lo restituisce quando invocato.
-
-In contrasto, se usiamo la costruzione lambda Python, otteniamo il seguente:
+Proviamo a definire la stessa funzione usando le lambda:
 
 ```py
 lambda x: x
 ```
 
-Nell'esempio precedente, l'espressione è composta di:
+Notiamo quindi che l'espressione è composta da:
 
-* la parola chiave `lambda`
-* una variable `x`, che rappresenta l'argomento per la funzione lambda
-* un corpo, anche in questo caso `x`, che segue l'operatore `:`
+* la keyword `lambda`, che indica l'inizio della funzione lambda;
+* la variabile `x`, che rappresenta l'argomento in ingresso alla funzione lambda;
+* il corpo della funzione, che segue l'operatore `:`, ed in questo caso è semplicemente `x`.
 
-La variabile `x` è defintia come dipendente, a differenza di una variabile indpendente la quale non è vincolata e può essere referenziata nel corpo dell'espressione. UNa variabile libera può essere una costante o una variabile definita nell'ambito della funzione. 
+Possiamo definire la variabile `x` come *dipendente*, che si differenzia da una variabile indipendente a causa del fatto che quest'ultima non è vincolata, e può essere referenziata nel corpo dell'espressione. Proviamo in tal senso a scrivere un esempio leggermente più elaborato, definendo una funzione `incrementa()` che aggiunge `1` al suo argomento, assieme alla corrispondente funzione lambda:
 
-Possiamo scrivere un esempio leggermente più elabroato, una funzione che aggiunge `1` ad un argomento, come segue:
+=== "Funzione classica"
+    ```py
+    def incrementa(x):
+        return x + 1
+    ```
+
+=== "Funzione lambda"
+    ```py
+    lambda x: x + 1
+    ```
+
+### 1.8.1.2 - Argomenti ed identificativi
+
+Proviamo adesso ad applicare la funzione lambda definita in precedenza. Per farlo, dovremo circondare sia la funzione, sia l'argomento che vogliamo passare, tra parentesi tonde:
 
 ```py
-lambda x: x + 1
-```
-
-Possiamo applicare la funzione precedente ad un argomento circondando la funzione ed il suo argomento con delle parentesi:
-
-```sh
 >>> (lambda x: x + 1)(2)
 3
 ```
 
-Quello della *riduzione* è un approccio del calcolo lambda per calcolare il valore di un'espressione. Nell'esempio attuale, consiste nel rimpiazzare la variabile dipendente `x` con l'argomento `2`:
+!!!tip "Come funziona?"
+    I più curiosi potranno interrogarsi sul funzionamento interno della funzione lambda. Uno dei possibili approcci in tal senso è quello della *riduzione*: in pratica, andiamo a rimpiazzare la variabile dipendente, `x` con l'argomento, `2`, ottenendo il seguente risultato:
 
-```
-(lambda x: x + 1)(2) = lambda 2: 2 + 1
-                     = 2 + 1
-                     = 3
-```
+    > ```
+      (lambda x: x + 1)(2) = lambda 2: 2 + 1
+                          = 2 + 1
+                          = 3
+      ```
 
-Dato che una funzione lambda è un'espressione, può avere un nome. QUindi possiamo scrivere il codice precedente come segue:
-
-```sh
->>> add_one = lambda x: x + 1
->>> add_one(2)
-3
-```
-
-La precedente funzione lambda è equivalente a scrivere questo:
+Possiamo anche associare un identificativo alla funzione lambda. Per farlo, possiamo usare una sintassi di questo tipo:
 
 ```py
-def add_one(x):
-    return x + 1
+incrementa = lambda x: x + 1
 ```
 
-Queste funzioni prendono un singolo argomento. Potremmo aver notato che, nella definizione delle lambda, gli argomenti non soino circondatri da parentesi. Le funzioni multi-argomento (funzioni che accettano più di un argomento) sono espresse nelle lambda Python elencando gli argomenti e separandoli con una virgola (,) ma senza circondarli da delle parentesi:
+Le funzioni che abbiamo definito finora accettano un unico argomento. Tuttavia, potremmo aver notato che, nella definizione delle funzioni lambda, gli argomenti non sono circondati da parentesi: per specificarne più di uno, dovremo elencarli separandoli mediante una virgola. Ad esempio:
 
 ```py
->>> scrivi_nome_cognome = lambda nome, cognome: f'{nome.title()} {cognome.title()}'
->>> scrivi_nome_cognome('guido', 'van rossum')
+nome_cognome = lambda nome, cognome: f'{nome.title()} {cognome.title()}'
+```
+
+A questo punto, potremo invocare la funzione come segue:
+
+```py
+>>> nome_cognome('guido', 'van rossum')
 Guido Van Rossum
 ```
 
-La funzione almbda assegnata a `scrivi_nome_cognome` prende due argomenti e restituisce una stringa che interpola i due parametri `nome` e `cognome`. Come atteso, la definizione della lambda elenca gli argomenti senza parentesi, laddove la chiamata alla funzione è fatta esattamente come una funzione Python normale, con parentesi che circondano gli argomenti.
+Ricapitolando, la funzione lambda con identificativo `nome_cognome` accetterà due argomenti, rispettivamente `nome` e `cognome`, restituendo una stringa formattata. Come abbiamo già sottolineato, nella definizione della funzione lambda gli argomenti sono elencati senza parentesi, mentre la chiamata alla funzione lambda è fatta esattamente come se avessimo a che fare con una classica funzione Python, con delle parentesi che circondano gli argomenti utilizzati.
 
 ### Funzioni anonime
 
