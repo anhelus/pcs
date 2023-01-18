@@ -1,28 +1,22 @@
-# 1.7: Map, filter, reduce
+# 1.7: La programmazione funzionale
 
-Le funzioni `map()`, `filter()` e `reduce` sono i  pilastri della programmazione funzionale. Anche se Python non è un linguaggio di programmazione puramente funzionale, contiene molte delle feature che caratterizzano questo tipo di programmazione, per cui può essere usato come linguaggio funzionale. Vediamo quindi come usare queste funzioni, e come queste vanno a riconcursi alle idee alla base della programmazione funzionale.
+La *programmazione funzionale* è un paradigma di programmazione che definisce l'elaborazione del dato attraverso e concetti di *funzione* e *stato immutabile*.
 
-## La programmazione funzionale
-
-La programmazione funzionale è un paradigma di programmazione che definisce l'elaborazione del dato attraveros delle funzioni. Una delle feature più importanti della programmazione funzionale è il concetto di *stato immutabile*.
-
-Nella programmazione imperativa, infatti, l'elaborazione avviene mediante delle istruzioni. Queste consistono di comandi la cui esecuzione cambia il valore di una variabile, e quindi lo stao del calcolo. Ad esempio, un ciclo for può eseguire ripetutatmente un'istruzione, ogni volta cambiando il valore di una variabile, come mostrato di seguito:
+Per comprendere cosa questo comporti, è utile pensare alla programmazione imperativa. In questo paradigma, infatti, l'elaborazione avviene mediante le singole istruzioni scritte nel codice sorgente, le quali consistono di una serie di comandi la cui esecuzione modifica il valore di una variabile e, conseguentemente, lo *stato* del programma. Ad esempio, un ciclo esegue ripetutamente una certa istruzione, cambiando di volta in volta il valore di una variabile:
 
 ```py
-counter = 0
+contatore = 0
 for i in range(10):
-    counter += 1
+    contatore += 1
 ```
 
-Man mano che il valore di counter aumenta ad ogni iterazione del ciclo di 1, lo stato dei dati subisce una variazione corrispondente, ogni volta avanzando sempre più verso lo stato finale.
+Man mano che il valore di `contatore` aumenta, lo stato delle variabili varia di conseguenza. Di contro, la programmazione funzionale elimina il concetto di stato. Invece di modificare i valori delle variabili, questo tipo di programmazione lavora soltanto su tipi *immutabili* che, come sappiamo, non possono essere alterati. Di conseguenza, la programmazione funzionale lavora esclusivamente su *copie* della strutture dati originarie. Inoltre, mentre nella programmazione imperativa usiamo normalmente costrutti come sequenze, cicli ed iterazioni, nella programmazione funzionale usiamo esclusivamente funzioni per modificare i dati, il che risulta in soluzioni più eleganti, maggiormente modulari, e potenzialmente più efficienti.
 
-Di contro, la programmazione funzionale elimina il concetto di stato. Invece di cambiare i valori delle variabili, la programmazione funzionale lavora soltanto sui tipi immutabili. Siccome i valori dei tipi immutabili non possono essere alterati, lavoriamo soltanto sulle copie delle strutture dati originarie. Le funzioni map, filter e reduce lavorano esattamente in questo modo: creano e lavorano su nuovi insiemi di dati, lasciando gli originali invariati.
+Prima di iniziare a parlare di programmazione funzionale in Python, tuttavia, è necessario introdurre alcuni concetti fondamentali.
 
-Nella programmazione funzionale, le funzioni sono *fiurst-class citizens*. Mentre nella programmazione imperativa in Python usiamo normalmente cicli e costrutti come le list comprehension per modificare i dati, nella programmazione funzionale possiamo usare soltanto delle funzioni per farlo. Questo risulta in soluzioni più eleganti, e benefici come una maggiore modulairtà ed efficienza nell'esecuzione della programmazione parallela.
+## 1.7.1 - Le funzioni di ordine superiore
 
-Prima di addentrarci negli esempi di map(), fitler() e reduce() in Python, dobbiamo coprire un altro concetto, ovvero quello delle *funzioni di ordine superiore*.
-
-## FUnzioni di ordine superiore
+Le *funzioni di ordine superiore* sono ampiamente utilizzate nella programmazione funzionale, e non sono altro che funzioni che possono a loro volta accettare una funzione come argomento, o restituire una funzione in uscita. 
 
 Le funzioni di ordine superiore sono lo strumento principale per definire l'elaborazione nella programmazione funzionale. Queste sono funzioni che possono accettare una funzione come argomento, o restituire una funzione in uscita. In Python, `reduce()`, `map()` e `filter()` sono alcune tra le più importanti funzioni di ordine superiore. Quando combinate con funzioni più semplici, possono essere usate epr eseguire operazioni complesse.
 
