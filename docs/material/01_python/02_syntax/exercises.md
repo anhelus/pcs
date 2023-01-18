@@ -1,34 +1,54 @@
-# E2 - Programmare in Python
+# Esercizi 2 - Programmare in Python
 
-## E2.1
+## Esecizio 2.1
 
-Scriviamo una funzione che iteri fino a che il valore associato ad un contatore intero è minore di 10. Usiamo un ciclo `while`.
+Scriviamo un ciclo che iteri fino a che il valore associato ad un contatore intero risulta essere minore di 10. Usiamo sia un ciclo `while`, sia un ciclo `for`.
 
-### S2.1 - Soluzione
+#### Soluzione 2.1
 
-```py
-def itera_while():
-    i=0
-    while i < 10:
-            i=i+1
-            print("{}-ma iterazione".format(i))
+Per prima cosa, è opportuno tracciare un breve diagramma di flusso che mostri l'andamento delle informazioni all'interno del nostro codice.
+
+```mermaid
+flowchart TD
+A(START) --> B[i = 1]
+B --> C{i <= 10}
+C --> |No| E[/print(i)/]
+C --> |Sì| D[i = i + 1]
+E --> F(END)
 ```
 
-Il risultato ottenuto sarà:
+Implementiamo il codice in primis utilizzando un ciclo `while`. Per farlo, inizializziamo a zero un contatore `i` e come condizione verifichiamo che `i` sia minore di `10`:
 
 ```py
->>> itera_while()
-1-ma iterazione
-2-ma iterazione
-3-ma iterazione
-4-ma iterazione
-5-ma iterazione
-6-ma iterazione
-7-ma iterazione
-8-ma iterazione
-9-ma iterazione
-10-ma iterazione
+>>> i = 1
+>>> while i <= 10:
+...     print(f'Il valore di i è {i}')
+...     i = i + 1
 ```
+
+Se proviamo ad eseguire questo codice, otterremo il seguente risultato:
+
+```py
+Il valore di i è 1
+Il valore di i è 2
+Il valore di i è 3
+Il valore di i è 4
+Il valore di i è 5
+Il valore di i è 6
+Il valore di i è 7
+Il valore di i è 8
+Il valore di i è 9
+Il valore di i è 10
+```
+
+Proviamo adesso ad usare un `for`. In questo caso, potremo limitarci ad usare in maniera opportuna la funzione `range()`:
+
+```py
+>>> for i in range(1, 11):
+...     print(f'Il valore di i è {i}')
+```
+
+Eseguendo questa istruzione, otterremo un risultato analogo al precedente.
 
 ## E2.2
 

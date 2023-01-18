@@ -1,10 +1,10 @@
-# Esercizi 1.1 - Introduzione a Python
+# Esercizi 1 - Introduzione a Python
 
-## Esercizio 1.1.1
+## Esercizio 1.1
 
 *Creiamo una stringa che assuma valore **PCS** usando l'interprete integrato.*
 
-#### Soluzione 1.1.1
+#### Soluzione 1.1
 
 Apriamo l'interprete Python digitando `python` da riga di comando. A quel punto, inseriamo la seguente istruzione, e premiamo `Invio`:
 
@@ -13,11 +13,11 @@ Apriamo l'interprete Python digitando `python` da riga di comando. A quel punto,
 PCS
 ```
 
-## Esercizio 1.1.2
+## Esercizio 1.2
 
 Valutiamo la lunghezza della stringa creata nell'esercizio precedente, e verifichiamo che sia uguale a 3.
 
-#### Soluzione 1.1.2
+#### Soluzione 1.2
 
 Innanzitutto, possiamo usare la funzione [`len()`](https://docs.python.org/3/library/functions.html#len) che, come abbiamo visto nella lezione, accetta una *sequenza* (ovvero un oggetto su cui si possa iterare), e restituisce un intero rappresentativo della lunghezza dell'iterabile.
 
@@ -43,11 +43,11 @@ A questo punto, possiamo verificare che `l` sia pari a `3` utilizzando l'operato
 True
 ```
 
-## Esercizio 1.1.3
+## Esercizio 1.3
 
 Creare una lista a partire dalla stringa definita negli esercizi precedenti.
 
-#### Soluzione 1.1.3
+#### Soluzione 1.3
 
 Una prima possibilità è quella di utilizzare il costruttore di classe [`list()`](https://docs.python.org/3/library/functions.html#func-list) che accetta una sequenza e restituisce una lista a partire da questa. Possiamo quindi scrivere:
 
