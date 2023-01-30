@@ -46,12 +46,11 @@ In questo esempio, `index` è un intero che tiene traccia di dove siamo nella li
 0 c
 ```
 
-DA QUI
+In questo esempio, l'indice rimane a 0 ad ogni iterazione percHé non c'è del codice che ne aggiorna il valore al termine del ciclo. Specie epr cicli lunghi o complicati, questo tipo di bug è notoriamente difficile da individuare.
 
-In this example, index stays at 0 on every iteration because there’s no code to update its value at the end of the loop. Particularly for long or complicated loops, this kind of bug is notoriously hard to track down.
+Un altro modo comune per approcciare questo problema è usare range() combinato con len() per creare automaticamente un indice. In questo modo, non dobbiamo ricordarci di aggiornare l'indiice:
 
-Another common way to approach this problem is to use range() combined with len() to create an index automatically. This way, you don’t need to remember to update the index:
-
+```py
 >>> for index in range(len(values)):
 ...     value = values[index]
 ...     print(index, value)
@@ -59,6 +58,12 @@ Another common way to approach this problem is to use range() combined with len(
 0 a
 1 b
 2 c
+```
+
+In questo esempio, `len(values)` restituisce la lunghezza di `values`, che è $3$. Quindi, `range()` crea un iteratore che va dal valore di default di partenza di `0` fino a quando non arriva a `len(values)` meno uno. In questo caso, `index` diventa la variabile su cui si cicla. Nel 
+
+
+
 In this example, len(values) returns the length of values, which is 3. Then range() creates an iterator running from the default starting value of 0 until it reaches len(values) minus one. In this case, index becomes your loop variable. In the loop, you set value equal to the item in values at the current value of index. Finally, you print index and value.
 
 With this example, one common bug that can occur is when you forget to update value at the beginning of each iteration. This is similar to the previous bug of forgetting to update the index. This is one reason that this loop isn’t considered Pythonic.
