@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Esercizi 1 - Introduzione a Python
 
 ## Esercizio 1.1
@@ -68,4 +69,37 @@ Un altro modo è quello di usare l'operatore `[]`, che però avrà risultati leg
 >>> l_2 = [s]
 >>> l_2
 ['pcs']
+=======
+# E1 - Introduzione a Python
+
+## E1.1
+
+Creiamo una stringa che assuma valore *PCS*.
+
+### S1.1 - Soluzione
+
+```py
+>>> s = 'PCS'
+```
+
+## E1.2
+
+Valutiamo la lunghezza della stringa creata al punto 1.
+
+### S1.2 - Soluzione
+
+```py
+>>> len(s)
+```
+
+## E1.3
+
+Proviamo a creare una lista a partire dalla stringa creata al punto 1.
+
+### S1.3 - Soluzione
+
+```py
+>>> l = ['pcs']
+>>> l = ['p', 'c', 's']
+>>>>>>> feature/pathlib
 ```
