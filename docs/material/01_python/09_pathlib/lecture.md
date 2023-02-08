@@ -1,73 +1,98 @@
-# Pathlib
+# 9 - Pathlib
 
-In questa lezione, vedremo come lavorare con i file path (nomi di cartelle e file) in Python. Apprenderemo nuovi modi per scrivere e leggere file, manipolare percorsi ed il sottostante file system, così come alcuni esempi di come elencare i file d iterarvi.
+<!-- TODO: CAPPELLO SU IO FILE -->
 
-## Il problema con la gestione del percorso dei file in Python
+In questa lezione, vedremo come lavorare in Python direttamente con i *percorsi* (in inglese, *path*) di cartelle e librerie. In particolare, vedremo come scrivere e leggere i file, iterando lungo le cartelle e manipolando il file system del nostro computer.
 
-Lavorare con i file ed interagire con il file system è importante per diverse ragioni. Nei casi più semplici, dovremo soltanto leggere o scrivere file ma, alle volte, avremo a che fare con task più complesse. Forse dovremo elencare tutti i file in una caretella di un dato tipo, trovare la cartella padre di un dato file, o creare un nome di un file univoco che non esiste già.
+## 9.1 - Python e la gestione del path
 
-Tradizionalemnte, Python ha rappresentato i percorsi dei file usando delle normali stringhe di testo. Grazie alla libreria standard os.path, questo è stato adeguato ancche se leggermente complesso.Tuttavia, dal moemnto che i percorsi *non* sono stringhe, diverse funzionalità vengono in realtà sparse qua e la per tutta la libreria standard, in librerie come os, glob e shutil. Il seguento esempio ha bisogno di tre import semplicemente per spoistare tutti i file di testo in un'altra cartella:
+Come abbiamo visto anche nella lezione relativa all'I/O, lavorare ed interagire con i file presenti sul nostro elaboratore è estremamente importante. Nei casi più semplici, ci limiteremo a scrivere su o leggere da un file ma, a volte, potremmo avere a che fare con task più complessi, come elencare tutti i file con una certa estensione presenti in una data cartella, o creare un file che non esiste.
+
+### 9.1.2 - I path come stringhe
+
+In passato, il percorso di un file Python è sempre stato rappresentato usando degli oggetti di tipo stringa. Tuttavia, appare evidente come il percorso di un file *non sia realmente una stringa*: ciò ha comportato la necessità di "spargere" diverse funzionalità in diversi package della libreria standard, in particolare [`os`](https://docs.python.org/3/library/os.html), [`glob`](https://docs.python.org/3/library/glob.html) e [`shutil`](https://docs.python.org/3/library/shutil.html), con conseguente aumento delle righe di codice e degli import da utilizzare.
+
+Ad esempio, se volessimo spostare tutti i file di testo presenti nella cartella di lavoro in un'altra cartella chiamata `archivio` avremmo bisogno di usare tre import:
 
 ```py
 import glob
 import os
 import shutil
 
-for file_name in glob.glob('*.txt'):
-    new_path = os.path.join('archive', file_name)
-    shutil.move(file_name, new_path)
+for file_testo in glob.glob('*.txt'):
+    nuovo_path = os.path.join('archivio', file_testo)
+    shutil.move(file_testo, nuovo_path)
 ```
 
-Con dei path rappresentati da delle stringhe, è possibile, anche se normalmente è una cattiva idea, usare i normali metodi usati sulle stringhe. Ad esempio, invece di unire due percorsi con un + come due stringhe normali, dovremmo usare os.path.join(), che unisce dei path usando il corretto separatore del sistema operativo. 
+Rappresentare un path come una stringa favorisce inoltre la discutibile pratica dell'utilizzo dei metodi normalmente utilizzati su oggetti di questo tipo. Ad esempio, potremmo pensare di unire il percorso della cartella nella quale ci troviamo attualmente al percorso di una sottocartella utilizzando l'operatore `+`:
 
-!!!tip "Suggerimento"
-    Ricordiamo in tal senso che, ad esempio, Widnows usa il backslash \, mentre Mac e Linux usano il forward slash /. Questa differenza è spesso foriera di errori.
+```py
+path_sottocartella = os.getcwd() + '/sottocartella'
+```
 
-Il modulo pathlib è stato introdotto in Python 3.4 per affrontare queste sfide. Raccoglie le funzionalità necessarie in un unico posto, e le rende disponibili attraverso metodi e proprietàù un un oggetto Path.
+Tuttavia, questa pratica è *estremamente* sconsigliata, dato che la rappresentazione del percorso sotto forma di stringa varia tra sistemi Windows ed Unix-like. In particolare, ricordiamo che Windows utilizza il backslash `\` per articolare il percorso di una cartella o file, mentre i sistemi Unix-like usano il forward slash `/`.
 
-Fino a Python 3.6, altri package usavano ancora le stringhe per i file path, ma da questa versione di Python il modulo pathlib è supportato nella standard library, in parte grazei all'aggiunga di un protocollo per il file system path (PEP 519).
+!!!tip "La funzione join()"
+    Per ovviare a questo problema, prima dell'introduzione di pathlib passato si utilizzava il metodo `join()` di `os.path`, che permette di unire due path usando il separatore adatto al sistema operativo in analisi.
 
-## Creazione di Path
+### 9.1.3 - I path in pathlib
 
-Tutto quello che dobbiamo sapere è sulla classe Path. Vi sono diversi modi di creare un path. Per priam cosa, ci sono dei metodi di classe come cwd() ed home che, rispettivamente, indicano la cartella attuale e la nostra home:
+Il modulo [`pathlib`](https://docs.python.org/3/library/pathlib.html) è stato introdotto per la prima volta in Python 3.4 proprio per porre rimedio a questa complicata situazione. L'obiettivo di `pathlib`, quindi, è quello di raccogliere tutte le funzionalità necessarie alla gestione del path di un file in un unico componente della libreria standard, ed in particolare mediante un oggetto di classe `Path`.
+
+## 9.2 - La classe Path
+
+### 9.2.1 - Creazione di un path
+
+Come abbiamo già detto, `pathlib` mette a disposizione la classe [`Path`](https://docs.python.org/3/library/pathlib.html#pathlib.Path) per la gestione del path di un file. Per utilizzare un oggetto di questa classe, dovremo innanzitutto crearlo; potremo in tal senso farlo in diversi modi.
+
+Innanzitutto, possiamo usare il metodo `cwd()`, che restituisce il path della cartella di lavoro. Supponendo di essere nella cartella `Documents` dell'utente `user`, avremo:
 
 ```py
 >>> from pathlib import Path
 >>> Path.cwd()
-WindowsPath('C:/Users/acard/Documents/GitHub/Lavoro/Corsi/PCS')
+WindowsPath('C:/Users/user/Documents')
+```
+
+Il metodo `home()`, invece, restiuirà la cartella base per l'utente attuale. Ad esempio, supponendo che l'utente `user` sia loggato:
+
+```py
 >>> Path.home()
-WindowsPath('C:/Users/acard')
+WindowsPath('C:/Users/user')
 ```
 
-Possiamo creare un path anche esplicitamente a partire da una stringa:
+Possiamo anche creare un path in maniera esplicita utilizzando una stringa:
 
 ```py
->>> Path('C:/Users/acard/Documents')
-WindowsPath('C:/Users/acard/Documents')
+>>> Path('C:/Users/user/Documents')
+WindowsPath('C:/Users/user/Documents')
 ```
 
-Un piccolo suggerimento qunado abbiamo a che fare con i path su Windows: abbiamo già visto che il separatore è il backslash, che però viene anche usato come *escape character*é per rappresentare dei caratteri che non è possibile stampare. Per eviotare problemi, usiamo dei *raw string literal* per rappresentare i percorsi Python; in altre parole, dobbiamo indicare a Python che stiamo usando delle stringhe pure anteponendo la lettera `r`:
+!!!tip "Windows ed il backslash"
+    Abbiamo già visto che il separatore dei path in Windows è il backslash. Tuttavia, questo viene usato anche come escape character per rappresentare caratteri che non è possibile stampare altrimenti. In tal senso, per evitare l'insorgere di errori, è possibile l'uso di *raw string literal* per rappresentare i percorsi Python. Ad esempio, nel caso precedente, scriveremo:
+    > ```py
+      >>> Path(r'C:\Users\user\Documents')  
+      WindowsPath('C:/Users/user/Documents')
+      ```
 
-```py
->>> Path(r'C:\Users\acard\Documents')  
-WindowsPath('C:/Users/acard/Documents')
-```
-
-Un terzo modo per costruire un path è quello di unire le varie parti del path usando l'operatore `/`:
+Un altro modo per costruire un path è unire le varie parti dello stesso usando l'operatore `/`:
 
 ```py
 >>> pathlib.Path.home() / 'Documents'
-WindowsPath('C:/Users/acard/Documents')
+WindowsPath('C:/Users/user/Documents')
 ```
 
-L'operatore `/` può unider più di un path, oppure un insieme di path e stringhe (come sopra) fino a che vi almeno un oggetto di tipo `Path`. Se non ci piace la notazione `/`, possioamo fare la stessa cosa con il metodo `.joinpath()`:
+Da notare che l'operatore `/` permette di unire anche più di un path, oltre che un insieme di oggetti di tipo `Path` e stringhe (a patto che, ovviamente, vi sia almeno un oggetto di tipo `Path`). In alternativa, possiamo ottenere lo stesso effetto con il metodo `joinpath()`:
 
 ```py
 >>> Path.home().joinpath('Documents')     
-WindowsPath('C:/Users/acard/Documents')
+WindowsPath('C:/Users/user/Documents')
 ```
 
-Notiamo che negli esempi precednti, `Path` è rappresentato o come un `WindowsPath` o come un `PosixPath`. L'oggettov ero e proprio che rappresenta il percorso dipende dal sistema operativo sottostante.
+!!!note "Path, WindowsPath e PosixPath"
+    Negli esempi precedenti, utilizzare la classe `Path` ha sempre portato in output un `WindowsPath`. Ciò è legato al fatto che questi esempi sono stati scritti su un sistema Windows; se si fosse utilizzaton un sistema Unix-like, i path risultanti sarebbero stati dei `PosixPath`. In pratica, la classe vera e propria che caratterizza il path dipende dal sistema operativo su cui viene eseguito il nostro programma.
+
+
+DA QUI
 
 ## Leggere e scrivere file
 
