@@ -60,13 +60,11 @@ Un altro modo comune per approcciare questo problema è usare range() combinato 
 2 c
 ```
 
-In questo esempio, `len(values)` restituisce la lunghezza di `values`, che è $3$. Quindi, `range()` crea un iteratore che va dal valore di default di partenza di `0` fino a quando non arriva a `len(values)` meno uno. In questo caso, `index` diventa la variabile su cui si cicla. Nel 
+In questo esempio, `len(values)` restituisce la lunghezza di `values`, che è $3$. Quindi, `range()` crea un iteratore che va dal valore di default di partenza di `0` fino a quando non arriva a `len(values)` meno uno. In questo caso, `index` diventa la variabile su cui si cicla. Nel loop, impostiamo il valore uguale all'oggetto nei valori al valore attuale dell'indice. Successivamente, stampiamo l'indice ed il valore.
 
+Con questo esempio, un bug comune che può avvenire è quando ci dimentichiamo di aggiornare il valore all'inizio di ogni iterazione. Questo è simile al bug precedente in cui ci dimentichiamo di aggiornare l'indice. Questa è una delle ragioni per le quali questo loop non viene considerato Pythonic.
 
-
-In this example, len(values) returns the length of values, which is 3. Then range() creates an iterator running from the default starting value of 0 until it reaches len(values) minus one. In this case, index becomes your loop variable. In the loop, you set value equal to the item in values at the current value of index. Finally, you print index and value.
-
-With this example, one common bug that can occur is when you forget to update value at the beginning of each iteration. This is similar to the previous bug of forgetting to update the index. This is one reason that this loop isn’t considered Pythonic.
+Questo esempio è anche in qualche modo ristretto perché values deve permettere l'accesso ai suoi uggetti usando indici interi. Gli iterabili che permettono questo tipo di accessi sono chiamati sequenze in Python.
 
 This example is also somewhat restricted because values has to allow access to its items using integer indices. Iterables that allow this kind of access are called sequences in Python.
 

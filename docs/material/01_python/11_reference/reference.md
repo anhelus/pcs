@@ -370,11 +370,9 @@ def tryparse(string, base=10):
 
 Grazie al fatto che le funzioni Python possono restituire diversi tipi di dato, possiamo usare questa funzione all'interno di un'istruzione condizionale. Ma come? Non dovremmo chiamare per prima la funzione, assegnare il suo valore di ritorno, e quindi controllare il valore stesso?
 
+Sfruttando la flessibilità di Python sui tipi degli oggetti, così come le nuove espressioni di assegnazione in Python 3.8, possiamo chiamare questa funzione semplificata all'interno di un'istruzione if ed ottenere il valore di ritorno se il controllo passa:
 
-
-
-By taking advantage of Python’s flexibility in object types, as well as the new assignment expressions in Python 3.8, you can call this simplified function within a conditional if statement and get the return value if the check passes:
-
+```py
 >>> if (n := tryparse("123")) is not None:
 ...     print(n)
 ...
@@ -397,42 +395,49 @@ None
 1230
 >>> 10 * (n if (n := tryparse("abc")) is not None else 1)
 10
-Wow! This Python version of tryparse() is even more powerful than the C# version, allowing you to use it within conditional statements and in arithmetic expressions.
+```
 
-With a little ingenuity, you’ve replicated a specific and useful pass-by-reference pattern without actually passing arguments by reference. In fact, you are yet again assigning return values when using the assignment expression operator(:=) and using the return value directly in Python expressions.
+Notiamo che questa versione di `tryparse()` risulta essere anche più potente della versione C#, permettendoci di suarla all'interno di istruzioni condizionali ed in espressioni aritmetiche.
 
-So far, you’ve learned what passing by reference means, how it differs from passing by value, and how Python’s approach is different from both. Now you’re ready to take a closer look at how Python handles function arguments!
+Con un po' di ingenuità, abbiamo replicato un pattern specifico ed utile di passaggio per reference senza passare gli argomenti per reference. Infatti, dobbiamo di nuovo assegnare i valori di ritorno quando usiamo l'operatore di assegnazione (:=) ed usando il valore di ritorno direttamente nelle espressioni Python.
 
+Finora, abbiamo appreso quello che significa passaggio per reference, come differisce dal passaggio per valore, e come l'approccio di Python differisca da entrambi. Ora siamo pronti a dare un'occhiata ravvicinata a come Python gestisce gli argomenti di una funzione.
 
-Remove ads
-Passing Arguments in Python
-Python passes arguments by assignment. That is, when you call a Python function, each function argument becomes a variable to which the passed value is assigned.
+## Passare gli argomenti in Python
 
-Therefore, you can learn important details about how Python handles function arguments by understanding how the assignment mechanism itself works, even outside functions.
+Python passa gli argomenti per assegnazione. Ciò significa che quando chiamiamo una funzione Python, ogni argomento diventa una variabile alla quale viene assegnato il valore passato.
 
-Understanding Assignment in Python
-Python’s language reference for assignment statements provides the following details:
+Quindi, possiamo apprendere dettagli importanti su come Python gestisce gli argomenti della funzione comprendendo come il meccanismo di assegnazione stesso funziona, anche al di fuori delle funzioni.
 
-If the assignment target is an identifier, or variable name, then this name is bound to the object. For example, in x = 2, x is the name and 2 is the object.
-If the name is already bound to a separate object, then it’s re-bound to the new object. For example, if x is already 2 and you issue x = 3, then the variable name x is re-bound to 3.
-All Python objects are implemented in a particular structure. One of the properties of this structure is a counter that keeps track of how many names have been bound to this object.
+## Comprendere l'assegnazione in Python
 
-Note: This counter is called a reference counter because it keeps track of how many references, or names, point to the same object. Do not confuse reference counter with the concept of passing by reference, as the two are unrelated.
+La documentazione di Python per le istruzioni di assegnazione fornisce i seguenti dettagli:
 
-The Python documentation provides additional details on reference counts.
+* se l'obiettivo dell'assegnazione è un identificatore, o il nome di una variabile, questo nome è collegato all'oggetto. Per esempio, in `x = 2`, `x` è il nome e `2` è l'oggetto.
+* se il nome è già collegato ad un oggetto separato, viene quindi ri-collegato al nuovo oggetto. Ad esempio, se `x` è già `2` ed abbiamo scritto `x = 3`, allora il nome della variabile `x` viene ri-assegnato a `3`.
 
-Let’s stick to the x = 2 example and examine what happens when you assign a value to a new variable:
+Tutti gli oggetti Python sono implementati secondo una certa struttura. UNa delle proprietà di qeusta struttura è un contatore che tiene traccia di qunati nomi sono stati collegati a questo oggetto.
 
-If an object representing the value 2 already exists, then it’s retrieved. Otherwise, it’s created.
-The reference counter of this object is incremented.
-An entry is added in the current namespace to bind the identifier x to the object representing 2. This entry is in fact a key-value pair stored in a dictionary! A representation of that dictionary is returned by locals() or globals().
-Now here’s what happens if you reassign x to a different value:
+!!!note "Nota"
+    Questo contatore è chiamato *reference counter* perché tiene traccia di quante reference, o nomi, puntano allo stesso oggetto. Non confondiamo il reference counter con il concetto di passaggio per reference, in quanto i due sono incorrelati.
 
-The reference counter of the object representing 2 is decremented.
-The reference counter of the object that represents the new value is incremented.
-The dictionary for the current namespace is updated to relate x to the object representing the new value.
-Python allows you to obtain the reference counts for arbitrary values with the function sys.getrefcount(). You can use it to illustrate how assignment increases and decreases these reference counters. Note that the interactive interpreter employs behavior that will yield different results, so you should run the following code from a file:
+La documentazione Python fornisce ulteriori dettagli sui reference counts.
 
+Rimaniamo all'esempio `x = 2` ed esaminiamo quello che accade quando assegnamo un valore ad una nuova varibile:
+
+* se un oggetto rappresentativo del valore `2` esiste già, viene recuperato. Altrimenti, è creato.
+* il reference counter di questo oggetto viene incrementato
+* un'entrata è aggiunta nell'attuale namespace per collegare l'identificatore `x` all'oggetto che rappresenta `2`. Questa entrata è nei fatti una coppia chiave-valore memorizzata in un dizionario. Una rappresentazione di questo dizionario è restituita da `locals()` o `globals()`.
+
+Ecco quello chea ccade se riassegnamo `x` ad un diverso valore:
+
+* il reference counter dell'oggetto rappresentante `2` viene decrementato
+* il reference counter dell'oggetto che rappresenta il nuovo valore è incrementato
+* il dizionario per l'attuale namespace è aggiornato per correlare `x` all'oggetto rappresentante il nuovo valore
+
+Python ci permette di ottenre il reference counter per valori arbitrari con la funzione `sys.getrefcount()`. Possiamo usarla per illustrare come l'assegnazione incemenrta e decrementa questi reference counter. Notiamo che l'interprete interattivo sfrutta il comportamento che darà risultati differenti, per cui dovremo eseguire il seguente codice da un file:
+
+```py
 from sys import getrefcount
 
 print("--- Before  assignment ---")
@@ -446,8 +451,11 @@ x = "value_2"
 print("--- After reassignment ---")
 print(f"References to value_1: {getrefcount('value_1')}")
 print(f"References to value_2: {getrefcount('value_2')}")
-This script will show the reference counts for each value prior to assignment, after assignment, and after reassignment:
+```
 
+Questo script mostrerà il conteggio delle reference per ogni valore prima dell'assegnazione, dopo l'assegnazione, e dopo la riassegnazione:
+
+```sh
 --- Before  assignment ---
 References to value_1: 3
 References to value_2: 3
@@ -457,31 +465,41 @@ References to value_2: 3
 --- After reassignment ---
 References to value_1: 3
 References to value_2: 4
-These results illustrate the relationship between identifiers (variable names) and Python objects that represent distinct values. When you assign multiple variables to the same value, Python increments the reference counter for the existing object and updates the current namespace rather than creating duplicate objects in memory.
+```
 
-In the next section, you’ll build upon your current understanding of assignment operations by exploring how Python handles function arguments.
+Questi risultai illustrano la relazione tra gli identificatori (nomi delle variabili) e gli oggetti Python che rapprentano valori distinti. Quando assegnamo più variabili allo stesso valore, Python aumenta il reference counter per l'oggetto esistente ed aggiorna il namespace attuale piuttosto che creare oggetti duplicati in memroia.
 
-Exploring Function Arguments
-Function arguments in Python are local variables. What does that mean? Local is one of Python’s scopes. These scopes are represented by the namespace dictionaries mentioned in the previous section. You can use locals() and globals() to retrieve the local and global namespace dictionaries, respectively.
+Vediamo adesso di esplorare come Python gestisce gli argomenti di una funzione.
 
-Upon execution, each function has its own local namespace:
+## Esplorazione degli argomenti di una funzione
 
+Gli argomenti di una funzione in Python sono variabili locali. Cosa significa? Quello locale è uno degli ambiti definiti in Python (ed in ogni linguaggio di programmazione). Questi ambiti sono rappresentati dai namespace dictionary menizioanti nella sezione precedente. Possiamo usare `locals()` e `globals()` per recuperare i namespace dictionary locali e globali, rispettivamnete.
+
+All'esecuzione, ogni funzione ha il suo proprio namespace locale:
+
+```py
 >>> def show_locals():
 ...     my_local = True
 ...     print(locals())
 ...
 >>> show_locals()
 {'my_local': True}
-Using locals(), you can demonstrate that function arguments become regular variables in the function’s local namespace. Let’s add an argument, my_arg, to the function:
+```
 
+Usando `locals()`, possiamo dimostrare che gli argomenti della funzione diventano variabili regolai nel namespace locale della funzione. Aggiungiamo un argomento, `my_arg`, alla funzione:
+
+```py
 >>> def show_locals(my_arg):
 ...     my_local = True
 ...     print(locals())
 ...
 >>> show_locals("arg_value")
 {'my_arg': 'arg_value', 'my_local': True}
-You can also use sys.getrefcount() to show how function arguments increment the reference counter for an object:
+```
 
+Possiamo anche usare `sys.getrefcount()` per mostrare come gli argomenti di funzioni aumentano il conteggio delle reference per un oggetto:
+
+```py
 >>> from sys import getrefcount
 
 >>> def show_refcount(my_arg):
@@ -491,9 +509,13 @@ You can also use sys.getrefcount() to show how function arguments increment the 
 3
 >>> show_refcount("my_value")
 5
-The above script outputs reference counts for "my_value" first outside, then inside show_refcount(), showing a reference count increase of not one, but two!
+```
 
-That’s because, in addition to show_refcount() itself, the call to sys.getrefcount() inside show_refcount() also receives my_arg as an argument. This places my_arg in the local namespace for sys.getrefcount(), adding an extra reference to "my_value".
+Lo script precedente scrive il conteggio delle reference per `my_value` per prima cosa all'esterno, poi all'interno di `show_refcount()`, mostrando un aumento del reference count non di uno, ma di due!
+
+Questo perché, oltre a `show_refcount()` stesso, la chiamata a `sys.getrefcount()` all'interno di `show_refcount()` riceve anche `my_arg` come argomento. Questo piazza `my_arg` nel namespace locale per `sys.getrefcount()`, aggiungendo una reference extra a `my_value`.
+
+
 
 By examining namespaces and reference counts inside functions, you can see that function arguments work exactly like assignments: Python creates bindings in the function’s local namespace between identifiers and Python objects that represent argument values. Each of these bindings increments the object’s reference counter.
 
