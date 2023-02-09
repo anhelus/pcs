@@ -66,68 +66,83 @@ Con questo esempio, un bug comune che può avvenire è quando ci dimentichiamo d
 
 Questo esempio è anche in qualche modo ristretto perché values deve permettere l'accesso ai suoi uggetti usando indici interi. Gli iterabili che permettono questo tipo di accessi sono chiamati sequenze in Python.
 
-This example is also somewhat restricted because values has to allow access to its items using integer indices. Iterables that allow this kind of access are called sequences in Python.
 
-Technical Detail: According to the Python documentation, an iterable is any object that can return its members one at a time. By definition, iterables support the iterator protocol, which specifies how object members are returned when an object is used in an iterator. Python has two commonly used types of iterables:
+!!!note "Dettaglio tecnico"
+    Secondo la documentazione Python, un iterabile è un *qualsiasi* oggetto che può restituire i suoi membri uno alla volta. Per definizione, gli iterabili supportano il protocollo iterator, che specifica come i membri dell'oggetto sono restituiti quando un oggetto è usato in un iteratore. Python ha due tipi comuni di iteraotri: sequenze e generatori.
 
-Sequences
-Generators
-Any iterable can be used in a for loop, but only sequences can be accessed by integer indices. Trying to access items by index from a generator or an iterator will raise a TypeError:
+Un qualsiasi iterabile può essere usato in un ciclo for, ma solo le sequenze possono essere accedute da indici interi. Provare ad accedere agli oggetti per indice da un generatore o un iteratore lancerà un TypeError:
 
+```py
 >>> enum = enumerate(values)
 >>> enum[0]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'enumerate' object is not subscriptable
-In this example, you assign the return value of enumerate() to enum. enumerate() is an iterator, so attempting to access its values by index raises a TypeError.
+```
 
-Fortunately, Python’s enumerate() lets you avoid all these problems. It’s a built-in function, which means that it’s been available in every version of Python since it was added in Python 2.3, way back in 2003.
+In questo esempio, assegnamo il valore di ritorno di `enumerate()` ad `enum`. `enumerate()` è un iteratore, per cui provare ad accedere ai suoi valori per indice lancia un `TypeError`.
 
+Fortunatamente, il metodo `enumerate()` di Python ci permette di evitare tutti questi problemi. E' una funzione integrata, il che significa che è stato disponibile in ogni versione di Python dal momento in cui è stato aggiunto in Python 2.3, nel 2003.
 
-Remove ads
-Using Python’s enumerate()
-You can use enumerate() in a loop in almost the same way that you use the original iterable object. Instead of putting the iterable directly after in in the for loop, you put it inside the parentheses of enumerate(). You also have to change the loop variable a little bit, as shown in this example:
+## Usare il metodo enumerate()
 
+Possiamo usare enumerate() in un loop allo stesso modo in cui si usa l'oggetto iterabile originario. Invece di inserire l'iterabile direttamente dopo `in` nel loop, lo mettiamo tra le parentesi di `enumerate()`. Dobbiamo anche cambiare la variabile di iterazione:
+
+```py
 >>> for count, value in enumerate(values):
 ...     print(count, value)
 ...
 0 a
 1 b
 2 c
-When you use enumerate(), the function gives you back two loop variables:
+```
 
-The count of the current iteration
-The value of the item at the current iteration
-Just like with a normal for loop, the loop variables can be named whatever you want them to be named. You use count and value in this example, but they could be named i and v or any other valid Python names.
+QUando usiamo `enumerate()`, la funzione ci restituisce due variabili su cui iterare:
 
-With enumerate(), you don’t need to remember to access the item from the iterable, and you don’t need to remember to advance the index at the end of the loop. Everything is automatically handled for you by the magic of Python!
+* il conteggio dell'iterazione attuale
+* il valore ell'oggetto all'attuale iterazione
 
-Technical Details: The use of the two loop variables, count and value, separated by a comma is an example of argument unpacking. This powerful Python feature will be discussed further a little later in this article.
+Proprio come nel caso di un normale ciclo for, le variabili di loop possono essere chiamate come vogliamo. Possiamo usare `count` e `value` dell'esempio precedente, ma potremmo ad esempio usare `i` e `v`, o ogni altro nome Python valido.
 
-Python’s enumerate() has one additional argument that you can use to control the starting value of the count. By default, the starting value is 0 because Python sequence types are indexed starting with zero. In other words, when you want to retrieve the first element of a list, you use index 0:
+Con `enumerate()`, non dobbiamo ricordare l'accesso all'oggetto dall'iterabile, e non dobbiamo ricordare di aumentare l'indice alla fine del ciclo. Tutto viene gestito automaticamente.
 
+!!!note "Dettaglio tecnico"
+    L'uso di di due variabili di loop, `count` e `value`, separate da una virgola è un esempio di *argument unpacking*. Questa feature Python sarà discussa in seguito.
+
+La funzione `enumerate()` ha un ulteriore argomento che possiamo usare per controllare il valore di partenza del conteggio. Di default, il valore di partenza è `0` perché le sequenze Python sono indicizzati partendo da zero. In altre parole, quando vogliamo recuperare il primo elemento di una lista, usiamo l'indice `0`:
+
+```py
 >>> print(values[0])
 a
-You can see in this example that accessing values with the index 0 gives the first element, a. However, there are many times when you might not want the count from enumerate() to start at 0. For instance, you might want to print a natural counting number as an output for the user. In this case, you can use the start argument for enumerate() to change the starting count:
+```
 
+Possiamo vedere in questo esempio che accedere a `values` con indice `0` restituisce il primo elemento, `a`. Tuttavia, ci sono molte volte quando non vogliamo che il conteggio di `enumerate()` parta a `0`. Ad esempio, potremmo voler stampare a schermo un contatore come output per l'utente. IN questo caso, possiamo usare l'argomento `start` passato ad `ennumerate()` per cambiare il contatore di partenza:
+
+```py
 >>> for count, value in enumerate(values, start=1):
 ...     print(count, value)
 ...
 1 a
 2 b
 3 c
-In this example, you pass start=1, which starts count with the value 1 on the first loop iteration. Compare this with the previous examples, in which start had the default value of 0, and see whether you can spot the difference.
+```
 
-Practicing With Python enumerate()
-You should use enumerate() anytime you need to use the count and an item in a loop. Keep in mind that enumerate() increments the count by one on every iteration. However, this only slightly limits your flexibility. Since the count is a standard Python integer, you can use it in many ways. In the next few sections, you’ll see some uses of enumerate().
+In questo esempio, passiamo `start=1`, che inizia il conteggio con il valore `1` sulla prima iterazione del loop. Se compariamo questo con gli esempi precedenti, nei quali `start` aveva il valore di default di `0`, e possiamo vedere la diffferenza.
 
-Natural Count of Iterable Items
-In the previous section, you saw how to use enumerate() with start to create a natural counting number to print for a user. enumerate() is also used like this within the Python codebase. You can see one example in a script that reads reST files and tells the user when there are formatting problems.
+## Pratica
 
-Note: reST, also known as reStructured Text, is a standard format for text files that Python uses for documentation. You’ll often see reST-formatted strings included as docstrings in Python classes and functions. Scripts that read source code files and tell the user about formatting problems are called linters because they look for metaphorical lint in the code.
+Dovremmo usare `enumerate()` ogni volta che dobbiamo usare il contatore ed un oggetto in un ciclo. Teniamo a mente che `enumerate()` aumenta il conteggio di uno ad ogni iterazione. Tuttavia, questo limita soltanto leggermente la nostra flessibilità. Dato che `count` è un intero standard, possiamo usarlo in molti modi. Vediamo alcuni esempi.
 
-This example is slightly modified from rstlint.py. Don’t worry too much about how this function checks for problems. The point is to show a real-world use of enumerate():
+### Conteggio naturale di oggetti iterabili
 
+Nella sezione precedente, abbiamo visto come usare `enumerate()` per iniziare a creare un contatore naturale da stampare a schermo per l'utente. `enumerate()` è usato anche in questo modo all'interno della codebase Python. Possiamo vedere un esempio in uno script che legge i file reST e dice all'utente se ci sono problemi di formattazione.
+
+!!!note "Nota"
+    reST, detto anche reStructured Text, è un formato standard per i file di testo che Python usa per la documentazione. Vedremo spesso delle stringhe formattate secondo reST incluse come docstring nelle classi e funzioni Python. Gli script che leggono i file del codice sorgente e dicono all'utente dei problemi di formattazione sono chiamati *linter* perché cercano i *metaphorical lint* (TODO: TRADURRE) nel codice.
+  
+Questo esempio è leggermente modificato da rstlint.py. Non ci preoccupiamo come questa funzione controlla i problemi: il punto è quello di mostrare un uso vero di enumerate().
+
+```py
 def check_whitespace(lines):
     """Check for whitespace and line length issues."""
     for lno, line in enumerate(lines):
@@ -137,15 +152,21 @@ def check_whitespace(lines):
             yield lno+1, "OMG TABS!!!1"
         if line[:-1].rstrip(" \t") != line[:-1]:
             yield lno+1, "trailing whitespace"
-check_whitespace() takes one argument, lines, which is the lines of the file that should be evaluated. On the third line of check_whitespace(), enumerate() is used in a loop over lines. This returns the line number, abbreviated as lno, and the line. Since start isn’t used, lno is a zero-based counter of the lines in the file. check_whitespace() then makes several checks for out-of-place characters:
+```
 
-The carriage return (\r)
-The tab character (\t)
-Any spaces or tabs at the end of the line
-When one of these items is present, check_whitespace() yields the current line number and a useful message for the user. The count variable lno has 1 added to it so that it returns the counting line number rather than a zero-based index. When a user of rstlint.py reads the message, they’ll know which line to go to and what to fix.
+`check_whitespae()` prende un argomento, `lines`, che sono le linee del file che deve essere valutato. Alla terza riga di `check_whitespace()`, enumerate() è usato in un loop su `lines`. Questo restituisce il numero di linea, abbreviato in `lno`, e la linea stessa. Dal momento che `start` non èusato, `lno` è un contatore che parte da zero delle righe nel file. `check_whitespaces()` fa diversi controlli per individuare i caratteri fuori psoto:
+
+* il carriage return \r
+* il carattere tab \t
+* un qualsiasi spazio o tab alla fine della riga
+
+Quando uno di questi oggetti è presente, `check_whitespace()` restituisce il numero di riga attuale ed un messaggio utile all'utente. La variabile contatore `lno` vi aggiunge uno in modo che restituisca il numero di contatore di linea piuttosto che un idnice preso a partire da zero. QUando un utente di `rslint.py` legge il messaggio, saprà a quale riga andare e quello da controllare.
 
 
-Remove ads
+
+
+
+
 Conditional Statements to Skip Items
 Using conditional statements to process items can be a very powerful technique. Sometimes you might need to perform an action on only the very first iteration of a loop, as in this example:
 
