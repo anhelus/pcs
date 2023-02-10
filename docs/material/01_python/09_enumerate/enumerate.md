@@ -162,14 +162,11 @@ def check_whitespace(lines):
 
 Quando uno di questi oggetti è presente, `check_whitespace()` restituisce il numero di riga attuale ed un messaggio utile all'utente. La variabile contatore `lno` vi aggiunge uno in modo che restituisca il numero di contatore di linea piuttosto che un idnice preso a partire da zero. QUando un utente di `rslint.py` legge il messaggio, saprà a quale riga andare e quello da controllare.
 
+## Istruzioni condizionali per saltare oggetti
 
+Usare le istruzioni condizionali per elaborare gli oggetti può essere una tecnica molto potetne. Alle volte, dobbiamo effettuare un'azione soltanto alla prima iterazione di un loop, come in questo esempio:
 
-
-
-
-Conditional Statements to Skip Items
-Using conditional statements to process items can be a very powerful technique. Sometimes you might need to perform an action on only the very first iteration of a loop, as in this example:
-
+```py
 >>> users = ["Test User", "Real User 1", "Real User 2"]
 >>> for index, user in enumerate(users):
 ...     if index == 0:
@@ -179,10 +176,13 @@ Using conditional statements to process items can be a very powerful technique. 
 Extra verbose output for: Test User
 Real User 1
 Real User 2
-In this example, you use a list as a mock database of users. The first user is your testing user, so you want to print extra diagnostic information about that user. Since you’ve set up your system so that the test user is first, you can use the first index value of the loop to print extra verbose output.
+```
 
-You can also combine mathematical operations with conditions for the count or index. For instance, you might need to return items from an iterable, but only if they have an even index. You can do this by using enumerate():
+In questo esempio, usiamo una lista come mock di un database di utenti. Il primo utente è il nostro utente di test, per cui vogliamo creare delle informazioni di diagnostica su quell'utente. Dal momento che abbiamo impostato il sistema in modo che l'utente di test sia il primo, possiamo usare il primo valore dell'indice del loop per stampare dell'output verboso extra.
 
+Possiamo anche combinare delle operazionimatematiche con delle condizioni per il conteggio o l'indice. PEr esempio, possiamo restituire degli oggetti da un iterabile, ma soltanto se hanno un indice pari. Possiamo far questo usando enumerate().
+
+```py
 >>> def even_items(iterable):
 ...     """Return items from ``iterable`` when their index is even."""
 ...     values = []
@@ -191,19 +191,25 @@ You can also combine mathematical operations with conditions for the count or in
 ...             values.append(value)
 ...     return values
 ...
-even_items() takes one argument, called iterable, that should be some type of object that Python can loop over. First, values is initialized to be an empty list. Then you create a for loop over iterable with enumerate() and set start=1.
+```
 
-Within the for loop, you check whether the remainder of dividing index by 2 is zero. If it is, then you append the item to values. Finally, you return values.
+La funzione `even_items()` prende un argomento, chiamato `iterable`, che dovrebbe essere un qualche tipo di oggetto su cui Python può ciclare. Per prima cosa, `values` viene inizializzato ad una lista vuota. Quindi possiamo creare un ciclo for sull'iterabile con `enumerate()` ed impostare `start=1`.
 
-You can make the code more Pythonic by using a list comprehension to do the same thing in one line without initializing the empty list:
+All'interno del ciclo for, controlliamo se il resto della divisione per due è zero. Se questo è vero, aggiungiamo l'oggetto a values. Infine, restituiamo values.
 
+Possiamo rendere il codice più Pythonic usando una list comprehension per fare la stessa cosa in una riga senza inizializzare una lista vuota:
+
+```py
 >>> def even_items(iterable):
 ...     return [v for i, v in enumerate(iterable, start=1) if not i % 2]
 ...
-In this example code, even_items() uses a list comprehension rather than a for loop to extract every item from the list whose index is an even number.
+```
 
-You can verify that even_items() works as expected by getting the even-indexed items from a range of integers from 1 to 10. The result will be [2, 4, 6, 8, 10]:
+In questo codice di esempio, `even_items()` usa una list comprehension piuttosto che un ciclo for per estrarre ogni oggetto dalla ista il cui indice è un numero pari.
 
+Possiamo verificare che `even_items()` funziona come atteso ottenendo gli oggetti con indice pari da un range di interi da 1 a 10. Il risultato sarà:
+
+```py
 >>> seq = list(range(1, 11))
 
 >>> print(seq)
@@ -211,22 +217,31 @@ You can verify that even_items() works as expected by getting the even-indexed i
 
 >>> even_items(seq)
 [2, 4, 6, 8, 10]
-As expected, even_items() returns the even-indexed items from seq. This isn’t the most efficient way to get the even numbers when you’re working with integers. However, now that you’ve verified that even_items() works properly, you can get the even-indexed letters of the ASCII alphabet:
+```
 
+Come atteso, `even_items()` restituisce gli oggetti ad indice pari da `seq`. Questo non è il modo più efficienti per ottenere i numeri pari quando stiamo lavorando con gli interi. Tuttavia, ora che abbiamo verificato che `even_items()` lavora propriamente, possiamo ottenere le lettere ad indice pari dell'alfabeto ASCII:
+
+```py
 >>> alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 >>> even_items(alphabet)
 ['b', 'd', 'f', 'h', 'j', 'l', 'n', 'p', 'r', 't', 'v', 'x', 'z']
-alphabet is a string that has all twenty-six lowercase letters of the ASCII alphabet. Calling even_items() and passing alphabet returns a list of alternating letters from the alphabet.
+```
 
-Python strings are sequences, which can be used in loops as well as in integer indexing and slicing. So in the case of strings, you can use square brackets to achieve the same functionality as even_items() more efficiently:
+In questo caso, `alphabet` è una stringa che ha tutte le ventisei lettere minuscole dell'alfabeto ASCII. Chiamare `even_items()` e passare `alphabet` restituisce una lista di lettere alternate dall'alfabeto.
 
+Le stringhe Python sono sequenze, che possono essere usate in cicli così come nell'indicizzazione intera e nello slicing. In caso di stringhe, possiamo usare delle parentesi quadre per ottenere la stessa funzionalità di `evne_items()` in modo più efficiente:
+
+```py
 >>> list(alphabet[1::2])
 ['b', 'd', 'f', 'h', 'j', 'l', 'n', 'p', 'r', 't', 'v', 'x', 'z']
-Using string slicing here, you give the starting index 1, which corresponds to the second element. There’s no ending index after the first colon, so Python goes to the end of the string. Then you add the second colon followed by a 2 so that Python will take every other element.
+```
 
-However, as you saw earlier, generators and iterators can’t be indexed or sliced, so you’ll still find enumerate() useful. To continue the previous example, you can create a generator function that yields letters of the alphabet on demand:
+Usando lo string slicing qui, diamo all'indice di partenza `1`, che corrisponde al secondo elemento. Non vi è un indice finale dopo la prima virgola, per cui Python va fino alla fine della stringa. Quindi aggiungiamo la seconda virgola seguita da un 2, in modo che Python prenda ogni elemento pari.
 
+Tuttavia, come visto in precedenza, i generator e gli iterator non possono essere indicizzati o con slicing, per cui troveremo sempre utile `enumerate()`. Per continuare l'esempio precedente, possiamo creare una funzione generator che restituisce le lettere dell'alfabeto su richiesta:
+
+```py
 >>> def alphabet():
 ...     alpha = "abcdefghijklmnopqrstuvwxyz"
 ...     for a in alpha:
@@ -239,31 +254,37 @@ TypeError: 'function' object is not subscriptable
 
 >>> even_items(alphabet())
 ['b', 'd', 'f', 'h', 'j', 'l', 'n', 'p', 'r', 't', 'v', 'x', 'z']
-In this example, you define alphabet(), a generator function that yields letters of the alphabet one-by-one when the function is used in a loop. Python functions, whether generators or regular functions, can’t be accessed by the square bracket indexing. You try this out on the second line, and it raises a TypeError.
+```
 
-You can use generator functions in loops, though, and you do so on the last line by passing alphabet() to even_items(). You can see that the result is the same as the previous two examples.
+In questo esempio, definiamo `alphabet()`, una funzione generator che restituisce le lettere dell'alfabeto una ad una quando la funzione è usata in un loop. Le funzioni Python, siano esse generator o funzioni regolari, non possono essere accedute mediante l'indicizzazione con parentesi quadre. Questo viene provato sulla seconda riga e lancia un TypeError.
 
+Possiamo usare le funzioni generator in dei loop, tuttavia, e lo facciamo sull'ultima riga passando `alphabet()` ad `even_items()`. Possiamo vedere che i risultati sono gli stessi dei due esempi precedenti.
 
-Remove ads
-Understanding Python enumerate()
-In the last few sections, you saw examples of when and how to use enumerate() to your advantage. Now that you’ve got a handle on the practical aspects of enumerate(), you can learn more about how the function works internally.
+## Comprendere la funzione enumerate()
 
-To get a better sense of how enumerate() works, you can implement your own version with Python. Your version of enumerate() has two requirements. It should:
+Nell'ultima parte abbiamo visto esempi di quando e come usare enumerate() a nostro vantaggio. Ora che abbiamo visto un assaggio degli aspetti pratici di enumerate(), possiamo capire di più su come la funzione lavora internamente.
 
-Accept an iterable and a starting count value as arguments
-Send back a tuple with the current count value and the associated item from the iterable
-One way to write a function meeting these specifications is given in the Python documentation:
+Per ottenere un migliore comprensione di come funziona enumerate(), possiamo implementare la nostra versione con Python. La nostra versione di enumerate() ha due requisiti:
 
+* accettare un iterabile ed un valore di conteggio iniziale come argomenti
+* mandare indietro una tupla con l'attuale valore di conteggio e l'oggetto associato dall'iterabile
+
+Un modo di scrivere una funzione che rispetti queste specifiche è data nella documentazione Python:
+
+```py
 >>> def my_enumerate(sequence, start=0):
 ...     n = start
 ...     for elem in sequence:
 ...         yield n, elem
 ...         n += 1
 ...
-my_enumerate() takes two arguments, sequence and start. The default value of start is 0. Inside the function definition, you initialize n to be the value of start and run a for loop over the sequence.
+```
 
-For each elem in sequence, you yield control back to the calling location and send back the current values of n and elem. Finally, you increment n to get ready for the next iteration. You can see my_enumerate() in action here:
+La funzione `my_enumerate()` prende due argomenti, `sequence` e `start`. Il valore di default di start è 0. All'interno della definizione di funzione, si inizializza `n` per essere il valore di start ed eseguire un ciclo for nella sequenza.
 
+Per ogni elem nella sequenza, ci dà il controlo alla posizione chiamante ed invia all'indietro il valore attuale di `n` ed `elem`. Infine, incrementiamo `n` per essere pronti all'iterazione successiva. Possiamo vedere `my_enumerate()` in azione:
+
+```py
 >>> seasons = ["Spring", "Summer", "Fall", "Winter"]
 
 >>> my_enumerate(seasons)
@@ -274,11 +295,21 @@ For each elem in sequence, you yield control back to the calling location and se
 
 >>> list(my_enumerate(seasons, start=1))
 [(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]
-First, you create a list of the four seasons to work with. Next, you show that calling my_enumerate() with seasons as the sequence creates a generator object. This is because you use the yield keyword to send values back to the caller.
+```
 
-Finally, you create two lists from my_enumerate(), one in which the start value is left as the default, 0, and one in which start is changed to 1. In both cases, you end up with a list of tuples in which the first element of each tuple is the count and the second element is the value from seasons.
+Per prima cosa, creiamo una lista di quattro stagioni con cui lavorare. Inoltre, mostriamo che chiamare `my_enumerate()` con `seasons` in quanto la sequenza crea un generator. Questo è perché usiamo la parola chaive `yield` per inviare i valori indietro al chiamante.
 
-Although you can implement an equivalent function for enumerate() in only a few lines of Python code, the actual code for enumerate() is written in C. This means that it’s super fast and efficient.
+Infine, creiamo due liste da `my_enumrate()`, uno nel quale il valore `start` è lasciato di default (0) ed uno nel quale start è cambiato ad 1. In entrambi i casi, finiamo con una lista di tuple nella quale il primo elemenot di ogni tupla è il conteggio ed il secondo elemento è il valore da seasons.
+
+Anche se possiamo implementare una funzione di equivalente per enumerate() in poche righe di codice Python, il codice vero e proprio di enumerate() è scritto in C. Questo significa che è molto veloce ed efficiente.
+
+## Spacchettare gli argomenti con enumerate()
+
+Quando usiamo enumeratre() in un ciclo for, diciamo a Python di usare due variabili, uno per il conteggio ed uno per il valore. Siamo abile di fare qeusto usando un concetto Python chiamato argument unpacking.
+
+
+TODO DA QUI
+
 
 Unpacking Arguments With enumerate()
 When you use enumerate() in a for loop, you tell Python to use two variables, one for the count and one for the value itself. You’re able to do this by using a Python concept called argument unpacking.
