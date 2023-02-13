@@ -91,66 +91,69 @@ WindowsPath('C:/Users/user/Documents')
 !!!note "Path, WindowsPath e PosixPath"
     Negli esempi precedenti, utilizzare la classe `Path` ha sempre portato in output un `WindowsPath`. Ciò è legato al fatto che questi esempi sono stati scritti su un sistema Windows; se si fosse utilizzaton un sistema Unix-like, i path risultanti sarebbero stati dei `PosixPath`. In pratica, la classe vera e propria che caratterizza il path dipende dal sistema operativo su cui viene eseguito il nostro programma.
 
+### 9.2.2 I/O su file
 
-DA QUI
+#### Apertura di un file
 
-## Leggere e scrivere file
-
-Tradizionalmente, il mdoo per leggere o scrivere un file in Python è stato mediatne il metodo `open()`. Questo è sempre vero, in qunato la funzione `open()` può usare dierttamente gli oggetto `Path`. Il seguente esempio trova tutti gli header in un file Markdown stampandoli a schermo:
+Per leggere da o scrivere su un file Python si è utilizza il metodo `open()` che, convenientemente, può essere usato direttamente con gli oggetti di classe `Path`. Ad esempio, se volessimo leggere tutti i commenti in un file Python, potremmo usare la seguente funzione:
 
 ```py
-path = Path.cwd() / 'test.md'
-with open(path, mode='r') as f:
-    headers = [line.strip() for line in f if line.startswith('#')]
-print('\n'.join(headers))
+def leggi_commenti(file_path):
+    with open(file_path, 'r') as f:
+        commenti = [line.strip() for line in f if line.startswith('#')]
+    return '\n'.join(commenti)
+
+leggi_commenti('test.py')
 ```
 
-Un modo equivalente è quello di chiamare la funzione open direttamente sull'oggetto Path:
+In realtà, possiamo anche chiamare la funzione `open()` messa a disposizione dall'oggetto `Path`:
 
 ```py
 with path.open(mode='r') as f:
-    ...
+    # ...
 ```
 
-Infatti, `Path.open()` sta chiuamando la funzione integrata `open()` dietor le scene. Quale opzione scegliamo di usare è semplicemente una questione di gusto.
+In pratica, `Path.open()` chiama internamente la `open()`. Di conseguenza, l'utilizzo dell'una o dell'altra funzione è semplicemente una questione di preferenze personali.
 
-Per la semplice lettura e scrittrura di file, ci sono un paio di metodi utili nella libreria `pathlib`:
+#### Lettura e scrittura
 
-* `.read_text()`: apre il percorso in modalità testuale e restituisce i contenuti come stirnga.
-* `.read_bytes()`: apre il percros in modalità binaria e restituisce i contenuti come una byutestring.
-* `.write_text()`: apre il percorso e scrive dei dati sotto forma di stringa
-* `.write_bytes()`: apre il percorso in modalità bianria e vi scrive dei dati
+Per le operazioni di lettura e scrittura su file `pathlib` mette a disposizione i metodi mostrati nella tabella 9.1.
 
-Ognuno di questi meotdi gestisce l'apertura e la scrittura del file, rendendoli semplici da usare, ad esempio:
+| Metodo | File aperto come... | Tipo di interazione |
+| ------ | -------------------- | ------------------- |
+| `.read_text()` | File di testo | Contenuti restituiti come stringa |
+| `.read_bytes()` | File binario | Contenuti restituiti come binario |
+| `.write_text()` | File di testo | Scrittura di contenuti come stringa |
+| `.write_bytes()` | File binario | Scrittura di contenuti come binari |
+
+Tutti i metodi gestiscono autonomamente l'apertura e l'interazione con il file. Ad esempio, per leggere i contenuti di un file di testo:
 
 ```py
->>> path = Path.cwd() / 'test.md'
+>>> path = Path.cwd() / 'test.txt'
 >>> path.read_text()
+<contenuti del file test.txt>
+```
+
+I path possono essere specificati anche come semplici nomi di file. In questo caso, ovviamente, Python assumerà che siano all'interno dell'attuale cartella di lavoro. Ad esempio, un'altra forma di esprimere il codice precedente è questa:
+
+```py
+>>> Path('test.txt').read_text()
 <contenuti del file test.md>
 ```
 
-I path possono anche essere specificati come semplici nomi dei file, nel qual caso sono interpertati relativamente all'attuale cartella di vlavoro. Il seguente esempio è equivalentne al precedente:
+#### Percorso di un file
+
+Per avere il percorso completo (assoluto) di un file possiamo usare il metodo resolve():
 
 ```py
->>> Path('test.md').read_text()
-<contenuti del file test.md>
-```
-
-Il metodo `resolve()` trova il percorso completo ddel file.
-
-```py
->>> path = Path('test.md')
+>>> path = Path('test.txt')
 >>> path.resolve()
-TODO PATH
+WindowsPath('C:/Users/user/Documents/test.txt')
 ```
 
-Possiamo anche comparare dei path. Ad esempio, possiamo confermare che il file test.md si trova nella cartella attuale:
+## 9.3 - Attributi di un path
 
-```py
->>> path.resolve().parent == Path.cwd()
-```
-
-## Scegliere i componenti di un Path
+TODO DA QUI
 
 Le diverse parti di un path sono disponibili sotto forma di property. Deglie sempi basilari includono:
 
