@@ -1,12 +1,10 @@
-# Esercizi 1 - Introduzione a Python
+# Modulo 1 - Il linguaggio Python: Esercizi
 
 ## Esercizio 1.1
 
-*Creiamo una stringa che assuma valore **PCS** usando l'interprete integrato.*
+**Traccia**: *Creiamo una stringa che assuma valore **PCS** usando l'interprete integrato.*
 
-#### Soluzione 1.1
-
-Apriamo l'interprete Python digitando `python` da riga di comando. A quel punto, inseriamo la seguente istruzione, e premiamo `Invio`:
+**Soluzione**: Apriamo l'interprete Python digitando `python` da riga di comando. A quel punto, inseriamo la seguente istruzione, e premiamo `Invio`:
 
 ```py
 >>> s = 'PCS'
@@ -15,11 +13,9 @@ PCS
 
 ## Esercizio 1.2
 
-Valutiamo la lunghezza della stringa creata nell'esercizio precedente, e verifichiamo che sia uguale a 3.
+**Traccia**: *Valutiamo la lunghezza della stringa creata nell'esercizio precedente, e verifichiamo che sia uguale a 3.*
 
-#### Soluzione 1.2
-
-Innanzitutto, possiamo usare la funzione [`len()`](https://docs.python.org/3/library/functions.html#len) che, come abbiamo visto nella lezione, accetta una *sequenza* (ovvero un oggetto su cui si possa iterare), e restituisce un intero rappresentativo della lunghezza dell'iterabile.
+**Soluzione**: Innanzitutto, possiamo usare la funzione [`len()`](https://docs.python.org/3/library/functions.html#len) che, come abbiamo visto nella lezione, accetta una *sequenza* (ovvero un oggetto su cui si possa iterare), e restituisce un intero rappresentativo della lunghezza dell'iterabile.
 
 Dato che la stringa è una sequenza, possiamo invocare la funzione `len()` passandogli come argomento `s`:
 
@@ -45,11 +41,26 @@ True
 
 ## Esercizio 1.3
 
-Creare una lista a partire dalla stringa definita negli esercizi precedenti.
+**Traccia**: *Verifichiamo che il numero `x` sia compreso tra `0` e `10`.*
 
-#### Soluzione 1.3
+**Soluzione**: Per prima cosa, dichiariamo un valore qualsiasi per `x`:
 
-Una prima possibilità è quella di utilizzare il costruttore di classe [`list()`](https://docs.python.org/3/library/functions.html#func-list) che accetta una sequenza e restituisce una lista a partire da questa. Possiamo quindi scrivere:
+```py
+>>> x = 1
+```
+
+A questo punto, verifichiamo che `x` sia compreso tra `0` e `10` mediante l'operatore booleano `and`:
+
+```py
+>>> x < 10 and x > 0
+True
+```
+
+## Esercizio 1.4
+
+**Traccia**: Creare una lista a partire dalla stringa definita negli esercizi precedenti.
+
+**Soluzione**: Una prima possibilità è quella di utilizzare il costruttore di classe [`list()`](https://docs.python.org/3/library/functions.html#func-list) che accetta una sequenza e restituisce una lista a partire da questa. Possiamo quindi scrivere:
 
 ```py
 >>> l_1 = list(s)

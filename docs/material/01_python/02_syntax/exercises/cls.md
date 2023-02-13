@@ -1,62 +1,68 @@
 # E4 - Programmazione orientata agli oggetti in Python
 
-## E4.1
+## Esercizio 4.1
 
 Scrivere una classe `Persona` applicando i concetti visti durante la lezione.
 
-### S4.1 - Soluzione
+### Soluzione
 
-Scriviamo la classe `Persona` come segue:
+Supponiamo che la classe `Persona` abbia tre attributi:
+
+* un attributo `nome`, stringa rappresentativa del nome della persona;
+* un attributo `cognome`, stringa rappresentativa del cognome della persona;
+* un attributo `eta`, intero rappresentativo dell'età della persona.
+
+Per prima cosa, scriviamo il metodo `__init__`:
 
 ```py
-class Persona():
-
-	def __init__(self, nome, cognome, eta):
-		self.nome = nome
-		self.cognome = cognome
-		self.eta = eta
-
-	@property
-	def nome(self):
-		return self.__nome
-
-	@nome.setter
-	def nome(self, value):
-		if len(value) < 2:
-			raise ValueError('La lunghezza del nome non può essere inferiore a due caratteri.')
-		else:
-			self.__nome = value
-
-	@property
-	def cognome(self):
-		return self.__cognome
-
-	@cognome.setter
-	def cognome(self, value):
-		if len(value) < 2:
-			raise ValueError('La lunghezza del cognome non può essere inferiore a due caratteri.')
-		else:
-			self.__cognome = value
-
-	@property
-	def eta(self):
-		return self.__eta
-
-	@eta.setter
-	def eta(self, value):
-		if value < 0:
-			raise ValueError("L'età non può essere negativa.")
-		else:
-			self.__eta = value
+def __init__(self, nome, cognome, eta):
+    self.nome = nome
+    self.cognome = cognome
+    self.eta = eta
 ```
 
-Alcune note:
+Passeremo al metodo `__init__` tre parametri che, per semplicità, chiameremo proprio `nome`, `cognome` ed `eta`. Questi parametri andranno ad inizializzare gli omonimi attributi di classe.
 
-* abbiamo riscritto la classe `Persona` in modo da trasformare tutti gli attributi in proprietà;
-* per ogni proprietà, abbiamo specificato un getter, che restituisce il valore della stessa;
-* oltre al getter, è stato specificato un setter, nel quale vi è anche una forma di validazione del valore passato in input.
+Fatto questo, scriviamo tre proprietà, una per ciascun attributo:
 
-Vediamo come usare la nostra nuova classe:
+```py
+@property
+def nome(self):
+    return self.__nome
+
+@nome.setter
+def nome(self, value):
+    if len(value) < 2:
+        raise ValueError('La lunghezza del nome non può essere inferiore a due caratteri.')
+    else:
+        self.__nome = value
+
+@property
+def cognome(self):
+    return self.__cognome
+
+@cognome.setter
+def cognome(self, value):
+    if len(value) < 2:
+        raise ValueError('La lunghezza del cognome non può essere inferiore a due caratteri.')
+    else:
+        self.__cognome = value
+
+@property
+def eta(self):
+    return self.__eta
+
+@eta.setter
+def eta(self, value):
+    if value < 0:
+        raise ValueError("L'età non può essere negativa.")
+    else:
+        self.__eta = value
+```
+
+Notiamo come le proprietà `nome` e `cognome` siano fatte in modo che se la lunghezza della stringa passata risulta essere inferiore a due caratteri venga lanciato un errore di tipo `ValueError`. Analogamente, il valore della proprietà `eta` non potrà essere inferiore a zero.
+
+Facciamo un esempio di uso della nostra classe mediante l'interprete Python:
 
 ```py
 >>> draco = Persona('Draco', 'Malfoy', 12)
@@ -72,7 +78,8 @@ Traceback (most recent call last):
 ValueError: La lunghezza del nome non può essere inferiore a due caratteri.
 ```
 
-Notiamo che, dal punto di vista dello script che richiama la classe, non ci sono differenze di sorta; tuttavia, la logica di validazione ci permette di evitare errori e situazioni incoerenti, ed è inoltre possibile sfruttare le proprietà per accedere agli attributi privati della classe.
+!!!tip "Codice"
+    Il codice completo per questo esercizio è disponibile a [questo indirizzo]()
 
 ## E4.2
 

@@ -1,4 +1,4 @@
-# 1.1 - Introduzione al linguaggio Python
+# 1.1 - Introduzione al Python
 
 Prima di iniziare a parlare del linguaggio Python, è opportuno verificare che l'interprete sia installato nel nostro sistema. Per farlo, apriamo un terminale (Shell o Command Prompt, a seconda del nostro sistema), e scriviamo:
 
@@ -15,7 +15,7 @@ Se apparirà una schermata simile a quella mostrata in figura 1.1, Python sarà 
 
 In alternativa, dovremo provvedere ad installarlo seguendo la procedura indicata sul [sito ufficiale](https://www.python.org/), ed aggiungerlo al path di sistema.
 
-## 1.1 - Python e tipizzazione
+## Python e tipizzazione
 
 ### Tipizzazione dinamica
 
@@ -64,3 +64,20 @@ Immaginiamo di istruire il nostro interprete Python ad assegnare alla nostra var
 Proviamo ora a sommare a `var` un valore pari ad `1.1`. Il risultato, come ovvio, sarà un numero decimale, e quindi l'interprete "cambierà idea", in quanto i comportamenti assunti da `var` sono adesso assimilabili ad una variabile di tipo `float`.
 
 L'utilità del duck typing è evidente: permette allo sviluppatore di "risparmiare" numerose operazioni di cast, rendendo il codice più semplice da scrivere e manutenere. Tuttavia, occorre tenerne conto nel momento in cui si usano classi ed oggetti, in quanto l'interprete proverà ad inferire ed usare automaticamente un tipo in base al contesto in cui viene usata la variabile, con le comodità (ed i potenziali disastri) che questo comporta.
+
+## Tipi built-in in Python
+
+Python prevede una [serie](https://docs.python.org/3/library/stdtypes.html) di tipi *built-in*, ovvero nativamente disponibili nel linguaggio. Ne esiste un gran numero; tuttavia, quelli che ci troveremo più frequentemente ad utilizzare sono riassunti in tabella 1.
+
+| Tipo | Descrizione | Esempio |
+| ---- | ----------- | ------- |
+| [`int`](https://docs.python.org/3/library/functions.html#int) | Numeri interi | `1` |
+| [`float`](https://docs.python.org/3/library/functions.html#float) | Numeri decimali | `1.0` |
+| [`complex`](https://docs.python.org/3/library/functions.html#complex) | Numeri complessi | `1 + 1j` |
+| [`list`](https://docs.python.org/3/library/stdtypes.html#list) | Liste di oggetti | `[1, 'pippo', [1, 2, 3]]` |
+| [`tuple`](https://docs.python.org/3/library/stdtypes.html#tuple) | Tuple di oggetti | `(1, 'pippo', [1, 2, 3])` |
+| [`str`](https://docs.python.org/3/library/stdtypes.html#str) | Stringhe | `'pippo'` |
+| [`set`](https://docs.python.org/3/library/stdtypes.html#set) | Insiemi | `{1, 2, 3}` |
+| [`dict`](https://docs.python.org/3/library/stdtypes.html#dict) | Dizionari | `{'a': 1, 2: 'b'}` |
+
+Nella [prossima lezione](./02_operators.md), vedremo alcuni tra gli operatori più comunemente utilizzati sui dati di tipo numerico.

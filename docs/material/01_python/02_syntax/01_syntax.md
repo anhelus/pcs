@@ -1,65 +1,94 @@
-# 2 - Programmare in Python
+# 2.1 - Sintassi fondamentale
 
-## 2.1 - Alcuni concetti sintattici fondamentali
+Vediamo alcuni dei concetti fondamentali che caratterizzano la sintassi del linguaggio Python.
 
-Oltre al duck typing, esistono altri concetti che caratterizzano la sintassi di Python. Vediamoli brevemente.
+## Commenti
 
-### 2.1.1 - Uso delle parentesi
-
-1. Le **parentesi tonde** sono usate soltanto nel caso di chiamata a funzione, oltre che per esprimere la precedenza nelle operazioni. In tutti gli altri casi, sono opzionali e possono essere omesse. Ad esempio:
-
-	```py
-	a = 2
-	b = 3
-	c = 4
-	r_1 = a + b * c 	# Valore restituito: 14
-	r_2 = (a + b) * c	# Valore restituito: 20
-
-	if a > 2:
-		# Questa notazione è valida, ed è equivalente ad (a > 2)
-	```
-2. Le **parentesi quadre** sono usate per la creazione e l'accesso agli elementi di una struttura dati.
-
-	```py
-	# Creo una lista
-	lista = [1, 2, 3]
-	# Accedo al secondo elemento della lista
-	lista[1]			# Il valore acceduto è 2
-	```
-3. Le **parentesi graffe** sono usate per la creazione di un dizionario.
-	```py
-	dizionario = {'a': 1, 'b': 2}
-	# Notiamo che per accedere ad una chiave di un dizionario useremo comunque la parentesi quadra.
-	dizionario[a]		# Il valore acceduto è 1, ovvero quello relativo alla chiave 'a'
-	```
-
-### 2.1.2 - Ambito e termine di un'istruzione
-
-A differenza del C, che prevede che ogni istruzione sia terminata da un punto e virgola, Python prevede che un'istruzione termini quando si va a capo. Quindi:
+Python prevede due tipi di commento. Il primo, e più semplice, è quello a singola riga, anteceduto da un carattere `#` (*asterisco*):
 
 ```py
-a = 1			# L'istruzione di assegnazione è terminata!
+>>> # Questo è un commento!
 ```
 
-In altre parole, si può omettere il punto e virgola.
-
-Per quello che riguarda invece la definizione di un ambito, ad esempio locale all'interno di una funzione, Python si affida ai *due punti*, che sostituiscono la parentesi graffa di apertura, ed al numero di *indentazioni*.
-
-!!!tip "Ambito e indentazioni"
-	In generale, possiamo dire che le istruzioni allo stesso livello di indentazione sono considerate dall'interprete Python come istruzioni appartenenti al medesimo ambito.
-
-Quindi:
+L'altro tipo di commento è un commento multilinea, ed è definito esattamente allo stesso modo in cui si definisce una [stringa multilinea](../01_intro/03_strings.md):
 
 ```py
-# L'inizio della funzione, e quindi dell'ambito
-# che questa delimita, è contrassegnato dai due punti
-def funzione():	# Inizio ambito
-	# Il codice deve essere allo stesso livello di indentazione
-	a = 1
-	a + 1
-	# ...
-	return 0
+""" Questo è un esempio
+di commento multilinea!
+"""
 ```
 
-!!!tip "Le indentazioni"
-	Per ottenere l'indentazione, occorre usare il tasto *tab* sulla tastiera, oppure quattro spazi. E' comunque *estremamente importante* non mescolare le due tecniche.
+!!!note "Singole e doppie apici"
+	Così come per le stringhe, è possibile usare indifferentemente (ma coerentemente!) singole o doppie apici.
+
+## Uso delle parentesi
+
+L'utilizzo delle parentesi in Python differisce da quello che ne si fa in molti linguaggi C-like. In particolare, vediamo come sono utilizzate (ed a cosa servono) le parentesi tonde, quadre e graffe.
+
+### Parentesi tonde
+
+Le parentesi tonde sono usate in tre casi:
+
+* per le chiamate a funzione;
+* per la creazione di una tupla;
+* per esprimere la precedenza in un'operazione matematica.
+
+Negli altri casi, sono opzionali, e possono essere tranquillamente omesse.
+
+Vediamo un breve esempio di come esprimere la precedenza in un'operazione matematica:
+
+```py
+>>> a = 2
+>>> b = 3
+>>> c = 4
+>>> r_1 = a + b * c
+14
+>>> r_2 = (a + b) * c
+20
+```
+
+Nelle prossime lezioni vedremo come utilizzare le parentesi tonde [nelle tuple](02_structured.md) e nelle [chiamate a funzione](03_functions.md).
+
+### Parentesi quadre
+
+Le parentesi quadre sono usate per la creazione e l'accesso agli elementi di una struttura dati.
+
+```py
+# Creo una lista
+lista = [1, 2, 3]
+# Accedo al secondo elemento della lista
+lista[1]			# Il valore acceduto è 2
+```
+
+Ne parleremo più diffusamente nella [prossima lezione](02_structured.md).
+
+### Parentesi graffe
+
+Le parentesi graffe sono usate per creare set e dizionari.
+
+```py
+dizionario = {'a': 1, 'b': 2}
+insieme = {1, 2, 3}
+```
+
+Anche in questo caso, ne parleremo più diffusamente nella [prossima lezione](02_structured.md).
+
+## Termine di un'istruzione
+
+A differenza dei linguaggi C-like, che prevedono che la singola istruzione termini con un `;` (un punto e virgola), Python fa in modo che il carattere di terminazione di un'istruzione sia dato dal newline `\n`. In altri termini, l'interprete associerà il termine dell'istruzione all'andata a capo.
+
+## Blocchi di codice
+
+Per delimitare un blocco di codice Python ricorre al carattere `:` (*due punti*) ed all'*indentazione*. In particolare, tutto il codice che segue un carattere `:` ed è ad uno stesso livello di indentazione risulta far parte di uno stesso blocco. Ad esempio:
+
+```py
+>>> a = 1				# Codice non in un blocco
+>>> if a < 10:			# Inizia il blocco if esterno
+>>> 	b = 5
+>>> 	print('blocco esterno')
+>>> 	if b > 1:		# Inizia il blocco if annidato
+>>> 		print('blocco interno')
+```
+
+!!!note "Indentazioni e parentesi graffe"
+	I più attenti avranno notato che le indentazioni svolgono, in buona sostanza, un ruolo analogo a quello delle parentesi graffe nei linguaggi C-like.

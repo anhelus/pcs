@@ -2,44 +2,34 @@ site_name: Python
 
 nav:
   - Home: index.md
-  - 1 - Il linguaggio:
-    - 1.1 - Concetti introduttivi:
-      - Introduzione al linguaggio: material/01_python/01_intro/01_intro.md
-      - Operatori base: material/01_python/01_intro/02_operators.md
-      - Stringhe: material/01_python/01_intro/03_strings.md
-      - Liste: material/01_python/01_intro/04_lists.md
-    - 1.2 - Programmare in Python:
-      - Lezione: material/01_python/02_syntax/lecture.md
-      - Esercizi: material/01_python/02_syntax/exercises.md
-    - 1.3 - Strutture dati:
-      - Lezione: material/01_python/03_data_structures/lecture.md
-      - Esercizi: material/01_python/03_data_structures/exercises.md
-    - 1.4 - Classi:
-      - Lezione: material/01_python/04_classes/lecture.md
-      - Esercizi: material/01_python/04_classes/exercises.md
-    - 1.5 - Moduli: material/01_python/05_modules/lecture.md
-    - 1.6 - Eccezioni: material/01_python/06_exceptions/lecture.md
-    - 1.7 - Map, filter, reduce: material/01_python/07_func_prog/lecture.md
-    - 1.8 - Calcolo lambda: material/01_python/08_lambda/lecture.md
-  - 2 - Librerie:
-    - 2.1 - Jupyter: material/02_libs/01_jupyter/lecture.md
-    - 2.2 - NumPy:
-      - 2.2.1 - Introduzione a Numpy: material/02_libs/02_numpy/01_intro/lecture.md
-      - 2.2.2 - Gli Array: material/02_libs/02_numpy/02_array/lecture.md
-        # - Esercizi: material/02_libs/02_numpy/02_array/exercises.md
-      - 2.2.3 - Operazioni fondamentali sugli array: material/02_libs/02_numpy/03_fundamentals/lecture.md
-        # - Esercizi: material/02_libs/02_numpy/03_fundamentals/exercises.md
-      - 2.2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra/lecture.md
-        # - Esercizi: material/02_libs/02_numpy/04_algebra/exercises.md
-      - 2.2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials/lecture.md
-        # - Esercizi: material/02_libs/02_numpy/05_polynomials/exercises.md
-      - 2.2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics/lecture.md
-    - 2.3 - Matplotlib: material/02_libs/03_matplotlib/lecture.md
-    - 2.4 - Pandas: material/02_libs/04_pandas/lecture.md
-    - 2.5 - Seaborn: material/02_libs/05_seaborn/lecture.md
-      # - Esercizi: material/02_libs/05_seaborn/exercises.md
-    - 2.6 - SciPy: material/02_libs/06_scipy/lecture.md
-      # - Esercizi: material/02_libs/06_scipy/exercises.md
+  - Modulo 1 - Il linguaggio Python:
+    - 1 - Concetti introduttivi:
+      - 1.1 - Introduzione al Python: material/01_python/01_intro/01_intro.md
+      - 1.2 - Operatori: material/01_python/01_intro/02_operators.md
+      - 1.3 - Stringhe: material/01_python/01_intro/03_strings.md
+      - 1.4 - Liste: material/01_python/01_intro/04_lists.md
+      - Esercizi: material/01_python/01_intro/exercises.md
+    - 2 - Programmare in Python:
+      - 2.1 - Sintassi fondamentale: material/01_python/02_syntax/01_syntax.md
+      - 2.2 - Programmazione strutturata: material/01_python/02_syntax/02_structured.md
+      - 2.3 - Funzioni: material/01_python/02_syntax/03_functions.md
+      - 2.4 - Altre strutture dati: material/01_python/02_syntax/04_data_structures.md
+      - 2.5 - Classi: material/01_python/02_syntax/05_classes.md
+      - 2.6 - Script, moduli e package: material/01_python/02_syntax/06_modules.md
+    # - 3 - Concetti avanzati:
+  - Modulo 2 - Librerie per il calcolo scientifico:
+    - 1 - Jupyter: material/02_libs/01_jupyter/lecture.md
+    - 2 - NumPy:
+      - 2.1 - Introduzione a Numpy: material/02_libs/02_numpy/01_intro/lecture.md
+      - 2.2 - Gli Array: material/02_libs/02_numpy/02_array/lecture.md
+      - 2.3 - Operazioni fondamentali sugli array: material/02_libs/02_numpy/03_fundamentals/lecture.md
+      - 2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra/lecture.md
+      - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials/lecture.md
+      - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics/lecture.md
+    - 3 - Matplotlib: material/02_libs/03_matplotlib/lecture.md
+    - 4 - Pandas: material/02_libs/04_pandas/lecture.md
+    - 5 - Seaborn: material/02_libs/05_seaborn/lecture.md
+    - 6 - SciPy: material/02_libs/06_scipy/lecture.md
   # - Parte 3 - Introduzione al machine learning:
   #   - 3.1 - Introduzione al machine learning: material/03_ml_sklearn/12_intro_ml/lecture.md
   #   - 3.2 - Definizione del problema: material/03_ml_sklearn/13_framing/lecture.md
