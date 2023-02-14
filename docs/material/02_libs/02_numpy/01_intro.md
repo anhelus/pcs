@@ -1,4 +1,4 @@
-# 7.1 Introduzione a NumPy
+# 2.1 Introduzione a NumPy
 
 La libreria **NumPy**, nome derivante dalla crasi tra <em>Num</em>erical <em>Py</em>thon, è una tra le più utilizzate nelle applicazioni di calcolo scientifico in Python.
 
@@ -6,7 +6,7 @@ Nella pratica, possiamo pensare a NumPy come ad uno standard *de facto*: infatti
 
 Partiamo nella nostra disamina dalla procedura di installazione della libreria.
 
-## 7.1.1 Installare NumPy
+## Installare NumPy
 
 !!!note "Installazione di una libreria"
     Al solito, ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'[appendice B](../../../appendix/02_libraries/lecture.md).
@@ -18,9 +18,9 @@ workon my-virtual-env
 (my-virtual-env) pip install numpy
 ```
 
-## 7.1.2 - Introduzione a NumPy
+## Introduzione a NumPy
 
-### 7.1.2.1 - Gli `ndarray`
+### Gli `ndarray`
 
 Abbiamo visto in precedenza che per usare un package o un modulo Python all'interno dei nostri programmi dovremo per prima cosa importarlo:
 
@@ -42,7 +42,7 @@ Il metodo più semplice per creare un array è usare il costruttore `array` a cu
 >>> a = np.array([1, 2, 3])
 ```
 
-### 7.1.2.2 - Array vs liste
+### Array vs liste
 
 Sono diverse le differenze che intercorrono tra un array ed una classica lista; le principali sono riassunte nella seguente tabella.
 
@@ -58,11 +58,9 @@ In pratica:
 * gli elementi di un array devono essere dello stesso tipo (tale limitazione non vale ovviamente per le liste);
 * gli array sono pensati specificamente per le operazioni algebriche, laddove le liste sono pensate per degli scopi generici.
 
-## 7.1.3 - NumPy e le operazioni algebriche
+## NumPy e le operazioni algebriche
 
 Abbiamo detto che gli array NumPy sono progettati specificamente per le operazioni algebriche. Ovviamente, ciò assume una notevole rilevanza ai nostri fini. Per capirlo, facciamo un esemplice esempio, nel quale moltiplichiamo tra loro due vettori riga *elemento-per-elemento*.
-
-### 7.1.3.1 - Approccio con liste
 
 Per effettuare l'operazione appena descritta potremmo usare un ciclo `for` o una list comprehension:
 
@@ -83,7 +81,7 @@ Questo potrebbe essere in qualche modo arginato dal ricorso ad un linguaggio pi�
 ```py
 for i in range(len(a)):
     for j in range(len(b)):
-        c.append(a[i][j]*b[i][j]
+        c.append(a[i][j]*b[i][j])
 ```
 
 Il numero di cicli annidati aumenterà ovviamente in maniera direttamente proporzionale alla dimensionalità degli array coinvolti. Ciò implica che per un array ad $m$ dimensioni avremo altrettanti cicli annidati, con tutto ciò che ne consegue in termini di complessità di codice.
@@ -100,3 +98,14 @@ L'uso di questa sintassi si esplicita in due concetti fondamentali sui quali ris
 
 * la *vettorizzazione* del codice, ovvero la possibilità di scrivere istruzioni matriciali senza usare esplicitamente dei cicli;
 * il *broadcasting*, che riguarda la possibilità di usare una sintassi comune ed indipendente dalla dimensionalità degli array coinvolti nelle operazioni.
+
+## Tipi di dato
+
+NumPy mette a disposizione una serie di tipi di dato primitivi che vanno a sovrapporsi a quelli [built-in](../../../01_python/01_intro/01_intro.md#tipi-built-in-in-python) di Python, e che trovano una corrispondenza praticamente perfetta con quelli messi a disposizione dal linguaggio C.
+
+Questi sono riassunti nella [tabella](https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types) presente sulla reference.
+
+E' importante sottolineare due aspetti:
+
+* la dimensione di ciascun dato dipende dalla piattaforma (ovvero, sistema operativo e processore) utilizzata;
+* è disponibile una serie di tipi la cui dimensione è *indipendente* dalla piattaforma, definiti a [questo indirizzo](https://numpy.org/doc/stable/reference/arrays.scalars.html#sized-aliases). In generale, il consiglio è di far riferimento proprio a questi ultimi.

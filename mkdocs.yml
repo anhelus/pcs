@@ -16,20 +16,23 @@ nav:
       - 2.4 - Altre strutture dati: material/01_python/02_syntax/04_data_structures.md
       - 2.5 - Classi: material/01_python/02_syntax/05_classes.md
       - 2.6 - Script, moduli e package: material/01_python/02_syntax/06_modules.md
+      - Esercizi: material/01_python/02_syntax/exercises/exercises.md
     # - 3 - Concetti avanzati:
   - Modulo 2 - Librerie per il calcolo scientifico:
     - 1 - Jupyter: material/02_libs/01_jupyter/lecture.md
     - 2 - NumPy:
-      - 2.1 - Introduzione a Numpy: material/02_libs/02_numpy/01_intro/lecture.md
-      - 2.2 - Gli Array: material/02_libs/02_numpy/02_array/lecture.md
-      - 2.3 - Operazioni fondamentali sugli array: material/02_libs/02_numpy/03_fundamentals/lecture.md
-      - 2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra/lecture.md
-      - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials/lecture.md
-      - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics/lecture.md
+      - 2.1 - Introduzione a Numpy: material/02_libs/02_numpy/01_intro.md
+      - 2.2 - Gli Array: material/02_libs/02_numpy/02_array.md
+      - 2.3 - Operazioni fondamentali sugli array: material/02_libs/02_numpy/03_fundamentals.md
+      - 2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra.md
+      - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials.md
+      - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics.md
     - 3 - Matplotlib: material/02_libs/03_matplotlib/lecture.md
     - 4 - Pandas: material/02_libs/04_pandas/lecture.md
     - 5 - Seaborn: material/02_libs/05_seaborn/lecture.md
     - 6 - SciPy: material/02_libs/06_scipy/lecture.md
+  - Modulo 3 - Concetti di machine learning:
+    - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
   # - Parte 3 - Introduzione al machine learning:
   #   - 3.1 - Introduzione al machine learning: material/03_ml_sklearn/12_intro_ml/lecture.md
   #   - 3.2 - Definizione del problema: material/03_ml_sklearn/13_framing/lecture.md
