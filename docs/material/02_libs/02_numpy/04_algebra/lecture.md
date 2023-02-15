@@ -1,14 +1,16 @@
-# 7.4 - Operazioni matriciali
+# 2.4 - Il package `linalg`
 
-NumPy mette a disposizione il package `linalg` per permettere di effettuare numerose operazioni matriciali. La maggior parte degli esempi che vedremo nel seguito prevedono l'utilizzo di questo package, per cui possiamo partire importandolo.
+Dopo aver trattato le [operazioni fondamentali](../03_fundamentals.md) in NumPy, facciamo un breve approfondimento su quello che è il package [`linalg`](https://numpy.org/doc/stable/reference/routines.linalg.html), delegato, come suggerisce anche il nome, alle operazioni di algebra lineare.
+
+Gli esempi che vedremo nel seguito, e che sono anche disponibili nel notebook reperibile a [questo indirizzo](./notebook.ipynb), o nel Colab della lezione, prevederanno tutti l'uso di questo package, per cui è necessario importarlo prima di procedere nella lezione.
 
 ```py
 from numpy import linalg
 ```
 
-## 7.4.1 - Matrice trasposta
+## Matrice trasposta
 
-La prima operazione che vediamo *non* richiede l'uso del modulo `linalg`, ed è quella che ci permette di effettuare la trasposta di una matrice. Per farlo, usiamo la funzione `transpose()`.
+In realtà, la prima operazione che descriveremo *non* richiede l'uso del modulo `linalg`, ed è quella che ci permette di effettuare la trasposta di una matrice. Per farlo, dovremo semplicemente usare la funzione [`numpy.transpose()`](https://numpy.org/doc/stable/reference/generated/numpy.transpose.html).
 
 ```py
 >>> x = np.array([[1, 2, 3], [4, 5, 6]])
@@ -18,7 +20,11 @@ array([[1, 4],
        [3, 6]])
 ```
 
-## 7.4.2 - Matrice inversa
+TODO: DA QUI
+
+## Matrice inversa
+
+Il calcolo della matrice inversa, invece, prevede l'utilizzo
 
 Possiamo calcolare l'inversa di una matrice usando la funzione `inv(mat)` del package `linalg`, dove `mat` è la matrice da invertire. Ad esempio:
 

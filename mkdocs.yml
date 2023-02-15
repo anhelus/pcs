@@ -27,6 +27,7 @@ nav:
       - 2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra.md
       - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials.md
       - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics.md
+      - Esercizi: material/02_libs/02_numpy/exercises/exercises.md
     - 3 - Matplotlib: material/02_libs/03_matplotlib/lecture.md
     - 4 - Pandas: material/02_libs/04_pandas/lecture.md
     - 5 - Seaborn: material/02_libs/05_seaborn/lecture.md
@@ -114,7 +115,7 @@ markdown_extensions:
       emoji_index: !!python/name:pymdownx.emoji.twemoji
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.highlight: # better code, instead of CodeHilite           <--------
-      linenums: false
+      anchor_linenums: true
   - pymdownx.inlinehilite # like codehilite but inline
   - pymdownx.magiclink # auto links
   - pymdownx.mark # highlight text
