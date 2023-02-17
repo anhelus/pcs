@@ -10,10 +10,10 @@ Le date di appello sono le seguenti:
 | Secondo        | 28/07/2022, ore 16:00 | X | 22/07/2022 |
 | Terzo          | 08/09/2022, ore 16:00 | XII | 02/09/2022 |
 | Quarto         | 22/09/2022, ore 16:00 | XII | 16/09/2022 |
-| Quinto         | 14/11/2022, ore 16:00 | | 08/11/2022 |
-| Sesto          | 26/01/2023, ore 16:00 | | 20/01/2023 |
-| Settimo        | 09/02/2023, ore 16:00 | | 03/02/2023 |
-| Ottavo         | 16/02/2023, ore 16:00 | | 10/02/2023 |
+| Quinto         | 14/11/2022, ore 16:00 | Centro Calcolo | 08/11/2022 |
+| Sesto          | 26/01/2023, ore 16:00 | Centro Calcolo | 20/01/2023 |
+| Settimo        | 09/02/2023, ore 16:00 | Centro Calcolo | 03/02/2023 |
+| Ottavo         | 23/02/2023, ore 16:00 | Centro Calcolo | 18/02/2023 |
 
 ## Modalità di svolgimento
 
