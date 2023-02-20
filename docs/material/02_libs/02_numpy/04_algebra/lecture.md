@@ -20,13 +20,9 @@ array([[1, 4],
        [3, 6]])
 ```
 
-TODO: DA QUI
-
 ## Matrice inversa
 
-Il calcolo della matrice inversa, invece, prevede l'utilizzo
-
-Possiamo calcolare l'inversa di una matrice usando la funzione `inv(mat)` del package `linalg`, dove `mat` è la matrice da invertire. Ad esempio:
+Il calcolo della matrice inversa, invece, prevede l'utilizzo della funzione [`linalg.inv()`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html), che accetta come parametro la matrice da invertire. Ad esempio:
 
 ```py
 >>> mat = np.array([[5, 0, 0], [0, 2, 0], [0, 0, 4]])
@@ -36,7 +32,7 @@ array([[0.2 , 0.  , 0.  ],
        [0.  , 0.  , 0.25]])
 ```
 
-Ovviamente, la matrice `mat` deve essere invertibile. Nel caso passassimo una matrice rettangolare, infatti, verrebbe lanciato un `LinAlgError`:
+Ovviamente, *la matrice `mat` deve essere invertibile*. Nel caso passassimo una matrice rettangolare, infatti, verrebbe lanciato un errore di tipo `LinAlgError`:
 
 ```py
 >>> mat = np.array([[1, 2, 3], [4, 5, 6]])
@@ -45,7 +41,7 @@ Traceback (most recent call last):
 numpy.linalg.LinAlgError: Last 2 dimensions of the array must be square
 ```
 
-Lo stesso accade per una matrice singolare:
+Lo stesso accade se `mat` è singolare:
 
 ```py
 >>> mat = np.array([[1, 1, 1], [2, 2, 2], [0, 0, 1]])
@@ -54,20 +50,29 @@ Traceback (most recent call last):
 numpy.linalg.LinAlgError: Singular matrix
 ```
 
-## 7.4.3 - Prodotti vettoriali e matriciali
+## Prodotti vettoriali e matriciali
 
-### 7.4.3.1 - La funzione `dot()`
+### La funzione `dot()`
 
-Nella scorsa lezione abbiamo visto un esempio di uso della funzione `dot(a, b)`, necessaria a calcolare il prodotto matriciale tra gli array `a` ed `b`. Ovviamente, si applicano tutte le regole valevoli per il calcolo del prodotto matriciale (ovvero quello relativo alla moltiplicazione righe per colonne); riassumiamole nella seguente tabella sulla base delle dimensionalità di `a` ed `b`.
+Nella [scorsa lezione](../03_fundamentals.md#operazioni-algebriche-di-base) abbiamo visto un esempio di utilizzo della funzione `dot(a, b)` utilizzata per calcolare il prodotto matriciale tra gli array `a` e `b`. A questa funzione si applicano tutte le regole del calcolo matriciale, così come riassunto nella seguente tabella.
 
-| Dimensionalità `a` | Dimensionalità `b` | Risultato | Note |
-| ---------------- | ----- | --------- | ---- |
-| Monodimensionale (vettore) | Monodimensionale (vettore) | Prodotto scalare | / |
-| Bidimensionale (matrice) | Bidimensionale (matrice) | Prodotto matriciale | Preferire la funzione `matmul()` |
-| Scalare | $n$-dimensionale | Prodotto scalare per array $n$-dimensionale | Preferire la funzione `multiply(a, b)` o l'operatore `*` |
-| $n$-dimensionale | Scalare | Prodotto scalare per array $n$-dimensionale | Preferire la funzione `multiply(a, b)` o l'operatore `*` |
+| Dimensionalità `a` | Dimensionalità `b` | Risultato |
+| ---------------- | ----- | --------- |
+| Monodimensionale (vettore) | Monodimensionale (vettore) | Prodotto scalare |
+| Bidimensionale (matrice) | Bidimensionale (matrice) | Prodotto matriciale |
+| Scalare | $n$-dimensionale | Prodotto scalare per array $n$-dimensionale |
+| $n$-dimensionale | Scalare | Prodotto scalare per array $n$-dimensionale |
 
-Nel caso entrambi gli array siano $n$-dimensionali, si applicano altre regole, che è possibile recuperare a [questo indirizzo](https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot).
+Notiamo che:
+
+* in caso di moltiplicazione di due vettori, il risultato sarà il prodotto scalare;
+* in caso di moltiplicazione di due matrici, il risultato sarà il prodotto matriciale e, di conseguenza, si consiglia di preferire la funzione [`matmul()`](https://numpy.org/doc/stable/reference/generated/numpy.matmul.html);
+* in caso di prodotto tra scalare e matrice, si consiglia di utilizzare la funzione [`multiply()`](https://numpy.org/doc/stable/reference/generated/numpy.multiply.html) o, in alternativa, l'operatore `*`.
+
+Nel [notebook della lezione](./notebook.ipynb) vedremo alcuni esempi di prodotti matriciali.
+
+!!!note "Moltiplicazione di array multidimensionali"
+       Nel caso entrambi gli array da moltiplicare siano $n$-dimensionali, si applicano altre regole, che è possibile recuperare a [questo indirizzo](https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot).
 
 ### 7.4.3.2 - Prodotto interno
 
