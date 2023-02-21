@@ -41,3 +41,35 @@ Infine, spesso suaimo la convoluzione su più di un asse alla volta. Ad esempio,
 $$
 S(i,j) = (I\ast K)(i, j)=\sum_m \sum_n I(m, n) K(i-m, j-n)
 $$
+
+La convoluzione è commutativa, il che significa che possiamo scrivere in maniera equivalente:
+
+$$
+S(i,j) = (K\ast I)(i, j)=\sum_m \sum_n I(i-m, j-n) K(i-m, j-n)
+$$
+
+Disolito la seconda formulazione è più semplice da implementare all'interno di una libreria per il machine learning, perché vi è una minore variazione nel range di valori validi di $m$ ed $n$.
+
+La proprietà commutativa della convoluzione deriva dal fatto che abbiamo FLIPPATO il kernel rispetto all'input, nel senso che man mano che $m$ aumenta l'indice dell'input aumenta ma l'indice nel kernel decresce. L'unica ragione per rovesciare il kernel è ottenere la proprietà commutativa. ANche se la proprietà commutativa è utile per scrivere dei teoriemi, non è normalmente imporante nel contesto dell'implementazione di una rete neruael. Invece, molte librerie implemnetano una funzione simile chiamata *cross-correlazione*, che è la stessa della convoluzione senza però invertire il kernel:
+
+$$
+S(i,j) = (K \ast I)(i, j) = \sum_{m} \sum_{n} I(i+m, j+n)K(m,n)
+$$
+
+Molte librerie di machien learning implementano la cross correlazione chiamandola però convoluzione. Nel contesto del machine learning, l'algoritmo di apprendiemnto apprenderà i valori appropriati del kernel nello spazio appropriato, per cui un algoritmo basato sulla convoluzione con il kernel invertito apprenderà un kernel che è invertito relativamente al kernel appreso da un algoritmo che non ha effettuato l'inversione. E' anche raro che la convoluzione sia usata da sola nel machine learning; invece, la convoluzione è usata simultaneamente con altre funzioni, e la combinazione di queste funzioni non cambia indipendnetmente dal fatto che l'operazione di convoluzione inverte il suo kernel o meno.
+
+## 9.2 motivazioni
+
+La convoluzione sfrutta tre idee importanti che possono aiutare a migliroare un sistema di machine learning: *sparse interactions*, *parameter sharing* ed *equivariant represntation*. Inolter, la convoluzione fornisce un mezzo per lavorare ocn ingressi di dimensioni variabili.
+
+I layer tradizionali di una rete neurale usano lamoltiplicazione matriciale con una matrice di parametri con un parametro separato che descrive l'interazione tra ogni unità di input ed ogni unità di output. Questo significa che ogni unità di output interagisce con ogni untià di input. Le reti convoluzionali, tuttavia, hanno tipicamente delle *interazioni sparse* (*sparse connectivity*). Questo è ottenuto rendendo il kernel più piccolo dell'input. Per esempio, quanod si elabora un'immagine, l'immagine di input può avere migliaia, o milioni, di pixel, ma possiamo dinviduare delle piccole, significative featurem, come degli edge,. con dei kernel che occupano soltnato decine o centinaia di pixel. Questo singifica che dobbiamo memorizzare meno parmaetir, riducendo i requisiti in memoria del modello, e miglirandone l'efficienza statistica. Significa anche che calcolare l'output richiede meno operazioni. Questi miglioramenti in termini di efficienza sono di solito notevoli. Se vi sono $m$ input ed $n$ output, la moltiplicazione matriciale richiede $m \times n$ parametri, e gli algoritmi usati nella pratica hanno un $O(m \times n)$ a runtime per ciascun esempio.
+
+SE limitiamo il numero di connessione che può avere ogni output a $k$, allora l'approccio sparsamente connesso richiede solo $k \times n$ parametri ed un $O(k \times n)$ a runtime. Per molte applicazioni pratiche, è possibile ottenere delle buone performance sui task di machine learning tenendo $k$ diversi ordini di grandezza più piccolo di $m$. 
+
+TODO: FIGURE SU SPARSE CONNECTIIVTY
+
+
+
+Il **parameters sharing** si rifersice all'utilizzo dello stesso parametro per più di una funzione in un modello. In una rete neurale tradizionale, ogni elemento della matrice dei pesi è usato esattamente una volta quando si calcola l'output di un layer. E' moltiplicato epr un elemento dell'input, e non più riutilizzato. Come sinonimo per il parameter sharing, si può dire che la rete abbia dei **tied weights**, perché il valore del peso applicato ad un input è legato al valore el peso applicato altrove. In uan CNN, ognimembro del kernel è usato ad ongi posizione dell'input (ad eccezione forse dei pixel di contorno, a seconda della decisione di design che riguarda il contorno). Il parameter sharing usato dall'operazione di convoluzoione indica che piuttosto che apprendere un insieme separato di parametri per ogni posizione, apprenderemo slo un insiem. QUesto non influenza il tempo necessario alla forward propagation (è sempre un $O(k \times n$)) ma riduce ulteriormente i requisiti di memoria del modello in $k$ parametri. Ricordiamo che $k$ è nomalmente diversi ordini di grandezza più piccolo di $m$. Dal momento che $m$ ed $n$ sono normalmente approssimativamente della stessa dimensione, $k$ è praticamente trascurabile se comparato ad $m \times n$. La convoluzione è quindi estremamente molto più efficiente della moltiplicazione di matrici dense in termini di reqiusiti di memoria ed efficienza statistica.
+
+TODO PARAMETER SHARING
