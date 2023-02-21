@@ -24,7 +24,7 @@ nav:
       - 2.1 - Introduzione a Numpy: material/02_libs/02_numpy/01_intro.md
       - 2.2 - Gli Array: material/02_libs/02_numpy/02_array.md
       - 2.3 - Operazioni fondamentali sugli array: material/02_libs/02_numpy/03_fundamentals.md
-      - 2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra.md
+      - 2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra/lecture.md
       - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials.md
       - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics.md
       - Esercizi: material/02_libs/02_numpy/exercises/exercises.md
