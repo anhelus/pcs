@@ -10,7 +10,15 @@ from numpy import linalg
 
 ## Matrice trasposta
 
-In realtà, la prima operazione che descriveremo *non* richiede l'uso del modulo `linalg`, ed è quella che ci permette di effettuare la trasposta di una matrice. Per farlo, dovremo semplicemente usare la funzione [`numpy.transpose()`](https://numpy.org/doc/stable/reference/generated/numpy.transpose.html).
+In realtà, la prima operazione che descriveremo *non* richiede l'uso del modulo `linalg`, ed è quella che ci permette di effettuare la trasposta di una matrice. 
+
+Ricordiamo che la trasposta $A^T$ di una matrice $A$ è definita come la matrice in cui il generico elemento con indice $(i,j)$ è l'elemento con indici $(j,i)$ della matrice originaria. In pratica:
+
+$$
+(A^T)_{ij} = A_{ji} \forall A \in \mathbb{R}^{m,n}, 1 \leq i \leq m, 1 \leq j \leq n
+$$
+
+Per farlo, dovremo semplicemente usare la funzione [`numpy.transpose()`](https://numpy.org/doc/stable/reference/generated/numpy.transpose.html).
 
 ```py
 >>> x = np.array([[1, 2, 3], [4, 5, 6]])
@@ -22,7 +30,17 @@ array([[1, 4],
 
 ## Matrice inversa
 
-Il calcolo della matrice inversa, invece, prevede l'utilizzo della funzione [`linalg.inv()`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html), che accetta come parametro la matrice da invertire. Ad esempio:
+Il calcolo della matrice inversa, invece, prevede l'utilizzo della funzione [`linalg.inv()`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html), che accetta come parametro la matrice da invertire. 
+
+Ricordiamo che la matrice inversa $A_{inv}$ di una matrice invertibile $A$ è quella matrice per cui vale la seguente relazione:
+
+$$
+A_{inv}A=AA_{inv}=I
+$$
+
+In altri termini, il prodotto matriciale tra $A$ e la sua inversa è commutativo e pari alla matrice identità di eguale rango.
+
+Ad esempio:
 
 ```py
 >>> mat = np.array([[5, 0, 0], [0, 2, 0], [0, 0, 4]])
@@ -32,7 +50,7 @@ array([[0.2 , 0.  , 0.  ],
        [0.  , 0.  , 0.25]])
 ```
 
-Ovviamente, *la matrice `mat` deve essere invertibile*. Nel caso passassimo una matrice rettangolare, infatti, verrebbe lanciato un errore di tipo `LinAlgError`:
+Ovviamente, *la matrice `mat` deve essere invertibile*, ovvero quadrata e a rango massimo. Nel caso passassimo una matrice rettangolare, infatti, verrebbe lanciato un errore di tipo `LinAlgError`:
 
 ```py
 >>> mat = np.array([[1, 2, 3], [4, 5, 6]])
