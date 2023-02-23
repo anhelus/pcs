@@ -1,124 +1,104 @@
-# 7.5 - Operazioni polinomiali in NumPy
+# 2.5 - Operazioni polinomiali in NumPy
 
-Il modulo `numpy.polynomial.polynomial` ci offre numerose classi e funzionalità per il trattamento dei polinomi. Vediamo quali sono le principali.
+Come abbiamo visto nella [scorsa lezione](../04_algebra/lecture.md), NumPy ci offre un'ampia gamma di funzioni per il calcolo matriciale. Tuttavia, è anche possibile utilizzarlo per altri scopi, non ultimo il calcolo polinomiale, mediante il modulo [`numpy.polynomial`](https://numpy.org/doc/stable/reference/routines.polynomials.html). Vediamo quindi alcuni tra i principali utilizzi di questo modulo.
 
-Immaginiamo di avere due diversi polinomi (cui non assoceremo alcun significato fisico), ovvero:
+## La classe `Polynomial`
+
+Immaginiamo di avere due diversi polinomi, cui non associamo alcun significato fisico. I due sono espressi dalle seguenti equazioni:
 
 $$
 \begin{cases}
-c1: 2x + 1 \\
-c2: x^2 + 3x + 2
+p_1: y = 2x + 1 \\
+p_2: y = x^2 + 3x + 2
 \end{cases}
 $$
 
-Vediamo come usare dei metodi forniti dal modulo `polynomial` per effettuare delle operazioni su di loro.
-
-Prima di partire, però, introduciamo gli oggetti di classe `poly1d`, che ci permettono di rappresentare in maniera compiuta un polinomio. In particolare, partendo dai coefficienti di un generico polinomio `p`, potremo ottenere un oggetto `poly1d` invocando l'omonimo costruttore:
+NumPy ci permette di rappresentare il polinomio mediante gli oggetti di classe [`Polynomial`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.Polynomial.html#numpy.polynomial.polynomial.Polynomial). In particolare, un oggetto di questo tipo può essere istanziato a partire dai coefficienti del polinomio (ma non solo). Ad esempio, considerando i polinomi visti in precedenza, assieme ai loro coefficienti, possiamo scrivere:
 
 ```py
-p_pol = np.poly1d(p)
+>>> from numpy.polynomial import Polynomial
+>>> p_1_coef = [2, 1]       # lista dei coefficienti per p_1
+>>> p_2_coef = [1, 3, 2]    # lista dei coefficienti per p_2
+>>> p_1 = Polynomial(p_1_coef[::-1])
+>>> p_2 = Polynomial(p_2_coef[::-1])
 ```
 
-Il vantaggio principale degli oggetti `poly1d` sta sia nella loro rappresentazione, sia nel fatto che possono essere direttamente utilizzati all'interno delle funzioni per il calcolo polinomiale che vedremo nel seguito.
+!!!warning "Ordine dei coefficienti"
+    La caratteristica più importante (e controintuitiva) della classe `Polynomial` (e di tutti i metodi di gestione dei polinomi in NumPy) è che i coefficienti vengono trattati *in ordine crescente*. In pratica, viene considerato innanzitutto il termine noto (ovvero il termine per $x^0$), poi il coefficiente di primo grado, quello di secondo, e così via. Per questo motivo, nel codice precedente viene considerata la lista dei coefficienti in ordine inverso.
 
-## 7.5.1 - Addizione di polinomi
+## Somma di polinomi
 
-Per effettuare l'addizione di due polinomi, possiamo usare il metodo `polyadd(c1, c2)`, che accetta come parametri due vettori `c1` e `c2` che rappresentano, rispettivamente, i coefficienti del polinomio 1 e 2. Volendo sommare il primo ed il secondo polinomio, potremo scrivere:
+Per sommare due polinomi, è possibile utilizzare il metodo [`polyadd()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyadd.html#numpy.polynomial.polynomial.polyadd), il quale accetta come parametri due vettori `c1` e `c2` rappresentativi dei coefficienti dei due polinomi da sommare. Ad esempio, volendo sommare due polinomi, potremo scrivere:
 
 ```py
->>> from numpy.polynomial import polynomial as poly
->>> c1 = (0, 2, 1)
->>> c2 = (1, 3, 2)
->>> poly.polyadd(c1, c2)
+>>> from numpy.polynomial import polynomial as P
+>>> c1 = [1, 2, 3]
+>>> c2 = [2, 5, 1]
+>>> poly_sum = P.polyadd(c1, c2)
 ```
 
-Questa operazione ci darà il risultato atteso, ovvero $x^2 + 5x + 3$.
+Il risultato di questa operazione sarà un array numpy a valori `[3, 7, 4]`, equivalente al polinomio $4x^2 + 7x + 3$.
 
-Notiamo come le dimensioni di `c1` e di `c2` debbano essere tra loro *coerenti*. Se infatti omettessimo il coefficiente $0$ al termine di secondo grado in `c1`, il risultato sarebbe il seguente:
+## Sottrazione di polinomi
+
+La sottrazione tra due polinomi è possibile mediante la funzione [`polysub()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polysub.html#numpy-polynomial-polynomial-polysub), il cui funzionamento è molto simile a quello di `polyadd()`, con l'ovvia differenza che il risultato sarà il polinomio risultante dalla differenza tra i coefficienti di `c1` e `c2`.
 
 ```py
->>> c3 = (2, 1)
->>> poly.polyadd(c3, c2)
-array([3., 4., 2.])
+>>> poly_sub = P.polysub(c1, c2)
 ```
 
-Ovviamente, il risultato precedente può essere errato in base al valore assunto dal polinomio `c3`.
+## Moltiplicazione di polinomi
 
-## 7.5.2 - Sottrazione di polinomi
-
-Possiamo poi sottrarre due polinomi usando la funzione `polysub(c1, c2)`, i cui parametri sono identici a quelli passati a `polyadd()`:
+Le considerazioni precedenti possono essere estese alla moltiplicazione tra polinomi mediante la funzione [`polymul()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polymul.html):
 
 ```py
->>> poly.polysub(c2, c1)
-array([1., 1., 1.])
+>>> poly_mul = P.polymul(c1, c2)
 ```
 
-## 7.5.3 - Moltiplicazione di polinomi
+Nel caso si debba moltiplicare un polinomio per una variabile indipendente $x$, andrà utilizzata la funzione [`polymulx()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polymulx.html).
 
-Le considerazioni precedenti possono essere banalmente traslate al caso della moltiplicazione tra polinomi, ottenibile mediante la funzione `polymul(c1, c2)`.
+## Divisione tra polinomi
 
-```py
->>> poly.polymul(c1, c2)
-array([0., 2., 7., 7., 2.])
-```
-
-!!!warning "Attenzione!"
-    Nelle ultime versioni di NumPy, i coefficienti sono ordinati da quello a grado più basso a quello di grado più alto!
-
-## 7.5.4 - Divisione tra polinomi
-
-La divisione tra polinomi è un'operazione leggermente più complessa delle altre, e prevede l'uso della funzione `polydiv(c1, c2)`, che restituirà stavolta due array: il primo, `q`, rappresenta i coefficienti del polinomio quoziente, mentre il secondo, `r`, indica i coefficienti del polinomio resto.
-
-Nel nostro caso:
+La divisione tra polinomi è un'operazione leggermente più complessa delle altre, e prevede l'uso della funzione [`polydiv()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polymulx.html), che restituirà stavolta due array: il primo rappresenta i coefficienti del polinomio quoziente, mentre il secondo i coefficienti del polinomio resto. Ad esempio:
 
 ```py
->>> (q, r) = poly.polydiv(c1, c2)
->>> q; r
-array([0.5])
-array([-0.5,  0.5])
+>>> poly_q, poly_r = P.polydiv(c1, c2)
 ```
 
 Anche in questo caso, i coefficienti sono ordinati da quello a grado più basso a quello a grado più alto.
 
-## 7.5.5 - Elevazione a potenza
+## Elevazione a potenza
 
-Chiudiamo questa breve panoramica parlando dell'elevazione a potenza di un polinomio, effettuabile mediante la funzione `polypow(c, pow)`, con `c` vettore dei coefficienti, e `pow` potenza a cui elevare:
+Per elevare a potenza un polinomio, possiamo usare la funzione [`polypow()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polypow.html), la quale accetta due parametri: un vettore dei coefficienti `c` al primo argomento, ed uno scalare `pow` al secondo, rappresentativo della potenza alla quale effettuare l'elevazione. Ad esempio:
 
 ```py
->>> poly.polypow(c1, 2)
+>>> poly_pow = P.polypow(c1, 2)
 array([0., 0., 4., 4., 1.])
 ```
 
-Anche in questo caso, vengono riportati i termini pari a zero nei risultati.
+## Valore assunto da un polinomio
 
-## 7.5.6 - Valore assunto da un polinomio
-
-Per valutare il valore $y$ assunto dal polinomio per un determinato valore di $x$, usiamo la funzione `polyval(x, p)`, che accetta come argomento un intero (o una lista di interi) `x` ed un polinomio `p`.
-
-Se volessimo valutare il valore assunto da $y$ per $x \in [1, 2]$ sulla retta rappresentata dal polinomio `c1`, ad esempio, potremmo usare `polyval()` come segue:
+Il valore $y$ assunto da un polinomio $p$ ad un certo valore di $x$ può essere determinato mediante la funzione [`polyval()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval.html), che accetta come argomento un intero (o una lista di interi) `x` ed un polinomio `p`. Ad esempio, volendo valutare il valore assunto da $y$ per $x \in [1, 2]$ sulla retta rappresentata dal polinomio `c1`:
 
 ```py
->>> poly.polyval([1, 2], c1)
-array([3., 8.])
+>>> P.polyval([1, 2], c1)
 ```
 
-## 7.5.7 - Derivata ed integrale di funzioni polinomiali
+!!!note "Operazioni a dimensionalità 2 e 3"
+    Nel caso occorra valutare i polinomi nei casi a due e tre dimensioni, NumPy ci mette a disposizione le funzioni [`polyval2d()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval2d.html) e [`polyval3d()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval3d.html).
+
+## Derivata ed integrale di funzioni polinomiali
 
 Concludiamo questa breve carrellata con due metodi in grado di calcolare, rispettivamente, la derivata e l'integrale di una funzione polinomiale.
 
-Il metodo `polyder(p, m)`, infatti, permette di calcolare la derivata di ordine `m` del polinomio `p` (di default, `m=2`):
+Il metodo [`polyder()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyder.html#numpy.polynomial.polynomial.polyder), infatti, permette di calcolare la derivata di ordine `m` (passato come secondo argomento, di default pari ad `1`) del polinomio `p` (passato come primo argomento). Ad esempio, possiamo calcolare la derivata seconda di `c1`:
 
 ```py
->>> poly.polyder(c1)
-array([2., 2.])
+>>> P.polyder(c1, 2)
 ```
 
-Il metodo duale è `polyint(p, m)`, che prevedibilmente calcola l'integrale di ordine `m` del polinomio `p`:
+Il metodo duale è [`polyint()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyint.html#numpy.polynomial.polynomial.polyint), che (prevedibilmente) calcola l'integrale di ordine `m` del polinomio `p`:
 
 ```py
->>> poly.polyint(c1)
-array([0., 0., 1., 0.33333333])
+>>> P.polyint(c1, 2)
 ```
-
-!!!warning "Attenzione"
-    Entrambe le funzioni si aspettano i coefficienti del polinomio passato ordinati dal grado più basso a quello più alto.
