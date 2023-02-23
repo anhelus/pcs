@@ -127,9 +127,11 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist: # better tasks lists
       custom_checkbox: true
-  - pymdownx.tabbed # auto tabs
+  - pymdownx.tabbed:
+      alternate_style: true # auto tabs
   - pymdownx.tilde # strike through cross out text
   - md_in_html
+
 
 plugins:
   - search
