@@ -1,25 +1,26 @@
 # 3 - Visualizzare i dati in Python
 
-Finora ci siamo limitati a visualizzare dati e risultati ottenuti usando prima la riga di comando, e poi i metodi forniti dai notebook Jupyter. Tuttavia, è chiaro come questo modo di procedere sia limitante: cosa ne è di tutti i coloratissimi grafici che possiamo ammirare in siti ed articoli scientifici?
+Nelle lezioni precedenti, ci siamo limitati a visualizzare i risultati ottenuti usando l'output fornito dalla riga di comando o dal notebook Jupyter/Colab. Tuttavia, è chiaro come questo modo di procedere sia giocoforza limitante: cosa ne è di tutti i coloratissimi grafici che possiamo ammirare in siti ed articoli scientifici? *Saranno per caso relegati esclusivamente al mondo di Excel?*
 
-Nella realtà, per ottenerli dovremo necessariamente integrare il nostro ambiente di lavoro con altre librerie: ne esistono diverse, ma la più importante ed utilizzata è senza ombra di dubbio [Matplotlib](https://matplotlib.org/), cui si può affiancare [Seaborn](https://seaborn.pydata.org/), che tratteremo in una delle prossime lezioni.
+In realtà, per ottenerli dovremo necessariamente integrare il nostro ambiente di lavoro con altre librerie. Ne esistono diverse, ma la più utilizzata è senza dubbio [Matplotlib](https://matplotlib.org/), cui si può affiancare [Seaborn](https://seaborn.pydata.org/), che tratteremo in una delle [prossime lezioni](../05_seaborn/lecture.md).
 
-## Installazione della libreria
+## Setup della libreria
 
-Per prima cosa, installiamo le libreria. Al solito, potrete consultare le diverse opzioni in [appendice](../../appendix/02_libraries/lecture.md); qui riportiamo l'opzione di installazione mediante `pip`:
+Prima di utilizzare Matplotlib, dovremo ovviamente installare la libreria. Per farlo, abbiamo al solito le opzioni mostrate in [appendice](../../appendix/02_libraries/lecture.md); di seguito, riportiamo l'opzione di installazione tramite `pip`:
 
 ```sh
 pip install matplotlib
 ```
 
-Per importare la libreria all'interno del nostro codice, usiamo un alias:
+Passiamo poi ad importare la libreria all'interno del nostro programma. In particolare, il package più utilizzato è [`pyplot`](https://matplotlib.org/stable/tutorials/introductory/pyplot.html) che, come dice la documentazione, altro non è che un insieme di funzioni (palesemente) ispirate a MATLAB. Useremo quindi un alias per questo package:
 
 ```py
-import matplotlib.pylot as plt		# import di matplotlib
+import matplotlib.pylot as plt
 ```
 
-!!!note "L'API `pyplot`"
-	Sottolineamo l'uso dell'API [`pyplot`](https://matplotlib.org/stable/tutorials/introductory/pyplot.html) per Matplotlib al posto dell'API "standard". In tal modo, avremo a disposizione una serie di funzioni per il plot che ricorda molto quella usata dal MATLAB.
+Saremo a questo punto pronti per utilizzare le funzioni messe a disposizione da Matplotlib.
+
+DA QUI
 
 ## Il primo plot
 
