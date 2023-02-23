@@ -103,6 +103,7 @@ markdown_extensions:
   - meta # page-specific context
   - toc:
       permalink: true # inserts an anchor
+      toc_depth: 3
   - sane_lists # better ul and ol
   - nl2br # newline hard break
   - pymdownx.arithmatex:
