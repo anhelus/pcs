@@ -6,7 +6,7 @@ Prima di iniziare a parlare del linguaggio Python, è opportuno verificare che l
 python
 ```
 
-Se apparirà una schermata simile a quella mostrata in figura 1, Python sarà già correttamente presente nel nostro sistema.
+Se apparirà una schermata simile a quella mostrata in figura 1, Python sarà già correttamente installato sul nostro sistema.
 
 <figure markdown>
   ![interpreter](./images/python_interpreter.png){ width="450" }
