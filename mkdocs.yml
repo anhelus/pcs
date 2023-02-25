@@ -2,101 +2,87 @@ site_name: Python
 
 nav:
   - Home: index.md
-  - Parte 1 - Concetti base:
-    - 1 - Introduzione a Python: 
-      - Dispense: material/01_python/01_intro/lecture.md
+  - Modulo 1 - Il linguaggio Python:
+    - 1 - Concetti introduttivi:
+      - 1.1 - Introduzione al Python: material/01_python/01_intro/01_intro.md
+      - 1.2 - Operatori: material/01_python/01_intro/02_operators.md
+      - 1.3 - Stringhe: material/01_python/01_intro/03_strings.md
+      - 1.4 - Liste: material/01_python/01_intro/04_lists.md
       - Esercizi: material/01_python/01_intro/exercises.md
     - 2 - Programmare in Python:
-      - Dispense: material/01_python/02_syntax/lecture.md
-      - Esercizi: material/01_python/02_syntax/exercises.md
-    - 3 - Strutture dati:
-      - Dispense: material/01_python/03_data_structures/lecture.md
-      - Esercizi: material/01_python/03_data_structures/exercises.md
-    - 4 - Classi:
-      - Dispense: material/01_python/04_classes/lecture.md
-      - Esercizi: material/01_python/04_classes/exercises.md
-    - 5 - Moduli:
-      - Dispense: material/01_python/05_modules/lecture.md
-  - Parte 2 - Librerie:
-    - 6 - Jupyter:
-      - Dispense: material/02_libs/06_jupyter/lecture.md
-    - 7 - NumPy:
-      - 7.1 - Introduzione a Numpy: 
-        - Dispense: material/02_libs/07_numpy/01_intro/lecture.md
-      - 7.2 - Gli Array:
-        - Dispense: material/02_libs/07_numpy/02_array/lecture.md
-        - Esercizi: material/02_libs/07_numpy/02_array/exercises.md
-      - 7.3 - Operazioni fondamentali sugli array:
-        - Dispense: material/02_libs/07_numpy/03_fundamentals/lecture.md
-        - Esercizi: material/02_libs/07_numpy/03_fundamentals/exercises.md
-      - 7.4 - Algebra in NumPy:
-        - Dispense: material/02_libs/07_numpy/04_algebra/lecture.md
-        - Esercizi: material/02_libs/07_numpy/04_algebra/exercises.md
-      - 7.5 - Polinomi in NumPy:
-        - Dispense: material/02_libs/07_numpy/05_polynomials/lecture.md
-        - Esercizi: material/02_libs/07_numpy/05_polynomials/exercises.md
-      - 7.6 - Statistica in NumPy:
-        - Dispense: material/02_libs/07_numpy/06_statistics/lecture.md
-    - 8 - Visualizzazione di dati:
-      - Dispense: material/02_libs/08_matplotlib/lecture.md
-    - 9 - Introduzione a Pandas:
-      - Dispense: material/02_libs/09_pandas/lecture.md
-    - 10 - Visualizzazione di dati in Seaborn:
-      - Dispense: material/02_libs/10_seaborn/lecture.md
-      - Esercizi: material/02_libs/10_seaborn/exercises.md
-    - 11 - Introduzione a SciPy:
-      - Dispense: material/02_libs/11_scipy/lecture.md
-      - Esercizi: material/02_libs/11_scipy/exercises.md
-  - Parte 3 - Machine learning e Scikit Learn:
-    - 12 - Introduzione al machine learning:
-      - Dispense: material/03_ml_sklearn/12_intro_ml/lecture.md
-    - 13 - Definizione del problema:
-      - Dispense: material/03_ml_sklearn/13_framing/lecture.md
-    - 14 - Preparazione dei dati:
-      - Dispense: material/03_ml_sklearn/14_data_prep/lecture.md
-    - 15 - Introduzione a Scikit Learn:
-      - Dispense: material/03_ml_sklearn/15_intro_sklearn/lecture.md
-      - Esercizi: material/03_ml_sklearn/15_intro_sklearn/exercises.md
-    - 16 - Regressione lineare:
-      - Dispense: material/03_ml_sklearn/16_lin_reg/lecture.md
-      - Esercizi: material/03_ml_sklearn/16_lin_reg/exercises.md
-    - 17 - Regressione logistica:
-      - Dispense: material/03_ml_sklearn/17_logistic/lecture.md
-      - Esercizi: material/03_ml_sklearn/17_logistic/exercises.md
-    - 18 - Metriche:
-      - Dispense: material/03_ml_sklearn/18_metrics/lecture.md
-      - Esercizi: material/03_ml_sklearn/18_metrics/exercises.md
-    - 19 - Classificatori e regressori:
-      - Dispense: material/03_ml_sklearn/19_classifiers_regressors/lecture.md
-      - Esercizi: material/03_ml_sklearn/19_classifiers_regressors/exercises.md
-    - 20 - Clustering:
-      - Dispense: material/03_ml_sklearn/20_clustering/lecture.md
-      - Esercizi: material/03_ml_sklearn/20_clustering/exercises.md
-    - 21 - Metriche di clustering:
-      - Dispense: material/03_ml_sklearn/21_cls_metrics/lecture.md
-      - Esercizi: material/03_ml_sklearn/21_cls_metrics/exercises.md
-    - 22 - Scikit Learn Tips & Tricks:
-      - Dispense: material/03_ml_sklearn/22_sklearn_tricks/lecture.md
-      - Esercizi: material/03_ml_sklearn/22_sklearn_tricks/exercises.md
-    - 23 - Esercitazione su Scikit Learn:
-      - Esercizi: material/03_ml_sklearn/23_sklearn_ex/exercises.md
-  - Parte 4 - Reti neurali, TensorFlow e Keras:
-    - 24 - Anatomia di una rete neurale:
-      - Dispense: material/04_nn_tflow/24_nn/lecture.md
-    - 25 - Introduzione a TensorFlow:
-      - Dispense: material/04_nn_tflow/25_intro_tflow/lecture.md
-    - 26 - Overfitting e regolarizzazione:
-      - Dispense: material/04_nn_tflow/26_dropout_reg/lecture.md
-      - Esercizi: material/04_nn_tflow/26_dropout_reg/exercises.md
-    - 27 - Elaborazione delle immagini:
-      - Dispense: material/04_nn_tflow/27_tflow_images/lecture.md
-      - Esercizi: material/04_nn_tflow/27_tflow_images/exercises.md
-    - 28 - TensorFlow Tips & Tricks:
-      - Dispense: material/04_nn_tflow/28_tricks/lecture.md
-      - Esercizi: material/04_nn_tflow/28_tricks/exercises.md
-  # - Parte 5 - Serie temporali:
-  #   - 29 - Introduzione alle serie temporali:
-  #     - Dispense: material/05_time_series/29_ts/lecture.md
+      - 2.1 - Sintassi fondamentale: material/01_python/02_syntax/01_syntax.md
+      - 2.2 - Programmazione strutturata: material/01_python/02_syntax/02_structured.md
+      - 2.3 - Funzioni: material/01_python/02_syntax/03_functions.md
+      - 2.4 - Altre strutture dati: material/01_python/02_syntax/04_data_structures.md
+      - 2.5 - Classi: material/01_python/02_syntax/05_classes.md
+      - 2.6 - Script, moduli e package: material/01_python/02_syntax/06_modules.md
+      - Esercizi: material/01_python/02_syntax/exercises/exercises.md
+    # - 3 - Concetti avanzati:
+  - Modulo 2 - Librerie per il calcolo scientifico:
+    - 1 - Jupyter: material/02_libs/01_jupyter/lecture.md
+    - 2 - NumPy:
+      - 2.1 - Introduzione a Numpy: material/02_libs/02_numpy/01_intro.md
+      - 2.2 - Gli Array: material/02_libs/02_numpy/02_array.md
+      - 2.3 - Operazioni fondamentali sugli array: material/02_libs/02_numpy/03_fundamentals.md
+      - 2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra/lecture.md
+      - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials.md
+      - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics.md
+      - Esercizi: material/02_libs/02_numpy/exercises/exercises.md
+    - 3 - Matplotlib: material/02_libs/03_matplotlib/lecture.md
+    - 4 - Pandas: material/02_libs/04_pandas/lecture.md
+    - 5 - Seaborn: material/02_libs/05_seaborn/lecture.md
+    - 6 - SciPy: material/02_libs/06_scipy/lecture.md
+  - Modulo 3 - Concetti di machine learning:
+    - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
+  # - Parte 3 - Introduzione al machine learning:
+  #   - 3.1 - Introduzione al machine learning: material/03_ml_sklearn/12_intro_ml/lecture.md
+  #   - 3.2 - Definizione del problema: material/03_ml_sklearn/13_framing/lecture.md
+  #   - 3.3 - Preparazione dei dati: material/03_ml_sklearn/14_data_prep/lecture.md
+  #   - 3.3 - Approcci supervisionati:
+  #     - 3.3.1 - Il problema della regressione: material/03_ml_sklearn/16_lin_reg/lecture.md
+  #     - 3.3.2 - Il problema della classificazione: material/03_ml_sklearn/17_logistic/lecture.md
+  #   - 3.4 - Approcci non supervisionati: link_al_clustering
+  #   - 3.5 - Metriche e valutazione: link_a_metriche
+  #   - 3.6 - Cross-validazione: link_a_cross_validazione
+  #   - 3.7 - Ottimizzazione degli iperparametri: link_ad_ottimizzazione
+  #   - 3.8 - Approcci generativi: link_a_gan
+  #   - 3.9 - Interpretabilità: link_a_xai
+  # - Parte 4 - Algoritmi:
+  #   - 4.1 - Alberi decisionali: link_alberi
+  #   - 4.2 - k-means: link_kmeans
+  #   - 4.3 - DBSCAN: link_dbscan
+  #   - 4.4 - Reti neurali: link_nn
+  #   - 4.5 - SVD: link_svd
+  # - Parte 5 - Scikit Learn:
+  #   - 5.1 - Introduzione a Scikit Learn: material/03_ml_sklearn/15_intro_sklearn/lecture.md
+  #     # - Esercizi: material/03_ml_sklearn/15_intro_sklearn/exercises.md
+  #   - 5.2 - Regressione lineare: material/03_ml_sklearn/16_lin_reg/lecture.md
+  #     # - Esercizi: material/03_ml_sklearn/16_lin_reg/exercises.md
+  #   - 5.3 - Regressione logistica: material/03_ml_sklearn/17_logistic/lecture.md
+  #     # - Esercizi: material/03_ml_sklearn/17_logistic/exercises.md
+  #   - 5.4 - Metriche: material/03_ml_sklearn/18_metrics/lecture.md
+  #     # - Esercizi: material/03_ml_sklearn/18_metrics/exercises.md
+  #   - 5.5 - Classificatori e regressori: material/03_ml_sklearn/19_classifiers_regressors/lecture.md
+  #     # - Esercizi: material/03_ml_sklearn/19_classifiers_regressors/exercises.md
+  #   - 5.6 - Clustering: material/03_ml_sklearn/20_clustering/lecture.md
+  #     # - Esercizi: material/03_ml_sklearn/20_clustering/exercises.md
+  #   - 5.7 - Metriche di clustering: material/03_ml_sklearn/21_cls_metrics/lecture.md
+  #     # - Esercizi: material/03_ml_sklearn/21_cls_metrics/exercises.md
+  #   - 5.8 - Scikit Learn Tips & Tricks: material/03_ml_sklearn/22_sklearn_tricks/lecture.md
+  #     # - Esercizi: material/03_ml_sklearn/22_sklearn_tricks/exercises.md
+  #   - 5.9 - Esercitazione su Scikit Learn:
+  #     # - Esercizi: material/03_ml_sklearn/23_sklearn_ex/exercises.md
+  # - Parte 6 - TensorFlow e Keras:
+  #   - 6.1 - Introduzione a TensorFlow: material/04_nn_tflow/25_intro_tflow/lecture.md
+  #   - 6.2 - Overfitting e regolarizzazione: material/04_nn_tflow/26_dropout_reg/lecture.md
+  #     # - Esercizi: material/04_nn_tflow/26_dropout_reg/exercises.md
+  #   - 6.3 - Elaborazione delle immagini: material/04_nn_tflow/27_tflow_images/lecture.md
+  #     # - Esercizi: material/04_nn_tflow/27_tflow_images/exercises.md
+  #   - 6.4 - TensorFlow Tips & Tricks: material/04_nn_tflow/28_tricks/lecture.md
+  #     # - Esercizi: material/04_nn_tflow/28_tricks/exercises.md
+  # # - Parte 5 - Serie temporali:
+  # #   - 29 - Introduzione alle serie temporali:
+  # #     - Dispense: material/05_time_series/29_ts/lecture.md
   - Appendici:
     - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
     - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
@@ -104,10 +90,6 @@ nav:
     - D - Programmazione orientata agli oggetti: material/appendix/04_oop/lecture.md
     - E - Tips: material/appendix/05_tips/lecture.md
     - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
-    - G - Algoritmi:
-      - SVD: material/appendix/07_algorithms/01_svd/lecture.md
-      # - Resnet: material/appendix/07_algorithms/cnn/resnet.md     # NOTE: EXPERIMENTAL
-    # - H - XAI:
   - Ringraziamenti: contributors.md
 
 theme:
@@ -121,6 +103,7 @@ markdown_extensions:
   - meta # page-specific context
   - toc:
       permalink: true # inserts an anchor
+      toc_depth: 3
   - sane_lists # better ul and ol
   - nl2br # newline hard break
   - pymdownx.arithmatex:
@@ -133,7 +116,7 @@ markdown_extensions:
       emoji_index: !!python/name:pymdownx.emoji.twemoji
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.highlight: # better code, instead of CodeHilite           <--------
-      linenums: false
+      anchor_linenums: true
   - pymdownx.inlinehilite # like codehilite but inline
   - pymdownx.magiclink # auto links
   - pymdownx.mark # highlight text
@@ -145,13 +128,15 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist: # better tasks lists
       custom_checkbox: true
-  - pymdownx.tabbed # auto tabs
+  - pymdownx.tabbed:
+      alternate_style: true # auto tabs
   - pymdownx.tilde # strike through cross out text
   - md_in_html
 
+
 plugins:
   - search
-  - encryptcontent: {}
+  # - encryptcontent: {}
 
 extra:
   social:

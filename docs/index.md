@@ -1,19 +1,32 @@
-# Home page dei corsi
+# Bacheca Python per il Calcolo Scientifico
 
-Benvenuti nella pagina dei corsi Python di Angelo Cardellicchio.
+!!!tip "Disponibilità registrazioni"
+    Alcune delle registrazioni **per l'A.A. 2021/2022** sono disponibili in una playlist YouTube a [questo indirizzo](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS).
 
-Per **informazioni sui corsi**, selezionate le apposite voci nella pagina attuale.
+## Link utili
 
-Per **gli argomenti di interesse**, selezionate direttamente le lezioni dal menu a sinistra.
+* [Modalità di esame (A.A. 2022/2023)](exams.md)
+* Calendario delle lezioni (*in arrivo*)
+* Date di appello (*in arrivo*)
+* Temi d'anno (*in arrivo*)
 
-## Anno Accademico 2022/2023
+## Ricevimento
 
-| Corso | Link |
-| ----- | ---- |
-| Algoritmi e Linguaggi di Programmazione Python/C | [:link:](./dashboard/alp/dashboard.md) |
+E' possibile concordare un ricevimento inviando una e-mail all'indirizzo [angelo.cardellicchio@stiima.cnr.it](mailto:angelo.cardellicchio@stiima.cnr.it).
 
-## Anno Accademico 2021/2022
+<!-- ## Date di appello
 
-| Corso | Link |
-| ----- | ---- |
-| Python per il Calcolo Scientifico | [:link:](./dashboard/pcs/dashboard.md) |
+Per informazioni sugli appelli, consultare la [bacheca](advices.md).
+
+## Temi d'anno
+
+Per informazioni sui temi d'anno, consultare la [pagina apposita](projects.md).
+
+## Slides proiettate a lezione
+
+L'elenco delle slides proiettate a lezione è disponibile a [questo indirizzo](../../material/slides/pcs/index.md).
+
+## Calendario delle lezioni
+
+Il calendario delle lezioni è disponibile a [questo link](https://www.dm.uniba.it/didattica/competenze-trasversali/2021-22-laboratorio-matematico-informatico-ii/orario-python.pdf). -->
+

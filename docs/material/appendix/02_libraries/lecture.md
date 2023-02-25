@@ -1,6 +1,6 @@
-# Appendice B: Installazione di una libreria Python
+# Appendice B: Setup dell'ambiente di lavoro
 
-Per installare una libreria Python abbiamo a disposizione diverse opzioni. Vediamole nel dettaglio, immaginando di voler installare la libreria NumPy.
+Per effettuare il setup dell'ambiente di lavoro avremo a disposizione diverse opzioni. Vediamole nel dettaglio, immaginando di voler installare la libreria NumPy.
 
 ## Opzione A: utilizzare `pip`
 
@@ -113,3 +113,29 @@ Se non volessimo accedere all'ambiente virtuale, invece, dovremmo scrivere:
 ```sh
 pipenv run python run.py
 ```
+
+## Bonus: opzione utilizzata nel corso
+
+Nel corso, utilizzeremo l'approccio basato su [Miniconda](https://docs.conda.io/en/latest/miniconda.html) e `pip`, che è, ad oggi, quello suggerito per l'[installazione di TensorFlow](https://www.tensorflow.org/install/pip?hl=en).
+
+Vediamo come impostare l'ambiente di sviluppo a seconda che si stia utilizzando Linux o Windows.
+
+
+=== "Windows"
+    
+    #### 1. Requisiti di sistema
+
+    
+
+    ``` sh
+
+    ```
+
+=== "Linux"
+
+    ``` sh
+    curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o Miniconda3-latest-Linux-x86_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh
+    ```
+
+
