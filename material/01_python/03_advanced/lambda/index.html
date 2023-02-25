@@ -1,0 +1,1792 @@
+
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.14">
+    
+    
+      
+        <title>1.8 - Il calcolo lambda e la programmazione funzionale - Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.113286f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ZCZWPCYZJ9"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ZCZWPCYZJ9",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ZCZWPCYZJ9",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#18-il-calcolo-lambda-e-la-programmazione-funzionale" class="md-skip">
+          Vai al contenuto
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../../../.." title="Python" class="md-header__button md-logo" aria-label="Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.8 - Il calcolo lambda e la programmazione funzionale
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Python" class="md-nav__button md-logo" aria-label="Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Modulo 1 - Il linguaggio Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 1 - Il linguaggio Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          1 - Concetti introduttivi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          1 - Concetti introduttivi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/01_intro/" class="md-nav__link">
+        1.1 - Introduzione al Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/02_operators/" class="md-nav__link">
+        1.2 - Operatori
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/03_strings/" class="md-nav__link">
+        1.3 - Stringhe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/04_lists/" class="md-nav__link">
+        1.4 - Liste
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          2 - Programmare in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          2 - Programmare in Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/01_syntax/" class="md-nav__link">
+        2.1 - Sintassi fondamentale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/02_structured/" class="md-nav__link">
+        2.2 - Programmazione strutturata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/03_functions/" class="md-nav__link">
+        2.3 - Funzioni
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/04_data_structures/" class="md-nav__link">
+        2.4 - Altre strutture dati
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/05_classes/" class="md-nav__link">
+        2.5 - Classi
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/06_modules/" class="md-nav__link">
+        2.6 - Script, moduli e package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Modulo 2 - Librerie per il calcolo scientifico
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 2 - Librerie per il calcolo scientifico
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/01_jupyter/lecture/" class="md-nav__link">
+        1 - Jupyter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          2 - NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          2 - NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/01_intro/" class="md-nav__link">
+        2.1 - Introduzione a Numpy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/02_array/" class="md-nav__link">
+        2.2 - Gli Array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/03_fundamentals/" class="md-nav__link">
+        2.3 - Operazioni fondamentali sugli array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/04_algebra/lecture/" class="md-nav__link">
+        2.4 - Algebra in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/05_polynomials.md" class="md-nav__link">
+        2.5 - Polinomi in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/06_statistics.md" class="md-nav__link">
+        2.6 - Statistica in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_matplotlib/lecture/" class="md-nav__link">
+        3 - Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/04_pandas/lecture/" class="md-nav__link">
+        4 - Pandas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/05_seaborn/lecture/" class="md-nav__link">
+        5 - Seaborn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/06_scipy/lecture/" class="md-nav__link">
+        6 - SciPy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Modulo 3 - Concetti di machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 3 - Concetti di machine learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/01_intro/" class="md-nav__link">
+        1 - Introduzione al machine learning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Appendici
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Appendici
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/01_python_vs_code/guide/" class="md-nav__link">
+        A - Installazione di Python e Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/02_libraries/lecture/" class="md-nav__link">
+        B - Le librerie in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/03_scope/lecture/" class="md-nav__link">
+        C - Ambito di una variabile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/04_oop/lecture/" class="md-nav__link">
+        D - Programmazione orientata agli oggetti
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/05_tips/lecture/" class="md-nav__link">
+        E - Tips
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/06_argparse/lecture.md" class="md-nav__link">
+        F - Il modulo argparse
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributors/" class="md-nav__link">
+        Ringraziamenti
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#181-le-funzioni-lambda" class="md-nav__link">
+    1.8.1 - Le funzioni lambda
+  </a>
+  
+    <nav class="md-nav" aria-label="1.8.1 - Le funzioni lambda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1811-le-prime-funzioni-lambda" class="md-nav__link">
+    1.8.1.1 - Le prime funzioni lambda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1812-argomenti-ed-identificativi" class="md-nav__link">
+    1.8.1.2 - Argomenti ed identificativi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funzioni-anonime" class="md-nav__link">
+    Funzioni anonime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="18-il-calcolo-lambda-e-la-programmazione-funzionale">1.8 - Il calcolo lambda e la programmazione funzionale<a class="headerlink" href="#18-il-calcolo-lambda-e-la-programmazione-funzionale" title="Permanent link">&para;</a></h1>
+<p>Le espressioni lambda, le quali saranno oggetto di questa lezione, affondano le loro origini nel <em>calcolo lambda</em>, modello computazionale inventato da Alonzo Church negli anni '30 del ventesimo secolo.</p>
+<p>Il calcolo lambda è un linguaggio puramente basato sul concetto di <em>astrazione</em>, ed è in grado di codificare ogni possibile algoritmo. Di conseguenza, risulta essere Turing-completo ma, contrariamente alla macchina di Turing, non mantiene al suo interno alcuna informazione sullo stato.</p>
+<p>Da quello che abbiamo visto nella <a href="../07_func_prog/lecture.md">lezione precedente</a>, quindi, appare chiaro come la programmazione funzionale affondi le sue origini in questo tipo di calcolo. Contestualmente, possiamo dedurre come il modello computazionale basato sullo stato ed introdotto da Alan Turing sia alla base del paradigma imperativo.</p>
+<div class="admonition note">
+<p class="admonition-title">Tesi di Church-Turing</p>
+<p>I modelli basati sul calcolo lambda possono essere tradotti in quelli basati sulle macchine di Turing, e viceversa. Questa equivalenza è anche conosciuta come <em>ipotesi di Church-Turing</em>.</p>
+</div>
+<h2 id="181-le-funzioni-lambda">1.8.1 - Le funzioni lambda<a class="headerlink" href="#181-le-funzioni-lambda" title="Permanent link">&para;</a></h2>
+<p>Le <em>funzioni lambda</em>, chiamate anche <em>funzioni anonime</em>, sono dei costrutti che permettono una sintassi più concisa rispetto alle normali funzioni e, nonostante una serie di restrizioni, lavorano assieme ai concetti visti in precedenza per implementare meccanismi di programmazione funzionale.</p>
+<div class="admonition note">
+<p class="admonition-title">Le funzioni lambda e le best practice Python</p>
+<p>Alcuni degli esempi che faremo ignoreranno deliberatamente le best practice definite da Python. Tuttavia, ci saranno utili ad illustrare i concetti alla base delle funzioni lambda.</p>
+</div>
+<h3 id="1811-le-prime-funzioni-lambda">1.8.1.1 - Le prime funzioni lambda<a class="headerlink" href="#1811-le-prime-funzioni-lambda" title="Permanent link">&para;</a></h3>
+<p>Iniziamo con un banale esempio, definendo una funzione <code>identita()</code> che restituisce l'argomento passatogli.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">identita</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">return</span> <span class="n">x</span>
+</code></pre></div>
+<p>Proviamo a definire la stessa funzione usando le lambda:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>
+</code></pre></div>
+<p>Notiamo quindi che l'espressione è composta da:</p>
+<ul>
+<li>la keyword <code>lambda</code>, che indica l'inizio della funzione lambda;</li>
+<li>la variabile <code>x</code>, che rappresenta l'argomento in ingresso alla funzione lambda;</li>
+<li>il corpo della funzione, che segue l'operatore <code>:</code>, ed in questo caso è semplicemente <code>x</code>.</li>
+</ul>
+<p>Possiamo definire la variabile <code>x</code> come <em>dipendente</em>, che si differenzia da una variabile indipendente a causa del fatto che quest'ultima non è vincolata, e può essere referenziata nel corpo dell'espressione. Proviamo in tal senso a scrivere un esempio leggermente più elaborato, definendo una funzione <code>incrementa()</code> che aggiunge <code>1</code> al suo argomento, assieme alla corrispondente funzione lambda:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Funzione classica</label><label for="__tabbed_1_2">Funzione lambda</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">incrementa</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="1812-argomenti-ed-identificativi">1.8.1.2 - Argomenti ed identificativi<a class="headerlink" href="#1812-argomenti-ed-identificativi" title="Permanent link">&para;</a></h3>
+<p>Proviamo adesso ad applicare la funzione lambda definita in precedenza. Per farlo, dovremo circondare sia la funzione, sia l'argomento che vogliamo passare, tra parentesi tonde:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="mi">3</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Come funziona?</p>
+<p>I più curiosi potranno interrogarsi sul funzionamento interno della funzione lambda. Uno dei possibili approcci in tal senso è quello della <em>riduzione</em>: in pratica, andiamo a rimpiazzare la variabile dipendente, <code>x</code> con l'argomento, <code>2</code>, ottenendo il seguente risultato:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>(lambda x: x + 1)(2) = lambda 2: 2 + 1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>                    = 2 + 1
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>                    = 3
+</code></pre></div>
+</blockquote>
+</div>
+<p>Possiamo anche associare un identificativo alla funzione lambda. Per farlo, possiamo usare una sintassi di questo tipo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">incrementa</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+<p>Le funzioni che abbiamo definito finora accettano un unico argomento. Tuttavia, potremmo aver notato che, nella definizione delle funzioni lambda, gli argomenti non sono circondati da parentesi: per specificarne più di uno, dovremo elencarli separandoli mediante una virgola. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">nome_cognome</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">nome</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">cognome</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span>
+</code></pre></div>
+<p>A questo punto, potremo invocare la funzione come segue:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nome_cognome</span><span class="p">(</span><span class="s1">&#39;guido&#39;</span><span class="p">,</span> <span class="s1">&#39;van rossum&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">Guido</span> <span class="n">Van</span> <span class="n">Rossum</span>
+</code></pre></div>
+<p>Ricapitolando, la funzione lambda con identificativo <code>nome_cognome</code> accetterà due argomenti, rispettivamente <code>nome</code> e <code>cognome</code>, restituendo una stringa formattata. Come abbiamo già sottolineato, nella definizione della funzione lambda gli argomenti sono elencati senza parentesi, mentre la chiamata alla funzione lambda è fatta esattamente come se avessimo a che fare con una classica funzione Python, con delle parentesi che circondano gli argomenti utilizzati.</p>
+<h3 id="funzioni-anonime">Funzioni anonime<a class="headerlink" href="#funzioni-anonime" title="Permanent link">&para;</a></h3>
+<p>I seguenti termini possono essere usati in maniera intercambiabile a seconda del tipo di linguaggio di programmazione: <em>funzioni anonime</em>, <em>funzioni lambda</em>, <em>espressioni lambda</em>, <em>astrazioni lambda</em>, e via dicendo.</p>
+<p>Prese letteralmente, una funzione anonima è una funzione senza un nome. In Python, una funzione anonima viene creata mediante la parola chiave <code>lambda</code>. Blandamente, può o meno avere un nome. Considerando una funzione anonima a due argomenti definita con la lambda ma non vincolata ad una variabile. La lambda non ha un nome:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</code></pre></div>
+<p>La funzione precedente definisce un'espressione lambda che rpende due argomenti e restituisce la loro somma.</p>
+<p>Oltre chje fornirci il feedback che Python è perfettamente ok con questa forma, non ha alcun uso pratico. Possiamo invocare la funzione nell'interprete Python:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>&gt;&gt;&gt;<span class="w"> </span>_<span class="o">(</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span><span class="o">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="m">3</span>
+</code></pre></div>
+<p>L'esempio precedente sfrutta la feature interattiva dell'interprete mediante l'underscore. Tuttavia, non possiamo scrivere del codice simile in un modulo Python: qui, dovremmo assegnare un nome alla lambda, o passare la lambda ad una funzione. Vedremo in seguito come fare.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>In una sessione interattiva con l'interprete Python, il singolo underscore è collegato all'ultima espressione valutata. Nell'esempio precedente, quindi, il <code>_</code> putna alla funzione lambda.</p>
+</div>
+<p>Un altro pattern usato in altri linguaggi come JavaScript è quello di usare immediatamente una funzione lambda Python. Questo è conosciuto come <em>Immediately Invoked Function Expression</em> (<em>IIFE</em>). Ecco un esempio</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="mi">5</span>
+</code></pre></div>
+<p>La funzione lambda precedente è definita e quindi chiuamata immediatamente con due argomenti, ovvero 2 e 3. Restituisce il valore 5, che è la somma degli argomenti.</p>
+<h1 id="lambda-e-higher-order-functions">lambda e higher order functions<a class="headerlink" href="#lambda-e-higher-order-functions" title="Permanent link">&para;</a></h1>
+<p>Le funzioni lambda sono di frequente usate con le higher-order functions, che prendono una o più funzioni come argomenti e restituiscono una o più funzioni.</p>
+<p>Una funzione lambda può essere una higher-order function prendendo una funzione (normale o lambda) come argomento, come nell'esempio successivo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">high_ord_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">high_ord_func</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="mi">6</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">high_ord_func</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="mi">7</span>
+</code></pre></div>
+<p>Python espone le higher-order function come funzioni built-in, o nella libreria standard. Esempi includono map(), filter(), reduce(), così come funzioni chiave come sort(), sorted(), min(), e max(). </p>
+<h2 id="lambda-e-funzioni-regolari">Lambda e funzioni regolari<a class="headerlink" href="#lambda-e-funzioni-regolari" title="Permanent link">&para;</a></h2>
+<p>A differenza delle forme lambda in altri linguaggi, dove aggiungono nuove funzionalità, le lambda Python sono solo una notazione abbrievata se siamo troppo pigri per definire una funzione.</p>
+<p>Nonostante questo, non dobbiamo fare in modo che questa definizione ci faccia desistere dall'usare le lambda function in Python. Di primo acchitto, potremmo accettare che una funzione lambda sia una funzione che ci permetta semplicemente di ridurre il codice necessario a definire o invocare una funzione. Vedremo però a breve che ci sono delle sottili differenze tra le normali funzioni Python e le funzioni lambda.</p>
+<h3 id="funzioni">Funzioni<a class="headerlink" href="#funzioni" title="Permanent link">&para;</a></h3>
+<p>A questo punto, potremmo chiederci cosa distingue fondamentalmente una funzione lambda vincolata ad una variabile da una regolare funzione con una singola riga di ritorno: sotto il cofano, praticamente niente. Verifichaimo èperò come Python vede una funzione costruita con una singola istruzione di ritorno rispettoa d una funzione costrrita come un'espressione lambda.</p>
+<p>Il modulo dis espone delle funzioni per analizzare il bytecode Python generato dal compilatore.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">dis</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">add</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">function</span><span class="s1">&#39;&gt;</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  <span class="mi">1</span>           <span class="mi">0</span> <span class="n">LOAD_FAST</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>              <span class="mi">2</span> <span class="n">LOAD_FAST</span>                <span class="mi">1</span> <span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>              <span class="mi">4</span> <span class="n">BINARY_ADD</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>              <span class="mi">6</span> <span class="n">RETURN_VALUE</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">add</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="o">&lt;</span><span class="n">function</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x7f30c6ce9ea0</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>Possiamo vedere che <code>dis()</code> mostra una versione leggibile del bytecode Python, permettendo l'ispezione delle istruzioni a basso livello che l'interprete Pythjon usa mentre esegue il programma.</p>
+<p>Ora vediamo una funzione classica:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">dis</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">function</span><span class="s1">&#39;&gt;</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>  <span class="mi">1</span>           <span class="mi">0</span> <span class="n">LOAD_FAST</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>              <span class="mi">2</span> <span class="n">LOAD_FAST</span>                <span class="mi">1</span> <span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>              <span class="mi">4</span> <span class="n">BINARY_ADD</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>              <span class="mi">6</span> <span class="n">RETURN_VALUE</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">add</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="o">&lt;</span><span class="n">function</span> <span class="n">add</span> <span class="n">at</span> <span class="mh">0x7f30c6ce9f28</span><span class="o">&gt;</span>
+</code></pre></div>
+<p>Il bytecode interpretato da Python è lo stesso per entrambe le funzioni. Tuttavia, possiamo notare che il nome è differente: il nome della funzione è add per la funzione definita mediante def, mentre la funzione lambda Python è vista come lambda.</p>
+<h3 id="traceback">traceback<a class="headerlink" href="#traceback" title="Permanent link">&para;</a></h3>
+<p>ABbiamo visto che, nel contesto della funzione lambda, Python non ha fornito il nome della funzione, ma solo <lambda>. Questa può essere una limitazione da considerare quando vi è un'eccezione, ed un traceback mostra soltanto <lambda>: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">div_zero</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">0</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">div_zero</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+</code></pre></div>
+<p>Ecco la stessa eccezione lanciata da una funzione normale:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">div_zero</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">0</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">div_zero</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="n">div_zero</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+</code></pre></div>
+<p>La funzione normale causa un errore simile, ma risulta in un traceback più preceiso, perché dà il nome della funzione (<code>div_zero</code>).</p>
+<h3 id="sintassi">Sintassi<a class="headerlink" href="#sintassi" title="Permanent link">&para;</a></h3>
+<p>Come abbiamo visto nelle sezioni precedente, una funzione lambda presenta delle distinzioni sintattiche da una funzione normale. In particolare, una funzione lambda ha le seguenti caratteristiche:</p>
+<ul>
+<li>può contenre soltanto espressioni e non include istruzioni nel suo corpo;</li>
+<li>è scritta come una singola riga di esecuzione;</li>
+<li>non supporta il type hinting;</li>
+<li>può essere invocata immedaitamente.</li>
+</ul>
+<h4 id="nessuna-istruzione">Nessuna istruzione<a class="headerlink" href="#nessuna-istruzione" title="Permanent link">&para;</a></h4>
+<p>Una funzione lambda non può contenere alcuna istruzione. In una funzione lambda, le istruizoni come return, pass, assert o raise lanceranno un'eccezione SyntaxError. Ecco un esempio dell'aggiunta di assert al corpo di una lambda:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">assert</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  <span class="n">File</span> <span class="s2">&quot;&lt;input&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">assert</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>                    <span class="o">^</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</code></pre></div>
+<p>Questo conciso esempio intendeva asserire che il parametro <code>x</code> ha un valore pari a 2. Tuttavia, l'interprete identifica un SyntaxError mentre effettua il parsing del codice che coinvolge l'assert nel corpo della lambda.</p>
+<h4 id="singola-espressione">Singola espressione<a class="headerlink" href="#singola-espressione" title="Permanent link">&para;</a></h4>
+<p>Invece di una funzione normale, una funzione lambda Python è una singola espressione. Tuttavia, nel corpo di una lambda, possiamo suddividere l'espressione in varie righe usando parentesi o stringhe multilinea; ciònonostante, rimane una singola espressione:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="o">...</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="ow">and</span> <span class="s1">&#39;odd&#39;</span> <span class="ow">or</span> <span class="s1">&#39;even&#39;</span><span class="p">))(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="s1">&#39;odd&#39;</span>
+</code></pre></div>
+<p>L'esempio precedente restituisce la stringa <code>odd</code> quando l'argomento della lambda è dispari, e pari quando l'argomento è pari. E' suddivisa tra due linee perché è contenuta in un insieme di parentesi, ma rimane una singola espressione.</p>
+<h4 id="type-hinting">Type hinting<a class="headerlink" href="#type-hinting" title="Permanent link">&para;</a></h4>
+<p>Se abbiamo iniziato ad adottare il type hiunting, abbiamo un'altra ragione per preferire le funzioni normali alle lambda function Python. In una funzione lambda, infatti, questa espressione non ha equivalenti:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">def</span> <span class="nf">full_name</span><span class="p">(</span><span class="n">first</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">first</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">last</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span>
+</code></pre></div>
+<p>Un qualsiasi errore di tipo può essere catturato da strumetni come mypy o pyre, ed un SyntaxError con l'equivalente funzione lamb da viuene lanciato a runtime:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">lambda</span> <span class="n">first</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="nb">str</span><span class="p">:</span> <span class="n">first</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="k">lambda</span> <span class="n">first</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">last</span><span class="p">:</span> <span class="nb">str</span><span class="p">:</span> <span class="n">first</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</code></pre></div>
+<p>In pratica, provare ad inserire del type hinting risulta immedaitamente in un SyntaxError a runtime.</p>
+<h3 id="iife">IIFE<a class="headerlink" href="#iife" title="Permanent link">&para;</a></h3>
+<p>Abbiamo già visto degli esempi di IIFE:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="mi">9</span>
+</code></pre></div>
+<p>Al di furoi dell'interprete Pyuthon, questa feature non viene praticamente usata in pratica. E' infatti una conseguenza diretta del fatto che la funzione lambda è chiamabile come viene definita. Per esempio, questo ci permette di apssare la definizione di una funzione lambda Python ad una higher-order function come map(), filter o reduec().</p>
+<h2 id="argomenti">Argomenti<a class="headerlink" href="#argomenti" title="Permanent link">&para;</a></h2>
+<p>Come una normale funzione definita mediante def, le espressioni lambda in Python supportano tutti i diversi modi per passare degli argomenti, come argomenti posizionali, args e kwargs.</p>
+<p>Vediamo un esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="mi">6</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="mi">6</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="mi">6</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">))(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="mi">6</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">values</span><span class="p">()))(</span><span class="n">one</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">two</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">three</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="mi">6</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="p">)(</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="mi">6</span>
+</code></pre></div>
+<h3 id="decorators">Decorators<a class="headerlink" href="#decorators" title="Permanent link">&para;</a></h3>
+<p>In Python, un decorator è l'implemnentazione di un pattern che permette di aggiungere un dato comportamento ad una funzione o classe. Viene normalmente anteponendo una sintassi del tipo @nome_decorator alla funzione. Ecco un esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">def</span> <span class="nf">some_decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="k">def</span> <span class="nf">wraps</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calling function &#39;</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="k">return</span> <span class="n">wraps</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="nd">@some_decorator</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="k">def</span> <span class="nf">decorated_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;With argument &#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Nell'esempio precedente, some<em>decorator() è una funzione che aggiunge un dato comporrtamento alla funzione decorated</em>fucntion(), in modo che chiamare decorated_fucntion('Python') restituisce il seguente output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">Calling</span> <span class="n">function</span> <span class="s1">&#39;decorated_function&#39;</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">With</span> <span class="n">argument</span> <span class="s1">&#39;Python&#39;</span>
+</code></pre></div>
+<p>In pratica, decorated<em>function() manda a schermo soltanto "With argument 'Python'", ma il decorator aggiunge un ulteriorie comportamento che permette anche di mostrare a schermo "Calling function 'decorated</em>function'".</p>
+<p>Un decorator può essere applicato ad una funzione lambda. Anche se non è possibile decorare una funzione lambda con la sintassi @decorator, dato che il decorator è semplicemente una funzione, questo può chiamare  una funzione lambda:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># Defining a decorator</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="k">def</span> <span class="nf">trace</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[TRACE] func: </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">, args: </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">, kwargs: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>    <span class="k">return</span> <span class="n">wrap</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="c1"># Applying decorator to a function</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="nd">@trace</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="c1"># Calling the decorated function</span>
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="n">add_two</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="c1"># Applying decorator to a lambda</span>
+<a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="nb">print</span><span class="p">((</span><span class="n">trace</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<p>La funzione <code>add_two()</code>, decorata con <code>@trace</code> alla riga 11, viene invocata con l'argomento 3 alla riga 15. Di contro, alla riga 18, una funzione lambda viene immediatamente integrata in una chiamata a trace(), il decorator. Eseguendo il codice precedente, otteniamo il seguente output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">[</span>TRACE<span class="o">]</span><span class="w"> </span>func:<span class="w"> </span>add_two,<span class="w"> </span>args:<span class="w"> </span><span class="o">(</span><span class="m">3</span>,<span class="o">)</span>,<span class="w"> </span>kwargs:<span class="w"> </span><span class="o">{}</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="o">[</span>TRACE<span class="o">]</span><span class="w"> </span>func:<span class="w"> </span>&lt;lambda&gt;,<span class="w"> </span>args:<span class="w"> </span><span class="o">(</span><span class="m">3</span>,<span class="o">)</span>,<span class="w"> </span>kwargs:<span class="w"> </span><span class="o">{}</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="m">9</span>
+</code></pre></div>
+<p>Vediamo che il nome della funzione lambda appare come <code>&lt;lambda&gt;</code>, mentre <code>add_two</code> viene chiaramente identificato come una funzione normale.</p>
+<p>Decorare la funzione lambda in questo modo può essere utile a scopo di debugging, specialmente per analizzare il comportamento di una funzione almbda usata nel contesto di una higher-order function. Vediamo un esempio con <code>map()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">trace</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+</code></pre></div>
+<p>The first argument of map() is a lambda that multiplies its argument by 2. This lambda is decorated with trace(). When executed, the example above outputs the following:</p>
+<p>[TRACE] Calling <lambda> with args (0,) and kwargs {}<br />
+[TRACE] Calling <lambda> with args (1,) and kwargs {}<br />
+[TRACE] Calling <lambda> with args (2,) and kwargs {}<br />
+[0, 2, 4]<br />
+The result [0, 2, 4] is a list obtained from multiplying each element of range(3). For now, consider range(3) equivalent to the list [0, 1, 2].</p>
+<p>You will be exposed to map() in more details in Map.</p>
+<p>A lambda can also be a decorator, but it’s not recommended. If you find yourself needing to do this, consult PEP 8, Programming Recommendations.</p>
+<p>For more on Python decorators, check out Primer on Python Decorators.</p>
+<p>Remove ads<br />
+Closure<br />
+A closure is a function where every free variable, everything except parameters, used in that function is bound to a specific value defined in the enclosing scope of that function. In effect, closures define the environment in which they run, and so can be called from anywhere.</p>
+<p>The concepts of lambdas and closures are not necessarily related, although lambda functions can be closures in the same way that normal functions can also be closures. Some languages have special constructs for closure or lambda (for example, Groovy with an anonymous block of code as Closure object), or a lambda expression (for example, Java Lambda expression with a limited option for closure).</p>
+<p>Here’s a closure constructed with a normal Python function:</p>
+<p>def outer<em>func(x):<br />
+    y = 4<br />
+    def inner</em>func(z):<br />
+        print(f"x = {x}, y = {y}, z = {z}")<br />
+        return x + y + z<br />
+    return inner_func</p>
+<p>for i in range(3):<br />
+    closure = outer<em>func(i)<br />
+    print(f"closure({i+5}) = {closure(i+5)}")<br />
+outer</em>func() returns inner_func(), a nested function that computes the sum of three arguments:</p>
+<p>x is passed as an argument to outer<em>func().<br />
+y is a variable local to outer</em>func().<br />
+z is an argument passed to inner<em>func().<br />
+To test the behavior of outer</em>func() and inner<em>func(), outer</em>func() is invoked three times in a for loop that prints the following:</p>
+<p>x = 0, y = 4, z = 5<br />
+closure(5) = 9<br />
+x = 1, y = 4, z = 6<br />
+closure(6) = 11<br />
+x = 2, y = 4, z = 7<br />
+closure(7) = 13<br />
+On line 9 of the code, inner<em>func() returned by the invocation of outer</em>func() is bound to the name closure. On line 5, inner_func() captures x and y because it has access to its embedding environment, such that upon invocation of the closure, it is able to operate on the two free variables x and y.</p>
+<p>Similarly, a lambda can also be a closure. Here’s the same example with a Python lambda function:</p>
+<p>def outer_func(x):<br />
+    y = 4<br />
+    return lambda z: x + y + z</p>
+<p>for i in range(3):<br />
+    closure = outer_func(i)<br />
+    print(f"closure({i+5}) = {closure(i+5)}")<br />
+When you execute the code above, you obtain the following output:</p>
+<p>closure(5) = 9<br />
+closure(6) = 11<br />
+closure(7) = 13<br />
+On line 6, outer<em>func() returns a lambda and assigns it to to the variable closure. On line 3, the body of the lambda function references x and y. The variable y is available at definition time, whereas x is defined at runtime when outer</em>func() is invoked.</p>
+<p>In this situation, both the normal function and the lambda behave similarly. In the next section, you’ll see a situation where the behavior of a lambda can be deceptive due to its evaluation time (definition time vs runtime).</p>
+<p>Evaluation Time<br />
+In some situations involving loops, the behavior of a Python lambda function as a closure may be counterintuitive. It requires understanding when free variables are bound in the context of a lambda. The following examples demonstrate the difference when using a regular function vs using a Python lambda.</p>
+<p>Test the scenario first using a regular function:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>def wrap(n):<br />
+...     def f():<br />
+...         print(n)<br />
+...     return f<br />
+...<br />
+numbers = 'one', 'two', 'three'<br />
+funcs = []<br />
+for n in numbers:<br />
+...     funcs.append(wrap(n))<br />
+...<br />
+for f in funcs:<br />
+...     f()<br />
+...<br />
+one<br />
+two<br />
+three<br />
+In a normal function, n is evaluated at definition time, on line 9, when the function is added to the list: funcs.append(wrap(n)).</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Now, with the implementation of the same logic with a lambda function, observe the unexpected behavior:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>numbers = 'one', 'two', 'three'<br />
+funcs = []<br />
+for n in numbers:<br />
+...     funcs.append(lambda: print(n))<br />
+...<br />
+for f in funcs:<br />
+...     f()<br />
+...<br />
+three<br />
+three<br />
+three<br />
+The unexpected result occurs because the free variable n, as implemented, is bound at the execution time of the lambda expression. The Python lambda function on line 4 is a closure that captures n, a free variable bound at runtime. At runtime, while invoking the function f on line 7, the value of n is three.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>To overcome this issue, you can assign the free variable at definition time as follows:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>numbers = 'one', 'two', 'three'<br />
+funcs = []<br />
+for n in numbers:<br />
+...     funcs.append(lambda n=n: print(n))<br />
+...<br />
+for f in funcs:<br />
+...     f()<br />
+...<br />
+one<br />
+two<br />
+three<br />
+A Python lambda function behaves like a normal function in regard to arguments. Therefore, a lambda parameter can be initialized with a default value: the parameter n takes the outer n as a default value. The Python lambda function could have been written as lambda x=n: print(x) and have the same result.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>The Python lambda function is invoked without any argument on line 7, and it uses the default value n set at definition time.</p>
+<p>Remove ads<br />
+Testing Lambdas<br />
+Python lambdas can be tested similarly to regular functions. It’s possible to use both unittest and doctest.</p>
+<p>unittest</p>
+<p>The unittest module handles Python lambda functions similarly to regular functions:</p>
+<p>import unittest</p>
+<p>addtwo = lambda x: x + 2</p>
+<p>class LambdaTest(unittest.TestCase):<br />
+    def test<em>add</em>two(self):<br />
+        self.assertEqual(addtwo(2), 4)</p>
+<div class="highlight"><pre><span></span><code>def test_add_two_point_two(self):
+    self.assertEqual(addtwo(2.2), 4.2)
+
+def test_add_three(self):
+    # Should fail
+    self.assertEqual(addtwo(3), 6)
+</code></pre></div>
+<p>if <strong>name</strong> == '<strong>main</strong>':<br />
+    unittest.main(verbosity=2)<br />
+LambdaTest defines a test case with three test methods, each of them exercising a test scenario for addtwo() implemented as a lambda function. The execution of the Python file lambda_unittest.py that contains LambdaTest produces the following:</p>
+<p>$ python lambda<em>unittest.py<br />
+test</em>add<em>three (<strong>main</strong>.LambdaTest) ... FAIL<br />
+test</em>add<em>two (<strong>main</strong>.LambdaTest) ... ok<br />
+test</em>add<em>two</em>point<em>two (</em><em>main</em>_.LambdaTest) ... ok</p>
+<p>======================================================================<br />
+FAIL: test<em>add</em>three (<strong>main</strong>.LambdaTest)</p>
+<hr />
+<p>Traceback (most recent call last):<br />
+  File "lambda<em>unittest.py", line 18, in test</em>add_three<br />
+    self.assertEqual(addtwo(3), 6)<br />
+AssertionError: 5 != 6</p>
+<hr />
+<p>Ran 3 tests in 0.001s</p>
+<p>FAILED (failures=1)<br />
+As expected, we have two successful test cases and one failure for test<em>add</em>three: the result is 5, but the expected result was 6. This failure is due to an intentional mistake in the test case. Changing the expected result from 6 to 5 will satisfy all the tests for LambdaTest.</p>
+<p>doctest</p>
+<p>The doctest module extracts interactive Python code from docstring to execute tests. Although the syntax of Python lambda functions does not support a typical docstring, it is possible to assign a string to the <strong>doc</strong> element of a named lambda:</p>
+<p>addtwo = lambda x: x + 2<br />
+addtwo.<strong>doc</strong> = """Add 2 to a number.<br />
+    &gt;&gt;&gt; addtwo(2)<br />
+    4<br />
+    &gt;&gt;&gt; addtwo(2.2)<br />
+    4.2<br />
+    &gt;&gt;&gt; addtwo(3) # Should fail<br />
+    6<br />
+    """</p>
+<p>if <strong>name</strong> == '<strong>main</strong>':<br />
+    import doctest<br />
+    doctest.testmod(verbose=True)<br />
+The doctest in the doc comment of lambda addtwo() describes the same test cases as in the previous section.</p>
+<p>When you execute the tests via doctest.testmod(), you get the following:</p>
+<p>$ python lambda_doctest.py<br />
+Trying:<br />
+    addtwo(2)<br />
+Expecting:<br />
+    4<br />
+ok<br />
+Trying:<br />
+    addtwo(2.2)<br />
+Expecting:<br />
+    4.2<br />
+ok<br />
+Trying:<br />
+    addtwo(3) # Should fail<br />
+Expecting:<br />
+    6</p>
+<hr />
+<p>File "lambda<em>doctest.py", line 16, in _</em>main<strong>.addtwo<br />
+Failed example:<br />
+    addtwo(3) # Should fail<br />
+Expected:<br />
+    6<br />
+Got:<br />
+    5<br />
+1 items had no tests:<br />
+    __main</strong></p>
+<hr />
+<p>1 items had failures:<br />
+   1 of   3 in <strong>main</strong>.addtwo<br />
+3 tests in 2 items.<br />
+2 passed and 1 failed.<br />
+<strong><em>Test Failed</em></strong> 1 failures.<br />
+The failed test results from the same failure explained in the execution of the unit tests in the previous section.</p>
+<p>You can add a docstring to a Python lambda via an assignment to <strong>doc</strong> to document a lambda function. Although possible, the Python syntax better accommodates docstring for normal functions than lambda functions.</p>
+<p>For a comprehensive overview of unit testing in Python, you may want to refer to Getting Started With Testing in Python.</p>
+<p>Lambda Expression Abuses<br />
+Several examples in this article, if written in the context of professional Python code, would qualify as abuses.</p>
+<p>If you find yourself trying to overcome something that a lambda expression does not support, this is probably a sign that a normal function would be better suited. The docstring for a lambda expression in the previous section is a good example. Attempting to overcome the fact that a Python lambda function does not support statements is another red flag.</p>
+<p>The next sections illustrate a few examples of lambda usages that should be avoided. Those examples might be situations where, in the context of Python lambda, the code exhibits the following pattern:</p>
+<p>It doesn’t follow the Python style guide (PEP 8)<br />
+It’s cumbersome and difficult to read.<br />
+It’s unnecessarily clever at the cost of difficult readability.</p>
+<p>Remove ads<br />
+Raising an Exception<br />
+Trying to raise an exception in a Python lambda should make you think twice. There are some clever ways to do so, but even something like the following is better to avoid:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>def throw(ex): raise ex<br />
+(lambda: throw(Exception('Something bad happened')))()<br />
+Traceback (most recent call last):<br />
+    File "<stdin>", line 1, in <module><br />
+    File "<stdin>", line 1, in <lambda><br />
+    File "<stdin>", line 1, in throw<br />
+Exception: Something bad happened<br />
+Because a statement is not syntactically correct in a Python lambda body, the workaround in the example above consists of abstracting the statement call with a dedicated function throw(). Using this type of workaround should be avoided. If you encounter this type of code, you should consider refactoring the code to use a regular function.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Cryptic Style<br />
+As in any programming languages, you will find Python code that can be difficult to read because of the style used. Lambda functions, due to their conciseness, can be conducive to writing code that is difficult to read.</p>
+<p>The following lambda example contains several bad style choices:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>(lambda <em>: list(map(lambda _: _ // 2, _)))([1,2,3,4,5,6,7,8,9,10])<br />
+[0, 1, 1, 2, 2, 3, 3, 4, 4, 5]<br />
+The underscore (</em>) refers to a variable that you don’t need to refer to explicitly. But in this example, three _ refer to different variables. An initial upgrade to this lambda code could be to name the variables:</p>
+<p>(lambda some<em>list: list(map(lambda n: n // 2,<br />
+                                some</em>list)))([1,2,3,4,5,6,7,8,9,10])<br />
+[0, 1, 1, 2, 2, 3, 3, 4, 4, 5]<br />
+Admittedly, it’s still difficult to read. By still taking advantage of a lambda, a regular function would go a long way to render this code more readable, spreading the logic over a few lines and function calls:</p>
+<p>def div<em>items(some</em>list):<br />
+      div<em>by</em>two = lambda n: n // 2<br />
+      return map(div<em>by</em>two, some<em>list)<br />
+list(div</em>items([1,2,3,4,5,6,7,8,9,10])))<br />
+[0, 1, 1, 2, 2, 3, 3, 4, 4, 5]<br />
+This is still not optimal but shows you a possible path to make code, and Python lambda functions in particular, more readable. In Alternatives to Lambdas, you’ll learn to replace map() and lambda with list comprehensions or generator expressions. This will drastically improve the readability of the code.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Python Classes<br />
+You can but should not write class methods as Python lambda functions. The following example is perfectly legal Python code but exhibits unconventional Python code relying on lambda. For example, instead of implementing <strong>str</strong> as a regular function, it uses a lambda. Similarly, brand and year are properties also implemented with lambda functions, instead of regular functions or decorators:</p>
+<p>class Car:<br />
+    """Car with methods as lambda functions."""<br />
+    def <strong>init</strong>(self, brand, year):<br />
+        self.brand = brand<br />
+        self.year = year</p>
+<div class="highlight"><pre><span></span><code>brand = property(lambda self: getattr(self, &#39;_brand&#39;),
+                 lambda self, value: setattr(self, &#39;_brand&#39;, value))
+
+year = property(lambda self: getattr(self, &#39;_year&#39;),
+                lambda self, value: setattr(self, &#39;_year&#39;, value))
+
+__str__ = lambda self: f&#39;{self.brand} {self.year}&#39;  # 1: error E731
+
+honk = lambda self: print(&#39;Honk!&#39;)     # 2: error E731
+</code></pre></div>
+<p>Running a tool like flake8, a style guide enforcement tool, will display the following errors for <strong>str</strong> and honk:</p>
+<p>E731 do not assign a lambda expression, use a def<br />
+Although flake8 doesn’t point out an issue for the usage of the Python lambda functions in the properties, they are difficult to read and prone to error because of the usage of multiple strings like '<em>brand' and '</em>year'.</p>
+<p>Proper implementation of <strong>str</strong> would be expected to be as follows:</p>
+<p>def <strong>str</strong>(self):<br />
+    return f'{self.brand} {self.year}'<br />
+brand would be written as follows:</p>
+<p>@property<br />
+def brand(self):<br />
+    return self._brand</p>
+<p>@brand.setter<br />
+def brand(self, value):<br />
+    self._brand = value<br />
+As a general rule, in the context of code written in Python, prefer regular functions over lambda expressions. Nonetheless, there are cases that benefit from lambda syntax, as you will see in the next section.</p>
+<p>Remove ads<br />
+Appropriate Uses of Lambda Expressions<br />
+Lambdas in Python tend to be the subject of controversies. Some of the arguments against lambdas in Python are:</p>
+<p>Issues with readability<br />
+The imposition of a functional way of thinking<br />
+Heavy syntax with the lambda keyword<br />
+Despite the heated debates questioning the mere existence of this feature in Python, lambda functions have properties that sometimes provide value to the Python language and to developers.</p>
+<p>The following examples illustrate scenarios where the use of lambda functions is not only suitable but encouraged in Python code.</p>
+<p>Classic Functional Constructs<br />
+Lambda functions are regularly used with the built-in functions map() and filter(), as well as functools.reduce(), exposed in the module functools. The following three examples are respective illustrations of using those functions with lambda expressions as companions:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>list(map(lambda x: x.upper(), ['cat', 'dog', 'cow']))<br />
+['CAT', 'DOG', 'COW']<br />
+list(filter(lambda x: 'o' in x, ['cat', 'dog', 'cow']))<br />
+['dog', 'cow']<br />
+from functools import reduce<br />
+reduce(lambda acc, x: f'{acc} | {x}', ['cat', 'dog', 'cow'])<br />
+'cat | dog | cow'<br />
+You may have to read code resembling the examples above, albeit with more relevant data. For that reason, it’s important to recognize those constructs. Nevertheless, those constructs have equivalent alternatives that are considered more Pythonic. In Alternatives to Lambdas, you’ll learn how to convert higher-order functions and their accompanying lambdas into other more idiomatic forms.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Key Functions<br />
+Key functions in Python are higher-order functions that take a parameter key as a named argument. key receives a function that can be a lambda. This function directly influences the algorithm driven by the key function itself. Here are some key functions:</p>
+<p>sort(): list method<br />
+sorted(), min(), max(): built-in functions<br />
+nlargest() and nsmallest(): in the Heap queue algorithm module heapq<br />
+Imagine that you want to sort a list of IDs represented as strings. Each ID is the concatenation of the string id and a number. Sorting this list with the built-in function sorted(), by default, uses a lexicographic order as the elements in the list are strings.</p>
+<p>To influence the sorting execution, you can assign a lambda to the named argument key, such that the sorting will use the number associated with the ID:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>ids = ['id1', 'id2', 'id30', 'id3', 'id22', 'id100']<br />
+print(sorted(ids)) # Lexicographic sort<br />
+['id1', 'id100', 'id2', 'id22', 'id3', 'id30']<br />
+sorted<em>ids = sorted(ids, key=lambda x: int(x[2:])) # Integer sort<br />
+print(sorted</em>ids)<br />
+['id1', 'id2', 'id3', 'id22', 'id30', 'id100']<br />
+UI Frameworks<br />
+UI frameworks like Tkinter, wxPython, or .NET Windows Forms with IronPython take advantage of lambda functions for mapping actions in response to UI events.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>The naive Tkinter program below demonstrates the usage of a lambda assigned to the command of the Reverse button:</p>
+<p>import tkinter as tk<br />
+import sys</p>
+<p>window = tk.Tk()<br />
+window.grid_columnconfigure(0, weight=1)<br />
+window.title("Lambda")<br />
+window.geometry("300x100")<br />
+label = tk.Label(window, text="Lambda Calculus")<br />
+label.grid(column=0, row=0)<br />
+button = tk.Button(<br />
+    window,<br />
+    text="Reverse",<br />
+    command=lambda: label.configure(text=label.cget("text")[::-1]),<br />
+)<br />
+button.grid(column=0, row=1)<br />
+window.mainloop()<br />
+Clicking the button Reverse fires an event that triggers the lambda function, changing the label from Lambda Calculus to suluclaC adbmaL*:</p>
+<p>Animated TkInter Windows demonstrating the action of the button to the text<br />
+Both wxPython and IronPython on the .NET platform share a similar approach for handling events. Note that lambda is one way to handle firing events, but a function may be used for the same purpose. It ends up being self-contained and less verbose to use a lambda when the amount of code needed is very short.</p>
+<p>To explore wxPython, check out How to Build a Python GUI Application With wxPython.</p>
+<p>Remove ads<br />
+Python Interpreter<br />
+When you’re playing with Python code in the interactive interpreter, Python lambda functions are often a blessing. It’s easy to craft a quick one-liner function to explore some snippets of code that will never see the light of day outside of the interpreter. The lambdas written in the interpreter, for the sake of speedy discovery, are like scrap paper that you can throw away after use.</p>
+<p>timeit<br />
+In the same spirit as the experimentation in the Python interpreter, the module timeit provides functions to time small code fragments. timeit.timeit() in particular can be called directly, passing some Python code in a string. Here’s an example:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from timeit import timeit<br />
+timeit("factorial(999)", "from math import factorial", number=10)<br />
+0.0013087529951008037<br />
+When the statement is passed as a string, timeit() needs the full context. In the example above, this is provided by the second argument that sets up the environment needed by the main function to be timed. Not doing so would raise a NameError exception.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Another approach is to use a lambda:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from math import factorial<br />
+timeit(lambda: factorial(999), number=10)<br />
+0.0012704220062005334<br />
+This solution is cleaner, more readable, and quicker to type in the interpreter. Although the execution time was slightly less for the lambda version, executing the functions again may show a slight advantage for the string version. The execution time of the setup is excluded from the overall execution time and shouldn’t have any impact on the result.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Monkey Patching<br />
+For testing, it’s sometimes necessary to rely on repeatable results, even if during the normal execution of a given software, the corresponding results are expected to differ, or even be totally random.</p>
+<p>Let’s say you want to test a function that, at runtime, handles random values. But, during the testing execution, you need to assert against predictable values in a repeatable manner. The following example shows how, with a lambda function, monkey patching can help you:</p>
+<p>from contextlib import contextmanager<br />
+import secrets</p>
+<p>def gen<em secrets.token_hex_8_="secrets.token_hex(8)">token():<br />
+    """Generate a random token."""<br />
+    return f'TOKEN</em>'</p>
+<p>@contextmanager<br />
+def mock<em>token():<br />
+    """Context manager to monkey patch the secrets.token</em>hex<br />
+    function during testing.<br />
+    """<br />
+    default<em>token</em>hex = secrets.token<em>hex<br />
+    secrets.token</em>hex = lambda <em>: 'feedfacecafebeef'<br />
+    yield<br />
+    secrets.token</em>hex = default<em>token</em>hex</p>
+<p>def test<em>gen</em>key():<br />
+    """Test the random token."""<br />
+    with mock<em>token():<br />
+        assert gen</em>token() == f"TOKEN_{'feedfacecafebeef'}"</p>
+<p>test<em>gen</em>key()<br />
+A context manager helps with insulating the operation of monkey patching a function from the standard library (secrets, in this example). The lambda function assigned to secrets.token_hex() substitutes the default behavior by returning a static value.</p>
+<p>This allows testing any function depending on token<em>hex() in a predictable fashion. Prior to exiting from the context manager, the default behavior of token</em>hex() is reestablished to eliminate any unexpected side effects that would affect other areas of the testing that may depend on the default behavior of token_hex().</p>
+<p>Unit test frameworks like unittest and pytest take this concept to a higher level of sophistication.</p>
+<p>With pytest, still using a lambda function, the same example becomes more elegant and concise :</p>
+<p>import secrets</p>
+<p>def gen<em secrets.token_hex_8_="secrets.token_hex(8)">token():<br />
+    return f'TOKEN</em>'</p>
+<p>def test<em>gen</em>key(monkeypatch):<br />
+    monkeypatch.setattr('secrets.token<em>hex', lambda _: 'feedfacecafebeef')<br />
+    assert gen</em>token() == f"TOKEN<em>{'feedfacecafebeef'}"<br />
+With the pytest monkeypatch fixture, secrets.token</em>hex() is overwritten with a lambda that will return a deterministic value, feedfacecafebeef, allowing to validate the test. The pytest monkeypatch fixture allows you to control the scope of the override. In the example above, invoking secrets.token_hex() in subsequent tests, without using monkey patching, would execute the normal implementation of this function.</p>
+<p>Executing the pytest test gives the following result:</p>
+<p>$ pytest test<em>token.py -v<br />
+============================= test session starts ==============================<br />
+platform linux -- Python 3.7.2, pytest-4.3.0, py-1.8.0, pluggy-0.9.0<br />
+cachedir: .pytest</em>cache<br />
+rootdir: /home/andre/AB/tools/bpython, inifile:<br />
+collected 1 item</p>
+<p>test<em>token.py::test</em>gen_key PASSED                                       [100%]</p>
+<p>=========================== 1 passed in 0.01 seconds ===========================<br />
+The test passes as we validated that the gen_token() was exercised, and the results were the expected ones in the context of the test.</p>
+<p>Remove ads<br />
+Alternatives to Lambdas<br />
+While there are great reasons to use lambda, there are instances where its use is frowned upon. So what are the alternatives?</p>
+<p>Higher-order functions like map(), filter(), and functools.reduce() can be converted to more elegant forms with slight twists of creativity, in particular with list comprehensions or generator expressions.</p>
+<p>To learn more about list comprehensions, check out When to Use a List Comprehension in Python. To learn more about generator expressions, check out How to Use Generators and yield in Python.</p>
+<p>Map<br />
+The built-in function map() takes a function as a first argument and applies it to each of the elements of its second argument, an iterable. Examples of iterables are strings, lists, and tuples. For more information on iterables and iterators, check out Iterables and Iterators.</p>
+<p>map() returns an iterator corresponding to the transformed collection. As an example, if you wanted to transform a list of strings to a new list with each string capitalized, you could use map(), as follows:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>list(map(lambda x: x.capitalize(), ['cat', 'dog', 'cow']))<br />
+['Cat', 'Dog', 'Cow']<br />
+You need to invoke list() to convert the iterator returned by map() into an expanded list that can be displayed in the Python shell interpreter.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Using a list comprehension eliminates the need for defining and invoking the lambda function:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>[x.capitalize() for x in ['cat', 'dog', 'cow']]<br />
+['Cat', 'Dog', 'Cow']<br />
+Filter<br />
+The built-in function filter(), another classic functional construct, can be converted into a list comprehension. It takes a predicate as a first argument and an iterable as a second argument. It builds an iterator containing all the elements of the initial collection that satisfies the predicate function. Here’s an example that filters all the even numbers in a given list of integers:</p>
+<p>even = lambda x: x%2 == 0<br />
+list(filter(even, range(11)))<br />
+[0, 2, 4, 6, 8, 10]<br />
+Note that filter() returns an iterator, hence the need to invoke the built-in type list that constructs a list given an iterator.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>The implementation leveraging the list comprehension construct gives the following:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>[x for x in range(11) if x%2 == 0]<br />
+[0, 2, 4, 6, 8, 10]<br />
+Reduce<br />
+Since Python 3, reduce() has gone from a built-in function to a functools module function. As map() and filter(), its first two arguments are respectively a function and an iterable. It may also take an initializer as a third argument that is used as the initial value of the resulting accumulator. For each element of the iterable, reduce() applies the function and accumulates the result that is returned when the iterable is exhausted.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>To apply reduce() to a list of pairs and calculate the sum of the first item of each pair, you could write this:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import functools<br />
+pairs = [(1, 'a'), (2, 'b'), (3, 'c')]<br />
+functools.reduce(lambda acc, pair: acc + pair[0], pairs, 0)<br />
+6<br />
+A more idiomatic approach using a generator expression, as an argument to sum() in the example, is the following:</p>
+<p>pairs = [(1, 'a'), (2, 'b'), (3, 'c')]<br />
+sum(x[0] for x in pairs)<br />
+6<br />
+A slightly different and possibly cleaner solution removes the need to explicitly access the first element of the pair and instead use unpacking:</p>
+<p>pairs = [(1, 'a'), (2, 'b'), (3, 'c')]<br />
+sum(x for x, _ in pairs)<br />
+6<br />
+The use of underscore (_) is a Python convention indicating that you can ignore the second value of the pair.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>sum() takes a unique argument, so the generator expression does not need to be in parentheses.</p>
+<p>Are Lambdas Pythonic or Not?<br />
+PEP 8, which is the style guide for Python code, reads:</p>
+<p>Always use a def statement instead of an assignment statement that binds a lambda expression directly to an identifier. (Source)</p>
+<p>This strongly discourages using lambda bound to an identifier, mainly where functions should be used and have more benefits. PEP 8 does not mention other usages of lambda. As you have seen in the previous sections, lambda functions may certainly have good uses, although they are limited.</p>
+<p>A possible way to answer the question is that lambda functions are perfectly Pythonic if there is nothing more Pythonic available. I’m staying away from defining what “Pythonic” means, leaving you with the definition that best suits your mindset, as well as your personal or your team’s coding style.</p>
+<p>Beyond the narrow scope of Python lambda, How to Write Beautiful Python Code With PEP 8 is a great resource that you may want to check out regarding code style in Python.</p>
+<p>Conclusion<br />
+You now know how to use Python lambda functions and can:</p>
+<p>Write Python lambdas and use anonymous functions<br />
+Choose wisely between lambdas or normal Python functions<br />
+Avoid excessive use of lambdas<br />
+Use lambdas with higher-order functions or Python key functions<br />
+If you have a penchant for mathematics, you may have some fun exploring the fascinating world of lambda calculus.</p>
+<p>Python lambdas are like salt. A pinch in your spam, ham, and eggs will enhance the flavors, but too much will spoil the dish.</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Angelo Cardellicchio - MIT License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/anhelus" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:angelo.cardellicchio@stiima.cnr.it" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      
+        <script src="../../../../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

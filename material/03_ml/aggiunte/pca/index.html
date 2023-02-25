@@ -1,0 +1,1096 @@
+
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.14">
+    
+    
+      
+        <title>Pca - Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.113286f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ZCZWPCYZJ9"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ZCZWPCYZJ9",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ZCZWPCYZJ9",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../../../.." title="Python" class="md-header__button md-logo" aria-label="Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pca
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Python" class="md-nav__button md-logo" aria-label="Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Modulo 1 - Il linguaggio Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 1 - Il linguaggio Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          1 - Concetti introduttivi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          1 - Concetti introduttivi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/01_intro/" class="md-nav__link">
+        1.1 - Introduzione al Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/02_operators/" class="md-nav__link">
+        1.2 - Operatori
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/03_strings/" class="md-nav__link">
+        1.3 - Stringhe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/04_lists/" class="md-nav__link">
+        1.4 - Liste
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          2 - Programmare in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          2 - Programmare in Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/01_syntax/" class="md-nav__link">
+        2.1 - Sintassi fondamentale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/02_structured/" class="md-nav__link">
+        2.2 - Programmazione strutturata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/03_functions/" class="md-nav__link">
+        2.3 - Funzioni
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/04_data_structures/" class="md-nav__link">
+        2.4 - Altre strutture dati
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/05_classes/" class="md-nav__link">
+        2.5 - Classi
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/06_modules/" class="md-nav__link">
+        2.6 - Script, moduli e package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Modulo 2 - Librerie per il calcolo scientifico
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 2 - Librerie per il calcolo scientifico
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/01_jupyter/lecture/" class="md-nav__link">
+        1 - Jupyter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          2 - NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          2 - NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/01_intro/" class="md-nav__link">
+        2.1 - Introduzione a Numpy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/02_array/" class="md-nav__link">
+        2.2 - Gli Array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/03_fundamentals/" class="md-nav__link">
+        2.3 - Operazioni fondamentali sugli array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/04_algebra/lecture/" class="md-nav__link">
+        2.4 - Algebra in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/05_polynomials.md" class="md-nav__link">
+        2.5 - Polinomi in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/06_statistics.md" class="md-nav__link">
+        2.6 - Statistica in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_matplotlib/lecture/" class="md-nav__link">
+        3 - Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/04_pandas/lecture/" class="md-nav__link">
+        4 - Pandas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/05_seaborn/lecture/" class="md-nav__link">
+        5 - Seaborn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/06_scipy/lecture/" class="md-nav__link">
+        6 - SciPy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Modulo 3 - Concetti di machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 3 - Concetti di machine learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/" class="md-nav__link">
+        1 - Introduzione al machine learning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Appendici
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Appendici
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/01_python_vs_code/guide/" class="md-nav__link">
+        A - Installazione di Python e Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/02_libraries/lecture/" class="md-nav__link">
+        B - Le librerie in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/03_scope/lecture/" class="md-nav__link">
+        C - Ambito di una variabile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/04_oop/lecture/" class="md-nav__link">
+        D - Programmazione orientata agli oggetti
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/05_tips/lecture/" class="md-nav__link">
+        E - Tips
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/06_argparse/lecture.md" class="md-nav__link">
+        F - Il modulo argparse
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributors/" class="md-nav__link">
+        Ringraziamenti
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Pca</h1>
+
+<p>Hi everyone! This is the second unsupervised machine learning algorithm that I’m discussing here. This time, the topic is Principal Component Analysis (PCA). At the very beginning of the tutorial, I’ll explain the dimensionality of a dataset, what dimensionality reduction means, main approaches to dimensionality reduction, reasons for dimensionality reduction and what PCA means. Then, I will go deeper into the topic PCA by implementing the PCA algorithm with Scikit-learn machine learning library. This will help you to easily apply PCA to a real-world dataset and get results very fast.</p>
+<p>In a separate article (not in this one), I will discuss the mathematics behind the principal component analysis by manually executing the algorithm using the powerful numpy and pandas libraries. This will help you to understand how PCA really works behind the scenes.</p>
+<p>Recommended readings<br />
+I highly recommend you to read my previous articles published at Data Science 365 before proceeding to read this one. This is because you should have a clear understanding of the basics of numpy, pandas, matplotlib, seaborn and machine learning to understand the codes and concepts discussing here.</p>
+<p>What is dimensionality reduction?<br />
+Before we consider reducing the dimensionality of a dataset, we should learn what dimensionality is. Simply, dimensionality is the number of dimensions, features or input variables associated in a dataset. Often, it can be thought as the number of columns (except the label column) in a dataset. The following table shows a part of the iris dataset which contains four features. So, the number of dimensions is four. This means, for example, to demonstrate the first data point in the four-dimensional space, we use p1(5.1, 3.5, 1.4, 0.2) notation.</p>
+<p>Image by author<br />
+Dimensionality reduction means reducing the number of features in a dataset. Dimensionality reduction algorithms project high-dimensional data to a low-dimensional space while retaining as much of the variation (i.e., salient information) as possible.</p>
+<p>Main approaches to dimensionality reduction<br />
+There are two main approaches to dimensionality reduction:</p>
+<p>Linear methods<br />
+Non-linear methods (Manifold learning)<br />
+In this tutorial, I’ll focus on principal component analysis which is one of the linear methods.</p>
+<p>The curse of dimensionality<br />
+The curse of dimensionality is one of the most commonly occurring problems in ML. It is a problem that arises when working with data that has a high number of dimensions in the feature space. Many Machine Learning problems involve thousands of features for each training instance. All these features make training extremely slow and they can also make it much harder to find a good solution. Algorithms cannot effectively and efficiently train on the data because of the sheer size of the feature space. That kind of problem is often referred to as the curse of dimensionality.</p>
+<p>Dimensionality reduction techniques help to address the curse of dimensionality. Dimensionality reduction algorithms project high-dimensional data to a low-dimensional space. Once the data is in the low-dimensional space, machine learning algorithms are able to identify interesting patterns more effectively and efficiently.</p>
+<p>What is principal component analysis (PCA)?<br />
+PCA is a linear dimensionality reduction technique. It transforms a set of correlated variables (p) into a smaller k (k&lt;p) number of uncorrelated variables called principal components while retaining as much of the variation in the original dataset as possible.</p>
+<p>The main concept behind the PCA is to consider the correlation among features. If the correlation is very high among a subset of the features, PCA will attempt to combine the highly correlated features and represent this data with a smaller number of linearly uncorrelated features. The algorithm keeps performing this correlation reduction, finding the directions of maximum variance in the original high-dimensional data and projecting them onto a smaller dimensional space. These newly derived components are known as principal components.</p>
+<p>With these components, it is possible to reconstruct the original features — not exactly but generally close enough. The PCA algorithm actively attempts to minimize the reconstruction error during its search for the optimal components.</p>
+<p>By reducing the dimensionality of the data, PCA will reduce the size of the data improving the performance of machine learning algorithms.</p>
+<p>PCA is an unsupervised technique, meaning that it does not use the information from the target vector and instead only considers the feature matrix.</p>
+<p>Feature scaling in PCA<br />
+It is essential to perform feature scaling before running PCA if there is a significant difference in the scale between the features of the dataset; for example, one feature ranges in values between 0 and 1 and another between 100 and 1,000. PCA is very sensitive to the relative ranges of the original features. We can apply z-score standardization to get all features into the same scale by using Scikit-learn StandardScaler() class which is in the preprocessing submodule in Scikit-learn.</p>
+<p>Using Scikit-learn for PCA<br />
+Now, let’s work on an example to see how to implement PCA using Scikit-learn library. For this example, we will use Scikit-learn built-in breast_cancer dataset which contains 30 features and 569 observations. The following steps describe the process of implementing PCA to the dataset with Scikit-learn.</p>
+<p>Step 1: Import libraries and set plot styles<br />
+As the first step, we import various Python libraries which are useful for our data analysis, data visualization, calculation and model building tasks. When importing those libraries, we use the following conventions.</p>
+<p>Note that we haven’t imported any Scikit-learn class or function yet. We import them one by one when we need to use them.</p>
+<p>Step 2: Get and prepare data<br />
+The dataset that we use here is available in Scikit-learn. But it is not in the correct format that we want. So, we have to do some manipulations to get the dataset ready for our task. First, we load the dataset using Scikit-learn load<em>breast</em>cancer() function. Then, we convert the data into a pandas DataFrame which is the format we are familiar with.</p>
+<p>Now, the variable df contains a pandas DataFrame of the breast_cancer dataset. We can see its first 5 rows by calling the head() method. The following image shows a part of the dataset.</p>
+<p>Part of the breast_cancer dataset<br />
+The full dataset contains 30 columns and 569 observations.</p>
+<p>Step 3: Apply PCA<br />
+In our breast_cancer dataset, the original feature space has 30 dimensions, known as p dimensions. PCA will project the data onto a smaller subspace of k dimensions (where k &lt; p) while retaining as much of the variation as possible. These k dimensions are known as the principal components.</p>
+<p>By applying PCA, we lose some of the variance (i.e., information). By reducing the dimensionality of the data, PCA will reduce the size of the data.</p>
+<p>This will improve the performance of machine learning algorithms.<br />
+This will reduce hardware requirements and speed up the training process.<br />
+This will allow us to easily understand the underlying structure of the data.<br />
+This will allow us to visualize the data on a 2d or 3d plot (if we choose the number of principal components as 2 or 3).<br />
+3.a: Obtain the feature matrix</p>
+<p>The feature matrix contains the values of all 30 features in the dataset. It is a 569x30 two-dimensional Numpy array. It is stored in the X variable.</p>
+<p>3.b: Standardize the features if necessary</p>
+<p>You can see that the values of the dataset are not equally scaled. So, we need to apply z-score standardization to get all features into the same scale. For this, we use Scikit-learn StandardScaler() class which is in the preprocessing submodule in Scikit-learn.</p>
+<p>First, we import the StandardScaler() class. Then, we create an object of that class and store it in the variable scaler. Then we use the scaler object’s fit() method with the input X (feature matrix). This will calculate the mean and standard deviation for each variable in the dataset. Finally, we do the transformation with the transform() method of the scaler object. The transformed (scaled) values of X are stored in the variable X_scaled which is also a 569x30 two-dimensional Numpy array.</p>
+<p>3.c: Choose the right number of dimensions (k)</p>
+<p>Now, we are ready to apply PCA for our dataset. Before that, we need to choose the right number of dimensions (i.e., the right number of principal components — k). For this, we apply PCA with the original number of dimensions (i.e., 30) and see how well PCA captures the variance of the data.</p>
+<p>In Scikit-learn, PCA is applied using the PCA() class. It is in the decomposition submodule in Scikit-learn. The most important hyperparameter in that class is n_components. It can take one of the following types of values.</p>
+<p>None: This is the default value. If we do not specify the value, all components are kept. In our example, this exactly the same as n<em>components=30.<br />
+int: If this is a positive integer like 1, 2, 30, 100, etc, the algorithm will return that number of principal components. The integer value should be less than or equal to the original number of features in the dataset.<br />
+float: If 0 &lt; n</em>components &lt; 1, PCA will select the number of components such that the amount of variance that needs to be explained. For example, if n<em>components=0.95, the algorithm will select the number of components while preserving 95% of the variability in the data.<br />
+When applying PCA, all you need to do is to create an instance of the PCA() class and fit it using the scaled values of X. Then apply the transformation. The variable X</em>pca<em>30 stores the transformed values of the principal components returned by the PCA() class. X</em>pca_30 is a 569x30 two-dimensional Numpy array.</p>
+<p>We have set n_components=30. The original number of dimensions in our dataset is also 30. We have not reduced the dimensionality at all (we’ve just transformed the data). Therefore, the percentage of variance explained by 30 principal components should be 100%.</p>
+<p>The explained<em>variance</em>ratio_ attribute of the PCA() class returns a one-dimensional numpy array which contains the values of the percentage of variance explained by each of the selected components.</p>
+<p>The first component alone captures about 44.27% of the variability in the dataset and the second component alone captures about 18.97% of the variability in the dataset and so on. Also, note that the values of the above array are sorted in descending order. Taking the sum of the above array will return the total variance explained by each of the selected components.</p>
+<p>If we get the cumulative sum of the above array, we can see the following array.</p>
+<p>Then we create the following plot.</p>
+<p>The output is:</p>
+<p>Now, we are in the right place. By looking at this plot, we can see the followings.</p>
+<p>You can see that the first 10 principal components keep about 95.1% of the variability in the dataset while reducing 20 (30–10) features in the dataset. That’s great. The remaining 20 features only contain less than 5% of the variability in data.</p>
+<p>When we talking about plots, it is not possible to create a scatterplot for the original dataset because it contains 30 features. Reducing the number of dimensions down to two or three makes it possible to create a 2d scatterplot or 3d scatterplot which helps us to detect patterns such as clusters. Therefore, dimensionality reduction is extremely useful for data visualization. But, keep in mind that, in our problem, if we create a 2d scatterplot using the first 2 principal components, it only explains about 63.24% of the variability in data and if we create a 3d scatterplot using the first 3 principal components, it only explains about 72.64% of the variability in data!</p>
+<p>3.d: Apply PCA by setting n_components=2</p>
+<p>Let’s apply PCA to our dataset with n_components=2. This will project our original data onto a two-dimensional subspace. This will return 2 components that capture 63.24% of the variability in data.</p>
+<p>Now, we create a 2d scatterplot of the data using the values of the two principal components.</p>
+<p>The output is:</p>
+<p>Another way to create the above 2d scatterplot is to use the Yellowbrick machine learning visualization library. Using the PCA Visualizer (an object that learns from data to produce a visualization), we can create an even more informative 2d scatterplot with a just few lines of codes.</p>
+<p>The output is:</p>
+<p>3.e: Apply PCA by setting n_components=3</p>
+<p>Let’s apply PCA to our dataset with n_components=3. This will project our original data onto a three-dimensional subspace. This will return 3 components that capture 72.64% of the variability in data.</p>
+<p>Now, we create a 3d scatterplot of the data using the values of the three principal components.</p>
+<p>The output is:</p>
+<p>Another way to create the above 3d scatterplot is to use the Yellowbrick machine learning visualization library. Using the PCA Visualizer (an object that learns from data to produce a visualization), we can create an even more informative 3d scatterplot with a just few lines of codes.</p>
+<p>The output is:</p>
+<p>3.f: Apply PCA by setting n_components=0.95</p>
+<p>Let’s apply PCA to our dataset with n_components=0.95. This will select the number of components while preserving 95% of the variability in the data.</p>
+<p>The shape of the X<em>pca</em>95 array is:</p>
+<p>This means that the algorithm has found 10 principal components to preserve 95% of the variability in the data. The X<em>pca</em>95 array holds the values of all 10 principal components. We can visualize these values as in the following plot.</p>
+<p>The output is:</p>
+<p>Let’s create a pandas DataFrame using the values of all 10 principal components and add the label column of the original dataset.</p>
+<p>The size of the df_new including the label column is:</p>
+<p>When we compare with the original dataset that has 30 features, this contains only 10 features, but with 95% of the variability in data. For future reference, we can save our new dataset as an Excel or CSV file. By setting index=False, the row index labels are not saved in the files.</p>
+<p>After executing the above code, the files will be saved in your current working directory. By using the new dataset, you can apply classification algorithms like Logistic Regression, Support Vector Machines and K-Nearest Neighbours to further analyze the data.</p>
+<p>That’s it. In the next article, I will discuss the mathematics behind the principal component analysis by manually executing the algorithm using the powerful numpy and pandas libraries. This will help you to understand how PCA really works behind the scenes.</p>
+<p>This is the end of today’s post. My readers can sign up for a membership through the following link to get full access to every story I write and I will receive a portion of your membership fee.</p>
+<p>Sign-up link: <a href="https://rukshanpramoditha.medium.com/membership">https://rukshanpramoditha.medium.com/membership</a></p>
+<p>Thank you so much for your continuous support! See you in the next story. Happy learning to everyone!</p>
+<p>Special credits go to the authors of the following two books which I referred to get the knowledge of PCA.</p>
+<p>Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow by Aurélien Géron 2019<br />
+Hands-On Unsupervised Learning Using Python by Ankur A. Patel 2019<br />
+Rukshan Pramoditha</p>
+<p>2020–08–04</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Angelo Cardellicchio - MIT License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/anhelus" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:angelo.cardellicchio@stiima.cnr.it" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      
+        <script src="../../../../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

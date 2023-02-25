@@ -1,0 +1,1299 @@
+
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.14">
+    
+    
+      
+        <title>1.6 - La gestione degli errori - Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.113286f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ZCZWPCYZJ9"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ZCZWPCYZJ9",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ZCZWPCYZJ9",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#16-la-gestione-degli-errori" class="md-skip">
+          Vai al contenuto
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../../../.." title="Python" class="md-header__button md-logo" aria-label="Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.6 - La gestione degli errori
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Python" class="md-nav__button md-logo" aria-label="Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Modulo 1 - Il linguaggio Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 1 - Il linguaggio Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          1 - Concetti introduttivi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          1 - Concetti introduttivi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/01_intro/" class="md-nav__link">
+        1.1 - Introduzione al Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/02_operators/" class="md-nav__link">
+        1.2 - Operatori
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/03_strings/" class="md-nav__link">
+        1.3 - Stringhe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/04_lists/" class="md-nav__link">
+        1.4 - Liste
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          2 - Programmare in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          2 - Programmare in Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/01_syntax/" class="md-nav__link">
+        2.1 - Sintassi fondamentale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/02_structured/" class="md-nav__link">
+        2.2 - Programmazione strutturata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/03_functions/" class="md-nav__link">
+        2.3 - Funzioni
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/04_data_structures/" class="md-nav__link">
+        2.4 - Altre strutture dati
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/05_classes/" class="md-nav__link">
+        2.5 - Classi
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/06_modules/" class="md-nav__link">
+        2.6 - Script, moduli e package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_syntax/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Modulo 2 - Librerie per il calcolo scientifico
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 2 - Librerie per il calcolo scientifico
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/01_jupyter/lecture/" class="md-nav__link">
+        1 - Jupyter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          2 - NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          2 - NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/01_intro/" class="md-nav__link">
+        2.1 - Introduzione a Numpy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/02_array/" class="md-nav__link">
+        2.2 - Gli Array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/03_fundamentals/" class="md-nav__link">
+        2.3 - Operazioni fondamentali sugli array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/04_algebra/lecture/" class="md-nav__link">
+        2.4 - Algebra in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/05_polynomials.md" class="md-nav__link">
+        2.5 - Polinomi in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/06_statistics.md" class="md-nav__link">
+        2.6 - Statistica in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_matplotlib/lecture/" class="md-nav__link">
+        3 - Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/04_pandas/lecture/" class="md-nav__link">
+        4 - Pandas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/05_seaborn/lecture/" class="md-nav__link">
+        5 - Seaborn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/06_scipy/lecture/" class="md-nav__link">
+        6 - SciPy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Modulo 3 - Concetti di machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 3 - Concetti di machine learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/01_intro/" class="md-nav__link">
+        1 - Introduzione al machine learning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Appendici
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Appendici
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/01_python_vs_code/guide/" class="md-nav__link">
+        A - Installazione di Python e Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/02_libraries/lecture/" class="md-nav__link">
+        B - Le librerie in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/03_scope/lecture/" class="md-nav__link">
+        C - Ambito di una variabile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/04_oop/lecture/" class="md-nav__link">
+        D - Programmazione orientata agli oggetti
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/05_tips/lecture/" class="md-nav__link">
+        E - Tips
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/06_argparse/lecture.md" class="md-nav__link">
+        F - Il modulo argparse
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributors/" class="md-nav__link">
+        Ringraziamenti
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#161-errori-sintattici-ed-eccezioni" class="md-nav__link">
+    1.6.1 - Errori sintattici ed eccezioni
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#162-lanciare-uneccezione" class="md-nav__link">
+    1.6.2 - Lanciare un'eccezione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#163-listruzione-assert" class="md-nav__link">
+    1.6.3 - L'istruzione assert
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#164-gestione-delle-eccezioni-il-blocco-tryexcept" class="md-nav__link">
+    1.6.4 - Gestione delle eccezioni: il blocco try/except
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6.4 - Gestione delle eccezioni: il blocco try/except">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1641-gestione-di-eccezioni-specifiche" class="md-nav__link">
+    1.6.4.1 - Gestione di eccezioni specifiche
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1642-eccezioni-multiple" class="md-nav__link">
+    1.6.4.2 - Eccezioni multiple
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#165-la-clausola-else" class="md-nav__link">
+    1.6.5 - La clausola else
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#166-la-clausola-finally" class="md-nav__link">
+    1.6.6 - La clausola finally
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#166-per-ricapitolare" class="md-nav__link">
+    1.6.6 - Per ricapitolare...
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="16-la-gestione-degli-errori">1.6 - La gestione degli errori<a class="headerlink" href="#16-la-gestione-degli-errori" title="Permanent link">&para;</a></h1>
+<p>Nella maggior parte dei linguaggi interpretati, l'esecuzione di un programma termina non appena viene individuato un errore.</p>
+<p>In Python, esistono due tipi di errore: il primo è quello <em>sintattico</em>, mentre il secondo è chiamato <em>eccezione</em>.</p>
+<h2 id="161-errori-sintattici-ed-eccezioni">1.6.1 - Errori sintattici ed eccezioni<a class="headerlink" href="#161-errori-sintattici-ed-eccezioni" title="Permanent link">&para;</a></h2>
+<p>Gli errori di sintassi avvengono qunado il parser individua un'istruzione scritta in maniera non corretta. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>              <span class="o">^</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">unmatched</span> <span class="s1">&#39;)&#39;</span>
+</code></pre></div>
+<p>In questo caso, notiamo la presenza di una parentesi di chiusura di troppo. Di conseguenza, Python lancia un <code>SyntaxError</code>, indicandoci anche dove è occorso l'errore (in questo caso, mediante l'informazione <code>unmatched ')'</code>).</p>
+<p>Proviamo adesso a rimuovere la parentesi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p>Se proviamo ad eseguire questa istruzione, avremo l'altro tipo di errore, ovvero l'eccezione. In questo caso, infatti, il codice risulta essere (sintatticamente) corretto, ma è comunque occorso un evento ritenuto "impossibile", che viene adeguatamente descritto nel <code>Traceback</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+</code></pre></div>
+<p>In particolare, notiamo come il traceback ci dia diverse informazioni:</p>
+<ul>
+<li>il <em>file</em> dove è stata generata l'eccezione. In questo caso, viene riportato <code>&lt;stdin&gt;</code> perché il codice precedente è stato inserito mediante interprete;</li>
+<li>la <em>riga</em> dove è occorsa l'eccezione. In questo caso, notiamo che è riportato <code>line 1</code>;</li>
+<li>il <em>tipo</em> di eccezione occorsa, con una breve descrizione dell'errore. In questo caso, notiamo come venga lanciata una <a href="https://docs.python.org/3/library/exceptions.html#ZeroDivisionError"><code>ZeroDivisionError</code></a>, che occorre quando il secondo argomento della divisione è pari a 0.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Eccezioni built-in</p>
+<p>Notiamo come l'eccezione <code>ZeroDivisionError</code> sia una <em>built-in exception</em>, ovvero un'eccezione già integrata nel linguaggio Python, che comunque ci offre la possibilità di definire da noi nuovi tipi di eccezione. Per una panoramica completa, consultare la <a href="https://docs.python.org/3/library/exceptions.html#built-in-exceptions">reference</a>.</p>
+</div>
+<h2 id="162-lanciare-uneccezione">1.6.2 - Lanciare un'eccezione<a class="headerlink" href="#162-lanciare-uneccezione" title="Permanent link">&para;</a></h2>
+<p>Possiamo lanciare una specifica eccezione all'occorrenza di una condizione non voluta all'interno del nosro codice utilizzando l'istruzione <code>raise</code>. Ad esempio, possiamo verificare che il valore di una variabile non sia superiore ad un dato numero:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x vale </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">. Non deve superare 5.&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Provando ad eseguire il codice precedente, avremo il seguente risultato:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="ne">Exception</span><span class="p">:</span> <span class="n">x</span> <span class="n">vale</span> <span class="mf">10.</span> <span class="n">Non</span> <span class="n">deve</span> <span class="n">superare</span> <span class="mf">5.</span>
+</code></pre></div>
+<p>Dal traceback, notiamo come sia stata lanciata un'eccezione generica con il messaggio da noi elaborato.</p>
+<h2 id="163-listruzione-assert">1.6.3 - L'istruzione assert<a class="headerlink" href="#163-listruzione-assert" title="Permanent link">&para;</a></h2>
+<p>Un altro modo di gestire situaizoni impreviste è quello di utilizzare l'istruzione <code>assert</code>, che verifica la condizione passata come parametro. Se tale condizione risulta essere vera, il programma continuerà la sua esecuzione; in alternativa, sarà lanciata un'eccezione di tipo <code>AssertionError</code>.</p>
+<p>Possiamo, ad esempio, verificare che il nostro codice sia eseguito su un sistema Windows.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">assert</span> <span class="p">(</span><span class="s1">&#39;win32&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="p">),</span> <span class="s1">&#39;Questo codice può essere eseguito solo su una macchina Windows!&#39;</span>
+</code></pre></div>
+<p>Eseguendo questa istruzione su una macchina Windows, non sarà lanciata alcuna eccezione, ed il programma continuerà tranquillamente l'esecuzione. Eseguendo invece lo stesso codice su una macchina Unix, sarà lanciata un'<code>AssertionError</code>, ed il programma terminerà:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="ne">AssertionError</span><span class="p">:</span> <span class="n">Questo</span> <span class="n">codice</span> <span class="n">può</span> <span class="n">essere</span> <span class="n">eseguito</span> <span class="n">solo</span> <span class="n">su</span> <span class="n">una</span> <span class="n">macchina</span> <span class="n">Windows</span><span class="err">!</span>
+</code></pre></div>
+<h2 id="164-gestione-delle-eccezioni-il-blocco-tryexcept">1.6.4 - Gestione delle eccezioni: il blocco try/except<a class="headerlink" href="#164-gestione-delle-eccezioni-il-blocco-tryexcept" title="Permanent link">&para;</a></h2>
+<p>Abbiamo visto come le istruzioni <code>raise</code> ed <code>assert</code> permettano di verificare rispettivamente l'occorrenza di un errore o di una determinata condizione. Tuttavia, è possibile <em>gestire</em> le situazioni in cui avviene un errore; per farlo, è necessario utilizzare il blocco <code>try/except</code>.</p>
+<p>Nella pratica, durante l'esecuzione normale del programma, Python eseguirà regolarmente le istruzioni contenute nella clausola <code>try</code>. Tuttavia, se viene riscontrata un'eccezione, il controllo passerà direttamente alla clausola <code>except</code>, cui è delegato il compito di gestirla. Questo funzionamento è schematizzato nella figura successiva.</p>
+<pre class="mermaid"><code>---
+title: Flusso in un blocco try/except
+---
+stateDiagram-v2
+    state if_state &lt;&lt;choice&gt;&gt;
+    state join_state &lt;&lt;join&gt;&gt;
+    "Programma" --&gt; "Blocco try/except"
+    "Clausola try" --&gt; if_state
+    if_state --&gt; "Clausola except": Eccezione
+    "Clausola except" --&gt; join_state
+    if_state --&gt; join_state
+    join_state --&gt; "Programma"</code></pre>
+<p>Notiamo come l'esecuzione del programma debba (idealmente) continuare, che la clausola <code>except</code> venga eseguita o meno. Proviamo a definire la funzione <code>controlla_sistema_operativo()</code>, che controlla se siamo su Windows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">controlla_sistema_operativo</span><span class="p">():</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="k">assert</span> <span class="p">(</span><span class="s1">&#39;win32&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="p">),</span> <span class="s1">&#39;Questo codice può essere eseguito solo su una macchina Windows!&#39;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Il sistema operativo è Windows!&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Nella funzione <code>controlla_sistema_operativo()</code>, l'istruzione <code>assert</code> controlla che si sia su una macchina Windows; in caso contrario, sarà lanciata un'eccezione di tipo <code>AssertionError</code>. Proviamo ad integrare la funzione all'interno di un blocco <code>try/except</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">controlla_sistema_operativo</span><span class="p">()</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="k">pass</span>
+</code></pre></div>
+<p>In questo caso, la gestione dell'errore sarà delegata ad un'istruzione <code>pass</code> che, come sappiamo, non fa nulla. Eseguendo questo codice su una macchina Windows, sarà mandato a schermo il messaggio <code>Il sistema operativo è Windows!</code>, indice del fatto che l'<code>assert</code> non ha lanciato un'eccezione di tipo <code>AssertionError</code>. Se invece dovessimo eseguire questa funzione su una macchina Linux, non avremmo alcun risultato: infatti, la clausola <code>try</code> catturerebbe l'<code>AssertionError</code> e ne delegherebbe la gestione alla clausola <code>except</code>, che si limita ad eseguire un'istruzione <code>pass</code>.</p>
+<p>Proviamo a modificare il codice precedente come segue:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">controlla_sistema_operativo</span><span class="p">()</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sembra che non siamo su Windows!&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Eseguendo questo codice su macchina Linux, avremo il seguente messaggio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Sembra<span class="w"> </span>che<span class="w"> </span>non<span class="w"> </span>siamo<span class="w"> </span>su<span class="w"> </span>Windows!
+</code></pre></div>
+<h3 id="1641-gestione-di-eccezioni-specifiche">1.6.4.1 - Gestione di eccezioni specifiche<a class="headerlink" href="#1641-gestione-di-eccezioni-specifiche" title="Permanent link">&para;</a></h3>
+<p>Come è possibile verificare dal codice precedente, qualora venga lanciata un'eccezione, non sarà più disponibile il Traceback visto in precedenza, bensì il messaggio <code>Sembra che non siamo su Windows!</code>. Ciò comporta un problema: infatti, non avremo informazioni a riguardo di <em>quale eccezione</em> sia stata lanciata. Per recuperare queste informazioni, dovremo fare una modifica all'istruzione <code>except</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">controlla_sistema_operativo</span><span class="p">()</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sembra che non siamo su Windows!&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Eseguendo questa funzione su macchina Linux, l'output sarà stavolta il seguente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Questo<span class="w"> </span>codice<span class="w"> </span>può<span class="w"> </span>essere<span class="w"> </span>eseguito<span class="w"> </span>solo<span class="w"> </span>su<span class="w"> </span>una<span class="w"> </span>macchina<span class="w"> </span>Windows!
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Sembra<span class="w"> </span>che<span class="w"> </span>non<span class="w"> </span>siamo<span class="w"> </span>su<span class="w"> </span>Windows!
+</code></pre></div>
+<p>Il primo messaggio, quindi, è lanciato a valle della mancata verifica della condizione nella clausola <code>assert</code> specificata in <code>controlla_sistema_operativo()</code>, mentre il secondo è direttamente specificato nella clausola <code>except</code>.</p>
+<p>Vediamo un altro esempio, nel quale proviamo ad aprire un file, gestendo l'eccezione lanciata quando questo non esiste:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.log&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>        <span class="n">read_data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Impossibile aprire il file specificato.&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Eseguendo questo codice, una volta appurato che <code>file.log</code> non esiste, avremo il seguente messaggio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Impossibile<span class="w"> </span>aprire<span class="w"> </span>il<span class="w"> </span>file<span class="w"> </span>specificato.
+</code></pre></div>
+<p>Nonostante il messaggio sia abbastanza informativo, stiamo comunque gestendo <em>tutte</em> le possibili eccezioni all'interno della clausola <code>except</code>. Cerchiamo quindi di trovarne una più adatta al nostro scopo tra quelle specificate nella <a href="https://docs.python.org/3/library/exceptions.html">reference Python</a>. In particolare, scegliamo l'eccezione <a href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError">FileNotFoundError</a>, e modifichiamo il codice come segue:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.log&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>        <span class="n">read_data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</code></pre></div>
+<p>In questo caso, se <code>file.log</code> non esiste, in output sarà mandato il messaggio associato all'eccezione <code>FileNotFoundError</code>, ovvero:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">[</span>Errno<span class="w"> </span><span class="m">2</span><span class="o">]</span><span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory:<span class="w"> </span><span class="s1">&#39;file.log&#39;</span>
+</code></pre></div>
+<h3 id="1642-eccezioni-multiple">1.6.4.2 - Eccezioni multiple<a class="headerlink" href="#1642-eccezioni-multiple" title="Permanent link">&para;</a></h3>
+<p>A questo punto è importante sottolineare come il blocco <code>try/except</code> sia in grado di gestire situazioni anche abbastanza complesse. Infatti, laddove è evidente come la clausola <code>try</code> sia in grado di contenere diverse istruzioni, anche la clausola <code>except</code> può gestire diverse tipologie di eccezione.</p>
+<p>In tal senso, proviamo a modificare il nostro codice, controllando dapprima il sistema operativo, e poi provando a leggere un file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="n">controlla_sistema_operativo</span><span class="p">()</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.log&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>        <span class="n">read_data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Il file specificato non esiste.&#39;</span><span class="p">)</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sembra che non siamo su Windows!&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Vediamo cosa succede in due diversi casi. Per prima cosa, eseguiamo il codice su macchina Linux, con <code>file.log</code> non esistente. In questo caso, il codice darà in output i seguenti messaggi:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Questo<span class="w"> </span>codice<span class="w"> </span>può<span class="w"> </span>essere<span class="w"> </span>eseguito<span class="w"> </span>solo<span class="w"> </span>su<span class="w"> </span>una<span class="w"> </span>macchina<span class="w"> </span>Windows!
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Sembra<span class="w"> </span>che<span class="w"> </span>non<span class="w"> </span>siamo<span class="w"> </span>su<span class="w"> </span>Windows!
+</code></pre></div>
+<p>In pratica, la prima istruzione del <code>try</code>, delegata al controllo del sistema operativo, riscontra un'eccezione, per cui viene chiamata la seconda clausola <code>except</code>. Nel caso invece si esegua il codice su macchina Windows, e supponendo sempre l'assenza di <code>file.log</code>, il risultato sarà il seguente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Siamo<span class="w"> </span>su<span class="w"> </span>Windows!
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Il<span class="w"> </span>file<span class="w"> </span>specificato<span class="w"> </span>non<span class="w"> </span>esiste.
+</code></pre></div>
+<p>In questo caso, la clausola <code>try</code> non ha riscontrato problemi nell'esecuzione della prima istruzione. Tuttavia, l'eccezione è stata lanciata in corrispondenza della fase di lettura del file, lanciando un'eccezione gestita dalla prima clausola <code>except</code>.</p>
+<h2 id="165-la-clausola-else">1.6.5 - La clausola else<a class="headerlink" href="#165-la-clausola-else" title="Permanent link">&para;</a></h2>
+<p>La clausola <code>else</code> può essere usata in abbinamento al blocco <code>try/except</code> per eseguire un certo blocco di codice <em>soltanto in assenza di eccezioni</em>. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="n">controlla_sistema_operativo</span><span class="p">()</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Il sistema operativo è Windows!&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Eseguendo questo codice su Windows, il programma non riscontrerà alcuna eccezione, e l'output sarà quello esplicitato nella clausola <code>else</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Siamo<span class="w"> </span>su<span class="w"> </span>Windows!
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Il<span class="w"> </span>sistema<span class="w"> </span>operativo<span class="w"> </span>è<span class="w"> </span>Windows!
+</code></pre></div>
+<p>Potremmo usare una clausola <code>else</code> per gestire ulteriori eccezioni. Ad esempio, proviamo ad eseguire questo blocco di codice su una macchina Windows (e senza il file <code>file.log</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="n">controlla_sistema_operativo</span><span class="p">()</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.log&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>            <span class="n">read_data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Il file specificato non esiste.&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Il risultato sarà:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Siamo<span class="w"> </span>su<span class="w"> </span>Windows!
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Il<span class="w"> </span>file<span class="w"> </span>specificato<span class="w"> </span>non<span class="w"> </span>esiste.
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>Ricordiamo sempre che la clausola <code>else</code> viene eseguita <em>soltanto se non sono state trovate eccezioni</em>. Se è stata trovata un'eccezione, e gestita nell'<code>except</code>, il flusso del programma continuerà comunque la sua regolare esecuzione, ma l'<code>else</code> non sarà invocato.</p>
+</div>
+<h2 id="166-la-clausola-finally">1.6.6 - La clausola finally<a class="headerlink" href="#166-la-clausola-finally" title="Permanent link">&para;</a></h2>
+<p>La clausola <code>finally</code> ci permette di eseguire delle istruzioni indipendentemente dal fatto che siano state riscontrate o meno eccezioni in un blocco <code>try/except</code> antecedente. Andiamo a modificare leggermente il codice relativo all'ultimo esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="n">su_windows</span><span class="p">()</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.log&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>            <span class="n">read_data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Il file specificato non esiste.&#39;</span><span class="p">)</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Istruzioni eseguite indipendentemente dal resto del programma.&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>In questo caso, ciò che viene inserito nella clausola <code>finally</code> sarà sempre eseguito, indipendentemente da ciò che è accaduto nel codice precedente. Provando ad eseguire questo codice su macchina Windows in assenza di <code>file.log</code>, avremo il seguente output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Siamo<span class="w"> </span>su<span class="w"> </span>Windows!
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>Il<span class="w"> </span>file<span class="w"> </span>specificato<span class="w"> </span>non<span class="w"> </span>esiste.
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>Istruzioni<span class="w"> </span>eseguite<span class="w"> </span>indipendentemente<span class="w"> </span>dal<span class="w"> </span>resto<span class="w"> </span>del<span class="w"> </span>programma.
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">L'utilità della clausola <code>finally</code></p>
+<p>La clausola <code>finally</code> trova utilità in tutte quelle situazioni nelle quali è necessario effettuare delle operazioni a valle della gestione dell'eccezione. Queste operazioni sono spesso definite "di pulizia", perché prevedono l'eliminazione di stati o variabili che possono occupare memoria e che non sono più utili ai fini dell'esecuzione del programma.</p>
+</div>
+<h2 id="166-per-ricapitolare">1.6.6 - Per ricapitolare...<a class="headerlink" href="#166-per-ricapitolare" title="Permanent link">&para;</a></h2>
+<p>In questa lezione, abbiamo:</p>
+<ul>
+<li>visto la differenza tra <em>errore sintattico</em> ed <em>eccezione</em>;</li>
+<li>utilizzato l'istruzione <code>raise</code> per lanciare un'eccezione in qualsiasi momento;</li>
+<li>utilizzato l'istruzione <code>assert</code> per verificare il rispetto di una determinata condizione, lanciando in caso contrario un <code>AssertionError</code>;</li>
+<li>utilizzato la clausola <code>try</code> per verificare l'occorrenza di eccezioni all'interno di un blocco di istruzioni;</li>
+<li>utilizzato la clausola <code>except</code> per catturare e gestire una o più delle eccezioni trovate nella clausola <code>try</code> corrispondente;</li>
+<li>utilizzato la clausola <code>else</code> per eseguire blocchi di codice <em>esclusivamente</em> nel caso non siano state individuate eccezioni nel <code>try</code> precedente;</li>
+<li>utilizzato la clausola <code>finally</code> per eseguire blocchi di codice <em>indipendentemente</em> dal fatto che siano state individuate o meno eccezioni.</li>
+</ul>
+<p>Nella <a href="../07_func_prog/lecture.md">prossima lezione</a> andremo ad introdurre i principi alla base della programmazione funzionale.</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Angelo Cardellicchio - MIT License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/anhelus" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:angelo.cardellicchio@stiima.cnr.it" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+      
+        <script src="../../../../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
