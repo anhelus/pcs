@@ -1,17 +1,20 @@
-<<<<<<< HEAD
 # Bacheca Python per il Calcolo Scientifico
 
 !!!tip "Disponibilità registrazioni"
-    Le registrazioni delle lezioni sono disponibili in una playlist YouTube a [questo indirizzo](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS).
+    Alcune delle registrazioni **per l'A.A. 2021/2022** sono disponibili in una playlist YouTube a [questo indirizzo](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS).
 
-## Modalità di esame
+## Link utili
 
-Le modalità di esame previste sono due:
+* [Modalità di esame (A.A. 2022/2023)](exams.md)
+* Calendario delle lezioni (*in arrivo*)
+* Date di appello (*in arrivo*)
+* Temi d'anno (*in arrivo*)
 
-* un esame **orale**, costituito da un colloquio nel quale saranno poste al candidato tre domande, due di natura teorica, ed una di natura pratica, strettamente inerenti i contenuti del corso;
-* un **tema d'anno**, costituito da un progetto a scelta degli studenti, organizzati in gruppi da **massimo tre (3) componenti**. Il tema d'anno dovrà essere prettamente pratico, e corredato da una breve presentazione (**massimo dodici (12) slides**) ed una relazione sul lavoro svolto (**massimo quattro (4) pagine**).
+## Ricevimento
 
-## Date di appello
+E' possibile concordare un ricevimento inviando una e-mail all'indirizzo [angelo.cardellicchio@stiima.cnr.it](mailto:angelo.cardellicchio@stiima.cnr.it).
+
+<!-- ## Date di appello
 
 Per informazioni sugli appelli, consultare la [bacheca](advices.md).
 
@@ -25,29 +28,5 @@ L'elenco delle slides proiettate a lezione è disponibile a [questo indirizzo](.
 
 ## Calendario delle lezioni
 
-Il calendario delle lezioni è disponibile a [questo link](https://www.dm.uniba.it/didattica/competenze-trasversali/2021-22-laboratorio-matematico-informatico-ii/orario-python.pdf).
+Il calendario delle lezioni è disponibile a [questo link](https://www.dm.uniba.it/didattica/competenze-trasversali/2021-22-laboratorio-matematico-informatico-ii/orario-python.pdf). -->
 
-## Ricevimento
-
-E' possibile concordare un ricevimento inviando una e-mail all'indirizzo [angelo.cardellicchio@stiima.cnr.it](mailto:angelo.cardellicchio@stiima.cnr.it).
-=======
-# Home page dei corsi
-
-Benvenuti nella pagina dei corsi Python di Angelo Cardellicchio.
-
-Per **informazioni sui corsi**, selezionate le apposite voci nella pagina attuale.
-
-Per **gli argomenti di interesse**, selezionate direttamente le lezioni dal menu a sinistra.
-
-## Anno Accademico 2022/2023
-
-| Corso | Link |
-| ----- | ---- |
-| Algoritmi e Linguaggi di Programmazione Python/C | [:link:](./dashboard/alp/dashboard.md) |
-
-## Anno Accademico 2021/2022
-
-| Corso | Link |
-| ----- | ---- |
-| Python per il Calcolo Scientifico | [:link:](./dashboard/pcs/dashboard.md) |
->>>>>>> feature/pathlib

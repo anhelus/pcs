@@ -1,4 +1,4 @@
-## 1.5 - Liste
+# 1.4 - Liste
 
 Abbiamo già detto che una stringa altro non è se non un caso particolare di *lista*. La domanda che sorge spontanea è quindi: *cosa è una lista*?
 
@@ -11,7 +11,7 @@ Possiamo creare una lista in questo modo:
 [1, 2, 3, 4, 5]
 ```
 
-### 1.5.1 - Concatenazione, indicizzazione e slicing su liste
+## Concatenazione, indicizzazione e slicing su liste
 
 Come sulle stringhe, sulle liste è possibile effettuare operazioni di indicizzazione, slicing e concatenazione:
 
@@ -27,11 +27,7 @@ Come sulle stringhe, sulle liste è possibile effettuare operazioni di indicizza
 [1, 2, 3, 4, 5, 6]
 ```
 
-### 1.5.2 - Alcuni esempi
-
-Ecco alcuni esempi di slicing su lista, con annessi risultati ottenibili.
-
-Consideriamo la seguente stringa:
+Facciamo alcuni esempi. Consideriamo la seguente stringa:
 
 ```py
 >>> l = [1, 2, 3, 4, 5, 6]
@@ -82,7 +78,7 @@ Prendiamo gli elementi agli indici pari in ordine inverso:
 [6, 4, 2]
 ```
 
-### 1.5.3 - Mutabilità di una lista
+## Mutabilità di una lista
 
 A differenza delle stringhe, le liste sono oggetti *mutabili*. Di conseguenza, possiamo modificarne il contenuto:
 
@@ -92,7 +88,7 @@ A differenza delle stringhe, le liste sono oggetti *mutabili*. Di conseguenza, p
 [99, 2, 3, 4, 5]
 ```
 
-### 1.5.4 - Operazioni sulle liste
+## Operazioni sulle liste
 
 Possiamo anche eliminare elementi da una lista usando l'operatore `[]` combinato all'operazione di slicing:
 

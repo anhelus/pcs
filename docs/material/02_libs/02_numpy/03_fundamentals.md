@@ -1,8 +1,10 @@
-# 7.3 - Operazioni fondamentali sugli array
+# 2.3 - Operazioni fondamentali sugli array
 
-## 7.3.1 - Operazioni algebriche di base
+Dopo averli introdotti nella [lezione precedente](./02_array.md), proseguiamo nella nostra trattazione sugli array andando a vedere tutta quella serie di operazioni fondamentali che è possibile effettuarvi.
 
-NumPy ci offre la possibilità di effettuare diversi tipi di operazioni algebriche di base sugli array. Ad esempio, è possibile sommare due array:
+## Operazioni algebriche di base
+
+Partiamo dalle operazioni algebriche di base. Ad esempio, possiamo sommare *elemento per elemento* due array mediante l'operatore `+`:
 
 ```py
 >>> a = np.array([1, 2])
@@ -11,7 +13,7 @@ NumPy ci offre la possibilità di effettuare diversi tipi di operazioni algebric
 array([4, 6])
 ```
 
-Possiamo ovviamente anche fare le altre operazioni fondamentali:
+Contestualmente, l'utilizzo degli operatori matematici di sottrazione, moltiplicazione e divisione ci permetterà di effettuare le omologhe operazioni, sempre elemento per elemento.
 
 ```py
 >>> a - b
@@ -24,14 +26,9 @@ array([0.33333333, 0.5])
 array([3., 2.])
 ```
 
-!!!note "Moltiplicazione e divisione"
-	Per comprendere appieno il comportamento degli operatori * e /, dovremo parlare del broadcasting. Lo faremo in una delle prossime lezioni.
+## La funzione `numpy.sum()`
 
-## 7.3.2 - La funzione `sum()`
-
-La funzione `sum(axis=None)` ci permette di sommare tutti gli elementi di un array lungo l'asse specificato.
-
-Ad esempio, per sommare tutti gli elementi di un vettore:
+La funzione [`numpy.sum()`](https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum) ci permette di sommare tutti gli elementi di un array. Ad esempio, per sommare tutti gli elementi di un vettore:
 
 ```py
 >>> a = np.array([1, 2, 3, 4])
@@ -39,38 +36,90 @@ Ad esempio, per sommare tutti gli elementi di un vettore:
 10
 ```
 
-In caso di array multidimensionale, dovremo specificare, come già detto, l'asse. Ad esempio, per sommare gli elementi per colonna, dovremo passare il parametro `0`:
+In caso di array multidimensionale, potremo specificare il parametro `axis`, che indica l'asse lungo il quale gli elementi vengono sommati. In particolare, il valore passato può essere un intero a valore $i$, nel qual caso si andrà ad effettuare la somma lungo la dimensione $i$-ma, o una tupla di interi, in qual caso la somma sarà effettuata su ognuna delle dimensioni specificate. Facciamo alcuni esempi.
+
+Supponiamo di avere un array bidimensionale di dimensioni $2 \times 3$ (ovvero, a due righe e tre colonne).
 
 ```py
->>> b = np.array([[1, 2], [3, 4]])
->>> b.sum(axis=0)
-array([4, 6])
+>>> b = np.array([[1, 2, 3], [4, 5, 6]])
+>>> b
+array([[1, 2, 3],
+       [4, 5, 6]])
 ```
 
-Per sommare gli elementi per riga, invece, dovremo passare il parametro `1`:
+Cerchiamo di capire a quale dimensione sono associate le righe, ed a quale le colonne. Per farlo, usiamo l'attributo `shape`.
+
+```py
+>>> b.shape
+(2, 3)
+```
+
+Nella tupla associata a `shape`, notiamo come il primo elemento sia associato al numero di righe, mentre il secondo al numero di colonne. Proviamo quindi a sommare l'array per righe, passando il parametro `axis=0`:
+
+```py
+>>> b.sum(axis=0)
+array([5, 7, 9])
+```
+
+Intuitivamente, dato che il secondo elemento è associato al numero di colonne, la somma per colonne avrà luogo valorizzando `axis` ad `1`:
 
 ```py
 >>> b.sum(axis=1)
-array([3, 7])
+array([6, 15])
 ```
 
-## 7.3.3 - La funzione `dot()`
+Proviamo a vedere cosa accade in più dimensioni. Creiamo un array tridimensionale:
 
-La funzione `dot()` ci permette di effettuare l'operazione di moltiplicazione matriciale standard:
+```py
+>>> c = np.random.rand(2, 3, 4)
+>>> c
+array([[[0.92287179, 0.46394039, 0.87332474, 0.74359334],
+        [0.52656447, 0.6055654 , 0.74493945, 0.9349442 ],
+        [0.90911935, 0.01961204, 0.66304527, 0.3025307 ]],
+
+       [[0.86562763, 0.37544415, 0.4984404 , 0.74486371],
+        [0.10910642, 0.24617353, 0.6237486 , 0.26432378],
+        [0.37713232, 0.08804626, 0.21283048, 0.41133527]]])
+>>> c.shape
+(2, 3, 4)
+```
+
+Proviamo adesso ad effettuare la somma di tutti gli elementi per riga e colonna:
+
+```py
+>>> c.sum(axis=(0, 1))
+array([3.71042197, 1.79878176, 3.61632893, 3.401591  ])
+```
+
+Abbiamo quindi visto la versatilità della funzione `sum()`, e la capacità della stessa di operare su array a qualsiasi dimensionalità.
+
+!!!tip "Il parametro `axis`"
+    Ritroveremo il parametro `axis` in ogni applicazione che coinvolge NumPy e le librerie basate su di essa.
+
+## La funzione `dot()`
+
+La funzione `dot()` ci permette di effettuare l'operazione di moltiplicazione matriciale *riga per colonna*. In particolare, la funzione sarà invocata sulla matrice *a sinistra* nella moltiplicazione, mentre il parametro passato sarà la matrice *a destra*.
+
+Ad esempio, possiamo provare a moltiplicare un vettore riga per un vettore colonna, ottenendo un intero:
 
 ```py
 >>> a = np.array([[1, 2]])
 >>> b = np.array([[3], [4]])
 >>> a.dot(b)
 array([11])
+```
+
+Al contrario, moltiplicando un vettore colonna per un vettore riga, otterremo una matrice:
+
+```py
 >>> b.dot(a)
 array([[3, 6],
        [4, 8]])
 ```
 
-## 7.3.4 - La funzione `sort()`
+## La funzione `numpy.sort()`
 
-Mediante la funzione `sort()` è possibile ordinare gli elementi di un array. Ad esempio:
+La funzione [`numpy.sort()`](https://numpy.org/doc/stable/reference/generated/numpy.sort.html) permette di ordinare gli elementi di un array. Ad esempio:
 
 ```py
 >>> arr = np.array([2, 1, 5, 3, 7, 4, 6, 8])
@@ -88,7 +137,7 @@ array([[2, 3, 1],
        [7, 5, 1]])
 ```
 
-Per ordinare lungo le colonne:
+Per ordinare lungo le righe:
 
 ```py
 >>> np.sort(mat, axis=0)
@@ -97,7 +146,7 @@ array([[2, 2, 1],
        [7, 5, 6]])
 ```
 
-Mentre per ordinare lungo le righe:
+Mentre per ordinare lungo le colonne:
 
 ```py
 >>> np.sort(mat, axis=1)
@@ -108,12 +157,15 @@ array([[1, 2, 3],
 
 Possiamo anche specificare diversi algoritmi di ordinamento mediante l'argomento `kind`, che ci permette di scegliere tra il quick sort, il merge sort e l'heap sort.
 
-!!!note "Nota"
+!!!note "Ordinamento inplace"
+    I più attenti noteranno che la funzione `sort()` può essere chiamata direttamente sull'oggetto `mat` (`mat.sort()`) oppure da NumPy (`np.sort()`). Nel primo caso, la matrice viene modificata *inplace*, mentre nel secondo caso non lo è, e ne viene modificata una copia.
+
+!!!note "Altre funzioni per l'ordinamento"
     Esistono anche altre funzioni per l'ordinamento di un array, come [`argsort()`](https://numpy.org/doc/stable/reference/generated/numpy.argsort.html#numpy.argsort), [`lexsort()`](https://numpy.org/doc/stable/reference/generated/numpy.lexsort.html#numpy.lexsort), [`searchsorted()`](https://numpy.org/doc/stable/reference/generated/numpy.searchsorted.html#numpy.searchsorted) e [`partition()`](https://numpy.org/doc/stable/reference/generated/numpy.partition.html#numpy.partition).
 
-## 7.3.5 - Concatenare due array
+## Concatenazione di due array
 
-Possiamo concatenare due array usando la funzione `concatenate()`:
+Per concatenare due array è necessario usare la funzione `concatenate()`:
 
 ```py
 >>> a = np.array([1, 2, 3, 4])
@@ -137,7 +189,7 @@ array([[1, 2, 5, 6],
        [3, 4, 7, 8]])
 ```
 
-Ovviamente, le dimensioni degli array devono essere *coerenti* affinché vengano concatenati. Ad esempio, con questo array:
+Ovviamente, le dimensioni degli array devono essere *coerenti* affinché vengano concatenati. Ad esempio:
 
 ```py
 >>> z = np.array([[9, 10]])
@@ -152,7 +204,7 @@ array([[ 1,  2],
        [ 9, 10]])
 ```
 
-mentre la concatenazione per colonne non è possibile:
+mentre la concatenazione per colonne lancerà un errore:
 
 ```py
 >>> np.concatenate((x, z), axis=1)
@@ -162,11 +214,13 @@ Traceback (most recent call last):
 ValueError: all the input array dimensions for the concatenation axis must match exactly, but along dimension 0, the array at index 0 has size 2 and the array at index 1 has size 1
 ```
 
-## 7.3.6 - Rimozione ed inserimento di elementi in un array
+## Rimozione ed inserimento di elementi in un array
 
-### 7.3.6.1 - La funzione `delete()`
+Vediamo brevemente come aggiungere o rimuovere un elemento in un array.
 
-La funzione `delete(arr, obj, axis=None)` ci permette di rimuovere uno o più elementi di un array specificandone gli indici. La funzione accetta i seguenti parametri:
+### La funzione `numpy.delete()`
+
+La funzione [`numpy.delete()`](https://numpy.org/doc/stable/reference/generated/numpy.delete.html) ci permette di rimuovere uno o più elementi di un array specificandone gli indici. La funzione accetta i seguenti parametri:
 
 * `arr`: l'array sul quale vogliamo effettuare l'operazione di rimozione;
 * `obj`: gli indici degli elementi da rimuovere;
@@ -193,16 +247,12 @@ Possiamo anche usare lo slicing:
 >>> idx = range(4)
 >>> np.delete(arr, idx[0:2])
 array([3, 4])
-```
+```    
 
-!!!tip "Suggerimento"
-    La precedente notazione può essere rimpiazzata dalla funzione `slice(start, stop, step)`, che crea un oggetto di classe `slice` sugli indici che vanno da `start` a `stop` con passo `step`. Questo può essere usato per scopi analoghi ai precedenti; ad esempio:
-    > ```py
-      >>> np.delete(a, slice(0, 2, 1))
-      array([3, 4])
-      ```
+!!!warning "Modifiche inplace"
+    Nei casi precedenti la modifica *non* avviene inplace, per cui `arr` non sarà modificato.
 
-#### 7.3.6.1.1 - Array multidimensionali e `delete()`
+#### Array multidimensionali e `delete()`
 
 La funzione `delete()` può essere usata anche su array multidimensionali. In questo caso, è opportuno specificare l'asse su cui operare.
 
@@ -233,17 +283,22 @@ array([2, 3, 4, 5, 6, 7, 8, 9])
 
 In altre parole, non specificando un valore per `axis`, rimuoveremmo il primo elemento dell'array "vettorizzato".
 
-!!!tip "Rimozione mediante maschere booleane"
-	Spesso è preferibile usare, al posto della notazione precedente, una maschera booleana:
+!!!tip "Altre tecniche di rimozione elementi"
+    Esistono altri modi di rimuovere elementi da un array. Ad esempio, si potrebbe usare la funzione `slice(start, stop, step)`, che crea un oggetto di classe `slice` sugli indici che vanno da `start` a `stop` con passo `step`. Questo può essere usato per scopi analoghi ai precedenti; ad esempio:
+    > ```py
+      >>> np.delete(a, slice(0, 2, 1))
+      array([3, 4])
+      ```
+    Un altro modo è quello di usare una maschera booleana:
     > ```py
       >>> mask = np.array([[True, False, True], [False, False, True], [False, True, True]])
       >>> mtrx[mask]
       array([1, 3, 6, 8, 9])
       ```
 
-### 7.3.6.2 - La funzione `insert()`
+### La funzione `numpy.insert()`
 
-La funzione `insert(arr, obj, values, axis=None)` permette di inserire un elemento all'interno di un array. I parametri accettati dalla funzione sono:
+La funzione [`numpy.insert()`](https://numpy.org/doc/stable/reference/generated/numpy.insert.html) permette di inserire un elemento all'interno di un array. I parametri accettati dalla funzione sono:
 
 * `arr`: l'array sul quale vogliamo effettuare l'operazione di inserzione;
 * `obj`: gli indici su cui inserire i nuovi valori;
@@ -276,9 +331,9 @@ Non specificando alcun asse, infine, si inserisce l'elemento specificato nella m
 array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
 ```
 
-### 7.3.6.3 - La funzione `append()`
+### La funzione `numpy.append()`
 
-La funzione `append(arr, values, axis=None)` permette di inserire in coda ad un array i valori specificati. I parametri accettati dalla funzione sono:
+La funzione [`numpy.append()`](https://numpy.org/doc/stable/reference/generated/numpy.append.html) permette di inserire in coda ad un array i valori specificati. I parametri accettati dalla funzione sono:
 
 * `arr`: l'array sul quale vogliamo effettuare l'operazione di inserzione;
 * `values`: i valori da inserire in coda all'array;
@@ -313,7 +368,7 @@ array([[ 1,  2,  3, 10],
 !!!warning "Attenzione"
     Nell'ultima istruzione, abbiamo usato un vettore *colonna*, mentre nella penultima un vettore *riga*.
 
-## 7.3.7 - Dimensioni e forma di un array
+## Dimensioni e forma di un array
 
 Esistono diverse proprietà di un array che ne descrivono dimensioni e forma.
 
@@ -331,16 +386,16 @@ Il numero di elementi è invece definito dall'attributo `ndarray.size`:
 9
 ```
 
-L'attributo `ndarray.shape` restituisce invece una tupla di interi che indica il numero di elementi per ciascuno degli assi dell'array:
+L'attributo `ndarray.shape`, che abbiamo brevemente visto in precedenza, restituisce invece una tupla di interi che indica il numero di elementi per ciascuno degli assi dell'array:
 
 ```py
 >>> mat.shape
 (3, 3)
 ```
 
-## 7.3.8 - Modificare le dimensioni di un array
+## Modificare le dimensioni di un array
 
-Possiamo modificare le dimensioni di un array mediante la funzione `reshape(arr, new_shape)`. I parametri passati alla funzione sono:
+Possiamo modificare le dimensioni di un array mediante la funzione [`numpy.reshape()`](https://numpy.org/doc/stable/reference/generated/numpy.reshape.html). I parametri passati alla funzione sono:
 
 * `arr`: l'array di cui modificare le dimensioni;
 * `new_shape`: le nuove dimensioni dell'array.
@@ -366,14 +421,15 @@ array([[ 1,  2,  3,  4,  5,  6,  7,  8],
 !!!warning "Attenzione"
     Le nuove dimensioni dell'array devono essere coerenti con quelle dell'array di partenza!
 
-## 7.3.9 - Flattening di un array
+## Flattening di un array
 
-Abbiamo già visto in precedenza la *vettorizzazione* di un array, effettuata in automatico in alcune situazioni (come ad esempio la chiamata di `delete()` o `insert()` senza specificare il parametro `axis`). Tuttavia, possiamo usare la funzione `flatten()` per effettuare manualmente questa operazione:
+Abbiamo già visto in precedenza la *vettorizzazione* di un array, effettuata in automatico in alcune situazioni (come ad esempio la chiamata di `delete()` o `insert()` senza specificare il parametro `axis`). Tuttavia, possiamo usare la funzione [`numpy.flatten()`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html) per effettuare manualmente questa operazione:
 
 ```py
 >>> mat.flatten()
 array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16])
 ```
 
-!!!tip "La funzione `ravel()`"
-	Un altro modo per vettorizzare un array è utilizzare la funzione `ravel()`, che restituisce un risultato analogo alla `flatten()`, a meno di una importante differenza: infatti, laddove `flatten()` restituisce una copia dell'array vettorizzato, `ravel()` mantiene un riferimento all'array originario.
+Un altro modo per effettuare la vettorizzazione è utilizzare la funzione [`numpy.ravel()`](https://numpy.org/doc/stable/reference/generated/numpy.ravel.html).
+
+Le funzioni `ravel()` e `flatten()` possono apparentemente sembrare analoghe. Tuttavia, vi è una differenza fondamentale: infatti, `flatten()` restituirà *sempre* una copia dell'array originario, mentre `ravel()`, laddove possibile, restituirà una *vista*, ovvero una variabile che punta allo stesso indirizzo di memoria dell'oggetto originario.

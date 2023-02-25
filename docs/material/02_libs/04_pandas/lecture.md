@@ -1,37 +1,40 @@
-# 9 - Introduzione a Pandas
+# 4 - Introduzione a Pandas
 
-Pandas è una delle librerie più importanti dell'ecosistema SciPy, e viene usata per la lettura ed elaborazione dei dati provenienti da sorgenti di vario tipo, come ad esempio file CSV o Excel, ma anche file di testo e database. Vediamo quindi brevemente come usare la libreria, tenendo presente che ne approfondiremo il funzionamento anche durante le lezioni successive.
+[Pandas](https://pandas.pydata.org/) viene usata per la lettura ed elaborazione dei dati provenienti da sorgenti di vario tipo, come ad esempio file CSV o Excel, ma anche file di testo e database. Vediamo quindi brevemente come usare la libreria, tenendo presente che ne approfondiremo il funzionamento anche durante le lezioni successive.
 
-## 9.1 - Installazione e configurazione di Pandas
+## Installazione e configurazione di Pandas
 
-Al solito, provvediamo ad installare Pandas:
+Al solito, il primo passo è sempre quello di installare la libreria nel nostro ambiente di lavoro:
 
 ```sh
 pip install pandas
 ```
 
-Così come per le altre librerie, nel prosieguo presupporemo che Pandas sia già stato importato nel nostro script/notebook:
+Possiamo quindi importare la libreria all'interno dei nostri script o notebook:
 
 ```py
 import pandas as pd
 ```
 
-## 9.2 - Pandas e la gestione dei dati
+## Pandas e la gestione dei dati
 
-Pandas gestisce prevalentemente dati *strutturati* sotto forma *tabellare*, ossia simili a quelli comunemente contenuti all'interno dei fogli di calcolo o nei database. Questi dati sono sicuramente tra i più diffusi ed utilizzati nel contesto dell'analisi dei dati, ovviamente escludendo le immagini: in tal senso, per modellarli, Pandas ci mette a disposizione un'apposita struttura denominata **dataframe**.
+Pandas gestisce prevalentemente dati *strutturati* sotto forma *tabellare*, ossia simili a quelli comunemente contenuti all'interno dei fogli di calcolo o nei database. Questi dati sono sicuramente tra i più diffusi ed utilizzati nel contesto dell'analisi dei dati, ovviamente escludendo le immagini: in tal senso, per modellarli, Pandas ci mette a disposizione un'apposita struttura denominata [`DataFrame`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html).
 
 I dataframe sono quindi delle strutture atte a contenere dati di ogni tipo. Questi sono normalmente organizzati in righe e colonne, in maniera del tutto analoga a quella in cui sono organizzati i fogli di calcolo ed i database. Importante anche sottolineare come, per convenzione, le singole righe rappresentino i *campioni* del dataset, mentre le colonne siano associati ai valori assunti dalle diverse caratteristiche, o *feature*, di ciascun campione.
 
-Facciamo un esempio usando il dataset [Titanic](../../data/titanic.csv), che è uno tra i più utilizzati a scopi di sperimentazione. Per prima cosa, generiamo un dataframe rappresentativo dei dati contenuti nel dataset:
+Facciamo un esempio usando il dataset Titanic, che è uno tra i più utilizzati a scopi di sperimentazione. Per prima cosa, generiamo un dataframe rappresentativo dei dati contenuti nel dataset, leggendo il file `titanic.csv`, che possiamo scaricare a [questo link](../../data/titanic.csv). Per leggere i dati, dovremo utilizzare il metodo [`read_csv()`](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html), cui passeremo il percorso relativo del file:
 
 ```py
 df = pd.read_csv('titanic.csv')
 ```
 
-Usiamo il metodo `head()` per mostrare a schermo le prime cinque righe del dataframe.
+Usiamo il metodo [`head()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html) per mostrare a schermo le prime cinque righe del dataframe.
 
 ```py
 >>> df.head()
+```
+
+```sh
    PassengerId  Survived  Pclass                                               Name     Sex   Age  SibSp  Parch            Ticket     Fare Cabin Embarked
 0            1         0       3                            Braund, Mr. Owen Harris    male  22.0      1      0         A/5 21171   7.2500   NaN        S
 1            2         1       1  Cumings, Mrs. John Bradley (Florence Briggs Th...  female  38.0      1      0          PC 17599  71.2833   C85        C
@@ -92,9 +95,9 @@ Notiamo subito la presenza di tre tipi di colonna, ovvero `int64`, `float64` e `
 
 Appare chiaro come il dataset ci illustri numerose proprietà per ogni passeggero imbarcato. Queste potranno quindi essere utilizzate per un'analisi approfondita della struttura dei dati sotto diversi aspetti e punti di vista; ne parleremo più estesamente nel seguito.
 
-### 9.2.1 - Le Series
+## Le Series
 
-Abbiamo visto come ogni dataframe sia in realtà composto da diverse colonne, ciascuna rappresentativa di una feature specifica. Nella pratica, Pandas ci offre un modo per rappresentare singolarmente ciascuna di queste colonne, mediante un oggetto di classe `Series`. Ad esempio, potremmo estrarre la serie relativa agli identificativi numerici dei passeggeri:
+Nel paragrafo precedente abbiamo visto come ogni DataFrame sia in realtà composto da diverse colonne, ciascuna rappresentativa di una feature specifica. Nella pratica, Pandas ci offre un modo per estrarre singolarmente ciascuna di queste colonne mediante la classe `Series`. Ad esempio, potremmo estrarre la serie relativa agli identificativi numerici dei passeggeri:
 
 ```py
 names = df['Name']

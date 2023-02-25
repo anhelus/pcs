@@ -1,4 +1,4 @@
-## 1.4 - Stringhe
+# 1.3 - Stringhe
 
 In Python le stringhe possono indifferentemente essere racchiuse tra virgolette singole e doppie.
 
@@ -29,7 +29,7 @@ SyntaxError: invalid syntax
 	  C:\nuova_cartella
 	  ```
 
-### 1.4.1 - Stringhe su righe multiple
+## Stringhe su righe multiple
 
 !!!note "Stringhe e liste"
 	La maggior parte dei concetti che vedremo nel seguito sono applicabili anche alle liste. Anzi, per essere precisi, derivano proprio dalle liste, in quanto Python considera una stringa un particolare tipo di lista.
@@ -48,7 +48,7 @@ Le stringhe possono articolarsi su più righe. Per farlo, possiamo usare le *tri
 !!!note "Nota"
 	Notiamo nel precedente snippet il carattere `\`, usato per evitare che venga automaticamente inserito dall'interprete il carattere *newline* (`\n`) al termine di ogni riga. Infatti, si vede come il newline non sia stato aggiunto nelle righe evidenziate, mentre sia presente nella riga 2.
 
-### 1.4.2 - Concatenazione di stringhe
+## Concatenazione di stringhe
 
 Concatenare due stringhe in Python è estremamente semplice, e basta usare l'operatore `+`:
 
@@ -97,7 +97,7 @@ Possiamo anche semplicemente porre le due stringhe l'una di seguito all'altra:
 !!!note "Nota"
 	Esistono modi più efficienti di concatenare delle stringhe, specialmente quando si ha a che fare con numerose operazioni di concatenazione in grossi cicli; l'approfondimento di tali metodi è demandato al lettore.
 
-### 1.4.3 - Indicizzazione di stringhe
+## Indicizzazione di stringhe
 
 Python definisce le stringhe come degli *array di caratteri*; è quindi possibile indicizzarli. Ad esempio:
 
@@ -122,7 +122,7 @@ Python permette di accedere anche usando degli indici *negativi*, considerando q
 'n'
 ```
 
-### 1.4.4 - Slicing su stringhe
+## Slicing su stringhe
 
 L'operazione di *slicing* permette di estrarre una certa parte di una stringa. In generale, assume la seguente forma:
 
@@ -183,7 +183,7 @@ mentre se volessimo prendere tutti i caratteri fino alla terzultima lettera (esc
 	  'Python'
 	  ```
 
-### 1.4.5 - Lunghezza di una stringa
+## Lunghezza di una stringa
 
 La funzione `len()` ci restituisce la lunghezza di una stringa:
 
@@ -192,7 +192,7 @@ La funzione `len()` ci restituisce la lunghezza di una stringa:
 6
 ```
 
-### 1.4.6 - Immutabilità di una stringa
+## Immutabilità di una stringa
 
 Le stringhe in Python sono *immutabili*. Come indica la parola stessa, questo significa che *non possono essere modificate*: se, ad esempio, provassimo a ridefinirne uno o più elementi, acceduti magari mediante indexing o slicing, avremmo un errore.
 

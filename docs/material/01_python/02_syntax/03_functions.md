@@ -1,7 +1,9 @@
 
-## 2.6 - Definire una funzione
+# 2.3 - Funzioni
 
-In Python è possibile definire una funzione in questo modo:
+## Definizione di funzione
+
+Python permette di definire una funzione utilizzando la parola chiave `def`. La sintassi generica è la seguente:
 
 ```py
 def nome_funzione(parametri):
@@ -15,41 +17,18 @@ E' importante notare che:
 * non è (strettamente) necessario definire il tipo di ciascuno dei parametri passati;
 * è consentito inserire dei parametri *opzionali*, con valori di default.
 
-**Esercizio**: Creiamo una funzione che concateni ad una lista il doppio dei singoli valori presenti nella stessa.
-
-**Soluzione**: usiamo la funzione `append` per mettere in coda i nuovi elementi della lista.
+Ad esempio, la seguente funzione somma `1` al valore in ingresso e restituisce il nuovo valore:
 
 ```py
-def raddoppia_lista(lista):
-    for i in range(len(lista)):
-        lista.append(lista[i] * 2)
-    return print(lista)
-
-
-l = [1,2]
-raddoppia_lista(l) 			# Risultato atteso: [1, 2, 2, 4]
-```
-
-**Esercizio**: Creiamo una funzione che generi una lista di elementi casuali tra $0$ e $10$, usando un parametro *opzionale* per specificarne la lunghezza.
-
-**Soluzione**: usiamo la funzione `append()` in accoppiata alla funzione `randint()`.
-
-```py
-import random
-def genera_lista_casuale(lunghezza=5):
-    l = []
-    for i in range(lunghezza):
-        l.append(random.randint(0, 10))
-    return print(l)
-...
-genera_lista_casuale() 		# Possibile risultato: [3, 1, 2, 0, 6]
-genera_lista_casuale(10)	# Possibile risultato: [7, 9, 1, 10, 2, 4, 9, 1, 4, 8]
+def aggiungi_uno(i):
+	val = i + 1
+	return val
 ```
 
 !!!warning "Tipo dei parametri di ingresso"
-	Il duck typing fa sì che non venga effettuato alcun controllo sui parametri in ingresso. Ciò però non significa che non si possa provare a chiamare (ad esempio) la funzione `genera_lista_casuale()` passando come parametro una stringa; ciò tuttavia causerà un (prevedibile) errore.
+	Il duck typing fa sì che non venga effettuato alcun controllo sui parametri in ingresso. Ciò però non significa che non si possa provare a chiamare (ad esempio) la funzione `aggiungi_uno()` passando come parametro una stringa; ciò tuttavia causerà un (prevedibile) errore.
 
-### 2.6.1 - Passaggio di parametri a funzione
+## Passaggio di parametri a funzione
 
 Python prevede che i parametri siano passati ad una funzione secondo una modalità ibrida chiamata *call-by-assignment*. In pratica, il passaggio avviene *esclusivamente per valore*, ma con effetti differenti su tipi mutabili ed immutabili.
 
@@ -94,7 +73,7 @@ In questo caso, essendo la lista mutabile, il passaggio viene effettuato nei fat
 !!!note "Shallow e deep copy"
 	Di default, Python copia le variabili per mezzo di una *shallow copy*: ciò significa che un'operazione di assignment del tipo `a = b` fa in modo che `a` punti allo stesso indirizzo di memoria di `b` e, di conseguenza, ogni modifica a `b` si rifletta su `a`. Per evitare un fenomeno di questo tipo occorre usare una *deep copy* grazie alla funzione `deepcopy()` della libreria `copy`.
 
-### 2.6.2 - L'istruzione `pass`
+## L'istruzione `pass`
 
 Chiudiamo accennando all'istruzione `pass`. Questa non fa assolutamente nulla; è utile, ad esempio, quando vogliamo inserire una funzione (o una classe) vuota, che definiremo per qualche motivo in seguito:
 

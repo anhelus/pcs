@@ -1,54 +1,55 @@
 
-## 2.2 - Programmazione strutturata
+# 2.2 - Programmazione strutturata
 
-Il linguaggio Python utilizza una sintassi per le strutture di controllo differente da quella usata nei tipici linguaggi C-like.
+Come tutti i linguaggi derivati da C, anche Python offre il supporto ai principali costrutti della programmazione strutturata. Vediamoli brevemente.
 
-### 2.2.1 - Istruzioni condizionali (`if`)
+## Istruzione condizionale
 
-Partiamo dall'istruzione condizionale `if`. Questa, in Python, ha una sintassi di questo tipo.
+Partiamo dall'istruzione condizionale che, come in tutti i linguaggi di programmazione, è espressa dalle parole chiave `if` ed `else`.
+
+La sintassi base è di questo tipo:
 
 ```py
-if condizione:
-	istruzioni()
-elif altra_condizione:
-	altre_istruzioni()
+if condizione_verificata:
+	istruzioni
 else:
-	ultime_istruzioni()
+	altre_istruzioni
 ```
 
-Notiamo l'utilizzo della keyword `elif` come crasi della forma `else if` utilizzata in altri linguaggi di programmazione. Ad esempio, se volessimo verificare il valore di una variabile intera, potremmo scrivere:
+In pratica, se `condizione_verificata` è vero, allora saranno eseguite le `istruzioni`. In alternativa, se `condizione_verificata` è falso, allora saranno eseguite le `altre_istruzioni`. Ad esempio:
 
 ```py
-a = 5
-if a < 5:
-	print('a è minore di 5')
-elif a == 5:
-	print('a è uguale a 5')
-else:
-	print('a è maggiore di 5')
+>>> if a < 5:
+>>> 	print('a è minore di 5')
+>>> else:
+>>> 	print('a è maggiore di 5')
 ```
 
-L'output di questo controllo sarà:
-
-```bash
-a è uguale a 5
-```
-
-### 2.2.2 - Pattern matching
-
-Fino alla versione 3.10, Python non offriva il costrutto `switch/case`. A partire da quest'ultima, però, il *pattern matching* è stato implementato usando questa sintassi:
+Per utilizzare la notazione `else if` dovremo ricorrere alla parola chiave `elif`. Ad esempio:
 
 ```py
-match command:
-	case "caso 1":
-		istruzioni()
-	case "altro caso":
-		print("Comando sconosciuto")
+>>> if a < 5:
+>>> 	print('a è minore di 5')
+>>> elif a == 5:
+>>> 	print('a è uguale a 5')
+>>> else:
+>>> 	print('a è maggiore di 5')
 ```
 
-### 2.2.3 - Cicli
+!!!note "Switch/case in Python"
+	Fino alla versione 3.10, Python non offriva un'implementazione per il costrutto `switch/case`. A partire da quest'ultima, però, è stato implementato il cosiddetto *pattern matching* mediante la sintassi `match/case`:
+	> ```py
+	  match command:
+	      case "caso 1":
+			  istruzioni()
+		  case "altro caso":
+			  print("Comando sconosciuto")
+	  ```
+	Approfondiremo questo costrutto nell'[apposita lezione]().
 
-#### 2.2.3.1 - Ciclo `for`
+## Cicli
+
+### Ciclo `for`
 
 Il ciclo `for` itera su una *sequenza*, come una lista o una stringa, ed ha una sintassi del tipo:
 
@@ -64,7 +65,6 @@ vals = [0,1,2,3,4]
 for i in vals:
     print(i)
 ```
-
 
 Il risultato che sarà stampato a schermo è:
 
@@ -98,7 +98,7 @@ n
 !!!warning "No free lunches!"
 	Come ci ricorda il *no free lunches theorem*, **non esistono pasti gratuiti**! Infatti, la maggiore semplicità sintattica offerta da Python non è indolore, ma ha un costo. Uno script Python, infatti, per quanto ottimizzato, non potrà quasi mai offrire performance paragonabili ad un codice ottimizzato in C o C++, a meno di non usare particolari (ed avanzati) accorgimenti.
 
-#### 2.2.3.2 - Ciclo `while`
+### Ciclo `while`
 
 A differenza del ciclo `for`, il funzionamento del `while` è analogo a quello delle controparti negli altri linguaggi di programmazione. La sintassi generica è:
 
@@ -133,7 +133,7 @@ Esco!
 !!!note "I valori booleani in Python"
 	I più attenti avranno notato come i valori booleani in Python siano stati scritti come `True` e `False`. Questo non è un refuso: la prima lettera è proprio una maiuscola.
 
-## 2.4 - La funzione `range()`
+## La funzione `range()`
 
 Riprendiamo adesso il ciclo `for` visto in precedenza.
 
@@ -170,25 +170,7 @@ E' anche possibile specificare una sequenza *decrementale* ponendo `i > j` ed `s
 [5, 4, 3, 2]
 ```
 
-**Esercizio**: Proviamo ad iterare su tutti i valori della lista `['Pippo', 'Pluto', 5, 'Paperino']`.
-
-**Soluzione**: Usiamo la funzione `range()` assieme alla funzione `len()`:
-
-```py
-l = ['Pippo', 'Pluto', 5, 'Paperino']
-for i in range(len(l)):
-    print(l[i])
-
-# Output:
-# Pippo
-# Pluto
-# 5
-# Paperino
-```
-
-In pratica, dato che la funzione `len(l)` ci restituisce il numero di elementi nella lista, ovvero $4$, stiamo andando a definire un range che va da 0 a 3. A questo punto, ci basterà *elemento per elemento* ai valori contenuti all'interno della lista, ed avremo ottenuto il risultato sperato.
-
-## 2.5 - Istruzioni `break` e `continue`
+## Istruzioni `break` e `continue`
 
 Le istruzioni `break` e `continue` permettono rispettivamente di *uscire dal ciclo* o di *saltare all'iterazione successiva*. Ad esempio:
 

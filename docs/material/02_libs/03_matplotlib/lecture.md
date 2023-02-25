@@ -1,29 +1,28 @@
-# 8 - Visualizzare i dati in Python
+# 3 - Visualizzare i dati in Python
 
-Finora ci siamo limitati a visualizzare dati e risultati ottenuti usando prima la riga di comando, e poi i metodi forniti dai notebook Jupyter. Tuttavia, è chiaro come questo modo di procedere sia limitante: cosa ne è di tutti i coloratissimi grafici che possiamo ammirare in siti ed articoli scientifici?
+Nelle lezioni precedenti, ci siamo limitati a visualizzare i risultati ottenuti usando l'output fornito dalla riga di comando o dal notebook Jupyter/Colab. Tuttavia, è chiaro come questo modo di procedere sia giocoforza limitante: cosa ne è di tutti i coloratissimi grafici che possiamo ammirare in siti ed articoli scientifici? *Saranno per caso relegati esclusivamente al mondo di Excel?*
 
-Nella realtà, per ottenerli dovremo necessariamente integrare il nostro ambiente di lavoro con altre librerie: ne esistono diverse, ma la più importante ed utilizzata è senza ombra di dubbio [Matplotlib](https://matplotlib.org/), cui si può affiancare [Seaborn](https://seaborn.pydata.org/), che tratteremo in una delle prossime lezioni.
+In realtà, per ottenerli dovremo necessariamente integrare il nostro ambiente di lavoro con altre librerie. Ne esistono diverse, ma la più utilizzata è senza dubbio [Matplotlib](https://matplotlib.org/), cui si può affiancare [Seaborn](https://seaborn.pydata.org/), che tratteremo in una delle [prossime lezioni](../05_seaborn/lecture.md).
 
-## 8.1 - Installazione della libreria
+## Setup della libreria
 
-Per prima cosa, installiamo le libreria. Al solito, potrete consultare le diverse opzioni in [appendice](../../appendix/02_libraries/lecture.md); qui riportiamo l'opzione di installazione mediante `pip`:
+Prima di utilizzare Matplotlib, dovremo ovviamente installare la libreria. Per farlo, abbiamo al solito le opzioni mostrate in [appendice](../../appendix/02_libraries/lecture.md); di seguito, riportiamo l'opzione di installazione tramite `pip`:
 
 ```sh
 pip install matplotlib
 ```
 
-Per importare la libreria all'interno del nostro codice, usiamo un alias:
+Passiamo poi ad importare la libreria all'interno del nostro programma. In particolare, il package più utilizzato è [`pyplot`](https://matplotlib.org/stable/tutorials/introductory/pyplot.html) che, come dice la documentazione, altro non è che un insieme di funzioni (palesemente) ispirate a MATLAB. Useremo quindi un alias per questo package:
 
 ```py
-import matplotlib.pylot as plt		# import di matplotlib
+import matplotlib.pylot as plt
 ```
 
-!!!note "L'API `pyplot`"
-	Sottolineamo l'uso dell'API [`pyplot`](https://matplotlib.org/stable/tutorials/introductory/pyplot.html) per Matplotlib al posto dell'API "standard". In tal modo, avremo a disposizione una serie di funzioni per il plot che ricorda molto quella usata dal MATLAB.
+Saremo a questo punto pronti per utilizzare le funzioni messe a disposizione da Matplotlib.
 
-## 8.2 - Il primo plot
+## Il primo plot
 
-Dopo aver installato la libreria, proviamo a creare il nostro primo plot. Per farlo, possiamo usare uno script, un terminale o un notebook, ed inserire il seguente codice:
+Per creare il nostro primo plot, utilizziamo il seguente codice:
 
 ```py linenums="1"
 rng = np.random.default_rng(42)
@@ -34,61 +33,81 @@ ax.plot(x, y)
 plt.show()
 ```
 
-Se tutto è andato per il verso giusto, dovremmo vedere a schermo questa immagine:
+In particolare:
 
-![first_plot](./images/first_plot.png){: .center}
+* alla riga 1, creiamo un generatore di numeri casuali;
+* alla riga 2, definiamo tutti i valori di `x` compresi nell'intervallo tra 1 e 5 usando la funzione `numpy.arange()`;
+* alla riga 3, definiamo tutti i valori di `y` come valori interi casuali compresi tra `0` e `10`;
+* alla riga 4, creiamo una `figure` ed un `axes` mediante il metodo [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html);
+* alla riga 5, effettuiamo il plot su `ax`, mettendo come ascissa i valori di `x`, e come ordinata quelli di `y`;
+* alla riga 6, chiamiamo il metodo [`show()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html) per mostrare a schermo il grafico ottenuto.
+
+Se tutto è andato per il verso giusto, dovremmo vedere a schermo l'immagine mostrata nella figura 1.
+
+<figure markdown>
+  ![first_plot](./images/first_plot.png){ width="450" }
+  <figcaption>Figura 1 - Un semplice plot in Matplotlib</figcaption>
+</figure>
 
 !!!tip "Suggerimento"
-	Dovreste vedere a schermo *esattamente* questa immagine perché nella generazione dei numeri casuali, che avviene alla riga 1, viene usato il seed `42`. Se provate ad usarne un altro, vedrete un'altra immagine.
+	Se avete seguito pedissequamente il tutorial, a schermo dovrebbe essere visualizzata *esattamente* l'immagine mostrata nella figura 1. Questo perché al generatore di numeri (pseudo) casuali viene passato il parametro `seed`, usato come base per la generazione degli stessi, che risulteranno quindi essere sempre gli stessi, indipendentemente dall'iterazione.
 
-Cerchiamo adesso di approfondire i concetti di funzionamento di Matplotlib.
+## Figure ed assi
 
-## 8.3 - Figure ed assi
+L'esempio precedente ci permette di illustrare in poche righe di codice tutti i concetti su cui si basa Matplotlib. Tuttavia, è opportuno scendere maggiormente nel dettaglio.
 
-Alla base del funzionamento di Matplotlib abbiamo quattro classi fondamentali.
+In particolare, alla base del funzionamento di Matplotlib ci sono quattro classi fondamentali.
 
-Per prima cosa, ci sono le `Figure`, che rappresentano l'intera *figura* mostrata da Matplotlib. Questa, ovviamente, terrà traccia di tutto ciò che vi è al suo interno, e potrà contenere un numero arbitrario degli elementi che vedremo a breve.
+#### La classe `Figure`
 
-Abbiamo poi gli `Axes`, oggetti che rappresentano il plot vero e proprio, ovvero la regione dell'immagine all'interno del quale vengono "disegnati" i dati. La relazione tra `Figure` ed `Axes` è strettamente gerarchica: una `Figure` può avere diversi `Axes`, ma ogni `Axes` appartiene esclusivamente ad una `Figure`.
+Per prima cosa, ci sono le [`Figure`](https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure), rappresentative dell'intera area mostrata a schermo da Matplotlib. Un oggetto di questa classe conterrà un numero arbitrario di elementi, permettendone visualizzazione e contestuale manipolazione.
 
-All'interno di un oggetto `Axes` troviamo poi due o tre oggetti di tipo `Axis`, ognuno dei quali rappresenta l'asse vero e proprio (in altri termini, $x$, $y$ e, per le figure tridimensionali, $z$). Gli oggetti `Axis` ci permettono quindi di definire gli intervalli dati, l'eventuale griglia, e via discorrendo.
+#### La classe `Axes`
 
-!!!warning "Attenzione"
-	Fate attenzione a non confondere gli `Axes` con gli `Axis`, nonostante l'infelice scelta dei nomi!
+Gli oggetti di classe [`Axes`](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes), rappresentano l'area della `Figure` all'interno della quale saranno visualizzati i dati. La relazione tra `Figure` ed `Axes` è strettamente gerarchica: in pratica, una `Figure` può avere diversi `Axes`, ma ogni `Axes` appartiene esclusivamente ad una `Figure`.
 
-In ultimo, abbiamo gli *artist*, che rappresentano *tutto* quello che è possibile visualizzare su una figura, incluso testo, label, plot, numeri, e via discorrendo.
+#### La classe `Axis`
 
-Torniamo brevemente al precedente snippet. Dopo aver importato i package necessari, ed aver creato un vettore di numeri interi casuali, abbiamo creato una `Figure` ed un `Axes` usando la funzione `subplots()`:
+All'interno di un oggetto `Axes` troviamo poi due o tre oggetti di tipo [`Axis`](https://matplotlib.org/stable/api/axis_api.html#axis-objects), ognuno dei quali rappresenta l'asse vero e proprio. In altri termini, avremo due `Axis` per i plot bidimensionali, rappresentativi degli assi $x$ ed $y$, ed un terzo `Axis` per i plot tridimensionali, rappresentativo ovviamente dell'asse $z$. Gli oggetti `Axis` ci permettono quindi di definire gli intervalli dati, l'eventuale griglia, e via discorrendo.
+
+!!!warning "`Axes` ed `Axis`"
+	Fate attenzione a non confondere gli `Axes` con gli `Axis`! In pratica: gli `Axes` sono i singoli plot, mentre gli `Axis` sono gli assi contenuti in ciascun plot.
+
+#### La classe `Artist`
+
+L'ultimo concetto fondamentale di Matplotlib è quello degli *artist*, oggetti derivati dalla classe base [`Artist`](https://matplotlib.org/stable/api/artist_api.html#artist-class), delegata al rendering vero e proprio dei plot.
+
+### Rivisitazione dell'esempio precedente
+
+Torniamo brevemente al precedente snippet. La funzione `subplots()` ci servirà quindi a creare un oggetto di tipo `Figure` assieme agli `Axes` desiderati:
 
 ```py
 fig, ax = plt.subplots()
 ```
 
-A quel punto, abbiamo effettuato il plot dei valori di `x` ed `y` su nostro oggetto `Axes`:
+A questo punto, possiamo plottare i valori di `x` ed `y` su nostro oggetto `Axes`, che conterrà a sua volta due `Axis`, uno per l'asse delle $x$, e l'altro per l'asse delle $y$:
 
 ```py
 ax.plot(x, y)
 ```
 
-In ultimo, abbiamo mostrato a schermo la figura usando la funzione `plt.show()`.
+Vediamo adesso qualche esempio più significativo
 
-Vediamo adesso qualche esempio maggiormente "corposo".
+## Esempio 1: Plot di più funzioni
 
-## 8.4 - Esempi con Matplotlib
+L'obiettivo di questo esempio è mostrare su uno stesso `Axes` due diverse funzioni. In particolare, scegliamo come funzioni da rappresentare una retta ed una funzione seno.
 
-### 8.4.1: Plot di più funzioni
+Per prima cosa, definiamo i nostri dati:
 
-In questo esempio, vogliamo mostrare sullo stesso `Axes` il plot di due diverse funzioni, in particolare una retta ed un seno. Ricordiamo che questo è possibile grazie al fatto che i plot vengono considerati degli artist, e quindi è possibile inserirne un numero arbitrario.
-
-Vediamo come fare. Per prima cosa, definiamo i nostri dati:
-
-```py
+```py linenums="1"
 x = np.arange(0., 10., 0.01)
 y_1 = 1 + 2 * x
 y_2 = np.sin(x)
 ```
 
-Notiamo che stiamo usando un unico vettore per le ascisse, di modo da fornire una base comune al nostro plot. Adesso, creiamo la nostra `Figure` con relativo `Axes`, ed effettuiamo il plot di entrambe le funzioni.
+Alla riga 1, definiamo l'intervallo sull'asse $x$ come quello compreso tra $0$ e $10$ e campionato a passo $0.01$. Così facendo, avremo un campionamento molto fitto, con un totale di $1000$ punti considerati. Alla riga 2 definiamo la nostra retta, la cui equazione sarà $y = 2x + 1$, mentre alla riga 3 andremo a definire la funzione seno.
+
+Adesso, creiamo la nostra `Figure` con relativo `Axes`, ed effettuiamo il plot di entrambe le funzioni.
 
 ```py
 fig, ax = plt.subplots()
@@ -96,7 +115,7 @@ ax.plot(x, y_1, label='Retta')
 ax.plot(x, y_2, label='Funzione sinusoidale')
 ```
 
-Notiamo che abbiamo impostato un parametro `label` che indica l'etichetta assegnata ai due plot; questa sarà utilizzata più tardi per generare la legenda. Passiamo adesso ad impostare il titolo e le label sugli assi $x$ e $y$ usando rispettivamente le funzioni `set_title()`, `set_xlabel()` e `set_ylabel()`:
+Notiamo la presenza del parametro `label` che indica l'etichetta assegnata ai due plot; questa sarà utilizzata successivamente per generare la legenda. Passiamo adesso ad impostare il titolo e le label sugli assi $x$ e $y$ usando rispettivamente le funzioni `set_title()`, `set_xlabel()` e `set_ylabel()`:
 
 ```py
 ax.set_title('Plot di due funzioni matematiche')
@@ -117,31 +136,37 @@ In ultimo, mostriamo a schermo la figura con la funzione `show()`:
 plt.show()
 ```
 
-Il risultato ottenuto è mostrato in figura.
+Il risultato ottenuto è mostrato in figura 2.
 
-![simple_plot](./images/simple_plot.png){: .center}
+<figure markdown>
+  ![simple_plot](./images/simple_plot.png){ width="450" }
+  <figcaption>Figura 2 - Plot di due funzioni</figcaption>
+</figure>
 
-### 8.4.2: Subplot
+## Esempio 2: Subplot multipli
 
-Abbiamo detto che possiamo definire più `Axes` per un'unica `Figure`; per farlo, possiamo parametrizzare la funzione `subplots(i, j)`, in maniera tale che vengano creati $i \times j$ plot all'interno della stessa figura.
+Alle volte, può essere conveniente affiancare più subplot all'interno di un unico plot principale. In tal senso, abbiamo in precedenza detto che possiamo definire più `Axes` per un'unica `Figure`; per farlo, possiamo parametrizzare la funzione `subplots(i, j)`, in maniera tale che vengano creati $i \times j$ plot all'interno della stessa figura.
 
-Per creare 2 subplot in "riga", ad esempio, usiamo questa istruzione:
+Per creare 2 subplot in "riga", ad esempio, parametrizzeremo `subplots()` come segue:
 
 ```py
 fig, (ax_1, ax_2) = plt.subplots(2, 1)
 ```
 
-Possiamo poi usare la funzione `suptitle()` per dare un titolo all'intera figura:
+Notiamo la presenza di due `Axes`, rispettivamente `ax_1` ed `ax_2`. Ognuno di questi potrà essere trattato come descritto in precedenza.
+
+Per prima cosa, usiamo la funzione `suptitle()` sulla `Figure` `fig` per dare un titolo all'intero plot:
 
 ```py
 fig.suptitle('Due subplot di più funzioni matematiche')
 ```
 
-A questo punto, procediamo ad effettuare i plot sui relativi assi nella solita maniera:
+A questo punto, procediamo ad effettuare i plot sui relativi assi:
 
 ```py
 # Primo subplot
 ax_1.plot(x, y_1, label='Retta')
+ax_1.set_xlabel('Asse x')
 ax_1.set_ylabel('Asse y')
 ax_1.legend()
 ax_1.grid()
@@ -151,19 +176,26 @@ ax_2.set_xlabel('Asse x')
 ax_2.set_ylabel('Asse y')
 ax_2.legend()
 ax_2.grid()
-# Mostro la figura
+```
+
+Mostriamo quindi a schermo il plot:
+
+```py
 plt.show()
 ```
 
-Il risultato sarà simile a quello mostrato in figura:
+Il risultato sarà simile a quello mostrato in figura 3:
 
-![multi_subplot](./images/multi_subplots.png){: .center}
+<figure markdown>
+  ![multi_subplot](./images/multi_subplot.png){ width="450" }
+  <figcaption>Figura 3 - Subplot multipli</figcaption>
+</figure>
 
-### 8.4.3: Rappresentazione di un istogramma
+## Esempio 3: Istogramma
 
-Abbiamo già parlato degli istogrammi in precedenza. Tuttavia, la loro vera potenza sta nella rappresentazione visiva che offrono, ed in tal senso Matplotlib ci viene in soccorso offrendoci la funzione `hist()`.
+Abbiamo già parlato degli [istogrammi in NumPy](../02_numpy/06_statistics/lecture.md#istogramma). Tuttavia, un istogramma raggiunge la massima espressività possibile quando ne si utilizza la rappresentazione visiva. In tal senso, Matplotlib ci offre una funzione apposita chiamata [`hist()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html).
 
-Per prima cosa, creiamo un vettore di interi.
+Proviamo ad utilizzarla. Per farlo, creiamo in primis un vettore di $1000$ numeri interi casuali compresi tra $0$ e $100$.
 
 ```py
 x = rng.integers(low=0, high=100, size=1000)
@@ -188,6 +220,79 @@ ax.set_title('Esempio di istogramma')
 plt.show()
 ```
 
-Il risultato sarà simile a quello mostrato nella figura successiva.
+Il risultato sarà simile a quello mostrato nella figura 4.
 
-![hist](./images/hist.png){: .center}
+<figure markdown>
+  ![hist](./images/hist.png){ width="450" }
+  <figcaption>Figura 4 - Istogramma</figcaption>
+</figure>
+
+## Esempio 4: Scatter plot
+
+Lo *scatter plot* è una modalità alternativa di mostrare la distribuzione dei dati lungo gli assi $x$, $y$ ed, opzionalmente, $z$. In particolare, questo tipo di visualizzazione differisce dal normale plot in quanto i singoli punti dati non sono collegati da una linea, ma rappresentati in modo discreto, ed è particolarmente utile quando si vuole valutare visivamente la distribuzione di una serie di dati in due o tre dimensioni. Ovviamente, Matplotlib ci mette a disposizione un'apposita funzione per la visualizzazione di questo tipo di plot, chiamata [`scatter()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html).
+
+Il funzionamento è totalmente analogo al `plot()`. Ad esempio, considerando i valori di `x` ed `y` utilizzati nel primo esempio del tutorial, potremmo generare uno scatter plot come segue:
+
+```py
+rng = np.random.default_rng(42)
+x = np.arange(1, 6)
+y = rng.integers(low=0, high=10, size=5)
+fig, ax = plt.subplots()
+ax.set_xlabel('Asse x')
+ax.set_ylabel('Asse y')
+ax.set_title('Esempio di scatter plot')
+ax.plot(x, y)
+plt.show()
+```
+
+Il risultato sarà simile a quello mostrato in figura 5.
+
+<figure markdown>
+  ![scatter](./images/scatter.png){ width="450" }
+  <figcaption>Figura 5 - Scatter plot</figcaption>
+</figure>
+
+## Note finali: salvataggio e chiusura di una figura
+
+Chiudiamo questa breve carrellata specificando che, per salvare una figura, è necessario usare la funzione [`savefig()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html), che accetta come primo parametro il nome del file su cui salveremo l'immagine:
+
+```py
+plt.savefig('file_name.png')
+```
+
+Oltre a questo, dei parametri molto utili da utilizzare sono `dpi`, che ci permette di specificare la risoluzione della figura, e `bbox_inches`, per il quale il suggerimento è di impostarlo a `tight` per evitare eccessivi spazi bianchi attorno alla figura (o, al contrario, il taglio di parti delle label).
+
+Infine, facciamo un cenno alla funzione [`close()`](https://matplotlib.org/2.1.2/api/_as_gen/matplotlib.pyplot.close.html), delegata alla chiusura di un oggetto di tipo `Figure`:
+
+```py
+plt.close()
+```
+
+La funzione `close()` assume particolare rilevanza nel momento in cui vogliamo, ad esempio, plottare diverse figure al variare di alcune condizioni, come ad esempio in un ciclo. Infatti, se non chiudessimo la figura attuale al termine di ciascuna iterazione, Matplotlib andrebbe a disegnare la nuova funzione *sempre sulla stessa figura*. Ad esempio:
+
+```py
+for i in range(5):
+	plt.plot(x, y*i)
+plt.show()
+```
+
+In questo caso, dato che non stiamo chiudendo la figura, avremo un risultato come visto in figura 6.
+
+<figure markdown>
+  ![not_close](./images/not_close.png){ width="450" }
+  <figcaption>Figura 6 - Plot senza l'invocazione di `close()`</figcaption>
+</figure>
+
+Se invece chiamassimo sempre la `close()`, all'ultima iterazione avremmo il plot mostrato in figura 7.
+
+```py
+for i in range(5):
+    plt.plot(x, y*i)
+    plt.show()
+    plt.close()
+```
+
+<figure markdown>
+  ![closed](./images/closed.png){ width="450" }
+  <figcaption>Figura 7 - Plot con l'invocazione di `close()`</figcaption>
+</figure>

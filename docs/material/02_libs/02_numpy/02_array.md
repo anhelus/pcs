@@ -1,8 +1,8 @@
-# 7.2 - Gli array
+# 2.2 - Gli array
 
-Nella lezione precedente abbiamo introdotto il concetto gli array, ovvero la struttura dati "centrale" nell'ecosistema di NumPy. In questa lezione (e nelle successive) ne approfondiremo aspetti e caratteristiche principali.
+Nella [lezione precedente](../01_intro/lecture.md) abbiamo introdotto il concetto gli array, ovvero la struttura dati "centrale" nell'ecosistema di NumPy. In questa lezione ne approfondiremo aspetti e caratteristiche principali.
 
-## 7.2.1 - Array e liste
+## Array e liste
 
 Di primo acchito, l'impressione che si può avere osservando gli array è che questi siano molto simili alle classiche liste. Tuttavia, come abbiamo già visto, esistono diverse differenze notevoli, riassumibili in linea di massima affermando che è preferibile usare un array quando si devono svolgere operazioni di tipo matematico su dati omogenei.
 
@@ -33,7 +33,7 @@ Notiamo infine che gli array non sono necessariamente numerici. Possiamo, ad ese
 array(['s1', 's2'], dtype='<U2')
 ```
 
-### 7.2.1.1 - Array eterogenei
+### Array eterogenei
 
 In precedenza si è accennato al fatto che gli array, a differenza delle liste, debbano contenere dati omogenei. Cosa succederebbe quindi se provassimo a passare al metodo `array()` una lista composta da dati di tipo eterogeneo? Partiamo verificando cosa accade ad esempio usando un intero ed un float.
 
@@ -58,7 +58,7 @@ Notiamo come anche in questo caso sia stata effettuata una conversione di tipo, 
 !!!note "Upcasting"
 	La regola da tenere a mente è che NumPy (e, in generale, Python) seguono il principio dell'*upcasting*: in altre parole, quando deve essere fatta una conversione tra diversi tipi di dati, si fa in modo di scegliere il tipo a più alta precisione, minimizzando i rischi di perdita di informazioni.
 
-## 7.2.2 - Il numero di elementi di un array
+## Il numero di elementi di un array
 
 Gli array NumPy hanno dimensione prefissata, e sono quindi in grado di contenere un numero fisso di oggetti di un certo tipo. Per definire (o conoscere) questo valore si utilizza una proprietà chiamata `shape` che, a grandi linee, rappresenta la *forma* dell'array. La shape di un array è in pratica una tupla di numeri interi, ovviamente non negativi, ciascuno dei quali determina il numero di elementi per ciascuna delle dimensioni dell'array.
 
@@ -80,7 +80,7 @@ Vediamo che valore assume la proprietà `shape` di questo array:
 
 Come ci aspettavamo, il nostro array ha cardinalità due sulla prima dimensione (ovvero il numero di righe) e tre sulla seconda (ovvero il numero di colonne).
 
-## 7.2.3 - Altri metodi per creare un array
+## Altri metodi per creare un array
 
 Oltre al metodo visto in precedenza, possiamo creare un array utilizzando direttamente il costruttore della classe `ndarray`:
 
@@ -99,7 +99,7 @@ Notiamo che il costruttore accetta una lista contenente la shape dell'array, che
 
 Oltre a questa tecnica base, esistono diversi modi per creare array di un certo tipo. Vediamoli in breve.
 
-### 7.2.3.1 - Array con valori zero ed unitari
+### Array con valori zero ed unitari
 
 Possiamo creare un array di dimensioni arbitrarie in cui tutti gli elementi sono pari ad 1. Per farlo, usiamo la funzione `ones()`:
 
@@ -121,7 +121,7 @@ array([[0., 0., 0.],
        [0., 0., 0.]])
 ```
 
-### 7.2.3.2 - Array vuoti
+### Array vuoti
 
 Possiamo creare un array vuoto mediante la funzione `empty()`:
 
@@ -138,7 +138,7 @@ Questa funzione può risultare utile quando vogliamo preallocare spazio per un a
 !!!note "Nota"
     I più attenti avranno notato che, in realtà, l'array generato da `empty()` non è vuoto, ma contiene valori casuali. In tal senso, dà risultati equivalenti all'uso diretto del costruttore `ndarray()`.
 
-### 7.2.3.4 - Matrice identità
+### Matrice identità
 
 Possiamo creare una matrice identità usando la funzione `eye()`:
 
@@ -153,7 +153,7 @@ array([[1., 0., 0.],
 !!!warning "Attenzione"
     In questo caso, notiamo come non si possa passare una tupla o una lista per indicare le dimensioni dell'array. Tuttavia, possiamo specificare sia il numero delle righe (con il primo parametro) che il numero delle colonne (con il secondo parametro).
 
-### 7.2.3.5 - Matrici diagonali
+### Matrici diagonali
 
 La funzione `diag()` viene usata sia per *creare* una matrice diagonale a partire da un vettore (che, ovviamente, sarà poi la diagonale della matrice), sia per *estrarre* la diagonale di una matrice. Per capire questa dualità, immaginiamo per prima cosa di avere a disposizione un vettore riga a tre elementi, che vogliamo trasformare in modo tale che si comporti come la diagonale di una matrice.
 
@@ -197,7 +197,7 @@ array([5, 1, 6])
 !!!warning "Attenzione"
     Ovviamente, la funzione `diag()` accetta solo input monodimensionali (vettori) e bidimensionali (matrici)!
 
-### 7.2.3.6 - Matrici triangolari
+### Matrici triangolari
 
 Concludiamo questa breve carrellata mostrando due metodi in grado di estrarre la matrice triangolare, rispettivamente superiore ed inferiore.
 
@@ -224,7 +224,7 @@ array([[5, 0, 0],
 !!!tip "Suggerimento"
     In questo caso, le funzioni `tril()` e `triu()` possono tranquillamente essere applicate agli array n-dimensionali. Inoltre, non è richiesto le diverse dimensioni dell'array abbiano la stessa cardinalità.
 
-## 7.2.4 - Accesso agli elementi di un array
+## Accesso agli elementi di un array
 
 Così come per le liste, il modo più immediato per accedere al valore di un elemento in un array è usare l'operatore `[]`, specificando contestualmente l'indice dell'elemento cui si vuole accedere. Ad esempio, per selezionare il primo elemento di un vettore:
 
@@ -242,7 +242,7 @@ Nel caso di array ad $n$ dimensioni, è necessario indicare l'indice per ciascun
 1
 ```
 
-## 7.2.5 - Maschere booleane
+## Maschere booleane
 
 Possiamo accedere ad un sottoinsieme di elementi dell'array mediante una "maschera", ovvero un altro array, di dimensioni uguali a quelle di partenza, al cui interno sono presenti esclusivamente dei valori booleani. Così facendo, estrarremo soltanto gli elementi la cui corrispondente posizione all'interno della maschera ha valore `True`. Ad esempio, possiamo selezionare tutti gli elementi appartenenti alla prima colonna dell'array `b`:
 
@@ -279,7 +279,7 @@ array([2, 4])
 array([2, 3])
 ```
 
-## 7.2.6 - Slicing degli array
+## Slicing degli array
 
 Così come le liste, anche gli array consentono le operazioni di slicing:
 
@@ -299,7 +299,7 @@ array([[1, 2],
 array([[1, 2]])
 ```
 
-## 7.2.7 - La funzione `nonzero()`
+## La funzione `nonzero()`
 
 Possiamo usare la funzione `nonzero()` per selezionare gli elementi e gli indici di un array il cui valore non sia pari a zero. Ad esempio:
 
@@ -333,7 +333,7 @@ La funzione `nonzero()` restituisce una tupla con gli indici per riga e colonna 
     [(0, 0), (1, 1), (2, 0), (2, 1)]
     ```
 
-## 7.2.7 - Fancy indexing
+## Fancy indexing
 
 Chiudiamo questa lezione parlando di una tecnica molto interessante chiamata *fancy indexing*, consistente nell'usare un array di indici per accedere a più elementi contemporaneamente. Ad esempio:
 
