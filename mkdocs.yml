@@ -25,8 +25,8 @@ nav:
       - 2.2 - Gli Array: material/02_libs/02_numpy/02_array.md
       - 2.3 - Operazioni fondamentali sugli array: material/02_libs/02_numpy/03_fundamentals.md
       - 2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra/lecture.md
-      - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials.md
-      - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics.md
+      - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials/lecture.md
+      - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics/lecture.md
       - Esercizi: material/02_libs/02_numpy/exercises/exercises.md
     - 3 - Matplotlib: material/02_libs/03_matplotlib/lecture.md
     - 4 - Pandas: material/02_libs/04_pandas/lecture.md
@@ -84,12 +84,13 @@ nav:
   # #   - 29 - Introduzione alle serie temporali:
   # #     - Dispense: material/05_time_series/29_ts/lecture.md
   - Appendici:
-    - A - Installazione di Python e Visual Studio Code: material/appendix/01_python_vs_code/guide.md
-    - B - Le librerie in Python: material/appendix/02_libraries/lecture.md
-    - C - Ambito di una variabile: material/appendix/03_scope/lecture.md
-    - D - Programmazione orientata agli oggetti: material/appendix/04_oop/lecture.md
-    - E - Tips: material/appendix/05_tips/lecture.md
-    - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
+    - A - Setup di Python e Visual Studio Code: material/appendix/01_python_vs_code/lecture.md
+    - B - Setup di TensorFlow: material/appendix/02_setup_tflow/lecture.md
+    - B - Le librerie in Python: material/appendix/03_libraries/lecture.md
+    - C - Ambito di una variabile: material/appendix/04_scope/lecture.md
+    - D - Programmazione orientata agli oggetti: material/appendix/05_oop/lecture.md
+    - E - Tips: material/appendix/06_tips/lecture.md
+    # - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
   - Ringraziamenti: contributors.md
 
 theme:
