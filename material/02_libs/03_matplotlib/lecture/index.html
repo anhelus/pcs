@@ -15,7 +15,7 @@
         <link rel="next" href="../../04_pandas/lecture/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.14">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
@@ -612,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/05_polynomials.md" class="md-nav__link">
+      <a href="../../02_numpy/05_polynomials/lecture/" class="md-nav__link">
         2.5 - Polinomi in NumPy
       </a>
     </li>
@@ -626,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_numpy/06_statistics.md" class="md-nav__link">
+      <a href="../../02_numpy/06_statistics/lecture/" class="md-nav__link">
         2.6 - Statistica in NumPy
       </a>
     </li>
@@ -904,8 +904,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/01_python_vs_code/guide/" class="md-nav__link">
-        A - Installazione di Python e Visual Studio Code
+      <a href="../../../appendix/01_python_vs_code/lecture/" class="md-nav__link">
+        A - Setup di Python e Visual Studio Code
       </a>
     </li>
   
@@ -918,7 +918,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/02_libraries/lecture/" class="md-nav__link">
+      <a href="../../../appendix/02_setup_tflow/lecture/" class="md-nav__link">
+        B - Setup di TensorFlow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/03_libraries/lecture/" class="md-nav__link">
         B - Le librerie in Python
       </a>
     </li>
@@ -932,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/03_scope/lecture/" class="md-nav__link">
+      <a href="../../../appendix/04_scope/lecture/" class="md-nav__link">
         C - Ambito di una variabile
       </a>
     </li>
@@ -946,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/04_oop/lecture/" class="md-nav__link">
+      <a href="../../../appendix/05_oop/lecture/" class="md-nav__link">
         D - Programmazione orientata agli oggetti
       </a>
     </li>
@@ -960,22 +974,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../appendix/05_tips/lecture/" class="md-nav__link">
+      <a href="../../../appendix/06_tips/lecture/" class="md-nav__link">
         E - Tips
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../appendix/06_argparse/lecture.md" class="md-nav__link">
-        F - Il modulo argparse
       </a>
     </li>
   
@@ -1117,7 +1117,7 @@
 <p>Nelle lezioni precedenti, ci siamo limitati a visualizzare i risultati ottenuti usando l'output fornito dalla riga di comando o dal notebook Jupyter/Colab. Tuttavia, è chiaro come questo modo di procedere sia giocoforza limitante: cosa ne è di tutti i coloratissimi grafici che possiamo ammirare in siti ed articoli scientifici? <em>Saranno per caso relegati esclusivamente al mondo di Excel?</em></p>
 <p>In realtà, per ottenerli dovremo necessariamente integrare il nostro ambiente di lavoro con altre librerie. Ne esistono diverse, ma la più utilizzata è senza dubbio <a href="https://matplotlib.org/">Matplotlib</a>, cui si può affiancare <a href="https://seaborn.pydata.org/">Seaborn</a>, che tratteremo in una delle <a href="../../05_seaborn/lecture/">prossime lezioni</a>.</p>
 <h2 id="setup-della-libreria">Setup della libreria<a class="headerlink" href="#setup-della-libreria" title="Permanent link">&para;</a></h2>
-<p>Prima di utilizzare Matplotlib, dovremo ovviamente installare la libreria. Per farlo, abbiamo al solito le opzioni mostrate in <a href="../../../appendix/02_libraries/lecture/">appendice</a>; di seguito, riportiamo l'opzione di installazione tramite <code>pip</code>:</p>
+<p>Prima di utilizzare Matplotlib, dovremo ovviamente installare la libreria. Per farlo, abbiamo al solito le opzioni mostrate in <a href="../../appendix/02_libraries/lecture.md">appendice</a>; di seguito, riportiamo l'opzione di installazione tramite <code>pip</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>matplotlib
 </code></pre></div>
 <p>Passiamo poi ad importare la libreria all'interno del nostro programma. In particolare, il package più utilizzato è <a href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html"><code>pyplot</code></a> che, come dice la documentazione, altro non è che un insieme di funzioni (palesemente) ispirate a MATLAB. Useremo quindi un alias per questo package:</p>

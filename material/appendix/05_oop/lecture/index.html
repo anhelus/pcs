@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../../02_libraries/lecture/">
+        <link rel="prev" href="../../04_scope/lecture/">
       
       
-        <link rel="next" href="../../04_oop/lecture/">
+        <link rel="next" href="../../06_tips/lecture/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.14">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
-        <title>C - Ambito di una variabile - Python</title>
+        <title>D - Programmazione orientata agli oggetti - Python</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#appendice-c-ambito-di-una-variabile" class="md-skip">
+        <a href="#appendice-d-principi-di-programmazione-orientata-agli-oggetti" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C - Ambito di una variabile
+              D - Programmazione orientata agli oggetti
             
           </span>
         </div>
@@ -610,7 +610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02_libs/02_numpy/05_polynomials.md" class="md-nav__link">
+      <a href="../../../02_libs/02_numpy/05_polynomials/lecture/" class="md-nav__link">
         2.5 - Polinomi in NumPy
       </a>
     </li>
@@ -624,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02_libs/02_numpy/06_statistics.md" class="md-nav__link">
+      <a href="../../../02_libs/02_numpy/06_statistics/lecture/" class="md-nav__link">
         2.6 - Statistica in NumPy
       </a>
     </li>
@@ -801,8 +801,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_python_vs_code/guide/" class="md-nav__link">
-        A - Installazione di Python e Visual Studio Code
+      <a href="../../01_python_vs_code/lecture/" class="md-nav__link">
+        A - Setup di Python e Visual Studio Code
       </a>
     </li>
   
@@ -815,8 +815,36 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02_libraries/lecture/" class="md-nav__link">
+      <a href="../../02_setup_tflow/lecture/" class="md-nav__link">
+        B - Setup di TensorFlow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_libraries/lecture/" class="md-nav__link">
         B - Le librerie in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_scope/lecture/" class="md-nav__link">
+        C - Ambito di una variabile
       </a>
     </li>
   
@@ -839,12 +867,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          C - Ambito di una variabile
+          D - Programmazione orientata agli oggetti
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        C - Ambito di una variabile
+        D - Programmazione orientata agli oggetti
       </a>
       
         
@@ -863,15 +891,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c1-prima-modifica" class="md-nav__link">
-    C1 - Prima modifica
+  <a href="#la-classe-persona" class="md-nav__link">
+    La classe Persona
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c2-seconda-modifica" class="md-nav__link">
-    C2 - Seconda modifica
+  <a href="#concetto-1-ereditarieta" class="md-nav__link">
+    Concetto 1: Ereditarietà
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetto-2-incapsulamento" class="md-nav__link">
+    Concetto 2: Incapsulamento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetto-3-polimorfismo" class="md-nav__link">
+    Concetto 3: Polimorfismo
   </a>
   
 </li>
@@ -891,36 +933,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04_oop/lecture/" class="md-nav__link">
-        D - Programmazione orientata agli oggetti
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05_tips/lecture/" class="md-nav__link">
+      <a href="../../06_tips/lecture/" class="md-nav__link">
         E - Tips
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../06_argparse/lecture.md" class="md-nav__link">
-        F - Il modulo argparse
       </a>
     </li>
   
@@ -975,15 +989,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c1-prima-modifica" class="md-nav__link">
-    C1 - Prima modifica
+  <a href="#la-classe-persona" class="md-nav__link">
+    La classe Persona
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#c2-seconda-modifica" class="md-nav__link">
-    C2 - Seconda modifica
+  <a href="#concetto-1-ereditarieta" class="md-nav__link">
+    Concetto 1: Ereditarietà
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetto-2-incapsulamento" class="md-nav__link">
+    Concetto 2: Incapsulamento
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concetto-3-polimorfismo" class="md-nav__link">
+    Concetto 3: Polimorfismo
   </a>
   
 </li>
@@ -1003,69 +1031,47 @@
                   
 
 
-<h1 id="appendice-c-ambito-di-una-variabile">Appendice C - Ambito di una variabile<a class="headerlink" href="#appendice-c-ambito-di-una-variabile" title="Permanent link">&para;</a></h1>
-<p>All'interno di un programma ogni variabile ha una sorta di "ciclo di vita", che ne prevede la creazione, utilizzo e, infine, distruzione.</p>
-<p>L'intero script ha un ambito definito come <em>globale</em>: ciò significa che tutte le variabili specificate nel corpo "principale" dello script hanno validità in tutto il nostro codice. Le singole funzioni, invece, definiscono un ambito <em>locale</em>, creato alla chiamata della funzione, e distrutto al termine della stessa.</p>
-<p>Facciamo un esempio. Definiamo una funzione <code>calcolo_voto_accesso_laurea</code> che accetta in ingresso un argomento, ovvero la lista con i voti degli esami.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">calcolo_voto_accesso_laurea</span><span class="p">(</span><span class="n">voti_esami</span><span class="p">):</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">somma_voti</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">for</span> <span class="n">voto</span> <span class="ow">in</span> <span class="n">voti_esami</span><span class="p">:</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">somma_voti</span> <span class="o">+=</span> <span class="n">voto</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">voto_medio</span> <span class="o">=</span> <span class="n">somma_voti</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">voti_esami</span><span class="p">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">voto_accesso</span> <span class="o">=</span> <span class="n">voto_medio</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">return</span> <span class="n">voto_accesso</span>
-</code></pre></div>
-<p>Proviamo a chiamarla.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">lista_voti</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Il voto di accesso è: &#39;</span><span class="p">,</span> <span class="n">calcolo_voto_accesso_laurea</span><span class="p">(</span><span class="n">lista_voti</span><span class="p">))</span>
-</code></pre></div>
-<p>A schermo vedremo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Il</span> <span class="n">voto</span> <span class="n">di</span> <span class="n">accesso</span> <span class="n">è</span><span class="p">:</span>  <span class="mf">86.16666666666666</span>
-</code></pre></div>
-<h2 id="c1-prima-modifica">C1 - Prima modifica<a class="headerlink" href="#c1-prima-modifica" title="Permanent link">&para;</a></h2>
-<p>Facciamo una prima modifica:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">lista_voti</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">def</span> <span class="nf">calcolo_voto_accesso_laurea</span><span class="p">(</span><span class="n">voti_esami</span><span class="p">):</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;La lista dei voti è: </span><span class="si">{</span><span class="n">lista_voti</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">somma_voti</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="k">for</span> <span class="n">voto</span> <span class="ow">in</span> <span class="n">voti_esami</span><span class="p">:</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="n">somma_voti</span> <span class="o">+=</span> <span class="n">voto</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">voto_medio</span> <span class="o">=</span> <span class="n">somma_voti</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">voti_esami</span><span class="p">)</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">voto_accesso</span> <span class="o">=</span> <span class="n">voto_medio</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">return</span> <span class="n">voto_accesso</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Il voto di accesso è: &#39;</span><span class="p">,</span> <span class="n">calcolo_voto_accesso_laurea</span><span class="p">(</span><span class="n">lista_voti</span><span class="p">))</span>
-</code></pre></div>
-<p>Adesso vedremo a schermo due valori:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">La</span> <span class="n">lista</span> <span class="n">dei</span> <span class="n">voti</span> <span class="n">è</span><span class="p">:</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">Il</span> <span class="n">voto</span> <span class="n">di</span> <span class="n">accesso</span> <span class="n">è</span><span class="p">:</span>  <span class="mf">86.16666666666666</span>
-</code></pre></div>
-<h2 id="c2-seconda-modifica">C2 - Seconda modifica<a class="headerlink" href="#c2-seconda-modifica" title="Permanent link">&para;</a></h2>
-<p>Proviamo a modificare ancora il codice:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">lista_voti</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">def</span> <span class="nf">calcolo_voto_accesso_laurea</span><span class="p">(</span><span class="n">voti_esami</span><span class="p">):</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">somma_voti</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="k">for</span> <span class="n">voto</span> <span class="ow">in</span> <span class="n">voti_esami</span><span class="p">:</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        <span class="n">somma_voti</span> <span class="o">+=</span> <span class="n">voto</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">voto_medio</span> <span class="o">=</span> <span class="n">somma_voti</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">voti_esami</span><span class="p">)</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">voto_accesso</span> <span class="o">=</span> <span class="n">voto_medio</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">11</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="k">return</span> <span class="n">voto_accesso</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Il voto medio è: &#39;</span><span class="p">,</span> <span class="n">voto_medio</span><span class="p">)</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Il voto di accesso è: &#39;</span><span class="p">,</span> <span class="n">calcolo_voto_accesso_laurea</span><span class="p">(</span><span class="n">lista_voti</span><span class="p">))</span>
-</code></pre></div>
-<p>Adesso vedremo a schermo il seguente risultato:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;voto_medio&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">Il</span> <span class="n">voto</span> <span class="n">di</span> <span class="n">accesso</span> <span class="n">è</span><span class="p">:</span>  <span class="mf">86.16666666666666</span>
-</code></pre></div>
-<p>Cosa è successo? Andiamo un attimo a ritroso, e partiamo dalla prima modifica.</p>
-<p>In questo caso, infatti, abbiamo provato ad accedere alla variabile <em>globale</em> <code>lista_voti</code>, definita nel corpo "principale" dello script, dall'interno della funzione <code>calcola_voto_accesso_laurea</code>. Ciò è evidentemente possibile, in quanto possiamo accedere ad una variabile globale da un ambito locale.</p>
-<p>Il contrario, tuttavia, non è possibile: infatti, nella seconda modifica, proviamo ad accedere ad una variabile locale alla funzione <code>calcola_voto_accesso_laurea</code> dall'esterno della funzione stessa. Questo non può avvenire, perché le variabili locali "scompaiono" al termine della funzione in cui sono definite, per cui l'interprete ci darà un errore.</p>
+<h1 id="appendice-d-principi-di-programmazione-orientata-agli-oggetti">Appendice D - Principi di Programmazione Orientata agli Oggetti<a class="headerlink" href="#appendice-d-principi-di-programmazione-orientata-agli-oggetti" title="Permanent link">&para;</a></h1>
+<p>La programmazione orientata agli oggetti (in inglese <em>object-oriented programming</em>, <em>OOP</em>) è un paradigma di programmazione che sposta il focus dalle <em>funzioni</em> ai <em>dati</em>. In particolare, la OOP prevede che tutto sia un <em>oggetto</em>: una qualsiasi variabile è interpretata come un oggetto, così come anche le funzioni stesse (in alcuni linguaggi).</p>
+<p>Ciò si estende ovviamente anche ai tipi definiti dall'utente, che assumono il nome di <em>classi</em>. Facciamo un esempio.</p>
+<h2 id="la-classe-persona">La classe <code>Persona</code><a class="headerlink" href="#la-classe-persona" title="Permanent link">&para;</a></h2>
+<p>Immaginiamo di voler definire una struttura dati che contenga al suo interno le informazioni necessarie a definire una persona, come nome, cognome, genere ed età. Per farlo, ovviamente, dovremo "unire" tra di loro diversi dati primitivi: potremo usare una stringa per il nome, una per il cognome, una per il genere e, infine, un intero per l'età.</p>
+<p>In tal senso, possiamo creare quindi la <em>classe</em> <code>Persona</code>, che avrà quattro <em>attributi</em>, come mostrato in figura.</p>
+<p><img alt="tab_persona" class="center" src="../images/tab_persona.png" /></p>
+<p>Sottolineamo come una classe rappresenti <em>tutte le possibili persone</em>: infatti, si cerca di creare delle strutture dati <em>generiche</em>, che abbiano degli attributi comuni a tutte le possibili <em>istanze</em>. Nel nostro caso, sappiamo che ogni persona ha un nome, un cognome, un genere ed un'età, quindi usiamo questi quattro valori come attributi di classe.</p>
+<div class="admonition note">
+<p class="admonition-title">Differenza tra classe ed istanza</p>
+<p>Abbiamo detto che una classe rappresenta tutte le possibili istanze della stessa. Ciò si traduce, nel nostro esempio, nel fatto che la classe <code>Persona</code> è in grado di rappresentare tutte le persone, e un'istanza della classe <code>Persona</code> è una singola variabile, o oggetto, che rappresenta una certa persona. Per capirci: un'istanza di <code>Persona</code> è "Angelo, Cardellicchio, Uomo, 37", mentre un'altra istanza è data da "Frank, Hood, Uomo, 42", un'altra ancora da "Camilla, Lilla, Donna, 55", e così via.</p>
+</div>
+<p>Ovviamente, potremo in qualche modo agire con degli opportuni <em>metodi</em> su questi attributi. Ad esempio, se avessimo a disposizione anche il luogo e la data di nascita, potremmo creare un metodo <code>calcola_cf</code> che, per l'appunto, permette di generare il codice fiscale di una singola istanza.</p>
+<p>Oltre al concetto di classe, tuttavia, la OOP definisce altri tre concetti base. Vediamoli di seguito.</p>
+<h2 id="concetto-1-ereditarieta">Concetto 1: Ereditarietà<a class="headerlink" href="#concetto-1-ereditarieta" title="Permanent link">&para;</a></h2>
+<p>Per <em>ereditarietà</em> si intende la capacità di una classe di "discendere" da un'altra. Non dobbiamo, però, pensare al nostro albero genealogico: infatti, noi abbiamo <em>parte</em> delle caratteristiche di ciascuno dei nostri genitori, mentre una classe figlia eredita <em>in toto</em> le caratteristiche di una classe madre.</p>
+<p>Ad esempio, potremmo definire la classe <code>Studente</code> come figlia della classe <code>Persona</code>, cui aggiungerà i seguenti attributi:</p>
+<p><img alt="tab_studente" class="center" src="../images/tab_studente.png" /></p>
+<p>Possiamo visualizzare questa relazione in ordine gerarchico come segue:</p>
+<p><img alt="hier_persona" class="center" src="../images/hier_persona.png" /></p>
+<p>Da notare che la classe <code>Studente</code> può aggiungere anche dei metodi, oltre che degli attributi a quelli offerti da <code>Persona</code>, come ad esempio <code>genera_media_voto</code>.</p>
+<p>In ultimo, notiamo come ogni istanza di <code>Studente</code> è un'istanza di <code>Persona</code>, <em>ma non è vero il contrario</em>, e quindi non tutte le persone sono degli studenti. Per aiutarci a comprendere questo concetto, possiamo visualizzare gli insiemi delle istanze di <code>Persona</code> e di <code>Studente</code>:</p>
+<p><img alt="set_persona" class="center" src="../images/set_persona.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Generalizzazione e specializzazione</p>
+<p>La relazione di ereditarietà può anche essere vista in termini di <em>generalizzazione</em> e <em>specializzazione</em>. In questo contesto, la classe <code>Studente</code> è una <em>specializzazione</em> di <code>Persona</code>, in quanto sottende ad un insieme più specifico; al contrario, le persone sono viste come una <em>generalizzazione</em> degli studenti.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Ereditarietà multipla e multilivello</p>
+<p>Alcuni linguaggi, compreso Python, offrono la possibilità di ereditare da più classi; tale concetto è chiamato <em>ereditarietà multipla</em>. Se invece stabiliamo una vera e propria gerarchia di classi, con una classe "nonna", una "madre" ed una "figlia", avremo una struttura <em>multilivello</em>.</p>
+</div>
+<h2 id="concetto-2-incapsulamento">Concetto 2: Incapsulamento<a class="headerlink" href="#concetto-2-incapsulamento" title="Permanent link">&para;</a></h2>
+<p>Il concetto di <em>incapsulamento</em> prevede che sia possibile accedere ad un metodo (o anche ad un attributo) di una classe <em>esclusivamente mediante la sua interfaccia verso il mondo esterno</em>. Vediamo cosa significa.</p>
+<p>Immaginiamo di voler calcolare il codice fiscale di una persona: dovremo seguire una procedura ben precisa e moderatamente complessa, che potremo tranquillamente "nascondere" al codice che usa la classe <code>Persona</code>, il quale dovrà semplicemente invocare il metodo <code>calcola_cf</code>. Tuttavia, se volessimo seguire il principio di modularità, che ci suggerisce di "suddividere" funzioni complesse in maniera tale da renderle più semplici, dovremmo creare altre funzioni ausiliarie, che potrebbero calcolare la rappresentazione di nome e cognome (<code>calcola_nc</code>) e i dati alfanumerici derivanti da luogo e data di nascita (<code>calcola_ld</code>). Ovviamente, non vi è il bisogno di accedere dall'esterno della classe a questi metodi, in quanto hanno valenza esclusiva nell'ambito del calcolo del codice fiscale: per questo motivo, li si potrà dichiarare come <em>privati</em>, e potranno essere acceduti <em>soltanto dall'interno della classe</em>.</p>
+<p>In questo modo, la classe mantiene un'interfaccia <em>stabile</em> ed <em>essenziale</em> verso l'esterno: il codice che usa la classe avrà sempre un punto di accesso ben definito e, nel caso si debbano modificare dei comportamenti interni alla classe, non sarà influenzato da dette modifiche. Ad esempio, infatti, se per qualche motivo si decidesse di cambiare l'ordine con cui si mostrano nel codice fiscale la rappresentazione del cognome e del nome, basterebbe modificare il metodo <code>calcola_nome_cognome_codice_fiscale</code>, ed il resto dell'implementazione (sia della classe, sia del codice chiamante) non ne sarebbe influenzata.</p>
+<p><img alt="encapsulation" class="center" src="../images/encapsulation.png" /></p>
+<h2 id="concetto-3-polimorfismo">Concetto 3: Polimorfismo<a class="headerlink" href="#concetto-3-polimorfismo" title="Permanent link">&para;</a></h2>
+<p>Il concetto di <em>polimorfismo</em> prevede che sia possibile modificare il comportamento associato ad un metodo a seconda della classe che lo utilizza.</p>
+<p>Immaginiamo ad esempio di specializzare la classe <code>Studente</code> in due ulteriori rappresentazioni, ovvero <code>StudenteUniversitario</code> e <code>StudenteScolastico</code>. Ovviamente, il metodo <code>genera_media_voto</code> sarà ereditato da entrambe le classi; tuttavia, l'implementazione dovrà essere necessariamente differente, in quanto la media di laurea è pesata in modo diverso rispetto alla classica media aritmetica usata nelle scuole fino alla secondaria.</p>
+<p>Il polimorfismo ci permette di raggiungere questo obiettivo: potremo effettuare una procedura di <em>override</em> del metodo <code>genera_media_voto</code> che, pur conservando la stessa firma, avrà differenti implementazioni nelle classi <code>StudenteUniversitario</code> e <code>StudenteScolastico</code>. Ovviamente, il fatto che il metodo conservi la stessa firma rappresenta un vantaggio paragonabile a quello ottenuto mediante il polimorfismo: infatti, un programmatore potrà usare il metodo <code>genera_media_voto</code> alla stessa maniera per uno studente universitario ed uno di scuola media secondaria, senza per questo dover tenere a mente due diverse interfacce.</p>
+<p><img alt="polymorphism" class="center" src="../images/polymorphism.png" /></p>
 
 
   
