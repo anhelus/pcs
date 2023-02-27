@@ -2,8 +2,8 @@
 
 ## Esercizi sugli array
 
-!!!tip "Disponibilità soluzioni"
-    Tutte le soluzioni sono disponibili in [questo notebook](./exercises.ipynb).
+!!!tip "Soluzioni"
+    Le soluzioni a questi esercizi sono disponibili in [questo notebook](../../../notebooks/04_numpy_exercises.ipynb).
 
 ### Esercizio 3.1
 

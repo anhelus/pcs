@@ -28,12 +28,12 @@ nav:
       - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials/lecture.md
       - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics/lecture.md
       - Esercizi: material/02_libs/02_numpy/exercises/exercises.md
-    - 3 - Matplotlib: material/02_libs/03_matplotlib/lecture.md
-    - 4 - Pandas: material/02_libs/04_pandas/lecture.md
-    - 5 - Seaborn: material/02_libs/05_seaborn/lecture.md
-    - 6 - SciPy: material/02_libs/06_scipy/lecture.md
-  - Modulo 3 - Concetti di machine learning:
-    - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
+  #   - 3 - Matplotlib: material/02_libs/03_matplotlib/lecture.md
+  #   - 4 - Pandas: material/02_libs/04_pandas/lecture.md
+  #   - 5 - Seaborn: material/02_libs/05_seaborn/lecture.md
+  #   - 6 - SciPy: material/02_libs/06_scipy/lecture.md
+  # - Modulo 3 - Concetti di machine learning:
+  #   - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
   # - Parte 3 - Introduzione al machine learning:
   #   - 3.1 - Introduzione al machine learning: material/03_ml_sklearn/12_intro_ml/lecture.md
   #   - 3.2 - Definizione del problema: material/03_ml_sklearn/13_framing/lecture.md

@@ -1,8 +1,8 @@
-# 10 - Visualizzazione di dati in Seaborn
+# 5 - Visualizzazione di dati in Seaborn
 
 *Seaborn* è una libreria che estende [Matplotlib](../08_matplotlib/lecture.md) aggiungendone diverse funzionalità, tutte nell'ottica della data analysis, e sulla scia di quello che abbiamo presentato in Pandas nella lezione precedente. Ciò permette quindi di mantenere un'interfaccia molto simile a quella di Matplotlib, estendendone al contempo le possibilità. Vediamo qualche esempio.
 
-## 10.1 - Installazione della libreria
+## Installazione della libreria
 
 Come in ogni altro caso, partiamo dall'installazione della libreria:
 
@@ -16,7 +16,7 @@ Una volta installata, potremo importarla utilizzando un alias:
 import seaborn as sns
 ```
 
-## 10.1 - Lettura dei dati
+## Lettura dei dati
 
 Abbiamo detto che Seaborn è utile specialmente nel momento in cui si vogliono valutare visiamente le relazioni che intercorrono tra diverse feature presenti all'interno di un dataset.
 
@@ -46,7 +46,7 @@ La struttura della tabella è la seguente:
 * ogni riga è associata ad una specifica ordinazione;
 * le colonne sono associate rispettivamente a conto (`total_bill`), mancia (`tip`), genere (`sex`), fumatore (smoker), giorno (`day`), orario (`time`) e numero di attendenti (`size`).
 
-### 10.1.1 - Visualizzare le relazioni tra dati
+### Visualizzare le relazioni tra dati
 
 Seaborn ci offre la funzione `relplot()` che ci permette di analizzare velocemente diversi aspetti inclusi del dataset. Ad esempio, potremmo vedere come cambiano contro e mancia al variare della giornata:
 
@@ -89,7 +89,7 @@ sns.lmplot(
 
 ![lmplot](./images/lmplot.png){: .center}
 
-## 10.2 - Analisi della distribuzione dati
+## Analisi della distribuzione dati
 
 Possiamo anche effettuare un'analisi della distribuzione delle variabili all'interno del nostro dataset. In tal senso, la funzione `displot()` ci permette di vedere come si vanno a distribuire i dati in base a determinate condizioni mediante l'uso di un istogramma.
 
@@ -109,7 +109,7 @@ Specificando il parametro `kde`, è possibile ottenere un'approssimazione della 
 
 ![distplot_kde](./images/distplotkde.png)
 
-## 10.3 - Plot di dati categorici
+## Plot di dati categorici
 
 Seaborn offre anche dei plot specializzati per la creazione e visualizzazione di dati (o feature) di tipo *categorico*, ovvero dati appartenenti ad una tra diverse possibili categorie. In tal senso, un esempio di feature categorica è il genere dei clienti del ristorante, che nel dataset sono soltanto uomini o donne.
 
@@ -132,7 +132,7 @@ In particolare, il grafico mostrato in figura descrive la distribuzione delle ma
 !!!tip "Catplot con dati non categorici"
     In realtà, è possibile usare la `catplot()` con dati non categorici, come numeri interi. Tuttavia, vi è il rischio (o meglio, la *certezza*) che il risultato sia *non interpretabile*, in quanto la funzione assegnerà una categoria ad ogni possibile valore assunto dalla feature di riferimento, il che ovviamente comporterà l'illeggibilità del grafico nel caso di valori reali.
 
-## 10.4 - Heatmap
+## Heatmap
 
 Un'ultima funzione che vale la pena menzionare è quella che ci permette di visualizzare le *heatmap*, ovvero delle strutture grafiche che ci permettono di visualizzare rapidamente gli intervalli in cui ricadono i valori di diversi tipi di matrici. Questa funzione è, per l'appunto, chiamata [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html), e richiede in ingresso almeno il parametro relativo alla matrice da cui sarà estratta la figura. Ad esempio:
 
