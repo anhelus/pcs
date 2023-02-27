@@ -5,10 +5,12 @@
 
 ## Link utili
 
-* [Modalità di esame (A.A. 2022/2023)](exams.md)
-* Calendario delle lezioni (*in arrivo*)
-* Date di appello (*in arrivo*)
-* Temi d'anno (*in arrivo*)
+### A.A. 2022/2023
+
+* [Modalità di esame (A.A. 2022/2023)](./2022-23/exams.md)
+* [Calendario delle lezioni](./2022-23/calendar.md)
+* [Date di appello](./2022-23/dates.md)
+* [Temi d'anno](./2022-23/proposals.md)
 
 ## Ricevimento
 
