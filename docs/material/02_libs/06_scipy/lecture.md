@@ -1,4 +1,4 @@
-# 11 - L'ecosistema SciPy
+# 6 - L'ecosistema SciPy
 
 Ai lettori più attenti può apparire evidente come tutte le librerie viste finora facciano parte di una sorta di "ecosistema" pensato per permettere un'interazione tra *tipi* e *classi* il quanto più possibile "semplice" e coesa.
 
@@ -6,7 +6,7 @@ Questo è dovuto al fatto che librerie come NumPy, Matplotlib, Pandas e Seaborn 
 
 Tuttavia, abbiamo omesso una delle librerie fondamentali di questo ecosistema, talmente importante che prende il nome del framework stesso: ovviamente, stiamo parlando della libreria SciPy.
 
-## 11.1 - La libreria SciPy
+## La libreria SciPy
 
 La libreria SciPy presenta un [vastissimo insieme di algoritmi e funzioni matematiche](https://docs.scipy.org/doc/scipy/reference/) costruite a partire dagli oggetti definiti da NumPy.
 
@@ -18,7 +18,7 @@ pip install scipy
 
 In questa *giocoforza* brevissima introduzione, vedremo alcune delle potenzialità di SciPy, basandoci su un paio di casi d'uso (più o meno) reali.
 
-## 11.2 - Validazione empirica di due distribuzioni
+## Validazione empirica di due distribuzioni
 
 Proviamo a vedere come viene visualizzato il valore (teorico) assunto da due distribuzioni di probabilità "classiche", ovvero la distribuzione uniforme e quella normale.
 
@@ -57,7 +57,7 @@ Il risultato dovrebbe essere simile a quello mostrato in figura:
 
 ![pdf](./images/pdfs.png){: .center}
 
-## 11.3 - Calcolo del determinante e dell'inversa
+## Calcolo del determinante e dell'inversa
 
 SciPy offre anche la possibilità di effettuare calcoli algebrici grazie ad un numero di funzioni molto più elevato rispetto a quelle presenti in NumPy.
 
@@ -77,7 +77,7 @@ i = linalg.inv(mat)
 !!!note "Nota"
 	E' molto semplice notare come la sintassi richiami quella di NumPy e, in realtà, anche il funzionamento sia il medesimo, per cui è possibile usare indifferentemente entrambe le librerie. Dove SciPy "spicca" è in tutte quelle funzioni che non sono presenti in NumPy.
 
-## 11.4 - Filtraggio di un segnale
+## Filtraggio di un segnale
 
 SciPy ha al suo interno diverse librerie per l'elaborazione dei segnali a diverse dimensionalità.
 

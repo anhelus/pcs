@@ -1,16 +1,24 @@
-# Bacheca Python per il Calcolo Scientifico
+# Corso di Python per il Calcolo Scientifico
 
-!!!tip "Disponibilità registrazioni"
-    Alcune delle registrazioni **per l'A.A. 2021/2022** sono disponibili in una playlist YouTube a [questo indirizzo](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS).
+Benvenuti nel sito per il corso di Python per il Calcolo Scientifico.
+
+!!!warning "Dispense"
+    Le dispense sono attualmente in fase di aggiornamento.
 
 ## Link utili
 
 ### A.A. 2022/2023
 
-* [Modalità di esame (A.A. 2022/2023)](./2022-23/exams.md)
+* [Slides](#) (*IN ARRIVO*)
+* [Modalità di esame](./2022-23/exams.md)
 * [Calendario delle lezioni](./2022-23/calendar.md)
-* [Date di appello](./2022-23/dates.md)
-* [Temi d'anno](./2022-23/proposals.md)
+* [Date di appello](#) (*IN ARRIVO*)
+* [Temi d'anno](#) (*IN ARRIVO*)
+* [Registrazioni](#) (*IN ARRIVO*)
+
+### A.A. 2021/2022
+
+* [Registrazioni](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS)
 
 ## Ricevimento
 
