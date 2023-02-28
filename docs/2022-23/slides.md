@@ -1,11 +1,11 @@
 # Slide proiettate a lezione
 
-| Argomento | Slides |
-| --------- | ------ |
-| 00 - Programma del corso | [:link:](00_programma.pdf) |
-| 01 - Introduzione a Python | [:link:](01_intro.pdf) |
-| 02 - Concetti sintattici fondamentali | [:link:](02_syntax.pdf) |
-| 03 - Strutture dati in Python | [:link:](03_data_structures.pdf) |
+| Argomento | Link |
+| --------- | ---- |
+| 00 - Programma del corso | [:link:](./slides/00_program.pdf) |
+| 01 - Introduzione a Python | [:link:](./slides/01_intro.pdf) |
+| 02 - Concetti sintattici fondamentali | [:link:](./slides/02_syntax.pdf) |
+<!-- | 03 - Strutture dati in Python | [:link:](03_data_structures.pdf) |
 | 04 - OOP in Python | [:link:](04_classes.pdf) |
 | 05 - Introduzione a NumPy | [:link:](05_intro_numpy.pdf) |
 | 06 - Operazioni in NumPy | [:link:](06_numpy_ops.pdf) |
@@ -26,4 +26,4 @@
 | 22 - Overfitting e regolarizzazione | [:link:](22_over_reg.pdf) |
 | 23 - Image classification | [:link:](23_img_proc.pdf) |
 | 24 - Serie temporali | [:link:](24_ts.pdf) |
-| Appendice D - Principi di OOP | [:link:](app_d_oop.pdf) |
+| Appendice D - Principi di OOP | [:link:](app_d_oop.pdf) | -->
