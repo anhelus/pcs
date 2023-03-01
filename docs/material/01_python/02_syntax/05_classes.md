@@ -36,7 +36,7 @@ In particolare, ogni nuovo tipo, chiamato *classe*, avrà opportuni *attributi* 
 Ad esempio, l'auto Opel Corsa targata AB 123 CD ha una casa costruttrice (Opel), un modello (Corsa), una targa (AB 123 CD), una cilindrata, e via dicendo.
 
 !!!note "Approfondimento"
-	Possiamo approfondire i concetti alla base della OOP in [questa appendice](../../appendix/04_oop/lecture.md).
+	Possiamo approfondire i concetti alla base della OOP in [questa appendice](../../appendix/05_oop/lecture.md).
 
 ## Classi in Python
 

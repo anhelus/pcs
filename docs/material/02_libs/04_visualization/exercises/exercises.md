@@ -1,12 +1,10 @@
-# E10 - Visualizzazione dei dati in Seaborn
+# Esercitazione 4 - Visualizzazione dei dati in Python
 
-## Esercizio E10.1
+## Esercizio 4.1
 
-Visualizzare la distribuzione dell'età dei diversi passeggeri del Titanic in base al loro genere.
+Visualizziamo la distribuzione dell'età dei diversi passeggeri del Titanic in base al loro genere. Visualizziamo inoltre il rapporto tra età e numero di familiari in base al genere del passeggero.
 
-Visualizzare inoltre il rapporto tra età e numero di fratelli/sorelle/coniugi in base al genere del passeggero.
-
-### Soluzione S10.1
+**Soluzione**
 
 Per prima cosa, leggiamo il dataframe:
 
@@ -23,7 +21,10 @@ sns.displot(
     col='Sex')
 ```
 
-![distplot](./images/distplot.png){: .center}
+<figure markdown>
+  ![distplot](../images/distplot.png){ width="450" }
+  <figcaption>Figura 1 - Un semplice plot in Matplotlib</figcaption>
+</figure>
 
 Per visualizzare inoltre il rapporto tra età e numero di fratelli/sorelle/coniugi in base al genere del passeggero usiamo un `catplot()`:
 
@@ -37,9 +38,12 @@ sns.catplot(
     split=True)
 ```
 
-![catplot](./images/catplot_tips.png){: .center}
+<figure markdown>
+  ![catplot_tips](../images/catplot_tips.png){ width="450" }
+  <figcaption>Figura 1 - Un semplice plot in Matplotlib</figcaption>
+</figure>
 
-## Esercizio E10.2
+## Esercizio 4.2
 
 Effettuiamo un'*analisi esplorativa* del dataset Titanic. In particolare, sfruttiamo Pandas e Seaborn per:
 

@@ -4,7 +4,9 @@
 
 **Traccia**: *Creiamo una stringa che assuma valore **PCS** usando l'interprete integrato.*
 
-**Soluzione**: Apriamo l'interprete Python digitando `python` da riga di comando. A quel punto, inseriamo la seguente istruzione, e premiamo `Invio`:
+**Soluzione**
+
+Apriamo l'interprete Python digitando `python` da riga di comando. A quel punto, inseriamo la seguente istruzione, e premiamo `Invio`:
 
 ```py
 >>> s = 'PCS'
@@ -15,7 +17,9 @@ PCS
 
 **Traccia**: *Valutiamo la lunghezza della stringa creata nell'esercizio precedente, e verifichiamo che sia uguale a 3.*
 
-**Soluzione**: Innanzitutto, possiamo usare la funzione [`len()`](https://docs.python.org/3/library/functions.html#len) che, come abbiamo visto nella lezione, accetta una *sequenza* (ovvero un oggetto su cui si possa iterare), e restituisce un intero rappresentativo della lunghezza dell'iterabile.
+**Soluzione**
+
+Innanzitutto, possiamo usare la funzione [`len()`](https://docs.python.org/3/library/functions.html#len) che, come abbiamo visto nella lezione, accetta una *sequenza* (ovvero un oggetto su cui si possa iterare), e restituisce un intero rappresentativo della lunghezza dell'iterabile.
 
 Dato che la stringa è una sequenza, possiamo invocare la funzione `len()` passandogli come argomento `s`:
 
@@ -43,7 +47,9 @@ True
 
 **Traccia**: *Verifichiamo che il numero `x` sia compreso tra `0` e `10`.*
 
-**Soluzione**: Per prima cosa, dichiariamo un valore qualsiasi per `x`:
+**Soluzione**
+
+Per prima cosa, dichiariamo un valore qualsiasi per `x`:
 
 ```py
 >>> x = 1
@@ -60,7 +66,9 @@ True
 
 **Traccia**: Creare una lista a partire dalla stringa definita negli esercizi precedenti.
 
-**Soluzione**: Una prima possibilità è quella di utilizzare il costruttore di classe [`list()`](https://docs.python.org/3/library/functions.html#func-list) che accetta una sequenza e restituisce una lista a partire da questa. Possiamo quindi scrivere:
+**Soluzione**
+
+Una prima possibilità è quella di utilizzare il costruttore di classe [`list()`](https://docs.python.org/3/library/functions.html#func-list) che accetta una sequenza e restituisce una lista a partire da questa. Possiamo quindi scrivere:
 
 ```py
 >>> l_1 = list(s)

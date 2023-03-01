@@ -6,7 +6,9 @@
 
 Scriviamo un ciclo che iteri fino a che il valore associato ad un contatore intero risulta essere minore di 10. Usiamo sia un ciclo `while`, sia un ciclo `for`.
 
-**Soluzione**: Per prima cosa, è opportuno tracciare un breve diagramma di flusso che mostri l'andamento delle informazioni all'interno del nostro codice.
+**Soluzione**
+
+Per prima cosa, è opportuno tracciare un breve diagramma di flusso che mostri l'andamento delle informazioni all'interno del nostro codice.
 
 ```mermaid
 flowchart TD
@@ -54,7 +56,9 @@ Eseguendo questa istruzione, otterremo un risultato analogo al precedente.
 
 Data una lista di numeri, scrivere una funzione che iteri fino a che non si trova un numero divisibile per $7$. Utilizzare un ciclo `for`.
 
-**Soluzione**: La soluzione a questo esercizio prevede l'utilizzo dell'istruzione `break`, che dovrà essere lanciata quando troveremo un multiplo intero di $7$.
+**Soluzione**
+
+La soluzione a questo esercizio prevede l'utilizzo dell'istruzione `break`, che dovrà essere lanciata quando troveremo un multiplo intero di $7$.
 
 ```py linenums="1"
 def multiplo_sette(lista):
@@ -90,7 +94,9 @@ Ad esempio:
 
 Estraiamo tutti gli indici pari di una lista arbitraria di dieci elementi in ordine inverso. Per farlo, usiamo sia la funzione `range` sia lo slicing.
 
-**Soluzione**: Una possibile implementazione delle funzioni è la seguente:
+**Soluzione**
+
+Una possibile implementazione delle funzioni è la seguente:
 
 ```py linenums="1"
 def estrai_con_slice(l):
@@ -142,7 +148,9 @@ Nella funzione `estrai_con_range()`, invece, definiamo un ciclo `for` su una seq
 
 Duplicare una lista passata come argomento in ingresso. Provare ad utilizzare un ciclo `for`.
 
-**Soluzione**: Potremmo essere tentati di scrivere una funzione come la seguente:
+**Soluzione**
+
+Potremmo essere tentati di scrivere una funzione come la seguente:
 
 ```py
 def raddoppia_lista(lista):
@@ -180,7 +188,9 @@ Lista attuale: [1, 2, 1, 2]
 
 Generare una lista di elementi casuali compresi tra $0$ e $10$. Usare sia una funzione con un unico parametro opzionale.
 
-**Soluzione**: Scriviamo la seguente funzione:
+**Soluzione**
+
+Scriviamo la seguente funzione:
 
 ```py
 import random
@@ -231,7 +241,9 @@ lista_nomi = [
 ]
 ```
 
-**Soluzione**: Proviamo innanzitutto ad usare un ciclo. In particolare, useremo un `for` che itera su tutti le stringhe nella lista, verificando se il primo carattere è `B`.
+**Soluzione**
+
+Proviamo innanzitutto ad usare un ciclo. In particolare, useremo un `for` che itera su tutti le stringhe nella lista, verificando se il primo carattere è `B`.
 
 ```py
 l_out = []
@@ -250,7 +262,9 @@ output = [nome for nome in lista_nomi if nome[0] == "B"]
 
 Ottenere la lista di tutti i quadrati dei numeri da 1 a 10. Utilizzare una list comprehension ed un'apposita funzione per il calcolo del quadrato.
 
-**Soluzione**: Per prima cosa, definiamo la funzione `quadrato()` che accetta un `numero` e restituisce il suo quadrato:
+**Soluzione**
+
+Per prima cosa, definiamo la funzione `quadrato()` che accetta un `numero` e restituisce il suo quadrato:
 
 ```py
 def quadrato(numero):
@@ -267,7 +281,9 @@ l_out = [quadrato(i) for i in range(1, 11)]
 
 Data una lista di interi `l_int`, ottenere una lista `l_out` il cui $i$-mo elemento sia la stringa `'pari'` se l'$i$-mo elemento di `l_int` è pari, e `'dispari'` altrimenti.
 
-**Soluzione**: Possiamo risolvere l'esercizio utilizzando la list comprehension nella forma completa (ovvero con l'`if/else`). Ad esempio:
+**Soluzione**
+
+Possiamo risolvere l'esercizio utilizzando la list comprehension nella forma completa (ovvero con l'`if/else`). Ad esempio:
 
 ```py
 >>> l_int = [1, 5, 2, 4]
@@ -293,7 +309,9 @@ dizionario = {
 
 In particolare, il dizionario `vecchio_o_giovane` avrà le stesse chiavi del dizionario di partenza, a cui sarà associato il valore `'giovane'` soltanto se il valore della chiave del dizionario di partenza è inferiore a 65.
 
-**Soluzione**: Ricordando che la sintassi della dict comprehension è sostanzialmente analoga a quella della list comprehension, possiamo scrivere:
+**Soluzione**
+
+Ricordando che la sintassi della dict comprehension è sostanzialmente analoga a quella della list comprehension, possiamo scrivere:
 
 ```py
 vecchio_o_giovane = {k: 'vecchio' if v > 65 else 'giovane' for (k, v) in dizionario.items()}
@@ -307,7 +325,9 @@ In pratica, stiamo associando il valore `'vecchio'` alla chiave `k` se il valore
 
 Scrivere una classe `Persona` applicando i concetti visti durante la lezione.
 
-**Soluzione**: Supponiamo che la classe `Persona` abbia tre attributi:
+**Soluzione**
+
+Supponiamo che la classe `Persona` abbia tre attributi:
 
 * un attributo `nome`, stringa rappresentativa del nome della persona;
 * un attributo `cognome`, stringa rappresentativa del cognome della persona;
@@ -386,7 +406,9 @@ ValueError: La lunghezza del nome non può essere inferiore a due caratteri.
 
 Creare le classi `Quadrato` e `Cerchio` che modellano (rispettivamente) i quadrati ed i cerchi. Entrambe devono essere progettate in modo da discendere da una classe base chiamata `Figura`.
 
-**Soluzione**: Per prima cosa, definiamo la classe `Figura` come classe *astratta*. In particolare, definiremo due proprietà comuni a tutte le figure, ovvero il `perimetro` e l'`area`, e due metodi astratti `calcola_perimetro` e `calcola_area` che andremo ad implementare nelle diverse sottoclassi.
+**Soluzione**
+
+Per prima cosa, definiamo la classe `Figura` come classe *astratta*. In particolare, definiremo due proprietà comuni a tutte le figure, ovvero il `perimetro` e l'`area`, e due metodi astratti `calcola_perimetro` e `calcola_area` che andremo ad implementare nelle diverse sottoclassi.
 
 ```py
 from abc import ABC, abstractmethod

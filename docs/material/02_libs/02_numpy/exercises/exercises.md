@@ -3,7 +3,7 @@
 ## Esercizi sugli array
 
 !!!tip "Soluzioni"
-    Le soluzioni a questi esercizi sono disponibili in [questo notebook](../../../notebooks/04_numpy_exercises.ipynb).
+    Le soluzioni a questi esercizi sono disponibili in [questo notebook](../../../notebooks/exercises/04_numpy_exercises.ipynb).
 
 ### Esercizio 3.1
 
@@ -11,7 +11,9 @@ Scrivere una funzione che restituisca il prodotto *riga per colonna* di due vett
 
 Effettuare la stessa operazione in NumPy, valutando contestualmente il tempo necessario.
 
-**Soluzione**: Definiamo innanzitutto la funzione `riga_per_colonna`, la quale accetta due array in ingresso e, se le dimensioni sono coerenti, effettua la moltiplicazione riga per colonna.
+**Soluzione**
+
+Definiamo innanzitutto la funzione `riga_per_colonna`, la quale accetta due array in ingresso e, se le dimensioni sono coerenti, effettua la moltiplicazione riga per colonna.
 
 Una possibile forma per la funzione è la seguente:
 
@@ -61,7 +63,9 @@ Scrivere la funzione `crea_array(dim_1, dim_2, val_min, val_max)` che crea array
 
 Provare ad effettuare la stessa operazione in NumPy.
 
-**Soluzione**: Una possibile soluzione è la seguente:
+**Soluzione**
+
+Una possibile soluzione è la seguente:
 
 ```py linenums="1"
 def crea_array(dim_1, dim_2=1, val_min=0, val_max=100):
@@ -84,7 +88,9 @@ a_2 = random.randint(0, 100, (2, 2))
 
 Scrivere la funzione `rettifica(array)` che restituisce un array analogo a quello in ingresso, ma con tutti i valori negativi "rettificati" a $0$.
 
-**Soluzione**: Per risolvere questo problema, possiamo sfruttare il concetto di *maschera booleana*. In particolare, se provassimo a scrivere un'espressione del tipo:
+**Soluzione**
+
+Per risolvere questo problema, possiamo sfruttare il concetto di *maschera booleana*. In particolare, se provassimo a scrivere un'espressione del tipo:
 
 ```py
 >>> a = np.array([1, 2, -1, 2])
@@ -130,7 +136,9 @@ def rettifica(array):
 
 Verificare che il prodotto tra una matrice invertibile e la sua inversa sia la matrice identità.
 
-**Soluzione**: Per verificare questo assunto ci basta utilizzare la funzione `inv` per calcolare la matrice inversa:
+**Soluzione**
+
+Per verificare questo assunto ci basta utilizzare la funzione `inv` per calcolare la matrice inversa:
 
 ```py
 mat = np.array([[5, 0, 1], [0, 2, 2], [0, 0, 3]])
@@ -147,7 +155,9 @@ np.eye(3) == mat.dot(mat_inv)
 
 Scrivere la funzione `calcola_determinante()` che accetta come parametro in ingresso una matrice $2 \times 2$ e ne calcola il determinante. Si supponga che la matrice sia invertibile.
 
-**Soluzione**: Ricordiamo che il calcolo del determinante di una matrice $2 \times 2$ è dato dalla differenza tra il prodotto degli elementi sulla diagonale e quello dei restanti elementi.
+**Soluzione**
+
+Ricordiamo che il calcolo del determinante di una matrice $2 \times 2$ è dato dalla differenza tra il prodotto degli elementi sulla diagonale e quello dei restanti elementi.
 
 Per cui, la funzione `calcola_determinante()` potrà essere scritta come segue:
 
@@ -168,7 +178,9 @@ In particolare:
 
 Scrivere la funzione `inverti_se_invertibile(mat)` che, data una matrice bidimensionale, restituisca l'inversa soltanto se `mat` è bidimensionale, quadrata, e il determinante è diverso da zero. Utilizzare un'unica istruzione condizionale.
 
-**Soluzione**: In questo caso, potremo utilizzare i metodi messi a disposizione da NumPy. Tuttavia, dovremo verificare contemporaneamente che:
+**Soluzione**
+
+In questo caso, potremo utilizzare i metodi messi a disposizione da NumPy. Tuttavia, dovremo verificare contemporaneamente che:
 
 * `shape` di `mat` sia pari a `2` (e, quindi, la matrice sia bidimensionale);
 * la prima dimensione sia uguale alla seconda;
@@ -191,7 +203,9 @@ def inverti_se_invertibile(mat):
 
 Scrivere la funzione `somma_polinomi()` che accetta come parametri due polinomi di grandezza arbitraria, sommandoli tra loro. Trattiamo i polinomi come liste; in particolare, all'$i$-mo elemento della lista corrisponderà il coefficiente di $i$-mo grado del polinomio.
 
-**Soluzione**: Per prima cosa, dovremo verificare le lunghezze dei polinomi e, qualora queste non siano coerenti, andare ad inserire un numero di coefficienti adeguato.
+**Soluzione**
+
+Per prima cosa, dovremo verificare le lunghezze dei polinomi e, qualora queste non siano coerenti, andare ad inserire un numero di coefficienti adeguato.
 
 ```py linenums="1"
 def somma_polinomi(pol_1, pol_2):
@@ -214,7 +228,9 @@ In pratica:
 
 Usare una lista per scrivere la funzione `calcola_media(array, pesi)` che restituisce il valor medio di un array. Il valore di default del parametro `pesi` dovrà essere una lista vuota. Nel caso che `pesi=[]`, dovrà essere calcolata una media aritmetica; in caso contrario, si dovrà verificare la coerenza delle dimensioni di `array` e `pesi`, e restituire la media pesata.
 
-**Soluzione**: Una possibile soluzione è la seguente:
+**Soluzione**
+
+Una possibile soluzione è la seguente:
 
 ```py linenums="1"
 def calcola_media(array, pesi=[]):
@@ -241,7 +257,9 @@ In pratica:
 
 Scrivere la funzione `descrivi(array)` che permette di descrivere un array in termini non parametrici, individuando mediana, deviazione standard e range interquartile (ovvero tra il 25-percentile ed il 75-percentile).
 
-**Soluzione**: La funzione `descrivi` può essere definita come segue:
+**Soluzione**
+
+La funzione `descrivi` può essere definita come segue:
 
 ```py
 def descrivi(array):

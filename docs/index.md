@@ -14,7 +14,7 @@ Benvenuti nel sito per il corso di Python per il Calcolo Scientifico.
 * [Calendario delle lezioni](./2022-23/calendar.md)
 * [Date di appello](#) (*IN ARRIVO*)
 * [Temi d'anno](#) (*IN ARRIVO*)
-* [Registrazioni](#) (*IN ARRIVO*)
+* [Registrazioni](./2022-23/recordings.md)
 
 ### A.A. 2021/2022
 
