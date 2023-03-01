@@ -1,6 +1,6 @@
-# Appendice F - Il modulo `argparse`
+# 3.1 - La libreria `argparse`
 
-Il modulo `argparse` ci permette di inserire degli argomenti da passare al nostro script Python mediante riga di comando.
+La libreria [`argparse`](https://docs.python.org/3/library/argparse.html) ci permette di passare ad uno script Python degli argomenti utilizzando la riga di comando.
 
 Per farlo, dobbiamo seguire un processo articolato in quattro step:
 

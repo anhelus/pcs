@@ -1,8 +1,8 @@
-# 3.2 - Series
+# 3.2 - Le Series
 
 ## Le Series
 
-Nella [lezione precedente](./01_intro.md) abbiamo visto come ogni DataFrame sia in realtà composto da diverse colonne, ciascuna rappresentativa di una feature specifica. Nella pratica, Pandas ci offre un modo per estrarre singolarmente ciascuna di queste colonne mediante la classe `Series`. Ad esempio, potremmo estrarre la serie relativa agli identificativi numerici dei passeggeri:
+Nella [lezione precedente](./01_intro.md) abbiamo visto come ogni DataFrame sia in realtà composto da diverse colonne, ciascuna rappresentativa di una feature specifica. Nella pratica, Pandas ci offre un modo per estrarre singolarmente ciascuna di queste colonne mediante la classe [`Series`](https://pandas.pydata.org/docs/reference/api/pandas.Series.html). Ad esempio, potremmo estrarre la serie relativa agli identificativi numerici dei passeggeri:
 
 ```py
 names = df['Name']
@@ -34,11 +34,11 @@ Possiamo accedere ad un singolo elemento di una serie mediante una classica proc
 L'accesso agli elementi del dataframe può avvenire attraverso diverse modalità. In primo luogo, possiamo accedere allo specifico valore di una feature di un dato campione mediante il *chained indexing*:
 
 ```py
->>> df['Age'][1
+>>> df['Age'][1]
 38
 ```
 
-In alternativa, è possibile usare la funzione `loc(row_idx, col)`, che permette di accedere al valore assunto dalla feature `col` per l'elemento in posizione `row_idx`:
+In alternativa, è possibile usare la funzione [`loc(row_idx, col)`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html) che, se chiamata su un oggetto di tipo `DataFrame`, ci permette di accedere al valore assunto dalla feature `col` per l'elemento in posizione `row_idx`:
 
 ```py
 >>> df.loc[1, ('Age')]

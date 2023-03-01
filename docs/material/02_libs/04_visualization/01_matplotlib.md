@@ -1,4 +1,4 @@
-# 3 - Visualizzare i dati in Python
+# 4.1 - Matplotlib
 
 Nelle lezioni precedenti, ci siamo limitati a visualizzare i risultati ottenuti usando l'output fornito dalla riga di comando o dal notebook Jupyter/Colab. Tuttavia, è chiaro come questo modo di procedere sia giocoforza limitante: cosa ne è di tutti i coloratissimi grafici che possiamo ammirare in siti ed articoli scientifici? *Saranno per caso relegati esclusivamente al mondo di Excel?*
 
@@ -6,7 +6,7 @@ In realtà, per ottenerli dovremo necessariamente integrare il nostro ambiente d
 
 ## Setup della libreria
 
-Prima di utilizzare Matplotlib, dovremo ovviamente installare la libreria. Per farlo, abbiamo al solito le opzioni mostrate in [appendice](../../appendix/02_libraries/lecture.md); di seguito, riportiamo l'opzione di installazione tramite `pip`:
+Prima di utilizzare Matplotlib, dovremo ovviamente installare la libreria. Per farlo, abbiamo al solito le opzioni mostrate in [appendice](../../appendix/03_libraries/lecture.md); di seguito, riportiamo l'opzione di installazione tramite `pip`:
 
 ```sh
 pip install matplotlib
@@ -187,7 +187,7 @@ plt.show()
 Il risultato sarà simile a quello mostrato in figura 3:
 
 <figure markdown>
-  ![multi_subplot](./images/multi_subplot.png){ width="450" }
+  ![multi_subplots](./images/multi_subplots.png){ width="450" }
   <figcaption>Figura 3 - Subplot multipli</figcaption>
 </figure>
 
@@ -296,3 +296,5 @@ for i in range(5):
   ![closed](./images/closed.png){ width="450" }
   <figcaption>Figura 7 - Plot con l'invocazione di `close()`</figcaption>
 </figure>
+
+Nella [prossima lezione](02_seaborn.md), approfondiremo l'utilizzo di una libreria *discendente* da Matplotlib, ovvero [Seaborn](https://seaborn.pydata.org/).

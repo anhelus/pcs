@@ -12,7 +12,7 @@
 | 23/02/2023 | 15:00 - 17:00 | XI Dipartimento di Matematica |
 | 28/03/2023 | 15:00 - 17:00 | XI Dipartimento di Matematica |
 | 30/03/2023 | 15:00 - 17:00 | XI Dipartimento di Matematica |
-| 04/04/2023 | 15:00 - 17:00 | XI Dipartimento di Matematica |
+| 05/04/2023 | 15:00 - 17:00 | XI Dipartimento di Matematica |
 | 27/04/2023 | 15:00 - 17:00 | XI Dipartimento di Matematica |
 | 02/05/2023 | 15:00 - 17:00 | XI Dipartimento di Matematica |
 | 04/05/2023 | 15:00 - 17:00 | XI Dipartimento di Matematica |

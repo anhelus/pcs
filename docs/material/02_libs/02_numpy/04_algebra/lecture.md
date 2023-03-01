@@ -5,7 +5,7 @@
 
 Dopo aver trattato le [operazioni fondamentali](../03_fundamentals.md) in NumPy, facciamo un breve approfondimento sulle operazioni di algebra lineare, alcune delle quali sono integrate nel package [`linalg`](https://numpy.org/doc/stable/reference/routines.linalg.html).
 
-Gli esempi che vedremo nel seguito, e che sono anche disponibili nel notebook reperibile a [questo indirizzo](./notebook.ipynb), o nel Colab della lezione, prevederanno tutti l'uso di questo package, per cui è necessario importarlo prima di procedere nella lezione.
+Gli esempi che vedremo nel seguito, e che sono anche disponibili nel notebook reperibile a [questo indirizzo](../../../notebooks/01_numpy_algebra.ipynb), prevederanno tutti l'uso di questo package, per cui è necessario importarlo prima di procedere nella lezione.
 
 ```py
 from numpy import linalg
@@ -90,7 +90,7 @@ Notiamo che:
 * in caso di moltiplicazione di due matrici, il risultato sarà il prodotto matriciale e, di conseguenza, si consiglia di preferire la funzione [`matmul()`](https://numpy.org/doc/stable/reference/generated/numpy.matmul.html);
 * in caso di prodotto tra scalare e matrice, si consiglia di utilizzare la funzione [`multiply()`](https://numpy.org/doc/stable/reference/generated/numpy.multiply.html) o, in alternativa, l'operatore `*`.
 
-Nel [notebook della lezione](./notebook.ipynb) vedremo alcuni esempi di prodotti matriciali.
+Nel [notebook della lezione](../../../notebooks/01_numpy_algebra.ipynb) vedremo alcuni esempi di prodotti matriciali.
 
 !!!note "Moltiplicazione di array multidimensionali"
        Nel caso entrambi gli array da moltiplicare siano $n$-dimensionali, si applicano altre regole, che è possibile recuperare a [questo indirizzo](https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot).

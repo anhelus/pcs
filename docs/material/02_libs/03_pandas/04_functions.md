@@ -11,9 +11,12 @@ df['Age'].plot()
 plt.show()
 ```
 
-ottenendo il risultato mostrato in figura:
+ottenendo il risultato mostrato in figura 1:
 
-![plot_ages](./images/plot_ages.png){: .center}
+<figure markdown>
+  ![plot_ages](./images/plot_ages.png)
+  <figcaption>Figura 1 - Le età dei passeggeri nel dataset Titanic</figcaption>
+</figure>
 
 Possiamo anche fare il plot dell'intero `DataFrame`:
 
@@ -22,9 +25,12 @@ df.plot()
 plt.show()
 ```
 
-che risulterà nella seguente figura:
+che risulterà nella figura 2:
 
-![plot_titanic](./images/plot_titanic.png){: .center}
+<figure markdown>
+  ![plot_titanic](./images/plot_titanic.png)
+  <figcaption>Figura 2 - Il dataset Titanic</figcaption>
+</figure>
 
 Ovviamente, è possibile usare Pandas anche per fare il plot di altri tipi di grafico, come ad esempio gli istogrammi. Per farlo, si usano le apposite sotto-funzioni di `plot`:
 
@@ -33,18 +39,21 @@ df['Age'].plot.hist()
 plt.show()
 ```
 
-Il risultato è mostrato in figura.
+Il risultato è mostrato in figura 3.
 
-![ages_hist](./images/hist_ages.png){: .center}
+<figure markdown>
+  ![ages_hist](./images/hist_ages.png)
+  <figcaption>Figura 3 - Esempio di istogramma calcolato a partire dalle età dei passeggeri</figcaption>
+</figure>
 
 !!!note "Pandas e Seaborn"
-   Pandas si integra in maniera naturale anche con la libreria Seaborn, di cui tratteremo nella prossima lezione.
+    Pandas si integra in maniera naturale anche con la libreria Seaborn, di cui tratteremo in una delle [prossime lezioni](../04_visualization/02_seaborn.md).
 
-## Drop, Fill
+<!-- ## Drop, Fill -->
 
 ## Operazioni statistiche sui dataframe
 
-Pandas ci mette a disposizione delle funzioni, simili a quelle offerte da NumPy, per calcolare delle statistiche per ciascuna delle colonne presenti in un DataFrame. Ad esempio:
+Pandas ci mette a disposizione delle funzioni, simili a quelle offerte da NumPy, per calcolare delle statistiche per ciascuna delle colonne presenti in un DataFrame. Ad esempio, possiamo calcolare la media usando la funzione [`mean()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.mean.html):
 
 ```py
 >>> df.mean()
@@ -58,7 +67,7 @@ Fare            32.204208
 dtype: float64
 ```
 
-Ovviamente, esistono funzioni anche per calcolare varianza (`df.var()`), mediana (`df.median()`), deviazione standard (`df.std()`), e via discorrendo.
+Ovviamente, esistono funzioni anche per calcolare varianza ([`var()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.var.html)), mediana ([`median()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.median.html)), deviazione standard ([`std()`](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.std.html)), e via discorrendo.
 
 Particolarmente interessante è la funzione `describe()`, che ci mosta tutte le statistiche più significative per ognuna delle feature considerate.
 
@@ -75,4 +84,4 @@ min       1.000000    0.000000    1.000000    0.420000    0.000000    0.000000  
 max     891.000000    1.000000    3.000000   80.000000    8.000000    6.000000  512.329200
 ```
 
-# TODO: apply, map, sample
+<!-- # TODO: apply, map, sample -->

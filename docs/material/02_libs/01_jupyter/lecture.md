@@ -16,7 +16,7 @@ Vediamo adesso come creare ed utilizzare il nostro primo notebook.
 ## Installazione e lancio di Jupyter Lab
 
 !!!note "Installazione di una libreria"
-    Ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'[appendice B](../../appendix/02_libraries/lecture.md).
+    Ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'[appendice B](../../appendix/03_libraries/lecture.md).
 
 Per installare Jupyter Lab, ricorriamo all'utilizzo di `pip`, preferibilmente all'interno di un ambiente virtuale:
 

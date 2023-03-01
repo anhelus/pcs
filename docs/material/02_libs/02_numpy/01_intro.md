@@ -9,7 +9,7 @@ Partiamo nella nostra disamina dalla procedura di installazione della libreria.
 ## Installare NumPy
 
 !!!note "Installazione di una libreria"
-    Al solito, ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'[appendice B](../../../appendix/02_libraries/lecture.md).
+    Al solito, ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'[appendice B](../../appendix/03_libraries/lecture.md).
 
 Per installare NumPy, ricorriamo all'utilizzo di `pip`, preferibilmente all'interno di un ambiente virtuale:
 
@@ -101,7 +101,7 @@ L'uso di questa sintassi si esplicita in due concetti fondamentali sui quali ris
 
 ## Tipi di dato
 
-NumPy mette a disposizione una serie di tipi di dato primitivi che vanno a sovrapporsi a quelli [built-in](../../../01_python/01_intro/01_intro.md#tipi-built-in-in-python) di Python, e che trovano una corrispondenza praticamente perfetta con quelli messi a disposizione dal linguaggio C.
+NumPy mette a disposizione una serie di tipi di dato primitivi che vanno a sovrapporsi a quelli [built-in](../../01_python/01_intro/01_intro.md#tipi-built-in-in-python) di Python, e che trovano una corrispondenza praticamente perfetta con quelli messi a disposizione dal linguaggio C.
 
 Questi sono riassunti nella [tabella](https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types) presente sulla reference.
 

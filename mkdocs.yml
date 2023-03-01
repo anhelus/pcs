@@ -28,6 +28,15 @@ nav:
       - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials/lecture.md
       - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics/lecture.md
       - Esercizi: material/02_libs/02_numpy/exercises/exercises.md
+    - 3 - Pandas:
+      - 3.1 - Introduzione a Pandas: material/02_libs/03_pandas/01_intro.md
+      - 3.2 - Le Series: material/02_libs/03_pandas/02_series.md
+      - 3.3 - Input/Output in Pandas: material/02_libs/03_pandas/03_io.md
+      - 3.4 - Manipolazione dei DataFrame: material/02_libs/03_pandas/04_functions.md
+    - 4 - Visualizzazione dei dati in Python:
+      - 4.1 - Matplotlib: material/02_libs/04_visualization/01_matplotlib.md
+      - 4.2 - Seaborn: material/02_libs/04_visualization/02_seaborn.md
+      - Esercizi: material/02_libs/04_visualization/exercises/exercises.md
   #   - 3 - Matplotlib: material/02_libs/03_matplotlib/lecture.md
   #   - 4 - Pandas: material/02_libs/04_pandas/lecture.md
   #   - 5 - Seaborn: material/02_libs/05_seaborn/lecture.md
@@ -96,6 +105,7 @@ nav:
 theme:
   name: material
   language: it
+  favicon: assets/images/favicon.png
 
 markdown_extensions:
   - admonition # notes make pretty
