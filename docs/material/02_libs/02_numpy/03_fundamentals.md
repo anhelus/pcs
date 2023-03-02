@@ -289,7 +289,8 @@ In altre parole, non specificando un valore per `axis`, rimuoveremmo il primo el
       >>> np.delete(a, slice(0, 2, 1))
       array([3, 4])
       ```
-    Un altro modo è quello di usare una maschera booleana:
+
+    Un altro modo è usare una maschera booleana:
     > ```py
       >>> mask = np.array([[True, False, True], [False, False, True], [False, True, True]])
       >>> mtrx[mask]
@@ -416,6 +417,7 @@ array([[ 1,  2,  3,  4,  5,  6,  7,  8],
       array([[ 1,  2,  3,  4,  5,  6,  7,  8],
              [ 9, 10, 11, 12, 13, 14, 15, 16]])
       ```
+    
     Ciò significa che la funzione `reshape()` è sia disponibile nella libreria NumPy, sia come metodo sugli oggetti di classe `ndarray`.
 
 !!!warning "Attenzione"

@@ -17,7 +17,8 @@ nav:
       - 2.5 - Classi: material/01_python/02_syntax/05_classes.md
       - 2.6 - Script, moduli e package: material/01_python/02_syntax/06_modules.md
       - Esercizi: material/01_python/02_syntax/exercises/exercises.md
-    # - 3 - Concetti avanzati:
+    - 3 - Concetti avanzati:
+      - 3.1 - Passaggio di argomenti a script: material/01_python/03_advanced/01_argparse.md
   - Modulo 2 - Librerie per il calcolo scientifico:
     - 1 - Jupyter: material/02_libs/01_jupyter/lecture.md
     - 2 - NumPy:
@@ -147,7 +148,6 @@ markdown_extensions:
 
 plugins:
   - search
-  # - encryptcontent: {}
 
 extra:
   social:

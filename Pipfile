@@ -16,10 +16,8 @@ statsmodels = "*"
 seaborn = "*"
 pydot = "*"
 mkdocs-static-i18n = "*"
-mkdocs-with-pdf = "*"
 
 [dev-packages]
-mkdocs-with-pdf = "*"
 
 [requires]
 python_version = "3.9"
