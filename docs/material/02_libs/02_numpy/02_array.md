@@ -323,15 +323,15 @@ La funzione `nonzero()` restituisce una tupla con gli indici per riga e colonna 
 | 2              | 1                 | 6      |
 
 !!!tip "Ottenere una lista di tuple"
-	Possiamo ottenere una lista di tuple rappresentative delle coppie di indici per gli elementi non nulli sfruttando la funzione `zip`:
+    Possiamo ottenere una lista di tuple rappresentative delle coppie di indici per gli elementi non nulli sfruttando la funzione `zip`:
     > ```py
-    >>> s = np.nonzero(tarry)
-    >>> s
-    (array([0, 1, 2, 2], dtype=int64), array([0, 1, 0, 1], dtype=int64))
-    >>> coords = list(zip(s[0], s[1]))
-    >>> coords
-    [(0, 0), (1, 1), (2, 0), (2, 1)]
-    ```
+      >>> s = np.nonzero(tarry)
+      >>> s
+      (array([0, 1, 2, 2], dtype=int64), array([0, 1, 0, 1], dtype=int64))
+      >>> coords = list(zip(s[0], s[1]))
+      >>> coords
+      [(0, 0), (1, 1), (2, 0), (2, 1)]
+      ```
 
 ## Fancy indexing
 

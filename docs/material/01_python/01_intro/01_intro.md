@@ -9,7 +9,7 @@ python
 Se apparirà una schermata simile a quella mostrata in figura 1, Python sarà già correttamente installato sul nostro sistema.
 
 <figure markdown>
-  ![interpreter](./images/python_interpreter.png){ width="450" }
+  ![interpreter](./images/python_interpreter.png)
   <figcaption>Figura 1 - Interprete Python</figcaption>
 </figure>
 

@@ -128,9 +128,11 @@ Di conseguenza, la $NOT$ di una condizione è vera se la condizione è falsa, e 
 Facciamo un esempio pratico. Immaginiamo di voler verificare che un numero intero $x$ sia compreso tra $0$ e $10$. Ragionando mediante l'algebra booleana, potremo scrivere:
 
 $$
-cond_{min} = x < 10 \\
-cond_{max} = x > 0 \\
-res = cond_{min} AND cond_{max}
+\begin{aligned}
+	&cond_{min} = x < 10 \\
+	&cond_{max} = x > 0 \\
+	&res = cond_{min} \text{ AND } cond_{max}
+\end{aligned}
 $$
 
 In altri termini, il risultato finale ($res$) sarà vero se e solo se sia $cond_{min}$ e $cond_{max}$ sono vere.

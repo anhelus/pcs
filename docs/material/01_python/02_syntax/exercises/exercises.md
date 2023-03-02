@@ -12,11 +12,12 @@ Per prima cosa, è opportuno tracciare un breve diagramma di flusso che mostri l
 
 ```mermaid
 flowchart TD
-A(START) --> B[i = 1]
-B --> C{i <= 10}
-C --> |No| E[/print(i)/]
-C --> |Sì| D[i = i + 1]
-E --> F(END)
+    A(START) --> B[i = 1]
+    B --> C{i <= 10}
+    C -->|No| E[/"print(i)"/]
+    C --> |Sì| D[i = i + 1]
+    D --> C
+    E --> F(END)
 ```
 
 Implementiamo il codice in primis utilizzando un ciclo `while`. Per farlo, inizializziamo a zero un contatore `i` e come condizione verifichiamo che `i` sia minore di `10`:
