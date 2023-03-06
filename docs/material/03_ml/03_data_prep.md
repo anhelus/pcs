@@ -1,6 +1,11 @@
-# 14 - Preparazione dei dati
+# 3 - Preparazione dei dati
 
-Nella lezione precedente abbiamo evidenziato come uno dei passi fondamentali per il machine learning sia quello di determinare i dati sui quali il modello deve essere addestrato: per ottenere buone predizioni, dovremo *costruire un dataset*, ed eventualmente effettuare delle opportune *trasformazioni* sui dati. Queste operazioni sono normalmente riassumibili nei concetti di *campionamento* e *preparazione dei dati*.
+Nella [lezione precedente](./02_framing.md)
+
+TODO
+
+
+ abbiamo evidenziato come uno dei passi fondamentali per il machine learning sia quello di determinare i dati sui quali il modello deve essere addestrato: per ottenere buone predizioni, dovremo *costruire un dataset*, ed eventualmente effettuare delle opportune *trasformazioni* sui dati. Queste operazioni sono normalmente riassumibili nei concetti di *campionamento* e *preparazione dei dati*.
 
 ## 14.1 - Il campionamento
 

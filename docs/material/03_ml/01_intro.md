@@ -1,4 +1,4 @@
-# 3.1 - Introduzione al machine learning
+# 1 - Introduzione al machine learning
 
 Il *machine learning* è l'insieme di approcci alla base di alcune tra le più importanti e diffuse tecnologie odierne. Le sue applicazioni sono molteplici: si va dagli strumenti di traduzione automatica, [che tutti utilizziamo più o meno spesso](https://translate.google.com/translate_t), ai chatbot, [ormai estremamente evoluti](https://openai.com/blog/chatgpt/), passando per sistemi di videosorveglianza e riconoscimento facciale, e tanto altro ancora. In altre parole, la pervasiva diffusione del machine learning ha offerto un'alternativa più efficace alla risoluzione di problemi che, un tempo, venivano trattati esclusivamente mediante complessi modelli di equazioni matematiche.
 
