@@ -1,10 +1,24 @@
-# 13 - Definire un problema di machine learning
+# 3.2 - Problem framing
 
-Il primo passo nella risoluzione di un problema di machine learning è, per l'apponto, *definirlo*. In pratica, dovremo analizzare il problema, isolando gli elementi essenziali da utilizzare per la sua risoluzione: determineremo la fattibilità del problema, fornendo un insieme chiaro di *obiettivi* e *criteri* per la sua risoluzione. 
+La *definizione* di un problema è, come prevedibile, il primo passo per la sua risoluzione. Pensiamoci un attimo: se non abbiamo una chiara idea del problema da affrontare, *come possiamo pensare di risolverlo*?
 
-## 13.1 - Determinare l'obiettivo
+Il primo step per affrontare il problema è quindi analizzarlo, isolando gli elementi essenziali da utilizzare nella sua risoluzione: andrà fatto uno *studio di fattibilità*, determinando se il problema è risolvibile o meno; saranno poi forniti un chiaro insieme di *obiettivi*, assieme ai *criteri* ed ai *vincoli* da rispettare nella risoluzione. Approfondiamo questi aspetti.
 
-Partiamo nella definizione del problema determinando il nostro obiettivo, ovvero definendo ciò che si vuole ottenere a valle della risoluzione del problema.
+## Determinare l'obiettivo
+
+Partiamo definendo l'*obiettivo* da perseguire, ovvero ciò che vogliamo ottenere a valle della risoluzione del problema.
+
+Facciamo tre esempi pratici.
+
+##### Esempio 1: predittore di precipitazioni
+
+Il nostro primo problema prevede la predizione delle precipitazioni orarie. In questo caso, l'obiettivo è quello di creare un software/hardware che, data la collezione storica delle precipitazioni, sia in grado di predire l'entità delle stesse, a partire dalla zona e dal periodo dell'anno, con un buon grado di confidenza.
+
+##### Esempio 2: individuatore di spam
+
+Il nostro secondo problema ci chiede di capire se una mail è di spam. L'obiettivo sarà quindi la creazione di un software che, una volta ricevuta una mail, sia in grado di estrapolarne le informazioni che permettano di classificarla come legittima (o meno).
+
+
 
 Ad esempio, potremmo voler calcolare le precipitazioni orarie in una determinata zona, oppure vorremmo definire un modo di individuare automaticamente lo spam in un'applicazione email, o ancora identificare delle transazioni fraudolente in applicazioni di tipo bancario.
 
