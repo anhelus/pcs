@@ -1,6 +1,6 @@
-# 3.2 - Problem framing
+# 2 - Definizione del problema
 
-La *definizione* di un problema è, come prevedibile, il primo passo per la sua risoluzione. Pensiamoci un attimo: se non abbiamo una chiara idea del problema da affrontare, *come possiamo pensare di risolverlo*?
+La *definizione di un problema* è, come prevedibile, il primo passo per la sua risoluzione. Pensiamoci un attimo: se non abbiamo una chiara idea del problema da affrontare, *come possiamo pensare di risolverlo*?
 
 Il primo step per affrontare il problema è quindi analizzarlo, isolando gli elementi essenziali da utilizzare nella sua risoluzione: andrà fatto uno *studio di fattibilità*, determinando se il problema è risolvibile o meno; saranno poi forniti un chiaro insieme di *obiettivi*, assieme ai *criteri* ed ai *vincoli* da rispettare nella risoluzione. Approfondiamo questi aspetti.
 
@@ -25,23 +25,20 @@ Una volta individuati obiettivo, input ed output, dovremo verificare che il prob
 
 Una volta analizzato il problema, e verificata la necessità (e possibilità) di usare il machine learning, dovremo passare alla fase successiva, che prevede l'analisi e lo studio dei dati a nostra disposizione.
 
+## Comprensione dei dati
 
-DA QUI
+La disponibilità di un'adeguata quantità di dati caratterizzanti il fenomeno sotto analisi sono alla base del corretto funzionamento degli algoritmi di machine learning. Per effettuare delle predizioni efficaci, infatti, abbiamo bisogno di usare dati di *quantità* e *qualità* adeguate, in grado quindi di garantire un elevato potere predittivo. In particolare, i nostri dati dovranno essere:
 
-## 13.2 - Comprendere i dati
+* **abbondanti**: più esempi rilevanti abbiamo a disposizione, maggiori saranno gli aspetti che potremo caratterizzare e, di conseguenza, migliore sarà il potere risolutivo del nostro modello;
+* **consistenti**: raccogliere dati usando criteri e strumenti ben determinati e coerenti permetterà una migliore campagna di acquisizione. Ad esempio, il modello meteorologico ottenuto usando dati raccolti ogni giorno per cento anni sarà più preciso di quello ottenuto raccogliendo dati una volta l'anno per lo stesso periodo di tempo;
+* **affidabili**: la sorgente dei nostri dati dovrà essere affidabile. Ad esempio, l'igrometro ed il barometro dovranno essere ben tarati ed accessibili, mentre l'insieme di email usate per caratterizzare lo spam dovrà essere acquisita da utenti verificati;
+* **disponibili**: dovremo verificare che non vi siano parti del nostro dataset completamente omesse e, qualora queste siano presenti, che non riguardino aspetti fondamentali e non trascurabili del fenomeno sotto analisi. Ad esempio, un dataset nel quale i valori di temperatura, umidità e pressione sono presi soltanto nei giorni soleggiati avrà ben poca utilità nella predizione delle precipitazioni;
+* **corretti**: i dati andrebbero verificati in termini sia di valori delle feature, che potrebbero essere errati a causa di starature o malfunzionamenti dei sensori, oppure ancora in caso di perdita di dettagli del testo analizzato, sia di label assegnate. In quest'ultimo caso, infatti, un esperto di dominio potrebbe erroneamente contrassegnare come spam una mail legittima, o viceversa, e ciò andrebbe ovviamente ad inficiare le performance del nostro modello;
+* **rappresentativi**: il dataset dovrebbe descrivere in maniera completa il fenomeno sottostante, riflettendone accuratamente aspetti e caratteristiche. Utilizzare un dataset non rappresentativo inficierà negativamente le performance predittive del modello.
 
-La disponibilità di dati per l'analisi è alla base del machine learning. Per effettuare delle predizioni efficaci, infatti, abbiamo bisogno di usare dati dotati di un certo potere predittivo. In particolare, i dati devono essere:
+## Scelta il modello
 
-* **abbondanti**: più esempi rilevanti abbiamo a disposizione, migliore sarà il nostro algoritmo risolutivo;
-* **consistenti**: i dati devono essere raccolti usando criteri e strumenti ben determinati e coerenti. Ad esempio, un algoritmo meteo beneficierà di dati raccolti ogni mese per cento anni, piuttosto che di dati raccolti lungo lo stesso arco di tempo ma soltanto nel mese di luglio;
-* **affidabili**: occorre valutare la sorgente dei nostri dati: siamo in grado di comprenderla e ritenerla affidabile, oppure è soltanto parzialmente sotto il nostro controllo?
-* **disponibili**: dobbiamo assicurarci che i dati siano disponibili e completamente accessibili. Infatti, qualora ci siano delle parti del dataset parzialmente omesse, potrebbe essere preferibile trascurarle completamente in fase di analisi;
-* **corretti**: molto spesso vi è una percentuale di dati con feature o label non corrette. Per quanto possibile, questi dati andrebbero isolati e rimossi in fase di preprocessing;
-* **rappresentativi**: il dataset dovrebbe rappresentare in maniera completa il fenomeno sottostante, riflettendone accuratamente aspetti e caratteristiche. Utilizzare un dataset non rappresentativo inficierà negativamente le performance predittive del modello.
-
-## 13.3 - Scegliere il modello
-
-L'ultimo step è la scelta del tipo di modello da utilizzare, valutando ad esempio tra classificazione, regressione e clustering.
+L'ultimo step è la scelta del tipo di modello da utilizzare, valutando ad esempio tra classificatore, regressore ed algoritmo di clustering.
 
 Per la nostra applicazione meteo, ad esempio, predire il quantitativo di pioggia che cadrà in un determinato luogo è un chiaro problema di regressione, nel senso che date $n$ variabili indipendenti cercheremo di predire una variabile dipendente in uscita.
 
@@ -50,4 +47,4 @@ Per la nostra applicazione meteo, ad esempio, predire il quantitativo di pioggia
 
 Nel caso dell'applicazione mail, dato che stiamo cercando di valutare se un messaggio è classificabile o meno come spam, avremo a che fare con un problema di classificazione binaria.
 
-Una volta determinato il tipo di problema, dovremo scegliere l'algoritmo da utilizzare e, in ultimo, la metrica con cui valutare i risultati. In particolare, quest'ultimo valore dipende molto dall'ambito applicativo: se, ad esempio, un errore del 10% potrebbe non essere estremamente importante nell'applicazione mail, questo diventerebbe estremamente rilevante e potenzialmente disastroso nell'individuazione di transazioni fraudolente.
+Una volta determinato il tipo di problema, dovremo scegliere l'algoritmo da utilizzare sulla base dei dati, oltre che la metrica con la quale valutare i risultati ottenuti (in accordo al modello scelto). In particolare, la metrica, ed il valore da essa assunto, dipendono strettamente dall'ambito applicativo: se, ad esempio, un errore del $10\%$ potrebbe non essere estremamente importante nell'applicazione mail, questo diventerebbe estremamente rilevante (e potenzialmente pericoloso) nella stima dei millimetri di pioggia che cadranno in una certa zona.

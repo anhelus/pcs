@@ -40,6 +40,7 @@ nav:
       - Esercizi: material/02_libs/04_visualization/exercises/exercises.md
   - Modulo 3 - Concetti di machine learning:
     - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
+    - 2 - Definizione del problema: material/03_ml/02_framing.md
   # - Modulo 3 - Concetti di machine learning:
   #   - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
   # - Parte 3 - Introduzione al machine learning:

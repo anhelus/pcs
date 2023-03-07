@@ -1,6 +1,6 @@
 # 3 - Preparazione dei dati
 
-Nella [lezione precedente](./02_framing.md)
+Nella [lezione precedente](./02_framing.md) abbiamo evidenziato come 
 
 TODO
 
