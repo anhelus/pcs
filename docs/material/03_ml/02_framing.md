@@ -4,33 +4,29 @@ La *definizione* di un problema è, come prevedibile, il primo passo per la sua 
 
 Il primo step per affrontare il problema è quindi analizzarlo, isolando gli elementi essenziali da utilizzare nella sua risoluzione: andrà fatto uno *studio di fattibilità*, determinando se il problema è risolvibile o meno; saranno poi forniti un chiaro insieme di *obiettivi*, assieme ai *criteri* ed ai *vincoli* da rispettare nella risoluzione. Approfondiamo questi aspetti.
 
-## Determinare l'obiettivo
+## Analisi del problema
 
-Partiamo definendo l'*obiettivo* da perseguire, ovvero ciò che vogliamo ottenere a valle della risoluzione del problema.
+Partiamo analizzando il problema, definendo quindi sia i dati in ingresso, sia quello che vogliamo ottenere a valle della risoluzione. Facciamo un paio di esempi concreti:
 
-Facciamo tre esempi pratici.
+* **Predittore di precipitazioni**: il nostro primo problema prevede la predizione delle precipitazioni orarie. In questo caso, l'obiettivo è quello di creare un software/hardware che, data la collezione storica delle precipitazioni, sia in grado di predire l'entità delle stesse, a partire dalla zona e dal periodo dell'anno, con un buon grado di confidenza.
+* **Spam detector**: il nostro secondo problema ci chiede di capire se una mail è di spam. L'obiettivo sarà quindi la creazione di un software che, una volta ricevuta una mail, sia in grado di estrapolarne le informazioni che permettano di classificarla come legittima (o meno).
 
-##### Esempio 1: predittore di precipitazioni
+Una possibile schematizzazione è nella seguente tabella.
 
-Il nostro primo problema prevede la predizione delle precipitazioni orarie. In questo caso, l'obiettivo è quello di creare un software/hardware che, data la collezione storica delle precipitazioni, sia in grado di predire l'entità delle stesse, a partire dalla zona e dal periodo dell'anno, con un buon grado di confidenza.
+| Applicazione | Obiettivo del problema | Output atteso | Input |
+| ------------ | ---------------------- | ------------- | ----- |
+| Previsioni meteo | Calcolare le precipitazioni orarie in una determinata zona | Predizione delle precipitazione orarie | Storico delle precipitazioni, località, situazione attuale |
+| Spam detector | Individuare lo spam | Alert per un possibile spam | Mail sotto analisi, esempi di mail di spam e legittime |
 
-##### Esempio 2: individuatore di spam
+Una volta individuati obiettivo, input ed output, dovremo verificare che il problema sia risolvibile mediante un algoritmo di machine learning. In particolare, dovremo verificare la presenza di un'adeguata quantità di dati rappresentativi del fenomeno osservato, e decidere quale approccio utilizzare tra classificazione, regressione e clustering. In questa nostra analisi, inoltre, dovremo tenere conto del cosiddetto [*rasoio di Occam*](https://it.wikipedia.org/wiki/Rasoio_di_Occam): infatti, alle volte, potrebbe *non* essere necessario utilizzare un algoritmo di machine learning per risolvere il problema sotto analisi.
 
-Il nostro secondo problema ci chiede di capire se una mail è di spam. L'obiettivo sarà quindi la creazione di un software che, una volta ricevuta una mail, sia in grado di estrapolarne le informazioni che permettano di classificarla come legittima (o meno).
+!!!note "Machine learning? No, grazie!"
+    Ad eempio, nonostante un semplice sistema massa - molla - smorzatore possa essere modellato tramite il machine learning, è decisamente più produttivo usare delle semplici relazioni fisiche.
+
+Una volta analizzato il problema, e verificata la necessità (e possibilità) di usare il machine learning, dovremo passare alla fase successiva, che prevede l'analisi e lo studio dei dati a nostra disposizione.
 
 
-
-Ad esempio, potremmo voler calcolare le precipitazioni orarie in una determinata zona, oppure vorremmo definire un modo di individuare automaticamente lo spam in un'applicazione email, o ancora identificare delle transazioni fraudolente in applicazioni di tipo bancario.
-
-Questo passo è fondamentale per un motivo: infatti, a volte il machine learning è visto come uno strumento "universale", in grado di risolvere qualsiasi problema a cui viene applicato. In realtà, questo non è vero, ed il machine learning è applicabile solo a determinati problemi, i quali alle volte possono essere anche risolti mediante approcci meno complessi.
-
-Una volta verificato che il problema può essere risolto mediante approcci di machine learning, dovremo stabilire quale sia l'esatta natura del task che vogliamo portare avanti. Mantenendoci al caso precedente:
-
-| Applicazione | Obiettivo del problema | Output del modello |
-| ------------ | ---------------------- | ------------------ |
-| Previsioni meteo | Calcolare le precipitazioni orarie in una determinata zona | Predizione delle precipitazione orarie |
-| Spam detector | Individuare lo spam | Alert per un possibile spam |
-| Prevenzione bancaria | Identificare transazioni fraudolente | Blocco transazioni sospette |
+DA QUI
 
 ## 13.2 - Comprendere i dati
 

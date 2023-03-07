@@ -38,10 +38,8 @@ nav:
       - 4.1 - Matplotlib: material/02_libs/04_visualization/01_matplotlib.md
       - 4.2 - Seaborn: material/02_libs/04_visualization/02_seaborn.md
       - Esercizi: material/02_libs/04_visualization/exercises/exercises.md
-  #   - 3 - Matplotlib: material/02_libs/03_matplotlib/lecture.md
-  #   - 4 - Pandas: material/02_libs/04_pandas/lecture.md
-  #   - 5 - Seaborn: material/02_libs/05_seaborn/lecture.md
-  #   - 6 - SciPy: material/02_libs/06_scipy/lecture.md
+  - Modulo 3 - Concetti di machine learning:
+    - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
   # - Modulo 3 - Concetti di machine learning:
   #   - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
   # - Parte 3 - Introduzione al machine learning:
