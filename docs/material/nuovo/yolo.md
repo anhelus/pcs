@@ -48,3 +48,15 @@ la feature map ottenuta è 13x13 (sottocampionata 32 volte)
 Il batch norm
 
 con le anchor box, si abbassa la mAP, ma aumenta molto il recall.
+
+## Demo
+
+Per la nostra demo, utilizzeremo YOLOv8.
+
+Partiamo installando il package:
+
+```sh
+pipenv install ultralytics
+```
+
+Abbiamo a questo punto due possibilità. La prima è quella di utilizzare la CLI (Command Line Interface). L'altra è invece quella di utilizzare il tutto in un nostro script Python. Ovviamente, sceglieremo quest'ultima.
