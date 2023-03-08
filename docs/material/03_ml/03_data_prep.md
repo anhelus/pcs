@@ -1,96 +1,95 @@
 # 3 - Preparazione dei dati
 
-Nella [lezione precedente](./02_framing.md) abbiamo evidenziato come 
+Nella [lezione precedente](./02_framing.md) abbiamo evidenziato come uno dei passi fondamentali nella definizione di un algoritmo di machine learning sia la definizione dei dati sui quali il modello deve essere addestrato. Infatti, per ottenere delle buone predizioni, dovremo opportunamente costruire un dataset; questa operazione avviene in due step, ovvero *campionamento* e *preparazione* dei dati.
 
-TODO
+## Campionamento del dataset
 
+Il primo problema da affrontare è quello relativo al *campionamento*, ovvero alla raccolta dei dati che andranno a comporre il nostro dataset. In particolare, dovremo tenere conto di due aspetti, ovvero il numero dei dati e la loro qualità.
 
- abbiamo evidenziato come uno dei passi fondamentali per il machine learning sia quello di determinare i dati sui quali il modello deve essere addestrato: per ottenere buone predizioni, dovremo *costruire un dataset*, ed eventualmente effettuare delle opportune *trasformazioni* sui dati. Queste operazioni sono normalmente riassumibili nei concetti di *campionamento* e *preparazione dei dati*.
+##### Dimensione del dataset
 
-## 14.1 - Il campionamento
+Il primo aspetto di cui tenere conto riguarda il numero dei dati da raccogliere, che influenza direttamente la *dimensione* del dataset. In tal senso, non esiste una regola vera e propria per deteterminare il quantitativo di dati sufficiente ad addestrare un modello in modo adeguato; in generale, tuttavia, potremo dire che questa quantità deve essere almeno un ordine di grandezza superiore rispetto al numero dei parametri utilizzati dal modello. A scopo puramente esemplificativo, usare una rete neurale con $100$ neuroni implicherà la presenza di almeno $100$ pesi e $100$ bias, per cui dovremo avere indicativamente almeno $2000$ campioni a disposizione.
 
-Il primo problema da affrontare è la raccolta dei dati, che servirà ovviamente a generare il nostro dataset. In questa fase, dovremo partire affrontando due aspetti: la *dimensione* e la *qualità* dei dati che abbiamo raccolto.
+##### Qualità del dataset
 
-### 14.1.1 - Dimensione del dataset
+Parafrasando una vecchia pubblicità degli anni '90, *la quantità (potenza) è niente senza qualità (controllo)*. In altri termini, avere a disposizione grandi quantità di dati non basta se questi non sono anche *significativi* nella caratterizzazione del fenomeno sotto osservazione.
 
-Non vi è una regola vera e propria per determinare il quantitativo di dati *sufficiente* per addestrare adeguatamente un modello. In generale, tuttavia, potremmo dire che il modello deve essere addestrato su un quantitativo di dati che sia maggiore di almeno un ordine di grandezza rispetto al numero dei parametri dello stesso. A scopo puramente esemplificativo, usando una rete neurale con $100$ neuroni dovremmo indicativamente avere almeno $1000$ campioni a disposizione.
+Per comprendere questo concetto, cerchiamo di usare un approccio empirico. Riprendiamo il nostro modello di predizione delle precipitazioni, ed immaginiamo di doverlo addestrare scegliendo tra due dataset. In particolare:
 
-### 14.1.2 - Qualità del dataset
+* il dataset **A** contiene un dato relativo ai valori di temperatura e pressione campionato ogni $15$ minuti negli ultimi $100$ anni *esclusivamente per il mese di luglio*;
+* il dataset **B** contiene un unico dato giornaliero per i valori di temperatura e pressione per ciascun giorno degli ultimi $100$ anni.
 
-Parafrasando un vecchio adagio, *la quantità è niente senza qualità*. Nell'ambito della data science, ciò implica che avere a disposizione grandi quantità di dati non basta se questi non sono anche *significativi* nella caratterizzazione del fenomeno sotto osservazione.
+Possiamo quindi facilmente verificare che il dataset **A** contiene $297.600$ campioni (pari a $4 \cdot 24 \cdot 31 \cdot 100$, ovvero il numero di campioni per ora moltiplicati per il numero di ore e per il numero di giorni presenti a luglio), mentre il dataset **B** contiene solo $365 \cdot 100 = 36.500$ campioni.
 
-Per comprendere questo concetto, possiamo usare un approccio empirico. Immaginiamo di voler creare il nostro solito modello di predizione delle precipitazioni, e di dover scegliere per addestrarlo tra due dataset. Il dataset A contiene i campionamenti ogni $15$ minuti dei valori di temperatura e di pressione degli ultimi $100$ anni, ma soltanto per il mese di luglio, mentre il dataset B contiene un unico valore giornaliero, ma preso per tutti i mesi dell'anno. E' facile calcolare che il numero di campioni del dataset A è pari a $4 \cdot 24 \cdot 31 \cdot 100 = 297.600$ valori, mentre quello per il dataset B è pari a $365 \cdot 100 = 36.500$. Tuttavia, la qualità del dataset B è migliore rispetto a quella del dataset A: infatti, nonostante quest'ultimo abbia quasi il decuplo dei dati, sarà praticamente inutile per la stima delle precipitazioni in inverno, primavera o autunno.
+Tuttavia, la qualità del dataset **B** risulta essere migliore rispetto a quella del dataset **A**: infatti, nonostante quest'ultimo abbia quasi dieci volte più campioni del primo, non potrà essere utilizzato per stimare le precipitazioni in mesi differenti da luglio.
 
-## 14.2 - Preparazione dei dati
+## Preparazione dei dati
 
-Una volta completata la procedura di campionamento, dovremo passare ad effettuare la preparazione dei dati. Il primo step è in molti casi trascurato, ma è di vitale importanza nel caso si stiano utilizzando delle informazioni in qualche modo sensibili, come ad esempio informazioni legate alle condizioni sanitarie di diversi pazienti. In questi casi, infatti, è strettamente necessario provvedere all'*anonimizzazione* dei dati, rimuovendo tutte le informazioni definite come *personally identifiable* (*PII*).
+Una volta acquisito in maniera appropriata il dataset, dovremo preparare i dati in esso contenuto. 
 
-Una volta completato questo passaggio, potremo passare alle azioni maggiormente rilevanti dal punto di vista scientifico.
+!!!warning "Anonimizzazione dei dati"
+    Lo step "zero" della preparazione del dataset è quello legato all'anonimizzazione dei dati, che assume fondamentale importanza in taluni contesti, come ad esempio quello medico o finanziario. Presupporremo, nel prosieguo, che questo passo venga effettuato di default.
 
-### 14.2.1 - Pulizia dei dati
+Questa preparazione prevede gli step riassunti nel prosieguo.
 
-Abbiamo in precedenza sottolineato come l'affidabilità del dataset sia essenziale a garantire performance ottimali del modello addestrato. In tal senso, occorre determinare diversi fattori, tra cui:
+##### Step 1: Data cleaning
 
-* **errori nel labelling**: bisogna valutare a grandi linee se il lavoro svolto dall'essere umano nell'etichettatura è accettabile, o se questa procedura è stata soggetta ad errori di natura grossolana;
-* **rumorosità del dataset**: è importante valutare se i dati sono affetti da rumore. Ad esempio, le letture di un sensore potrebbero essere tutte quante affette da offset o bias o, nel caso peggiore, essere causate da lettori non più tarati e quindi inutilizzabili;
-* **dati mancanti**: potrebbe darsi che i valori di alcune feature non siano disponibili per alcuni campioni;
-* **valori contrastanti o duplicati**: ad esempio, ci potrebbero essere parti di dataset in cui una lettura di temperatura avviene in gradi Kelvin, ed altre in cui la lettura avviene in gradi centigradi, oppure ancora ci potrebbero essere valori duplicati a causa di errori nell'I/O del sensore.
+Abbiamo visto come la qualità ed affidabilità del dataset siano essenziali per garantire adeguate performance del modello addestrato. In tal senso, è necessario determinare diversi fattori, ad esempio:
 
-In tutti questi casi, va scelta una strategia di pulizia: in certe situazioni potrebbe essere sufficiente eliminare un campione, oppure effettuare un'operazione di *filling* a partire dalla restante parte del dataset, o ancora, in casi estremi, si potrebbe eliminare *completamente* la feature interessata da rumore.
+* **presenza di errori nel labelling**: il lavoro svolto dall'esperto di dominio nel labeling può, alle volte, essere subottimale, e presentare errori grossolani ed evidenti. In questo caso, potrebbe essere necessario effettuare un'ulteriore procedura di etichettatura;
+* **presenza di rumore**: è importante valutare se i dati sono affetti da rumore o da trend evidenti. Per esempio, potremmo notare che tutte le letture di un sensore sono affette da un certo punto in avanti da un certo offset, legato magari ad una staratura dello stesso;
+* **assenza di dati**: immaginando che un sensore risulti danneggiato, potrebbe verificarsi la situazione per cui le letture per lo stesso non siano disponibili da un certo istante in avanti. Questo fenomeno, che abbiamo già analizzato quando abbiamo parlato [della manipolazione dei DataFrame in Pandas](../02_libs/03_pandas/04_functions.md), va adeguatamente affrontato;
+* **valori contrastanti o duplicati**: data la dinamicità delle campagne di acquisizione, specialmente se lunghe, potrebbero esserci delle incoerenze nei dati campionati. Ad esempio, lungo l'arco della campagna, un sensore di temperatura non funzionante potrebbe essere stato sostituito con un altro che, però, a differenza del primo effettua le letture in gradi Kelvin.
 
-### 14.2.2 - Sbilanciamento del dataset
+Se si presenta una di queste occorrenza, è necessario valutare una strategia di data cleaning. Ne abbiamo brevemente parlato in precedenza analizzando le funzioni `dropna()` e `fillna()`; ne vedremo delle altre nel proseguo.
 
-E' possibile che un dataset abbia diverse proporzioni nei raggruppamenti dei dati. Anche se questo fenomeno può interessare ogni insieme di dati, è maggiormente evidente nei problemi di classificazione, nei quali abbiamo un feedback immediato sulle differenti proporzioni grazie proprio alla presenza delle label per le classi.
+##### Step 2: Bilanciamento del dataset
 
-In particolare, avremo due tipi di "suddivisioni": le *classi maggioritarie* saranno quelle con il maggior numero di campioni, mentre quelle *minoritarie* saranno prevedibilmente quelle con a disposizione un numero limitato di dati. Un dataset in cui sussiste questa ineguaglianza è detto *sbilanciato*.
+Quando si affronta un problema di classificazione, esiste la (tutt'altro che remota) possibilità che il dataset acquisito presenti diverse proporzioni nel raggruppamento delle classi. In altre parole, supponendo la presenza di due classi $X$ ed $Y$, potremmo avere il $70\%$ di campioni appartenenti alla classe $X$, ed il restante $30\%$ appartenenti alla classe $Y$.
 
-E' possibile quantificare approssimativamente lo sbilanciamento del dataset. In tal senso, possiamo rifarci alla seguente tabella:ì
+Ciò comporta che avremo una *classe maggioritaria*, ovvero $X$, che avrà un maggior numero di campioni rispetto alla *minoritaria* $Y$, la quale, prevedibilmente, sarà rappresentata da un numero limitato di campioni. Un dataset in cui si verifica questo fenomeno è detto *sbilanciato*.
 
-| Grado di sblianciamento | $\%$ di campioni di classi minoritarie |
+Possiamo quantificare, in maniera approssimativa, l'entità dello sbilanciamento del dataset, rifacendoci alla seguente tabella.
+
+| Grado di sbilanciamento | $\%$ di campioni di classi minoritarie |
 | ----------------------- | --------------------------------- |
 | Leggero | 20-40 $\%$ del datset |
-| moderato | 1-20 $\%$ del dataset |
+| Moderato | 1-20 $\%$ del dataset |
 | Estremo | < 1 $\%$ del dataset |
 
-#### 14.2.2.1 - Influenza dello sbilanciamento
-
-Per capire qual è il problema legato allo sbilanciamento del dataset, immaginiamo di dover creare un modello che individui una mail di spam. Per farlo, usiamo un dataset con la seguente proporzione:
+Per comprendere a fondo quali siano gli effetti dello sbilanciamento del dataset, possiamo tornare al nostro spam detector. Per addestrarlo, usiamo un dataset di qeusto tipo:
 
 | | Mail non spam | Mail spam |
 | - | - | - |
-| Numero di immagini | $5$ | $995$ |
+| Numero di mail | $5$ | $995$ |
 | Percentuale | $0.5 \%$ | $99.5 \%$
 
-Il problema sta nel fatto che un numero così esiguo di mail di spam farà sì che il modello spenda la maggior parte dell'addestramento su mail normali, non imparando quindi a riconoscere i casi di spam. Per fare un parallelismo con il nostro cervello, se vedessimo 995 immagini di penne, e solo 5 di matite, è probabile che non saremmo in grado di distinguere una matita da una penna perché, semplicemente, *non sapremmo come è fatta una matita*.
+Notiamo subito che abbiamo un numero molto limitato di mail di spam. Di conseguenza, l'addestramento avverrà per la maggior parte su mail "normali"; inoltre, un numero così esiguo di mail di spam non potrà descrivere adeguatamente tutti i casi in cui ci si trova di fronte a questo fenomeno.
 
-#### 14.2.2.2 - Downsampling ed upweighting
+##### Data balancing
 
-Un modo efficace per gestire situazioni in cui il dataset è sbilanciato è quello di utilizzare tecniche di *data balancing*. Ne esistono di diverse, più o meno efficaci; tuttavia, la più semplice è quella di rimuovere un certo numero di campioni di classe maggioritaria (*downsampling*), dando agli esempi sottocampionati un peso maggiore nell'addestramento (*upweighting*).
+Una maniera efficace per trattare situazioni di questo tipo è quella di adottare una tecnica di *data balancing* (ovvero, bilanciamento dei dati). Ne esistono diverse, più o meno efficaci; tra queste, la più semplice riguarda la rimozione di un certo numero di campioni della classe maggioritaria (*downsampling*), dando agli esempi sottocampionati un peso maggiore nell'addestramento (*upweighting*).
 
-In pratica, se scegliessimo di mantenere soltanto il $10 \%$ delle mail non-spam, avremmo circa $99$ campioni. Ciò porterà il rapporto tra le mail di spam e quelle non di spam a circa il $5 \%$, passando da una situazione di sbilanciamento estremo ad una di sbilanciamento moderato.
+Facciamo un esempio. Scegliendo di mantenere soltanto il $10 \%$ delle mail non-spam, avremmo circa $99$ campioni. Ciò porterà il rapporto tra le mail di spam e quelle non di spam a circa il $5 \%$, passando da una situazione di sbilanciamento estremo ad una di sbilanciamento moderato.
 
-A valle di questa operazione, dovremmo dare maggior peso ai campioni delle mail non-spam, usando un fattore tendenzialmente pari a quello che abbiamo usato in fase di downsampling. Nella pratica, ogni mail non-spam avrà un peso dieci volte superiore a quello che avrebbe avuto se si fosse utilizzato il dataset iniziale.
+A valle di questa operazione, dovremo dare maggior peso ai campioni delle mail non-spam, usando un fattore tendenzialmente pari a quello che abbiamo usato in fase di downsampling. Nella pratica, ogni mail non-spam avrà un peso dieci volte superiore a quello che avrebbe avuto se si fosse utilizzato il dataset iniziale.
 
-### 14.2.3 - Trasformazione dei dati
+## Trasformazione dei dati
 
-Il passo successivo nella preparazione dei dati è quello di *trasformare* alcuni valori. In tal senso, possiamo operare per due ragioni principali.
+Il passo successivo nella preparazione dei dati è quello di *trasformare* un insieme (o la totalità) dei valori. Ciò avviene principalmente per due motivi.
 
-La prima è che siano necessarie delle trasformazioni obbligatorie volte a garantire la compatibilità dei dati, come ad esempio:
+Il primo è legato alla necessità di trasformazioni obbligatorie volte a garantire la compatibilità dei dati. Alcuni esempi:
 
-* **convertire feature non numeriche in numeriche**: in pratica, non possiamo effettuare operazioni sensate tra interi e stringhe, per cui dovremmo trovarci ad individuare un modo per favorire il confronto;
-* **ridimensionare gli input ad una dimensione fissa**: alcuni modelli, come ad esempio le reti neurali, prevedono un numero fisso di nodi di input, per cui i dati in ingresso devono avere sempre la stessa dimensione.
+* **conversione di feature non numeriche in numeriche**: in pratica, non possiamo effettuare operazioni sensate tra interi e stringhe, per cui dovremmo trovarci ad individuare un modo per permettere tale confronto;
+* **ridimensionamento degli input ad una dimensione fissa**: alcuni modelli, come ad esempio le reti neurali, prevedono un numero fisso di nodi di input, per cui i dati in ingresso devono avere sempre la stessa dimensione.
 
-La seconda è legata invece a delle trasformazioni opzionali, che ottimizzano l'addestramento del modello. Ad esempio, potremmo dover effettuare la *normalizzazione* dei dati numerici, ovvero portarli tutti all'interno di una stessa scala di valori, normalmente compresa tra $0$ ed $1$ o tra $-1$ ed $1$. Vediamo più nel dettaglio alcune possibilità.
+Il secondo motivo è legato a delle trasformazioni opzionali che ottimizzino i risultati ottenuti durante l'addestramento. Ad esempio, potremmo dover portarli tutti i valori numerici all'interno di una stessa scala di valori (*rescaling*), oppure trasformarli in modo tale che ricordino una distribuzione normale (*normalizzazione*).
 
-#### 14.2.3.1 - Trasformazione dei dati numerici
+Per comprendere al meglio il motivo alla base di questa necessità, immaginiamo di avere un dataset che comprende due feature: l'età (che assume valori da $0$ a $100$) e reddito annuo (che supponiamo assuma valori da $10.000$ a $100.000$ €). Dando in pasto queste feature ad algoritmi che le combinano in qualche modo, l'età diventerà presto trascurabile rispetto al reddito, dato che quest'ultimo risulta essere di due o tre ordini di grandezza superiore. Di conseguenza, il modello trascurerà l'età in fase di analisi, utilizzando esclusivamente lo stipendio.
 
-Abbiamo detto in precedenza che potremmo voler applicare delle *normalizzazioni* a dei dati numerici per migliorare le performance del nostro modello.
+Da questa considerazione appare evidente come sia necessario portare tutti i dati ad una "base comune" prima di effettuare un addestramento. Per farlo, abbiamo a disposizione quattro tipi di trasformazione.
 
-Per comprenderne il motivo, immaginiamo di avere un dataset che comprende feature per età (che possiamo presupporre assuma valori da $0$ a $100$) e stipendio (che possiamo presupporre assuma valori da $10.000$ a $100.000$ €). Quando andiamo ad utilizzare questi valori in algoritmi che effettuano delle operazioni tra feature, l'età diventerà presto trascurabile rispetto allo stipendio, che è di due o tre ordini di grandezza superiore, per cui il modello si troverà a prediligere quest'ultimo in fase di analisi. Ciò implica quindi la necessità di arrivare ad una "base comune" a partire dalla quale operare.
-
-Le principali tecniche di normalizzazione disponibili sono quattro.
-
-##### 14.2.3.1.1 - Scaling
+##### Scaling
 
 Lo **scaling** prevede la conversione dei valori assunti da una feature in un range che va di solito tra $[0, 1]$ o $[-1, 1]$. La formula dello scaling è la seguente:
 
@@ -98,11 +97,11 @@ $$
 y = \frac{(x - x_{min})}{(x_{max} - x_{min})}
 $$
 
-##### 14.2.3.1.2 - Clipping
+##### Clipping
 
-Può capitare che il dataset contenga degli *outlier*, ovvero dei campioni che divergono notevolmente dalle caratteristiche statistiche del dataset. In questo caso, potremmo limitarci a rimuovere completamente tali valori mediante soglie statistiche, come i range interquartili in caso di distribuzione parametrica, o i classici $3 \sigma$ in caso di distribuzione normale.
+La tecnica del **clipping** viene usata quando il dataset contiene degli *outlier*, ovvero alcuni campioni che divergono notevolmente dalle caratteristiche statistiche del resto dei dati. In questo caso, potremmo limitarci a rimuovere completamente tali valori mediante soglie statistiche, come i range interquartili in caso di distribuzione parametrica, o i classici $3 \sigma$ in caso di distribuzione normale.
 
-##### 14.2.3.1.3 - Trasformazione logaritmica
+##### Trasformazione logaritmica
 
 Un'altra possibilità è quella di convertire i nostri valori in scala logaritmica, comprimendo un range ampio in uno più piccolo usando la funzione logaritmo:
 
@@ -110,7 +109,7 @@ $$
 y = Log(x)
 $$
 
-##### 14.2.3.1.4 - Z-score
+##### Z-score
 
 Un ultimo tipo di trasformazione prevede l'uso dello *z-score*, che prevede una riformulazione dei valori assunti dalla feature per fare in modo che questi aderiscano ad una distribuzione a media nulla e deviazione tandard unitaria. Per calcolarlo, si usa la seguente formula:
 
@@ -120,16 +119,16 @@ $$
 
 dove $\mu$ è la media della distribuzione dei nostri dati, mentre $\sigma$ ne è chiaramente la varianza.
 
-#### 14.2.3.2 - Trasformazione dei dati categorici
+## Trasformazione dei dati categorici
 
-Alcune delle nostre feature possono assumere esclusivamente valori *discreti*. Ad esempio, le nostre immagini potrebbero raffigurare diverse razze di cani, oppure il campo "località" potrebbe riportare il codice postale. Queste feature sono conosciute come feature *categoriche*, ed i valori ad esse associate possono essere sia stringhe sia numeri.
+Alcune delle nostre feature possono assumere esclusivamente valori *discreti*. Ad esempio, la feature "località" associato alle precipitazioni potrebbe riportare il CAP, mentre la feature "spam" nel nostro dataset di email potrebbe avere al suo interno un booleano. Queste feature sono dette *categoriche*, ed i valori ad esse associate possono essere sia stringhe sia numeri.
 
 !!!note "Le feature categoriche di tipo numerico"
-    Spesso, dobbiamo trattare feature categoriche che contengono valori numerici. Per fare un esempio, consideriamo il codice postale, che è un numero. Se lo si rappresentasse come una feature di tipo numerico, il nostro modello potrebbe interpretare la distanza tra Bari (70126) e Taranto (74121) come pari a $3.995$, il che non avrebbe ovviamente alcun senso.
+    Spesso, dobbiamo trattare feature categoriche che contengono valori numerici. Consideriamo ad esempio il CAP: rappresentandolo come un tipo numerico, il nostro modello potrebbe interpretare la distanza tra Bari ($70126$) e Taranto ($74121$) come pari a $3.995$, il che non avrebbe ovviamente senso.
 
-Per essere trattate, comunque, le feature categoriche hanno rappresentazioni di tipo numerico, *mantenendo il riferimento al significato categorico e discreto*. Per comprendere le implicazioni di questo concetto, immaginiamo i giorni della settimana. Il modo più semplice per passare da una rappresentazione puramente categorica ad una numerica è quella di usare un numero:
+Le feature categoriche devono però essere *convertite* in valori numerici, *mantenendo contestualmente il riferimento al significato originario*. Immaginiamo ad esempio di avere a che fare con una feature categorica che descrive il giorno della settimana. Il modo più semplice per passare da una rappresentazione puramente categorica ad una numerica è quella di usare un numero:
 
-| Giorno | Rappresentazione |
+| Giorno | Rappresentazione numerica |
 | ------ | ---------------- |
 | Lunedì | 1 |
 | Martedì | 2 |
@@ -139,7 +138,7 @@ Per essere trattate, comunque, le feature categoriche hanno rappresentazioni di 
 | Sabato | 6 |
 | Domenica | 7 |
 
-In questa maniera creeremo un "dizionario", nel quale potremo accedere ad una chiave (la rappresentazione) che rappresenterà un determinato valore (il giorno).
+In questa maniera creeremo un dizionario, nel quale potremo accedere ad una chiave (*la rappresentazione numerica*) che rappresenterà un determinato valore (*il giorno*).
 
 !!!warning "Sulle feature categoriche trasformate"
     A valle di questa trasformazione, la differenza aritmetica tra domenica e sabato continua ad avere un senso alquanto limitato, e comunque relativo ad un generico concetto di *distanza*.
@@ -156,8 +155,8 @@ mentre quella del giovedì:
 giovedi = np.array([0 0 0 1 0 0 0])
 ```
 
-### 14.2.4 - Suddivisione dei dati
+## Dati di training, test e validazione
 
-L'ultimo passo nella preparazione del dataset è quello della suddivisione dei dati. In particolare, si destinano un certo quantitativo di dati per l'addestramento del modello, delegando la restante parte alla validazione dei risultati ottenuti; ciò è legato alla volontà di verificare la capacità di *generalizzazione* del modello, ovvero a quanto è in grado di "funzionare" il nostro algoritmo in caso di analisi di dati su cui non è stato addestrato.
+L'ultimo passo nella preparazione del dataset è quello della *suddivisione* dei dati. In particolare, si destinano un certo quantitativo di dati per l'addestramento del modello, delegando la restante parte alla validazione dei risultati ottenuti; ciò è legato alla volontà di verificare la capacità di *generalizzazione* del modello, ovvero a quanto è in grado di "funzionare" il nostro algoritmo in caso di analisi di dati su cui non è stato addestrato.
 
-Un rapporto molto usato in tal senso è quello che prevede che il $70\%$ dei dati sia usato per l'addestramento, mentre il restante $30\%$ per la validazione dei risultati ottenuti.
+Un rapporto molto usato in tal senso è quello che prevede che il $60\%$ dei dati sia usato per l'addestramento, un altro $20\%$ per il test del modello, ed il restante $20\%$ per la validazione dei risultati ottenuti.

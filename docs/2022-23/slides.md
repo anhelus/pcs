@@ -5,10 +5,11 @@
 | 00 - Programma del corso | [:link:](./slides/00_program.pdf) |
 | 01 - Introduzione a Python | [:link:](./slides/01_intro.pdf) |
 | 02 - Concetti sintattici fondamentali | [:link:](./slides/02_syntax.pdf) |
-<!-- | 03 - Strutture dati in Python | [:link:](03_data_structures.pdf) |
-| 04 - OOP in Python | [:link:](04_classes.pdf) |
-| 05 - Introduzione a NumPy | [:link:](05_intro_numpy.pdf) |
-| 06 - Operazioni in NumPy | [:link:](06_numpy_ops.pdf) |
+| 03 - Strutture dati in Python | [:link:](./slides/03_data_structures.pdf) |
+| 04 - OOP in Python | [:link:](./slides/04_oop.pdf) |
+| 05 - Script, moduli, librerie | [:link:](./slides/05_org.pdf) |
+
+<!-- | 06 - Operazioni in NumPy | [:link:](06_numpy_ops.pdf) |
 | 07 - Matplotlib | [:link:](07_matplotlib.pdf) |
 | 08 - Pandas | [:link:](08_pandas.pdf) |
 | 09 - Seaborn | [:link:](09_seaborn.pdf) |
