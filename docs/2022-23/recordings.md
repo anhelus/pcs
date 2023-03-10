@@ -5,7 +5,7 @@
 | 28/02/2023 | [:link:](https://youtu.be/sDqbqMGpzDg) |
 | 02/03/2023 | [:link:](https://youtu.be/eIrETiroeTQ) |
 | 07/03/2023 | [:link:](https://youtu.be/9J9Jux83EpQ) |
-| 09/03/2023 | [:x:](#) |
+| 09/03/2023 | [:link:](https://youtu.be/PjXk5acyHvs) |
 | 14/03/2023 | [:x:](#) |
 | 16/03/2023 | [:x:](#) |
 | 21/03/2023 | [:x:](#) |

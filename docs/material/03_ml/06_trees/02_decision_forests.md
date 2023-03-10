@@ -1,18 +1,18 @@
-# X.X - Foreste decisionali
+# 6.2 - Foreste decisionali
 
-Una *foresta decisionale* è un termine generico per descrivere i modelli composti da diversi alberi decisionali.
+Per *foresta decisionale* si intendono tutti quei modelli composti da un insieme di alberi decisionali (trattati nella [lezione precedente](01_decision_trees.md)). Il modo in cui i diversi alberi si aggregano dipende dall'algoritmo usato per l'addestramento: ad esempio, in una foresta decisionale che affronta un problema multiclasse, ogni albero potrebbe dare il suo "voto" ad una singola classe, e la predizione globale sarebbe quindi la classe più votata. Un'altra implementazione potrebbe invece prevedere che ciascun albero mandi in output un valore decimale compreso tra zero ed uno, con il valore complessivo della predizione dato dalla somma normalizzata dei valori predetti da ciascun albero e successivamente sogliata (nel caso, ovviamente, di predizione binaria).
 
-Una foresta decisionale è un termine genrico per descrivere i modelli fatti di più alberi decsionali. La predizione in uscita da una foresta decisioanle è data dall'insieme delle predizione dei sui alberi decisionali.
-
-L'implementazione di questa agtgregazione dipende dall'algortimo usato per addestrare la foresta decisionale. Ad esempio, in una random forest cmulticlasse, ogni albero vota per una singola classe, e la predizione della random forest è la classe più rappresentata. In un binary classification gradient boosted tree (un altroi tipo di decision forest), ogni albero manda in uscita un *logit* (ovvero, un valore floating point), ed il gradient boosted tree manda una predizione che è la somma di questi valori, seguita da una funzione di attivazione (ad esempio, una signomidale).
+Partiremo la nostra trattazione da quello che, probabilmente, è l'esempio più noto di foresta decisionale: il *random forest*.
 
 ## Random Forest
 
-Nel 1906, [venne tenuta in Inghilterra](https://www.nature.com/articles/075450a0.pdf) una competizione per stabilire il peso di un bue tra 787 partecipanti. L'errore mediano delle predizioni di ciascuno era di circa 37 libre, ovvero 17 kg, pari al 3.1%. Tuttavia, la *mediana delle predizioni* era di sole 9 libbre (4 kg) distante dal risultato vero, con un errore di circa lo 0.7%.
+Per introdurre il random forest è opportuno partire da un aneddoto.
 
-Questo aneddoto permette di illustrare il cosiddetto principio della [*saggezza della folla*](https://it.wikipedia.org/wiki/Saggezza_della_folla): in certe situazioni, le opinioni collettive forniscono un giudizio estramemnte preciso.
+Nel 1906 si svolse in Inghilterra una competizione che vedeva i partecipanti tentare di valutare il peso di un bue (ovviamente, senza usare una bilancia). Al termine della competizione, l'errore *mediano* delle predizioni era di circa $37$ libbre, ovvero $17$ kg. Tuttavia, la *mediana* delle predizioni era distante soltanto nove libbre (quattro kilogrammi) dal valore reale. Ciò descrive perfettamente il cosiddetto principio della [*saggezza della folla*](https://it.wikipedia.org/wiki/Saggezza_della_folla): in altre parole, in determinate situazioni, il giudizio fornito dall'opinione collettiva risulta essere (inaspettatamente) molto preciso.
 
-Matematicamente, la saggezza della folla può essere modellata con il [teorema centrale del limite](https://it.wikipedia.org/wiki/Teoremi_centrali_del_limite): informalmente, l'errore quadratico medio tra un valroe e la media di $N$ stime rumorose di questo valore tende a zero con un fattore pari ad $\frac{1}{n}$. Tuttavia, se le variabili non sono indpendente, la variazna è più grande.
+Dal punto di vista statistico, questo principio ricalca il [teorema centrale del limite](https://it.wikipedia.org/wiki/Teoremi_centrali_del_limite), che dice che lo scarto quadratico medio tra il valore vero $x$ e quello $\hat{x}$ derivante dalla media di $N$ stime (rumorose) di $x$ tende a zero con un fattore pari ad $\frac{1}{n}$.
+
+!!!note 
 
 Nel machine learning, un ensemblke è un insieme di modelli le cui predizioni sono mediate (o aggregate in qualche maniera). Se i modelli nell'ensemble sono abbastanza differenti senza essere pessimi se presi da soli, la qualità dell'ensemble è generalmente più alta che la qualità di ognuno dei modelli individuali. Un ensemble richiede maggior tempo di addestramento ed inferenza rispetto ad un singolo modello. Dopotutto, dobbiamo effettuare il trainign e l'inferenza di più modelli invece di un singolo modello.
 
