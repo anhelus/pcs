@@ -1,0 +1,1387 @@
+
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+    
+    
+      
+        <title>4 - Un primo esempio di apprendimento supervisionato: regressione lineare - Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7bf56d0a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ZCZWPCYZJ9"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ZCZWPCYZJ9",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ZCZWPCYZJ9",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-un-primo-esempio-di-apprendimento-supervisionato-regressione-lineare" class="md-skip">
+          Vai al contenuto
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../../../.." title="Python" class="md-header__button md-logo" aria-label="Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4 - Un primo esempio di apprendimento supervisionato: regressione lineare
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Python" class="md-nav__button md-logo" aria-label="Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Modulo 1 - Il linguaggio Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 1 - Il linguaggio Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          1 - Concetti introduttivi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          1 - Concetti introduttivi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/01_intro/" class="md-nav__link">
+        1.1 - Introduzione al Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/02_operators/" class="md-nav__link">
+        1.2 - Operatori
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/03_strings/" class="md-nav__link">
+        1.3 - Stringhe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/04_lists/" class="md-nav__link">
+        1.4 - Liste
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          2 - Programmare in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          2 - Programmare in Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/01_syntax/" class="md-nav__link">
+        2.1 - Sintassi fondamentale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/02_structured/" class="md-nav__link">
+        2.2 - Programmazione strutturata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/03_functions/" class="md-nav__link">
+        2.3 - Funzioni
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/04_data_structures/" class="md-nav__link">
+        2.4 - Altre strutture dati
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/05_classes/" class="md-nav__link">
+        2.5 - Classi
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/06_modules/" class="md-nav__link">
+        2.6 - Script, moduli e package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          3 - Concetti avanzati
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          3 - Concetti avanzati
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/03_advanced/01_argparse/" class="md-nav__link">
+        3.1 - Passaggio di argomenti a script
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Modulo 2 - Librerie per il calcolo scientifico
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 2 - Librerie per il calcolo scientifico
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/01_jupyter/lecture/" class="md-nav__link">
+        1 - Jupyter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          2 - NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          2 - NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/01_intro/" class="md-nav__link">
+        2.1 - Introduzione a Numpy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/02_array/" class="md-nav__link">
+        2.2 - Gli Array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/03_fundamentals/" class="md-nav__link">
+        2.3 - Operazioni fondamentali sugli array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/04_algebra/lecture/" class="md-nav__link">
+        2.4 - Algebra in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/05_polynomials/lecture/" class="md-nav__link">
+        2.5 - Polinomi in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/06_statistics/lecture/" class="md-nav__link">
+        2.6 - Statistica in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          3 - Pandas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          3 - Pandas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_pandas/01_intro/" class="md-nav__link">
+        3.1 - Introduzione a Pandas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_pandas/02_series/" class="md-nav__link">
+        3.2 - Le Series
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_pandas/03_io/" class="md-nav__link">
+        3.3 - Input/Output in Pandas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_pandas/04_functions/" class="md-nav__link">
+        3.4 - Manipolazione dei DataFrame
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          4 - Visualizzazione dei dati in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          4 - Visualizzazione dei dati in Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/04_visualization/01_matplotlib/" class="md-nav__link">
+        4.1 - Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/04_visualization/02_seaborn/" class="md-nav__link">
+        4.2 - Seaborn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/04_visualization/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Modulo 3 - Concetti di machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 3 - Concetti di machine learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/" class="md-nav__link">
+        1 - Introduzione al machine learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_framing/" class="md-nav__link">
+        2 - Definizione del problema
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_data_prep/" class="md-nav__link">
+        3 - Preparazione dei dati
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Appendici
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Appendici
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/01_python_vs_code/lecture/" class="md-nav__link">
+        A - Setup di Python e Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/02_setup_tflow/lecture/" class="md-nav__link">
+        B - Setup di TensorFlow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/03_libraries/lecture/" class="md-nav__link">
+        B - Le librerie in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/04_scope/lecture/" class="md-nav__link">
+        C - Ambito di una variabile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/05_oop/lecture/" class="md-nav__link">
+        D - Programmazione orientata agli oggetti
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/06_tips/lecture/" class="md-nav__link">
+        E - Tips
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributors/" class="md-nav__link">
+        Ringraziamenti
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cosa-e-la-regressione" class="md-nav__link">
+    Cosa è la regressione?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rappresentazione-analitica-del-modello" class="md-nav__link">
+    Rappresentazione analitica del modello
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#addestramento-e-funzione-di-costo" class="md-nav__link">
+    Addestramento e funzione di costo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#addestramento-iterativo" class="md-nav__link">
+    Addestramento iterativo
+  </a>
+  
+    <nav class="md-nav" aria-label="Addestramento iterativo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1651-ottimizzazione-della-loss" class="md-nav__link">
+    16.5.1 - Ottimizzazione della loss
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1652-overfitting-e-regolarizzazione" class="md-nav__link">
+    16.5.2 - Overfitting e regolarizzazione
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="4-un-primo-esempio-di-apprendimento-supervisionato-regressione-lineare">4 - Un primo esempio di apprendimento supervisionato: regressione lineare<a class="headerlink" href="#4-un-primo-esempio-di-apprendimento-supervisionato-regressione-lineare" title="Permanent link">&para;</a></h1>
+<p>Nelle <a href="../../01_intro/">lezioni precedenti</a> abbiamo visto come esistano fondamentalmente due tipi di tecniche di apprendimento supervisionato, ovvero <em>regressione</em> e <em>classificazione</em>. In questa lezione, approfondiremo il caso più semplice di regressione, ovvero quello lineare.</p>
+<h2 id="cosa-e-la-regressione">Cosa è la regressione?<a class="headerlink" href="#cosa-e-la-regressione" title="Permanent link">&para;</a></h2>
+<p>Non occorre essere esperti di meteorologia per sapere che i millimetri di pioggia caduti durante una precipitazione sono correlata a fattori quali temperatura, venti, umidità, posizione geografica, ed altri ancora. Immaginiamo quindi di avere un insieme di dati che, al loro interno, descrivano la condizione meteorologica ad un dato istante di tempo (supponiamo, per semplicità, giornaliero), oltre che i millimetri di pioggia caduti nello stesso periodo. Supponiamo di effettuare un'analisi esplorativa dei dati, i cui risultati sono (parzialmente) riportati in figura 1.</p>
+<figure>
+<p><img alt="rain_temp" src="../images/rain_temp.png" /><br />
+</p>
+<figcaption>Figura 1 - Relazione tra millimetri di pioggia (sull'asse $y$) e temperatura in gradi (sull'asse $x$).</figcaption>
+</figure>
+<p>La nostra analisi esplorativa ci porta subito ad intuire l'esistenza di una relazione tra la quantità di pioggia caduta e la temperatura: in particolare, a valor di temperatura più elevati corrisponde una minore quantità di pioggia, e viceversa.</p>
+<p>Proviamo adesso a tracciare la retta ai minimi quadrati, ovvero quella che minimizza la somma quadratica dello scarto tra il valore <span class="arithmatex">\((\hat{x}_i, \hat{y}_i)\)</span> da essa "attraversato" ed il valore <span class="arithmatex">\((x_i, y_i)\)</span> "vero" associato ai dati, per ciascun punto <span class="arithmatex">\(i\)</span> nell'insieme considerato. Il risultato è mostrato in figura 2.</p>
+<figure>
+<p><img alt="rain_temp_lr" src="../images/rain_temp_lr.png" /><br />
+</p>
+<figcaption>Figura 2 - Retta ai minimi quadrati relativa al rapporto tra precipitazioni e gradi.</figcaption>
+</figure>
+<h2 id="rappresentazione-analitica-del-modello">Rappresentazione analitica del modello<a class="headerlink" href="#rappresentazione-analitica-del-modello" title="Permanent link">&para;</a></h2>
+<p>Come già detto, notiamo come i millimetri di pioggia attesi diminuiscano all'aumentare della temperatura, secondo una relazione (più o meno) lineare, riconducibile ad una forma del tipo:</p>
+<div class="arithmatex">\[
+y = mx + b
+\]</div>
+<p>dove:</p>
+<ul>
+<li><span class="arithmatex">\(y\)</span> sono i millimetri di pioggia medi caduti nell'arco di tutte le giornate con un dato valore medio di temperatura;</li>
+<li><span class="arithmatex">\(x\)</span> è il valore medio di temperatura;</li>
+<li><span class="arithmatex">\(m\)</span> è il coefficiente angolare della retta di regressione;</li>
+<li><span class="arithmatex">\(b\)</span> è l'incercetta della retta di regressione.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Ovviamente, la retta di regressione <em>non</em> tocca tutti i punti, ma approssima l'andamento di <span class="arithmatex">\(x\)</span> in funzione di <span class="arithmatex">\(y\)</span>.</p>
+</div>
+<p>Possiamo riscrivere l'equazione precedente come segue:</p>
+<div class="arithmatex">\[
+\hat{y} = b + w_1 x_1
+\]</div>
+<p>dove:</p>
+<ul>
+<li><span class="arithmatex">\(\hat{y}\)</span> è l'output predetto dal modello, detto anche <em>variabile dipendente</em>;</li>
+<li><span class="arithmatex">\(b\)</span> è il <em>bias</em>, equivalente al concetto analitico di intercetta;</li>
+<li><span class="arithmatex">\(w_1\)</span> è il peso della prima feature, equivalente al concetto analitico di coefficiente angolare;</li>
+<li><span class="arithmatex">\(x_1\)</span> è il valore di ingresso assunto dalla prima ed unica feature considerata, detta anche <em>variabile indipendente</em>.</li>
+</ul>
+<p>Per <em>inferire</em> un nuovo valore di <span class="arithmatex">\(\hat{y}\)</span> ci basterà quindi cambiare il valore assunto da <span class="arithmatex">\(x_1\)</span>. In pratica, proprio come accade per una retta, se poniamo <span class="arithmatex">\(x_1 = 8\)</span> (ovvero assumendo un valore di temperatura di 8 gradi), avremo un corrispondente valore per le precipitazioni pari ad <span class="arithmatex">\(\hat{y} = 25\)</span> mm, mentre se <span class="arithmatex">\(x_1 = 32\)</span> il valore predetto per i millimetri di pioggia sarà <span class="arithmatex">\(\hat{y}=0\)</span>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Regressione multivariata</p>
+<p>In questo caso, abbiamo presupposto che vi sia un'unica variabile indipendente a determinare il valore di un'unica variabile dipendente. Esistono ovviamente casi più complessi, con diverse variabili dipendenti il cui valore è determinato da più feature secondo formule del tipo <span class="arithmatex">\(b + w_1 x_1 + \ldots + w_n x_n\)</span>.</p>
+</div>
+<h2 id="addestramento-e-funzione-di-costo">Addestramento e funzione di costo<a class="headerlink" href="#addestramento-e-funzione-di-costo" title="Permanent link">&para;</a></h2>
+<p>Addestrare un modello significa determinarne i valori ottimali per pesi e bias a partire dai dati che, nel caso della regressione, sono etichettati. Per far questo, i modelli ad apprendimento supervisionato esaminano iterativamente tutti i campioni presenti nel set di addestramento alla ricerca di un modo per minimizzare un <em>costo</em> (o, in inglese, <em>loss</em>) direttamente proporzionale alla differenza intercorrente tra la predizione del modello ed il valore vero. In altri termini, <em>la loss è una misura dell'errore delle predizioni effettuate dal modello</em>.</p>
+<h5 id="interpretazione-grafica-della-funzione-di-costo">Interpretazione grafica della funzione di costo<a class="headerlink" href="#interpretazione-grafica-della-funzione-di-costo" title="Permanent link">&para;</a></h5>
+<p>Nel caso ideale, la loss sarebbe pari a <span class="arithmatex">\(0\)</span>. Ovviamente, nel caso reale, la loss è sempre maggiore di questo valore, e sarà tanto maggiore quanto più il valore predetto divergerà da quello atteso. Proviamo ad interpretare al meglio questo concetto aiutandoci con la figura 3.</p>
+<figure>
+<p><img alt="loss" src="../images/loss.png" /><br />
+</p>
+<figcaption>Figura 3 - Interpretazione della funzione di costo</figcaption>
+</figure>
+<p>In particolare, le frecce schematizzano l'entità della differenza intercorrente tra il valore vero <span class="arithmatex">\(y\)</span> ed il valore predetto <span class="arithmatex">\(\hat{y}\)</span>. Come evidente, la loss complessiva è maggiore nella situazione a sinistra; ciò significa che l'addestramento dovrà necessariamente prediligere una retta di regressione come quella mostrata a destra.</p>
+<h5 id="calcolo-della-funzione-di-costo">Calcolo della funzione di costo<a class="headerlink" href="#calcolo-della-funzione-di-costo" title="Permanent link">&para;</a></h5>
+<p>Per calcolare la loss complessiva del modello a partire da un dato insieme di campioni dobbiamo utilizzare una <em>funzione di costo</em>, o <em>loss function</em>. Ne esistono molteplici esempi, alcuni dei quali saranno approfonditi nel prosieguo. Tuttavia, uno dei più semplici è dato dall'<em>errore quadratico medio</em>, o <em>mean squared error</em> (<em>MSE</em>), rappresentabile secondo la seguente formula:</p>
+<div class="arithmatex">\[
+MSE = \frac{1}{N} \sum_{(x, y) \in D} (y - \hat{y})^2
+\]</div>
+<p>In particolare:</p>
+<ul>
+<li><span class="arithmatex">\((x, y)\)</span> rappresenta l'insieme di feature <span class="arithmatex">\(x\)</span> con la corrispondente label <span class="arithmatex">\(y\)</span>;</li>
+<li><span class="arithmatex">\(\hat{y}\)</span> è il valore predetto della label a partire dall'applicazione del modello;</li>
+<li><span class="arithmatex">\(D\)</span> è il nostro dataset etichettato;</li>
+<li><span class="arithmatex">\(N\)</span> è il numero di campioni prensenti in <span class="arithmatex">\(D\)</span>.</li>
+</ul>
+<p>In pratica, l'MSE è dato dalla media delle differenze tra il valore predetto dal modello e quello vero calcolata sull'intero dataset. Come prevedibile, l'errore sarà tanto più alto quanto maggiore è la distanza complessiva tra le label e le predizioni; nell'esempio visto in figura 3, appare chiaro come l'MSE sia maggiore per la prima approssimazione rispetto alla seconda.</p>
+<div class="admonition tip">
+<p class="admonition-title">Perché quadratico?</p>
+<p>I più attenti avranno notato che stiamo utilizzando il <em>quadrato</em> dell'errore. Se non lo facessimo, gli errori "positivi" annullerebbero i "negativi", il che ovviamente non è il nostro obiettivo, in quanto ci interessa soltanto il <em>modulo</em> dello scarto quadratico.</p>
+</div>
+<h2 id="addestramento-iterativo">Addestramento iterativo<a class="headerlink" href="#addestramento-iterativo" title="Permanent link">&para;</a></h2>
+<p>Gli algoritmi di machine learning sono normalmente addestrati seguendo un approccio iterativo che prevede, al termine di ogni singola iterazione, l'<em>aggiornamento</em> del valore dei pesi, allo scopo di ridurre il costo complessivo associato alle predizioni dell'algoritmo. Possiamo riassumere questo comportamento mediante il seguente schema:</p>
+<pre class="mermaid"><code>flowchart TB
+    A[Dataset] --&gt; B[Feature] &amp; C[Label];
+    B &amp; C --&gt; D[Prediction];
+    D --&gt; E[Loss evaluation];
+    E --&gt; F[Parameters update];
+    F --&gt; D;</code></pre>
+<p>Nella pratica, ad ogni iterazione, il modello effettua una predizione a partire dai campioni a disposizione. Il risultato viene comparato con la label, ed il costo complessivo calcolato secondo la funzione scelta. I pesi sono quindi aggiornati seguendo una certa regola di ottimizzazione, ed il ciclo si ripete.</p>
+<div class="admonition note">
+<p class="admonition-title">Quante iterazioni?</p>
+<p>Le iterazioni non sono <em>infinite</em>: normalmente, si imposta un numero preciso di <em>epoche di training</em>, oppure si aspetta che l'algoritmo arrivi ad una sorta di "convergenza", nella quale il valore della loss non decresce ulteriormente.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Quanti dati?</p>
+<p>Come vedremo anche nel seguito, il calcolo della loss non avviene considerando il dataset nella sua interezza, ma soltanto dei sottoinsiemi di dati per ogni iterazione.</p>
+</div>
+<h3 id="1651-ottimizzazione-della-loss">16.5.1 - Ottimizzazione della loss<a class="headerlink" href="#1651-ottimizzazione-della-loss" title="Permanent link">&para;</a></h3>
+<p>Abbiamo in precedenza accennato al fatto che l'aggiornamento dei pesi segue una certa regola di ottimizzazione volta a minimizzare la loss. Ne esistono diverse versioni, ma in generale si rifanno al concetto di <em>discesa di gradiente</em>, illustrato nella seguente immagine.</p>
+<figure>
+<p><img alt="gd" src="../images/gd.png" /><br />
+</p>
+<figcaption>Figura 1 - Interprete Python</figcaption>
+</figure>
+<p>Spieghiamo brevemente cosa accade guardando da sinistra verso destra.</p>
+<p>Possiamo immaginare la funzione che modella la nostra loss come una sorta di paraboloide, dotato di un valore minimo prossimo allo zero che viene raggiunto in corrispondenza di una determinata combinazione dei valori dei pesi.</p>
+<p>Ipotizzando di trovarci all'inizio dell'addestramento nella situazione raffigurata nella figura a sinistra, ovvero con dei pesi nel ramo sinistro del paraboloide, il nostro obiettivo sarà quello di muoverci verso "destra", ovvero verso il minimo globale della funzione. Per farlo, intuitivamente, dovremo valutare la <em>derivata</em> o, nel caso di funzioni ad <span class="arithmatex">\(n\)</span> dimensioni, con <span class="arithmatex">\(n\)</span> numero di feature, il <strong>gradiente</strong> della nostra funzione di costo, ed aggiornare i pesi in maniera tale che questo assuma, alla successiva iterazione, un valore inferiore.</p>
+<p>Questo aggiornamento ci porta alla figura centrale, in cui vediamo che il gradiente si è spostato dal punto rosso al punto blu. In questa iterazione dovremo ancora <em>aumentare</em> il valore dei pesi affinchè il valore della funzione di costo diminuisca, portandoci quindi nella situazione raffigurata nella figura a destra.</p>
+<p>In quest'ultima situazione vedremo che il segno del gradiente sarà diventato positivo, in quanto ci troveremo su una parte ascendente del paraboloide; di conseguenza, dovremo <em>diminuire</em> i pesi per far convergere l'algoritmo.</p>
+<div class="admonition note">
+<p class="admonition-title">Learning rate</p>
+<p>Il "quantitativo" di cui sono aggiornati i pesi è spesso denotato come <em>learning rate</em>. Un learning rate troppo basso porta ad una convergenza molto lenta dell'algoritmo, che potrebbe "esaurire" le iterazioni prima di arrivare al minimo della funzione di costo. Un learning rate eccessivamente altro potrebbe invece fare in modo che l'algoritmo "salti" da una parte all'altra del minimo, non arrivando neanche in questo caso a convergenza.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Minimi locali</p>
+<p>Il nostro banale esempio presuppone che la funzione di costo non abbia alcun minimo locale. Ciò non è ovviamente vero, e delle scelte sbagliate in termini di punto di partenza o learning rate potrebbero farci finire all'interno di un minimo locale, impedendoci di arrivare a convergenza.</p>
+</div>
+<h3 id="1652-overfitting-e-regolarizzazione">16.5.2 - Overfitting e regolarizzazione<a class="headerlink" href="#1652-overfitting-e-regolarizzazione" title="Permanent link">&para;</a></h3>
+<p>Alle volte, accade che il nostro modello sia in grado di arrivare ad una loss estremamente bassa sui dati di training, ma che tuttavia inizia ad aumentare sui dati di validazione, un po' come nella figura successiva:</p>
+<figure>
+<p><img alt="reg" src="../images/reg.png" /><br />
+</p>
+<figcaption>Figura 1 - Interprete Python</figcaption>
+</figure>
+<p>Ciò può accadere per diversi motivi, come errori nei parametri di addestramento o dati non ben bilanciati. Ad ogni modo, questo fenomeno prende il nome di <em>overfitting</em>, e comporta che il modello, che si comporta benissimo sui dati di training, non riesca a <em>generalizzare</em>, comportandosi in maniera meno egregia sui dati di validazione. L'overfitting si manifesta all'aumentare delle epoche di training, quando il nostro modello diventa sempre più "complesso", ed apprende sempre meglio a caratterizzare relazioni di complessità crescente intercorrenti tra feature e label.</p>
+<p>Per arginare il fenomeno dell'overfitting, oltre ad agire sui dati e sui parametri del modello, si inserisce spesso un termine di <em>regolarizzazione</em>, che tende a penalizzare un modello in grado di caratterizzare relazioni eccessivamente complesse. Il termine di regolarizzazione interviene direttamente sul valore trattato dall'ottimizzatore, che non avrà più come unico obiettivo quello di minimizzare la loss, ma quello di <em>minimizzare congiuntamente la loss e la complessità del modello ottenuto</em>.</p>
+<p>Una funzione di regolarizzazione molto usata è la <em>regolarizzazione <span class="arithmatex">\(L_2\)</span></em>, definita come la somma dei quadrati dei pesi associati alle feature:</p>
+<div class="arithmatex">\[
+L_2 = ||w||_2^2 = w_1^2 + w_2^2 + \ldots + w_n^2
+\]</div>
+<p>Minimizzare questo termine significa dare meno "importanza" ad alcuni pesi che inficiano la complessità totale del modello. Se, ad esempio, avessimo i seguenti pesi:</p>
+<div class="arithmatex">\[
+{w_1 = 0.1, w_2 = 0.025, w_3 = 0.4, w_4 = 10}
+\]</div>
+<p>il termine di regolarizzazione <span class="arithmatex">\(L_2\)</span> diverrebbe pari a:</p>
+<div class="arithmatex">\[
+L_2 = 0.01 + 0,000625 + 0.16 + 100 \sim 100.17
+\]</div>
+<p>E' evidente come la maggior parte del contributo sia data dal quarto peso, per cui risulta essere necessario diminuirne l'influenza nel modello allo scopo di bilanciare l'overfitting.</p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Angelo Cardellicchio - MIT License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/anhelus" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:angelo.cardellicchio@stiima.cnr.it" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      
+        <script src="../../../../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

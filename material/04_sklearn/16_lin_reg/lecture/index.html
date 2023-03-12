@@ -11,7 +11,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.402914a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7bf56d0a.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -1182,9 +1182,9 @@
 <p>Quelli di apprendimento supervisionato sono probabilmente tra i sistemi di machine learning più diffusi, soprattutto a causa dei numerosi casi d'uso disponibili. Abbiamo detto che esistono fondamentalmente due tipi di tecniche di apprendimento supervisionato, ovvero <em>regressione</em> e <em>classificazione</em>. Vediamole maggiormente nel dettaglio.</p>
 <h2 id="161-un-esempio-di-regressione">16.1 - Un esempio di regressione<a class="headerlink" href="#161-un-esempio-di-regressione" title="Permanent link">&para;</a></h2>
 <p>A tutti noi è intuitivamente noto che i millimetri di pioggia che cadono sono in qualche modo correlati alle temperature medie che abbiamo durante la giornata. Immaginiamo quindi di avere un dataset che contenga al suo interno i dati medi sui millimetri di pioggia degli ultimi dieci anni per undici valori differenti di temperatura. Se provassimo a visualizzare i dati mediante un <code>relplot()</code>, otterremmo la seguente figura.</p>
-<p><img alt="rain_temp" src="../images/rain_temp.png" /></p>
+<p><img alt="rain_temp" src="./images/rain_temp.png" /></p>
 <p>Proviamo ad usare la funzione <code>lmplot()</code> che, ricordiamo, effettua una <em>regressione</em> tra i dati.</p>
-<p><img alt="rain_temp_lr" src="../images/rain_temp_lr.png" /></p>
+<p><img alt="rain_temp_lr" src="./images/rain_temp_lr.png" /></p>
 <h2 id="162-rappresentazione-analitica-del-modello">16.2 - Rappresentazione analitica del modello<a class="headerlink" href="#162-rappresentazione-analitica-del-modello" title="Permanent link">&para;</a></h2>
 <p>Notiamo subito che, come prevedibile, i millimetri di pioggia attesi diminuiscono all'aumentare della temperatura, andando a definire una sorta di <em>relazione lineare</em> tra i dati sull'asse delle ascisse (ovvero i gradi) e quelli sull'asse delle ordinate (ovvero la pioggia).</p>
 <p>Ovviamente, la retta di regressione non tocca direttamente tutti i punti, ma li <em>approssima</em>. Possiamo quindi dire che la relazione tra gradi e mm di pioggia è riconducibile ad una forma del tipo:</p>
@@ -1217,7 +1217,7 @@ y' = b + w_1 x_1
 <h2 id="163-addestramento-e-funzione-di-costo">16.3 - Addestramento e funzione di costo<a class="headerlink" href="#163-addestramento-e-funzione-di-costo" title="Permanent link">&para;</a></h2>
 <p>Addestrare un modello significa fare in modo che determini dei valori ottimali per tutti i pesi ed i bias a partire dagli esempi dotati di label. Per determinare tali valori, i modelli ad apprendimento supervisionato provano ad esaminare iterativamente tutti i campioni presenti nel set di addestramento alla ricerca di un modo per minimizzare un <em>costo</em>, il quale rappresenta una certa <em>penalità</em> assegnata al modello in caso di predizione errata.</p>
 <p>In pratica, il costo (o, in inglese, <em>loss</em>) è un numero che determina se la predizione effettuata dal modello su un singolo è stata più o meno conforme alla label assegnata. In caso di predizione perfetta, la loss è pari a <span class="arithmatex">\(0\)</span>; tuttavia, nel caso la predizione sia sbagliata, la loss sarà tanto più grande quanto più il valore predetto sarà divergente dal valore atteso. Proviamo ad interpretare graficamente questo concetto, riferendoci ai modelli di regressione:</p>
-<p><img alt="loss" src="../images/loss.png" /></p>
+<p><img alt="loss" src="./images/loss.png" /></p>
 <p>In particolare, nella figura precedente, le frecce rappresentano la loss, mentre il segmento blu rappresenta la predizione. Appare evidente come il secondo esempio abbia una loss complessiva inferiore rispetto al primo.</p>
 <p>Per calcolare la loss complessiva del modello su un insieme di campioni è possibile utilizzare una <em>funzione di costo</em>, o <em>loss function</em>. Esistono molteplici esempi di funzioni di costo; tuttavia, uno dei più semplici da comprendere è l'<em>errore quadratico medio</em>, calcolato a partire dalla seguente formula:</p>
 <div class="arithmatex">\[
@@ -1246,7 +1246,7 @@ MSE = \frac{1}{N} \sum_{(x, y) \in D} (y - y')^2
 </div>
 <h3 id="1651-ottimizzazione-della-loss">16.5.1 - Ottimizzazione della loss<a class="headerlink" href="#1651-ottimizzazione-della-loss" title="Permanent link">&para;</a></h3>
 <p>Abbiamo in precedenza accennato al fatto che l'aggiornamento dei pesi segue una certa regola di ottimizzazione volta a minimizzare la loss. Ne esistono diverse versioni, ma in generale si rifanno al concetto di <em>discesa di gradiente</em>, illustrato nella seguente immagine.</p>
-<p><img alt="gd" src="../images/gd.png" /></p>
+<p><img alt="gd" src="./images/gd.png" /></p>
 <p>Spieghiamo brevemente cosa accade guardando da sinistra verso destra.</p>
 <p>Possiamo immaginare la funzione che modella la nostra loss come una sorta di paraboloide, dotato di un valore minimo prossimo allo zero che viene raggiunto in corrispondenza di una determinata combinazione dei valori dei pesi.</p>
 <p>Ipotizzando di trovarci all'inizio dell'addestramento nella situazione raffigurata nella figura a sinistra, ovvero con dei pesi nel ramo sinistro del paraboloide, il nostro obiettivo sarà quello di muoverci verso "destra", ovvero verso il minimo globale della funzione. Per farlo, intuitivamente, dovremo valutare la <em>derivata</em> o, nel caso di funzioni ad <span class="arithmatex">\(n\)</span> dimensioni, con <span class="arithmatex">\(n\)</span> numero di feature, il <strong>gradiente</strong> della nostra funzione di costo, ed aggiornare i pesi in maniera tale che questo assuma, alla successiva iterazione, un valore inferiore.</p>
@@ -1262,7 +1262,7 @@ MSE = \frac{1}{N} \sum_{(x, y) \in D} (y - y')^2
 </div>
 <h3 id="1652-overfitting-e-regolarizzazione">16.5.2 - Overfitting e regolarizzazione<a class="headerlink" href="#1652-overfitting-e-regolarizzazione" title="Permanent link">&para;</a></h3>
 <p>Alle volte, accade che il nostro modello sia in grado di arrivare ad una loss estremamente bassa sui dati di training, ma che tuttavia inizia ad aumentare sui dati di validazione, un po' come nella figura successiva:</p>
-<p><img alt="reg" class="center" src="../images/reg.png" /></p>
+<p><img alt="reg" class="center" src="./images/reg.png" /></p>
 <p>Ciò può accadere per diversi motivi, come errori nei parametri di addestramento o dati non ben bilanciati. Ad ogni modo, questo fenomeno prende il nome di <em>overfitting</em>, e comporta che il modello, che si comporta benissimo sui dati di training, non riesca a <em>generalizzare</em>, comportandosi in maniera meno egregia sui dati di validazione. L'overfitting si manifesta all'aumentare delle epoche di training, quando il nostro modello diventa sempre più "complesso", ed apprende sempre meglio a caratterizzare relazioni di complessità crescente intercorrenti tra feature e label.</p>
 <p>Per arginare il fenomeno dell'overfitting, oltre ad agire sui dati e sui parametri del modello, si inserisce spesso un termine di <em>regolarizzazione</em>, che tende a penalizzare un modello in grado di caratterizzare relazioni eccessivamente complesse. Il termine di regolarizzazione interviene direttamente sul valore trattato dall'ottimizzatore, che non avrà più come unico obiettivo quello di minimizzare la loss, ma quello di <em>minimizzare congiuntamente la loss e la complessità del modello ottenuto</em>.</p>
 <p>Una funzione di regolarizzazione molto usata è la <em>regolarizzazione <span class="arithmatex">\(L_2\)</span></em>, definita come la somma dei quadrati dei pesi associati alle feature:</p>
@@ -1378,7 +1378,7 @@ R^2 = (1 - \frac{u}{v})
     <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
       
         <script src="../../../../js/config.js"></script>
       

@@ -11,15 +11,15 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
     
     
       
-        <title>X.X - Foreste decisionali - Python</title>
+        <title>6.2 - Foreste decisionali - Python</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.402914a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7bf56d0a.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#xx-foreste-decisionali" class="md-skip">
+        <a href="#62-foreste-decisionali" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              X.X - Foreste decisionali
+              6.2 - Foreste decisionali
             
           </span>
         </div>
@@ -1192,14 +1192,16 @@
                   
 
 
-<h1 id="xx-foreste-decisionali">X.X - Foreste decisionali<a class="headerlink" href="#xx-foreste-decisionali" title="Permanent link">&para;</a></h1>
-<p>Una <em>foresta decisionale</em> è un termine generico per descrivere i modelli composti da diversi alberi decisionali.</p>
-<p>Una foresta decisionale è un termine genrico per descrivere i modelli fatti di più alberi decsionali. La predizione in uscita da una foresta decisioanle è data dall'insieme delle predizione dei sui alberi decisionali.</p>
-<p>L'implementazione di questa agtgregazione dipende dall'algortimo usato per addestrare la foresta decisionale. Ad esempio, in una random forest cmulticlasse, ogni albero vota per una singola classe, e la predizione della random forest è la classe più rappresentata. In un binary classification gradient boosted tree (un altroi tipo di decision forest), ogni albero manda in uscita un <em>logit</em> (ovvero, un valore floating point), ed il gradient boosted tree manda una predizione che è la somma di questi valori, seguita da una funzione di attivazione (ad esempio, una signomidale).</p>
+<h1 id="62-foreste-decisionali">6.2 - Foreste decisionali<a class="headerlink" href="#62-foreste-decisionali" title="Permanent link">&para;</a></h1>
+<p>Per <em>foresta decisionale</em> si intendono tutti quei modelli composti da un insieme di alberi decisionali (trattati nella <a href="01_decision_trees.md">lezione precedente</a>). Il modo in cui i diversi alberi si aggregano dipende dall'algoritmo usato per l'addestramento: ad esempio, in una foresta decisionale che affronta un problema multiclasse, ogni albero potrebbe dare il suo "voto" ad una singola classe, e la predizione globale sarebbe quindi la classe più votata. Un'altra implementazione potrebbe invece prevedere che ciascun albero mandi in output un valore decimale compreso tra zero ed uno, con il valore complessivo della predizione dato dalla somma normalizzata dei valori predetti da ciascun albero e successivamente sogliata (nel caso, ovviamente, di predizione binaria).</p>
+<p>Partiremo la nostra trattazione da quello che, probabilmente, è l'esempio più noto di foresta decisionale: il <em>random forest</em>.</p>
 <h2 id="random-forest">Random Forest<a class="headerlink" href="#random-forest" title="Permanent link">&para;</a></h2>
-<p>Nel 1906, <a href="https://www.nature.com/articles/075450a0.pdf">venne tenuta in Inghilterra</a> una competizione per stabilire il peso di un bue tra 787 partecipanti. L'errore mediano delle predizioni di ciascuno era di circa 37 libre, ovvero 17 kg, pari al 3.1%. Tuttavia, la <em>mediana delle predizioni</em> era di sole 9 libbre (4 kg) distante dal risultato vero, con un errore di circa lo 0.7%.</p>
-<p>Questo aneddoto permette di illustrare il cosiddetto principio della <a href="https://it.wikipedia.org/wiki/Saggezza_della_folla"><em>saggezza della folla</em></a>: in certe situazioni, le opinioni collettive forniscono un giudizio estramemnte preciso.</p>
-<p>Matematicamente, la saggezza della folla può essere modellata con il <a href="https://it.wikipedia.org/wiki/Teoremi_centrali_del_limite">teorema centrale del limite</a>: informalmente, l'errore quadratico medio tra un valroe e la media di <span class="arithmatex">\(N\)</span> stime rumorose di questo valore tende a zero con un fattore pari ad <span class="arithmatex">\(\frac{1}{n}\)</span>. Tuttavia, se le variabili non sono indpendente, la variazna è più grande.</p>
+<p>Per introdurre il random forest è opportuno partire da un aneddoto.</p>
+<p>Nel 1906 si svolse in Inghilterra una competizione che vedeva i partecipanti tentare di valutare il peso di un bue (ovviamente, senza usare una bilancia). Al termine della competizione, l'errore <em>mediano</em> delle predizioni era di circa <span class="arithmatex">\(37\)</span> libbre, ovvero <span class="arithmatex">\(17\)</span> kg. Tuttavia, la <em>mediana</em> delle predizioni era distante soltanto nove libbre (quattro kilogrammi) dal valore reale. Ciò descrive perfettamente il cosiddetto principio della <a href="https://it.wikipedia.org/wiki/Saggezza_della_folla"><em>saggezza della folla</em></a>: in altre parole, in determinate situazioni, il giudizio fornito dall'opinione collettiva risulta essere (inaspettatamente) molto preciso.</p>
+<p>Dal punto di vista statistico, questo principio ricalca il <a href="https://it.wikipedia.org/wiki/Teoremi_centrali_del_limite">teorema centrale del limite</a>, che dice che lo scarto quadratico medio tra il valore vero <span class="arithmatex">\(x\)</span> e quello <span class="arithmatex">\(\hat{x}\)</span> derivante dalla media di <span class="arithmatex">\(N\)</span> stime (rumorose) di <span class="arithmatex">\(x\)</span> tende a zero con un fattore pari ad <span class="arithmatex">\(\frac{1}{n}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
 <p>Nel machine learning, un ensemblke è un insieme di modelli le cui predizioni sono mediate (o aggregate in qualche maniera). Se i modelli nell'ensemble sono abbastanza differenti senza essere pessimi se presi da soli, la qualità dell'ensemble è generalmente più alta che la qualità di ognuno dei modelli individuali. Un ensemble richiede maggior tempo di addestramento ed inferenza rispetto ad un singolo modello. Dopotutto, dobbiamo effettuare il trainign e l'inferenza di più modelli invece di un singolo modello.</p>
 <p>Informalmente, affinché un ensemble lavori al meglio, i modelli dinivudali dovrebbero essere indipendenti. Per esempio, un esnseble composto di 10 modelli identici (ovvero, non indipendenti tra loro) non sarà meglio del modello idnividuale. D'altro canto, forzare i modelli affinché siano indipendenti può renderli peggiori. Un ensemblingf efficace richiede l'indivioduazione del bilancio tra l'ndiepenze del modello e la qualità dei suoi sotto-modelli.</p>
 <h2 id="randomn-forest">Randomn forest<a class="headerlink" href="#randomn-forest" title="Permanent link">&para;</a></h2>
@@ -1458,7 +1460,7 @@
     <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.b78d2936.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
       
         <script src="../../../../js/config.js"></script>
       

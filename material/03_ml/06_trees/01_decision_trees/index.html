@@ -1,0 +1,1579 @@
+
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+    
+    
+      
+        <title>X.X - Gli alberi decisionali - Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7bf56d0a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-ZCZWPCYZJ9"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-ZCZWPCYZJ9",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-ZCZWPCYZJ9",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#xx-gli-alberi-decisionali" class="md-skip">
+          Vai al contenuto
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../../../.." title="Python" class="md-header__button md-logo" aria-label="Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              X.X - Gli alberi decisionali
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Python" class="md-nav__button md-logo" aria-label="Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Modulo 1 - Il linguaggio Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 1 - Il linguaggio Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          1 - Concetti introduttivi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          1 - Concetti introduttivi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/01_intro/" class="md-nav__link">
+        1.1 - Introduzione al Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/02_operators/" class="md-nav__link">
+        1.2 - Operatori
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/03_strings/" class="md-nav__link">
+        1.3 - Stringhe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/04_lists/" class="md-nav__link">
+        1.4 - Liste
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/01_intro/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          2 - Programmare in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          2 - Programmare in Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/01_syntax/" class="md-nav__link">
+        2.1 - Sintassi fondamentale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/02_structured/" class="md-nav__link">
+        2.2 - Programmazione strutturata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/03_functions/" class="md-nav__link">
+        2.3 - Funzioni
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/04_data_structures/" class="md-nav__link">
+        2.4 - Altre strutture dati
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/05_classes/" class="md-nav__link">
+        2.5 - Classi
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/06_modules/" class="md-nav__link">
+        2.6 - Script, moduli e package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          3 - Concetti avanzati
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          3 - Concetti avanzati
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/03_advanced/01_argparse/" class="md-nav__link">
+        3.1 - Passaggio di argomenti a script
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Modulo 2 - Librerie per il calcolo scientifico
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 2 - Librerie per il calcolo scientifico
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/01_jupyter/lecture/" class="md-nav__link">
+        1 - Jupyter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          2 - NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          2 - NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/01_intro/" class="md-nav__link">
+        2.1 - Introduzione a Numpy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/02_array/" class="md-nav__link">
+        2.2 - Gli Array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/03_fundamentals/" class="md-nav__link">
+        2.3 - Operazioni fondamentali sugli array
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/04_algebra/lecture/" class="md-nav__link">
+        2.4 - Algebra in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/05_polynomials/lecture/" class="md-nav__link">
+        2.5 - Polinomi in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/06_statistics/lecture/" class="md-nav__link">
+        2.6 - Statistica in NumPy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/02_numpy/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          3 - Pandas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          3 - Pandas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_pandas/01_intro/" class="md-nav__link">
+        3.1 - Introduzione a Pandas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_pandas/02_series/" class="md-nav__link">
+        3.2 - Le Series
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_pandas/03_io/" class="md-nav__link">
+        3.3 - Input/Output in Pandas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/03_pandas/04_functions/" class="md-nav__link">
+        3.4 - Manipolazione dei DataFrame
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          4 - Visualizzazione dei dati in Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          4 - Visualizzazione dei dati in Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/04_visualization/01_matplotlib/" class="md-nav__link">
+        4.1 - Matplotlib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/04_visualization/02_seaborn/" class="md-nav__link">
+        4.2 - Seaborn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_libs/04_visualization/exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Modulo 3 - Concetti di machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 3 - Concetti di machine learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/" class="md-nav__link">
+        1 - Introduzione al machine learning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_framing/" class="md-nav__link">
+        2 - Definizione del problema
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_data_prep/" class="md-nav__link">
+        3 - Preparazione dei dati
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Appendici
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Appendici
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/01_python_vs_code/lecture/" class="md-nav__link">
+        A - Setup di Python e Visual Studio Code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/02_setup_tflow/lecture/" class="md-nav__link">
+        B - Setup di TensorFlow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/03_libraries/lecture/" class="md-nav__link">
+        B - Le librerie in Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/04_scope/lecture/" class="md-nav__link">
+        C - Ambito di una variabile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/05_oop/lecture/" class="md-nav__link">
+        D - Programmazione orientata agli oggetti
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix/06_tips/lecture/" class="md-nav__link">
+        E - Tips
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../contributors/" class="md-nav__link">
+        Ringraziamenti
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#xx-dataset-per-gli-alberi-decisionali" class="md-nav__link">
+    X.X. - Dataset per gli alberi decisionali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    Performance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funzionamento-degli-alberi-decisionali" class="md-nav__link">
+    Funzionamento degli alberi decisionali
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipi-di-condizione-in-un-albero-decisionale" class="md-nav__link">
+    Tipi di condizione in un albero decisionale
+  </a>
+  
+    <nav class="md-nav" aria-label="Tipi di condizione in un albero decisionale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#axis-aligned-vs-oblique" class="md-nav__link">
+    Axis-aligned vs. oblique
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binarie-vs-non-binarie" class="md-nav__link">
+    Binarie vs. non binarie
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#come-addestrare-gli-alberi-decisionali" class="md-nav__link">
+    Come addestrare gli alberi decisionali?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classificazione-binaria" class="md-nav__link">
+    Classificazione binaria
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overfitting-e-pruning" class="md-nav__link">
+    Overfitting e pruning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretazione-diretta-dellalbero-decisionale" class="md-nav__link">
+    interpretazione diretta dell'albero decisionale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importanza-delle-variabili" class="md-nav__link">
+    Importanza delle variabili
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esempio-con-tensorflow-decision" class="md-nav__link">
+    Esempio con tensorflow-decision
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="xx-gli-alberi-decisionali">X.X - Gli alberi decisionali<a class="headerlink" href="#xx-gli-alberi-decisionali" title="Permanent link">&para;</a></h1>
+<p>Gli <em>alberi decisionali</em> sono una tra le famiglie di modelli maggiormente utilizzate per l'apprendimento supervisionato, sia in fase di classificazione, sia in fase di regressione. Offrono alcuni benefici rispetto agli altri modelli, tra cui:</p>
+<ul>
+<li>una maggiore semplicità di configurazione rispetto alle reti neurali, legata alla presenza di meno iperparametri, il cui tuning, tra l'altro, risulta essere meno influente per le prestazioni finali (in pratica, è possibile utilizzare tranquillamente i valori di default);</li>
+<li>la capacità di gestire feature di diverso tipo (ad esempio, numeriche, categoriche, o anche mancanti), il che comporta la possibilità di effettuare meno preprocessing rispetto ad altri modelli;</li>
+<li>la possibilità di essere usati su dataset di piccole dimensioni con una maggiore efficienza rispetto a modelli più complessi come le rete neurali.</li>
+</ul>
+<p>Da non sottovalutare, inoltre, il fatto che gli alberi decisionali forniscono spesso buoni risultati, sono robusti al rumore, ed hanno dei risultati che sono facilmente interpretabile.</p>
+<h2 id="xx-dataset-per-gli-alberi-decisionali">X.X. - Dataset per gli alberi decisionali<a class="headerlink" href="#xx-dataset-per-gli-alberi-decisionali" title="Permanent link">&para;</a></h2>
+<p>Gli alberi decisionali risultano essere molto efficaci quando si ha a che fare con dataset di tipo tabulare, come file CSV o tabelle di un database. Un esempio è, ovviamente, il dataset Titanic. Inoltre, non abbiamo la necessità di effettuare operazioni di preprocessing, come normalizzazioni, one-hot encoding, o data imputation.</p>
+<p>Tuttavia, gli alberi decisionali non sono assolutamente adatti ad essere utilizzati su dati non tabulari (anche detti <em>non strutturati</em>), come ad esempio immagini o testo. </p>
+<h2 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h2>
+<p>Gli alberi decisionali possono essere addestrati con efficacia su piccoli dataset, o su dataset sui quali comunque il rapporto tra feature e numero di campioni non è di molto superiore ad 1.</p>
+<div class="admonition note">
+<p class="admonition-title">Efficacia degli alberi</p>
+<p>Anche se gli alberi decisionali sono efficaci in caso di rapporto quasi unitario tra feature e numero di campioni (<em>sample efficiency</em>), il funzionamento migliora quando sono disponibili molti dati, così come tutti gli algoritmi di machine learning.</p>
+</div>
+<h2 id="funzionamento-degli-alberi-decisionali">Funzionamento degli alberi decisionali<a class="headerlink" href="#funzionamento-degli-alberi-decisionali" title="Permanent link">&para;</a></h2>
+<p>Vediamo un esempio di funzionamento degli alberi decisionali.</p>
+<p>Un albero decisionale non è altro se non un modello composto da un insieme di <em>domande</em>, o per meglio dire <em>condizioni</em>, organizzate in maniera gerarchica sotto forma di albero. Ognuno dei nodi <em>non</em> foglia dell'albero descrive una condizione, mentre ogni nodo foglia contiene una predizione. Nella seguente figura vediamo un esempio di albero decisionale:</p>
+<pre class="mermaid"><code>flowchart TB
+  A[Gambe&gt;2] --&gt;|No| B[Occhi&gt;2]
+  A --&gt;|Sì| C(Cane)
+  B --&gt;|Sì| D(Ragno)
+  B --&gt;|No| E(Gallina)</code></pre>
+<p>L'inferenza dell'albero decisionale viene quindi calcolata eseguendo il routing di un campione dalla radice fino ad una delle foglie, a seconda dei valori assunti dalle feature; il valore della foglia raggiunta rappresenta la predizione raggiunta dall'albero, mentre l'insieme dei nodi visitati è detto <em>percorso di inferenza</em>. </p>
+<p>Cerchiamo di capire cosa sta succedendo nel nostro esempio. Nel nodo radice, viene descritta la condizione relativa al fatto che il nostro campione abbia più o meno di due gambe. Nel nodo B, che non è un nodo foglia, viene valutata la presenza di un numero di occhi maggiore o minore di due. Nei tre nodi foglia, ovvero C, D ed E, abbiamo la <em>decisione</em> presa dall'albero (rispettivamente, cane, ragno o gallina). Ad esempio, consideriamo un campione avente due gambe e due occhi. Allora, partendo dalla radice ed arrivando alla foglia, avremo il seguente percorso di inferenza:</p>
+<pre class="mermaid"><code>flowchart TB
+  A[Gambe&gt;2] --&gt;|No| B[Occhi&gt;2]
+  A --&gt;|Sì| C(Cane)
+  B --&gt;|Sì| D(Ragno)
+  B --&gt;|No| E(Gallina)
+  linkStyle 1,3 stroke-width:2px,fill:none,stroke:red;</code></pre>
+<p>In modo simile, è possibile fare in modo che un albero decisionale effettui una predizione di regressione su dei valori numerici. Ad esempio, possiamo predire l'indice di tenerezza di un animale:</p>
+<pre class="mermaid"><code>flowchart TB
+  A[Pelosità&gt;medio] --&gt;|Si| B[Carineria&gt;medio]
+  A --&gt;|No| C(1)
+  B --&gt;|Sì| D(3)
+  B --&gt;|No| E(2)</code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Risultati della regressione</p>
+<p>Dall'esempio precedente, è evidente come cani, gatti e pulcini siano gli animali che ispirano più tenerezza nell'essere umano, laddove aracnidi, insetti e serpenti risultino essere molto meno teneri.</p>
+</div>
+<p>Vediamo adesso come distinguere i diversi tipi di condizione descritti in un albero decisionale.</p>
+<h2 id="tipi-di-condizione-in-un-albero-decisionale">Tipi di condizione in un albero decisionale<a class="headerlink" href="#tipi-di-condizione-in-un-albero-decisionale" title="Permanent link">&para;</a></h2>
+<h3 id="axis-aligned-vs-oblique">Axis-aligned vs. oblique<a class="headerlink" href="#axis-aligned-vs-oblique" title="Permanent link">&para;</a></h3>
+<p>La prima distinzione che è possibile fare tra diverse condizioni riguarda il fatto che queste interessino una o più feature. In particolare, le condizioni <em>axis-aligned</em> interessano un'unica feature, mentre quelle <em>oblique</em> riguardano più feature. Tornando all'esempio precedente, la condizione <span class="arithmatex">\(Gambe \geq 2\)</span> è chiaramente axis-aligned, in quanto coinvolge solamente il numero di gambe dell'animale. Se, ad esempio, ci fosse stata una condizione del tipo <span class="arithmatex">\(Gambe \geq Occhi\)</span>, avremmo avuto a che fare con una condizione oblique.</p>
+<p>Spesso, gli alberi decisionali vengono addestrati esclusivamente con condizioni axis-aligned. D'altro canto, l'uso di condizioni oblique è potenzialmente molto potente, in quanto queste sono in grado di esprimere relazioni molto complesse tra dati; tuttavia, nella pratica, molto spesso (ab)usare delle condizioni oblique comporta performance inferiori al netto di maggiori costi in termini di tempo di addestramento.</p>
+<h2 id="binarie-vs-non-binarie">Binarie vs. non binarie<a class="headerlink" href="#binarie-vs-non-binarie" title="Permanent link">&para;</a></h2>
+<p>La seconda distinzione che esiste tra diverse condizioni riguarda quelle <em>binarie</em>, che hanno soltanto due possibili esiti, e <em>non binarie</em>, che hanno più di due possibili esiti. Prevedibilmente, gli alberi decisionali contenenti soltanto condizioni binarie sono detti <em>alberi binari</em>, mentre gli alberi contenenti anche condizioni non binarie sono detti <em>non binari</em>.</p>
+<p>In questo caso, il compromesso è tra la generalizzazione </p>
+<p>TODO ESEMPIO</p>
+<p>Le condizioni con troppa specificità, comunque, tendono a causare overfitting. Per questa ragione, gli alberi decisionali usano generalmente delle condizioni binarie.</p>
+<h2 id="come-addestrare-gli-alberi-decisionali">Come addestrare gli alberi decisionali?<a class="headerlink" href="#come-addestrare-gli-alberi-decisionali" title="Permanent link">&para;</a></h2>
+<p>Come tutti i modelli di apprendimento supervisionato, gli alberi decisionali sono addestrati per spiegare al meglio un insisem di esempi di training. Il training ottimale di un albero decisionale è un problema NP-hard. Quindi, il training è generalmente fatto mediante delle euristiche - un algoritmi di apprendimento semplice da creare che restituisce un ablero decisionale subottimo, ma vicino all'ottimo.</p>
+<p>La maggior parte degli algoritmi usati per addestrare gli alberi decisionali usa un approccio <em>divide-et-impera</em>. L'algoritmo inizia creando un singolo nodo (la radice) ed aumenta l'albero in maniera ricorsiva usando un approccio <em>greedy</em>.</p>
+<p>Ad ogni nodo, tutte le possibili condizioni sono valutate. L'algoritmo seleziona la migliore condizione, ovvero, la condizione con il punteggio più alto. Per adesso, ci limitiamo a sapere che il punteggio è una metrica che è correlata al task, e le condizioni sono selezionati per massimizzare questa metrica.</p>
+<p>Per esempio, nel dataset Palmer Pengiuns, la maggio parte dei pinguini Adelie e Chinstrap hanno la lunghezza del becco maggiore a 16mm, mentre la maggior parte dei pinguinig Gentoo ha dei becchi più piccoli. Quindi, la condizione lunghezza<em>becco</em>mm &gt; 16 permette di predire in maniera affidabile i pinguini Gentoo, ma non riesce a discerneere tra gli Adelie ed i Chinstrap. L'algoritmo considererà quindi questa condizione.</p>
+<pre class="mermaid"><code>flowchart TD
+A["lunghezza_becco_mm &gt; 16"] --&gt; B[Adelie o Chinstrap]
+A --&gt; C[Gentoo]</code></pre>
+<p>L'algoritmo quindi ripete in maniera ricorsiva ed indipendente o entrambi i nodi figli. Quando non si trova una condizione soddisfacente, il nodo diventa una foglia. La predizione della foglia è determianta come l'etichetta più rappresentativa negli esempi.</p>
+<p>L'algoritmo è il seguente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">train_decision_tree</span><span class="p">(</span><span class="n">training_examples</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">root</span> <span class="o">=</span> <span class="n">create_root</span><span class="p">()</span> <span class="c1"># Create a decision tree with a single empty root.</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="n">grow_tree</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">training_examples</span><span class="p">)</span> <span class="c1"># Grow the root node.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  <span class="k">return</span> <span class="n">root</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">def</span> <span class="nf">grow_tree</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">examples</span><span class="p">):</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  <span class="n">condition</span> <span class="o">=</span> <span class="n">find_best_condition</span><span class="p">(</span><span class="n">examples</span><span class="p">)</span> <span class="c1"># Find the best condition.</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  <span class="k">if</span> <span class="n">condition</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="c1"># No satisfying conditions were found, therefore the grow of the branch stops.</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">set_leaf_prediction</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">examples</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="k">return</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  <span class="c1"># Create two childrens for the node.</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  <span class="n">positive_child</span><span class="p">,</span> <span class="n">negative_child</span> <span class="o">=</span> <span class="n">split_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">condition</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  <span class="c1"># List the training examples used by each children.</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  <span class="n">negative_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">example</span> <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">examples</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">condition</span><span class="p">(</span><span class="n">example</span><span class="p">)]</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  <span class="n">positive_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">example</span> <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">examples</span> <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">example</span><span class="p">)]</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>  <span class="c1"># Continue the growth of the children.</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>  <span class="n">grow_tree</span><span class="p">(</span><span class="n">negative_child</span><span class="p">,</span> <span class="n">negative_examples</span><span class="p">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>  <span class="n">grow_tree</span><span class="p">(</span><span class="n">positive_child</span><span class="p">,</span> <span class="n">positive_examples</span><span class="p">)</span>
+</code></pre></div>
+<p>Vediamo i passi necessari ad addestrare un certo albero decisionale in dettaglio.</p>
+<ul>
+<li>Step 1: creiamo un nodo radice</li>
+</ul>
+<pre class="mermaid"><code>flowchart TD
+
+A["nodo radice"]</code></pre>
+<p>Step 2: accresciamo il nodo 1. La condizione x1 &gt;= 1 viene trovata. Sono creati due nodi figli:</p>
+<pre class="mermaid"><code>A["x1 &gt;= 1 nodo radice"] --&gt; Yes --&gt; B["? nodo 3"]
+A --&gt; No --&gt; C["? nodo 2"]</code></pre>
+<p>Step 3: accresdciamo il nodo 2. Non sono state trovate condizioni soddisfacenti. Per cui, il nodo diventa una foglia.</p>
+<pre class="mermaid"><code>flowchart TD
+
+A["x1 &gt;= 1 nodo radice"] --&gt; sì --&gt; B["? nodo 3"]
+A --&gt; No --&gt; C["foglia nodo 2"]</code></pre>
+<p>Step 4: accresciamo il nodo 3. La condizione "x2 &gt;= 0.5" è stata individuata. Due nodi figli sono creati.</p>
+<pre class="mermaid"><code>flowchart TD
+  A["x1 &gt;= 1 nodo radice"] --&gt; sì --&gt; B["x2 &gt; 5 nodo 3"]
+  A --&gt; No --&gt; C["foglia nodo 2"]
+  B --&gt; Si --&gt; D["? nodo 5"]
+  B --&gt; No --&gt; E["?nodo 4"]</code></pre>
+<p>Esistono altri metodi per accrescere gli alberi decisionali. Un'alternativa popolare è ottimizzare globalmente i nodi invece di usare una strategia divide-et-impera.</p>
+<p>A seconda del numero e del tipo di feature di input, il numoer di possibili condizioni per un dato nodo può essere enorme, generalmente infiito. Ad esempio, data una condizione di soglia <span class="arithmatex">\(feature_i \geq t\)</span>, la combinaizone di tutti i possibili valore di soglia <span class="arithmatex">\(t \in \mathbb{R}\)</span> è infiniat.</p>
+<p>La routine responsabiel per individualre la miglireo condizione è chiamata <em>splitter</em>. Siccome deve testare un gran numero di possibili condizioni, gli splitter sono i colli di bottiglia quando si addestra un albero decisionale.</p>
+<p>Il punteggio massimizzzato dallo splitter dipende dal task. AD esempio:</p>
+<ul>
+<li>Information Gaìni e Gini sono normalmente usati per la classiciazione.</li>
+<li>l'0errore quadratico medio è normalmente usato per la regressione</li>
+</ul>
+<p>Ci sono molti algoretimi di splitting, ognuno con vario spporto per:</p>
+<ul>
+<li>tipo di feature; ad esempio, numerica, categorica, testuale;</li>
+<li>task: pèer esempio, classificazione binaria, multiclasse, regtressione;</li>
+<li>tipo di condizione: per esempio, condizione di soglia, obliqua, etc.;</li>
+<li>criterio di regolarizzaizone: per esempio, splitter essatti o approssimati per le condizioni di soglia.</li>
+</ul>
+<p>Inoltre, ci sono deglle varianti equivalenti delgi splitter con diversi compromessi per l'uso di memoria, CPUI, e via dicendo.</p>
+<h2 id="classificazione-binaria">Classificazione binaria<a class="headerlink" href="#classificazione-binaria" title="Permanent link">&para;</a></h2>
+<p>Splitter per la classificazione binaria con feature numeriche</p>
+<p>Vediamo il più semplice e comune algoritmo di splitting, che crea condizioni nella fomra <span class="arithmatex">\(feature_i \geq t\)</span> nel seguente setting:</p>
+<ul>
+<li>task di classificazione binaria</li>
+<li>senza valori mancanti negli esempi</li>
+<li>senza indici precalcolati sugli esempi</li>
+</ul>
+<p>Assumiamo un insieme di <span class="arithmatex">\(n\)</span> campioni con una freatrure numerica ed una label bianrai "arancio" e "blu". Formalmente, il dataset può essere descritto come:</p>
+<div class="arithmatex">\[
+D={(x_i, y_i)}_{i \in[1, n]}
+\]</div>
+<p>dove:</p>
+<ul>
+<li><span class="arithmatex">\(x_i\)</span> è il valore di una featrure numerica in <span class="arithmatex">\(\mathbb{R}\)</span> (l'insieme di numeri reali)</li>
+<li><span class="arithmatex">\(y_i\)</span> è una valore per la label di classificazione binaria tra arancio e blu</li>
+</ul>
+<p>L'obiettivo è trovare un valore di soglia <span class="arithmatex">\(t\)</span> tale che dividendo i campioni <span class="arithmatex">\(D\)</span> nei gruppi <span class="arithmatex">\(T(rue)\)</span> ed <span class="arithmatex">\(F(alse)\)</span> secondo <span class="arithmatex">\(x_i \geq t\)</span> migliroaiamo la separazione delle label. Ad esmepio, più esempi arancioni saranno in <span class="arithmatex">\(T\)</span>, e più esempi blu saranno in <span class="arithmatex">\(F\)</span>.</p>
+<p>L'entropia di Shanno è una misura di disordine. Per una label binaria:</p>
+<ul>
+<li>l'etnropia di Shanno è massima qunado le label negli esempi sono bilanciate (<span class="arithmatex">\(50\%\)</span> blu, <span class="arithmatex">\(50\%\)</span> arancioni)</li>
+<li>l'entropia di SHanno è minima (valore zero) quando le label negli esempi sono pure (<span class="arithmatex">\(100\%\)</span> blu o <span class="arithmatex">\(100\%\)</span> arancioni)</li>
+</ul>
+<p>Formalmente, vogliamo trovare una condizione che diminuisce la somma pesata dell'entropia delle distribuzioni delle label in <span class="arithmatex">\(T\)</span> ed <span class="arithmatex">\(F\)</span>. Il punteggio corrispondente è detto <em>information gain</em>, che è la differneza tra l'entropia di <span class="arithmatex">\(D\)</span> e quella dell'insieme <span class="arithmatex">\({T, F}\)</span>.</p>
+<p>La seguente figura mostra una suddivisione errata, nella quale l'entropia rimane alta ed il guadagno informativo basso.</p>
+<p>In contrasto, la seguente figura mostra uno split miglire nel quale le'ntropia diventa bassa (ed il guadagno informativo  alto).</p>
+<p>Formalmente:</p>
+<div class="arithmatex">\[
+T = {(x_i, y_i)|(x_i, y_i) \in D con x_i \geq t} \\
+F = {(x_i, y_i)|(x_i, y_i) \in D con x_i &lt; t} \\
+R(X) = \frac{|{x|x \in X, x=pos}|}{|X|} \\
+H(X) = -p log p - (1-p) log(1-p) con p = R(X) \\
+IG(D, T, F) = H(D) - \frac{|T|}{|D|} H(T) - \frac{|F|}{|D|}H(F)
+\]</div>
+<p>con:</p>
+<ul>
+<li><span class="arithmatex">\(IG(D,T,F)\)</span> guadagno infomrativo legato alla suddivisione di <span class="arithmatex">\(D\)</span> in <span class="arithmatex">\(T\)</span> ed <span class="arithmatex">\(F\)</span>.</li>
+<li>$H(X) è l'entropia dell'insieme di campioni <span class="arithmatex">\(X\)</span>.</li>
+<li><span class="arithmatex">\(|X|\)</span> è il numero di elementi nell'insieme <span class="arithmatex">\(|X|\)</span>.</li>
+<li><span class="arithmatex">\(t\)</span> è il valore di sopglia.</li>
+<li><span class="arithmatex">\(pos\)</span> è il valore della label <em>positivo</em>, ad esempio, blue nell'esempio prec edfentre. Scegelier una diversa label come positiva non cambia il valore dell'entropia o dell'information gain.</li>
+<li><span class="arithmatex">\(R(X)\)</span> è il rapporto dei valori delle label positive nei campioni <span class="arithmatex">\(X\)</span>.</li>
+<li><span class="arithmatex">\(D\)</span> è il dataset.</li>
+</ul>
+<p>Nel seguente esempio, consideriamo un datraset poer la classificazione binaria con una singola feature numerica <span class="arithmatex">\(x\)</span>. La seguente figura mostra per differenti valori della soglia <span class="arithmatex">\(t\)</span> (sull'asse X):</p>
+<ol>
+<li>L'istogramma della feature <span class="arithmatex">\(x\)</span>.</li>
+<li>Il rapporto di campioni "blu" negli insiemni <span class="arithmatex">\(D\)</span>, <span class="arithmatex">\(T\)</span> ed <span class="arithmatex">\(F\)</span> secondo il valore di soglia.</li>
+<li>L'entropia in <span class="arithmatex">\(D\)</span>, <span class="arithmatex">\(T\)</span>, ed <span class="arithmatex">\(F\)</span>.</li>
+<li>Il guadagno informativo, ovvero il delta, in termini di entropia, tra <span class="arithmatex">\(D\)</span> e <span class="arithmatex">\({T, F}\)</span> pèersato per il numero di campioni.</li>
+</ol>
+<p>Questi plot mostrano i seguenti:</p>
+<ul>
+<li>il plot di  frequenza mostra che le osserrvazioni sono relativamente ben diffuse con concentrazioni tra 18 e 60. Un valore dello spread ampio indica che ci sono molti split potenziali, il che è un bene per l'addestramento del modello.</li>
+<li>il rapporto di label blue nel dataset è di circa il 25%. Il plot relativo mostra questo per i valori di soglia tra 20 e 50:</li>
+<li>l'insieme T contiene un eccesso di campioni blu (fino al 35% per la soglia 35)</li>
+<li>l'insieme F contiene un deficit complementare di caompionio etichettati con blu (solo 8% per la soglia 35)<br />
+  Sia il "rapporto di label blu" sia il plot di entropia indicano che le label possono essere relativamente ben sepèarate in questo range di soglie.</li>
+<li>Questa osservazione è confermata nel plot "information gain". VEdiamo che il massimo guadagno informativo è ottenuto con <span class="arithmatex">\(t \sim 28\)</span> per un valore di circa <span class="arithmatex">\(0.074\)</span>. Quindi, la condizione restituita dallo splitter sarà <span class="arithmatex">\(x \geq 28\)</span>.</li>
+<li>Il guadagno informativo è sempre maggiore o uguale a zero. Converge a zero man mano che il valore di soglia va verso il suo valore massimo (minimo). In questi casi, o <span class="arithmatex">\(F\)</span> o <span class="arithmatex">\(T\)</span> diventano vuoti mentre l'altro contiene l'0iutenro dataset e mostra un'entropia uguale a quella in <span class="arithmatex">\(D\)</span>. Il guadagno informatiov può anche essere zero quando <span class="arithmatex">\(H(T)=H(F)=H(D)\)</span>. Alla soglia 60, il rapporto di label blue per sia <span class="arithmatex">\(T\)</span> sia <span class="arithmatex">\(F\)</span> è lo stesso di quello di <span class="arithmatex">\(D\)</span>, ed il guadagno informatiov è nullo.</li>
+</ul>
+<p>I valori candidati per <span class="arithmatex">\(t\)</span> nell'isnieme dei numeri reali (<span class="arithmatex">\(\mathbb{R}\)</span>) sono infiniti. TTuttavia,d ato un numeor finito di campioni, osltmnatop un numero difnito di divisioni di <span class="arithmatex">\(D\)</span> in <span class="arithmatex">\(T\)</span> ed <span class="arithmatex">\(F\)</span> esiste. Quidni, solo un numero finito di valori di <span class="arithmatex">\(t\)</span> possono essere testati in modod singificativo.</p>
+<p>Un approccio classico è quello di ordinare i valori <span class="arithmatex">\(x_j\)</span> in ordine crescente <span class="arithmatex">\(x_{s(i)}\)</span> in modo che:</p>
+<div class="arithmatex">\[
+x_{s(i)} \leq x_{s(i+1)}
+\]</div>
+<p>Quindi, sit esta <span class="arithmatex">\(t\)</span> per ogni valore a metà tra valori ordinati consecutivi di <span class="arithmatex">\(x_i\)</span>. Ad esempio, supponiamo di avere 1000 valori a virgola mobile per una certa feature. Dopo l'ordianmento, supponiamo che i primi due valori siano 8.5 e 8.7. In questo caso, il primo valore di soglia da testare dovrebbe essere 8.6.</p>
+<p>Formalmente, consideriamo i seguenti valori candidati per <span class="arithmatex">\(t\)</span>:</p>
+<div class="arithmatex">\[
+X = \{\frac{x_{s(i)}+x_{s(i+1)}}{2}|x_{s(i)} \diff x_{s(i+1)}\}
+\]</div>
+<p>La complessità nel tempo di questo algoritmo è un <span class="arithmatex">\(O(n log n)\)</span>, con <span class="arithmatex">\(n\)</span> il numero di campioni nel nodo (a causa dell'ordinamento dei valori delle feature). Quando applicato ad un albero decisionale, l'algoritmod i splitting viene applicato ad ogni nodo ed ogni feature. Notiamo che ogni nodo riceve circa la metàò degli esempi del suo nodo genitore. Quindi, in accordo al <a href="https://it.wikipedia.org/wiki/Teorema_dell%27esperto">teorema dell'esperto</a>, la complessità nel tempo di addestare un albero decisioanle con questo splitter è data da:</p>
+<div class="arithmatex">\[
+O(mn log^2 n)
+\]</div>
+<p>dove:</p>
+<ul>
+<li>m è il numero di feature;</li>
+<li><span class="arithmatex">\(n\)</span> è il numero di campioni di training.</li>
+</ul>
+<p>In questo algoritmo, il valore delle feature non importa; soltanto l'ordine è importante. Per questra ragione, questo algoritmo lavora in modo indipendente dalla scala o dalla distribuzione dei valori delle feature. Questo è+ il motivo per cui non dobbiamo normalizzare o scalare le featrur numeriche quando addestriamo un albero decisionale.</p>
+<h2 id="overfitting-e-pruning">Overfitting e pruning<a class="headerlink" href="#overfitting-e-pruning" title="Permanent link">&para;</a></h2>
+<p>Usando l'algoritmo dfescritto in precedenza, possiamo addestrare un albero decisionale che classifichi perfettamente i campioni di training, a patto che questi siano separabili. Tuttavia, se il dataset contiene del rumore, questo albero andrà in overfitting sui dati, e mostrerà scarse abilità in fase di test.</p>
+<p>La seguente figura mostra un dataset rumoroso con una relazione tra una feature <span class="arithmatex">\(x\)</span> e la label <span class="arithmatex">\(y\)</span>. La figura mostra anche un albero decisioanle addestrato su qeusto dataset senza alcun tipo di regolarizzzione. Questo modello predice correttamente tutti i campioni di training (in pratica, le predizioni dle modello sono in grado di combaciare con gli esempi di training). Tuttavia, su un dataset contenente lo stesso pattern lineare con un diverso tipo di rumore, il modello offrirà performance subottimali.</p>
+<p>Per limitare l'overfitting di un albeor decisionale, applichiamo uno o entrambi i seguenti criteri di regolarizzaizone mentre addestriamo l'albero stesso:</p>
+<ul>
+<li>impostare una profondità massiam: facciamo in modo che l'albero decisionale non vada oltre una massima profondità, come 10;</li>
+<li>impostiamo un numero minimo di campioni nelle foglie: una foglia con meno di un certo numero di campioni non sarà considerata per la divisoine.</li>
+</ul>
+<p>La seguente figura illustra gli effetti di usare un numero minimo di campioni per foglia variabile. Il modello cattura un minor quantitativo di rumore.</p>
+<p>TODO</p>
+<p>Possiamo anche efefttuare la regolarizzaizone dopo l'addestramento rimuovendo in modo selettivo alcuni rami (pruning), ovvero, convertendo certi nodi non-foglia in foglia. UNa soluzione comune ad selezionare i rami da rimuovere è quella di usare und ataset per la validazione. Ovvero, se rimuovere un ramo migliora la qualità del modello sul dataset di valdiazione, quindi il ramo viene rimosso.</p>
+<p>La seguente illustrazione mostra quesrta idea. Qui, testiamo se l'accuracy dik validazione dell'albero decsiionale è migliroata se il nodo non-foglia in verede è trasformato in foglia; ovvero, effettuando il pruning dei nodi arancvioini.</p>
+<p>DA FIGURA 14</p>
+<p>La segyunte figura illustra l'effetto di usare il 20% del dataset come validazione per effettaure il pruning dell'albero decisionale.</p>
+<p>Notiamo che l'uso di un dataset di validazioen riduce il numero di esempi disponibili per l'addestramento iniziale dell'albero decisionale.</p>
+<p>Molti modelli inoltre applicano più criteri. Ad sempio, possiamo usare i seguenti:</p>
+<ul>
+<li>applicare un numero minimo di campioni per nodo foglia</li>
+<li>applicare una profondità massima per limitare la crescita dell'albero decisionale</li>
+<li>effettuare il pruning dell'albero decisionale</li>
+</ul>
+<p>Questi criteri introducono nuovi iperparametri che devono essere impostati (ad esempio, la massima profondità dell'albero), spesso con tuning degli iperparametri automatizzzato. Gli alberi decisionali sono in geenrale abbastanza veloci da addestrare usando l'ottimizzazione degli iperparametri in crss-validazione. Per esempio, su un dataset con "n" campioni:</p>
+<ul>
+<li>dividiamo i campioni di training in <span class="arithmatex">\(p\)</span> gruppi non-sovrapposti, per esempio <span class="arithmatex">\(p=10\)</span>.</li>
+<li>per tutti i possibili valori degli iperprametri, valutiamo, su ogni gruppo, la qualità dell'albero decisionale addestrato sugli altri <span class="arithmatex">\(p-1\)</span> gruppi; facciamo poi la media delle valutazioni sui diversi gruppi;</li>
+<li>selezioniamo i valori degli iperparametri con la migliore valutazione media;</li>
+<li>addestriamo un albero decisionale finale usando tutti gli <span class="arithmatex">\(n\)</span> campioni con gli iperparametri selezionati.</li>
+</ul>
+<p>In questa sezione abbiamo discusso il modo in cui gli alberi decisionali limintano l'overfitting. Nononstante questi metodi, l'underfitting e l'overfitting sono delle debolezze degli alberi decisionali. Le foreste decisionali introducono nuovi metodi per limtiare l'overfitting, come vedremo dopo.</p>
+<h2 id="interpretazione-diretta-dellalbero-decisionale">interpretazione diretta dell'albero decisionale<a class="headerlink" href="#interpretazione-diretta-dellalbero-decisionale" title="Permanent link">&para;</a></h2>
+<p>Gli alberi decisionali sono facili da interpretare. Detto questo, cambiare anche pochi esempi può modificare completamente la struttura (e quindi l'interpretazione) dell'albero decisionale.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Specialmente quando il dataset contiene molte feature in qualche modo simili, l'albero decisionale appreso è solo uno di più alberi decisionali più o meno equivalnetni che fittano i dati.</p>
+</div>
+<p>Visto il modo in cui gli alberi decisionali sono costruiti, effettuando il partizionalmento dei campiioni di trainging, si può usare un albero decisioanle per interpretare il dataset (invece di modellarlo). Ogni foglia rappresnta un particolare angolo del dataset. </p>
+<h2 id="importanza-delle-variabili">Importanza delle variabili<a class="headerlink" href="#importanza-delle-variabili" title="Permanent link">&para;</a></h2>
+<p>Per <em>importasnza delle variabili</em> (detto anche <em>feature importance</em>) si intende un punteggio che indica quanto "importante" sia una feature per il modello. Ad esempio, se per un dato modello con due feature in input <span class="arithmatex">\(f_1\)</span> ed <span class="arithmatex">\(f_2\)</span> l'importanza delle variabili sono <span class="arithmatex">\(f_1 = 5.8, f_2=2.5\)</span>, allora la feature <span class="arithmatex">\(f1\)</span> è più importante per il modello della feature <span class="arithmatex">\(f2\)</span>. Così come per altri modelli di machine learning, l'importanza delle variabili è un modo semplice di comprendere come funziona un albero decisionale.</p>
+<p>Possiamo definire l'importanza delle feature in modo agnostico usando metodi come permutation impotrance.</p>
+<p>Gli alberi decisionali hanno anche delle specifiche importanze per le variabili, come:</p>
+<ul>
+<li>somma dei punteggi parziali associati ad unac erta feaature</li>
+<li>numero di nodi con una data feature</li>
+<li>profondità media della prima occorrenza di unaf eature in tutti  i percorsi dell'albero</li>
+</ul>
+<p>L'importanza delle variabili può differire in base a qualità come semantica, scala o proprietà. Inoltre, l'importanza delle variabili foirnisce diversi tipi di informazione circa modello, dataset, e processo di addestramento.</p>
+<p>Ad esempio, il numero di condizioni contenenti una certa feature indca quanto un albero decisionale sta guardando a quella specifica feature, il che può indicare l'importanza della variabile. Dopo tutto, l'algoritmo di apprendimento non avrebbe usato una feature in diverse condizioni se questa non avesse avuot importanza. Tuttavia, la stessa feature che appare in più condizioni può anche indicare che il modello sta provando a generalizzare il pattern per quella feature, fallendo. Ad esempio, questo può accadere quando una feature è specifica per ogni campione (il nome e cognome), senza alcuna infomrazione da generalizzare.</p>
+<p>D'altro canto, un alto valore di importanza per la variabile indica che rimuovere quella feature inficia il modello, il che è un'indicazione dell'importanza della variabile. Tuttavia, se il modello è robusto, rimuovere una qualsiasi delle feature non dovrebbe influenzare il modello.</p>
+<p>Dato che diverse variabili informano su diversi aspetti del modello, osservare contestualmente l'importanza di diverse varaibili è informativo. Ad esempio, se una feature è importante in accordo a tutte le altre, è plausibile che sia molto importante. </p>
+<h2 id="esempio-con-tensorflow-decision">Esempio con tensorflow-decision<a class="headerlink" href="#esempio-con-tensorflow-decision" title="Permanent link">&para;</a></h2>
+<p>Vediamo come usare la libreria TF-DF per addestrare, rifinire ed interpretare un albero decisionale.</p>
+<p>Possiamo farlo sia in locale, sia da un notebook Colab. Per farlo, dovremo installare la libreria TensorFlow Decision Forests.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pipenv<span class="w"> </span>install<span class="w"> </span>tensorflow_decision_forests
+</code></pre></div>
+<p>All'apice del nostro codice, importiamo le seguenti librerie:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span> <span class="nn">tensorflow_decision_forests</span> <span class="k">as</span> <span class="nn">tfdf</span>
+</code></pre></div>
+<p>Useremo il dataset relativo ai Palmer Pengiuns, che contiene le misurazioni in termini di dimensione per tre specier di pinguini , ovvero il pigoscelide antartico (Chinstrap), il pinguino Gentoo, ed il pinguino di Adelia (Adelie).</p>
+<p>Per prima cosa, carichiamo il dataset in memoria utilizznado Pandas:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/download.tensorflow.org/data/palmer_penguins/penguins.csv&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</code></pre></div>
+<p>Visualizziamo la testa del dataset.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<p>TODO: IMMAGINE</p>
+<p>Notiamo come il dataset contenga diversi tipi di dato, sia numerici (ad esempio, bill<em>length</em>mm), sia categorici (ad esempio, sex). Vi sono inoltre delle feature mancanti. A differenza delle reti nuerali, tuttavia, le foreste decisionali sono in grado di supportare tutti questi tipi di feature in maneira nativa, per cui non dobbiamo effettaure encoding, normalizzazioni o roba del genere.</p>
+<p>Per semplificare l'interpretabilità, convertiamo manualmente le specie dei pinguini in label intere:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">classes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pandas_dataset</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Label classes: </span><span class="si">{</span><span class="n">classes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># &gt;&gt; Label classes: [&#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Chinstrap&#39;]</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">pandas_dataset</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">classes</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</code></pre></div>
+<p><a href="https://developers.google.com/machine-learning/decision-forests/practice?hl=en">https://developers.google.com/machine-learning/decision-forests/practice?hl=en</a></p>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; Angelo Cardellicchio - MIT License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/anhelus" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:angelo.cardellicchio@stiima.cnr.it" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      
+        <script src="../../../../js/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
