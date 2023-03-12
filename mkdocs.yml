@@ -42,30 +42,6 @@ nav:
     - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
     - 2 - Definizione del problema: material/03_ml/02_framing.md
     - 3 - Preparazione dei dati: material/03_ml/03_data_prep.md
-<<<<<<< HEAD
-  # - Modulo 3 - Concetti di machine learning:
-  #   - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
-  # - Parte 3 - Introduzione al machine learning:
-  #   - 3.1 - Introduzione al machine learning: material/03_ml_sklearn/12_intro_ml/lecture.md
-  #   - 3.2 - Definizione del problema: material/03_ml_sklearn/13_framing/lecture.md
-  #   - 3.3 - Preparazione dei dati: material/03_ml_sklearn/14_data_prep/lecture.md
-  #   - 3.3 - Approcci supervisionati:
-  #     - 3.3.1 - Il problema della regressione: material/03_ml_sklearn/16_lin_reg/lecture.md
-  #     - 3.3.2 - Il problema della classificazione: material/03_ml_sklearn/17_logistic/lecture.md
-  #   - 3.4 - Approcci non supervisionati: link_al_clustering
-  #   - 3.5 - Metriche e valutazione: link_a_metriche
-  #   - 3.6 - Cross-validazione: link_a_cross_validazione
-  #   - 3.7 - Ottimizzazione degli iperparametri: link_ad_ottimizzazione
-  #   - 3.8 - Approcci generativi: link_a_gan
-  #   - 3.9 - Interpretabilità: link_a_xai
-  # - Parte 4 - Algoritmi:
-  #   - 4.1 - Alberi decisionali: link_alberi
-  #   - 4.2 - k-means: link_kmeans
-  #   - 4.3 - DBSCAN: link_dbscan
-  #   - 4.4 - Reti neurali: link_nn
-  #   - 4.5 - SVD: link_svd
-  # - Parte 5 - Scikit Learn:
-=======
     # - 4 - Regressione lineare: material/03_ml/04_lin_reg/lecture.md
     # - 5 - Regressione logistica: material/03_ml/05_log_reg/lecture.md
     # - 6 - Alberi e foreste:
@@ -79,7 +55,6 @@ nav:
     #   - 8.3 - DBSCAN: material/03_ml/08_clustering/03_dbscan.md
     #   - 8.4 - Metriche di clustering: material/03_ml/08_clustering/04_metrics.md
   # - Modulo 4 - Machine learning e Scikit Learn:
->>>>>>> development
   #   - 5.1 - Introduzione a Scikit Learn: material/03_ml_sklearn/15_intro_sklearn/lecture.md
   #     # - Esercizi: material/03_ml_sklearn/15_intro_sklearn/exercises.md
   #   - 5.2 - Regressione lineare: material/03_ml_sklearn/16_lin_reg/lecture.md
