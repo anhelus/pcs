@@ -1,30 +1,28 @@
 # 4 - Un primo esempio di apprendimento supervisionato: regressione lineare
 
-Nelle [lezioni precedenti](../01_intro.md) abbiamo visto come esistano fondamentalmente due tipi di tecniche di apprendimento supervisionato, ovvero *regressione* e *classificazione*. In questa lezione, approfondiremo 
+Nelle [lezioni precedenti](../01_intro.md) abbiamo visto come esistano fondamentalmente due tipi di tecniche di apprendimento supervisionato, ovvero *regressione* e *classificazione*. In questa lezione, approfondiremo il caso più semplice di regressione, ovvero quello lineare.
 
-Quelli di apprendimento supervisionato sono probabilmente tra i sistemi di machine learning più diffusi, soprattutto a causa dei numerosi casi d'uso disponibili. Abbiamo detto che esistono fondamentalmente due tipi di tecniche di apprendimento supervisionato, ovvero *regressione* e *classificazione*. Vediamole maggiormente nel dettaglio.
+## Cosa è la regressione?
 
-## 16.1 - Un esempio di regressione
-
-A tutti noi è intuitivamente noto che i millimetri di pioggia che cadono sono in qualche modo correlati alle temperature medie che abbiamo durante la giornata. Immaginiamo quindi di avere un dataset che contenga al suo interno i dati medi sui millimetri di pioggia degli ultimi dieci anni per undici valori differenti di temperatura. Se provassimo a visualizzare i dati mediante un `relplot()`, otterremmo la seguente figura.
+Non occorre essere esperti di meteorologia per sapere che i millimetri di pioggia caduti durante una precipitazione sono correlata a fattori quali temperatura, venti, umidità, posizione geografica, ed altri ancora. Immaginiamo quindi di avere un insieme di dati che, al loro interno, descrivano la condizione meteorologica ad un dato istante di tempo (supponiamo, per semplicità, giornaliero), oltre che i millimetri di pioggia caduti nello stesso periodo. Supponiamo di effettuare un'analisi esplorativa dei dati, i cui risultati sono (parzialmente) riportati in figura 1.
 
 <figure markdown>
   ![rain_temp](./images/rain_temp.png)
-  <figcaption>Figura 1 - Interprete Python</figcaption>
+  <figcaption>Figura 1 - Relazione tra millimetri di pioggia (sull'asse $y$) e temperatura in gradi (sull'asse $x$).</figcaption>
 </figure>
 
-Proviamo ad usare la funzione `lmplot()` che, ricordiamo, effettua una *regressione* tra i dati.
+La nostra analisi esplorativa ci porta subito ad intuire l'esistenza di una relazione tra la quantità di pioggia caduta e la temperatura: in particolare, a valor di temperatura più elevati corrisponde una minore quantità di pioggia, e viceversa.
+
+Proviamo adesso a tracciare la retta ai minimi quadrati, ovvero quella che minimizza la somma quadratica dello scarto tra il valore $(\hat{x}_i, \hat{y}_i)$ da essa "attraversato" ed il valore $(x_i, y_i)$ "vero" associato ai dati, per ciascun punto $i$ nell'insieme considerato. Il risultato è mostrato in figura 2.
 
 <figure markdown>
   ![rain_temp_lr](./images/rain_temp_lr.png)
-  <figcaption>Figura 1 - Interprete Python</figcaption>
+  <figcaption>Figura 2 - Retta ai minimi quadrati relativa al rapporto tra precipitazioni e gradi.</figcaption>
 </figure>
 
-## 16.2 - Rappresentazione analitica del modello
+## Rappresentazione analitica del modello
 
-Notiamo subito che, come prevedibile, i millimetri di pioggia attesi diminuiscono all'aumentare della temperatura, andando a definire una sorta di *relazione lineare* tra i dati sull'asse delle ascisse (ovvero i gradi) e quelli sull'asse delle ordinate (ovvero la pioggia).
-
-Ovviamente, la retta di regressione non tocca direttamente tutti i punti, ma li *approssima*. Possiamo quindi dire che la relazione tra gradi e mm di pioggia è riconducibile ad una forma del tipo:
+Come già detto, notiamo come i millimetri di pioggia attesi diminuiscano all'aumentare della temperatura, secondo una relazione (più o meno) lineare, riconducibile ad una forma del tipo:
 
 $$
 y = mx + b
@@ -37,55 +35,65 @@ dove:
 * $m$ è il coefficiente angolare della retta di regressione;
 * $b$ è l'incercetta della retta di regressione.
 
-Questa notazione analitica si traduce in un modello usando la seguente notazione:
+!!!note "Nota"
+    Ovviamente, la retta di regressione *non* tocca tutti i punti, ma approssima l'andamento di $x$ in funzione di $y$.
+
+Possiamo riscrivere l'equazione precedente come segue:
 
 $$
-y' = b + w_1 x_1
+\hat{y} = b + w_1 x_1
 $$
 
 dove:
 
-* $y'$ è l'output predetto dal modello;
+* $\hat{y}$ è l'output predetto dal modello, detto anche *variabile dipendente*;
 * $b$ è il *bias*, equivalente al concetto analitico di intercetta;
 * $w_1$ è il peso della prima feature, equivalente al concetto analitico di coefficiente angolare;
-* $x_1$ è il valore di ingresso assunto dalla prima feature.
+* $x_1$ è il valore di ingresso assunto dalla prima ed unica feature considerata, detta anche *variabile indipendente*.
 
-Per *inferire* un nuovo valore di $y'$ ci basterà quindi cambiare il valore assunto da $x1$. In pratica, potremo prevedere che per una temperatura di 8 gradi, avremo un valore di precipitazioni pari a 25 mm, mentre per una temperatura di 32 gradi il valore di precipitazioni sarà pari a 0.
+Per *inferire* un nuovo valore di $\hat{y}$ ci basterà quindi cambiare il valore assunto da $x_1$. In pratica, proprio come accade per una retta, se poniamo $x_1 = 8$ (ovvero assumendo un valore di temperatura di 8 gradi), avremo un corrispondente valore per le precipitazioni pari ad $\hat{y} = 25$ mm, mentre se $x_1 = 32$ il valore predetto per i millimetri di pioggia sarà $\hat{y}=0$.
 
-!!!note "Nota"
-    In questo caso, abbiamo presupposto che vi sia un'unica variabile indipendente, o feature, a determinare il valore dell'output. Esistono ovviamente casi più complessi, nei quali il valore di $y'$ è determinato a partire da più feature come $y' = b + w_1 x_1 + \ldots + w_n x_n$.
+!!!tip "Regressione multivariata"
+    In questo caso, abbiamo presupposto che vi sia un'unica variabile indipendente a determinare il valore di un'unica variabile dipendente. Esistono ovviamente casi più complessi, con diverse variabili dipendenti il cui valore è determinato da più feature secondo formule del tipo $b + w_1 x_1 + \ldots + w_n x_n$.
 
-## 16.3 - Addestramento e funzione di costo
+## Addestramento e funzione di costo
 
-Addestrare un modello significa fare in modo che determini dei valori ottimali per tutti i pesi ed i bias a partire dagli esempi dotati di label. Per determinare tali valori, i modelli ad apprendimento supervisionato provano ad esaminare iterativamente tutti i campioni presenti nel set di addestramento alla ricerca di un modo per minimizzare un *costo*, il quale rappresenta una certa *penalità* assegnata al modello in caso di predizione errata.
+Addestrare un modello significa determinarne i valori ottimali per pesi e bias a partire dai dati che, nel caso della regressione, sono etichettati. Per far questo, i modelli ad apprendimento supervisionato esaminano iterativamente tutti i campioni presenti nel set di addestramento alla ricerca di un modo per minimizzare un *costo* (o, in inglese, *loss*) direttamente proporzionale alla differenza intercorrente tra la predizione del modello ed il valore vero. In altri termini, *la loss è una misura dell'errore delle predizioni effettuate dal modello*.
 
-In pratica, il costo (o, in inglese, *loss*) è un numero che determina se la predizione effettuata dal modello su un singolo è stata più o meno conforme alla label assegnata. In caso di predizione perfetta, la loss è pari a $0$; tuttavia, nel caso la predizione sia sbagliata, la loss sarà tanto più grande quanto più il valore predetto sarà divergente dal valore atteso. Proviamo ad interpretare graficamente questo concetto, riferendoci ai modelli di regressione:
+##### Interpretazione grafica della funzione di costo
+
+Nel caso ideale, la loss sarebbe pari a $0$. Ovviamente, nel caso reale, la loss è sempre maggiore di questo valore, e sarà tanto maggiore quanto più il valore predetto divergerà da quello atteso. Proviamo ad interpretare al meglio questo concetto aiutandoci con la figura 3.
 
 <figure markdown>
   ![loss](./images/loss.png)
-  <figcaption>Figura 1 - Interprete Python</figcaption>
+  <figcaption>Figura 3 - Interpretazione della funzione di costo</figcaption>
 </figure>
 
-In particolare, nella figura precedente, le frecce rappresentano la loss, mentre il segmento blu rappresenta la predizione. Appare evidente come il secondo esempio abbia una loss complessiva inferiore rispetto al primo.
+In particolare, le frecce schematizzano l'entità della differenza intercorrente tra il valore vero $y$ ed il valore predetto $\hat{y}$. Come evidente, la loss complessiva è maggiore nella situazione a sinistra; ciò significa che l'addestramento dovrà necessariamente prediligere una retta di regressione come quella mostrata a destra.
 
-Per calcolare la loss complessiva del modello su un insieme di campioni è possibile utilizzare una *funzione di costo*, o *loss function*. Esistono molteplici esempi di funzioni di costo; tuttavia, uno dei più semplici da comprendere è l'*errore quadratico medio*, calcolato a partire dalla seguente formula:
+##### Calcolo della funzione di costo
+
+Per calcolare la loss complessiva del modello a partire da un dato insieme di campioni dobbiamo utilizzare una *funzione di costo*, o *loss function*. Ne esistono molteplici esempi, alcuni dei quali saranno approfonditi nel prosieguo. Tuttavia, uno dei più semplici è dato dall'*errore quadratico medio*, o *mean squared error* (*MSE*), rappresentabile secondo la seguente formula:
 
 $$
-MSE = \frac{1}{N} \sum_{(x, y) \in D} (y - y')^2
+MSE = \frac{1}{N} \sum_{(x, y) \in D} (y - \hat{y})^2
 $$
 
-Nella formula precedente:
+In particolare:
 
-* $(x, y)$ è una coppia di feature e label;
-* $y'$ è il valore predetto della label a partire dall'applicazione del modello;
+* $(x, y)$ rappresenta l'insieme di feature $x$ con la corrispondente label $y$;
+* $\hat{y}$ è il valore predetto della label a partire dall'applicazione del modello;
 * $D$ è il nostro dataset etichettato;
 * $N$ è il numero di campioni prensenti in $D$.
 
-In pratica, l'MSE è tanto più alto quanto maggiore è la distanza quadratica *complessiva* tra ogni label "vera" ed il rispettivo valore predetto dall'algoritmo di machine learning. Nel caso precedente, è chiaro come l'MSE sia maggiore per la prima approssimazione rispetto alla seconda.
+In pratica, l'MSE è dato dalla media delle differenze tra il valore predetto dal modello e quello vero calcolata sull'intero dataset. Come prevedibile, l'errore sarà tanto più alto quanto maggiore è la distanza complessiva tra le label e le predizioni; nell'esempio visto in figura 3, appare chiaro come l'MSE sia maggiore per la prima approssimazione rispetto alla seconda.
 
-## 16.5 - Addestramento iterativo
+!!!tip "Perché quadratico?"
+    I più attenti avranno notato che stiamo utilizzando il *quadrato* dell'errore. Se non lo facessimo, gli errori "positivi" annullerebbero i "negativi", il che ovviamente non è il nostro obiettivo, in quanto ci interessa soltanto il *modulo* dello scarto quadratico.
 
-Gli algoritmi di machine learning tendono ad essere addestrati seguendo un approccio iterativo, che prevede che al termine di ciascuna iterazione i valori dei pesi siano *aggiornati* in maniera da ridurre ulteriormente il valore della funzione di costo. Questo è riassumibile nel seguente schema:
+## Addestramento iterativo
+
+Gli algoritmi di machine learning sono normalmente addestrati seguendo un approccio iterativo che prevede, al termine di ogni singola iterazione, l'*aggiornamento* del valore dei pesi, allo scopo di ridurre il costo complessivo associato alle predizioni dell'algoritmo. Possiamo riassumere questo comportamento mediante il seguente schema:
 
 ``` mermaid
 flowchart TB
@@ -96,10 +104,13 @@ flowchart TB
     F --> D;
 ```
 
-In pratica, durante l'addestramento, ad ogni iterazione il modello effettua una predizione sulle feature. Questa predizione viene comparata con la label, e la loss viene calcolata. I pesi sono quindi aggiornati in base ad una determinata *regola di ottimizzazione*, ed il ciclo si ripete.
+Nella pratica, ad ogni iterazione, il modello effettua una predizione a partire dai campioni a disposizione. Il risultato viene comparato con la label, ed il costo complessivo calcolato secondo la funzione scelta. I pesi sono quindi aggiornati seguendo una certa regola di ottimizzazione, ed il ciclo si ripete.
 
-!!!note "Nota"
+!!!note "Quante iterazioni?"
     Le iterazioni non sono *infinite*: normalmente, si imposta un numero preciso di *epoche di training*, oppure si aspetta che l'algoritmo arrivi ad una sorta di "convergenza", nella quale il valore della loss non decresce ulteriormente.
+
+!!!note "Quanti dati?"
+    Come vedremo anche nel seguito, il calcolo della loss non avviene considerando il dataset nella sua interezza, ma soltanto dei sottoinsiemi di dati per ogni iterazione.
 
 ### 16.5.1 - Ottimizzazione della loss
 
