@@ -2,14 +2,52 @@
 
 ## Esercizi sugli array
 
-!!!tip "Soluzioni"
-    Le soluzioni a questi esercizi sono disponibili in [questo notebook](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/04_numpy_exercises.ipynb).
+<!-- !!!tip "Soluzioni"
+    Le soluzioni a questi esercizi sono disponibili in [questo notebook](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/04_numpy_exercises.ipynb). -->
 
 ### Esercizio 3.1
 
 Scrivere una funzione che restituisca il prodotto *riga per colonna* di due vettori `v1` e `v2`. Utilizzare in primis una list comprehension, verificando anche che la lunghezza dei due vettori sia coerente. Valutare inoltre il tempo necessario all'esecuzione utilizzando la libreria [`time`](https://docs.python.org/3/library/time.html).
 
 Effettuare la stessa operazione in NumPy, valutando contestualmente il tempo necessario in entrambi i casi.
+
+### Esercizio 3.2
+
+Scrivere la funzione `crea_array(dim_1, dim_2, val_min, val_max)` che crea array di dimensione arbitraria `dim_1` $\times$ `dim_2` composti da numeri interi casuali compresi tra `val_min` e `val_max`. Di default, la funzione dovrà creare dei vettori riga. Utilizzare il package [`random`](https://docs.python.org/3/library/random.html).
+
+Provare ad effettuare la stessa operazione in NumPy.
+
+### Esercizio 3.3
+
+Scrivere la funzione `rettifica(array)` che restituisce un array analogo a quello in ingresso, ma con tutti i valori negativi "rettificati" a $0$.
+
+## Esercizi sulle operazioni algebriche
+
+### Esercizio 3.4
+
+Verificare che il prodotto tra una matrice invertibile e la sua inversa sia la matrice identità.
+
+### Esercizio 3.5
+
+Scrivere la funzione `calcola_determinante()` che accetta come parametro in ingresso una matrice $2 \times 2$ e ne calcola il determinante. Gestire opportunamente il caso in cui la matrice in ingresso sia difforme dalle indicazioni fornite in precedenza, o che non la matrice non sia invertibile.
+
+### Esercizio 3.6
+
+Scrivere la funzione `inverti_se_invertibile(mat)` che, data una matrice bidimensionale, restituisca l'inversa soltanto se `mat` è bidimensionale, quadrata, e il determinante è diverso da zero. Utilizzare un'unica istruzione condizionale.
+
+## Esercizi sulle operazioni polinomiali in NumPy
+
+### Esercizio 3.7
+
+Scrivere la funzione `somma_polinomi()` che accetta come parametri due polinomi di grandezza arbitraria, sommandoli tra loro. Trattiamo i polinomi come liste; in particolare, all'$i$-mo elemento della lista corrisponderà il coefficiente di $i$-mo grado del polinomio.
+
+### Esercizio 3.8
+
+Usare una lista per scrivere la funzione `calcola_media(array, pesi)` che restituisce il valor medio di un array. Il valore di default del parametro `pesi` dovrà essere una lista vuota. Nel caso che `pesi=[]`, dovrà essere calcolata una media aritmetica; in caso contrario, si dovrà verificare la coerenza delle dimensioni di `array` e `pesi`, e restituire la media pesata.
+
+### Esercizio 3.9
+
+Scrivere la funzione `descrivi(array)` che permette di descrivere un array in termini non parametrici, individuando mediana, deviazione standard e range interquartile (ovvero tra il 25-percentile ed il 75-percentile).
 
 <!-- **Soluzione**
 
@@ -57,12 +95,6 @@ L'equivalente operazione in NumPy è data da:
 res = np.dot(v1, v2)
 ``` -->
 
-### Esercizio 3.2
-
-Scrivere la funzione `crea_array(dim_1, dim_2, val_min, val_max)` che crea array di dimensione arbitraria `dim_1` $\times$ `dim_2` composti da numeri interi casuali compresi tra `val_min` e `val_max`. Di default, la funzione dovrà creare dei vettori riga. Utilizzare il package [`random`](https://docs.python.org/3/library/random.html).
-
-Provare ad effettuare la stessa operazione in NumPy.
-
 <!-- **Soluzione**
 
 Una possibile soluzione è la seguente:
@@ -83,10 +115,6 @@ from numpy import random
 a_1 = random.randint(0, 100, (4, 1))
 a_2 = random.randint(0, 100, (2, 2))
 ``` -->
-
-### Esercizio 3.3
-
-Scrivere la funzione `rettifica(array)` che restituisce un array analogo a quello in ingresso, ma con tutti i valori negativi "rettificati" a $0$.
 
 <!-- **Soluzione**
 
@@ -130,12 +158,6 @@ def rettifica(array):
     return array
 ``` -->
 
-## Esercizi sulle operazioni algebriche
-
-### Esercizio 3.4
-
-Verificare che il prodotto tra una matrice invertibile e la sua inversa sia la matrice identità.
-
 <!-- **Soluzione**
 
 Per verificare questo assunto ci basta utilizzare la funzione `inv` per calcolare la matrice inversa:
@@ -150,10 +172,6 @@ Conseguentemente, utilizzando la funzione `dot`, potremo fare il prodotto matric
 ```py
 np.eye(3) == mat.dot(mat_inv)
 ``` -->
-
-### Esercizio 3.5
-
-Scrivere la funzione `calcola_determinante()` che accetta come parametro in ingresso una matrice $2 \times 2$ e ne calcola il determinante. Gestire opportunamente il caso in cui la matrice in ingresso sia difforme dalle indicazioni fornite in precedenza, o che non la matrice non sia invertibile.
 
 <!-- **Soluzione**
 
@@ -174,10 +192,6 @@ In particolare:
 * alla riga 3, calcoliamo il determinante;
 * alla riga 4, lanciamo un errore nel caso la matrice non abbia dimensioni $2 \times 2$. -->
 
-### Esercizio 3.6
-
-Scrivere la funzione `inverti_se_invertibile(mat)` che, data una matrice bidimensionale, restituisca l'inversa soltanto se `mat` è bidimensionale, quadrata, e il determinante è diverso da zero. Utilizzare un'unica istruzione condizionale.
-
 <!-- **Soluzione**
 
 In questo caso, potremo utilizzare i metodi messi a disposizione da NumPy. Tuttavia, dovremo verificare contemporaneamente che:
@@ -196,12 +210,6 @@ def inverti_se_invertibile(mat):
         return linalg.inv(mat)
     raise ValueError('La matrice passata non è invertibile.')
 ``` -->
-
-## Esercizi sulle operazioni polinomiali in NumPy
-
-### Esercizio 3.7
-
-Scrivere la funzione `somma_polinomi()` che accetta come parametri due polinomi di grandezza arbitraria, sommandoli tra loro. Trattiamo i polinomi come liste; in particolare, all'$i$-mo elemento della lista corrisponderà il coefficiente di $i$-mo grado del polinomio.
 
 <!-- **Soluzione**
 
@@ -223,10 +231,6 @@ In pratica:
 * alle righe 2 - 5, verifichiamo se la lunghezza di pol_1 è inferiore a quella di pol_2 e, se questo è vero, andiamo ad inserire tanti zeri quanti sono i coefficienti "mancanti";
 * alle righe 6 - 8, effettuiamo la stessa operazione a polinomi invertiti;
 * alla riga 9, andiamo a restituire la somma *elemento per elemento* dei coefficienti del polinomio. -->
-
-### Esercizio 3.8
-
-Usare una lista per scrivere la funzione `calcola_media(array, pesi)` che restituisce il valor medio di un array. Il valore di default del parametro `pesi` dovrà essere una lista vuota. Nel caso che `pesi=[]`, dovrà essere calcolata una media aritmetica; in caso contrario, si dovrà verificare la coerenza delle dimensioni di `array` e `pesi`, e restituire la media pesata.
 
 <!-- **Soluzione**
 
@@ -252,10 +256,6 @@ In pratica:
 * alla riga 3, calcoliamo la media aritmetica come somma degli elementi di `array` diviso la lunghezza dello stesso;
 * nel caso `pesi` non sia una lista vuota, alla riga 5 viene verificato che `pesi` ed `array` abbiano la stessa lunghezza;
 * se ciò avviene, alla riga 6 viene creata una list comprehension moltiplicando l'$i$-mo elemento di `pesi` per il corrispondente elemento di `array`; questa sarà quindi suddiviso per il numero di elementi di `array`. -->
-
-### Esercizio 3.9
-
-Scrivere la funzione `descrivi(array)` che permette di descrivere un array in termini non parametrici, individuando mediana, deviazione standard e range interquartile (ovvero tra il 25-percentile ed il 75-percentile).
 
 <!-- **Soluzione**
 
