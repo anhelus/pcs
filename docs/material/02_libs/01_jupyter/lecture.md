@@ -1,5 +1,8 @@
 # 1 - iPython e Jupyter Lab
 
+!!!tip "Notebook di accompagnamento"
+	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/00_jupyter_sample.ipynb).
+
 Fino a questo momento ci siamo limitati a lanciare script Python direttamente da riga di comando. Tuttavia, è evidente come questo approccio sia limitato, specialmente in applicazioni in ambito data science.
 
 Per ovviare a queste problematiche, all'interno del framework SciPy viene proposto [Jupyter Lab](https://jupyter.org/),  che introduce uno tra gli strumenti più utilizzati dai data analyst al giorno d'oggi, ovvero i *notebook*.
@@ -36,9 +39,12 @@ jupyter lab
 
 ## Il primo notebook
 
-A questo punto ci troveremo davanti ad una schermata simile a quella mostrata nella figura successiva.
+A questo punto ci troveremo davanti ad una schermata simile a quella mostrata in figura 1.
 
-![intro](./images/intro.png){: .center}
+<figure markdown>
+  ![intro](./images/intro.png){ width="450" }
+  <figcaption>Figura 1 - La schermata introduttiva di Jupyter Lab</figcaption>
+</figure>
 
 Creiamo il nostro primo notebook premendo il pulsante *Python 3* nel menu *Notebook*. Una volta terminata la procedura, potremo iniziare ad interagire con l'ambiente. Prima di procedere, però, definiamo il nome del nostro notebook dal menu a sinistra.
 

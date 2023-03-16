@@ -1,14 +1,10 @@
-# 17 - Modelli supervisionati: regressione logistica
+# 5 - La regressione logistica
 
-Esistono diversi problemi, tra cui quelli di classificazione multiclasse, che richiedono che l'uscita del sistema sia una stima di probabilità; per far questo, la *regressione logistica* è lo strumento "principe" da utilizzare.
+Nella [lezione precedente](../04_lin_reg/lecture.md) abbiamo introdotto l'algoritmo di *regressione lineare*, il cui comito è quello di "tracciare" la relazione intercorrente tra una serie di variabili indipendenti (le feature) ed una variabile dipendente che, come abbiamo visto, è continua e di tipo numerico. La *regressione logistica*, invece, ed a discapito del nome, è il più semplice dei classificatori, e viene usata quando abbiamo a che fare con variabili di tipo categorico.
 
-Per comprenderne il funzionamento, supponiamo di creare un modello di regressione logistica che predica la probabilità che una mail ricevuta da un indirizzo sconosciuto sia di spam. Chiameremo questa probabilità come:
+A scopo di esempio, supponiamo di creare un modello che predica la probabilità che una mail ricevuta da un mittente a noi sconosciuto rappresenti uno spam. Indicheremo questa probabilità come $p(mail|unknown)$.
 
-$$
-p(mail|unknown)
-$$
-
-Se il modello afferma che la probabilità $p(mail|unknown) = 0.05$, allora, su $100$ mail ricevute da indirizzi sconosciuti, $5$ saranno di spam:
+In pratica, se il modello afferma che $p(mail|unknown) = 0.05$, allora, in media, su $100$ mail ricevute da indirizzi sconosciuti, $5$ saranno di spam:
 
 $$
 spam = p(mail|unknown) \cdot mail_rec = 0.05 * 100 = 5

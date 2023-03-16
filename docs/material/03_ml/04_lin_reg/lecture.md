@@ -1,4 +1,4 @@
-# 4 - Un primo esempio di apprendimento supervisionato: regressione lineare
+# 4 - La regressione lineare
 
 Nelle [lezioni precedenti](../01_intro.md) abbiamo visto come esistano fondamentalmente due tipi di tecniche di apprendimento supervisionato, ovvero *regressione* e *classificazione*. In questa lezione, approfondiremo il caso più semplice di regressione, ovvero quello lineare.
 
@@ -8,7 +8,7 @@ Non occorre essere esperti di meteorologia per sapere che i millimetri di pioggi
 
 <figure markdown>
   ![rain_temp](./images/rain_temp.png)
-  <figcaption>Figura 1 - Relazione tra millimetri di pioggia (sull'asse $y$) e temperatura in gradi (sull'asse $x$).</figcaption>
+  <figcaption>Figura 1 - Relazione tra millimetri di pioggia (sulle ordinate) e temperatura in gradi (sulle ascisse).</figcaption>
 </figure>
 
 La nostra analisi esplorativa ci porta subito ad intuire l'esistenza di una relazione tra la quantità di pioggia caduta e la temperatura: in particolare, a valor di temperatura più elevati corrisponde una minore quantità di pioggia, e viceversa.
@@ -104,6 +104,8 @@ flowchart TB
     F --> D;
 ```
 
+Nella pratica, alla prima iterazione, il modello stabilisce in maniera casuale i valori dei parametri da utilizzare per la predizione; nel caso della regressione lineare, abbiamo visto come questi siano $w_1$ e $b$. A questo punto, viene calcolato il valore predetto $\hat{y}$
+
 Nella pratica, ad ogni iterazione, il modello effettua una predizione a partire dai campioni a disposizione. Il risultato viene comparato con la label, ed il costo complessivo calcolato secondo la funzione scelta. I pesi sono quindi aggiornati seguendo una certa regola di ottimizzazione, ed il ciclo si ripete.
 
 !!!note "Quante iterazioni?"
@@ -112,24 +114,24 @@ Nella pratica, ad ogni iterazione, il modello effettua una predizione a partire 
 !!!note "Quanti dati?"
     Come vedremo anche nel seguito, il calcolo della loss non avviene considerando il dataset nella sua interezza, ma soltanto dei sottoinsiemi di dati per ogni iterazione.
 
-### 16.5.1 - Ottimizzazione della loss
+## Ottimizzazione della funzione di costo
 
-Abbiamo in precedenza accennato al fatto che l'aggiornamento dei pesi segue una certa regola di ottimizzazione volta a minimizzare la loss. Ne esistono diverse versioni, ma in generale si rifanno al concetto di *discesa di gradiente*, illustrato nella seguente immagine.
+Come già accennato, l'aggiornamento dei pesi segue una ben precisa regola di ottimizzazione, volta a minimizzare il valore complessivo assunto dal costo. In altre parole, durante l'addestramento, l'algoritmo cerca di trovare quella combinazione di pesi per la quale il costo legato all'approssimazione dei valori predetti ai valori veri è minimo.
+
+Esistono diversi tipi di algoritmi di ottimizzazione, ma la maggior parte si rifà al concetto di *discesa del gradiente*, schematizzto in figura 4.
 
 <figure markdown>
   ![gd](./images/gd.png)
-  <figcaption>Figura 1 - Interprete Python</figcaption>
+  <figcaption>Figura 4 - La discesa di gradiente</figcaption>
 </figure>
 
-Spieghiamo brevemente cosa accade guardando da sinistra verso destra.
+In questa sede, daremo un'interpretazione puramente qualitativa dei concetti alla base dell'algoritmo, che andremo poi ad approfondire in un'altra lezione. Per farlo, osserviamo brevemente cosa accade in figura 4, guardando da sinistra verso destra.
 
-Possiamo immaginare la funzione che modella la nostra loss come una sorta di paraboloide, dotato di un valore minimo prossimo allo zero che viene raggiunto in corrispondenza di una determinata combinazione dei valori dei pesi.
+Per prima cosa, dobbiamo immaginare che la funzione che modella la nostra loss sia una sorta di paraboloide, dotato di un valore minimo (sull'asse delle ordinate) che viene raggiunto in corrispondenza di una determinata combinazione dei pesi (mostrata sull'asse delle ascisse). Nel nostro esempio, presupponiamo un unico peso; tuttavia, nei casi reali, il numero dei pesi è molto più elevato, per cui lo spazio considerato sarà $n$ dimensionale, con $n$ numero dei pesi da ottimizzare.
 
-Ipotizzando di trovarci all'inizio dell'addestramento nella situazione raffigurata nella figura a sinistra, ovvero con dei pesi nel ramo sinistro del paraboloide, il nostro obiettivo sarà quello di muoverci verso "destra", ovvero verso il minimo globale della funzione. Per farlo, intuitivamente, dovremo valutare la *derivata* o, nel caso di funzioni ad $n$ dimensioni, con $n$ numero di feature, il **gradiente** della nostra funzione di costo, ed aggiornare i pesi in maniera tale che questo assuma, alla successiva iterazione, un valore inferiore.
+L'immagine più a sinistra rappresenta la situazione iniziale: abbiamo dei pesi nel ramo sinistro del paraboloide e, conseguentemente, l'obiettivo sarà quello di spostarci verso il minimo globale assunto dalla funzione (ovvero, verso destra). Per farlo, possiamo utilizzare la *derivata* o, nel caso di funzioni $n$-dimensionali, il *gradiente* della funzione di costo, aggiornando i pesi in maniera che questo assuma, all'iterazione successiva, un valore inferiore. Questo ci porta alla figura centrale, in cui notiamo che il gradiente si muove dal punto rosso a quello blu; a seguito di questo spostamento, dovremo ancora *aumentare* il valore dei pesi, allo scopo di far diminuire la loss, portandoci quindi nella situazione raffigurata nella figura a destra.
 
-Questo aggiornamento ci porta alla figura centrale, in cui vediamo che il gradiente si è spostato dal punto rosso al punto blu. In questa iterazione dovremo ancora *aumentare* il valore dei pesi affinchè il valore della funzione di costo diminuisca, portandoci quindi nella situazione raffigurata nella figura a destra.
-
-In quest'ultima situazione vedremo che il segno del gradiente sarà diventato positivo, in quanto ci troveremo su una parte ascendente del paraboloide; di conseguenza, dovremo *diminuire* i pesi per far convergere l'algoritmo.
+In quest'ultima situazione, vedremo che il segno del gradiente sarà diventato positivo, in quanto ci troveremo nella parte ascendente del paraboloide. Di conseguenza, la convergenza dell'algoritmo si otterrà *diminuendo* il valore assunto dai pesi.
 
 !!!note "Learning rate"
     Il "quantitativo" di cui sono aggiornati i pesi è spesso denotato come *learning rate*. Un learning rate troppo basso porta ad una convergenza molto lenta dell'algoritmo, che potrebbe "esaurire" le iterazioni prima di arrivare al minimo della funzione di costo. Un learning rate eccessivamente altro potrebbe invece fare in modo che l'algoritmo "salti" da una parte all'altra del minimo, non arrivando neanche in questo caso a convergenza.
@@ -137,16 +139,16 @@ In quest'ultima situazione vedremo che il segno del gradiente sarà diventato po
 !!!note "Minimi locali"
     Il nostro banale esempio presuppone che la funzione di costo non abbia alcun minimo locale. Ciò non è ovviamente vero, e delle scelte sbagliate in termini di punto di partenza o learning rate potrebbero farci finire all'interno di un minimo locale, impedendoci di arrivare a convergenza.
 
-### 16.5.2 - Overfitting e regolarizzazione
+## Overfitting e regolarizzazione
 
-Alle volte, accade che il nostro modello sia in grado di arrivare ad una loss estremamente bassa sui dati di training, ma che tuttavia inizia ad aumentare sui dati di validazione, un po' come nella figura successiva:
+Alle volte, accade che il nostro modello sia in grado di arrivare ad una loss estremamente bassa sui dati di training, ma che tuttavia inizia ad aumentare sui dati di validazione, un po' come mostrato in figura 5:
 
 <figure markdown>
   ![reg](./images/reg.png)
-  <figcaption>Figura 1 - Interprete Python</figcaption>
+  <figcaption>Figura 5 - Andamento della funzione di costo in training e validazione</figcaption>
 </figure>
 
-Ciò può accadere per diversi motivi, come errori nei parametri di addestramento o dati non ben bilanciati. Ad ogni modo, questo fenomeno prende il nome di *overfitting*, e comporta che il modello, che si comporta benissimo sui dati di training, non riesca a *generalizzare*, comportandosi in maniera meno egregia sui dati di validazione. L'overfitting si manifesta all'aumentare delle epoche di training, quando il nostro modello diventa sempre più "complesso", ed apprende sempre meglio a caratterizzare relazioni di complessità crescente intercorrenti tra feature e label.
+Ciò può accadere per diversi motivi, come errori nei parametri di addestramento o dati non ben bilanciati. Ad ogni modo, questo fenomeno prende il nome di *overfitting*, e comporta che il modello, che si comporta molto bene sui dati di training, non riesca a *generalizzare*, comportandosi in maniera meno egregia su quelli di validazione. L'overfitting si manifesta all'aumentare delle epoche di training, quando il nostro modello diventa sempre più "complesso", ed apprende sempre meglio a caratterizzare relazioni di complessità crescente intercorrenti tra feature e label.
 
 Per arginare il fenomeno dell'overfitting, oltre ad agire sui dati e sui parametri del modello, si inserisce spesso un termine di *regolarizzazione*, che tende a penalizzare un modello in grado di caratterizzare relazioni eccessivamente complesse. Il termine di regolarizzazione interviene direttamente sul valore trattato dall'ottimizzatore, che non avrà più come unico obiettivo quello di minimizzare la loss, ma quello di *minimizzare congiuntamente la loss e la complessità del modello ottenuto*.
 
@@ -159,7 +161,12 @@ $$
 Minimizzare questo termine significa dare meno "importanza" ad alcuni pesi che inficiano la complessità totale del modello. Se, ad esempio, avessimo i seguenti pesi:
 
 $$
-{w_1 = 0.1, w_2 = 0.025, w_3 = 0.4, w_4 = 10}
+\begin{aligned}
+& w_1 = 0.1 \\
+& w_2 = 0.025 \\
+& w_3 = 0.4 \\
+& w_4 = 10
+\end{aligned}
 $$
 
 il termine di regolarizzazione $L_2$ diverrebbe pari a:

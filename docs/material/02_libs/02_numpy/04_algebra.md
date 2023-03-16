@@ -1,11 +1,11 @@
 # 2.4 - Operazioni algebriche in NumPy
 
-!!!tip "Notebook di supporto"
-    Il notebook di supporto è disponbibile a [questo indirizzo](../../../notebooks/01_numpy_algebra.ipynb).
+!!!tip "Notebook di accompagnamento"
+	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/01_numpy_algebra.ipynb).
 
-Dopo aver trattato le [operazioni fondamentali](../03_fundamentals.md) in NumPy, facciamo un breve approfondimento sulle operazioni di algebra lineare, alcune delle quali sono integrate nel package [`linalg`](https://numpy.org/doc/stable/reference/routines.linalg.html).
+Dopo aver trattato le [operazioni fondamentali](03_fundamentals.md) in NumPy, facciamo un breve approfondimento sulle operazioni di algebra lineare, alcune delle quali sono integrate nel package [`linalg`](https://numpy.org/doc/stable/reference/routines.linalg.html).
 
-Gli esempi che vedremo nel seguito, e che sono anche disponibili nel notebook reperibile a [questo indirizzo](../../../notebooks/01_numpy_algebra.ipynb), prevederanno tutti l'uso di questo package, per cui è necessario importarlo prima di procedere nella lezione.
+Gli esempi che vedremo nel seguito prevederanno tutti l'uso di questo package, per cui è necessario importarlo prima di procedere nella lezione.
 
 ```py
 from numpy import linalg

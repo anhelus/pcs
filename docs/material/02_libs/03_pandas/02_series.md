@@ -2,7 +2,7 @@
 
 ## Le Series
 
-Nella [lezione precedente](./01_intro.md) abbiamo visto come ogni DataFrame sia in realtà composto da diverse colonne, ciascuna rappresentativa di una feature specifica. Nella pratica, Pandas ci offre un modo per estrarre singolarmente ciascuna di queste colonne mediante la classe [`Series`](https://pandas.pydata.org/docs/reference/api/pandas.Series.html). Ad esempio, potremmo estrarre la serie relativa agli identificativi numerici dei passeggeri:
+Nella [lezione precedente](01_intro.md) abbiamo visto come ogni DataFrame sia in realtà composto da diverse colonne, ciascuna rappresentativa di una feature specifica. Nella pratica, Pandas ci offre un modo per estrarre singolarmente ciascuna di queste colonne mediante la classe [`Series`](https://pandas.pydata.org/docs/reference/api/pandas.Series.html). Ad esempio, potremmo estrarre la serie relativa agli identificativi numerici dei passeggeri:
 
 ```py
 names = df['Name']

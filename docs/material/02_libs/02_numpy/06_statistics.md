@@ -1,9 +1,9 @@
 # 2.6 - Statistica in NumPy
 
-!!!tip "Notebook di supporto"
-    Il notebook di supporto è disponbibile a [questo indirizzo](../../../notebooks/03_numpy_statistics.ipynb).
+!!!tip "Notebook di accompagnamento"
+	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/03_numpy_statistics.ipynb).
 
-Oltre ai [polinomi](../05_polynomials/lecture.md) ed alle [operazioni algebriche](../04_algebra/lecture.md), NumPy ci mette a disposizione varie funzioni utili per i calcoli statistici; in questa lezione ne vedremo alcune.
+Oltre ai [polinomi](05_polynomials.md) ed alle [operazioni algebriche](04_algebra.md), NumPy ci mette a disposizione varie funzioni utili per i calcoli statistici; in questa lezione ne vedremo alcune.
 
 ## Minimo e massimo di un array
 

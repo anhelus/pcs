@@ -1,9 +1,9 @@
 # 2.5 - Operazioni polinomiali in NumPy
 
-!!!tip "Notebook di supporto"
-    Il notebook di supporto è disponbibile a [questo indirizzo](../../../notebooks/02_numpy_polynomials.ipynb).
+!!!tip "Notebook di accompagnamento"
+	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/02_numpy_polynomials.ipynb).
 
-Come abbiamo visto nella [scorsa lezione](../04_algebra/lecture.md), NumPy ci offre un'ampia gamma di funzioni per il calcolo matriciale. Tuttavia, è anche possibile utilizzarlo per altri scopi, non ultimo il calcolo polinomiale, mediante il modulo [`numpy.polynomial`](https://numpy.org/doc/stable/reference/routines.polynomials.html). Vediamo quindi alcuni tra i principali utilizzi di questo modulo.
+Come abbiamo visto nella [scorsa lezione](04_algebra.md), NumPy ci offre un'ampia gamma di funzioni per il calcolo matriciale. Tuttavia, è anche possibile utilizzarlo per altri scopi, non ultimo il calcolo polinomiale, mediante il modulo [`numpy.polynomial`](https://numpy.org/doc/stable/reference/routines.polynomials.html). Vediamo quindi alcuni tra i principali utilizzi di questo modulo.
 
 ## La classe `Polynomial`
 

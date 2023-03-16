@@ -1,24 +1,26 @@
-# 15 - Introduzione (breve) a Scikit Learn
+# 1 - Una breve introduzione a Scikit LEarn
 
-*Scikit Learn* è una tra le librerie per il machine learning più utilizzate in Python. Ciò avviene principalmente per tre fattori:
+[Scikit Learn](https://scikit-learn.org/) è una delle librerie per il machine learning tra le più utilizzate in Python. Questo avviene principalmente a causa di tre fattori:
 
-* il supporto ad un numero molto elevato di algoritmi di machine learning;
+* un esteso supporto ad una grande varietà di algoritmi di machine learning;
 * la semplicità di utilizzo della libreria;
 * la perfetta integrazione con NumPy e Pandas.
 
-Partiamo quindi nella nostra discussione sulla libreria da una panoramica ad ampio spettro delle potenzialità della stessa.
+Per iniziare, quindi, diamo una panoramica ad ampio spettro sulle potenzialità della libreria.
 
-Come di consueto, però, la prima cosa da fare è installare la libreria. Per farlo, spostiamoci (eventualmente) nell'ambiente virtuale usato per il corso, ed usiamo il seguente comando:
+!!!note "Installazione di Scikit Learn"
+    Ovviamente, prima di inizizare, installiamo la libraria:
+    > ```sh
+      pip install scikit-learn
+      ```
 
-```sh
-pip install scikit-learn
-```
+## Stimatori e transformer
 
-## 15.1 - Stimatori e transformer
+Scikit Learn si basa su due concetti fondamentali, ovvero quelli di *stimatore* (*estimator*) e *transformer*.
 
-Scikit Learn si basa su due concetti fondamentali, ovvero quelli di *estimator* (stimatore) e di *transformer* (traducibile maccaronicamente come *trasformatore di dati*).
+In particolare, uno stimatore è un oggetto che implementa uno specifico algoritmo di machine learning, mentre un trasformer permette di effettuare delle trasformazioni sui dati. Per esempio, un'istanza della classe [`RandomForestClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) è uno stimatore, mentre un'istanza della classe [`StandardScaler`](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) è un transformer.
 
-In particolare, un estimator è l'implementazione di uno specifico algoritmo di machine learning, mentre un transformer è un algoritmo che effettua delle trasformazioni sui dati. Ad esempio, le istanze delle classi [`RandomForestClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) e [`DBSCAN`](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) sono degli estimator, mentre quelle della classe [`StandardScaler`](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) sono dei transformer.
+DA QUI
 
 Questa suddivisione permette di implementare un'interfaccia comune, la quale offre nella maggior parte dei casi i metodi `fit` e `transform` per, rispettivamente, effettuare l'addestramento e la trasformazione dei dati. Tuttavia, è importante notare come ogni stimatore e transformer abbiano parametri specifici e dipendenti dalla natura dell'algoritmo utilizzato; ogni algoritmo, inoltre, andrà verificato secondo delle opportune *metriche*, che permettono di definire, in termini percentuali o assoluti, l'accuratezza dell'algoritmo utilizzato.
 
