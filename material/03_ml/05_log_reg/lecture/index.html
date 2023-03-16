@@ -9,17 +9,21 @@
       
       
       
+        <link rel="prev" href="../../04_lin_reg/lecture/">
+      
+      
+        <link rel="next" href="../../../appendix/01_python_vs_code/lecture/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>17 - Modelli supervisionati: regressione logistica - Python</title>
+        <title>5 - Regressione logistica - Python</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7bf56d0a.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c4a75a56.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -77,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#17-modelli-supervisionati-regressione-logistica" class="md-skip">
+        <a href="#5-la-regressione-logistica" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -112,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              17 - Modelli supervisionati: regressione logistica
+              5 - Regressione logistica
             
           </span>
         </div>
@@ -642,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02_libs/02_numpy/04_algebra/lecture/" class="md-nav__link">
+      <a href="../../../02_libs/02_numpy/04_algebra/" class="md-nav__link">
         2.4 - Algebra in NumPy
       </a>
     </li>
@@ -656,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02_libs/02_numpy/05_polynomials/lecture/" class="md-nav__link">
+      <a href="../../../02_libs/02_numpy/05_polynomials/" class="md-nav__link">
         2.5 - Polinomi in NumPy
       </a>
     </li>
@@ -670,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02_libs/02_numpy/06_statistics/lecture/" class="md-nav__link">
+      <a href="../../../02_libs/02_numpy/06_statistics/" class="md-nav__link">
         2.6 - Statistica in NumPy
       </a>
     </li>
@@ -877,14 +881,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -893,7 +899,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Modulo 3 - Concetti di machine learning
@@ -937,6 +943,82 @@
       <a href="../../03_data_prep/" class="md-nav__link">
         3 - Preparazione dei dati
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_lin_reg/lecture/" class="md-nav__link">
+        4 - Regressione lineare
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          5 - Regressione logistica
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        5 - Regressione logistica
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#171-la-funzione-sigmoidale" class="md-nav__link">
+    17.1 - La funzione sigmoidale
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#172-funzione-di-costo" class="md-nav__link">
+    17.2 - Funzione di costo
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1137,13 +1219,10 @@
                   
 
 
-<h1 id="17-modelli-supervisionati-regressione-logistica">17 - Modelli supervisionati: regressione logistica<a class="headerlink" href="#17-modelli-supervisionati-regressione-logistica" title="Permanent link">&para;</a></h1>
-<p>Esistono diversi problemi, tra cui quelli di classificazione multiclasse, che richiedono che l'uscita del sistema sia una stima di probabilità; per far questo, la <em>regressione logistica</em> è lo strumento "principe" da utilizzare.</p>
-<p>Per comprenderne il funzionamento, supponiamo di creare un modello di regressione logistica che predica la probabilità che una mail ricevuta da un indirizzo sconosciuto sia di spam. Chiameremo questa probabilità come:</p>
-<div class="arithmatex">\[
-p(mail|unknown)
-\]</div>
-<p>Se il modello afferma che la probabilità <span class="arithmatex">\(p(mail|unknown) = 0.05\)</span>, allora, su <span class="arithmatex">\(100\)</span> mail ricevute da indirizzi sconosciuti, <span class="arithmatex">\(5\)</span> saranno di spam:</p>
+<h1 id="5-la-regressione-logistica">5 - La regressione logistica<a class="headerlink" href="#5-la-regressione-logistica" title="Permanent link">&para;</a></h1>
+<p>Nella <a href="../../04_lin_reg/lecture/">lezione precedente</a> abbiamo introdotto l'algoritmo di <em>regressione lineare</em>, il cui comito è quello di "tracciare" la relazione intercorrente tra una serie di variabili indipendenti (le feature) ed una variabile dipendente che, come abbiamo visto, è continua e di tipo numerico. La <em>regressione logistica</em>, invece, ed a discapito del nome, è il più semplice dei classificatori, e viene usata quando abbiamo a che fare con variabili di tipo categorico.</p>
+<p>A scopo di esempio, supponiamo di creare un modello che predica la probabilità che una mail ricevuta da un mittente a noi sconosciuto rappresenti uno spam. Indicheremo questa probabilità come <span class="arithmatex">\(p(mail|unknown)\)</span>.</p>
+<p>In pratica, se il modello afferma che <span class="arithmatex">\(p(mail|unknown) = 0.05\)</span>, allora, in media, su <span class="arithmatex">\(100\)</span> mail ricevute da indirizzi sconosciuti, <span class="arithmatex">\(5\)</span> saranno di spam:</p>
 <div class="arithmatex">\[
 spam = p(mail|unknown) \cdot mail_rec = 0.05 * 100 = 5
 \]</div>
@@ -1244,7 +1323,7 @@ LogLoss = \sum_{(x, y) \in D} -y log(y') - (1 - y) log (1 - y')
     <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
         <script src="../../../../js/config.js"></script>
       

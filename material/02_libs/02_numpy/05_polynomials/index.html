@@ -9,20 +9,24 @@
       
       
       
+        <link rel="prev" href="../04_algebra/">
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      
+        <link rel="next" href="../06_statistics/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>Slide proiettate a lezione - Python</title>
+        <title>2.5 - Polinomi in NumPy - Python</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.c4a75a56.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -38,9 +42,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -77,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slide-proiettate-a-lezione" class="md-skip">
+        <a href="#25-operazioni-polinomiali-in-numpy" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -93,7 +97,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Intestazione">
-    <a href="../.." title="Python" class="md-header__button md-logo" aria-label="Python" data-md-component="logo">
+    <a href="../../../.." title="Python" class="md-header__button md-logo" aria-label="Python" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -112,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slide proiettate a lezione
+              2.5 - Polinomi in NumPy
             
           </span>
         </div>
@@ -179,7 +183,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigazione" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Python" class="md-nav__button md-logo" aria-label="Python" data-md-component="logo">
+    <a href="../../../.." title="Python" class="md-nav__button md-logo" aria-label="Python" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -198,7 +202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -267,7 +271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/01_intro/01_intro/" class="md-nav__link">
+      <a href="../../../01_python/01_intro/01_intro/" class="md-nav__link">
         1.1 - Introduzione al Python
       </a>
     </li>
@@ -281,7 +285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/01_intro/02_operators/" class="md-nav__link">
+      <a href="../../../01_python/01_intro/02_operators/" class="md-nav__link">
         1.2 - Operatori
       </a>
     </li>
@@ -295,7 +299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/01_intro/03_strings/" class="md-nav__link">
+      <a href="../../../01_python/01_intro/03_strings/" class="md-nav__link">
         1.3 - Stringhe
       </a>
     </li>
@@ -309,7 +313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/01_intro/04_lists/" class="md-nav__link">
+      <a href="../../../01_python/01_intro/04_lists/" class="md-nav__link">
         1.4 - Liste
       </a>
     </li>
@@ -323,7 +327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/01_intro/exercises/" class="md-nav__link">
+      <a href="../../../01_python/01_intro/exercises/" class="md-nav__link">
         Esercizi
       </a>
     </li>
@@ -371,7 +375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/02_syntax/01_syntax/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/01_syntax/" class="md-nav__link">
         2.1 - Sintassi fondamentale
       </a>
     </li>
@@ -385,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/02_syntax/02_structured/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/02_structured/" class="md-nav__link">
         2.2 - Programmazione strutturata
       </a>
     </li>
@@ -399,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/02_syntax/03_functions/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/03_functions/" class="md-nav__link">
         2.3 - Funzioni
       </a>
     </li>
@@ -413,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/02_syntax/04_data_structures/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/04_data_structures/" class="md-nav__link">
         2.4 - Altre strutture dati
       </a>
     </li>
@@ -427,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/02_syntax/05_classes/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/05_classes/" class="md-nav__link">
         2.5 - Classi
       </a>
     </li>
@@ -441,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/02_syntax/06_modules/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/06_modules/" class="md-nav__link">
         2.6 - Script, moduli e package
       </a>
     </li>
@@ -455,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/02_syntax/exercises/exercises/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/exercises/exercises/" class="md-nav__link">
         Esercizi
       </a>
     </li>
@@ -503,7 +507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/01_python/03_advanced/01_argparse/" class="md-nav__link">
+      <a href="../../../01_python/03_advanced/01_argparse/" class="md-nav__link">
         3.1 - Passaggio di argomenti a script
       </a>
     </li>
@@ -530,14 +534,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
@@ -546,7 +552,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Modulo 2 - Librerie per il calcolo scientifico
@@ -559,7 +565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/01_jupyter/lecture/" class="md-nav__link">
+      <a href="../../01_jupyter/lecture/" class="md-nav__link">
         1 - Jupyter
       </a>
     </li>
@@ -571,14 +577,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
       
       
       
@@ -587,7 +595,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
           2 - NumPy
@@ -600,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/02_numpy/01_intro/" class="md-nav__link">
+      <a href="../01_intro/" class="md-nav__link">
         2.1 - Introduzione a Numpy
       </a>
     </li>
@@ -614,7 +622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/02_numpy/02_array/" class="md-nav__link">
+      <a href="../02_array/" class="md-nav__link">
         2.2 - Gli Array
       </a>
     </li>
@@ -628,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/02_numpy/03_fundamentals/" class="md-nav__link">
+      <a href="../03_fundamentals/" class="md-nav__link">
         2.3 - Operazioni fondamentali sugli array
       </a>
     </li>
@@ -642,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/02_numpy/04_algebra/" class="md-nav__link">
+      <a href="../04_algebra/" class="md-nav__link">
         2.4 - Algebra in NumPy
       </a>
     </li>
@@ -654,11 +662,101 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../material/02_libs/02_numpy/05_polynomials/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          2.5 - Polinomi in NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         2.5 - Polinomi in NumPy
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-classe-polynomial" class="md-nav__link">
+    La classe Polynomial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#somma-di-polinomi" class="md-nav__link">
+    Somma di polinomi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sottrazione-di-polinomi" class="md-nav__link">
+    Sottrazione di polinomi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moltiplicazione-di-polinomi" class="md-nav__link">
+    Moltiplicazione di polinomi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#divisione-tra-polinomi" class="md-nav__link">
+    Divisione tra polinomi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elevazione-a-potenza" class="md-nav__link">
+    Elevazione a potenza
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valore-assunto-da-un-polinomio" class="md-nav__link">
+    Valore assunto da un polinomio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derivata-ed-integrale-di-funzioni-polinomiali" class="md-nav__link">
+    Derivata ed integrale di funzioni polinomiali
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -670,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/02_numpy/06_statistics/" class="md-nav__link">
+      <a href="../06_statistics/" class="md-nav__link">
         2.6 - Statistica in NumPy
       </a>
     </li>
@@ -684,7 +782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/02_numpy/exercises/exercises/" class="md-nav__link">
+      <a href="../exercises/exercises/" class="md-nav__link">
         Esercizi
       </a>
     </li>
@@ -732,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/03_pandas/01_intro/" class="md-nav__link">
+      <a href="../../03_pandas/01_intro/" class="md-nav__link">
         3.1 - Introduzione a Pandas
       </a>
     </li>
@@ -746,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/03_pandas/02_series/" class="md-nav__link">
+      <a href="../../03_pandas/02_series/" class="md-nav__link">
         3.2 - Le Series
       </a>
     </li>
@@ -760,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/03_pandas/03_io/" class="md-nav__link">
+      <a href="../../03_pandas/03_io/" class="md-nav__link">
         3.3 - Input/Output in Pandas
       </a>
     </li>
@@ -774,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/03_pandas/04_functions/" class="md-nav__link">
+      <a href="../../03_pandas/04_functions/" class="md-nav__link">
         3.4 - Manipolazione dei DataFrame
       </a>
     </li>
@@ -822,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/04_visualization/01_matplotlib/" class="md-nav__link">
+      <a href="../../04_visualization/01_matplotlib/" class="md-nav__link">
         4.1 - Matplotlib
       </a>
     </li>
@@ -836,7 +934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/04_visualization/02_seaborn/" class="md-nav__link">
+      <a href="../../04_visualization/02_seaborn/" class="md-nav__link">
         4.2 - Seaborn
       </a>
     </li>
@@ -850,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/02_libs/04_visualization/exercises/exercises/" class="md-nav__link">
+      <a href="../../04_visualization/exercises/exercises/" class="md-nav__link">
         Esercizi
       </a>
     </li>
@@ -906,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/03_ml/01_intro/" class="md-nav__link">
+      <a href="../../../03_ml/01_intro/" class="md-nav__link">
         1 - Introduzione al machine learning
       </a>
     </li>
@@ -920,7 +1018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/03_ml/02_framing/" class="md-nav__link">
+      <a href="../../../03_ml/02_framing/" class="md-nav__link">
         2 - Definizione del problema
       </a>
     </li>
@@ -934,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/03_ml/03_data_prep/" class="md-nav__link">
+      <a href="../../../03_ml/03_data_prep/" class="md-nav__link">
         3 - Preparazione dei dati
       </a>
     </li>
@@ -948,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/03_ml/04_lin_reg/lecture/" class="md-nav__link">
+      <a href="../../../03_ml/04_lin_reg/lecture/" class="md-nav__link">
         4 - Regressione lineare
       </a>
     </li>
@@ -962,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/03_ml/05_log_reg/lecture/" class="md-nav__link">
+      <a href="../../../03_ml/05_log_reg/lecture/" class="md-nav__link">
         5 - Regressione logistica
       </a>
     </li>
@@ -1011,7 +1109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/appendix/01_python_vs_code/lecture/" class="md-nav__link">
+      <a href="../../../appendix/01_python_vs_code/lecture/" class="md-nav__link">
         A - Setup di Python e Visual Studio Code
       </a>
     </li>
@@ -1025,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/appendix/02_setup_tflow/lecture/" class="md-nav__link">
+      <a href="../../../appendix/02_setup_tflow/lecture/" class="md-nav__link">
         B - Setup di TensorFlow
       </a>
     </li>
@@ -1039,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/appendix/03_libraries/lecture/" class="md-nav__link">
+      <a href="../../../appendix/03_libraries/lecture/" class="md-nav__link">
         B - Le librerie in Python
       </a>
     </li>
@@ -1053,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/appendix/04_scope/lecture/" class="md-nav__link">
+      <a href="../../../appendix/04_scope/lecture/" class="md-nav__link">
         C - Ambito di una variabile
       </a>
     </li>
@@ -1067,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/appendix/05_oop/lecture/" class="md-nav__link">
+      <a href="../../../appendix/05_oop/lecture/" class="md-nav__link">
         D - Programmazione orientata agli oggetti
       </a>
     </li>
@@ -1081,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../material/appendix/06_tips/lecture/" class="md-nav__link">
+      <a href="../../../appendix/06_tips/lecture/" class="md-nav__link">
         E - Tips
       </a>
     </li>
@@ -1103,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributors/" class="md-nav__link">
+      <a href="../../../../contributors/" class="md-nav__link">
         Ringraziamenti
       </a>
     </li>
@@ -1130,6 +1228,70 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-classe-polynomial" class="md-nav__link">
+    La classe Polynomial
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#somma-di-polinomi" class="md-nav__link">
+    Somma di polinomi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sottrazione-di-polinomi" class="md-nav__link">
+    Sottrazione di polinomi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moltiplicazione-di-polinomi" class="md-nav__link">
+    Moltiplicazione di polinomi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#divisione-tra-polinomi" class="md-nav__link">
+    Divisione tra polinomi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elevazione-a-potenza" class="md-nav__link">
+    Elevazione a potenza
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valore-assunto-da-un-polinomio" class="md-nav__link">
+    Valore assunto da un polinomio
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derivata-ed-integrale-di-funzioni-polinomiali" class="md-nav__link">
+    Derivata ed integrale di funzioni polinomiali
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1143,60 +1305,74 @@
                   
 
 
-<h1 id="slide-proiettate-a-lezione">Slide proiettate a lezione<a class="headerlink" href="#slide-proiettate-a-lezione" title="Permanent link">&para;</a></h1>
-<table>
-<thead>
-<tr>
-<th>Argomento</th>
-<th>Link</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>00 - Programma del corso</td>
-<td><a href="00_program.pdf"><img alt="🔗" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f517.svg" title=":link:" /></a></td>
-</tr>
-<tr>
-<td>01 - Introduzione a Python</td>
-<td><a href="01_intro.pdf"><img alt="🔗" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f517.svg" title=":link:" /></a></td>
-</tr>
-<tr>
-<td>02 - Concetti sintattici fondamentali</td>
-<td><a href="02_syntax.pdf"><img alt="🔗" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f517.svg" title=":link:" /></a></td>
-</tr>
-<tr>
-<td>03 - Strutture dati in Python</td>
-<td><a href="03_data_structures.pdf"><img alt="🔗" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f517.svg" title=":link:" /></a></td>
-</tr>
-<tr>
-<td>04 - OOP in Python</td>
-<td><a href="04_oop.pdf"><img alt="🔗" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f517.svg" title=":link:" /></a></td>
-</tr>
-<tr>
-<td>05 - Script, moduli, librerie</td>
-<td><a href="05_org.pdf"><img alt="🔗" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f517.svg" title=":link:" /></a></td>
-</tr>
-</tbody>
-</table>
-<!-- | 06 - Operazioni in NumPy | [:link:](06_numpy_ops.pdf) |
-| 07 - Matplotlib | [:link:](07_matplotlib.pdf) |
-| 08 - Pandas | [:link:](08_pandas.pdf) |
-| 09 - Seaborn | [:link:](09_seaborn.pdf) |
-| 10 - SciPy | [:link:](10_scipy.pdf) |
-| 11 - Introduzione al machine learning | [:link:](11_intro_ml.pdf) |
-| 12 - Definizione del problema | [:link:](12_framing.pdf) |
-| 13 - Preparazione dei dati | [:link:](13_data_prep.pdf) |
-| 14 - Introduzione a Scikit Learn | [:link:](14_intro_sklearn.pdf) |
-| 15 - Regressione lineare | [:link:](15_lin_reg.pdf) |
-| 16 - Regressione logistica | [:link:](16_log_reg.pdf) |
-| 17 - Metriche | [:link:](17_metrics.pdf) |
-| 18 - Classificatori e regressori | [:link:](18_class_reg.pdf) |
-| 19 - Clustering | [:link:](19_clustering.pdf) |
-| 21 - Reti neurali | [:link:](21_nn.pdf) |
-| 22 - Overfitting e regolarizzazione | [:link:](22_over_reg.pdf) |
-| 23 - Image classification | [:link:](23_img_proc.pdf) |
-| 24 - Serie temporali | [:link:](24_ts.pdf) |
-| Appendice D - Principi di OOP | [:link:](app_d_oop.pdf) | -->
+<h1 id="25-operazioni-polinomiali-in-numpy">2.5 - Operazioni polinomiali in NumPy<a class="headerlink" href="#25-operazioni-polinomiali-in-numpy" title="Permanent link">&para;</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Notebook di accompagnamento</p>
+<p>Per questa lezione esiste un <em>notebook di accompagnamento</em>, reperibile a <a href="https://github.com/anhelus/pcs-exercises/blob/master/01_libs/02_numpy_polynomials.ipynb">questo indirizzo</a>.</p>
+</div>
+<p>Come abbiamo visto nella <a href="../04_algebra/">scorsa lezione</a>, NumPy ci offre un'ampia gamma di funzioni per il calcolo matriciale. Tuttavia, è anche possibile utilizzarlo per altri scopi, non ultimo il calcolo polinomiale, mediante il modulo <a href="https://numpy.org/doc/stable/reference/routines.polynomials.html"><code>numpy.polynomial</code></a>. Vediamo quindi alcuni tra i principali utilizzi di questo modulo.</p>
+<h2 id="la-classe-polynomial">La classe <code>Polynomial</code><a class="headerlink" href="#la-classe-polynomial" title="Permanent link">&para;</a></h2>
+<p>Immaginiamo di avere due diversi polinomi, cui non associamo alcun significato fisico. I due sono espressi dalle seguenti equazioni:</p>
+<div class="arithmatex">\[
+\begin{cases}
+p_1: y = 2x + 1 \\
+p_2: y = x^2 + 3x + 2
+\end{cases}
+\]</div>
+<p>NumPy ci permette di rappresentare il polinomio mediante gli oggetti di classe <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.Polynomial.html#numpy.polynomial.polynomial.Polynomial"><code>Polynomial</code></a>. In particolare, un oggetto di questo tipo può essere istanziato a partire dai coefficienti del polinomio (ma non solo). Ad esempio, considerando i polinomi visti in precedenza, assieme ai loro coefficienti, possiamo scrivere:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">p_1_coef</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>       <span class="c1"># lista dei coefficienti per p_1</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">p_2_coef</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>    <span class="c1"># lista dei coefficienti per p_2</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">p_1</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">p_1_coef</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">p_2</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">p_2_coef</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Ordine dei coefficienti</p>
+<p>La caratteristica più importante (e controintuitiva) della classe <code>Polynomial</code> (e di tutti i metodi di gestione dei polinomi in NumPy) è che i coefficienti vengono trattati <em>in ordine crescente</em>. In pratica, viene considerato innanzitutto il termine noto (ovvero il termine per <span class="arithmatex">\(x^0\)</span>), poi il coefficiente di primo grado, quello di secondo, e così via. Per questo motivo, nel codice precedente viene considerata la lista dei coefficienti in ordine inverso.</p>
+</div>
+<h2 id="somma-di-polinomi">Somma di polinomi<a class="headerlink" href="#somma-di-polinomi" title="Permanent link">&para;</a></h2>
+<p>Per sommare due polinomi, è possibile utilizzare il metodo <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyadd.html#numpy.polynomial.polynomial.polyadd"><code>polyadd()</code></a>, il quale accetta come parametri due vettori <code>c1</code> e <code>c2</code> rappresentativi dei coefficienti dei due polinomi da sommare. Ad esempio, volendo sommare due polinomi, potremo scrivere:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">polynomial</span> <span class="k">as</span> <span class="n">P</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">c1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">c2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">poly_sum</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">polyadd</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+</code></pre></div>
+<p>Il risultato di questa operazione sarà un array numpy a valori <code>[3, 7, 4]</code>, equivalente al polinomio <span class="arithmatex">\(4x^2 + 7x + 3\)</span>.</p>
+<h2 id="sottrazione-di-polinomi">Sottrazione di polinomi<a class="headerlink" href="#sottrazione-di-polinomi" title="Permanent link">&para;</a></h2>
+<p>La sottrazione tra due polinomi è possibile mediante la funzione <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polysub.html#numpy-polynomial-polynomial-polysub"><code>polysub()</code></a>, il cui funzionamento è molto simile a quello di <code>polyadd()</code>, con l'ovvia differenza che il risultato sarà il polinomio risultante dalla differenza tra i coefficienti di <code>c1</code> e <code>c2</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">poly_sub</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">polysub</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="moltiplicazione-di-polinomi">Moltiplicazione di polinomi<a class="headerlink" href="#moltiplicazione-di-polinomi" title="Permanent link">&para;</a></h2>
+<p>Le considerazioni precedenti possono essere estese alla moltiplicazione tra polinomi mediante la funzione <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polymul.html"><code>polymul()</code></a>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">poly_mul</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">polymul</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+</code></pre></div>
+<p>Nel caso si debba moltiplicare un polinomio per una variabile indipendente <span class="arithmatex">\(x\)</span>, andrà utilizzata la funzione <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polymulx.html"><code>polymulx()</code></a>.</p>
+<h2 id="divisione-tra-polinomi">Divisione tra polinomi<a class="headerlink" href="#divisione-tra-polinomi" title="Permanent link">&para;</a></h2>
+<p>La divisione tra polinomi è un'operazione leggermente più complessa delle altre, e prevede l'uso della funzione <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polymulx.html"><code>polydiv()</code></a>, che restituirà stavolta due array: il primo rappresenta i coefficienti del polinomio quoziente, mentre il secondo i coefficienti del polinomio resto. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">poly_q</span><span class="p">,</span> <span class="n">poly_r</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">polydiv</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
+</code></pre></div>
+<p>Anche in questo caso, i coefficienti sono ordinati da quello a grado più basso a quello a grado più alto.</p>
+<h2 id="elevazione-a-potenza">Elevazione a potenza<a class="headerlink" href="#elevazione-a-potenza" title="Permanent link">&para;</a></h2>
+<p>Per elevare a potenza un polinomio, possiamo usare la funzione <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polypow.html"><code>polypow()</code></a>, la quale accetta due parametri: un vettore dei coefficienti <code>c</code> al primo argomento, ed uno scalare <code>pow</code> al secondo, rappresentativo della potenza alla quale effettuare l'elevazione. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">poly_pow</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">polypow</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+</code></pre></div>
+<h2 id="valore-assunto-da-un-polinomio">Valore assunto da un polinomio<a class="headerlink" href="#valore-assunto-da-un-polinomio" title="Permanent link">&para;</a></h2>
+<p>Il valore <span class="arithmatex">\(y\)</span> assunto da un polinomio <span class="arithmatex">\(p\)</span> ad un certo valore di <span class="arithmatex">\(x\)</span> può essere determinato mediante la funzione <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval.html"><code>polyval()</code></a>, che accetta come argomento un intero (o una lista di interi) <code>x</code> ed un polinomio <code>p</code>. Ad esempio, volendo valutare il valore assunto da <span class="arithmatex">\(y\)</span> per <span class="arithmatex">\(x \in [1, 2]\)</span> sulla retta rappresentata dal polinomio <code>c1</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">P</span><span class="o">.</span><span class="n">polyval</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c1</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Operazioni a dimensionalità 2 e 3</p>
+<p>Nel caso occorra valutare i polinomi nei casi a due e tre dimensioni, NumPy ci mette a disposizione le funzioni <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval2d.html"><code>polyval2d()</code></a> e <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval3d.html"><code>polyval3d()</code></a>.</p>
+</div>
+<h2 id="derivata-ed-integrale-di-funzioni-polinomiali">Derivata ed integrale di funzioni polinomiali<a class="headerlink" href="#derivata-ed-integrale-di-funzioni-polinomiali" title="Permanent link">&para;</a></h2>
+<p>Concludiamo questa breve carrellata con due metodi in grado di calcolare, rispettivamente, la derivata e l'integrale di una funzione polinomiale.</p>
+<p>Il metodo <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyder.html#numpy.polynomial.polynomial.polyder"><code>polyder()</code></a>, infatti, permette di calcolare la derivata di ordine <code>m</code> (passato come secondo argomento, di default pari ad <code>1</code>) del polinomio <code>p</code> (passato come primo argomento). Ad esempio, possiamo calcolare la derivata seconda di <code>c1</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">P</span><span class="o">.</span><span class="n">polyder</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>Il metodo duale è <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyint.html#numpy.polynomial.polynomial.polyint"><code>polyint()</code></a>, che (prevedibilmente) calcola l'integrale di ordine <code>m</code> del polinomio <code>p</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">P</span><span class="o">.</span><span class="n">polyint</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
 
 
   
@@ -1263,12 +1439,12 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
       
-        <script src="../../js/config.js"></script>
+        <script src="../../../../js/config.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
