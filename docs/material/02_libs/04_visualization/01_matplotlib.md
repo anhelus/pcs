@@ -193,7 +193,7 @@ Il risultato sarà simile a quello mostrato in figura 3:
 
 ## Esempio 3: Istogramma
 
-Abbiamo già parlato degli [istogrammi in NumPy](../02_numpy/06_statistics/lecture.md#istogramma). Tuttavia, un istogramma raggiunge la massima espressività possibile quando ne si utilizza la rappresentazione visiva. In tal senso, Matplotlib ci offre una funzione apposita chiamata [`hist()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html).
+Abbiamo già parlato degli [istogrammi in NumPy](../02_numpy/06_statistics.md#istogramma). Tuttavia, un istogramma raggiunge la massima espressività possibile quando ne si utilizza la rappresentazione visiva. In tal senso, Matplotlib ci offre una funzione apposita chiamata [`hist()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html).
 
 Proviamo ad utilizzarla. Per farlo, creiamo in primis un vettore di $1000$ numeri interi casuali compresi tra $0$ e $100$.
 

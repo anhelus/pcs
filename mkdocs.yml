@@ -16,7 +16,9 @@ nav:
       - 2.4 - Altre strutture dati: material/01_python/02_syntax/04_data_structures.md
       - 2.5 - Classi: material/01_python/02_syntax/05_classes.md
       - 2.6 - Script, moduli e package: material/01_python/02_syntax/06_modules.md
-      - Esercizi: material/01_python/02_syntax/exercises/exercises.md
+      - Esercizi:
+        - Tracce: material/01_python/02_syntax/exercises/exercises.md
+        # - Soluzioni: material/01_python/02_syntax/exercises/solutions.md
     - 3 - Concetti avanzati:
       - 3.1 - Passaggio di argomenti a script: material/01_python/03_advanced/01_argparse.md
   - Modulo 2 - Librerie per il calcolo scientifico:
@@ -28,7 +30,9 @@ nav:
       - 2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra.md
       - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials.md
       - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics.md
-      - Esercizi: material/02_libs/02_numpy/exercises/exercises.md
+      - Esercizi:
+        - Tracce: material/02_libs/02_numpy/exercises/exercises.md
+        - Soluzioni: material/02_libs/02_numpy/exercises/solutions.md
     - 3 - Pandas:
       - 3.1 - Introduzione a Pandas: material/02_libs/03_pandas/01_intro.md
       - 3.2 - Le Series: material/02_libs/03_pandas/02_series.md

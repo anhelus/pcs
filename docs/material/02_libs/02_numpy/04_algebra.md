@@ -75,7 +75,7 @@ numpy.linalg.LinAlgError: Singular matrix
 
 ### La funzione `dot()`
 
-Nella [scorsa lezione](../03_fundamentals.md#operazioni-algebriche-di-base) abbiamo visto un esempio di utilizzo della funzione `dot(a, b)` utilizzata per calcolare il prodotto matriciale tra gli array `a` e `b`. A questa funzione si applicano tutte le regole del calcolo matriciale, così come riassunto nella seguente tabella.
+Nella [scorsa lezione](03_fundamentals.md#operazioni-algebriche-di-base) abbiamo visto un esempio di utilizzo della funzione `dot(a, b)` utilizzata per calcolare il prodotto matriciale tra gli array `a` e `b`. A questa funzione si applicano tutte le regole del calcolo matriciale, così come riassunto nella seguente tabella.
 
 | Dimensionalità `a` | Dimensionalità `b` | Risultato |
 | ---------------- | ----- | --------- |
@@ -90,7 +90,7 @@ Notiamo che:
 * in caso di moltiplicazione di due matrici, il risultato sarà il prodotto matriciale e, di conseguenza, si consiglia di preferire la funzione [`matmul()`](https://numpy.org/doc/stable/reference/generated/numpy.matmul.html);
 * in caso di prodotto tra scalare e matrice, si consiglia di utilizzare la funzione [`multiply()`](https://numpy.org/doc/stable/reference/generated/numpy.multiply.html) o, in alternativa, l'operatore `*`.
 
-Nel [notebook della lezione](../../../notebooks/01_numpy_algebra.ipynb) vedremo alcuni esempi di prodotti matriciali.
+Nel [notebook della lezione](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/01_numpy_algebra.ipynb) vedremo alcuni esempi di prodotti matriciali.
 
 !!!note "Moltiplicazione di array multidimensionali"
        Nel caso entrambi gli array da moltiplicare siano $n$-dimensionali, si applicano altre regole, che è possibile recuperare a [questo indirizzo](https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot).
