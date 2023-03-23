@@ -47,7 +47,7 @@ nav:
     - 2 - Definizione del problema: material/03_ml/02_framing.md
     - 3 - Preparazione dei dati: material/03_ml/03_data_prep.md
     - 4 - Regressione lineare: material/03_ml/04_lin_reg/lecture.md
-    # - 5 - Regressione logistica: material/03_ml/05_log_reg/lecture.md
+    - 5 - Regressione logistica: material/03_ml/05_log_reg/lecture.md
     # - 6 - Alberi e foreste:
     #   - 6.1 - Alberi decisionali: material/03_ml/06_trees/01_decision_trees.md
     #   - 6.2 - Foreste decisionali: material/03_ml/06_trees/02_decision_forests.md

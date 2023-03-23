@@ -7,12 +7,16 @@ A scopo di esempio, supponiamo di creare un modello che predica la probabilità 
 In pratica, se il modello afferma che $p(mail|unknown) = 0.05$, allora, in media, su $100$ mail ricevute da indirizzi sconosciuti, $5$ saranno di spam:
 
 $$
-spam = p(mail|unknown) \cdot mail_rec = 0.05 * 100 = 5
+\begin{align}
+spam &= p(mail|unknown) \cdot mail_{rec} \\
+&= 0.05 * 100 \\
+&= 5
+\end{align}
 $$
 
 Questo è un esempio di utilizzo della probabilità *as is*. In molti casi, tuttavia, mapperemo l'output della soluzione su un problema di classificazione binario, nel quale l'obiettivo è predire correttamente uno di due possibili label (in questo caso, *spam* o *non spam*).
 
-## 17.1 - La funzione sigmoidale
+## La funzione sigmoidale
 
 Ci si potrebbe chiedere come un modello per la regressione logistica sia in grado di asicurarsi che l'uscita ricada sempre nell'intervallo tra $0$ ed $1$. In tal senso, questo è assicurato dall'uso della *funzione sigmoidale*, definita come segue:
 
@@ -32,7 +36,7 @@ Nell'espressione precedente, notiamo che:
 * $y$ è l'uscita della regressione logistica;
 * $z$ è pari, per un generico modello lineare, a $b + w_1 x_1 + \ldots + w_N z_N$.
 
-## 17.2 - Funzione di costo
+## Funzione di costo
 
 La funzione di costo per la funzione logistica è chiamata *log loss*, ed è espressa come:
 

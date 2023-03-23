@@ -1,134 +1,108 @@
-# X.X - Gli alberi decisionali
+# 6.1 - Gli alberi decisionali
 
-Gli *alberi decisionali* sono una tra le famiglie di modelli maggiormente utilizzate per l'apprendimento supervisionato, sia in fase di classificazione, sia in fase di regressione. Offrono alcuni benefici rispetto agli altri modelli, tra cui:
+Gli *alberi decisionali* sono una tra le famiglie di modelli maggiormente utilizzate per l'apprendimento supervisionato, e sono in grado di risolvere sia problemi di classificazione, sia di regressione. In particolare, gli alberi decisionali offrono alcuni benefici rispetto ad altri tipi di modello, tra cui:
 
-* una maggiore semplicità di configurazione rispetto alle reti neurali, legata alla presenza di meno iperparametri, il cui tuning, tra l'altro, risulta essere meno influente per le prestazioni finali (in pratica, è possibile utilizzare tranquillamente i valori di default);
-* la capacità di gestire feature di diverso tipo (ad esempio, numeriche, categoriche, o anche mancanti), il che comporta la possibilità di effettuare meno preprocessing rispetto ad altri modelli;
-* la possibilità di essere usati su dataset di piccole dimensioni con una maggiore efficienza rispetto a modelli più complessi come le rete neurali.
+* **semplicità di configurazione**, grazie alla presenza di un numero limitato di parametri, la cui modifica influenza in maniera abbastanza limitata il risultato finale;
+* **gestione di feature di diverso tipo**, ovvero sia numeriche, sia categoriche, con l'ovvia conseguenza di richiedere un preprocessing limitato rispetto ad altri modelli;
+* **efficienza con dataset di piccole dimensioni**.
 
-Da non sottovalutare, inoltre, il fatto che gli alberi decisionali forniscono spesso buoni risultati, sono robusti al rumore, ed hanno dei risultati che sono facilmente interpretabile.
+In pratica, gli alberi decisionali sono spesso in grado di fornire una buona accuratezza, sono semplici da configurare, robusti a rumore e feature mancanti, non richiedono preprocessing, ed i risultati ottenuti sono facilmente interpretabili. 
 
-## X.X. - Dataset per gli alberi decisionali
+Gli alberi decisionali sono molto efficaci quando si usano dei dataset di tipo tabellare, normalmente contenuti in file CSV o tabelle di database, come ad esempio il dataset Titanic. Tuttavia, risultano inadeguati quando il tipo di dato utilizzato non è strutturato: in pratica, non possiamo efficacemente utilizzarli su immagini o testo.
 
-Gli alberi decisionali risultano essere molto efficaci quando si ha a che fare con dataset di tipo tabulare, come file CSV o tabelle di un database. Un esempio è, ovviamente, il dataset Titanic. Inoltre, non abbiamo la necessità di effettuare operazioni di preprocessing, come normalizzazioni, one-hot encoding, o data imputation.
+Un altro punto di forza è che un albero decisionale è efficace anche su dataset di dimensioni ridotte, ovverosia quelli nei quali il rapporto tra feature e numero di campioni è di poco superiore ad uno; si parla, in questo caso, di *sample efficiency*.
 
-Tuttavia, gli alberi decisionali non sono assolutamente adatti ad essere utilizzati su dati non tabulari (anche detti *non strutturati*), come ad esempio immagini o testo. 
-
-## Performance
-
-Gli alberi decisionali possono essere addestrati con efficacia su piccoli dataset, o su dataset sui quali comunque il rapporto tra feature e numero di campioni non è di molto superiore ad 1.
-
-!!!note "Efficacia degli alberi"
-    Anche se gli alberi decisionali sono efficaci in caso di rapporto quasi unitario tra feature e numero di campioni (*sample efficiency*), il funzionamento migliora quando sono disponibili molti dati, così come tutti gli algoritmi di machine learning.
+!!!tip "Alberi e dati"
+    Anche se gli alberi decisionali sono *sample efficient*, il loro funzionamento risulta comunque migliore nel caso di disponibilità di grosse quantità di dati.
 
 ## Funzionamento degli alberi decisionali
 
-Vediamo un esempio di funzionamento degli alberi decisionali.
-
-Un albero decisionale non è altro se non un modello composto da un insieme di *domande*, o per meglio dire *condizioni*, organizzate in maniera gerarchica sotto forma di albero. Ognuno dei nodi *non* foglia dell'albero descrive una condizione, mentre ogni nodo foglia contiene una predizione. Nella seguente figura vediamo un esempio di albero decisionale:
+Un albero decisionale è un modello creato a partire da una serie di *condizioni*, che potremmo interpretare come delle "domande", organizzate in maniera gerarchica a ricalcare, per l'appunto, un albero. Ognuna delle foglie dell'albero contiene il valore predetto, che può essere sia una classe, sia un valore numerico; i restanti nodi, invece, descrivono una certa condizione. Un semplice esempio è mostrato nel seguente schema.
 
 ```mermaid
 flowchart TB
-  A[Gambe>2] -->|No| B[Occhi>2]
-  A -->|Sì| C(Cane)
+  A["Zampe > 2"] -->|Sì| B["Occhi > 2"]
+  A -->|No| C(Gallina)
   B -->|Sì| D(Ragno)
-  B -->|No| E(Gallina)
+  B -->|No| E(Cane)
 ```
 
-L'inferenza dell'albero decisionale viene quindi calcolata eseguendo il routing di un campione dalla radice fino ad una delle foglie, a seconda dei valori assunti dalle feature; il valore della foglia raggiunta rappresenta la predizione raggiunta dall'albero, mentre l'insieme dei nodi visitati è detto *percorso di inferenza*. 
+L'abero decisionale determina il valore predetto seguendo il percorso che va dalla radice fino ad una delle foglie, a seconda dei valori assunti dalle diverse feature. Questo cammino è detto *percorso di inferenza*. Nel nostro caso, alla radice dell'albero viene valutata la feature *Zampe*. In particolare, se questo valore è maggiore di $2$ andremo a valutare il valore della feature *Occhi*; in caso contrario, il percorso di inferenza ci porta direttamente a predire come *Gallina* l'animale caratterizzato.
 
-Cerchiamo di capire cosa sta succedendo nel nostro esempio. Nel nodo radice, viene descritta la condizione relativa al fatto che il nostro campione abbia più o meno di due gambe. Nel nodo B, che non è un nodo foglia, viene valutata la presenza di un numero di occhi maggiore o minore di due. Nei tre nodi foglia, ovvero C, D ed E, abbiamo la *decisione* presa dall'albero (rispettivamente, cane, ragno o gallina). Ad esempio, consideriamo un campione avente due gambe e due occhi. Allora, partendo dalla radice ed arrivando alla foglia, avremo il seguente percorso di inferenza:
+Per quello che riguarda il nostro esempio, immaginiamo di avere un campione con i seguenti valori per le feature:
+
+* Zampe: 4
+* Occhi: 2
+
+Dato che le zampe sono $4$, alla prima domanda si risponderà ovviamente con un *No*. Andando quindi a valutare la seconda condizione (il numero di occhi), avremo in questo caso un valore pari a $2$, per cui il risultato della predizione sarà un cane.
 
 ```mermaid
 flowchart TB
-  A[Gambe>2] -->|No| B[Occhi>2]
-  A -->|Sì| C(Cane)
+  A["Zampe > 2"] -->|Sì| B["Occhi > 2"]
+  A -->|No| C(Gallina)
   B -->|Sì| D(Ragno)
-  B -->|No| E(Gallina)
-  linkStyle 1,3 stroke-width:2px,fill:none,stroke:red;
+  B -->|No| E(Cane)
+  linkStyle 0,3 stroke-width:2px,fill:none,stroke:red;
 ``` 
 
-In modo simile, è possibile fare in modo che un albero decisionale effettui una predizione di regressione su dei valori numerici. Ad esempio, possiamo predire l'indice di tenerezza di un animale:
+Nell'esempio appena visto, il valore predetto è categorico, e le feature numeriche. Facciamo un esempio per dimostrare la versatilità degli alberi decisionali, predicendo la tenerezza di un animale a partire dalle categorizzazioni delle feature *Pelosità* e *Carineria*.
 
 ```mermaid
 flowchart TB
-  A[Pelosità>medio] -->|Si| B[Carineria>medio]
+  A["Pelosità > medio"] -->|Si| B["Carineria > medio"]
   A -->|No| C(1)
   B -->|Sì| D(3)
   B -->|No| E(2)
 ```
 
+Questo problema è caratterizzabile come un problema di regressione: infatti, a partire da feature di tipo categorico, il risultato predetto è numerico.
+
 !!!tip "Risultati della regressione"
-    Dall'esempio precedente, è evidente come cani, gatti e pulcini siano gli animali che ispirano più tenerezza nell'essere umano, laddove aracnidi, insetti e serpenti risultino essere molto meno teneri.
+    Dall'esempio precedente, è evidente come cani, gatti e pulcini siano gli animali che ispirano più tenerezza nell'essere umano. D'altro canto, aracnidi, insetti e serpenti appaiono spesso molto meno teneri ed affettuosi.
 
-Vediamo adesso come distinguere i diversi tipi di condizione descritti in un albero decisionale.
+Per andare avanti nella nostra discussione, dobbiamo adesso distinguere tra i diversi tipi di condizione descrivibili da un albero decisionale.
 
-## Tipi di condizione in un albero decisionale
+## Condizioni in un albero decisionale
 
-### Axis-aligned vs. oblique
+Esistono due categorizzazioni possibili per le condizioni in un albero decisionale.
 
-La prima distinzione che è possibile fare tra diverse condizioni riguarda il fatto che queste interessino una o più feature. In particolare, le condizioni *axis-aligned* interessano un'unica feature, mentre quelle *oblique* riguardano più feature. Tornando all'esempio precedente, la condizione $Gambe \geq 2$ è chiaramente axis-aligned, in quanto coinvolge solamente il numero di gambe dell'animale. Se, ad esempio, ci fosse stata una condizione del tipo $Gambe \geq Occhi$, avremmo avuto a che fare con una condizione oblique.
+##### Axis-aligned vs. oblique
 
-Spesso, gli alberi decisionali vengono addestrati esclusivamente con condizioni axis-aligned. D'altro canto, l'uso di condizioni oblique è potenzialmente molto potente, in quanto queste sono in grado di esprimere relazioni molto complesse tra dati; tuttavia, nella pratica, molto spesso (ab)usare delle condizioni oblique comporta performance inferiori al netto di maggiori costi in termini di tempo di addestramento.
+La prima categorizzazione possibile per le condizioni in un albero decisionale riguarda il fatto che queste interessino una o più feature. In particolare, una condizione che interessa un'unica feature è detta *axis-aligned*, mentre una condizione *oblique* riguarda diverse feature.
 
+Tornando all'esempio precedente, la condizione $Zampe > 2$ è chiaramente *axis-aligned*, in quanto prevede la valutazione esclusiva del numero di zampe dell'animale. Se per qualche motivo la condizione fosse del tipo $Zampe < Occhi$, allora avremmo a che fare con una condizione *oblique*.
 
+!!!tip "Cosa accade nella pratica?"
+    Spesso gli alberi decisionali contengono soltanto condizioni axis-aligned, soprattutto a causa del fatto che può essere saggio eliminare feature interdipendenti prima di effettuare l'addestramento. Le condizioni oblique restano comunque potenzialmente molto potenti, in quanto in grado di modellare relazioni complesse, anche se, nella pratica, l'uso (ed abuso) di queste condizioni non garantisce necessariamente migliori performance.
 
+##### Binarie vs. non binarie
 
-## Binarie vs. non binarie
+La seconda distinzione che è possibile fare tra diversi tipi di condizione riguarda quelle *binarie*, ovvero quelle che hanno soltanto due possibili esiti, e *non binarie* che, prevedibilmente, hanno più di due possibili esiti. Prevedibilmente, un albero decisionale contenente esclusivamente delle condizioni binarie è detto *binario*, mentre uno contenente anche condizioni non binarie è detto *non binario*.
 
-La seconda distinzione che esiste tra diverse condizioni riguarda quelle *binarie*, che hanno soltanto due possibili esiti, e *non binarie*, che hanno più di due possibili esiti. Prevedibilmente, gli alberi decisionali contenenti soltanto condizioni binarie sono detti *alberi binari*, mentre gli alberi contenenti anche condizioni non binarie sono detti *non binari*.
+## Addestramento degli alberi decisionali
 
-In questo caso, il compromesso è tra la generalizzazione 
+Come per tutti i modelli di apprendimento supervisionato, gli alberi decisionali sono addestrati a spiegare al meglio un insieme di esempi di training. Gli algoritmi utilizzati nell'addestramento usano spesso un approccio di tipo *divide-et-impera*. Infatti, l'algoritmo inizia creando un singolo nodo, ovvero la radice, e quindi va ad aumentare le dimensioni dell'albero in maniera ricorsiva usando un approccio *greedy*.
 
-TODO ESEMPIO
+!!!tip "Approccio greedy"
+    Per approccio *greedy* si intende il metodo secondo il quale l'algoritmo va a scegliere la migliore opzione possibile al momento, senza considerare quello che accadrà negli istanti successivi.
 
-Le condizioni con troppa specificità, comunque, tendono a causare overfitting. Per questa ragione, gli alberi decisionali usano generalmente delle condizioni binarie.
+In particolare, l'addestramento valuta, per ogni nodo, tutte le possibili condizioni, scegliendo quella con il punteggio più alto, in modo da massimizzare il valore della metrica.
 
-## Come addestrare gli alberi decisionali?
-
-Come tutti i modelli di apprendimento supervisionato, gli alberi decisionali sono addestrati per spiegare al meglio un insisem di esempi di training. Il training ottimale di un albero decisionale è un problema NP-hard. Quindi, il training è generalmente fatto mediante delle euristiche - un algoritmi di apprendimento semplice da creare che restituisce un ablero decisionale subottimo, ma vicino all'ottimo.
-
-La maggior parte degli algoritmi usati per addestrare gli alberi decisionali usa un approccio *divide-et-impera*. L'algoritmo inizia creando un singolo nodo (la radice) ed aumenta l'albero in maniera ricorsiva usando un approccio *greedy*.
-
-Ad ogni nodo, tutte le possibili condizioni sono valutate. L'algoritmo seleziona la migliore condizione, ovvero, la condizione con il punteggio più alto. Per adesso, ci limitiamo a sapere che il punteggio è una metrica che è correlata al task, e le condizioni sono selezionati per massimizzare questa metrica.
-
-Per esempio, nel dataset Palmer Pengiuns, la maggio parte dei pinguini Adelie e Chinstrap hanno la lunghezza del becco maggiore a 16mm, mentre la maggior parte dei pinguinig Gentoo ha dei becchi più piccoli. Quindi, la condizione lunghezza_becco_mm > 16 permette di predire in maniera affidabile i pinguini Gentoo, ma non riesce a discerneere tra gli Adelie ed i Chinstrap. L'algoritmo considererà quindi questa condizione.
+Ad esempio, nel nostro dataset, tutti i cani ed i ragni hanno un numero di zampe maggiore di quattro, mentre tutte le galline ne hanno due. Di conseguenza, la condizione $Zampe > 2$ ci permette di arrivare a determinare in maniera affidabile le galline, ma non riesce a discernere tra ragni e cani. Di conseguenza, al primo step, l'albero sarà in questa forma:
 
 ```mermaid
-flowchart TD
-A["lunghezza_becco_mm > 16"] --> B[Adelie o Chinstrap]
-A --> C[Gentoo]
+flowchart TB
+  A["Zampe > 2"] -->|Sì| B["Ragno o Cane"]
+  A -->|No| C(Gallina)
 ```
 
-L'algoritmo quindi ripete in maniera ricorsiva ed indipendente o entrambi i nodi figli. Quando non si trova una condizione soddisfacente, il nodo diventa una foglia. La predizione della foglia è determianta come l'etichetta più rappresentativa negli esempi.
+Successivamente, l'albero andrà ad esplorare i nodi *Ragno* e *Cane*, cercando una maniera per caratterizzarli sulla base delle feature disponibili. Se non viene individuata una condizione soddisfacente, il nodo diventa una foglia: in altre parole, senza il numero di occhi, l'albero non riuscirebbe a distinguere tra ragni e cani.
 
-L'algoritmo è il seguente:
+!!!tip "Ragni, cani, e zampe"
+    Nella realtà, nel caso precedente, l'algoritmo andrebbe a specializzare ulteriormente il valore considerato per le zampe.
 
-```py
-def train_decision_tree(training_examples):
-  root = create_root() # Create a decision tree with a single empty root.
-  grow_tree(root, training_examples) # Grow the root node.
-  return root
+Vediamo adesso i passi necessari ad addestrare un certo albero decisionale nel dettaglio.
 
-def grow_tree(node, examples):
-  condition = find_best_condition(examples) # Find the best condition.
-
-  if condition is None:
-    # No satisfying conditions were found, therefore the grow of the branch stops.
-    set_leaf_prediction(node, examples)
-    return
-
-  # Create two childrens for the node.
-  positive_child, negative_child = split_node(node, condition)
-
-  # List the training examples used by each children.
-  negative_examples = [example for example in examples if not condition(example)]
-  positive_examples = [example for example in examples if condition(example)]
-
-  # Continue the growth of the children.
-  grow_tree(negative_child, negative_examples)
-  grow_tree(positive_child, positive_examples)
-```
 
 Vediamo i passi necessari ad addestrare un certo albero decisionale in dettaglio.
 

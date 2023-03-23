@@ -84,24 +84,28 @@ array([0., 0., 4., 4., 1.])
 Il valore $y$ assunto da un polinomio $p$ ad un certo valore di $x$ può essere determinato mediante la funzione [`polyval()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval.html), che accetta come argomento un intero (o una lista di interi) `x` ed un polinomio `p`. Ad esempio, volendo valutare il valore assunto da $y$ per $x \in [1, 2]$ sulla retta rappresentata dal polinomio `c1`:
 
 ```py
->>> P.polyval([1, 2], c1)
+>>> P.polyval([1, 2], c1.coef)
 ```
+
+!!!warning "Coefficienti e polinomio"
+    E' molto importante notare come non stiamo usando un oggetto di classe `Polynomial`, ma i coefficienti dello stesso, estraibili accedendo alla proprietà `coef`.
 
 !!!note "Operazioni a dimensionalità 2 e 3"
     Nel caso occorra valutare i polinomi nei casi a due e tre dimensioni, NumPy ci mette a disposizione le funzioni [`polyval2d()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval2d.html) e [`polyval3d()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval3d.html).
+   
 
 ## Derivata ed integrale di funzioni polinomiali
 
 Concludiamo questa breve carrellata con due metodi in grado di calcolare, rispettivamente, la derivata e l'integrale di una funzione polinomiale.
 
-Il metodo [`polyder()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyder.html#numpy.polynomial.polynomial.polyder), infatti, permette di calcolare la derivata di ordine `m` (passato come secondo argomento, di default pari ad `1`) del polinomio `p` (passato come primo argomento). Ad esempio, possiamo calcolare la derivata seconda di `c1`:
+La funzione [`numpy.polyder()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyder.html#numpy.polynomial.polynomial.polyder), infatti, permette di calcolare la derivata di ordine `m` (passato come secondo argomento, di default pari ad `1`) dei coefficienti del polinomio `p` (passati come primo argomento). Ad esempio, per calcolare la derivata di `c1`:
 
 ```py
->>> P.polyder(c1, 2)
+>>> P.polyder(c1.coef)
 ```
 
-Il metodo duale è [`polyint()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyint.html#numpy.polynomial.polynomial.polyint), che (prevedibilmente) calcola l'integrale di ordine `m` del polinomio `p`:
+Il metodo duale è [`numpy.polyint()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyint.html#numpy.polynomial.polynomial.polyint), che (prevedibilmente) calcola l'integrale di ordine `m` dei coefficienti del polinomio `p`:
 
 ```py
->>> P.polyint(c1, 2)
+>>> P.polyint(c1.coef)
 ```

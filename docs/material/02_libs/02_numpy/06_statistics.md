@@ -50,9 +50,51 @@ Possiamo anche specificare una tupla per il valore del parametro `axis`; in tal 
 !!!note "Le funzioni `argmax` ed `argmin`"
     Le funzioni [`numpy.argmax()`] e [`numpy.argmin()`] permettono di individuare l'*indice* del valore massimo e minimo, rispettivamente.
 
-## Percentile e quantile
+## Percentile, quantile, e quartili
 
-Ricordiamo che il *q-percentile* di un vettore $V$ di lunghezza $N$ è definito come il valore pari a $\frac{q}{100}$ calcolato a partire da una copia ordinata di $V$.
+Con il termine *percentile* definiamo un valore che indica la posizione di un dato all'interno di una distribuzione o, in altre parole, la percentuale di dati che si trovano al di sotto di un determinato valore all'interno della distribuzione stessa. 
+
+Per calcolare il percentile per un dato valore $p$, dovremo seguire questi passaggi:
+
+1. Ordinare gli $n$ valori della distribuzione in ordine crescente.
+2. Se $p$ è il percentile, calcolare il prodotto $k = n \cdot p \cdot \frac{1}{100}$.
+3. Se $k$ è un intero, il percentile è dato dalla media tra il $k$-esimo ed il $k+1$-esimo valore dei dati ordinati.
+4. Se $k$ non è un intero, si arrotonda $k$ per eccesso al primo intero successivo, scegliendo il corrispondente valore dei dati ordinati.
+
+Facciamo un esempio. Supponiamo di avere la seguente distribuzione di valori:
+
+$$
+D = [20, 30, 10, 50, 40, 100, 90, 60, 80, 70]
+$$
+
+Vogliamo calcolare il $30$-percentile, quindi $p=30$. Proviamo a seguire i passaggi sopra descritti.
+
+1. Ordiniamo i dati, ottenendo il vettore $D_{ord} = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]$.
+2. Il valore di $k$ è pari ad $n * p$, con $n=10$ e $p=0.30$, per cui $k=3$.
+3. Dato che $k$ è un intero, il $30$-percentile è dato dalla media tra $30$ e $40$, ovvero $35$.
+
+Il concetto di *quantile* è collegato a quello di percentile, che in qualche modo generalizza. In particolare, quando si parla di quantile, si definisce una *suddivisione* della distribuzione dei valori in un certo numero di intervalli: appare chiaro che se questi intervalli sono $100$ il quantile coincide con il percentile.
+
+Una suddivisione notevole è quella che prevede la ripartizione della distribuzione dei valori in quattro parti, dette *quartili*, ripartiti come segue:
+
+* il primo quartile è quello che raccoglie tutti gli elementi che vanno al di sotto del $25$-percentile (indicato con $Q_1$);
+* il secondo quartile è quello che raccoglie gli elementi che vanno dal $25$-percentile al $50$-percentile (indicato con $Q_2$);
+* il terzo quartile è quello che contiene gli elementi che vanno dal $50$-percentile al $75$-percentile (indicato con $Q_3$);
+* l'ultimo quartile racchidue gli elementi che sono oltre $Q_3$.
+
+In altri termini, se $n$ è il numero totale di dati nella distribuzione, allora:
+
+$$
+\begin{align}
+& Q_1 = \frac{n + 1}{4}\\
+& Q_2 = \frac{n + 1}{2}\\
+& Q_3 = \frac{n + 1}{4} \cdot 3
+\end{align}
+$$
+
+I quartili sono importanti soprattutto quando si va a caratterizzate una distribuzione *non parametrica*, ovvero non rappresentabile in termini di semplici parametri statistici come, ad esempio, una distribuzione normale. In questi casi, infatti, la distribuzione può essere caratterizzata in maniera non parametrica mediante la mediana (ovvero, il $50$-percentile), la deviazione standard, ed il *range interquartile*, dato da $Q3-Q1$.
+
+##### Le funzioni `numpy.percentile()` e `numpy.quantile()`
 
 Per fare un esempio, supponiamo di avere un vettore ordinato di elementi che vanno da $1$ a $10$, e di calcolare il $50$-percentile mediante la funzione [`numpy.percentile()`](https://numpy.org/doc/stable/reference/generated/numpy.percentile.html) di NumPy.
 
