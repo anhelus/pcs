@@ -15,7 +15,7 @@
     
     
       
-        <title>18 - Metriche - Python</title>
+        <title>7 - Metriche - Python</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#18-metriche" class="md-skip">
+        <a href="#7-metriche" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              18 - Metriche
+              7 - Metriche
             
           </span>
         </div>
@@ -1038,6 +1038,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_log_reg/lecture/" class="md-nav__link">
+        5 - Regressione logistica
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1205,37 +1219,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#181-soglia-di-decisione" class="md-nav__link">
-    18.1 - Soglia di decisione
+  <a href="#soglia-di-decisione" class="md-nav__link">
+    Soglia di decisione
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#182-metriche-per-i-classificatori" class="md-nav__link">
-    18.2 - Metriche per i classificatori
+  <a href="#metriche-per-i-classificatori" class="md-nav__link">
+    Metriche per i classificatori
   </a>
   
-    <nav class="md-nav" aria-label="18.2 - Metriche per i classificatori">
+    <nav class="md-nav" aria-label="Metriche per i classificatori">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1821-accuratezza" class="md-nav__link">
-    18.2.1 - Accuratezza
+  <a href="#accuratezza" class="md-nav__link">
+    Accuratezza
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1822-la-precisione" class="md-nav__link">
-    18.2.2 - La precisione
+  <a href="#la-precisione" class="md-nav__link">
+    La precisione
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1823-il-recall" class="md-nav__link">
-    18.2.3 - Il recall
+  <a href="#il-recall" class="md-nav__link">
+    Il recall
   </a>
   
 </li>
@@ -1246,37 +1260,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#183-tuning-della-soglia-di-decisione" class="md-nav__link">
-    18.3 - Tuning della soglia di decisione
+  <a href="#tuning-della-soglia-di-decisione" class="md-nav__link">
+    Tuning della soglia di decisione
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#184-metriche-per-i-regressori" class="md-nav__link">
-    18.4 - Metriche per i regressori
+  <a href="#metriche-per-i-regressori" class="md-nav__link">
+    Metriche per i regressori
   </a>
   
-    <nav class="md-nav" aria-label="18.4 - Metriche per i regressori">
+    <nav class="md-nav" aria-label="Metriche per i regressori">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1841-mean-squared-error-mse" class="md-nav__link">
-    18.4.1 - Mean Squared Error (MSE)
+  <a href="#mean-squared-error-mse" class="md-nav__link">
+    Mean Squared Error (MSE)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1842-mean-absolute-percentage-error-mape" class="md-nav__link">
-    18.4.2 - Mean Absolute Percentage Error (MAPE)
+  <a href="#mean-absolute-percentage-error-mape" class="md-nav__link">
+    Mean Absolute Percentage Error (MAPE)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1843-r2-e-varianza-spiegata" class="md-nav__link">
-    18.4.3 - \(R^2\) e varianza spiegata
+  <a href="#r2-e-varianza-spiegata" class="md-nav__link">
+    \(R^2\) e varianza spiegata
   </a>
   
 </li>
@@ -1301,13 +1315,13 @@
                   
 
 
-<h1 id="18-metriche">18 - Metriche<a class="headerlink" href="#18-metriche" title="Permanent link">&para;</a></h1>
+<h1 id="7-metriche">7 - Metriche<a class="headerlink" href="#7-metriche" title="Permanent link">&para;</a></h1>
 <p>Abbiamo visto come la regressione logistca restituisca una probabilità, che grazie alla classe <code>LogisticRegression()</code> viene automaticamente convertita in un valore relativo ad una classe.</p>
 <p>Torniamo al nostro spam detector. Un modello di regressione logistica che restituisca una probabilità <span class="arithmatex">\(p = 0.999\)</span> ci sta dicendo che, molto probabilmente, questo è di spam; di converso, se il modello restituisce <span class="arithmatex">\(p = 0.003\)</span> allora è molto probabile che il messaggio non sia spam. Cosa accade però nel caso in cui <span class="arithmatex">\(p = 0.505\)</span>?</p>
-<h2 id="181-soglia-di-decisione">18.1 - Soglia di decisione<a class="headerlink" href="#181-soglia-di-decisione" title="Permanent link">&para;</a></h2>
+<h2 id="soglia-di-decisione">Soglia di decisione<a class="headerlink" href="#soglia-di-decisione" title="Permanent link">&para;</a></h2>
 <p>L'esempio precedente ci fa comprendere come per passare da una probabilità ad una classe sia necessario definire una <em>soglia di decisione</em>: un valore oltre questa soglia indicherà, ad esempio, che la mail ricevuta è di spam, mentre uno al di sotto della soglia ci suggerirà che non lo è.</p>
 <p>Ovviamente, la tentazione potrebbe essere quella di presupporre che la soglia di decisione sia sempre pari a <span class="arithmatex">\(0.5\)</span>: questo, ovviamente, non è vero, in quanto la soglia dipende dal problema, ed è un valore che bisogna stabilire in base al problema affrontato. Introduciamo alcune metriche che possono essere usate in tal senso.</p>
-<h2 id="182-metriche-per-i-classificatori">18.2 - Metriche per i classificatori<a class="headerlink" href="#182-metriche-per-i-classificatori" title="Permanent link">&para;</a></h2>
+<h2 id="metriche-per-i-classificatori">Metriche per i classificatori<a class="headerlink" href="#metriche-per-i-classificatori" title="Permanent link">&para;</a></h2>
 <p>Continuiamo a concentrarci sul caso della classificazione dello spam, ed introduciamo il concetto di <em>classe positiva</em> e <em>classe negativa</em>.</p>
 <p>In particolare, la classe positiva sarà rappresentata da tutte le mail di spam, mentre la classe negativa sarà rappresentata dalle mail non spam. In tal senso, le predizioni del modello potranno essere di quattro tipi:</p>
 <ul>
@@ -1317,7 +1331,7 @@
 <li>nel quarto caso, il modello <em>classificherà una mail legittima come di spam</em>. In questo caso, si parla di <em>falso positivo</em>, o <em>false positive</em> (FP).</li>
 </ul>
 <p>In pratica, un TP (TN) si ha quando il modello predice correttamente la classe positiva (negativa), mentre un FP (FN) si ha quando il modello predice in maniera non corretta la classe positiva (negativa).</p>
-<h3 id="1821-accuratezza">18.2.1 - Accuratezza<a class="headerlink" href="#1821-accuratezza" title="Permanent link">&para;</a></h3>
+<h3 id="accuratezza">Accuratezza<a class="headerlink" href="#accuratezza" title="Permanent link">&para;</a></h3>
 <p>L'<em>accuratezza</em> è la prima metrica che vedremo per la valutazione dei modelli di classificazione. Informalmente, possiamo definirla come la percentuale di predizioni corrette effettuate dal nostro modello, e definirla come:</p>
 <div class="arithmatex">\[
 AC = \frac{C}{T}
@@ -1333,18 +1347,23 @@ AC = \frac{TP+TN}{TP+TN+FP+FN}=\frac{5+85}{5+85+5+5}
 <p>In questo caso, l'accuratezza del modello è pari a <span class="arithmatex">\(0.90\)</span>, o del <span class="arithmatex">\(90\%\)</span>, il che significa che il nostro modello è in grado di fare <span class="arithmatex">\(90\)</span> predizioni su <span class="arithmatex">\(100\)</span>. Buon risultato, giusto?</p>
 <p>In realtà, non necessariamente. Infatti, delle mail che abbiamo ricevuto, <span class="arithmatex">\(90\)</span> sono legittime, e <span class="arithmatex">\(10\)</span> di spam. Questo significa che il modello è stato in grado di individuare soltanto il <span class="arithmatex">\(50\%\)</span> dello spam ricevuto, ed ha inoltre classificato un buon <span class="arithmatex">\(7\%\)</span> delle email legittime come spam. Tra cui, prevedibilmente, quella che ci comunicava notizie di vitale importanza. In sostanza, il nostro modello ha un'efficacia "vera e propria" al più in un caso su due.</p>
 <p>Di conseguenza, l'accuratezza non ci racconta "tutta la storia" quando lavoriamo su un dataset sbilanciato come questo, dove vi è una disparità significativa tra la classe positiva e quella negativa.</p>
-<h4 id="18211-accuratezza-in-scikit-learn">18.2.1.1 - Accuratezza in Scikit Learn<a class="headerlink" href="#18211-accuratezza-in-scikit-learn" title="Permanent link">&para;</a></h4>
-<p>L'accuratezza delle predizioni effettuate da un classificatore è ottenuta in Scikit Learn utilizzando il metodo <code>accuracy_score()</code>.</p>
-<p>Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="1822-la-precisione">18.2.2 - La precisione<a class="headerlink" href="#1822-la-precisione" title="Permanent link">&para;</a></h3>
+<!-- #### Accuratezza in Scikit Learn
+
+L'accuratezza delle predizioni effettuate da un classificatore è ottenuta in Scikit Learn utilizzando il metodo `accuracy_score()`.
+
+Ad esempio:
+
+```py
+from sklearn.metrics import accuracy_score
+
+clf = LogisticRegression(max_iter=1000)
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+
+accuracy_score(y_test, y_pred)
+``` -->
+
+<h3 id="la-precisione">La precisione<a class="headerlink" href="#la-precisione" title="Permanent link">&para;</a></h3>
 <p>La <em>precisione</em> è una metrica che prova a risolvere alcuni dei problemi dell'accuratezza valutando quale sia la proporzione di valori per la classe positiva identificati correttamente.</p>
 <p>La definizione analitica della precisione è la seguente:</p>
 <div class="arithmatex">\[
@@ -1355,14 +1374,19 @@ PR = \frac{TP}{TP+FP}
 PR = \frac{5}{5+5} = 0.5
 \]</div>
 <p>Il modello ha quindi una precisione del <span class="arithmatex">\(50\%\)</span> nel riconoscere una mail di spam.</p>
-<h4 id="18221-precisione-in-scikit-learn">18.2.2.1 - Precisione in Scikit Learn<a class="headerlink" href="#18221-precisione-in-scikit-learn" title="Permanent link">&para;</a></h4>
-<p>La precisione delle predizioni effettuate da un classificatore è ottenuta in Scikit Learn utilizzando il metodo <code>precision_score()</code>.</p>
-<p>Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_score</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="1823-il-recall">18.2.3 - Il recall<a class="headerlink" href="#1823-il-recall" title="Permanent link">&para;</a></h3>
+<!-- #### Precisione in Scikit Learn
+
+La precisione delle predizioni effettuate da un classificatore è ottenuta in Scikit Learn utilizzando il metodo `precision_score()`.
+
+Ad esempio:
+
+```py
+from sklearn.metrics import precision_score
+
+precision_score(y_test, y_pred)
+``` -->
+
+<h3 id="il-recall">Il recall<a class="headerlink" href="#il-recall" title="Permanent link">&para;</a></h3>
 <p>Il <em>recall</em>, traducibile in italiano come <em>richiamo</em>, verifica la porzione di veri positivi correttamente identificata dall'algoritmo, ed è espresso come:</p>
 <div class="arithmatex">\[
 R = \frac{TP}{TP+FN}
@@ -1372,13 +1396,17 @@ R = \frac{TP}{TP+FN}
 R = \frac{5}{5+5}
 \]</div>
 <p>Così come la precisione, il recall è pari a <span class="arithmatex">\(0.5\)</span>, ovvero è del <span class="arithmatex">\(50\%\)</span>.</p>
-<h4 id="18231-recall-in-scikit-learn">18.2.3.1 - Recall in Scikit Learn<a class="headerlink" href="#18231-recall-in-scikit-learn" title="Permanent link">&para;</a></h4>
-<p>Ovviamente, anche il recall ha una rappresentazione in Scikit Learn mediante la funzione <code>recall_score()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">recall_score</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="183-tuning-della-soglia-di-decisione">18.3 - Tuning della soglia di decisione<a class="headerlink" href="#183-tuning-della-soglia-di-decisione" title="Permanent link">&para;</a></h2>
+<!-- #### 18.2.3.1 - Recall in Scikit Learn
+
+Ovviamente, anche il recall ha una rappresentazione in Scikit Learn mediante la funzione `recall_score()`:
+
+```py
+from sklearn.metrics import recall_score
+
+recall_score(y_test, y_pred)
+``` -->
+
+<h2 id="tuning-della-soglia-di-decisione">Tuning della soglia di decisione<a class="headerlink" href="#tuning-della-soglia-di-decisione" title="Permanent link">&para;</a></h2>
 <p>Per valutare l'effiacia del modello dobbiamo esaminare congiuntamente la precisione ed il recall. Sfortunatamente, questi due valori sono spesso in contrapposizione: spesso, infatti, migliorare la precisione riduce il recall, e viceversa. Per comprendere empiricamente questo concetto, facciamo un esempio con il nostro spam detector, immaginando di aver impostato la soglia di decisione a <span class="arithmatex">\(0.6\)</span>. I risultati sono mostrati nella figura successiva.</p>
 <p><img alt="results" src="../images/results.png" /></p>
 <p>Calcoliamo la precisione e il recall in questo caso:</p>
@@ -1399,16 +1427,16 @@ P = \frac{TP}{TP+FP}=\frac{4}{4+3} \approx 0.57 \\
 R = \frac{TP}{TP+FN}=\frac{4}{4+2} = 0.66
 \]</div>
 <p>Come possiamo vedere, la soglia di detection agisce su precisione e recall; non è però possibile aumentarli contemporaneamente, per cui occorre scegliere un valore tale per cui, ad esempio, si massimizzi la media. La realtà è che, però, dipende sempre dall'applicazione: se non abbiamo paura di perdere mail legittime, allora possiamo abbassare la soglia di decisione, aumentando il recall; viceversa, se siamo disposti ad eliminare manualmente un po' di spam, potremo alzare la soglia di decisione, aumentando la precisione.</p>
-<h2 id="184-metriche-per-i-regressori">18.4 - Metriche per i regressori<a class="headerlink" href="#184-metriche-per-i-regressori" title="Permanent link">&para;</a></h2>
+<h2 id="metriche-per-i-regressori">Metriche per i regressori<a class="headerlink" href="#metriche-per-i-regressori" title="Permanent link">&para;</a></h2>
 <p>Definiamo brevemente alcune delle metriche che è possibile utilizzare per la valutazione delle performance di un modello di regressione.</p>
-<h3 id="1841-mean-squared-error-mse">18.4.1 - Mean Squared Error (MSE)<a class="headerlink" href="#1841-mean-squared-error-mse" title="Permanent link">&para;</a></h3>
+<h3 id="mean-squared-error-mse">Mean Squared Error (MSE)<a class="headerlink" href="#mean-squared-error-mse" title="Permanent link">&para;</a></h3>
 <p>Abbiamo già visto questa metrica quando abbiamo parlato della regressione. L'errore quadratico medio è definito come:</p>
 <div class="arithmatex">\[
 MSE = \frac{1}{n} \sum_{i=1}^n (y_i-\hat{y}_i)^2
 \]</div>
 <p>Questo errore, implementato in Scikit Learn dalla funzione <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error"><code>mean_squared_error()</code></a>, permette di tenere conto di eventuali errori negativi e positivi, ma viene influenzato dalla grandezza assoluta delle variabili. In altre parole, un errore dell'<span class="arithmatex">\(1\%\)</span> su un valore <span class="arithmatex">\(y=100\)</span> sarà più influente di un errore del <span class="arithmatex">\(50\%\)</span> su un valore <span class="arithmatex">\(y=1\)</span>.</p>
 <p>Ovviamente, tanto è minore l'MSE, tanto è migliore il modello considerato.</p>
-<h3 id="1842-mean-absolute-percentage-error-mape">18.4.2 - Mean Absolute Percentage Error (MAPE)<a class="headerlink" href="#1842-mean-absolute-percentage-error-mape" title="Permanent link">&para;</a></h3>
+<h3 id="mean-absolute-percentage-error-mape">Mean Absolute Percentage Error (MAPE)<a class="headerlink" href="#mean-absolute-percentage-error-mape" title="Permanent link">&para;</a></h3>
 <p>Il <em>mean absolute percentage error</em> viene calcolato mediante il rapporto tra il valore assoluto della differenza tra i valori veri e quelli predetti dal regressore e i valori veri stessi. Tale rapporto viene quindi mediato sull'insieme dei campioni, e ne viene dedotta la percentuale. La formula è la seguente:</p>
 <div class="arithmatex">\[
 MAPE = \frac{1}{n} \sum_{i=1}^n \frac{|y_i - \hat{y}_i|}{max (\epsilon, y_i)} \%
@@ -1416,7 +1444,7 @@ MAPE = \frac{1}{n} \sum_{i=1}^n \frac{|y_i - \hat{y}_i|}{max (\epsilon, y_i)} \%
 <p>Il MAPE è implementato in Scikit Learn mediante la funzione <a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_percentage_error.html"><code>mean_average_percentage_error()</code></a>.</p>
 <p>Il vantaggio principale derivante dall'uso del MAPE sta nel fatto che l'uso del valore assoluto elimina eventuali annullamenti derivanti da contributi di segno opposto. Inoltre, la presenza del valore vero a denominatore fa in modo che la metrica sia sensibile agli errori relativi.</p>
 <p>Anche in questo caso, un valore di MAPE basso indica un'ottima approssimazione.</p>
-<h3 id="1843-r2-e-varianza-spiegata">18.4.3 - <span class="arithmatex">\(R^2\)</span> e varianza spiegata<a class="headerlink" href="#1843-r2-e-varianza-spiegata" title="Permanent link">&para;</a></h3>
+<h3 id="r2-e-varianza-spiegata"><span class="arithmatex">\(R^2\)</span> e varianza spiegata<a class="headerlink" href="#r2-e-varianza-spiegata" title="Permanent link">&para;</a></h3>
 <p>Il valore <span class="arithmatex">\(R^2\)</span> determina la proporzione della varianza del valore vero che viene spiegata dal modello. In pratica, ci permette di definire quanta della variabilità del fenomeno (ovvero, del modo in cui il fenomeno combina le <span class="arithmatex">\(n\)</span> variabili indipendenti per ottenere le <span class="arithmatex">\(m\)</span> variabili dipendenti) viene correttamente caratterizzata attraverso il modello considerato.</p>
 <p>Il valore di <span class="arithmatex">\(R^2\)</span> può oscillare tra <span class="arithmatex">\(1\)</span> e <span class="arithmatex">\(- \infty\)</span>, ovvero tra la modellazione completa dell'intera variabilità del fenomeno ed un modello totalmente incorrelato allo stesso.</p>
 <p>Il valore di <span class="arithmatex">\(R^2\)</span> è definito come:</p>

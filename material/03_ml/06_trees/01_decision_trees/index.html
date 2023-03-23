@@ -15,7 +15,7 @@
     
     
       
-        <title>X.X - Gli alberi decisionali - Python</title>
+        <title>6.1 - Gli alberi decisionali - Python</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#xx-gli-alberi-decisionali" class="md-skip">
+        <a href="#61-gli-alberi-decisionali" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              X.X - Gli alberi decisionali
+              6.1 - Gli alberi decisionali
             
           </span>
         </div>
@@ -1038,6 +1038,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_log_reg/lecture/" class="md-nav__link">
+        5 - Regressione logistica
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1205,20 +1219,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#xx-dataset-per-gli-alberi-decisionali" class="md-nav__link">
-    X.X. - Dataset per gli alberi decisionali
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
-    Performance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#funzionamento-degli-alberi-decisionali" class="md-nav__link">
     Funzionamento degli alberi decisionali
   </a>
@@ -1226,35 +1226,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tipi-di-condizione-in-un-albero-decisionale" class="md-nav__link">
-    Tipi di condizione in un albero decisionale
-  </a>
-  
-    <nav class="md-nav" aria-label="Tipi di condizione in un albero decisionale">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#axis-aligned-vs-oblique" class="md-nav__link">
-    Axis-aligned vs. oblique
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#binarie-vs-non-binarie" class="md-nav__link">
-    Binarie vs. non binarie
+  <a href="#condizioni-in-un-albero-decisionale" class="md-nav__link">
+    Condizioni in un albero decisionale
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#come-addestrare-gli-alberi-decisionali" class="md-nav__link">
-    Come addestrare gli alberi decisionali?
+  <a href="#addestramento-degli-alberi-decisionali" class="md-nav__link">
+    Addestramento degli alberi decisionali
   </a>
   
 </li>
@@ -1309,93 +1289,80 @@
                   
 
 
-<h1 id="xx-gli-alberi-decisionali">X.X - Gli alberi decisionali<a class="headerlink" href="#xx-gli-alberi-decisionali" title="Permanent link">&para;</a></h1>
-<p>Gli <em>alberi decisionali</em> sono una tra le famiglie di modelli maggiormente utilizzate per l'apprendimento supervisionato, sia in fase di classificazione, sia in fase di regressione. Offrono alcuni benefici rispetto agli altri modelli, tra cui:</p>
+<h1 id="61-gli-alberi-decisionali">6.1 - Gli alberi decisionali<a class="headerlink" href="#61-gli-alberi-decisionali" title="Permanent link">&para;</a></h1>
+<p>Gli <em>alberi decisionali</em> sono una tra le famiglie di modelli maggiormente utilizzate per l'apprendimento supervisionato, e sono in grado di risolvere sia problemi di classificazione, sia di regressione. In particolare, gli alberi decisionali offrono alcuni benefici rispetto ad altri tipi di modello, tra cui:</p>
 <ul>
-<li>una maggiore semplicità di configurazione rispetto alle reti neurali, legata alla presenza di meno iperparametri, il cui tuning, tra l'altro, risulta essere meno influente per le prestazioni finali (in pratica, è possibile utilizzare tranquillamente i valori di default);</li>
-<li>la capacità di gestire feature di diverso tipo (ad esempio, numeriche, categoriche, o anche mancanti), il che comporta la possibilità di effettuare meno preprocessing rispetto ad altri modelli;</li>
-<li>la possibilità di essere usati su dataset di piccole dimensioni con una maggiore efficienza rispetto a modelli più complessi come le rete neurali.</li>
+<li><strong>semplicità di configurazione</strong>, grazie alla presenza di un numero limitato di parametri, la cui modifica influenza in maniera abbastanza limitata il risultato finale;</li>
+<li><strong>gestione di feature di diverso tipo</strong>, ovvero sia numeriche, sia categoriche, con l'ovvia conseguenza di richiedere un preprocessing limitato rispetto ad altri modelli;</li>
+<li><strong>efficienza con dataset di piccole dimensioni</strong>.</li>
 </ul>
-<p>Da non sottovalutare, inoltre, il fatto che gli alberi decisionali forniscono spesso buoni risultati, sono robusti al rumore, ed hanno dei risultati che sono facilmente interpretabile.</p>
-<h2 id="xx-dataset-per-gli-alberi-decisionali">X.X. - Dataset per gli alberi decisionali<a class="headerlink" href="#xx-dataset-per-gli-alberi-decisionali" title="Permanent link">&para;</a></h2>
-<p>Gli alberi decisionali risultano essere molto efficaci quando si ha a che fare con dataset di tipo tabulare, come file CSV o tabelle di un database. Un esempio è, ovviamente, il dataset Titanic. Inoltre, non abbiamo la necessità di effettuare operazioni di preprocessing, come normalizzazioni, one-hot encoding, o data imputation.</p>
-<p>Tuttavia, gli alberi decisionali non sono assolutamente adatti ad essere utilizzati su dati non tabulari (anche detti <em>non strutturati</em>), come ad esempio immagini o testo. </p>
-<h2 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h2>
-<p>Gli alberi decisionali possono essere addestrati con efficacia su piccoli dataset, o su dataset sui quali comunque il rapporto tra feature e numero di campioni non è di molto superiore ad 1.</p>
-<div class="admonition note">
-<p class="admonition-title">Efficacia degli alberi</p>
-<p>Anche se gli alberi decisionali sono efficaci in caso di rapporto quasi unitario tra feature e numero di campioni (<em>sample efficiency</em>), il funzionamento migliora quando sono disponibili molti dati, così come tutti gli algoritmi di machine learning.</p>
+<p>In pratica, gli alberi decisionali sono spesso in grado di fornire una buona accuratezza, sono semplici da configurare, robusti a rumore e feature mancanti, non richiedono preprocessing, ed i risultati ottenuti sono facilmente interpretabili. </p>
+<p>Gli alberi decisionali sono molto efficaci quando si usano dei dataset di tipo tabellare, normalmente contenuti in file CSV o tabelle di database, come ad esempio il dataset Titanic. Tuttavia, risultano inadeguati quando il tipo di dato utilizzato non è strutturato: in pratica, non possiamo efficacemente utilizzarli su immagini o testo.</p>
+<p>Un altro punto di forza è che un albero decisionale è efficace anche su dataset di dimensioni ridotte, ovverosia quelli nei quali il rapporto tra feature e numero di campioni è di poco superiore ad uno; si parla, in questo caso, di <em>sample efficiency</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Alberi e dati</p>
+<p>Anche se gli alberi decisionali sono <em>sample efficient</em>, il loro funzionamento risulta comunque migliore nel caso di disponibilità di grosse quantità di dati.</p>
 </div>
 <h2 id="funzionamento-degli-alberi-decisionali">Funzionamento degli alberi decisionali<a class="headerlink" href="#funzionamento-degli-alberi-decisionali" title="Permanent link">&para;</a></h2>
-<p>Vediamo un esempio di funzionamento degli alberi decisionali.</p>
-<p>Un albero decisionale non è altro se non un modello composto da un insieme di <em>domande</em>, o per meglio dire <em>condizioni</em>, organizzate in maniera gerarchica sotto forma di albero. Ognuno dei nodi <em>non</em> foglia dell'albero descrive una condizione, mentre ogni nodo foglia contiene una predizione. Nella seguente figura vediamo un esempio di albero decisionale:</p>
+<p>Un albero decisionale è un modello creato a partire da una serie di <em>condizioni</em>, che potremmo interpretare come delle "domande", organizzate in maniera gerarchica a ricalcare, per l'appunto, un albero. Ognuna delle foglie dell'albero contiene il valore predetto, che può essere sia una classe, sia un valore numerico; i restanti nodi, invece, descrivono una certa condizione. Un semplice esempio è mostrato nel seguente schema.</p>
 <pre class="mermaid"><code>flowchart TB
-  A[Gambe&gt;2] --&gt;|No| B[Occhi&gt;2]
-  A --&gt;|Sì| C(Cane)
+  A["Zampe &gt; 2"] --&gt;|Sì| B["Occhi &gt; 2"]
+  A --&gt;|No| C(Gallina)
   B --&gt;|Sì| D(Ragno)
-  B --&gt;|No| E(Gallina)</code></pre>
-<p>L'inferenza dell'albero decisionale viene quindi calcolata eseguendo il routing di un campione dalla radice fino ad una delle foglie, a seconda dei valori assunti dalle feature; il valore della foglia raggiunta rappresenta la predizione raggiunta dall'albero, mentre l'insieme dei nodi visitati è detto <em>percorso di inferenza</em>. </p>
-<p>Cerchiamo di capire cosa sta succedendo nel nostro esempio. Nel nodo radice, viene descritta la condizione relativa al fatto che il nostro campione abbia più o meno di due gambe. Nel nodo B, che non è un nodo foglia, viene valutata la presenza di un numero di occhi maggiore o minore di due. Nei tre nodi foglia, ovvero C, D ed E, abbiamo la <em>decisione</em> presa dall'albero (rispettivamente, cane, ragno o gallina). Ad esempio, consideriamo un campione avente due gambe e due occhi. Allora, partendo dalla radice ed arrivando alla foglia, avremo il seguente percorso di inferenza:</p>
+  B --&gt;|No| E(Cane)</code></pre>
+<p>L'abero decisionale determina il valore predetto seguendo il percorso che va dalla radice fino ad una delle foglie, a seconda dei valori assunti dalle diverse feature. Questo cammino è detto <em>percorso di inferenza</em>. Nel nostro caso, alla radice dell'albero viene valutata la feature <em>Zampe</em>. In particolare, se questo valore è maggiore di <span class="arithmatex">\(2\)</span> andremo a valutare il valore della feature <em>Occhi</em>; in caso contrario, il percorso di inferenza ci porta direttamente a predire come <em>Gallina</em> l'animale caratterizzato.</p>
+<p>Per quello che riguarda il nostro esempio, immaginiamo di avere un campione con i seguenti valori per le feature:</p>
+<ul>
+<li>Zampe: 4</li>
+<li>Occhi: 2</li>
+</ul>
+<p>Dato che le zampe sono <span class="arithmatex">\(4\)</span>, alla prima domanda si risponderà ovviamente con un <em>No</em>. Andando quindi a valutare la seconda condizione (il numero di occhi), avremo in questo caso un valore pari a <span class="arithmatex">\(2\)</span>, per cui il risultato della predizione sarà un cane.</p>
 <pre class="mermaid"><code>flowchart TB
-  A[Gambe&gt;2] --&gt;|No| B[Occhi&gt;2]
-  A --&gt;|Sì| C(Cane)
+  A["Zampe &gt; 2"] --&gt;|Sì| B["Occhi &gt; 2"]
+  A --&gt;|No| C(Gallina)
   B --&gt;|Sì| D(Ragno)
-  B --&gt;|No| E(Gallina)
-  linkStyle 1,3 stroke-width:2px,fill:none,stroke:red;</code></pre>
-<p>In modo simile, è possibile fare in modo che un albero decisionale effettui una predizione di regressione su dei valori numerici. Ad esempio, possiamo predire l'indice di tenerezza di un animale:</p>
+  B --&gt;|No| E(Cane)
+  linkStyle 0,3 stroke-width:2px,fill:none,stroke:red;</code></pre>
+<p>Nell'esempio appena visto, il valore predetto è categorico, e le feature numeriche. Facciamo un esempio per dimostrare la versatilità degli alberi decisionali, predicendo la tenerezza di un animale a partire dalle categorizzazioni delle feature <em>Pelosità</em> e <em>Carineria</em>.</p>
 <pre class="mermaid"><code>flowchart TB
-  A[Pelosità&gt;medio] --&gt;|Si| B[Carineria&gt;medio]
+  A["Pelosità &gt; medio"] --&gt;|Si| B["Carineria &gt; medio"]
   A --&gt;|No| C(1)
   B --&gt;|Sì| D(3)
   B --&gt;|No| E(2)</code></pre>
+<p>Questo problema è caratterizzabile come un problema di regressione: infatti, a partire da feature di tipo categorico, il risultato predetto è numerico.</p>
 <div class="admonition tip">
 <p class="admonition-title">Risultati della regressione</p>
-<p>Dall'esempio precedente, è evidente come cani, gatti e pulcini siano gli animali che ispirano più tenerezza nell'essere umano, laddove aracnidi, insetti e serpenti risultino essere molto meno teneri.</p>
+<p>Dall'esempio precedente, è evidente come cani, gatti e pulcini siano gli animali che ispirano più tenerezza nell'essere umano. D'altro canto, aracnidi, insetti e serpenti appaiono spesso molto meno teneri ed affettuosi.</p>
 </div>
-<p>Vediamo adesso come distinguere i diversi tipi di condizione descritti in un albero decisionale.</p>
-<h2 id="tipi-di-condizione-in-un-albero-decisionale">Tipi di condizione in un albero decisionale<a class="headerlink" href="#tipi-di-condizione-in-un-albero-decisionale" title="Permanent link">&para;</a></h2>
-<h3 id="axis-aligned-vs-oblique">Axis-aligned vs. oblique<a class="headerlink" href="#axis-aligned-vs-oblique" title="Permanent link">&para;</a></h3>
-<p>La prima distinzione che è possibile fare tra diverse condizioni riguarda il fatto che queste interessino una o più feature. In particolare, le condizioni <em>axis-aligned</em> interessano un'unica feature, mentre quelle <em>oblique</em> riguardano più feature. Tornando all'esempio precedente, la condizione <span class="arithmatex">\(Gambe \geq 2\)</span> è chiaramente axis-aligned, in quanto coinvolge solamente il numero di gambe dell'animale. Se, ad esempio, ci fosse stata una condizione del tipo <span class="arithmatex">\(Gambe \geq Occhi\)</span>, avremmo avuto a che fare con una condizione oblique.</p>
-<p>Spesso, gli alberi decisionali vengono addestrati esclusivamente con condizioni axis-aligned. D'altro canto, l'uso di condizioni oblique è potenzialmente molto potente, in quanto queste sono in grado di esprimere relazioni molto complesse tra dati; tuttavia, nella pratica, molto spesso (ab)usare delle condizioni oblique comporta performance inferiori al netto di maggiori costi in termini di tempo di addestramento.</p>
-<h2 id="binarie-vs-non-binarie">Binarie vs. non binarie<a class="headerlink" href="#binarie-vs-non-binarie" title="Permanent link">&para;</a></h2>
-<p>La seconda distinzione che esiste tra diverse condizioni riguarda quelle <em>binarie</em>, che hanno soltanto due possibili esiti, e <em>non binarie</em>, che hanno più di due possibili esiti. Prevedibilmente, gli alberi decisionali contenenti soltanto condizioni binarie sono detti <em>alberi binari</em>, mentre gli alberi contenenti anche condizioni non binarie sono detti <em>non binari</em>.</p>
-<p>In questo caso, il compromesso è tra la generalizzazione </p>
-<p>TODO ESEMPIO</p>
-<p>Le condizioni con troppa specificità, comunque, tendono a causare overfitting. Per questa ragione, gli alberi decisionali usano generalmente delle condizioni binarie.</p>
-<h2 id="come-addestrare-gli-alberi-decisionali">Come addestrare gli alberi decisionali?<a class="headerlink" href="#come-addestrare-gli-alberi-decisionali" title="Permanent link">&para;</a></h2>
-<p>Come tutti i modelli di apprendimento supervisionato, gli alberi decisionali sono addestrati per spiegare al meglio un insisem di esempi di training. Il training ottimale di un albero decisionale è un problema NP-hard. Quindi, il training è generalmente fatto mediante delle euristiche - un algoritmi di apprendimento semplice da creare che restituisce un ablero decisionale subottimo, ma vicino all'ottimo.</p>
-<p>La maggior parte degli algoritmi usati per addestrare gli alberi decisionali usa un approccio <em>divide-et-impera</em>. L'algoritmo inizia creando un singolo nodo (la radice) ed aumenta l'albero in maniera ricorsiva usando un approccio <em>greedy</em>.</p>
-<p>Ad ogni nodo, tutte le possibili condizioni sono valutate. L'algoritmo seleziona la migliore condizione, ovvero, la condizione con il punteggio più alto. Per adesso, ci limitiamo a sapere che il punteggio è una metrica che è correlata al task, e le condizioni sono selezionati per massimizzare questa metrica.</p>
-<p>Per esempio, nel dataset Palmer Pengiuns, la maggio parte dei pinguini Adelie e Chinstrap hanno la lunghezza del becco maggiore a 16mm, mentre la maggior parte dei pinguinig Gentoo ha dei becchi più piccoli. Quindi, la condizione lunghezza<em>becco</em>mm &gt; 16 permette di predire in maniera affidabile i pinguini Gentoo, ma non riesce a discerneere tra gli Adelie ed i Chinstrap. L'algoritmo considererà quindi questa condizione.</p>
-<pre class="mermaid"><code>flowchart TD
-A["lunghezza_becco_mm &gt; 16"] --&gt; B[Adelie o Chinstrap]
-A --&gt; C[Gentoo]</code></pre>
-<p>L'algoritmo quindi ripete in maniera ricorsiva ed indipendente o entrambi i nodi figli. Quando non si trova una condizione soddisfacente, il nodo diventa una foglia. La predizione della foglia è determianta come l'etichetta più rappresentativa negli esempi.</p>
-<p>L'algoritmo è il seguente:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">train_decision_tree</span><span class="p">(</span><span class="n">training_examples</span><span class="p">):</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">root</span> <span class="o">=</span> <span class="n">create_root</span><span class="p">()</span> <span class="c1"># Create a decision tree with a single empty root.</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  <span class="n">grow_tree</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">training_examples</span><span class="p">)</span> <span class="c1"># Grow the root node.</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  <span class="k">return</span> <span class="n">root</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">def</span> <span class="nf">grow_tree</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">examples</span><span class="p">):</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  <span class="n">condition</span> <span class="o">=</span> <span class="n">find_best_condition</span><span class="p">(</span><span class="n">examples</span><span class="p">)</span> <span class="c1"># Find the best condition.</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  <span class="k">if</span> <span class="n">condition</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="c1"># No satisfying conditions were found, therefore the grow of the branch stops.</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">set_leaf_prediction</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">examples</span><span class="p">)</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="k">return</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  <span class="c1"># Create two childrens for the node.</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  <span class="n">positive_child</span><span class="p">,</span> <span class="n">negative_child</span> <span class="o">=</span> <span class="n">split_node</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">condition</span><span class="p">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  <span class="c1"># List the training examples used by each children.</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  <span class="n">negative_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">example</span> <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">examples</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">condition</span><span class="p">(</span><span class="n">example</span><span class="p">)]</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  <span class="n">positive_examples</span> <span class="o">=</span> <span class="p">[</span><span class="n">example</span> <span class="k">for</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">examples</span> <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">example</span><span class="p">)]</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>  <span class="c1"># Continue the growth of the children.</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>  <span class="n">grow_tree</span><span class="p">(</span><span class="n">negative_child</span><span class="p">,</span> <span class="n">negative_examples</span><span class="p">)</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>  <span class="n">grow_tree</span><span class="p">(</span><span class="n">positive_child</span><span class="p">,</span> <span class="n">positive_examples</span><span class="p">)</span>
-</code></pre></div>
+<p>Per andare avanti nella nostra discussione, dobbiamo adesso distinguere tra i diversi tipi di condizione descrivibili da un albero decisionale.</p>
+<h2 id="condizioni-in-un-albero-decisionale">Condizioni in un albero decisionale<a class="headerlink" href="#condizioni-in-un-albero-decisionale" title="Permanent link">&para;</a></h2>
+<p>Esistono due categorizzazioni possibili per le condizioni in un albero decisionale.</p>
+<h5 id="axis-aligned-vs-oblique">Axis-aligned vs. oblique<a class="headerlink" href="#axis-aligned-vs-oblique" title="Permanent link">&para;</a></h5>
+<p>La prima categorizzazione possibile per le condizioni in un albero decisionale riguarda il fatto che queste interessino una o più feature. In particolare, una condizione che interessa un'unica feature è detta <em>axis-aligned</em>, mentre una condizione <em>oblique</em> riguarda diverse feature.</p>
+<p>Tornando all'esempio precedente, la condizione <span class="arithmatex">\(Zampe &gt; 2\)</span> è chiaramente <em>axis-aligned</em>, in quanto prevede la valutazione esclusiva del numero di zampe dell'animale. Se per qualche motivo la condizione fosse del tipo <span class="arithmatex">\(Zampe &lt; Occhi\)</span>, allora avremmo a che fare con una condizione <em>oblique</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Cosa accade nella pratica?</p>
+<p>Spesso gli alberi decisionali contengono soltanto condizioni axis-aligned, soprattutto a causa del fatto che può essere saggio eliminare feature interdipendenti prima di effettuare l'addestramento. Le condizioni oblique restano comunque potenzialmente molto potenti, in quanto in grado di modellare relazioni complesse, anche se, nella pratica, l'uso (ed abuso) di queste condizioni non garantisce necessariamente migliori performance.</p>
+</div>
+<h5 id="binarie-vs-non-binarie">Binarie vs. non binarie<a class="headerlink" href="#binarie-vs-non-binarie" title="Permanent link">&para;</a></h5>
+<p>La seconda distinzione che è possibile fare tra diversi tipi di condizione riguarda quelle <em>binarie</em>, ovvero quelle che hanno soltanto due possibili esiti, e <em>non binarie</em> che, prevedibilmente, hanno più di due possibili esiti. Prevedibilmente, un albero decisionale contenente esclusivamente delle condizioni binarie è detto <em>binario</em>, mentre uno contenente anche condizioni non binarie è detto <em>non binario</em>.</p>
+<h2 id="addestramento-degli-alberi-decisionali">Addestramento degli alberi decisionali<a class="headerlink" href="#addestramento-degli-alberi-decisionali" title="Permanent link">&para;</a></h2>
+<p>Come per tutti i modelli di apprendimento supervisionato, gli alberi decisionali sono addestrati a spiegare al meglio un insieme di esempi di training. Gli algoritmi utilizzati nell'addestramento usano spesso un approccio di tipo <em>divide-et-impera</em>. Infatti, l'algoritmo inizia creando un singolo nodo, ovvero la radice, e quindi va ad aumentare le dimensioni dell'albero in maniera ricorsiva usando un approccio <em>greedy</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Approccio greedy</p>
+<p>Per approccio <em>greedy</em> si intende il metodo secondo il quale l'algoritmo va a scegliere la migliore opzione possibile al momento, senza considerare quello che accadrà negli istanti successivi.</p>
+</div>
+<p>In particolare, l'addestramento valuta, per ogni nodo, tutte le possibili condizioni, scegliendo quella con il punteggio più alto, in modo da massimizzare il valore della metrica.</p>
+<p>Ad esempio, nel nostro dataset, tutti i cani ed i ragni hanno un numero di zampe maggiore di quattro, mentre tutte le galline ne hanno due. Di conseguenza, la condizione <span class="arithmatex">\(Zampe &gt; 2\)</span> ci permette di arrivare a determinare in maniera affidabile le galline, ma non riesce a discernere tra ragni e cani. Di conseguenza, al primo step, l'albero sarà in questa forma:</p>
+<pre class="mermaid"><code>flowchart TB
+  A["Zampe &gt; 2"] --&gt;|Sì| B["Ragno o Cane"]
+  A --&gt;|No| C(Gallina)</code></pre>
+<p>Successivamente, l'albero andrà ad esplorare i nodi <em>Ragno</em> e <em>Cane</em>, cercando una maniera per caratterizzarli sulla base delle feature disponibili. Se non viene individuata una condizione soddisfacente, il nodo diventa una foglia: in altre parole, senza il numero di occhi, l'albero non riuscirebbe a distinguere tra ragni e cani.</p>
+<div class="admonition tip">
+<p class="admonition-title">Ragni, cani, e zampe</p>
+<p>Nella realtà, nel caso precedente, l'algoritmo andrebbe a specializzare ulteriormente il valore considerato per le zampe.</p>
+</div>
+<p>Vediamo adesso i passi necessari ad addestrare un certo albero decisionale nel dettaglio.</p>
 <p>Vediamo i passi necessari ad addestrare un certo albero decisionale in dettaglio.</p>
 <ul>
 <li>Step 1: creiamo un nodo radice</li>
@@ -1566,31 +1533,31 @@ O(mn log^2 n)
 <h2 id="esempio-con-tensorflow-decision">Esempio con tensorflow-decision<a class="headerlink" href="#esempio-con-tensorflow-decision" title="Permanent link">&para;</a></h2>
 <p>Vediamo come usare la libreria TF-DF per addestrare, rifinire ed interpretare un albero decisionale.</p>
 <p>Possiamo farlo sia in locale, sia da un notebook Colab. Per farlo, dovremo installare la libreria TensorFlow Decision Forests.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pipenv<span class="w"> </span>install<span class="w"> </span>tensorflow_decision_forests
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pipenv<span class="w"> </span>install<span class="w"> </span>tensorflow_decision_forests
 </code></pre></div>
 <p>All'apice del nostro codice, importiamo le seguenti librerie:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span> <span class="nn">tensorflow_decision_forests</span> <span class="k">as</span> <span class="nn">tfdf</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span> <span class="nn">tensorflow_decision_forests</span> <span class="k">as</span> <span class="nn">tfdf</span>
 </code></pre></div>
 <p>Useremo il dataset relativo ai Palmer Pengiuns, che contiene le misurazioni in termini di dimensione per tre specier di pinguini , ovvero il pigoscelide antartico (Chinstrap), il pinguino Gentoo, ed il pinguino di Adelia (Adelie).</p>
 <p>Per prima cosa, carichiamo il dataset in memoria utilizznado Pandas:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/download.tensorflow.org/data/palmer_penguins/penguins.csv&quot;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/download.tensorflow.org/data/palmer_penguins/penguins.csv&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </code></pre></div>
 <p>Visualizziamo la testa del dataset.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
 <p>TODO: IMMAGINE</p>
 <p>Notiamo come il dataset contenga diversi tipi di dato, sia numerici (ad esempio, bill<em>length</em>mm), sia categorici (ad esempio, sex). Vi sono inoltre delle feature mancanti. A differenza delle reti nuerali, tuttavia, le foreste decisionali sono in grado di supportare tutti questi tipi di feature in maneira nativa, per cui non dobbiamo effettaure encoding, normalizzazioni o roba del genere.</p>
 <p>Per semplificare l'interpretabilità, convertiamo manualmente le specie dei pinguini in label intere:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">classes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pandas_dataset</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Label classes: </span><span class="si">{</span><span class="n">classes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># &gt;&gt; Label classes: [&#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Chinstrap&#39;]</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">pandas_dataset</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">classes</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">classes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pandas_dataset</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Label classes: </span><span class="si">{</span><span class="n">classes</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># &gt;&gt; Label classes: [&#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Chinstrap&#39;]</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">pandas_dataset</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">pandas_dataset</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">classes</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </code></pre></div>
 <p><a href="https://developers.google.com/machine-learning/decision-forests/practice?hl=en">https://developers.google.com/machine-learning/decision-forests/practice?hl=en</a></p>
 

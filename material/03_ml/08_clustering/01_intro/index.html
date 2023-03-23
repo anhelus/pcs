@@ -15,7 +15,7 @@
     
     
       
-        <title>20 - Il clustering - Python</title>
+        <title>8.1 - Il clustering - Python</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#20-il-clustering" class="md-skip">
+        <a href="#81-il-clustering" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              20 - Il clustering
+              8.1 - Il clustering
             
           </span>
         </div>
@@ -1038,6 +1038,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_log_reg/lecture/" class="md-nav__link">
+        5 - Regressione logistica
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1205,43 +1219,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#201-tipi-di-clustering" class="md-nav__link">
-    20.1 - Tipi di clustering
+  <a href="#tipologie-di-clustering" class="md-nav__link">
+    Tipologie di clustering
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#202-workflow-del-clustering" class="md-nav__link">
-    20.2 - Workflow del clustering
+  <a href="#workflow-del-clustering" class="md-nav__link">
+    Workflow del clustering
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#203-applicazione-di-un-algoritmo-di-clustering-il-k-means" class="md-nav__link">
-    20.3 - Applicazione di un algoritmo di clustering: il K-Means
+  <a href="#applicazione-di-un-algoritmo-di-clustering-il-k-means" class="md-nav__link">
+    Applicazione di un algoritmo di clustering: il K-Means
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#204-clustering-in-scikit-learn" class="md-nav__link">
-    20.4 - Clustering in Scikit Learn
+  <a href="#clustering-in-scikit-learn" class="md-nav__link">
+    Clustering in Scikit Learn
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#205-scelta-del-valore-ottimale-di-cluster" class="md-nav__link">
-    20.5 - Scelta del valore ottimale di cluster
+  <a href="#scelta-del-valore-ottimale-di-cluster" class="md-nav__link">
+    Scelta del valore ottimale di cluster
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#206-un-altro-algoritmo-il-dbscan" class="md-nav__link">
-    20.6 - Un altro algoritmo: il DBSCAN
+  <a href="#un-altro-algoritmo-il-dbscan" class="md-nav__link">
+    Un altro algoritmo: il DBSCAN
   </a>
   
 </li>
@@ -1261,13 +1275,13 @@
                   
 
 
-<h1 id="20-il-clustering">20 - Il clustering<a class="headerlink" href="#20-il-clustering" title="Permanent link">&para;</a></h1>
+<h1 id="81-il-clustering">8.1 - Il clustering<a class="headerlink" href="#81-il-clustering" title="Permanent link">&para;</a></h1>
 <p>Il <em>clustering</em> è l'operazione di categorizzare dei campioni in un dataset senza che questi abbiano necessariamente un'etichetta determinata a priori.</p>
 <p>Per fare un esempio, potremmo suddividere i nostri album musicali sulla base delle sonorità ispirate dal loro ascolto: in questo caso, non ci staremmo affidando ad una certa "etichetta", come ad esempio l'anno di produzione o l'artista, ma ad un concetto molto più "empirico", ovvero la vicinanza o meno dell'album ai nostri gusti musicali.</p>
 <p>Ovviamente, dato che nel clustering i campioni non considerano una label, stiamo parlando di apprendimento <em>non</em> supervisionato. Se i campioni fossero etichettati, avremmo una normale procedura di classificazione.</p>
 <p>Il clustering può avere numerose applicazioni: ad esempio, potrebbe essere usato per segmentare il mercato mediante dei profili di clientela simili, oppure per suddividere le immagini in zone simili, o ancora per individuare delle anomalie all'interno di un insieme di dati.</p>
 <p>Una volta che il clustering è completo, ad ogni cluster viene assegnato un certo <em>identificativo</em>, che ci permette in qualche modo di "condensare" e "riassumere" le informazioni dell'intero cluster. Quest'assegnazione può anche essere usata come ingresso ad altri sistemi di machine learning, ad esempio di classificazione, che possono usare l'identificativo assegnato come una vera e propria label.</p>
-<h2 id="201-tipi-di-clustering">20.1 - Tipi di clustering<a class="headerlink" href="#201-tipi-di-clustering" title="Permanent link">&para;</a></h2>
+<h2 id="tipologie-di-clustering">Tipologie di clustering<a class="headerlink" href="#tipologie-di-clustering" title="Permanent link">&para;</a></h2>
 <p>La scelta di un algoritmo di clustering deve essere condotta sulla base della scalabilità dello stesso. Infatti, laddove alcuni algoritmi di clustering confrontano tra loro ogni possibile coppia di dati, con una complessità <span class="arithmatex">\(O(n^2)\)</span> per <span class="arithmatex">\(n\)</span> campioni, altri, come il k-means, effettuano un numero molto più limitato di operazioni, ottenendo una complessità nell'ordine di <span class="arithmatex">\(O(n)\)</span>, il che cambia radicalmente la situazione nel caso di dataset con milioni di campioni. Tuttavia, ogni algoritmo ha anche diversi vantaggi e svantaggi che devono essere valutati sulla base dell'applicazione scelta.</p>
 <p>In generale, abbiamo quattro diverse categorie di clustering:</p>
 <ul>
@@ -1276,7 +1290,7 @@
 <li>nel <em>distribution-based clustering</em>, si suppone che i dati abbiano distribuzione gaussiana, e siano quindi suddivisibili come tali. Questo tipo di algoritmi non è efficiente se non si conosce a priori il tipo di distribuzione dei dati;</li>
 <li>nello <em>hierarchical clustering</em> viene creato un albero a partire dai dati. Questo tipo di clustering è particolarmente efficace nel caso si trattino certi tipi di dati, come ad esempio le tassonomie, e prevede che possa essere selezionato un numero ridotto di cluster tagliando l'albero al giusto livello.</li>
 </ul>
-<h2 id="202-workflow-del-clustering">20.2 - Workflow del clustering<a class="headerlink" href="#202-workflow-del-clustering" title="Permanent link">&para;</a></h2>
+<h2 id="workflow-del-clustering">Workflow del clustering<a class="headerlink" href="#workflow-del-clustering" title="Permanent link">&para;</a></h2>
 <p>L'esecuzione di un algoritmo di clustering prevede tre step:</p>
 <ol>
 <li>nel primo, dobbiamo <em>preparare i dati</em>, effettuando le operazioni che abbiamo visto in precedenza per la classificazione e la regressione;</li>
@@ -1290,7 +1304,7 @@
 </ul>
 <p>Nel primo caso questo avviene in modo abbastanza intuitivo: se, ad esempio, volessimo suddividere un insieme di scarpe in base a taglia e prezzo, potremmo considerare la distanza euclidea come rappresentativa dello "spazio" che intercorre tra due campioni. Questo approccio, tuttavia, è efficace soltanto nel caso di campioni a bassa dimensionalità.</p>
 <p>Il secondo caso è invece preferibile nel momento in cui si vanno a considerare dei dati ad alta dimensionalità: infatti, in queste situazioni si rischia di incorrere nel fenomeno della <em>curse of dimensionality</em>, che rende difficile distinguere tra due campioni differenti, per cui si tende ad estrarre delle rappresentazioni "ridotte" dei dati a partire dalle quali applicare il concetto di distanza.</p>
-<h2 id="203-applicazione-di-un-algoritmo-di-clustering-il-k-means">20.3 - Applicazione di un algoritmo di clustering: il K-Means<a class="headerlink" href="#203-applicazione-di-un-algoritmo-di-clustering-il-k-means" title="Permanent link">&para;</a></h2>
+<h2 id="applicazione-di-un-algoritmo-di-clustering-il-k-means">Applicazione di un algoritmo di clustering: il K-Means<a class="headerlink" href="#applicazione-di-un-algoritmo-di-clustering-il-k-means" title="Permanent link">&para;</a></h2>
 <p>Vediamo adesso come usare il più conosciuto ed utilizzato algoritmo di clustering, ovvero il <em>k-means</em>, algoritmo centroid-based che raggruppa i campioni in <span class="arithmatex">\(k\)</span> diversi cluster assegnando ogni dato in base alla distanza dal centroide del cluster stesso. Il k-means ha diverse ipotesi alla base, tra cui la più restrittiva è una, ovvero quella legata alla conoscenza del numero iniziale di cluster <span class="arithmatex">\(k\)</span>.</p>
 <p>Una volta fissato questo valore, l'algoritmo lavora in tre step successivi:</p>
 <ol>
@@ -1304,7 +1318,7 @@
 </p>
 <figcaption>Figura 20.1 - Step dell'algoritmo K-Means</figcaption>
 </figure>
-<h2 id="204-clustering-in-scikit-learn">20.4 - Clustering in Scikit Learn<a class="headerlink" href="#204-clustering-in-scikit-learn" title="Permanent link">&para;</a></h2>
+<h2 id="clustering-in-scikit-learn">Clustering in Scikit Learn<a class="headerlink" href="#clustering-in-scikit-learn" title="Permanent link">&para;</a></h2>
 <p>Per implementare un algoritmo di clustering in Scikit Learn dovremo fare affidamento sulla classe <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html"><code>KMeans()</code></a>, utilizzabile come segue:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1313,7 +1327,7 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">cl</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">()</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">cl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="205-scelta-del-valore-ottimale-di-cluster">20.5 - Scelta del valore ottimale di cluster<a class="headerlink" href="#205-scelta-del-valore-ottimale-di-cluster" title="Permanent link">&para;</a></h2>
+<h2 id="scelta-del-valore-ottimale-di-cluster">Scelta del valore ottimale di cluster<a class="headerlink" href="#scelta-del-valore-ottimale-di-cluster" title="Permanent link">&para;</a></h2>
 <p>La scelta del valore ottimale di <span class="arithmatex">\(k\)</span> è un procedimento emnpirico, in quanto non abbiamo a disposizione delle vere e proprie label per la verifica dell'uscita dell'algoritmo. In tal senso, abbiamo a disposizione sia delle metriche, che vedremo in seguito, sia degli approcci più qualitativi, che dipendono dai concetti di <em>cardinalità</em> e <em>magnitudine</em> del clustering.</p>
 <p>In particolare, per <em>cardinalità</em> si intende il numero di campioni per ogni cluster, mentre per <em>magnitudine</em> la somma delle distanze di tutti i campioni in un cluster dal centroide. Immaginiamo di essere in un caso come quello descritto nella seguente figura.</p>
 <figure>
@@ -1328,7 +1342,7 @@
 </p>
 <figcaption>Figura 20.3 - Rapporto tra il numero dei cluster e la magnitudine</figcaption>
 </figure>
-<h2 id="206-un-altro-algoritmo-il-dbscan">20.6 - Un altro algoritmo: il DBSCAN<a class="headerlink" href="#206-un-altro-algoritmo-il-dbscan" title="Permanent link">&para;</a></h2>
+<h2 id="un-altro-algoritmo-il-dbscan">Un altro algoritmo: il DBSCAN<a class="headerlink" href="#un-altro-algoritmo-il-dbscan" title="Permanent link">&para;</a></h2>
 <p>Il <a href="https://en.wikipedia.org/wiki/DBSCAN">DBSCAN</a> è un algoritmo di clustering di tipo agglomerativo density-based che opera considerando due parametri principali:</p>
 <ul>
 <li>la <em>distanza massima</em> <span class="arithmatex">\(\epsilon\)</span> per considerare due punti come appartenenti allo stesso cluster;</li>

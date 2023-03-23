@@ -1136,6 +1136,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/05_log_reg/lecture/" class="md-nav__link">
+        5 - Regressione logistica
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1427,19 +1441,23 @@ p_2: y = x^2 + 3x + 2
 </code></pre></div>
 <h2 id="valore-assunto-da-un-polinomio">Valore assunto da un polinomio<a class="headerlink" href="#valore-assunto-da-un-polinomio" title="Permanent link">&para;</a></h2>
 <p>Il valore <span class="arithmatex">\(y\)</span> assunto da un polinomio <span class="arithmatex">\(p\)</span> ad un certo valore di <span class="arithmatex">\(x\)</span> può essere determinato mediante la funzione <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval.html"><code>polyval()</code></a>, che accetta come argomento un intero (o una lista di interi) <code>x</code> ed un polinomio <code>p</code>. Ad esempio, volendo valutare il valore assunto da <span class="arithmatex">\(y\)</span> per <span class="arithmatex">\(x \in [1, 2]\)</span> sulla retta rappresentata dal polinomio <code>c1</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">P</span><span class="o">.</span><span class="n">polyval</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">P</span><span class="o">.</span><span class="n">polyval</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">c1</span><span class="o">.</span><span class="n">coef</span><span class="p">)</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Coefficienti e polinomio</p>
+<p>E' molto importante notare come non stiamo usando un oggetto di classe <code>Polynomial</code>, ma i coefficienti dello stesso, estraibili accedendo alla proprietà <code>coef</code>.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Operazioni a dimensionalità 2 e 3</p>
 <p>Nel caso occorra valutare i polinomi nei casi a due e tre dimensioni, NumPy ci mette a disposizione le funzioni <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval2d.html"><code>polyval2d()</code></a> e <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyval3d.html"><code>polyval3d()</code></a>.</p>
 </div>
 <h2 id="derivata-ed-integrale-di-funzioni-polinomiali">Derivata ed integrale di funzioni polinomiali<a class="headerlink" href="#derivata-ed-integrale-di-funzioni-polinomiali" title="Permanent link">&para;</a></h2>
 <p>Concludiamo questa breve carrellata con due metodi in grado di calcolare, rispettivamente, la derivata e l'integrale di una funzione polinomiale.</p>
-<p>Il metodo <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyder.html#numpy.polynomial.polynomial.polyder"><code>polyder()</code></a>, infatti, permette di calcolare la derivata di ordine <code>m</code> (passato come secondo argomento, di default pari ad <code>1</code>) del polinomio <code>p</code> (passato come primo argomento). Ad esempio, possiamo calcolare la derivata seconda di <code>c1</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">P</span><span class="o">.</span><span class="n">polyder</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<p>La funzione <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyder.html#numpy.polynomial.polynomial.polyder"><code>numpy.polyder()</code></a>, infatti, permette di calcolare la derivata di ordine <code>m</code> (passato come secondo argomento, di default pari ad <code>1</code>) dei coefficienti del polinomio <code>p</code> (passati come primo argomento). Ad esempio, per calcolare la derivata di <code>c1</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">P</span><span class="o">.</span><span class="n">polyder</span><span class="p">(</span><span class="n">c1</span><span class="o">.</span><span class="n">coef</span><span class="p">)</span>
 </code></pre></div>
-<p>Il metodo duale è <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyint.html#numpy.polynomial.polynomial.polyint"><code>polyint()</code></a>, che (prevedibilmente) calcola l'integrale di ordine <code>m</code> del polinomio <code>p</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">P</span><span class="o">.</span><span class="n">polyint</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<p>Il metodo duale è <a href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyint.html#numpy.polynomial.polynomial.polyint"><code>numpy.polyint()</code></a>, che (prevedibilmente) calcola l'integrale di ordine <code>m</code> dei coefficienti del polinomio <code>p</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">P</span><span class="o">.</span><span class="n">polyint</span><span class="p">(</span><span class="n">c1</span><span class="o">.</span><span class="n">coef</span><span class="p">)</span>
 </code></pre></div>
 
 

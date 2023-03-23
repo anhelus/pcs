@@ -753,8 +753,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#percentile-e-quantile" class="md-nav__link">
-    Percentile e quantile
+  <a href="#percentile-quantile-e-quartili" class="md-nav__link">
+    Percentile, quantile, e quartili
   </a>
   
 </li>
@@ -1115,6 +1115,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/05_log_reg/lecture/" class="md-nav__link">
+        5 - Regressione logistica
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1289,8 +1303,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#percentile-e-quantile" class="md-nav__link">
-    Percentile e quantile
+  <a href="#percentile-quantile-e-quartili" class="md-nav__link">
+    Percentile, quantile, e quartili
   </a>
   
 </li>
@@ -1366,8 +1380,43 @@
 <p class="admonition-title">Le funzioni <code>argmax</code> ed <code>argmin</code></p>
 <p>Le funzioni [<code>numpy.argmax()</code>] e [<code>numpy.argmin()</code>] permettono di individuare l'<em>indice</em> del valore massimo e minimo, rispettivamente.</p>
 </div>
-<h2 id="percentile-e-quantile">Percentile e quantile<a class="headerlink" href="#percentile-e-quantile" title="Permanent link">&para;</a></h2>
-<p>Ricordiamo che il <em>q-percentile</em> di un vettore <span class="arithmatex">\(V\)</span> di lunghezza <span class="arithmatex">\(N\)</span> è definito come il valore pari a <span class="arithmatex">\(\frac{q}{100}\)</span> calcolato a partire da una copia ordinata di <span class="arithmatex">\(V\)</span>.</p>
+<h2 id="percentile-quantile-e-quartili">Percentile, quantile, e quartili<a class="headerlink" href="#percentile-quantile-e-quartili" title="Permanent link">&para;</a></h2>
+<p>Con il termine <em>percentile</em> definiamo un valore che indica la posizione di un dato all'interno di una distribuzione o, in altre parole, la percentuale di dati che si trovano al di sotto di un determinato valore all'interno della distribuzione stessa. </p>
+<p>Per calcolare il percentile per un dato valore <span class="arithmatex">\(p\)</span>, dovremo seguire questi passaggi:</p>
+<ol>
+<li>Ordinare gli <span class="arithmatex">\(n\)</span> valori della distribuzione in ordine crescente.</li>
+<li>Se <span class="arithmatex">\(p\)</span> è il percentile, calcolare il prodotto <span class="arithmatex">\(k = n \cdot p \cdot \frac{1}{100}\)</span>.</li>
+<li>Se <span class="arithmatex">\(k\)</span> è un intero, il percentile è dato dalla media tra il <span class="arithmatex">\(k\)</span>-esimo ed il <span class="arithmatex">\(k+1\)</span>-esimo valore dei dati ordinati.</li>
+<li>Se <span class="arithmatex">\(k\)</span> non è un intero, si arrotonda <span class="arithmatex">\(k\)</span> per eccesso al primo intero successivo, scegliendo il corrispondente valore dei dati ordinati.</li>
+</ol>
+<p>Facciamo un esempio. Supponiamo di avere la seguente distribuzione di valori:</p>
+<div class="arithmatex">\[
+D = [20, 30, 10, 50, 40, 100, 90, 60, 80, 70]
+\]</div>
+<p>Vogliamo calcolare il <span class="arithmatex">\(30\)</span>-percentile, quindi <span class="arithmatex">\(p=30\)</span>. Proviamo a seguire i passaggi sopra descritti.</p>
+<ol>
+<li>Ordiniamo i dati, ottenendo il vettore <span class="arithmatex">\(D_{ord} = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]\)</span>.</li>
+<li>Il valore di <span class="arithmatex">\(k\)</span> è pari ad <span class="arithmatex">\(n * p\)</span>, con <span class="arithmatex">\(n=10\)</span> e <span class="arithmatex">\(p=0.30\)</span>, per cui <span class="arithmatex">\(k=3\)</span>.</li>
+<li>Dato che <span class="arithmatex">\(k\)</span> è un intero, il <span class="arithmatex">\(30\)</span>-percentile è dato dalla media tra <span class="arithmatex">\(30\)</span> e <span class="arithmatex">\(40\)</span>, ovvero <span class="arithmatex">\(35\)</span>.</li>
+</ol>
+<p>Il concetto di <em>quantile</em> è collegato a quello di percentile, che in qualche modo generalizza. In particolare, quando si parla di quantile, si definisce una <em>suddivisione</em> della distribuzione dei valori in un certo numero di intervalli: appare chiaro che se questi intervalli sono <span class="arithmatex">\(100\)</span> il quantile coincide con il percentile.</p>
+<p>Una suddivisione notevole è quella che prevede la ripartizione della distribuzione dei valori in quattro parti, dette <em>quartili</em>, ripartiti come segue:</p>
+<ul>
+<li>il primo quartile è quello che raccoglie tutti gli elementi che vanno al di sotto del <span class="arithmatex">\(25\)</span>-percentile (indicato con <span class="arithmatex">\(Q_1\)</span>);</li>
+<li>il secondo quartile è quello che raccoglie gli elementi che vanno dal <span class="arithmatex">\(25\)</span>-percentile al <span class="arithmatex">\(50\)</span>-percentile (indicato con <span class="arithmatex">\(Q_2\)</span>);</li>
+<li>il terzo quartile è quello che contiene gli elementi che vanno dal <span class="arithmatex">\(50\)</span>-percentile al <span class="arithmatex">\(75\)</span>-percentile (indicato con <span class="arithmatex">\(Q_3\)</span>);</li>
+<li>l'ultimo quartile racchidue gli elementi che sono oltre <span class="arithmatex">\(Q_3\)</span>.</li>
+</ul>
+<p>In altri termini, se <span class="arithmatex">\(n\)</span> è il numero totale di dati nella distribuzione, allora:</p>
+<div class="arithmatex">\[
+\begin{align}
+&amp; Q_1 = \frac{n + 1}{4}\\
+&amp; Q_2 = \frac{n + 1}{2}\\
+&amp; Q_3 = \frac{n + 1}{4} \cdot 3
+\end{align}
+\]</div>
+<p>I quartili sono importanti soprattutto quando si va a caratterizzate una distribuzione <em>non parametrica</em>, ovvero non rappresentabile in termini di semplici parametri statistici come, ad esempio, una distribuzione normale. In questi casi, infatti, la distribuzione può essere caratterizzata in maniera non parametrica mediante la mediana (ovvero, il <span class="arithmatex">\(50\)</span>-percentile), la deviazione standard, ed il <em>range interquartile</em>, dato da <span class="arithmatex">\(Q3-Q1\)</span>.</p>
+<h5 id="le-funzioni-numpypercentile-e-numpyquantile">Le funzioni <code>numpy.percentile()</code> e <code>numpy.quantile()</code><a class="headerlink" href="#le-funzioni-numpypercentile-e-numpyquantile" title="Permanent link">&para;</a></h5>
 <p>Per fare un esempio, supponiamo di avere un vettore ordinato di elementi che vanno da <span class="arithmatex">\(1\)</span> a <span class="arithmatex">\(10\)</span>, e di calcolare il <span class="arithmatex">\(50\)</span>-percentile mediante la funzione <a href="https://numpy.org/doc/stable/reference/generated/numpy.percentile.html"><code>numpy.percentile()</code></a> di NumPy.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
