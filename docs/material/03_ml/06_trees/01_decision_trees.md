@@ -93,7 +93,7 @@ Ad esempio, nel nostro dataset, tutti i cani ed i ragni hanno un numero di zampe
 ```mermaid
 flowchart TB
   A["Zampe > 2"] -->|Sì| B["Ragno o Cane"]
-  A -->|No| C(Gallina)
+  A -->|No| C[Gallina]
 ```
 
 Successivamente, l'albero andrà ad esplorare i nodi *Ragno* e *Cane*, cercando una maniera per caratterizzarli sulla base delle feature disponibili. Se non viene individuata una condizione soddisfacente, il nodo diventa una foglia: in altre parole, senza il numero di occhi, l'albero non riuscirebbe a distinguere tra ragni e cani.
@@ -101,25 +101,30 @@ Successivamente, l'albero andrà ad esplorare i nodi *Ragno* e *Cane*, cercando 
 !!!tip "Ragni, cani, e zampe"
     Nella realtà, nel caso precedente, l'algoritmo andrebbe a specializzare ulteriormente il valore considerato per le zampe.
 
-Vediamo adesso i passi necessari ad addestrare un certo albero decisionale nel dettaglio.
+Vediamo adesso più nel dettaglio i passi necessari a creare il precedente albero decisionale.
 
+##### Step 1: Creazione del nodo radice
 
-Vediamo i passi necessari ad addestrare un certo albero decisionale in dettaglio.
-
-* Step 1: creiamo un nodo radice
+Al primo step l'algoritmo si occupa di creare un nodo radice. Nel nostro caso, il nodo radice si occuperà di valutare il numero di zampe.
 
 ```mermaid
 flowchart TD
 
-A["nodo radice"]
+A["Zampe"]
 ```
 
-Step 2: accresciamo il nodo 1. La condizione x1 >= 1 viene trovata. Sono creati due nodi figli:
+##### Step 2: Accrescimento del nodo radice
+
+Al secondo step, accresceremo il nodo radice. L'algoritmo verificherà, in base ai dati a sua disposizione, che tutti i campioni etichettati come "Ragno" o "Cane" hanno più di due zampe, mentre quelli etichettati con "Gallina" ne hanno soltanto due. Di conseguenza, andremo a creare due nodi figli:
 
 ```mermaid
-A["x1 >= 1 nodo radice"] --> Yes --> B["? nodo 3"]
-A --> No --> C["? nodo 2"]
+A["Zampe > 2"] --> Yes --> B["Ragno o Cane"]
+  A -->|No| C[Gallina]
 ```
+
+##### Step 3: Accrescimento dei nodi figli
+
+Proviamo in primis ad accrescere il nodo "Gallina". Ovviamente, dato che l'algoritmo non è in grado di suddividere tra loro i dati etichettati in questo modo, non saranno effettuate ulteriori suddivisioni, per cui il nodo diverrà una foglia.
 
 Step 3: accresdciamo il nodo 2. Non sono state trovate condizioni soddisfacenti. Per cui, il nodo diventa una foglia.
 

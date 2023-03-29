@@ -2,7 +2,6 @@
 
 ## Esercizi sugli array
 
-
 ### Esercizio 3.1
 
 Scrivere una funzione che restituisca il prodotto *riga per colonna* di due vettori `v1` e `v2`. Utilizzare in primis una list comprehension, verificando anche che la lunghezza dei due vettori sia coerente. Valutare inoltre il tempo necessario all'esecuzione utilizzando la libreria [`time`](https://docs.python.org/3/library/time.html).

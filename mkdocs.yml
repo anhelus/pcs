@@ -42,12 +42,14 @@ nav:
       - 4.1 - Matplotlib: material/02_libs/04_visualization/01_matplotlib.md
       - 4.2 - Seaborn: material/02_libs/04_visualization/02_seaborn.md
       - Esercizi: material/02_libs/04_visualization/exercises/exercises.md
-  - Modulo 3 - Concetti di machine learning:
+  - Modulo 3 - Machine learning:
     - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
-    - 2 - Definizione del problema: material/03_ml/02_framing.md
-    - 3 - Preparazione dei dati: material/03_ml/03_data_prep.md
-    - 4 - Regressione lineare: material/03_ml/04_lin_reg/lecture.md
-    - 5 - Regressione logistica: material/03_ml/05_log_reg/lecture.md
+  #   - 2 - Definizione del problema: material/03_ml/02_framing.md
+  #   - 3 - Preparazione dei dati: material/03_ml/03_data_prep.md
+  #   - 4 - Regressione lineare: material/03_ml/04_lin_reg/lecture.md
+  #   - 5 - Regressione logistica: material/03_ml/05_log_reg/lecture.md
+  # - Modulo 4 - Scikit Learn:
+  #   - 1 - Introduzione a Scikit Learn: material/04_sklearn/01_intro.md
     # - 6 - Alberi e foreste:
     #   - 6.1 - Alberi decisionali: material/03_ml/06_trees/01_decision_trees.md
     #   - 6.2 - Foreste decisionali: material/03_ml/06_trees/02_decision_forests.md

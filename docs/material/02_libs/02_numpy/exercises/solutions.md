@@ -1,7 +1,7 @@
 # Esercitazione 3 - NumPy (Soluzioni)
 
 !!!tip "Soluzioni"
-    L'implementazione delle soluzioni è disponibile [questo notebook](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/04_numpy_exercises.ipynb).
+    L'implementazione delle soluzioni è disponibile [questo notebook](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/01_numpy/exercises.ipynb).
 
 ## Esercizi sugli array
 

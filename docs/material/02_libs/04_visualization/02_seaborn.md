@@ -1,5 +1,8 @@
 # 4.2 - Seaborn
 
+!!!tip "Notebook di accompagnamento"
+	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/02_visualization/02_seaborn.ipynb).
+
 [Seaborn](https://seaborn.pydata.org/) è una libreria che estende [Matplotlib](01_matplotlib.md) aggiungendone diverse funzionalità, tutte nell'ottica della data analysis, e sulla scia di quello che abbiamo presentato in Pandas in una delle [precedenti lezioni](../03_pandas/01_intro.md). Ciò permette quindi di mantenere un'interfaccia molto simile a quella di Matplotlib, estendendone al contempo le possibilità. Vediamo qualche esempio.
 
 ## Setup della libreria

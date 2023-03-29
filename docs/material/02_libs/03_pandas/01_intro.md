@@ -1,5 +1,8 @@
 # 3.1 - Introduzione a Pandas
 
+!!!tip "Notebook di accompagnamento"
+	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/02_visualization/03_pandas.ipynb).
+
 [Pandas](https://pandas.pydata.org/) viene usata per la lettura ed elaborazione dei dati provenienti da sorgenti di vario tipo, come ad esempio file CSV o Excel, ma anche file di testo e database. Vediamo quindi brevemente come usare la libreria, tenendo presente che ne approfondiremo il funzionamento anche durante le lezioni successive.
 
 ## Installazione e configurazione di Pandas

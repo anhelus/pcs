@@ -8,23 +8,7 @@
 | 03 - Strutture dati in Python | [:link:](./slides/03_data_structures.pdf) |
 | 04 - OOP in Python | [:link:](./slides/04_oop.pdf) |
 | 05 - Script, moduli, librerie | [:link:](./slides/05_org.pdf) |
-
-<!-- | 06 - Operazioni in NumPy | [:link:](06_numpy_ops.pdf) |
-| 07 - Matplotlib | [:link:](07_matplotlib.pdf) |
-| 08 - Pandas | [:link:](08_pandas.pdf) |
-| 09 - Seaborn | [:link:](09_seaborn.pdf) |
-| 10 - SciPy | [:link:](10_scipy.pdf) |
-| 11 - Introduzione al machine learning | [:link:](11_intro_ml.pdf) |
-| 12 - Definizione del problema | [:link:](12_framing.pdf) |
-| 13 - Preparazione dei dati | [:link:](13_data_prep.pdf) |
-| 14 - Introduzione a Scikit Learn | [:link:](14_intro_sklearn.pdf) |
-| 15 - Regressione lineare | [:link:](15_lin_reg.pdf) |
-| 16 - Regressione logistica | [:link:](16_log_reg.pdf) |
-| 17 - Metriche | [:link:](17_metrics.pdf) |
-| 18 - Classificatori e regressori | [:link:](18_class_reg.pdf) |
-| 19 - Clustering | [:link:](19_clustering.pdf) |
-| 21 - Reti neurali | [:link:](21_nn.pdf) |
-| 22 - Overfitting e regolarizzazione | [:link:](22_over_reg.pdf) |
-| 23 - Image classification | [:link:](23_img_proc.pdf) |
-| 24 - Serie temporali | [:link:](24_ts.pdf) |
-| Appendice D - Principi di OOP | [:link:](app_d_oop.pdf) | -->
+| 06 - Introduzione a NumPy | [:link:](./slides/06_numpy_intro.pdf) |
+| 07 - Operazioni in NumPy | [:link:](./slides/07_numpy_ops.pdf) |
+| 08 - Strumenti per la visualizzazione dei dati | [:link:](./slides/08_vis.pdf) |
+| 09 - Pandas | [:link:](./slides/09_pandas.pdf) |
