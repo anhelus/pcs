@@ -9,17 +9,21 @@
       
       
       
+        <link rel="prev" href="../../03_ml/01_intro/">
+      
+      
+        <link rel="next" href="../exercises/exercises/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
-        <title>1 - Una breve introduzione a Scikit LEarn - Python</title>
+        <title>1 - Introduzione a Scikit Learn - Python</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -112,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1 - Una breve introduzione a Scikit LEarn
+              1 - Introduzione a Scikit Learn
             
           </span>
         </div>
@@ -1008,6 +1012,126 @@
 
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Modulo 4 - Scikit Learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 4 - Scikit Learn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          1 - Introduzione a Scikit Learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        1 - Introduzione a Scikit Learn
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stimatori-e-transformer" class="md-nav__link">
+    Stimatori e transformer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preprocessing" class="md-nav__link">
+    Preprocessing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convenzioni" class="md-nav__link">
+    Convenzioni
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercises/exercises/" class="md-nav__link">
+        Esercizi
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
   
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1015,17 +1139,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
       
       
       
-        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
           Appendici
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Appendici
         </label>
@@ -1176,6 +1300,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#convenzioni" class="md-nav__link">
+    Convenzioni
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1191,7 +1322,11 @@
                   
 
 
-<h1 id="1-una-breve-introduzione-a-scikit-learn">1 - Una breve introduzione a Scikit LEarn<a class="headerlink" href="#1-una-breve-introduzione-a-scikit-learn" title="Permanent link">&para;</a></h1>
+<h1 id="1-una-breve-introduzione-a-scikit-learn">1 - Una breve introduzione a Scikit Learn<a class="headerlink" href="#1-una-breve-introduzione-a-scikit-learn" title="Permanent link">&para;</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Notebook di accompagnamento</p>
+<p>Per questa lezione esiste un <em>notebook di accompagnamento</em>, reperibile a <a href="https://github.com/anhelus/pcs-exercises/blob/master/02_ml/01_intro.ipynb">questo indirizzo</a>.</p>
+</div>
 <p><a href="https://scikit-learn.org/">Scikit Learn</a> è una delle librerie per il machine learning tra le più utilizzate in Python. Questo avviene principalmente a causa di tre fattori:</p>
 <ul>
 <li>un esteso supporto ad una grande varietà di algoritmi di machine learning;</li>
@@ -1213,15 +1348,167 @@
 <p>Gli stimatori ed i transformer offrono un'interfaccia comune, la quale offre (nella maggior parte dei casi) i metodi <code>fit</code> e <code>transform</code> per, rispettivamente, addestrare l'algoritmo (<code>fit</code>) ed effettuare le predizioni (<code>transform</code>). Tuttavia, è importante notare come ogni stimatore e transformer abbiano parametri specifici e dipendenti dalla natura dell'algoritmo utilizzato; ogni algoritmo, inoltre, andrà verificato secondo delle opportune <em>metriche</em>, che permettono di definire, in termini percentuali o assoluti, l'accuratezza dell'algoritmo utilizzato.</p>
 <div class="admonition tip">
 <p class="admonition-title">OOP in NumPy</p>
-<p>Gli stimatori derivano tutti da una classe base comune, chiamata <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html"><code>BaseEstimator</code></a>. Questa scelta garantisce l'interfaccia comune accennata in precedenza e, conseguentemente, il rispetto dei principi di <a href="../../01_python/02_syntax/05_classes.md">incapsulamento e polimorfismo</a>. Anche i transformer offrono un'interfaccia comune, basata tuttavia sull'uso del <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html"><code>TransformerMixin</code></a>, ovvero di un particolare tipo di classe (detta, per l'appunto, <em>mixin</em>) che permette di implementare meccanismi di ereditarietà multipla. </p>
+<p>Gli stimatori derivano tutti da una classe base comune, chiamata <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html"><code>BaseEstimator</code></a>. Questa scelta garantisce l'interfaccia comune accennata in precedenza e, conseguentemente, il rispetto dei principi di <a href="../../01_python/02_syntax/05_classes/">incapsulamento e polimorfismo</a>. Anche i transformer offrono un'interfaccia comune, basata tuttavia sull'uso del <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html"><code>TransformerMixin</code></a>, ovvero di un particolare tipo di classe (detta, per l'appunto, <em>mixin</em>) che permette di implementare meccanismi di ereditarietà multipla. </p>
 </div>
 <h2 id="preprocessing">Preprocessing<a class="headerlink" href="#preprocessing" title="Permanent link">&para;</a></h2>
-<p>Quando abbiamo <a href="../../03_ml/03_data_prep.md">introdotto i concetti alla base del machine learning</a>, abbiamo visto come sia spesso necessario effettuare una serie di operazioni di preprocessing sui dati. Scikit-Learn offre un gran numero di strumenti per farlo; tra questi, vale la pena ricordarne tre in particolare, ovvero:</p>
+<p>Quando abbiamo <a href="../../03_ml/03_data_prep/">introdotto i concetti alla base del machine learning</a>, abbiamo visto come sia spesso necessario effettuare una serie di operazioni di preprocessing sui dati. Scikit-Learn offre un gran numero di strumenti per farlo; tra questi, vale la pena ricordarne tre in particolare, ovvero:</p>
 <ul>
 <li>la funzione <a href="http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"><code>train_test_split</code></a>, utile a suddividere il dataset in un insieme di training ed uno di test;</li>
 <li>gli <em>imputer</em> come <a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html"><code>SimpleImputer()</code></a> transformer che ci permettono di assegnare eventuali valori mancanti all'interno del dataset;</li>
 <li>i transformer, come il già citato <code>StandardScaler()</code>, che permettono di categorizzare e normalizzare i dati.</li>
 </ul>
+<h2 id="convenzioni">Convenzioni<a class="headerlink" href="#convenzioni" title="Permanent link">&para;</a></h2>
+<p>Gli stimatori in Scikit Learn seguono alcune regole; elenchiamone alcune tra le più rilevanti.</p>
+<h5 id="type-casting">Type casting<a class="headerlink" href="#type-casting" title="Permanent link">&para;</a></h5>
+<p>Quando possibile, Scikit Learn fa in modo che i dati di ingresso mantengano il loro tipo; in caso contrario, saranno convertiti in <code>float64</code>. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">kernel_approximation</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">transformer</span> <span class="o">=</span> <span class="n">kernel_approximation</span><span class="o">.</span><span class="n">RBFSampler</span><span class="p">()</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">X_new</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">X_new</span><span class="o">.</span><span class="n">dtype</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>              <span class="c1"># Il risultato sarà dtype(&#39;float32&#39;)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">X_new</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>          <span class="c1"># Anche qui, il risultato sarà dtype(&#39;float32&#39;)</span>
+</code></pre></div>
+<p>In questo esempio, il formato di <code>X</code> è <code>float32</code>, e possiamo verificare come non cambi dopo la chiamata a <code>fit_transform(X)</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipo di dati e prestazioni</p>
+<p>L'uso di dati <code>float32</code> è spesso più efficiente rispetto all'uso del formato <code>float64</code>, in quanto permette di ridurre i requisiti sia spaziali, sia temporali. Tuttavia, ci potrebbero essere degli errori di troncamento che causando problemi di stabilità numerica.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Esistono anche degli stimatori (soprattutto regressori) che lavorano esclusivamente con dati in formato <code>float64</code>.</p>
+</div>
+<h5 id="refitting-ed-aggiornamento-dei-parametri">Refitting ed aggiornamento dei parametri<a class="headerlink" href="#refitting-ed-aggiornamento-dei-parametri" title="Permanent link">&para;</a></h5>
+<p>I parametri di uno stimatore vengono fissati passando gli opportuni argomenti al costruttore. Tuttavia, questi possono essere successivamente modificati utilizzando il metodo <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator.set_params"><code>set_params()</code></a>. Tuttavia, per vedere gli effetti dei nuovi valori dei parametri, dovremo provvedere a ri-addestrare il modello. Ad esempio:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">clf</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">clf</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</code></pre></div></td></tr></table></div>
+<p>Nel codice precedente:</p>
+<ul>
+<li>alla riga 1, carichiamo il dataset Iris;</li>
+<li>alla riga 2, creiamo uno stimatore di classe <a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html"><code>SVC</code></a>;</li>
+<li>alla riga 3, impostiamo il parametro <code>kernel</code> del nostro stimatore a <code>linear</code>, e lo addestriamo sui dati a nostra disposizione;</li>
+<li>alla riga 4, effettuiamo la predizione sui primi dieci campioni con i parametri impostati in precedenza;</li>
+<li>alla riga 5, modifichiamo il parametro <code>kernel</code>, riaddestrando il modello con il nuovo valore impostato;</li>
+<li>alla riga 6, infine, effettuiamo un'altra predizione, usando il modello appena riaddestrato.</li>
+</ul>
+<h5 id="problemi-multiclasse-vs-problemi-multilabel">Problemi multiclasse vs. problemi multilabel<a class="headerlink" href="#problemi-multiclasse-vs-problemi-multilabel" title="Permanent link">&para;</a></h5>
+<p>Un problema si definisce <em>multiclasse</em> quando ad ogni campione è possibile associare <em>una ed una sola</em> classe tra molte disponibili. Un problema è invece definito come <em>multilabel</em> quando ad ogni campione è possibile associare <em>più di una</em> tra le classi disponibili.</p>
+<p>Ad esempio, classificare un film in base al numero di stelle ricevute può essere interpretato come un problema multiclasse:</p>
+<table>
+<thead>
+<tr>
+<th>Film</th>
+<th>Numero di stelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jumanji</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Il Grinch</td>
+<td>2</td>
+</tr>
+<tr>
+<td>La fabbrica di cioccolato</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Se invece considerassimo il genere a cui ciascun film appartiene, potremmo trovarci di fronte ad una situazione di questo tipo:</p>
+<table>
+<thead>
+<tr>
+<th>Film</th>
+<th>Avventura</th>
+<th>Commedia</th>
+<th>Fantasy</th>
+<th>Crime</th>
+<th>Per bambini</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jumanji</td>
+<td>Vero</td>
+<td>Falso</td>
+<td>Vero</td>
+<td>Falso</td>
+<td>Vero</td>
+</tr>
+<tr>
+<td>Il Grinch</td>
+<td>Falso</td>
+<td>Vero</td>
+<td>Vero</td>
+<td>Falso</td>
+<td>Vero</td>
+</tr>
+<tr>
+<td>La fabbrica di cioccolato</td>
+<td>Vero</td>
+<td>Falso</td>
+<td>Vero</td>
+<td>Falso</td>
+<td>Vero</td>
+</tr>
+</tbody>
+</table>
+<p>In questo caso, avremmo diverse etichette "vere" per ciascun campione, per cui il problema può essere impostato come un multilabel.</p>
+<p>Nel caso si voglia affrontare un problema multiclasse, l'apprendimento e la predizione dipendono dal formato dei dati di output:</p>
+<p>Quando usiamo un classificatore multiclasse, il task di learning e predizione che viene effettuato è dipendente dal formato dei dati target. Proviamo con un array monodimensionale:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">clf</span> <span class="o">=</span> <span class="n">OneVsRestClassifier</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</code></pre></div>
+<p>Il risultato sarà:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+<p>Notiamo quindi come il metodo <code>predict()</code> fornisca un array a singola dimensione, nel quale l'<span class="arithmatex">\(i\)</span>-mo elemento è associato alla classe predetta per l'<span class="arithmatex">\(i\)</span>-mo campione. Se invece volessimo effettuare il fitting su un array bidimensionale, dovremmo trasformare <code>y</code>, ad esempio mediante un'operazione di <em>one-hot encoding</em>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">y</span> <span class="o">=</span> <span class="n">LabelBinarizer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</code></pre></div>
+<p>In questo caso, il risultato sarà:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+</code></pre></div>
+<p>Notiamo quindi come <code>predict()</code> restituisca un array bidimensionale, nel quale ad ogni riga è associato un campione, con il valore <code>1</code> assegnato alla classe predetta, e <code>0</code> altrimenti. In altre parole, per il primo campione, il predittore associerà la classe <span class="arithmatex">\(0\)</span>, per il secondo sempre la classe <span class="arithmatex">\(0\)</span>, per il terzo la classe <span class="arithmatex">\(1\)</span>, e via dicendo.</p>
+<p>In caso di problema multilabel dovremo usare un <a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MultiLabelBinarizer.html"><code>MultiLabelBinarizer</code></a>:</p>
+<p>Notiamo che la quarta e quinta istanza restituiscono tutti zero, il che indica che non combaciano con nessuna delle tre label su cui sono state addestrate. Con gli output multilable, è simile per un'istanza ad avere label multiple:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">y</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">y</span> <span class="o">=</span> <span class="n">MultiLabelBinarizer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</code></pre></div>
+<p>Il risultato sarà:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+</code></pre></div>
+<p>Come è possibile vedere, l'array bidimensionale restituito ha diverse label per ogni singola istanza.</p>
 
 
   
@@ -1291,7 +1578,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.407015b8.min.js"></script>
       
         <script src="../../../js/config.js"></script>
       
