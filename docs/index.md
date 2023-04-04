@@ -2,21 +2,24 @@
 
 Benvenuti nel sito per il corso di Python per il Calcolo Scientifico.
 
-!!!warning "Dispense"
-    Le dispense sono attualmente in fase di aggiornamento.
+## Struttura del sito
 
-## Link utili
+La seguente tabella descrive, in breve, la struttura del sito.
 
-### A.A. 2022/2023
+| Nome | Link | Spiegazione |
+| ---- | ---- | ----------- |
+| Slides | [:link:](./2022-23/slides.md) | Elenco delle slide visualizzate a lezione. Liberamente scaricabili. |
+| Modalità di esame | [:link:](./2022-23/exams.md) | Descrizione dettagliata delle modalità per il conseguimento dei CFU. |
+| Calendario delle lezioni | [:link:](./2022-23/calendar.md) | Calendario dettagliato delle lezioni, con ore ed aula. |
+| Date di appello | :x: | Date di appello previste. *In arrivo*. |
+| Temi d'anno | :x: | Proposte per i temi d'anno. *In arrivo*. |
+| Registrazioni | [:link:](./2022-23/recordings.md) | Elenco delle registrazioni delle lezioni, rigorosamente non editate. |
 
-* [Slides](./2022-23/slides.md)
-* [Modalità di esame](./2022-23/exams.md)
-* [Calendario delle lezioni](./2022-23/calendar.md)
-* [Date di appello](#) (*IN ARRIVO*)
-* [Temi d'anno](#) (*IN ARRIVO*)
-* [Registrazioni](./2022-23/recordings.md)
+Inoltre, selezionando un argomento di interesse dal menu a sinistra, è possibile navigare nella sezione del sito contentente le apposite dispense, da considerarsi integrative rispetto alle slides ed alle lezioni.
 
-### A.A. 2021/2022
+## A.A. precedenti
+
+### 2021/2022
 
 * [Registrazioni](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS)
 

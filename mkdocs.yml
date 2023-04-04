@@ -44,6 +44,10 @@ nav:
       - Esercizi: material/02_libs/04_visualization/exercises/exercises.md
   - Modulo 3 - Machine learning:
     - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
+  - Modulo 4 - Scikit Learn:
+    - 1 - Introduzione a Scikit Learn: material/04_sklearn/01_intro.md
+    - Esercizi: material/04_sklearn/exercises/exercises.md
+      # - Soluzioni: material/04_sklearn/exercises/solutions.md
   #   - 2 - Definizione del problema: material/03_ml/02_framing.md
   #   - 3 - Preparazione dei dati: material/03_ml/03_data_prep.md
   #   - 4 - Regressione lineare: material/03_ml/04_lin_reg/lecture.md

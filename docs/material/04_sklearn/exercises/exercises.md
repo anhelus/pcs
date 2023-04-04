@@ -1,10 +1,8 @@
-# E15 - Introduzione a Scikit Learn
+# Esercitazione 4 - Scikit Learn
 
-## Esercizio E15.1
+## Esercizio 1
 
-Analizziamo i dati del dataset Titanic, e prepariamoli per un'elaborazione successiva.
-
-In particolare, proviamo a:
+Usando Scikit Learn, analizziamo i dati del dataset Titanic. Proviamo a:
 
 * rimuovere le feature rumorose o non necessarie;
 * normalizzare le feature numeriche nell'intervallo $[0, 1]$;
