@@ -1,4 +1,4 @@
-# 2.1 - Sintassi fondamentale
+# 1.2.1 - Sintassi fondamentale
 
 Vediamo alcuni dei concetti fondamentali che caratterizzano la sintassi del linguaggio Python.
 

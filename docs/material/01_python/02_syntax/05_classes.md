@@ -1,4 +1,4 @@
-# 2.5 - Classi ed OOP
+# 1.2.5 - Classi ed OOP
 
 Python offre un esteso supporto alla programmazione orientata agli oggetti. Prima di proseguire, però, è opportuno introdurre brevemente questo concetto.
 

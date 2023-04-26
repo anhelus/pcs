@@ -1,4 +1,4 @@
-# Modulo 1 - Il linguaggio Python: Esercizi
+# Esercitazione 1.1
 
 ## Esercizio 1.1
 

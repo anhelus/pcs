@@ -1,4 +1,4 @@
-# 6.1 - Gli alberi decisionali
+# 3.6.1 - Gli alberi decisionali
 
 Gli *alberi decisionali* sono una tra le famiglie di modelli maggiormente utilizzate per l'apprendimento supervisionato, e sono in grado di risolvere sia problemi di classificazione, sia di regressione. In particolare, gli alberi decisionali offrono alcuni benefici rispetto ad altri tipi di modello, tra cui:
 
@@ -118,7 +118,7 @@ A["Zampe"]
 Al secondo step, accresceremo il nodo radice. L'algoritmo verificherà, in base ai dati a sua disposizione, che tutti i campioni etichettati come "Ragno" o "Cane" hanno più di due zampe, mentre quelli etichettati con "Gallina" ne hanno soltanto due. Di conseguenza, andremo a creare due nodi figli:
 
 ```mermaid
-A["Zampe > 2"] --> Yes --> B["Ragno o Cane"]
+  A["Zampe > 2"] --> Sì --> B["Ragno o Cane"]
   A -->|No| C[Gallina]
 ```
 
@@ -126,57 +126,26 @@ A["Zampe > 2"] --> Yes --> B["Ragno o Cane"]
 
 Proviamo in primis ad accrescere il nodo "Gallina". Ovviamente, dato che l'algoritmo non è in grado di suddividere tra loro i dati etichettati in questo modo, non saranno effettuate ulteriori suddivisioni, per cui il nodo diverrà una foglia.
 
-Step 3: accresdciamo il nodo 2. Non sono state trovate condizioni soddisfacenti. Per cui, il nodo diventa una foglia.
+Provando adesso ad accrescere il nodo "Ragno o Cane". In questo caso, l'algoritmo troverà la regola per la quale se il numero di occhi è pari a 2, allora siamo in presenza di un "Cane"; altrimenti, qualora il numero di occhi è superiore a 2, saremo in presenza di un Ragno. L'albero diventerà il seguente:
 
 ```mermaid
-flowchart TD
-
-A["x1 >= 1 nodo radice"] --> sì --> B["? nodo 3"]
-A --> No --> C["foglia nodo 2"]
+  A["Zampe > 2"] --> Sì --> B["Occhi > 2"]
+  A -->|No| C[Gallina]
+  B --> Sì --> D[Ragno]
+  B --> No --> E[Cane]
 ```
 
-Step 4: accresciamo il nodo 3. La condizione "x2 >= 0.5" è stata individuata. Due nodi figli sono creati.
+## Funzione di suddivisione di un nodo
 
-```mermaid
-flowchart TD
-  A["x1 >= 1 nodo radice"] --> sì --> B["x2 > 5 nodo 3"]
-  A --> No --> C["foglia nodo 2"]
-  B --> Si --> D["? nodo 5"]
-  B --> No --> E["?nodo 4"]
-```
+Ogni albero decisionale si basa sulla routine chiamata *splitter* per individuare il miglior valore possibile per la soglia $t$ sulla feature $f_i$. 
 
-Esistono altri metodi per accrescere gli alberi decisionali. Un'alternativa popolare è ottimizzare globalmente i nodi invece di usare una strategia divide-et-impera.
+L'efficienza dello splitter rappresenta il collo di bottiglia di un albero decisionale: a seconda del numero e del tipo di feature in input, il numero totale di possibili condizioni da verificare per un dato nodo può essere molto grande. In tal senso, è facile verificare che se la regola di split di un nodo è data da $f_i \geq t$, con $f_i$ $i$-ma feature e $t \in \mathbb{R}$, l'insieme dei possibili valori di soglia è infinito.
 
-A seconda del numero e del tipo di feature di input, il numoer di possibili condizioni per un dato nodo può essere enorme, generalmente infiito. Ad esempio, data una condizione di soglia $feature_i \geq t$, la combinaizone di tutti i possibili valore di soglia $t \in \mathbb{R}$ è infiniat.
+Nella pratica, lo splitter non fa altro che massimizzare il valore di una funzione obiettivo, usando criteri come l'[information gain](https://en.wikipedia.org/wiki/Information_gain_(decision_tree)), la [Gini impurity](https://en.wikipedia.org/wiki/Decision_tree_learning#Gini_impurity), o anche l'RMSE.
 
-La routine responsabiel per individualre la miglireo condizione è chiamata *splitter*. Siccome deve testare un gran numero di possibili condizioni, gli splitter sono i colli di bottiglia quando si addestra un albero decisionale.
+##### Information gain
 
-Il punteggio massimizzzato dallo splitter dipende dal task. AD esempio:
-
-* Information Gaìni e Gini sono normalmente usati per la classiciazione.
-* l'0errore quadratico medio è normalmente usato per la regressione
-
-Ci sono molti algoretimi di splitting, ognuno con vario spporto per:
-
-* tipo di feature; ad esempio, numerica, categorica, testuale;
-* task: pèer esempio, classificazione binaria, multiclasse, regtressione;
-* tipo di condizione: per esempio, condizione di soglia, obliqua, etc.;
-* criterio di regolarizzaizone: per esempio, splitter essatti o approssimati per le condizioni di soglia.
-
-Inoltre, ci sono deglle varianti equivalenti delgi splitter con diversi compromessi per l'uso di memoria, CPUI, e via dicendo.
-
-
-## Classificazione binaria
-
-Splitter per la classificazione binaria con feature numeriche
-
-Vediamo il più semplice e comune algoritmo di splitting, che crea condizioni nella fomra $feature_i \geq t$ nel seguente setting:
-
-* task di classificazione binaria
-* senza valori mancanti negli esempi
-* senza indici precalcolati sugli esempi
-
-Assumiamo un insieme di $n$ campioni con una freatrure numerica ed una label bianrai "arancio" e "blu". Formalmente, il dataset può essere descritto come:
+Vediamo adesso un semplice esempio di come lavora uno splitter. Per farlo, ipotizziamo un classificatore binario, operante con feature puramente numeriche, e senza alcun valore mancante. Formalmente, ipotizziamo di avere un insieme di $n$ campioni caratterizzati da una feature numerica ed un label binario, il quale potrà assumere valore *arancio* o *blu*. Possiamo descrivere il dataset come:
 
 $$
 D={(x_i, y_i)}_{i \in[1, n]}
@@ -184,206 +153,97 @@ $$
 
 dove:
 
-* $x_i$ è il valore di una featrure numerica in $\mathbb{R}$ (l'insieme di numeri reali)
-* $y_i$ è una valore per la label di classificazione binaria tra arancio e blu
+* $x_i$ è il valore associato alla feature numerica, contenuto ovviamente in $\mathbb{R}$;
+* $y_i$ è una valore per la label di classificazione binaria, che può valere *arancio* o *blu*.
 
-L'obiettivo è trovare un valore di soglia $t$ tale che dividendo i campioni $D$ nei gruppi $T(rue)$ ed $F(alse)$ secondo $x_i \geq t$ migliroaiamo la separazione delle label. Ad esmepio, più esempi arancioni saranno in $T$, e più esempi blu saranno in $F$.
+Dovremo quindi trovare un valore di soglia $t$ che ci permetta di suddividere l'insieme $D$ ottenendo due gruppi $T$ e $F$ il quanto più possibile "simili" all'assegnazione stabilita dalle label.
 
-L'entropia di Shanno è una misura di disordine. Per una label binaria:
+Un modo per valutare questa similitudine è utilizzare l'entropia di Shannon. Questa è una misura del "disordine" presente nei nostri dati, e sarà:
 
-* l'etnropia di Shanno è massima qunado le label negli esempi sono bilanciate ($50\%$ blu, $50\%$ arancioni)
-* l'entropia di SHanno è minima (valore zero) quando le label negli esempi sono pure ($100\%$ blu o $100\%$ arancioni)
+* **massima** quando un gruppo è perfettamente bilanciato (ovvero, il $50\%$ dei campioni è arancione, ed il $50\%$ blu);
+* **minima** quando un gruppo è puro (ovvero, contiene solo campioni blu o arancioni).
 
-Formalmente, vogliamo trovare una condizione che diminuisce la somma pesata dell'entropia delle distribuzioni delle label in $T$ ed $F$. Il punteggio corrispondente è detto *information gain*, che è la differneza tra l'entropia di $D$ e quella dell'insieme ${T, F}$.
+Ne consegue che l'obiettivo sarà trovare una soglia $t$ che diminuisca la sommatoria pesata dell'entropia delle distribuzioni delle label nei gruppi $T$ ed $F$. Questo valore è chiamato *information gain*, e rappresenta la differenza tra l'entropia complessiva di $D$, e quella data dall'insieme ${T, F}$. Per fare un esempio, osserviamo la figura 1. A sinistra, lo splitter seleziona una suddivisione ad alta entropia, che comporta un basso guadagno informativo. A destra, invece, lo splitter sceglie una suddivisione migliore, aumentando di conseguenza l'information gain.
 
-La seguente figura mostra una suddivisione errata, nella quale l'entropia rimane alta ed il guadagno informativo basso.
-
-In contrasto, la seguente figura mostra uno split miglire nel quale le'ntropia diventa bassa (ed il guadagno informativo  alto).
+<figure markdown>
+  ![split_res](./images/split_res.png)
+  <figcaption>Figura 1 - Splitting di $D$</figcaption>
+</figure>
 
 Formalmente:
 
 $$
-T = {(x_i, y_i)|(x_i, y_i) \in D con x_i \geq t} \\
-F = {(x_i, y_i)|(x_i, y_i) \in D con x_i < t} \\
-R(X) = \frac{|{x|x \in X, x=pos}|}{|X|} \\
-H(X) = -p log p - (1-p) log(1-p) con p = R(X) \\
-IG(D, T, F) = H(D) - \frac{|T|}{|D|} H(T) - \frac{|F|}{|D|}H(F)
+\begin{align}
+&T = {(x_i, y_i)|(x_i, y_i) \in D con x_i \geq t} \\
+&F = {(x_i, y_i)|(x_i, y_i) \in D con x_i < t} \\
+&R(X) = \frac{|{x|x \in X, x=pos}|}{|X|} \\
+&H(X) = -p log p - (1-p) log(1-p) con p = R(X) \\
+&IG(D, T, F) = H(D) - \frac{|T|}{|D|} H(T) - \frac{|F|}{|D|}H(F)
+\end{align}
 $$
 
 con:
 
 * $IG(D,T,F)$ guadagno infomrativo legato alla suddivisione di $D$ in $T$ ed $F$.
-* $H(X) è l'entropia dell'insieme di campioni $X$.
+* $H(X)$ è l'entropia dell'insieme di campioni $X$.
 * $|X|$ è il numero di elementi nell'insieme $|X|$.
 * $t$ è il valore di sopglia.
 * $pos$ è il valore della label *positivo*, ad esempio, blue nell'esempio prec edfentre. Scegelier una diversa label come positiva non cambia il valore dell'entropia o dell'information gain.
 * $R(X)$ è il rapporto dei valori delle label positive nei campioni $X$.
 * $D$ è il dataset.
 
-Nel seguente esempio, consideriamo un datraset poer la classificazione binaria con una singola feature numerica $x$. La seguente figura mostra per differenti valori della soglia $t$ (sull'asse X):
+Abbiamo già sottolineato come vi siano infiniti valori possibili per la soglia $t$. Tuttavia, dato un numero finito di campioni, possiamo stimare un numero finito di divisioni di $D$ in $T$ ed $F$, per cui si può tranquillamente dire che **ha senso testare solo un numero finito di valori di $t$**.
 
-1. L'istogramma della feature $x$.
-2. Il rapporto di campioni "blu" negli insiemni $D$, $T$ ed $F$ secondo il valore di soglia.
-3. L'entropia in $D$, $T$, ed $F$.
-4. Il guadagno informativo, ovvero il delta, in termini di entropia, tra $D$ e ${T, F}$ pèersato per il numero di campioni.
-
-Questi plot mostrano i seguenti:
-
-* il plot di  frequenza mostra che le osserrvazioni sono relativamente ben diffuse con concentrazioni tra 18 e 60. Un valore dello spread ampio indica che ci sono molti split potenziali, il che è un bene per l'addestramento del modello.
-* il rapporto di label blue nel dataset è di circa il 25%. Il plot relativo mostra questo per i valori di soglia tra 20 e 50:
-  * l'insieme T contiene un eccesso di campioni blu (fino al 35% per la soglia 35)
-  * l'insieme F contiene un deficit complementare di caompionio etichettati con blu (solo 8% per la soglia 35)
-  Sia il "rapporto di label blu" sia il plot di entropia indicano che le label possono essere relativamente ben sepèarate in questo range di soglie.
-* Questa osservazione è confermata nel plot "information gain". VEdiamo che il massimo guadagno informativo è ottenuto con $t \sim 28$ per un valore di circa $0.074$. Quindi, la condizione restituita dallo splitter sarà $x \geq 28$.
-* Il guadagno informativo è sempre maggiore o uguale a zero. Converge a zero man mano che il valore di soglia va verso il suo valore massimo (minimo). In questi casi, o $F$ o $T$ diventano vuoti mentre l'altro contiene l'0iutenro dataset e mostra un'entropia uguale a quella in $D$. Il guadagno informatiov può anche essere zero quando $H(T)=H(F)=H(D)$. Alla soglia 60, il rapporto di label blue per sia $T$ sia $F$ è lo stesso di quello di $D$, ed il guadagno informatiov è nullo.
-
-I valori candidati per $t$ nell'isnieme dei numeri reali ($\mathbb{R}$) sono infiniti. TTuttavia,d ato un numeor finito di campioni, osltmnatop un numero difnito di divisioni di $D$ in $T$ ed $F$ esiste. Quidni, solo un numero finito di valori di $t$ possono essere testati in modod singificativo.
-
-Un approccio classico è quello di ordinare i valori $x_j$ in ordine crescente $x_{s(i)}$ in modo che:
+In tal senso, un approccio possibile è ordinare i valori $x_j$ in ordine crescente $x_{s(i)}$, in modo che:
 
 $$
 x_{s(i)} \leq x_{s(i+1)}
 $$
 
-Quindi, sit esta $t$ per ogni valore a metà tra valori ordinati consecutivi di $x_i$. Ad esempio, supponiamo di avere 1000 valori a virgola mobile per una certa feature. Dopo l'ordianmento, supponiamo che i primi due valori siano 8.5 e 8.7. In questo caso, il primo valore di soglia da testare dovrebbe essere 8.6.
+A questo punto, possiamo testare $t$ per ogni valore a metà tra due valori consecutivi di $x_{s(i)}$. Se, per esempio, supponessimo che i primi due valori possibili per una feature numerica siano $3.5$ e $3.7$, avrebbe senso testare un primo valore di soglia pari a $t_1 = 8.6$.
 
-Formalmente, consideriamo i seguenti valori candidati per $t$:
-
-$$
-X = \{\frac{x_{s(i)}+x_{s(i+1)}}{2}|x_{s(i)} \diff x_{s(i+1)}\}
-$$
-
-La complessità nel tempo di questo algoritmo è un $O(n log n)$, con $n$ il numero di campioni nel nodo (a causa dell'ordinamento dei valori delle feature). Quando applicato ad un albero decisionale, l'algoritmod i splitting viene applicato ad ogni nodo ed ogni feature. Notiamo che ogni nodo riceve circa la metàò degli esempi del suo nodo genitore. Quindi, in accordo al [teorema dell'esperto](https://it.wikipedia.org/wiki/Teorema_dell%27esperto), la complessità nel tempo di addestare un albero decisioanle con questo splitter è data da:
+Formalmente, potremo considerare l'insieme dei valori $X$ candidati per $t$:
 
 $$
-O(mn log^2 n)
+X = \{\frac{x_{s(i)}+x_{s(i+1)}}{2}|x_{s(i)}  x_{s(i+1)}\}
 $$
 
-dove:
+Ciò comporta che la complessità di questo algoritmo nel tempo sia un $O(n \cdot log(n))$, con $n$ il numero di campioni. Quando applicato ad un albero decisionale, l'algoritmo di splitting viene applicato ad ogni nodo ed ogni feature. Supponendo che ogni nodo analizzi circa la metà dei campioni analizzati dal nodo padre, potremo stimare la complessità per l'addestramento di un albero decisionale ricorrendo al [teorema dell'esperto](https://it.wikipedia.org/wiki/Teorema_dell%27esperto):
 
-* m è il numero di feature;
-* $n$ è il numero di campioni di training.
+$$
+O(m \cdot n \cdot log(n)^2)
+$$
 
-In questo algoritmo, il valore delle feature non importa; soltanto l'ordine è importante. Per questra ragione, questo algoritmo lavora in modo indipendente dalla scala o dalla distribuzione dei valori delle feature. Questo è+ il motivo per cui non dobbiamo normalizzare o scalare le featrur numeriche quando addestriamo un albero decisionale.
+con $m$ numero di feature.
+
+Sottolineamo come l'algoritmo sia indipendente dalla scala o dalla distribuzione dei valori delle feature: infatti, soltanto l'ordine dei valori da queste assumibili è da ritenersi importante. Per questa ragione, non è necessario normalizzare o scalare le feature numeriche prima dell'addestramento di un albero decisionale.
 
 ## Overfitting e pruning
 
-Usando l'algoritmo dfescritto in precedenza, possiamo addestrare un albero decisionale che classifichi perfettamente i campioni di training, a patto che questi siano separabili. Tuttavia, se il dataset contiene del rumore, questo albero andrà in overfitting sui dati, e mostrerà scarse abilità in fase di test.
+L'algoritmo descritto nel paragrafo precedente ci permette di addestrare un albero che classifichi perfettamente i campioni del dataset, a patto che questi siaano separabili. Tuttavia, nel caso il dataset contenga del rumore, l'albero potrebbe andare in overfitting, mostrando scarse capacità di generalizzazione.
 
-La seguente figura mostra un dataset rumoroso con una relazione tra una feature $x$ e la label $y$. La figura mostra anche un albero decisioanle addestrato su qeusto dataset senza alcun tipo di regolarizzzione. Questo modello predice correttamente tutti i campioni di training (in pratica, le predizioni dle modello sono in grado di combaciare con gli esempi di training). Tuttavia, su un dataset contenente lo stesso pattern lineare con un diverso tipo di rumore, il modello offrirà performance subottimali.
+Per limitare l'overfitting di un albero decisionale, quindi, andranno applicati dei criteri di regolarizzazione. In particolare, alcuni dei più diffusi sono:
 
-Per limitare l'overfitting di un albeor decisionale, applichiamo uno o entrambi i seguenti criteri di regolarizzaizone mentre addestriamo l'albero stesso:
+* **impostare una profondità massima**, ovvero fare in modo che l'albero decisionale non vada oltre un certo numero di livelli gerarchici (generalmente $10$);
+* **impostare un numero minimo di campioni per ciascuna foglia**, non considerando come valido un nuovo nodo che caratterizzi meno campioni di quelli impostati in questo valore di soglia.
 
-* impostare una profondità massiam: facciamo in modo che l'albero decisionale non vada oltre una massima profondità, come 10;
-* impostiamo un numero minimo di campioni nelle foglie: una foglia con meno di un certo numero di campioni non sarà considerata per la divisoine.
+Un altro modo di ridurre l'overfitting è rimuovere selettivamente alcuni rami mediante una procedura di **pruning**, che "converte" determinati nodi non-foglia in nodi foglia. 
 
-La seguente figura illustra gli effetti di usare un numero minimo di campioni per foglia variabile. Il modello cattura un minor quantitativo di rumore.
+## Interpretabilità dell'albero decisionale
 
-TODO
+Gli alberi decisionali sono molto semplici da interpretare. Per comprendere il perché, rifacciamoci all'esempio mostrato in figura 2:
 
-Possiamo anche efefttuare la regolarizzaizone dopo l'addestramento rimuovendo in modo selettivo alcuni rami (pruning), ovvero, convertendo certi nodi non-foglia in foglia. UNa soluzione comune ad selezionare i rami da rimuovere è quella di usare und ataset per la validazione. Ovvero, se rimuovere un ramo migliora la qualità del modello sul dataset di valdiazione, quindi il ramo viene rimosso.
+<figure markdown>
+  ![dt_vis](./images/dt_vis.png)
+  <figcaption>Figura 2 - Le regole stabilite da un albero decisionale</figcaption>
+</figure>
 
-La seguente illustrazione mostra quesrta idea. Qui, testiamo se l'accuracy dik validazione dell'albero decsiionale è migliroata se il nodo non-foglia in verede è trasformato in foglia; ovvero, effettuando il pruning dei nodi arancvioini.
+Le regole di questo albero decisionale, addestrato chiaramente sul dataset Tips, ci mostrano chiaramente che il primo nodo stabilisce come criterio di splitting una prima soglia sull'entità del conto, che va in due nodi figli, il primo del quale valuta come suddivisione la mancia, ed il secondo di nuovo il conto, stavolta con una soglia differente. Componendo le diverse regole, è possibile arrivare ad una regola più o meno complessa, ma in grado di trovare le relazioni di interesse all'interno dei nostri dati.
 
+##### Feature importance
 
-DA FIGURA 14
+Possiamo valutare numericamente l'impatto di ciascuna variabile sulla predizione data dall'albero mediante il concetto di *feature importance*, che associa un punteggio ad ogni feature, indicando quanto questa sia importante ai fini predittivi. Ad esempio, se per un modello con due feature $f_1, f_2$ si quantifica che la loro importanza è pari, rispettivamente, a $5.8$ e $2.5$, allora la feature $f_1$ risulterà essere più discriminativa della feature $f_2$.
 
-La segyunte figura illustra l'effetto di usare il 20% del dataset come validazione per effettaure il pruning dell'albero decisionale.
+Per stabilire l'importanza delle diverse feature, possiamo usare metodi agnostici come il [permutation importance](https://christophm.github.io/interpretable-ml-book/feature-importance.html), o anche criteri specificamente calcolati dall'albero, come il numero di nodi con una certa feature, o la profondità media dell'occorrenza di una determinata feature in tutti i percorsi dell'aalbeor.
 
-
-Notiamo che l'uso di un dataset di validazioen riduce il numero di esempi disponibili per l'addestramento iniziale dell'albero decisionale.
-
-Molti modelli inoltre applicano più criteri. Ad sempio, possiamo usare i seguenti:
-
-* applicare un numero minimo di campioni per nodo foglia
-* applicare una profondità massima per limitare la crescita dell'albero decisionale
-* effettuare il pruning dell'albero decisionale
-
-Questi criteri introducono nuovi iperparametri che devono essere impostati (ad esempio, la massima profondità dell'albero), spesso con tuning degli iperparametri automatizzzato. Gli alberi decisionali sono in geenrale abbastanza veloci da addestrare usando l'ottimizzazione degli iperparametri in crss-validazione. Per esempio, su un dataset con "n" campioni:
-
-* dividiamo i campioni di training in $p$ gruppi non-sovrapposti, per esempio $p=10$.
-* per tutti i possibili valori degli iperprametri, valutiamo, su ogni gruppo, la qualità dell'albero decisionale addestrato sugli altri $p-1$ gruppi; facciamo poi la media delle valutazioni sui diversi gruppi;
-* selezioniamo i valori degli iperparametri con la migliore valutazione media;
-* addestriamo un albero decisionale finale usando tutti gli $n$ campioni con gli iperparametri selezionati.
-
-In questa sezione abbiamo discusso il modo in cui gli alberi decisionali limintano l'overfitting. Nononstante questi metodi, l'underfitting e l'overfitting sono delle debolezze degli alberi decisionali. Le foreste decisionali introducono nuovi metodi per limtiare l'overfitting, come vedremo dopo.
-
-## interpretazione diretta dell'albero decisionale
-
-Gli alberi decisionali sono facili da interpretare. Detto questo, cambiare anche pochi esempi può modificare completamente la struttura (e quindi l'interpretazione) dell'albero decisionale.
-
-!!!note "Nota"
-    Specialmente quando il dataset contiene molte feature in qualche modo simili, l'albero decisionale appreso è solo uno di più alberi decisionali più o meno equivalnetni che fittano i dati.
-
-Visto il modo in cui gli alberi decisionali sono costruiti, effettuando il partizionalmento dei campiioni di trainging, si può usare un albero decisioanle per interpretare il dataset (invece di modellarlo). Ogni foglia rappresnta un particolare angolo del dataset. 
-
-## Importanza delle variabili
-
-Per *importasnza delle variabili* (detto anche *feature importance*) si intende un punteggio che indica quanto "importante" sia una feature per il modello. Ad esempio, se per un dato modello con due feature in input $f_1$ ed $f_2$ l'importanza delle variabili sono $f_1 = 5.8, f_2=2.5$, allora la feature $f1$ è più importante per il modello della feature $f2$. Così come per altri modelli di machine learning, l'importanza delle variabili è un modo semplice di comprendere come funziona un albero decisionale.
-
-Possiamo definire l'importanza delle feature in modo agnostico usando metodi come permutation impotrance.
-
-Gli alberi decisionali hanno anche delle specifiche importanze per le variabili, come:
-
-* somma dei punteggi parziali associati ad unac erta feaature
-* numero di nodi con una data feature
-* profondità media della prima occorrenza di unaf eature in tutti  i percorsi dell'albero
-
-L'importanza delle variabili può differire in base a qualità come semantica, scala o proprietà. Inoltre, l'importanza delle variabili foirnisce diversi tipi di informazione circa modello, dataset, e processo di addestramento.
-
-Ad esempio, il numero di condizioni contenenti una certa feature indca quanto un albero decisionale sta guardando a quella specifica feature, il che può indicare l'importanza della variabile. Dopo tutto, l'algoritmo di apprendimento non avrebbe usato una feature in diverse condizioni se questa non avesse avuot importanza. Tuttavia, la stessa feature che appare in più condizioni può anche indicare che il modello sta provando a generalizzare il pattern per quella feature, fallendo. Ad esempio, questo può accadere quando una feature è specifica per ogni campione (il nome e cognome), senza alcuna infomrazione da generalizzare.
-
-D'altro canto, un alto valore di importanza per la variabile indica che rimuovere quella feature inficia il modello, il che è un'indicazione dell'importanza della variabile. Tuttavia, se il modello è robusto, rimuovere una qualsiasi delle feature non dovrebbe influenzare il modello.
-
-Dato che diverse variabili informano su diversi aspetti del modello, osservare contestualmente l'importanza di diverse varaibili è informativo. Ad esempio, se una feature è importante in accordo a tutte le altre, è plausibile che sia molto importante. 
-
-## Esempio con tensorflow-decision
-
-Vediamo come usare la libreria TF-DF per addestrare, rifinire ed interpretare un albero decisionale.
-
-Possiamo farlo sia in locale, sia da un notebook Colab. Per farlo, dovremo installare la libreria TensorFlow Decision Forests.
-
-```sh
-pipenv install tensorflow_decision_forests
-```
-
-All'apice del nostro codice, importiamo le seguenti librerie:
-
-```py
-import numpy as np
-import pandas as pd
-import tensorflow_decision_forests as tfdf
-```
-
-Useremo il dataset relativo ai Palmer Pengiuns, che contiene le misurazioni in termini di dimensione per tre specier di pinguini , ovvero il pigoscelide antartico (Chinstrap), il pinguino Gentoo, ed il pinguino di Adelia (Adelie).
-
-Per prima cosa, carichiamo il dataset in memoria utilizznado Pandas:
-
-```py
-path = "https://storage.googleapis.com/download.tensorflow.org/data/palmer_penguins/penguins.csv"
-dataset = pd.read_csv(path)
-```
-
-Visualizziamo la testa del dataset.
-
-```py
-dataset.head()
-```
-
-TODO: IMMAGINE
-
-Notiamo come il dataset contenga diversi tipi di dato, sia numerici (ad esempio, bill_length_mm), sia categorici (ad esempio, sex). Vi sono inoltre delle feature mancanti. A differenza delle reti nuerali, tuttavia, le foreste decisionali sono in grado di supportare tutti questi tipi di feature in maneira nativa, per cui non dobbiamo effettaure encoding, normalizzazioni o roba del genere.
-
-Per semplificare l'interpretabilità, convertiamo manualmente le specie dei pinguini in label intere:
-
-```py
-label = "species"
-
-classes = list(pandas_dataset[label].unique())
-print(f"Label classes: {classes}")
-# >> Label classes: ['Adelie', 'Gentoo', 'Chinstrap']
-
-pandas_dataset[label] = pandas_dataset[label].map(classes.index)
-```
-
-https://developers.google.com/machine-learning/decision-forests/practice?hl=en
+Ad esempio, il numero di nodi contenenti una certa feature quantifica il modo in cui l'albero considera la stessa, il che può essere un indice della sua importanza: in pratica, il modello tende ad utilizzare molto le feature più importanti, sfruttandole per le loro capacità di generalizzazione. Idealmente, comunque, a nessuna feature dovrebbe essere data una maggiore importanza rispetto ad altre, e tutte dovrebbero influenzare egualmente la predizione.

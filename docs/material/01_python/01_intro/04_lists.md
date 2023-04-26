@@ -1,4 +1,4 @@
-# 1.4 - Liste
+# 1.1.4 - Liste
 
 Abbiamo già detto che una stringa altro non è se non un caso particolare di *lista*. La domanda che sorge spontanea è quindi: *cosa è una lista*?
 

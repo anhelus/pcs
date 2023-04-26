@@ -3,97 +3,80 @@ site_name: Python
 nav:
   - Home: index.md
   - Modulo 1 - Il linguaggio Python:
-    - 1 - Concetti introduttivi:
-      - 1.1 - Introduzione al Python: material/01_python/01_intro/01_intro.md
-      - 1.2 - Operatori: material/01_python/01_intro/02_operators.md
-      - 1.3 - Stringhe: material/01_python/01_intro/03_strings.md
-      - 1.4 - Liste: material/01_python/01_intro/04_lists.md
-      - Esercizi: material/01_python/01_intro/exercises.md
-    - 2 - Programmare in Python:
-      - 2.1 - Sintassi fondamentale: material/01_python/02_syntax/01_syntax.md
-      - 2.2 - Programmazione strutturata: material/01_python/02_syntax/02_structured.md
-      - 2.3 - Funzioni: material/01_python/02_syntax/03_functions.md
-      - 2.4 - Altre strutture dati: material/01_python/02_syntax/04_data_structures.md
-      - 2.5 - Classi: material/01_python/02_syntax/05_classes.md
-      - 2.6 - Script, moduli e package: material/01_python/02_syntax/06_modules.md
-      - Esercizi:
-        - Tracce: material/01_python/02_syntax/exercises/exercises.md
-        # - Soluzioni: material/01_python/02_syntax/exercises/solutions.md
-    - 3 - Concetti avanzati:
-      - 3.1 - Passaggio di argomenti a script: material/01_python/03_advanced/01_argparse.md
+    - 1.1 - Concetti introduttivi:
+      - 1.1.1 - Introduzione al Python: material/01_python/01_intro/01_intro.md
+      - 1.1.2 - Operatori: material/01_python/01_intro/02_operators.md
+      - 1.1.3 - Stringhe: material/01_python/01_intro/03_strings.md
+      - 1.1.4 - Liste: material/01_python/01_intro/04_lists.md
+      - Esercitazione 1.1: material/01_python/01_intro/exercises.md
+    - 1.2 - Programmare in Python:
+      - 1.2.1 - Sintassi fondamentale: material/01_python/02_syntax/01_syntax.md
+      - 1.2.2 - Programmazione strutturata: material/01_python/02_syntax/02_structured.md
+      - 1.2.3 - Funzioni: material/01_python/02_syntax/03_functions.md
+      - 1.2.4 - Altre strutture dati: material/01_python/02_syntax/04_data_structures.md
+      - 1.2.5 - Classi: material/01_python/02_syntax/05_classes.md
+      - 1.2.6 - Script, moduli e package: material/01_python/02_syntax/06_modules.md
+      - Esercitazione 1.2: material/01_python/02_syntax/exercises/exercises.md
+    - 1.3 - Concetti avanzati:
+      - 1.3.1 - Passaggio di argomenti a script: material/01_python/03_advanced/01_argparse.md
   - Modulo 2 - Librerie per il calcolo scientifico:
-    - 1 - Jupyter: material/02_libs/01_jupyter/lecture.md
-    - 2 - NumPy:
-      - 2.1 - Introduzione a Numpy: material/02_libs/02_numpy/01_intro.md
-      - 2.2 - Gli Array: material/02_libs/02_numpy/02_array.md
-      - 2.3 - Operazioni fondamentali sugli array: material/02_libs/02_numpy/03_fundamentals.md
-      - 2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra.md
-      - 2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials.md
-      - 2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics.md
-      - Esercizi:
+    - 2.1 - Jupyter Lab: material/02_libs/01_jupyter/lecture.md
+    - 2.2 - NumPy:
+      - 2.2.1 - Introduzione a Numpy: material/02_libs/02_numpy/01_intro.md
+      - 2.2.2 - Gli Array: material/02_libs/02_numpy/02_array.md
+      - 2.2.3 - Operazioni fondamentali sugli array: material/02_libs/02_numpy/03_fundamentals.md
+      - 2.2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra.md
+      - 2.2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials.md
+      - 2.2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics.md
+      - Esercitazione 2.2:
         - Tracce: material/02_libs/02_numpy/exercises/exercises.md
         - Soluzioni: material/02_libs/02_numpy/exercises/solutions.md
-    - 3 - Pandas:
-      - 3.1 - Introduzione a Pandas: material/02_libs/03_pandas/01_intro.md
-      - 3.2 - Le Series: material/02_libs/03_pandas/02_series.md
-      - 3.3 - Input/Output in Pandas: material/02_libs/03_pandas/03_io.md
-      - 3.4 - Manipolazione dei DataFrame: material/02_libs/03_pandas/04_functions.md
-    - 4 - Visualizzazione dei dati in Python:
-      - 4.1 - Matplotlib: material/02_libs/04_visualization/01_matplotlib.md
-      - 4.2 - Seaborn: material/02_libs/04_visualization/02_seaborn.md
-      - Esercizi: material/02_libs/04_visualization/exercises/exercises.md
+    - 2.3 - Pandas:
+      - 2.3.1 - Introduzione a Pandas: material/02_libs/03_pandas/01_intro.md
+      - 2.3.2 - Le Series: material/02_libs/03_pandas/02_series.md
+      - 2.3.3 - Input/Output in Pandas: material/02_libs/03_pandas/03_io.md
+      - 2.3.4 - Manipolazione dei DataFrame: material/02_libs/03_pandas/04_functions.md
+    - 2.4 - Visualizzazione dei dati in Python:
+      - 2.4.1 - Matplotlib: material/02_libs/04_visualization/01_matplotlib.md
+      - 2.4.2 - Seaborn: material/02_libs/04_visualization/02_seaborn.md
+      - Esercitazione 2.4: material/02_libs/04_visualization/exercises/exercises.md
   - Modulo 3 - Machine learning:
-    - 1 - Introduzione al machine learning: material/03_ml/01_intro.md
-  - Modulo 4 - Scikit Learn:
-    - 1 - Introduzione a Scikit Learn: material/04_sklearn/01_intro.md
-    - Esercizi: material/04_sklearn/exercises/exercises.md
-      # - Soluzioni: material/04_sklearn/exercises/solutions.md
-  #   - 2 - Definizione del problema: material/03_ml/02_framing.md
-  #   - 3 - Preparazione dei dati: material/03_ml/03_data_prep.md
-  #   - 4 - Regressione lineare: material/03_ml/04_lin_reg/lecture.md
-  #   - 5 - Regressione logistica: material/03_ml/05_log_reg/lecture.md
-  # - Modulo 4 - Scikit Learn:
-  #   - 1 - Introduzione a Scikit Learn: material/04_sklearn/01_intro.md
-    # - 6 - Alberi e foreste:
-    #   - 6.1 - Alberi decisionali: material/03_ml/06_trees/01_decision_trees.md
-    #   - 6.2 - Foreste decisionali: material/03_ml/06_trees/02_decision_forests.md
-    #   - 6.3 - Gradient boosting: material/03_ml/06_trees/03_gradient_boost.md
-    # - 7 - Metriche di regressione e classificazione: material/03_ml/07_metrics/lecture.md
-    # - 8 - Clustering:
-    #   - 8.1 - Introduzione al clustering: material/03_ml/08_clustering/01_intro.md
-    #   - 8.2 - K-Means: material/03_ml/08_clustering/02_k_means.md
-    #   - 8.3 - DBSCAN: material/03_ml/08_clustering/03_dbscan.md
-    #   - 8.4 - Metriche di clustering: material/03_ml/08_clustering/04_metrics.md
-  # - Modulo 4 - Machine learning e Scikit Learn:
-  #   - 5.1 - Introduzione a Scikit Learn: material/03_ml_sklearn/15_intro_sklearn/lecture.md
-  #     # - Esercizi: material/03_ml_sklearn/15_intro_sklearn/exercises.md
-  #   - 5.2 - Regressione lineare: material/03_ml_sklearn/16_lin_reg/lecture.md
-  #     # - Esercizi: material/03_ml_sklearn/16_lin_reg/exercises.md
-  #   - 5.3 - Regressione logistica: material/03_ml_sklearn/17_logistic/lecture.md
-  #     # - Esercizi: material/03_ml_sklearn/17_logistic/exercises.md
-  #   - 5.4 - Metriche: material/03_ml_sklearn/18_metrics/lecture.md
-  #     # - Esercizi: material/03_ml_sklearn/18_metrics/exercises.md
-  #   - 5.5 - Classificatori e regressori: material/03_ml_sklearn/19_classifiers_regressors/lecture.md
-  #     # - Esercizi: material/03_ml_sklearn/19_classifiers_regressors/exercises.md
-  #   - 5.6 - Clustering: material/03_ml_sklearn/20_clustering/lecture.md
-  #     # - Esercizi: material/03_ml_sklearn/20_clustering/exercises.md
-  #   - 5.7 - Metriche di clustering: material/03_ml_sklearn/21_cls_metrics/lecture.md
-  #     # - Esercizi: material/03_ml_sklearn/21_cls_metrics/exercises.md
-  #   - 5.8 - Scikit Learn Tips & Tricks: material/03_ml_sklearn/22_sklearn_tricks/lecture.md
-  #     # - Esercizi: material/03_ml_sklearn/22_sklearn_tricks/exercises.md
-  #   - 5.9 - Esercitazione su Scikit Learn:
-  #     # - Esercizi: material/03_ml_sklearn/23_sklearn_ex/exercises.md
-  # - Parte 6 - TensorFlow e Keras:
-  #   - 6.1 - Introduzione a TensorFlow: material/04_nn_tflow/25_intro_tflow/lecture.md
-  #   - 6.2 - Overfitting e regolarizzazione: material/04_nn_tflow/26_dropout_reg/lecture.md
-  #     # - Esercizi: material/04_nn_tflow/26_dropout_reg/exercises.md
-  #   - 6.3 - Elaborazione delle immagini: material/04_nn_tflow/27_tflow_images/lecture.md
-  #     # - Esercizi: material/04_nn_tflow/27_tflow_images/exercises.md
-  #   - 6.4 - TensorFlow Tips & Tricks: material/04_nn_tflow/28_tricks/lecture.md
-  #     # - Esercizi: material/04_nn_tflow/28_tricks/exercises.md
-  # # - Parte 5 - Serie temporali:
-  # #   - 29 - Introduzione alle serie temporali:
-  # #     - Dispense: material/05_time_series/29_ts/lecture.md
+    - 3.1 - Introduzione al machine learning: material/03_ml/01_intro.md
+    - 3.2 - Problem framing: material/03_ml/02_framing.md
+    - 3.3 - Preparazione dei dati: material/03_ml/03_data_prep.md
+    - 3.4 - Regressione lineare: material/03_ml/04_lin_reg/lecture.md
+    - 3.5 - Regressione logistica: material/03_ml/05_log_reg/lecture.md
+    - 3.6 - Alberi:
+      - 3.6.1 - Alberi decisionali: material/03_ml/06_trees/01_decision_trees.md
+      - 3.6.2 - Foreste decisionali: material/03_ml/06_trees/02_decision_forests.md
+      - 3.6.3 - Gradient booested trees: material/03_ml/06_trees/03_gbt.md
+    - 3.7 - Clustering: material/03_ml/07_clustering/lecture.md
+    - 3.8 - Metriche:
+      - 3.8.1 - Metriche di classificazione: material/03_ml/08_metrics/01_classification.md
+      - 3.8.2 - Metriche di regressione: material/03_ml/08_metrics/02_regression.md
+      - 3.8.3 - Metriche di clustering: material/03_ml/08_metrics/03_clustering.md
+  - Modulo 4 - Scikit-Learn:
+    - 4.1 - Introduzione a Scikit-Learn: material/04_sklearn/01_intro/lecture.md
+    - 4.2 - Modelli lineari:
+      - 4.2.1 - Metriche di regressione: material/04_sklearn/02_linear_models/01_metrics.md
+      - 4.2.2 - Regressione lineare e robusta: material/04_sklearn/02_linear_models/02_regression.md
+      - 4.2.3 - Regressione logistica: material/04_sklearn/02_linear_models/03_logistic.md
+      - Esercitazione 4.2: material/04_sklearn/02_linear_models/exercises.md
+    - 4.3 - Stimatori:
+      - 4.3.1 - Metriche di classificazione: material/04_sklearn/03_estimator/01_metrics.md
+      - 4.3.2 - Classificatori e regressori: material/04_sklearn/03_estimator/02_clf_rgr.md
+      - Esercitazione 4.3: material/04_sklearn/03_estimator/exercises.md
+    - 4.4 - Clustering:
+      - 4.4.1 - Metriche di clustering: material/04_sklearn/04_clustering/01_metrics.md
+      - 4.4.2 - Algoritmi di clustering: material/04_sklearn/04_clustering/02_clustering.md
+      - Esercitazione 4.4: material/04_sklearn/04_clustering/exercises.md
+    - 4.5 - Concetti avanzati:
+      - 4.5.1 - Pipeline: material/04_sklearn/05_advanced/01_pipeline.md
+      - 4.5.2 - Preprocessing su dataframe: material/04_sklearn/05_advanced/02_col_tran.md
+      - 4.5.3 - Cross-validazione: material/04_sklearn/05_advanced/03_k_fold.md
+      - 4.5.4 - Feature selection: material/04_sklearn/05_advanced/04_feat_sel.md
+      - 4.5.5 - Ottimizzazione degli iperparametri: material/04_sklearn/05_advanced/05_hyperpars.md
+      - Esercitazione 4.5: material/04_sklearn/05_advanced/exercises.md
   - Appendici:
     - A - Setup di Python e Visual Studio Code: material/appendix/01_python_vs_code/lecture.md
     - B - Setup di TensorFlow: material/appendix/02_setup_tflow/lecture.md
@@ -101,7 +84,6 @@ nav:
     - C - Ambito di una variabile: material/appendix/04_scope/lecture.md
     - D - Programmazione orientata agli oggetti: material/appendix/05_oop/lecture.md
     - E - Tips: material/appendix/06_tips/lecture.md
-    # - F - Il modulo argparse: material/appendix/06_argparse/lecture.md
   - Ringraziamenti: contributors.md
 
 theme:

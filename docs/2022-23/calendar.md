@@ -11,12 +11,12 @@
 | 21/03/2023 | 15:00 - 17:00 | XI | Visualizzazione in Matplotlib |
 | 23/02/2023 | 15:00 - 17:00 | XI | Visualizzazione in Seaborn |
 | 28/03/2023 | 15:00 - 17:00 | XI | Introduzione a Pandas |
-| 05/04/2023 | 15:00 - 17:00 | XII | Introduzione al machine learning ed a Scikit Learn |
+| 05/04/2023 | 15:00 - 17:00 | XII | Introduzione al machine learning ed a Scikit-Learn |
 | 27/04/2023 | 15:00 - 17:00 | XII | Regressione lineare e logistica |
 | 02/05/2023 | 15:00 - 17:00 | XII | Alberi decisionali |
 | 04/05/2023 | 15:00 - 17:00 | XII | Metriche di classificazione e regressione |
 | 09/05/2023 | 15:00 - 17:00 | XII | Clustering |
-| 11/05/2023 | 15:00 - 17:00 | XII | Concetti avanzati di Scikit Learn |
+| 11/05/2023 | 15:00 - 17:00 | XII | Concetti avanzati di Scikit-Learn |
 | 16/05/2023 | 15:00 - 17:00 | XII | Introduzione a TensorFlow |
 | 18/05/2023 | 15:00 - 17:00 | XII | Reti neurali feedforward |
 | 23/05/2023 | 15:00 - 17:00 | XII | Autoencoder |

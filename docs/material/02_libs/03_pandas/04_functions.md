@@ -1,4 +1,4 @@
-# 3.4 - Manipolazione dei DataFrame
+# 2.3.4 - Manipolazione dei DataFrame
 
 ## Visualizzazione dei DataFrame
 
@@ -163,7 +163,7 @@ Questa volta, al primo indice, `Cabin` diventa pari al valore del secondo indice
 Vediamo come la feature `Cabin` venga stavolta valorizzata con il valore di `Fare`.
 
 !!!tip "Suggerimento"
-    Va da sé che la precedente trattazione sia *a meno scopo illustrativo*. Non ha infatti senso andare ad assegnare a `Cabin` un valore numerico, o far propagare i valori delle cabine precedenti/successive. In questo caso, infatti, potrebbe essere conveniente eliminare del tutto la feature o il campione. Come vedremo quando parleremo di Scikit Learn, l'assegnazione dei valori mancanti ha significato soprattutto quando vi sono delle relazioni, dirette o indirette, tra i diversi campioni presenti nel dataset.
+    Va da sé che la precedente trattazione sia *a meno scopo illustrativo*. Non ha infatti senso andare ad assegnare a `Cabin` un valore numerico, o far propagare i valori delle cabine precedenti/successive. In questo caso, infatti, potrebbe essere conveniente eliminare del tutto la feature o il campione. Come vedremo quando parleremo di Scikit-Learn, l'assegnazione dei valori mancanti ha significato soprattutto quando vi sono delle relazioni, dirette o indirette, tra i diversi campioni presenti nel dataset.
 
 ## Operazioni statistiche sui dataframe
 

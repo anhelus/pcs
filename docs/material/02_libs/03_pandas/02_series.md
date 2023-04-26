@@ -1,4 +1,4 @@
-# 3.2 - Le Series
+# 2.3.2 - Le Series
 
 ## Le Series
 

@@ -1,4 +1,4 @@
-# 3.1 - La libreria `argparse`
+# 1.3.1 - La libreria `argparse`
 
 La libreria [`argparse`](https://docs.python.org/3/library/argparse.html) ci permette di passare ad uno script Python degli argomenti utilizzando la riga di comando.
 

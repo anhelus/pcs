@@ -1,4 +1,4 @@
-# 2.1 Introduzione a NumPy
+# 2.2.1 Introduzione a NumPy
 
 La libreria **NumPy**, nome derivante dalla crasi tra <em>Num</em>erical <em>Py</em>thon, è una tra le più utilizzate nelle applicazioni di calcolo scientifico in Python.
 

@@ -1,11 +1,11 @@
-# Esercitazione 3 - NumPy (Soluzioni)
+# Esercitazione 2.1 - NumPy (Soluzioni)
 
 !!!tip "Soluzioni"
     L'implementazione delle soluzioni è disponibile [questo notebook](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/01_numpy/exercises.ipynb).
 
 ## Esercizi sugli array
 
-### Esercizio 3.1
+### Esercizio 2.1.1
 
 Definiamo innanzitutto la funzione `riga_per_colonna`, la quale accetta due array in ingresso e, se le dimensioni sono coerenti, effettua la moltiplicazione riga per colonna.
 
@@ -51,7 +51,7 @@ L'equivalente operazione in NumPy è data da:
 res = np.dot(v1, v2)
 ```
 
-### Esercizio 3.2
+### Esercizio 2.1.2
 
 Una possibile soluzione è la seguente:
 
@@ -61,7 +61,7 @@ def crea_array(dim_1, dim_2=1, val_min=0, val_max=100):
 	return np.array(rows)
 ```
 
-Alla riga 2 utilizziamo due list comprehension, l'una annidata nell'altra. In particolare, nella list comprehension più interna, andremo a generare `dim_2` valori interi casuali compresi tra `val_min` e `val_max`, mentre in quella più esterna ripeteremo l'operazione definita dalla lista più interna `dim_1` volte. Il valore ottenuto è quindi restituito alla riga 3.
+Alla riga 2 utilizziamo due list comprehension, l'una annidata nell'altra. In particolare, nella list comprehension più interna, andremo a generare `dim_2` valori interi casuali compresi tra `val_min` e `val_max`, mentre in quella più esterna ripeteremo l'operazione definita dalla lista più interna `dim_1` volte. Il valore ottenuto è quindi restituito alla riga 2.1.
 
 Con NumPy potremo ovviamente utilizzare il metodo [`randint`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.randint.html):
 
@@ -72,7 +72,7 @@ a_1 = random.randint(0, 100, (4, 1))
 a_2 = random.randint(0, 100, (2, 2))
 ```
 
-### Esercizio 3.3
+### Esercizio 2.1.3
 
 Per risolvere questo problema, possiamo sfruttare il concetto di *maschera booleana*. In particolare, se provassimo a scrivere un'espressione del tipo:
 
@@ -116,7 +116,7 @@ def rettifica(array):
 
 ## Esercizi sulle operazioni algebriche
 
-### Esercizio 3.4
+### Esercizio 2.1.4
 
 Per verificare questo assunto ci basta utilizzare la funzione `inv` per calcolare la matrice inversa:
 
@@ -131,7 +131,7 @@ Conseguentemente, utilizzando la funzione `dot`, potremo fare il prodotto matric
 np.eye(3) == mat.dot(mat_inv)
 ```
 
-### Esercizio 3.5
+### Esercizio 2.1.5
 
 Ricordiamo che il calcolo del determinante di una matrice $2 \times 2$ è dato dalla differenza tra il prodotto degli elementi sulla diagonale e quello dei restanti elementi.
 
@@ -150,7 +150,7 @@ In particolare:
 * alla riga 3, calcoliamo il determinante;
 * alla riga 4, lanciamo un errore nel caso la matrice non abbia dimensioni $2 \times 2$.
 
-### Esercizio 3.6
+### Esercizio 2.1.6
 
 In questo caso, potremo utilizzare i metodi messi a disposizione da NumPy. Tuttavia, dovremo verificare contemporaneamente che:
 
@@ -171,7 +171,7 @@ def inverti_se_invertibile(mat):
 
 ## Esercizi sulle operazioni polinomiali in NumPy
 
-### Esercizio 3.7
+### Esercizio 2.1.7
 
 Per prima cosa, dovremo verificare le lunghezze dei polinomi e, qualora queste non siano coerenti, andare ad inserire un numero di coefficienti adeguato.
 
@@ -192,7 +192,7 @@ In pratica:
 * alle righe 6 - 8, effettuiamo la stessa operazione a polinomi invertiti;
 * alla riga 9, andiamo a restituire la somma *elemento per elemento* dei coefficienti del polinomio.
 
-### Esercizio 3.8
+### Esercizio 2.1.8
 
 Una possibile soluzione è la seguente:
 
@@ -217,7 +217,7 @@ In pratica:
 * nel caso `pesi` non sia una lista vuota, alla riga 5 viene verificato che `pesi` ed `array` abbiano la stessa lunghezza;
 * se ciò avviene, alla riga 6 viene creata una list comprehension moltiplicando l'$i$-mo elemento di `pesi` per il corrispondente elemento di `array`; questa sarà quindi suddiviso per il numero di elementi di `array`.
 
-### Esercizio 3.9
+### Esercizio 2.1.9
 
 La funzione `descrivi` può essere definita come segue:
 

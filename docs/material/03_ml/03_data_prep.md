@@ -1,4 +1,4 @@
-# 3 - Preparazione dei dati
+# 3.3 - Preparazione dei dati
 
 Nella [lezione precedente](./02_framing.md) abbiamo evidenziato come uno dei passi fondamentali nella definizione di un algoritmo di machine learning sia la definizione dei dati sui quali il modello deve essere addestrato. Infatti, per ottenere delle buone predizioni, dovremo opportunamente costruire un dataset; questa operazione avviene in due step, ovvero *campionamento* e *preparazione* dei dati.
 

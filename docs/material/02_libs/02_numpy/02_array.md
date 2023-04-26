@@ -1,4 +1,4 @@
-# 2.2 - Gli array
+# 2.2.2 - Gli array
 
 Nella [lezione precedente](01_intro.md) abbiamo introdotto il concetto gli array, ovvero la struttura dati "centrale" nell'ecosistema di NumPy. In questa lezione ne approfondiremo aspetti e caratteristiche principali.
 

@@ -1,4 +1,4 @@
-# 2.4 - Operazioni algebriche in NumPy
+# 2.2.4 - Operazioni algebriche in NumPy
 
 !!!tip "Notebook di accompagnamento"
 	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/01_numpy/01_algebra.ipynb).

@@ -13,4 +13,4 @@
 | 08 - Strumenti per la visualizzazione dei dati | [:link:](./slides/08_vis.pdf) |
 | 09 - Pandas | [:link:](./slides/09_pandas.pdf) |
 | 10 - Introduzione al machine learning | [:link:](./slides/10_intro_ml.pdf) |
-| 11 - Introduzione a Scikit Learn | [:link:](./slides/11_intro_sklearn.pdf) |
+| 11 - Introduzione a Scikit-Learn | [:link:](./slides/11_intro_sklearn.pdf) |

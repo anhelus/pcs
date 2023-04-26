@@ -1,4 +1,10 @@
-# 4.1 - Matplotlib
+# 2.4.1 - Matplotlib
+
+!!!tip "Notebook di accompagnamento"
+	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/02_visualization/01_matplotlib.ipynb).
+
+!!!tip "Notebook di accompagnamento"
+	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/02_visualization/01_matplotlib.ipynb).
 
 !!!tip "Notebook di accompagnamento"
 	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/02_visualization/01_matplotlib.ipynb).

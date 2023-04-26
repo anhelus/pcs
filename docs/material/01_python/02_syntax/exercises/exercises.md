@@ -1,4 +1,4 @@
-# Esercitazione 2 - Programmare in Python
+# Esercitazione 1.2
 
 ## Esercizi sulla programmazione strutturata
 

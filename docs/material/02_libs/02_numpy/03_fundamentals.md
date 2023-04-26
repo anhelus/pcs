@@ -1,4 +1,4 @@
-# 2.3 - Operazioni fondamentali sugli array
+# 2.2.3 - Operazioni fondamentali sugli array
 
 Dopo averli introdotti nella [lezione precedente](./02_array.md), proseguiamo nella nostra trattazione sugli array andando a vedere tutta quella serie di operazioni fondamentali che è possibile effettuarvi.
 

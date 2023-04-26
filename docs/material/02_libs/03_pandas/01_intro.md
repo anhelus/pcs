@@ -1,4 +1,10 @@
-# 3.1 - Introduzione a Pandas
+# 2.3.1 - Introduzione a Pandas
+
+!!!tip "Notebook di accompagnamento"
+	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/02_visualization/03_pandas.ipynb).
+
+!!!tip "Notebook di accompagnamento"
+	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/02_visualization/03_pandas.ipynb).
 
 !!!tip "Notebook di accompagnamento"
 	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/02_visualization/03_pandas.ipynb).

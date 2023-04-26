@@ -1,4 +1,4 @@
-# 1.3 - Stringhe
+# 1.1.3 - Stringhe
 
 In Python le stringhe possono indifferentemente essere racchiuse tra virgolette singole e doppie.
 

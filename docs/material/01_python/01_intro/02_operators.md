@@ -1,4 +1,4 @@
-# 1.2 - Operatori aritmetici e logici
+# 1.1.2 - Operatori aritmetici e logici
 
 Come brevemente accennato nella [scorsa lezione](01_intro.md), vediamo di seguito quelli che sono gli operatori aritmetici e logici, e come possono essere utilizzati sui tipi numerici di base.
 
