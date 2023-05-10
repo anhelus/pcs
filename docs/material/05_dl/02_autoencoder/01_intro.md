@@ -44,10 +44,4 @@ L'addestramento di un autoencoder avviene considerando quattro diversi iperparam
 3. *numero di nodi per layer*: anche il numero di layer influisce sia sulla complessità sia sulla capacità del modello di caratterizzare relazioni complesse. Di solito, il numero di neuroni per ciascun layer si dimezza ad ogni strato successivo nell'encoder, raddoppiando contestualmente nel decoder;
 4. *reconstruction loss*: la funzione di costo usata per addestrare l'autoencoder dipende da input ed output, e va ad influenzare la tipologia di autoencoder costruito.
 
-Con particolare riferimento all'ultimo punto, vedremo cinque diversi tipi di autoencoder, ovvero:
-
-1. [undercomplete autoencoder](02_undercomplete.md)
-2. [sparse autoencoders](03_sparse.md)
-3. [contractive autoencoder](04_contractive.md)
-4. [denoising autoencoder](05_denoising.md)
-5. [variational autoencoder](06_variational.md)
+Con particolare riferimento all'ultimo punto, vedremo quattro diversi tipi di autoencoder, ovvero [*undercomplete autoencoder*](02_undercomplete.md), [*sparse autoencoders*](03_sparse.md), [*denoising autoencoder*](05_denoising.md), e [*variational autoencoder*](06_variational.md).

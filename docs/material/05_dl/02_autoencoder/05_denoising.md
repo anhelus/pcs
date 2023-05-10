@@ -1,20 +1,20 @@
+# 5.2.4 - Denoising autoencoders
 
+Piuttosto che aggiungere una penalità $\Omega$ alla funzione di costo, possiamo ottenere un autoencoder che apprende qualcosa di utile cambianod il termine dell'errore di ricostruzione nella funzione di costo.
 
+Abbiamo visto che gli autoencoder minimizzano una funzione nella forma:
 
+$$
+L(x, g(f(x)))
+$$
 
+dove $L$ è una funzione di costo che penalizza $g(f(x))$ se non simile ad $x$, come ad esempio la norma $L^2$ della loro differenza. Questo fa in modo che la funzione composta $g \circ f$ apprenda una funzione identità.
 
+In un **denoising autoencoder** viene invece minimizzata la funzione:
 
+$$
+L(x, g(f(\hat{x})))
+$$
 
-
-## Denoising autoencoders
-
-I *denoising autoencoder*, come suggerisce il nome, sono degli autoencoder che rimuovono il rumore da un'immagine. Diversamente dagli autoencoder che abbiamo già visto, questi sono il primo tipo di autoencoder che non ha l'immagine di input come ground truth.
-
-Nei denoising autoencoeder, diamo in pasto una versione rumorosa dell'immagine, dove il rumore è stato aggiunto mediante delle alterazioni di tipo digitale. L'immagine rumorosa viene mandata all'architettura dell'autoencoder, e l'output comparato con l'immagine di ground truth.
-
-Il denoising autoencoder si libera del rumore apprendendo una rappresentazione dell'input dove il rumore può essere filtrato facilmente.
-
-Anche se rimuovere il rumore direttamente dalle immagini sembra difficile, l'autoencoder fa questa operazione mappando i dati di input in un manifold a dimensionalità più bassa (come in un undercomplete autoencoder), dove il filtraggio del rumore diventa molto più semplice.
-
-Essenzialmente, il denoising autoencoder lavora con l'auoto della riduzione della dimensionalità non lineare. La funzione di costo generalmente usata in questo tipo di reti è la loss L2 o L1.
+dove $\hat{x}$ è una copia di $x$ che è stata corrotta da una qualche forma di rumore. I denoising autoencoder devono quindi rimuovere questo rumore invece di limitarsi a copiare l'ingresso.
 
