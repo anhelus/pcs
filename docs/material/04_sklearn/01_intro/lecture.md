@@ -30,7 +30,7 @@ Gli stimatori ed i transformer offrono un'interfaccia comune, la quale offre (ne
 
 ## Preprocessing
 
-Quando abbiamo [introdotto i concetti alla base del machine learning](../../03_ml/03_data_prep.md), abbiamo visto come sia spesso necessario effettuare una serie di operazioni di preprocessing sui dati. Scikit-Learn offre un gran numero di strumenti per farlo; tra questi, vale la pena ricordarne tre in particolare, ovvero:
+Quando abbiamo [introdotto i concetti alla base del machine learning](../../03_ml/01_intro/03_data_prep.md), abbiamo visto come sia spesso necessario effettuare una serie di operazioni di preprocessing sui dati. Scikit-Learn offre un gran numero di strumenti per farlo; tra questi, vale la pena ricordarne tre in particolare, ovvero:
 
 * la funzione [`train_test_split`](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html), utile a suddividere il dataset in un insieme di training ed uno di test;
 * gli *imputer* come [`SimpleImputer()`](https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html) transformer che ci permettono di assegnare eventuali valori mancanti all'interno del dataset;

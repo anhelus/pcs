@@ -14,3 +14,9 @@
 | 09 - Pandas | [:link:](./slides/09_pandas.pdf) |
 | 10 - Introduzione al machine learning | [:link:](./slides/10_intro_ml.pdf) |
 | 11 - Introduzione a Scikit-Learn | [:link:](./slides/11_intro_sklearn.pdf) |
+| 12 - Definizione del problema | [:link:](./slides/12_problem_framing.pdf) |
+| 13 - Preparazione dei dati | [:link:](./slides/13_data_prep.pdf) |
+| 14 - Regressore lineare | [:link:](./slides/14_linear_reg.pdf) |
+| 15 - Regressore logistico | [:link:](./slides/15_logistic_reg.pdf) |
+| 16 - Classificatori e regressori | [:link:](./slides/16_clf_rgr.pdf) |
+| 17 - Metriche | [:link:](./slides/17_metrics.pdf) |

@@ -1,6 +1,6 @@
 # 4.5.3 - Crossvalidazione
 
-Abbiamo visto come sia necessario [suddividere il nostro dataset](../../03_ml/03_data_prep.md#dati-di-training-test-e-validazione) in almeno due insiemi, ovvero quelli di training e di validazione, allo scopo di assicurarci che il modello, addestrato sui dati di training, sia in grado di generalizzare le sue predizioni a casi che non ha mai visto durante l'addestramento.
+Abbiamo visto come sia necessario [suddividere il nostro dataset](../../03_ml/01_intro/03_data_prep.md#dati-di-training-test-e-validazione) in almeno due insiemi, ovvero quelli di training e di validazione, allo scopo di assicurarci che il modello, addestrato sui dati di training, sia in grado di generalizzare le sue predizioni a casi che non ha mai visto durante l'addestramento.
 
 Tuttavia nel tempo è emerso come questa procedura spesso non sia sufficiente: infatti, pur scegliendo i dati di training e testing in maniera completamente casuale, rimane una possibilità tutt'altro che remota che esistano dei particolari meccanismi di generazione dati specifici per quel determinato sottoinsieme di dati. In altre parole, *permane il rischio che l'algoritmo vada in overfitting*.
 

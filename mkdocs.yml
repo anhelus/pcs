@@ -1,4 +1,4 @@
-site_name: Python
+site_name: Python per il Calcolo Scientifico
 
 nav:
   - Home: index.md
@@ -41,20 +41,27 @@ nav:
       - 2.4.2 - Seaborn: material/02_libs/04_visualization/02_seaborn.md
       - Esercitazione 2.4: material/02_libs/04_visualization/exercises/exercises.md
   - Modulo 3 - Machine learning:
-    - 3.1 - Introduzione al machine learning: material/03_ml/01_intro.md
-    - 3.2 - Problem framing: material/03_ml/02_framing.md
-    - 3.3 - Preparazione dei dati: material/03_ml/03_data_prep.md
-    - 3.4 - Regressione lineare: material/03_ml/04_lin_reg/lecture.md
-    - 3.5 - Regressione logistica: material/03_ml/05_log_reg/lecture.md
-    - 3.6 - Alberi:
-      - 3.6.1 - Alberi decisionali: material/03_ml/06_trees/01_decision_trees.md
-      - 3.6.2 - Foreste decisionali: material/03_ml/06_trees/02_decision_forests.md
-      - 3.6.3 - Gradient booested trees: material/03_ml/06_trees/03_gbt.md
-    - 3.7 - Clustering: material/03_ml/07_clustering/lecture.md
-    - 3.8 - Metriche:
-      - 3.8.1 - Metriche di classificazione: material/03_ml/08_metrics/01_classification.md
-      - 3.8.2 - Metriche di regressione: material/03_ml/08_metrics/02_regression.md
-      - 3.8.3 - Metriche di clustering: material/03_ml/08_metrics/03_clustering.md
+    - 3.1 - Concetti di machine learning:
+      - 3.1.1 - Introduzione al machine learning: material/03_ml/01_intro/01_intro.md
+      - 3.1.2 - Definizione del problema: material/03_ml/01_intro/02_framing.md
+      - 3.1.3 - Preparazione dei dati: material/03_ml/01_intro/03_data_prep.md
+      - 3.1.4 - Task, predizione ed esperienza: material/03_ml/01_intro/04_base.md
+      - 3.1.5 - Generalizzazione: material/03_ml/01_intro/05_generalization.md
+      - 3.1.6 - Iperparametri: material/03_ml/01_intro/06_hyperparameters.md
+      - 3.1.7 - Regolarizzazione: material/03_ml/01_intro/07_regularization.md
+    - 3.2 - Regressione lineare: material/03_ml/02_lin_reg/lecture.md
+    - 3.3 - Regressione logistica: material/03_ml/03_log_reg/lecture.md
+    - 3.4 - Alberi:
+      - 3.4.1 - Alberi decisionali: material/03_ml/04_trees/01_decision_trees.md
+      - 3.4.2 - Foreste decisionali: material/03_ml/04_trees/02_decision_forests.md
+      - 3.4.3 - Gradient booested trees: material/03_ml/04_trees/03_gbt.md
+    - 3.5 - Clustering: material/03_ml/05_clustering/lecture.md
+    - 3.6 - Metriche:
+      - 3.6.1 - Metriche di classificazione: material/03_ml/06_metrics/01_classification.md
+      - 3.6.2 - Metriche di regressione: material/03_ml/06_metrics/02_regression.md
+      - 3.6.3 - Metriche di clustering: material/03_ml/06_metrics/03_clustering.md
+    - 3.7 - Problemi aperti:
+      - 3.7.1 - Curse of dimensionality: material/03_ml/07_challenges/01_curse.md
   - Modulo 4 - Scikit-Learn:
     - 4.1 - Introduzione a Scikit-Learn: material/04_sklearn/01_intro/lecture.md
     - 4.2 - Modelli lineari:
@@ -77,6 +84,11 @@ nav:
       - 4.5.4 - Feature selection: material/04_sklearn/05_advanced/04_feat_sel.md
       - 4.5.5 - Ottimizzazione degli iperparametri: material/04_sklearn/05_advanced/05_hyperpars.md
       - Esercitazione 4.5: material/04_sklearn/05_advanced/exercises.md
+  - Modulo 5 - Deep learning:
+    - 5.1 - Introduzione alle reti neurali: material/05_dl/01_nn/lecture.md
+    - 5.2 - Autoencoder:
+      - 5.2.1 - Introduzione agli autoencoder: material/05_dl/02_autoencoder/01_intro.md
+      - 5.2.2 - Undercomplete autoencoder: material/05_dl/02_autoencoder/02_undercomplete.md
   - Appendici:
     - A - Setup di Python e Visual Studio Code: material/appendix/01_python_vs_code/lecture.md
     - B - Setup di TensorFlow: material/appendix/02_setup_tflow/lecture.md
@@ -90,6 +102,17 @@ theme:
   name: material
   language: it
   favicon: assets/images/favicon.png
+  palette:
+    - scheme: default
+      toggle:
+      icon: material/brightness-7
+      name: Dark mode
+      primary: indigo
+      accent: yellow
+    - scheme: slate
+      toggle:
+      icon: material/brightness-4
+      name: Light mode
 
 markdown_extensions:
   - admonition # notes make pretty
@@ -131,6 +154,19 @@ markdown_extensions:
 
 plugins:
   - search
+  - i18n:
+      default_language: it
+      languages:
+        it:
+          name: Italiano
+          build: true
+        en:
+          name: English
+          build: true
+      nav_translations:
+        en:
+          Modulo 1 - Il linguaggio Python: Module 1 - Python language
+
 
 extra:
   social:

@@ -34,7 +34,7 @@ clusterer.labels_
 
 ## Clustering gerarchico
 
-In una delle [lezioni precedenti](../../03_ml/07_clustering/lecture.md) abbiamo visto che gli algoritmi di clustering gerarchico vanno a definire un "albero" di cluster annidati, suddividendo cluster all'$i$-mo livello in più cluster al livello $i+1$-mo o, al contrario, agglomerando più cluster all'$i+1$-mo livello in un singolo cluster al livello $i$-mo.
+In una delle [lezioni precedenti](../../03_ml/05_clustering/lecture.md) abbiamo visto che gli algoritmi di clustering gerarchico vanno a definire un "albero" di cluster annidati, suddividendo cluster all'$i$-mo livello in più cluster al livello $i+1$-mo o, al contrario, agglomerando più cluster all'$i+1$-mo livello in un singolo cluster al livello $i$-mo.
 
 Il clustering gerarchico è implementato in Scikit-Learn mediante la classe [`AgglomerativeClustering`](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering). Il funzionamento è concettualmente identico a quello degli altri stimatori; tuttavia, ci sono alcuni parametri di interesse, ovvero:
 
