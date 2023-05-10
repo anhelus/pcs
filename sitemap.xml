@@ -1,568 +1,939 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>None./</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonecontributors/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/contributors/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/contributors/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Noneprojects/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/projects/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/projects/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>None2022-23/calendar/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/2022-23/calendar/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/2022-23/calendar/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>None2022-23/dates/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/2022-23/dates/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/2022-23/dates/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>None2022-23/exams/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/2022-23/exams/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/2022-23/exams/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>None2022-23/proposals/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/2022-23/proposals/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/2022-23/proposals/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>None2022-23/recordings/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/2022-23/recordings/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/2022-23/recordings/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>None2022-23/slides/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/2022-23/slides/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/2022-23/slides/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/01_intro/01_intro/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/01_intro/01_intro/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/01_intro/01_intro/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/01_intro/02_operators/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/01_intro/02_operators/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/01_intro/02_operators/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/01_intro/03_strings/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/01_intro/03_strings/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/01_intro/03_strings/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/01_intro/04_lists/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/01_intro/04_lists/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/01_intro/04_lists/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/01_intro/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/01_intro/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/01_intro/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/02_syntax/01_syntax/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/02_syntax/01_syntax/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/02_syntax/01_syntax/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/02_syntax/02_structured/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/02_syntax/02_structured/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/02_syntax/02_structured/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/02_syntax/03_functions/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/02_syntax/03_functions/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/02_syntax/03_functions/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/02_syntax/04_data_structures/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/02_syntax/04_data_structures/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/02_syntax/04_data_structures/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/02_syntax/05_classes/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/02_syntax/05_classes/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/02_syntax/05_classes/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/02_syntax/06_modules/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/02_syntax/06_modules/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/02_syntax/06_modules/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/02_syntax/exercises/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/02_syntax/exercises/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/02_syntax/exercises/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/03_advanced/01_argparse/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/03_advanced/01_argparse/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/03_advanced/01_argparse/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/03_advanced/enumerate/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/03_advanced/enumerate/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/03_advanced/enumerate/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/03_advanced/exceptions/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/03_advanced/exceptions/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/03_advanced/exceptions/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/03_advanced/func_prog/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/03_advanced/func_prog/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/03_advanced/func_prog/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/03_advanced/lambda/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/03_advanced/lambda/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/03_advanced/lambda/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/03_advanced/mixin/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/03_advanced/mixin/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/03_advanced/mixin/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/03_advanced/pathlib/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/03_advanced/pathlib/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/03_advanced/pathlib/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/01_python/03_advanced/reference/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/01_python/03_advanced/reference/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/01_python/03_advanced/reference/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/01_jupyter/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/01_jupyter/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/01_jupyter/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/02_numpy/01_intro/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/02_numpy/01_intro/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/02_numpy/01_intro/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/02_numpy/02_array/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/02_numpy/02_array/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/02_numpy/02_array/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/02_numpy/03_fundamentals/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/02_numpy/03_fundamentals/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/02_numpy/03_fundamentals/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/02_numpy/04_algebra/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/02_numpy/04_algebra/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/02_numpy/04_algebra/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/02_numpy/05_polynomials/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/02_numpy/05_polynomials/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/02_numpy/05_polynomials/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/02_numpy/06_statistics/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/02_numpy/06_statistics/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/02_numpy/06_statistics/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/02_numpy/exercises/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/02_numpy/exercises/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/02_numpy/exercises/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/02_numpy/exercises/solutions/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/02_numpy/exercises/solutions/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/02_numpy/exercises/solutions/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/03_pandas/01_intro/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/03_pandas/01_intro/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/03_pandas/01_intro/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/03_pandas/02_series/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/03_pandas/02_series/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/03_pandas/02_series/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/03_pandas/03_io/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/03_pandas/03_io/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/03_pandas/03_io/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/03_pandas/04_functions/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/03_pandas/04_functions/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/03_pandas/04_functions/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/04_visualization/01_matplotlib/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/04_visualization/01_matplotlib/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/04_visualization/01_matplotlib/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/04_visualization/02_seaborn/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/04_visualization/02_seaborn/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/04_visualization/02_seaborn/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/04_visualization/exercises/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/04_visualization/exercises/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/04_visualization/exercises/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/04_visualization/exercises/solutions/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/04_visualization/exercises/solutions/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/04_visualization/exercises/solutions/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/05_scipy/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/05_scipy/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/05_scipy/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/02_libs/05_scipy/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/02_libs/05_scipy/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/02_libs/05_scipy/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/01_intro/01_intro/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/01_intro/01_intro/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/01_intro/01_intro/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/01_intro/02_framing/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/01_intro/02_framing/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/01_intro/02_framing/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/01_intro/03_data_prep/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/01_intro/03_data_prep/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/01_intro/03_data_prep/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/01_intro/04_base/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/01_intro/04_base/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/01_intro/04_base/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/01_intro/05_generalization/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/01_intro/05_generalization/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/01_intro/05_generalization/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/01_intro/06_hyperparameters/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/01_intro/06_hyperparameters/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/01_intro/06_hyperparameters/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/01_intro/07_regularization/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/01_intro/07_regularization/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/01_intro/07_regularization/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/02_lin_reg/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/02_lin_reg/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/02_lin_reg/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/03_log_reg/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/03_log_reg/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/03_log_reg/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/04_trees/01_decision_trees/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/04_trees/01_decision_trees/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/04_trees/01_decision_trees/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/04_trees/02_decision_forests/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/04_trees/02_decision_forests/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/04_trees/02_decision_forests/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/04_trees/03_gbt/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/04_trees/03_gbt/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/04_trees/03_gbt/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/05_clustering/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/05_clustering/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/05_clustering/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/06_metrics/01_classification/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/06_metrics/01_classification/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/06_metrics/01_classification/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/06_metrics/02_regression/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/06_metrics/02_regression/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/06_metrics/02_regression/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/06_metrics/03_clustering/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/06_metrics/03_clustering/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/06_metrics/03_clustering/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/03_ml/07_challenges/01_curse/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/03_ml/07_challenges/01_curse/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/03_ml/07_challenges/01_curse/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/01_intro/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/01_intro/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/01_intro/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/02_linear_models/01_metrics/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/02_linear_models/01_metrics/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/02_linear_models/01_metrics/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/02_linear_models/02_regression/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/02_linear_models/02_regression/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/02_linear_models/02_regression/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/02_linear_models/03_logistic/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/02_linear_models/03_logistic/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/02_linear_models/03_logistic/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/02_linear_models/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/02_linear_models/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/02_linear_models/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/03_estimator/01_metrics/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/03_estimator/01_metrics/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/03_estimator/01_metrics/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/03_estimator/02_clf_rgr/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/03_estimator/02_clf_rgr/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/03_estimator/02_clf_rgr/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/03_estimator/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/03_estimator/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/03_estimator/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/04_clustering/01_metrics/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/04_clustering/01_metrics/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/04_clustering/01_metrics/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/04_clustering/02_clustering/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/04_clustering/02_clustering/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/04_clustering/02_clustering/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/04_clustering/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/04_clustering/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/04_clustering/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/05_advanced/01_pipeline/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/05_advanced/01_pipeline/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/05_advanced/01_pipeline/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/05_advanced/02_col_tran/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/05_advanced/02_col_tran/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/05_advanced/02_col_tran/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/05_advanced/03_k_fold/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/05_advanced/03_k_fold/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/05_advanced/03_k_fold/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/05_advanced/04_feat_sel/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/05_advanced/04_feat_sel/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/05_advanced/04_feat_sel/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/05_advanced/05_hyperpars/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/05_advanced/05_hyperpars/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/05_advanced/05_hyperpars/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/05_advanced/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/05_advanced/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/05_advanced/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/04_sklearn/exercises/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/04_sklearn/exercises/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/04_sklearn/exercises/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/01_nn/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/01_nn/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/01_nn/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/02_autoencoder/01_intro/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/02_autoencoder/01_intro/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/02_autoencoder/01_intro/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/02_autoencoder/02_undercomplete/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/02_autoencoder/02_undercomplete/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/02_autoencoder/02_undercomplete/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/02_autoencoder/03_sparse/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/02_autoencoder/03_sparse/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/02_autoencoder/03_sparse/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/02_autoencoder/04_contractive/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/02_autoencoder/04_contractive/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/02_autoencoder/04_contractive/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/02_autoencoder/05_denoising/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/02_autoencoder/05_denoising/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/02_autoencoder/05_denoising/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/02_autoencoder/06_variational/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/02_autoencoder/06_variational/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/02_autoencoder/06_variational/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/03_rnn/01_rnn/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/03_rnn/01_rnn/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/03_rnn/01_rnn/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/04_cnn/01_cnn/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/04_cnn/01_cnn/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/04_cnn/01_cnn/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/04_cnn/02_feats/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/04_cnn/02_feats/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/04_cnn/02_feats/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/04_cnn/03_pooling/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/04_cnn/03_pooling/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/04_cnn/03_pooling/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/05_obj_det/anchor/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/05_obj_det/anchor/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/05_obj_det/anchor/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/05_obj_det/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/05_obj_det/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/05_obj_det/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/06_xai/02_learned_feature/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/06_xai/02_learned_feature/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/06_xai/02_learned_feature/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/06_xai/intro/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/06_xai/intro/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/06_xai/intro/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/05_dl/07_gans/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/05_dl/07_gans/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/05_dl/07_gans/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/01_intro/01_intro/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/01_intro/01_intro/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/01_intro/01_intro/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/01_intro/02_data/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/01_intro/02_data/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/01_intro/02_data/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/01_intro/03_callbacks/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/01_intro/03_callbacks/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/01_intro/03_callbacks/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/01_intro/04_tl_ft/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/01_intro/04_tl_ft/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/01_intro/04_tl_ft/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/01_intro/05_model_api/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/01_intro/05_model_api/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/01_intro/05_model_api/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/01_intro/06_dropout/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/01_intro/06_dropout/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/01_intro/06_dropout/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/01_intro/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/01_intro/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/01_intro/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/02_autoencoder/01_basic/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/02_autoencoder/01_basic/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/02_autoencoder/01_basic/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/04_cnn/exercises/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/04_cnn/exercises/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/04_cnn/exercises/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/04_cnn/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/04_cnn/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/04_cnn/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/05_yolo/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/05_yolo/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/05_yolo/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/06_tflow/06_xai/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/06_tflow/06_xai/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/06_tflow/06_xai/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/appendix/01_python_vs_code/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/appendix/01_python_vs_code/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/appendix/01_python_vs_code/lecture/"/>
+         
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2023-04-26</lastmod>
+         <loc>Nonematerial/appendix/02_setup_tflow/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
          <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/appendix/02_setup_tflow/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/appendix/02_setup_tflow/lecture/"/>
+         
+    </url>
+    <url>
+         <loc>Nonematerial/appendix/03_libraries/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/appendix/03_libraries/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/appendix/03_libraries/lecture/"/>
+         
+    </url>
+    <url>
+         <loc>Nonematerial/appendix/04_scope/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/appendix/04_scope/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/appendix/04_scope/lecture/"/>
+         
+    </url>
+    <url>
+         <loc>Nonematerial/appendix/05_oop/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/appendix/05_oop/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/appendix/05_oop/lecture/"/>
+         
+    </url>
+    <url>
+         <loc>Nonematerial/appendix/06_tips/lecture/</loc>
+         <lastmod>2023-05-10</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="it" href="Noneit/material/appendix/06_tips/lecture/"/>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/material/appendix/06_tips/lecture/"/>
+         
     </url>
 </urlset>

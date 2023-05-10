@@ -9,17 +9,24 @@
       
       
       
+        <link rel="prev" href="../../../04_sklearn/05_advanced/exercises/">
+      
+      
+        <link rel="next" href="../../02_autoencoder/01_intro/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
     
     
       
-        <title>5.1 - Anatomia di una rete neurale - Python</title>
+        <title>5.1 - Introduzione alle reti neurali - Python per il Calcolo Scientifico</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ded33207.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -59,7 +66,14 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="yellow">
   
     
     
@@ -87,7 +101,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Intestazione">
-    <a href="../../../.." title="Python" class="md-header__button md-logo" aria-label="Python" data-md-component="logo">
+    <a href="../../../.." title="Python per il Calcolo Scientifico" class="md-header__button md-logo" aria-label="Python per il Calcolo Scientifico" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -100,19 +114,63 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Python
+            Python per il Calcolo Scientifico
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5.1 - Anatomia di una rete neurale
+              5.1 - Introduzione alle reti neurali
             
           </span>
         </div>
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="yellow"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+            
+          
+        </form>
+      
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Seleziona la lingua">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="it" class="md-select__link">
+                    Italiano
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../../../en/material/05_dl/01_nn/lecture/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
     
     
       <label class="md-header__button md-icon" for="__search">
@@ -173,13 +231,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigazione" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="Python" class="md-nav__button md-logo" aria-label="Python" data-md-component="logo">
+    <a href="../../../.." title="Python per il Calcolo Scientifico" class="md-nav__button md-logo" aria-label="Python per il Calcolo Scientifico" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    Python
+    Python per il Calcolo Scientifico
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -947,9 +1005,36 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          3.1 - Concetti di machine learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          3.1 - Concetti di machine learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../03_ml/01_intro/" class="md-nav__link">
-        3.1 - Introduzione al machine learning
+      <a href="../../../03_ml/01_intro/01_intro/" class="md-nav__link">
+        3.1.1 - Introduzione al machine learning
       </a>
     </li>
   
@@ -962,8 +1047,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03_ml/02_framing/" class="md-nav__link">
-        3.2 - Problem framing
+      <a href="../../../03_ml/01_intro/02_framing/" class="md-nav__link">
+        3.1.2 - Definizione del problema
       </a>
     </li>
   
@@ -976,8 +1061,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03_ml/03_data_prep/" class="md-nav__link">
-        3.3 - Preparazione dei dati
+      <a href="../../../03_ml/01_intro/03_data_prep/" class="md-nav__link">
+        3.1.3 - Preparazione dei dati
       </a>
     </li>
   
@@ -990,8 +1075,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03_ml/04_lin_reg/lecture/" class="md-nav__link">
-        3.4 - Regressione lineare
+      <a href="../../../03_ml/01_intro/04_base/" class="md-nav__link">
+        3.1.4 - Task, predizione ed esperienza
       </a>
     </li>
   
@@ -1004,8 +1089,161 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03_ml/05_log_reg/lecture/" class="md-nav__link">
-        3.5 - Regressione logistica
+      <a href="../../../03_ml/01_intro/05_generalization/" class="md-nav__link">
+        3.1.5 - Generalizzazione
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/01_intro/06_hyperparameters/" class="md-nav__link">
+        3.1.6 - Iperparametri
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/01_intro/07_regularization/" class="md-nav__link">
+        3.1.7 - Regolarizzazione
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/02_lin_reg/lecture/" class="md-nav__link">
+        3.2 - Regressione lineare
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/03_log_reg/lecture/" class="md-nav__link">
+        3.3 - Regressione logistica
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          3.4 - Alberi
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          3.4 - Alberi
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/04_trees/01_decision_trees/" class="md-nav__link">
+        3.4.1 - Alberi decisionali
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/04_trees/02_decision_forests/" class="md-nav__link">
+        3.4.2 - Foreste decisionali
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/04_trees/03_gbt/" class="md-nav__link">
+        3.4.3 - Gradient booested trees
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_ml/05_clustering/lecture/" class="md-nav__link">
+        3.5 - Clustering
       </a>
     </li>
   
@@ -1028,14 +1266,14 @@
       
       
         <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
-          3.6 - Alberi
+          3.6 - Metriche
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_6">
           <span class="md-nav__icon md-icon"></span>
-          3.6 - Alberi
+          3.6 - Metriche
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1045,8 +1283,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03_ml/06_trees/01_decision_trees/" class="md-nav__link">
-        3.6.1 - Alberi decisionali
+      <a href="../../../03_ml/06_metrics/01_classification/" class="md-nav__link">
+        3.6.1 - Metriche di classificazione
       </a>
     </li>
   
@@ -1059,8 +1297,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03_ml/06_trees/02_decision_forests/" class="md-nav__link">
-        3.6.2 - Foreste decisionali
+      <a href="../../../03_ml/06_metrics/02_regression/" class="md-nav__link">
+        3.6.2 - Metriche di regressione
       </a>
     </li>
   
@@ -1073,8 +1311,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03_ml/06_trees/03_gbt/" class="md-nav__link">
-        3.6.3 - Gradient booested trees
+      <a href="../../../03_ml/06_metrics/03_clustering/" class="md-nav__link">
+        3.6.3 - Metriche di clustering
       </a>
     </li>
   
@@ -1093,39 +1331,25 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../03_ml/07_clustering/lecture/" class="md-nav__link">
-        3.7 - Clustering
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
       
       
       
-        <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
-          3.8 - Metriche
+        <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+          3.7 - Problemi aperti
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_4_8">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_7">
           <span class="md-nav__icon md-icon"></span>
-          3.8 - Metriche
+          3.7 - Problemi aperti
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1135,36 +1359,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03_ml/08_metrics/01_classification/" class="md-nav__link">
-        3.8.1 - Metriche di classificazione
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../03_ml/08_metrics/02_regression/" class="md-nav__link">
-        3.8.2 - Metriche di regressione
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../03_ml/08_metrics/03_clustering/" class="md-nav__link">
-        3.8.3 - Metriche di clustering
+      <a href="../../../03_ml/07_challenges/01_curse/" class="md-nav__link">
+        3.7.1 - Curse of dimensionality
       </a>
     </li>
   
@@ -1599,6 +1795,118 @@
 
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Modulo 5 - Deep learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 5 - Deep learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          5.1 - Introduzione alle reti neurali
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        5.1 - Introduzione alle reti neurali
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problemi-non-lineari" class="md-nav__link">
+    Problemi non lineari
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reti-neurali-e-problemi-non-lineari" class="md-nav__link">
+    Reti neurali e problemi non lineari
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funzioni-di-attivazione" class="md-nav__link">
+    Funzioni di attivazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formulazione-matematica" class="md-nav__link">
+    Formulazione matematica
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipi-di-reti-neurale" class="md-nav__link">
+    Tipi di reti neurale
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1606,17 +1914,87 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
       
       
       
-        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          5.2 - Autoencoder
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          5.2 - Autoencoder
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_autoencoder/01_intro/" class="md-nav__link">
+        5.2.1 - Introduzione agli autoencoder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_autoencoder/02_undercomplete/" class="md-nav__link">
+        5.2.2 - Undercomplete autoencoder
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
           Appendici
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_6">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Appendici
         </label>
@@ -1754,29 +2132,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#251-problemi-non-lineari" class="md-nav__link">
-    25.1 - Problemi non lineari
+  <a href="#problemi-non-lineari" class="md-nav__link">
+    Problemi non lineari
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#252-reti-neurali-e-problemi-non-lineari" class="md-nav__link">
-    25.2 - Reti neurali e problemi non lineari
-  </a>
-  
-    <nav class="md-nav" aria-label="25.2 - Reti neurali e problemi non lineari">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2521-funzioni-di-attivazione" class="md-nav__link">
-    25.2.1 - Funzioni di attivazione
+  <a href="#reti-neurali-e-problemi-non-lineari" class="md-nav__link">
+    Reti neurali e problemi non lineari
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#funzioni-di-attivazione" class="md-nav__link">
+    Funzioni di attivazione
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formulazione-matematica" class="md-nav__link">
+    Formulazione matematica
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipi-di-reti-neurale" class="md-nav__link">
+    Tipi di reti neurale
+  </a>
   
 </li>
       
@@ -1796,52 +2182,63 @@
 
 
 <h1 id="51-anatomia-di-una-rete-neurale">5.1 - Anatomia di una rete neurale<a class="headerlink" href="#51-anatomia-di-una-rete-neurale" title="Permanent link">&para;</a></h1>
-<p>Le reti neurali sono ormai sulla bocca di tutti: chiunque le usa per risolvere con successo ogni tipo di problema. Tuttavia, il passo giusto prima di usarle è quello di comprendere effettivamente a cosa servono: in tal senso, introduciamo il concetto di <em>problema non lineare</em>.</p>
-<h2 id="251-problemi-non-lineari">25.1 - Problemi non lineari<a class="headerlink" href="#251-problemi-non-lineari" title="Permanent link">&para;</a></h2>
-<p>Diamo un'occhiata al dataset rappresentato nella figura 25.1.</p>
+<p>Le reti neurali sono ormai sulla bocca di tutti: chiunque le usa per risolvere con (apparente) successo ogni tipo di problema. Tuttavia, prima di usarle, è opportuno comprendere effettivamente a cosa servano.</p>
+<p>Per farlo, non possiamo non partire dall'introdurre il tipo di problemi per risolvere i quali le reti neurali sono state progettate, ovvero i <em>problemi non lineari</em>.</p>
+<h2 id="problemi-non-lineari">Problemi non lineari<a class="headerlink" href="#problemi-non-lineari" title="Permanent link">&para;</a></h2>
+<p>Diamo uno sguardo al dataset rappresentato in figura 1.</p>
 <figure>
-<p><img alt="nonlinear" src="../images/nonlinear.png" width="450" /><br />
+<p><img alt="nonlinear" src="../images/nonlinear.png" width="600" /><br />
 </p>
-<figcaption>Figura 25.1 - Dataset non lineare</figcaption>
+<figcaption>Figura 1 - Dataset non lineare</figcaption>
 </figure>
-<p>Questo dataset è evidentemente <em>non lineare</em>: in pratica, questo significa che non esiste un algoritmo in grado di separare in maniera lineare le due classi tra loro o, in termini matematici, non esiste un modello in forma:</p>
+<p>Un dataset di questo tipo è, evidentemente, <em>non lineare</em>. In altre parole, questo significa che non esistono algoritmi in grado di trovare una funzione lineare (ovvero, una retta) che separi i punti appartenenti alle due classi. In termini analitici, non esiste un modello nella forma:</p>
 <div class="arithmatex">\[
 y = ax_1 + bx_2 + c
 \]</div>
-<p>che permetta di determinare <span class="arithmatex">\(y\)</span> a partire dalle feature <span class="arithmatex">\(x_1\)</span> ed <span class="arithmatex">\(x_2\)</span>.</p>
-<div class="admonition tip">
+<p>che permetta di determinare <span class="arithmatex">\(y\)</span> a partire dai valori <span class="arithmatex">\(x_1\)</span> ed <span class="arithmatex">\(x_2\)</span>.</p>
+<div class="admonition note">
 <p class="admonition-title">Numero di feature</p>
-<p>Ovviamente, se il numero di feature fosse più elevato, il sommatore lineare dovrebbe considerare un maggior numero di variabili indipendenti.</p>
+<p>Ovviamente, abbiamo considerato due feature per semplicità rappresentativa. Nel caso il numero di feature fosse più alto, il modello lineare dovrebbe considerare un numero più elevato di variabili indipendenti.</p>
 </div>
-<p>I lettori più audaci potrebbero provare ad usare delle approssimazioni lineari a tratti. Costoro dovrebbero considerare la figura 25.2.</p>
+<p>Potremmo pensare a questo punto di utilizzare un'approssimazione lineare a tratti che, nel caso precedente, sarebbe di grande aiuto nella risoluzione del problema. Tuttavia, consideriamo per un attimo la situazione illustrata in figura 2.</p>
 <figure>
-<p><img alt="very_nonlinear" src="../images/very_nonlinear.png" width="450" /><br />
+<p><img alt="very_nonlinear" src="../images/very_nonlinear.png" width="600" /><br />
 </p>
-<figcaption>Figura 25.2 - Dataset *estremamente* non lineare</figcaption>
+<figcaption>Figura 2 - Dataset estremamente non lineare</figcaption>
 </figure>
-<h2 id="252-reti-neurali-e-problemi-non-lineari">25.2 - Reti neurali e problemi non lineari<a class="headerlink" href="#252-reti-neurali-e-problemi-non-lineari" title="Permanent link">&para;</a></h2>
-<p>Per capire come le reti neurali ci aiutano a modellare un problema non lineare, visualizziamo un semplice sommatore pesato.</p>
+<p>In quest'ultimo caso è evidente come i dati non siano in alcun modo linearmente separabili. E' quindi necessario utilizzare un approccio adeguato.</p>
+<h2 id="reti-neurali-e-problemi-non-lineari">Reti neurali e problemi non lineari<a class="headerlink" href="#reti-neurali-e-problemi-non-lineari" title="Permanent link">&para;</a></h2>
+<p>Per capire come le reti neurali ci aiutino a risolvere un problema non lineare, partiamo da un semplice sommatore pesato, mostrato in figura 3.</p>
 <figure>
-<p><img alt="linear_1" src="../images/linear_1.png" width="450" /><br />
+<p><img alt="linear_1" src="../images/linear_1.png" width="600" /><br />
 </p>
-<figcaption>Figura 25.3 - Un sommatore lineare</figcaption>
+<figcaption>Figura 3 - Un sommatore lineare</figcaption>
 </figure>
-<p>In questo semplice caso abbiamo tre input ed un output. Proviamo ad aggiungere un ulteriore strato.</p>
+<p>Il sommatore lineare ha tre ingressi, che vengono combinati secondo una qualche terna di pesi <span class="arithmatex">\((w_1, w_2, w_3)\)</span> per ottenere un singolo output. In pratica, l'uscita sarà data dalla seguetne relazione:</p>
+<div class="arithmatex">\[
+y = w_1 x_1 + w_2 x_2 + w_3 x_3 + b
+\]</div>
+<p>Da notare come sia stato aggiunto un contributo <span class="arithmatex">\(b\)</span> legato ad un termine opzionale di <em>bias</em>. Proviamo adesso ad aggiungere uno strato intermedio (o <em>nascosto</em>) tra l'ingresso e l'uscita, ottenendo lo schema mostrato in figura 2.</p>
 <figure>
-<p><img alt="linear_2" src="../images/linear_2.png" width="450" /><br />
+<p><img alt="linear_2" src="../images/linear_2.png" width="600" /><br />
 </p>
-<figcaption>Figura 25.4 - Un sommatore lineare a più strati</figcaption>
+<figcaption>Figura 4 - Un sommatore con uno strato nascosto</figcaption>
 </figure>
-<p>Lo strato che abbiamo aggiunto è detto <em>nascosto</em>, e rappresenta una serie di valori intermedi considerati dal sommatore nel calcolo dell'uscita. Quest'ultima non sarà più una somma pesata degli input, ma <em>una somma pesata dei valori in uscita dallo strato nascosto</em>, che a loro volta sono dipendenti dall'input.</p>
-<p>Tuttavia, il modello <em>rimane lineare</em>: potremo aggiungere un numero arbitrario di strati nascosti, ma questo sarà sempre vero, a meno che non si usi una particolare funzione, detta di <em>attivazione</em>.</p>
-<h3 id="2521-funzioni-di-attivazione">25.2.1 - Funzioni di attivazione<a class="headerlink" href="#2521-funzioni-di-attivazione" title="Permanent link">&para;</a></h3>
-<p>La modellazione di un problema non lineare prevede l'introduzione di (appunto) non linearità all'interno del modello. Nella pratica, potremo inserire delle opportune funzioni non lineari tra i diversi strati della rete. Queste funzioni sono dette <em>di attivazione</em>.</p>
+<p>Lo strato nascosto (<em>hidden layer</em>) rappresenta una serie di valori intermedi considerati dal sommatore nel calcolo dell'output. In pratica:</p>
+<ul>
+<li>ogni nodo dello strato nascosto sarà dato da una somma pesata dei nodi dell'input;</li>
+<li>l'output sarà dato da una somma pesata dei nodi appartenenti allo strato nascosto.</li>
+</ul>
+<p>E' importante sottolineare come ogni "freccia", o per meglio dire <em>connessione</em>, abbia uno specifico peso associato.</p>
+<p>Nonostante queste modifiche, il modello rimane comunque lineare: in altre parole, potremo aggiungere un numero arbitrario di nodi e strati nascosti, ma l'uscita sarà sempre una somma pesata (più o meno complessa) dell'ingresso. Ciò però cambia nel momento in cui andiamo a considerare una o più <em>funzioni di attivazione</em>.</p>
+<h2 id="funzioni-di-attivazione">Funzioni di attivazione<a class="headerlink" href="#funzioni-di-attivazione" title="Permanent link">&para;</a></h2>
+<p>La modellazione di un problema non lineare prevede l'introduzione di non linearità all'interno del modello: per farlo, dovremo inserire delle funzioni (per l'appunto) non lineari, chiamate <em>funzioni di attivazione</em>. Uno schema è mostrato in figura 5.</p>
 <figure>
-<p><img alt="nn" src="../images/nn.png" width="450" /><br />
+<p><img alt="nn" src="../images/nn.png" width="600" /><br />
 </p>
-<figcaption>Figura 25.5 - Semplice rete neurale con funzioni di attivazione</figcaption>
+<figcaption>Figura 5 - Rete neurale con funzioni di attivazione</figcaption>
 </figure>
-<p>Ovviamente, con un maggior numero di strati nascosti, l'impatto delle non linearità diventa maggiore: in questo modo, saremo in grado di inferire delle relazioni anche molto complesse tra gli input e gli output (predetti).</p>
+<p>Ovviamente, con un maggior numero di strati nascosti l'impatto delle non-linearità diventa maggiore. In questo modo, saremo in grado di inferire delle relazioni anche molto complesse tra gli input e gli output.</p>
 <p>Le funzioni di attivazione più utilizzate in passato erano di tipo sigmoidale (simili, per intenderci, alla funzione che abbiamo visto in uscita alla regressione logistica). Attualmente, le funzioni più usate sono le <em>rectified linear unit</em>, o <em>ReLU</em>, che hanno risultati comparabili in termini di accuratezza del modello alla sigmoidale, ma risultano essere significativamente meno complesse dal punto di vista computazionale.</p>
 <p>Le ReLU sono espresse dalla seguente funzione:</p>
 <div class="arithmatex">\[
@@ -1849,9 +2246,9 @@ y = max(0, x)
 \]</div>
 <p>che graficamente si traduce in una forma espressa come:</p>
 <figure>
-<p><img alt="relu" src="../images/relu.png" width="450" /><br />
+<p><img alt="relu" src="../images/relu.png" /><br />
 </p>
-<figcaption>Figura 25. - ReLU</figcaption>
+<figcaption>Figura 6 - Schema della funzione di attivazione ReLU</figcaption>
 </figure>
 <div class="admonition tip">
 <p class="admonition-title">ReLU nella pratica</p>
@@ -1863,6 +2260,42 @@ y = max(0, x)
 <li>ogni neurone è connesso a quelli dello strato successivo mediante dei <em>pesi</em>, che rappresentano la "forza" della connessione;</li>
 <li>esiste una funzione di attivazione che trasforma l'uscita di ogni neurone verso lo strato successivo inserendo delle non linearità.</li>
 </ul>
+<h2 id="formulazione-matematica">Formulazione matematica<a class="headerlink" href="#formulazione-matematica" title="Permanent link">&para;</a></h2>
+<h5 id="funzionamento-di-una-rete-neurale">Funzionamento di una rete neurale<a class="headerlink" href="#funzionamento-di-una-rete-neurale" title="Permanent link">&para;</a></h5>
+<p>Dato un insieme di coppie campione/label nella forma <span class="arithmatex">\((x_1, y_1), (x_2, y_2), \ldots (x_n, y_n)\)</span>, con <span class="arithmatex">\(x_i \in \mathbb{R}^n, y_i \in {0, 1}\)</span>, una rete neurale con un singolo neurone in un singolo strato nascosto apprende la funzione <span class="arithmatex">\(f(x)=W_2 g(W_1^T x + b_1)+b_2\)</span>, dove <span class="arithmatex">\(W_1 \in \mathbb{R}^m\)</span> e <span class="arithmatex">\(W_2, b_1, b_2 \in \mathbb{R}\)</span> sono i parametri del modello.</p>
+<p>In particolare, <span class="arithmatex">\(W_1\)</span> e <span class="arithmatex">\(W_2\)</span> rappresentano i pesi associati ai neuroni nel layer di input ed in quello nascosto, mentre <span class="arithmatex">\(b_1\)</span> e <span class="arithmatex">\(b_2\)</span> rappresentano i bias aggiunti dallo strato di ingresso e quello nascosto; <span class="arithmatex">\(g(): \mathbb{R} \rightarrow \mathbb{R}\)</span> è la funzione di attivazione.</p>
+<p>Per un problema di classificazione binaria, viene utilizzata nell'ultimo strato la funzione logistica:</p>
+<div class="arithmatex">\[
+g(z) = \frac{1}{(1+e^{-z})}
+\]</div>
+<p>In questo modo, si ottiene un valore d'uscita compresto tra <span class="arithmatex">\(0\)</span> ed <span class="arithmatex">\(1\)</span>. Per discriminare tra le due possibili classi, viene usata una soglia <span class="arithmatex">\(\rho=0.5\)</span>.</p>
+<p>Nel caso di un problema multiclasse, <span class="arithmatex">\(f(x)\)</span> sarà un vettore ad <span class="arithmatex">\(n\)</span> dimensioni, con <span class="arithmatex">\(n\)</span> numero di classi. In questo caso, non viene utilizzata la funzione logistica per l'attivazione, bensì una <em>softmax</em>:</p>
+<div class="arithmatex">\[
+softmax(z)_i = \frac{e^{z_i}}{\sum_{l=1}^k e^{z_l}}
+\]</div>
+<p>dove <span class="arithmatex">\(z_i\)</span> rappresenta l'<span class="arithmatex">\(i\)</span>-mo elemento dell'ingresso alla softmax, che corrisponde quindi alla classe <span class="arithmatex">\(i\)</span>, e <span class="arithmatex">\(K\)</span> è il numero totale di classi. Il risultato sarà un vettore contenente le probabilità che il campione <span class="arithmatex">\(x\)</span> appartenga a ciascuna classe; conseguentemente, l'output sarà la classe con il valore di probabilità più alto.</p>
+<p>Nel caso si affronti un problema di regressione, l'output è proprio <span class="arithmatex">\(f(x)\)</span>, per cui la funzione di attivazione diventa semplicemente la funzione identità.</p>
+<h5 id="funzione-di-costo">Funzione di costo<a class="headerlink" href="#funzione-di-costo" title="Permanent link">&para;</a></h5>
+<p>Così come tutti i classificatori e regressori, anche una rete neurale valuta le proprie performance mediante una funzione di costo. In particolare, nel caso di classificazione, la funzione di costo è data dalla cross-entropia, che nel caso binario è data da:</p>
+<div class="arithmatex">\[
+L(\hat{y}, y, W) = -\frac{1}{n}\sum_{i=0}^n(y_i \ln \hat{y}_i + (1-y_i) \ln (1-\hat{y}_i)) + \frac{\alpha}{2n} \|W\|_2^2
+\]</div>
+<p>dove <span class="arithmatex">\(\|W\|_2^2\)</span> è un termine di regolarizzazione L2, ed <span class="arithmatex">\(\alpha\)</span> parametro che controlla il peso di tale termine.</p>
+<p>Nel caso della regressione, viene utilizzato l'errore quadratico medio:</p>
+<div class="arithmatex">\[
+L(\hat{y}, y, W) = \frac{1}{2n} \sum_{i=0}^n \|\hat{y}_i - y_i \|_2^2 + \frac{\alpha}{2n}\|W\|_2^2
+\]</div>
+<h5 id="aggiornamento-dei-pesi">Aggiornamento dei pesi<a class="headerlink" href="#aggiornamento-dei-pesi" title="Permanent link">&para;</a></h5>
+<p>Le reti neurali partono con pesi assegnati in maniera casuale, ed hanno l'obiettivo di minimizzare la funzione di costo aggiornando i valori assegnati a tali pesi. Di conseguenza, dopo che il valore della funzione di costo è stato calcolato, viene effettuato il cosiddetto <em>backward pass</em>, allo scopo di aggiornare i valori di pesi e bias in modo da ridurre il valore complessivo della funzione di costo.</p>
+<p>Dato che gli algoritmi utilizzati sono tutti basati su varianti a discesa di gradiente, sarà il gradiente <span class="arithmatex">\(\nabla L_W\)</span> ad essere calcolato e sottratto a <span class="arithmatex">\(W\)</span>. In pratica:</p>
+<div class="arithmatex">\[
+W^{i+1}=W^i - \epsilon \nabla L_W^i
+\]</div>
+<p>dove <span class="arithmatex">\(i\)</span> è l'epoca di training ed <span class="arithmatex">\(\epsilon\)</span> è un parametro chiamato <em>learning rate</em>.</p>
+<p>L'addestramento si interrompe per un certo valore di <span class="arithmatex">\(i\)</span> o, nei casi più sofisticati, quando il miglioramento in termini di funzione di costo scende al di sotto di una certa soglia.</p>
+<h2 id="tipi-di-reti-neurale">Tipi di reti neurale<a class="headerlink" href="#tipi-di-reti-neurale" title="Permanent link">&para;</a></h2>
+<p>Esistono molti tipi di rete neurale. Quello che abbiamo descritto in questa lezione è il più generico, e viene comunemente indicato come <em>rete neurale feed-forward</em>. Ciò è legato al fatto che in questo tipo di rete l'input "fluisce" verso l'output, a meno del backward pass legato all'aggiornamento dei parametri.</p>
+<p>Nelle prossime lezioni vedremo altri tre tipi di rete, ovvero gli autoencoder, le recurrent neural network, e le convolutional neural network, ognuna delle quali ha uno specifico dominio applicativo.</p>
 
 
   
@@ -1932,7 +2365,7 @@ y = max(0, x)
     <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.fac441b0.min.js"></script>
       
         <script src="../../../../js/config.js"></script>
       
