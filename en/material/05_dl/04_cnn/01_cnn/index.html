@@ -15,7 +15,7 @@
     
     
       
-        <title>01 cnn - Python per il Calcolo Scientifico</title>
+        <title>5.4.1 - Convolutional neural networks - Python per il Calcolo Scientifico</title>
       
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#loperazione-di-convoluzione" class="md-skip">
+        <a href="#541-convolutional-neural-networks" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              01 cnn
+              5.4.1 - Convolutional neural networks
             
           </span>
         </div>
@@ -1883,6 +1883,48 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_autoencoder/03_sparse/" class="md-nav__link">
+        5.2.3 - Sparse autoencoder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_autoencoder/04_denoising/" class="md-nav__link">
+        5.2.4 - Denoising autoencoder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_autoencoder/05_variational/" class="md-nav__link">
+        5.2.5 - Variational autoencoder
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2047,6 +2089,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2055,8 +2099,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#loperazione-di-convoluzione" class="md-nav__link">
-    L'operazione di convoluzione
+  <a href="#la-convoluzione" class="md-nav__link">
+    La convoluzione
   </a>
   
 </li>
@@ -2076,17 +2120,16 @@
                   
 
 
-  <h1>01 cnn</h1>
-
-<p>Le <em>reti convoluzionali</em>, conosciute anche come <em>convolutional neural entworks</em> (CNN), sono un tipo di reti neurali specializzato sull'elabroazione di dati che hanno una topologia a griglia. Esempi includono serie tempiorali, che possono essere pensati come una griglia monodimensionale campionata ad intervalli di tempo regolari, ed immagini, che sono delle grgilie bidimensionali di pixel. Le reti convoluzionali hanno riscosso un enorme successo in applciazioni pratiche. Il nome "cojnvolutional neurla netowrk" indica che la rete impiega un'operazione matematica chiamata <em>convoluzione</em>. La convoluzione è uin tipo speciale di operazione lineare. Le reti convoluzzionali sono semplicemnte delle reti neurali che usano delle convoluzioni al posto di una generica moltiplciazione matriciaale in almeno uno degli streati.</p>
-<p>Per prima cosa, descriviamo cosa è la convoluzione. QUindi, spieghiamo il motivo dietro l'uso di una convoluzione in una rete neurale. Descriveremo quindi un'operazione chiamata pooling. Usualmente, le operazioni usate in una CNN non corrispondono precisamente alla definizione di convoluzione così come suata in altri campi.</p>
-<h2 id="loperazione-di-convoluzione">L'operazione di convoluzione<a class="headerlink" href="#loperazione-di-convoluzione" title="Permanent link">&para;</a></h2>
-<p>Nella forma più generale, la convoluzione è un'operazione di due funzioni ad argomenti reali. Per motivare la definizione di convoluzione, iniziamo con campioni di due funzioni che possiamo usare.</p>
-<p>Supponiamo che stiamo tracciando la posizione di una navicella spaziale con un sensore laser. Il nostro sensore laser fornisce un output singolo <span class="arithmatex">\(x(t)\)</span>, la posizoine della navicella spaziale al tempo <span class="arithmatex">\(t\)</span>. Sia <span class="arithmatex">\(x\)</span> e <span class="arithmatex">\(t\)</span> sono a valori reali, ovvero, possiamo avere una diversa lettura dal sensore laser ad ogni istante del tempo.</p>
-<p>Ora supponiamo che il nostro sensore laser sia in qualche modo rumoroso. Per ottenere una stima meno rumorosa della posizione della navicella spaziale, vorremmo misurare diverse misure. Naturalmente, le misure più recenti sono più rilevanti, per cui vorremo che qeusta sia una media pesata che ci dà più peso alle misure recenti. Possiamo farlo con una funzione di peso <span class="arithmatex">\(w(a)\)</span>, dove <span class="arithmatex">\(a\)</span> è l'età della misura. Se paplicahiamo questa meida pesata ad ogni momento, otteniamo una nuova funzione <span class="arithmatex">\(s\)</span> forniscono una media della posizione della navicella spaziale:</p>
+<h1 id="541-convolutional-neural-networks">5.4.1 - Convolutional neural networks<a class="headerlink" href="#541-convolutional-neural-networks" title="Permanent link">&para;</a></h1>
+<p>Le <strong>convolutional neural networks</strong> (<em>CNN</em>) sono un tipo di rete neurale specializzato nell'elaborazione di dati che hanno una topologia riconducibile ad una griglia temporale. Un tipico esempio di applicazione delle CNN sono le immagini, che nell'ambito informatico sono rappresentate come griglie bidimensionali (o tridimensionali) di pixel.</p>
+<p>Il termine <em>convolutional</em> nel nome suggerisce inoltre che la rete si basa su una specifica operazione matematica di tipo lineare, chiamata <strong>convoluzione</strong>, che viene usata al posto della generica moltiplicazione matriciale in uno o più strati della rete; vediamola più nel dettaglio.</p>
+<h2 id="la-convoluzione">La convoluzione<a class="headerlink" href="#la-convoluzione" title="Permanent link">&para;</a></h2>
+<p>Per comprendere i principi sottostanti l'operazione di convoluzione è utile fare un breve esempio. Supponiamo di voler tracciare la posizione di una navicella spaziale mediante un sensore laser, il quale restituirà un output <span class="arithmatex">\(x(t), x \in \mathbb{R}\)</span> rappresentativo della posizione della navicella al tempo <span class="arithmatex">\(t, t \in \mathbb{R}\)</span>. In altre parole, il fatto che sia <span class="arithmatex">\(x\)</span> sia <span class="arithmatex">\(t\)</span> definite nel dominio dei valori reali farà sì che potremo avere una diversa lettura del sensore laser ad ogni istante di tempo.</p>
+<p>Supponiamo adesso che l'uscita del sensore sia affetta da rumore; in tal caso, potremmo voler effettuare diverse misurazioni della posizione della navetta allo scopo di ottenere una stima più precisa della sua posizione. Ovviamente, però, dovremo dare maggiore rilevanza alle misure più recenti, per cui dovremo trovare un modo per farlo dando un peso opportuno a ciascun valore considerato, magari usando una funzione di peso <span class="arithmatex">\(w(a)\)</span>, con <span class="arithmatex">\(a\)</span> un parametro di "età" associato alla misura. Applicando questa media pesata per ciascun istante <span class="arithmatex">\(t\)</span>, avremo una nuova funzione composta <span class="arithmatex">\(s\)</span> che fornirà la seguente stima della posizione della navicella:</p>
 <div class="arithmatex">\[
 s(t) = \int x(a) w(t-a) \delta a
 \]</div>
+<p>DA QUI</p>
 <p>Questa operazione è chiamata  <em>convoluzione</em>. L'operazione convoluzione è tipicamente denotata con un asterisco:</p>
 <div class="arithmatex">\[
 s(t)  = (x * w)(t)

@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../02_undercomplete/">
+      
+      
+        <link rel="next" href="../04_denoising/">
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
@@ -1791,14 +1795,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
       
       
       
@@ -1807,7 +1813,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Modulo 5 - Deep learning
@@ -1832,14 +1838,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
       
       
       
@@ -1848,7 +1856,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_6_2">
           <span class="md-nav__icon md-icon"></span>
           5.2 - Autoencoder
@@ -1877,6 +1885,58 @@
     <li class="md-nav__item">
       <a href="../02_undercomplete/" class="md-nav__link">
         5.2.2 - Undercomplete autoencoder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        5.2.3 - Sparse autoencoder
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_denoising/" class="md-nav__link">
+        5.2.4 - Denoising autoencoder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_variational/" class="md-nav__link">
+        5.2.5 - Variational autoencoder
       </a>
     </li>
   
@@ -2064,14 +2124,12 @@
 
 
 <h1 id="523-sparse-autoencoder">5.2.3 - Sparse autoencoder<a class="headerlink" href="#523-sparse-autoencoder" title="Permanent link">&para;</a></h1>
-<p>Gli sparse autoencoder sono simili agli undercomplete autoencoder, con un'unica, importantissima differenza, legata al fatto che il criterio di training che utilizzano introduce un termine di <em>sparsity penalty</em> <span class="arithmatex">\(\Omega(h)\)</span> sul bottleneck <span class="arithmatex">\(h\)</span>, per cui la loss assume la forma:</p>
+<p>Gli <strong>sparse autoencoder</strong> (SAE) sono simili agli <a href="../02_undercomplete/">UAE</a> con un'unica, importantissiam differenza: infatti, gli SAE introducono una regolarizzazione mediante un termine di <em>sparsity penalty</em> <span class="arithmatex">\(\Omega(h)\)</span>, per cui la loss assume la forma:</p>
 <div class="arithmatex">\[
-L(x, g(f(x))) + \Omega(h)
+L_{SAE} = L_{UAE} + \Omega(h)
 \]</div>
-<p>dove <span class="arithmatex">\(g(h)\)</span> è l'output del decoder, ed <span class="arithmatex">\(h=f(x)\)</span> è l'output dell'encoder.</p>
-<p>In termini pratici, la sparse penalty introduce una penalità sul numero di nodi introdotti ad ogni strato nascosto dell'encoder e del decoder, prevenendo il fatto che la rete neurale attivi più neuroni del necessario ed agendo (nei fatti) come funzione di regolarizzazione.</p>
-<p>Gli sparse autoencoder sono quindi regolarizzati per essere <em>sparsi</em>, in modo da rispondere alle feature statistiche univoche per il dataset su cui sono addestrati, invece che agire come una sorta di funzione identitià. In altre parole, la regolarizzazione fa in modo che la rete attivi dei layer dedicati alla scoperta di feature specifiche per i dati di training.</p>
-<p>Possiamo pensare alla funzione <span class="arithmatex">\(\Omega(h)\)</span> come ad un semplice termine di regolarizzazione aggiunto ad una rete feedfowrard il cui task primario è quello di riprodurre l'output a partire dall'input (<em>unsupervised learning</em>), ed eventualmente effettuare un task supervisionato che dipende dalla sparsità delle feature.</p>
+<p>In termini pratici, il termine di regolarizzazione introduce una penalità sul numero di nodi attivi in ogni layer nascosto dell'encoder e del decoder, facendo in modo che lo SAE eviti di attivare più neuroni di quelli strettamente necessari.</p>
+<p>Uno SAE è quindi regolarizzato per essere <em>sparso</em> e rispondere alle feature statistiche specifiche per il dataset su cui sono addestrati, invece di agire come una sorta di funzione di identità. In altre parole, la sparse penalty fa in modo che la rete attivi esclusivamente i nodi dedicati alle feature rilevanti per i dati utilizzati per il training.</p>
 
 
   

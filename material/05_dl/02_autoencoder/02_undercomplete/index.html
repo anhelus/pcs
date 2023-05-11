@@ -12,7 +12,7 @@
         <link rel="prev" href="../01_intro/">
       
       
-        <link rel="next" href="../../../appendix/01_python_vs_code/lecture/">
+        <link rel="next" href="../03_sparse/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
@@ -1892,48 +1892,52 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          5.2.2 - Undercomplete autoencoder
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         5.2.2 - Undercomplete autoencoder
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Indice">
+            
+          
+            
+              
   
   
   
-    
+    <li class="md-nav__item">
+      <a href="../03_sparse/" class="md-nav__link">
+        5.2.3 - Sparse autoencoder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Indice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#autoencoder-e-dimensionality-reduction" class="md-nav__link">
-    Autoencoder e dimensionality reduction
-  </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reconstruction-loss" class="md-nav__link">
-    Reconstruction loss
-  </a>
+    <li class="md-nav__item">
+      <a href="../04_denoising/" class="md-nav__link">
+        5.2.4 - Denoising autoencoder
+      </a>
+    </li>
   
-</li>
-      
-    </ul>
+
+            
+          
+            
+              
   
-</nav>
-      
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_variational/" class="md-nav__link">
+        5.2.5 - Variational autoencoder
+      </a>
     </li>
   
 
@@ -2106,28 +2110,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Indice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#autoencoder-e-dimensionality-reduction" class="md-nav__link">
-    Autoencoder e dimensionality reduction
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reconstruction-loss" class="md-nav__link">
-    Reconstruction loss
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2142,21 +2124,24 @@
 
 
 <h1 id="522-undercomplete-autoencoder">5.2.2 Undercomplete autoencoder<a class="headerlink" href="#522-undercomplete-autoencoder" title="Permanent link">&para;</a></h1>
-<p>Gli <em>undercomplete autoencoder</em> sono tra i più semplici tra gli autoencoder. In particolare, questo tipo di autoencoder accetta un dato in ingresso provando a restituire lo stesso in uscita: in altre parole, dato un certo input <span class="arithmatex">\(x\)</span>, creerà una rappresentazione nello spazio latente a partire dalla quale ricostruirà un output <span class="arithmatex">\(\hat{x}\)</span> minimizzando l'errore di ricostruzione <span class="arithmatex">\(\hat{x}-x\)</span>. Ciò rende un undercomplete autoencoder una rete non supervisionata, visto e considerato che non richiede alcuna label per funzionare.</p>
-<h2 id="autoencoder-e-dimensionality-reduction">Autoencoder e dimensionality reduction<a class="headerlink" href="#autoencoder-e-dimensionality-reduction" title="Permanent link">&para;</a></h2>
-<p>L'uso primario di un undercomplete autoencoder è quindi la generazione di una rappresentazione compressa nello spazio latente del bottleneck, che può essere utilizzata come un'operazione di dimensionality reduction non lineare.</p>
-<p>Ovviamente, quando pensiamo alla riduzione della dimensionalità, ci vengono in mente metodi come la PCA, che proietta i dati in uno spazio ad alta dimensionalità su un iperpiano a più bassa dimensionalità cercando di conservare le informazioni relative alla varianza degli stessi. Tuttavia, la PCA modella esclusivamente relazioni lineari: ciò è ovviamente limitante se comparato con un undercomplete autoencoder, in quanto questo tipo di modello può apprendere relazioni non lineari e, di conseguenza, lavorare su un insieme più ampio di dati. Nei fatti, rimuovendo tutte le funzioni di attivazione da un undercomplete autoencoder, ed utilizzando esclusivamente dei layer lineari, abbiamo un modello che compie un'elaborazione equivalente alla PCA.</p>
-<div class="admonition note">
-<p class="admonition-title">Manifold learning</p>
-<p>Questa forma di dimensionality reduction non lineare è anche chiamata <em>manifold learning</em>.</p>
+<p>Gli <strong>undercomplete autoencoder</strong> (UAE) sono i più semplici tra gli autoencoder. In particolare, gli UAE accettano provano a dare in uscita un output quanto più fedele possibile all'input preso in ingresso; in altre parole, dato un certo input <span class="arithmatex">\(x\)</span>, creerà una rappresentazione nello spazio latente a partire dalla quale ricostruirà un output <span class="arithmatex">\(\hat{x}\)</span> minimizzando l'errore di ricostruzione <span class="arithmatex">\(\hat{x}-x\)</span>.</p>
+<div class="admonition tip">
+<p class="admonition-title">UAE ed approccio non supervisionato</p>
+<p>Per come è stato descritto, un UAE è un tipo di rete neurale non supervisionata, visto e considerato che non richiede la presenza di una label per ricostruire l'input.</p>
 </div>
-<h2 id="reconstruction-loss">Reconstruction loss<a class="headerlink" href="#reconstruction-loss" title="Permanent link">&para;</a></h2>
-<p>La funzione di costo usata per addestrare un undercomplete autoencoder è chiamata <em>reconstruction loss</em> alla luce del fatto che valuta la bontà della ricostruzione del dato rispetto all'input originario. Normalmente, è possibile usare una funzione come la norma <span class="arithmatex">\(L_1\)</span> come loss:</p>
+<p>L'uso primario di un UAE è quindi generare una rappresentazione compressa <span class="arithmatex">\(h\)</span> dell'input <span class="arithmatex">\(x\)</span> nello spazio latente definito dal bottleneck. In quest'ottica, tale operazione può essere interpretata come una dimensionality reduction non lineare.</p>
+<div class="admonition note">
+<p class="admonition-title">UAE e dimensionality reduction</p>
+<p>Ricordiamo che le tecniche di dimensionality reduction prevedono che i dati originari, definiti in uno spazio ad alta dimensionalità, siano riproiettati su un iperpiano a dimensionalità inferiore, cercando di conservare quanta più informazione possibile sullo spazio originario. In tal senso, la tecnica che ci viene subito in mente è la PCA, che tuttavia sfrutta proiezioni di tipo esclusivamente lineare. Di contro, un UAE è in grado di apprendere delle relazioni non lineari tra le componenti dell'ingresso proprio grazie alla presenza delle funzioni di attivazione, il che gli permette di lavorare su un insieme più ampio di dati. Di fatto, qualora rimuovessimo tutte le non linearità introdotte dalle funzioni di attivazione di un UAE, avremmo un'elaborazione puramente lineare.</p>
+</div>
+<p>La funzione di costo usata per addestrare un UAE è chiamata <em>reconstruction loss</em> alla luce del fatto che valuta quanto l'output del decoder <span class="arithmatex">\(\hat{x}\)</span> è simile al ground truth <span class="arithmatex">\(x\)</span>. Per farlo, possiamo usare la norma <span class="arithmatex">\(L_1\)</span>:</p>
 <div class="arithmatex">\[
-L = |x-\hat{x}|
+L_{UAE} = |x-\hat{x}|
 \]</div>
-<p>dove al solito <span class="arithmatex">\(\hat{x}\)</span> rappresenta l'output del decoder, mentre <span class="arithmatex">\(x\)</span> rappresenta il ground truth.</p>
-<p>I più attenti avranno notato come la loss non abbia un termine di regolarizzazione esplicito. Di conseguenza, l'unico modo per assicurarsi che l'autoencoder non faccia altro se non "memorizzare" i dati in ingresso è quello di impsotare adeguatamente gli iperparametri del modello, ovvero dimensione del bottleneck e dell'encoder.</p>
+<div class="admonition tip">
+<p class="admonition-title">Regolarizzazione</p>
+<p>I più attenti avranno notato come la funzione di costo non abbia un termine di regolarizzazione esplicito. Di conseguenza, l'unico modo per assicurarsi che l'autoencoder non si limiti a <em>memorizzare</em> i dati in ingresso è quello di impostare adeguatamente gli iperparametri del modello, quali le dimensioni del bottleneck e dell'encoder.</p>
+</div>
 
 
   
