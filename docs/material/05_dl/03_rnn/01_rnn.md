@@ -1,6 +1,9 @@
-# Recurrent Neural Networks
+# 5.3 - Recurrent Neural Networks
 
-Le Recurrent Neural Network (RNN) sono un tipo di rete usata per il trattamento di sequenze dati. Così come molti altri algoritmi di deep learning, le RNN sono relativamente antiche. Sono state create inizialmente negli anni '80, ma hanno espresso il loro potenziale soltanto negli ultimi anni, grazie all'aumento della potenza computazionale, oltre che della quantità di dati, e all'invenzione delle long short-term memory (LSTM) negli anni '90.
+Le **recurrent neural network** (*RNN*) sono un tipo di rete neurale usata prevalentemente per l'elaborazione di sequenze di dati. Questo tipo di rete venne per la prima volta definito negli anni '80; tuttavia, come molti altri modelli di deep learning, il loro potenziale è stato espresso soltanto nel corso degli anni '10 di questo secolo, grazie alla disponibilità di maggiore potenza computazionale e dati.
+
+Le RNN hanno al loro interno dei meccanismi di *memoria*, grazie ai quali sono in grado di 
+
 
 Grazie alla loro memoria interna, le RNN possoo ricoradre delle cose importanti sull'input ricevuto, il che le rende ottime nella predizione di ciò che avverrà ins eguito. Per questo motivo sono l'algoritmo preferenziale per modellare dati sequenziali come le sequenze. Le RNN possono formare una comprensione molto profonda di una sequenza e del suo contesto se comparate ad altri algoritmi.
 

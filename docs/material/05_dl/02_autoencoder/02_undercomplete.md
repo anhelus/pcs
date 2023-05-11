@@ -1,24 +1,20 @@
 # 5.2.2 Undercomplete autoencoder
 
-Gli *undercomplete autoencoder* sono tra i più semplici tra gli autoencoder. In particolare, questo tipo di autoencoder accetta un dato in ingresso provando a restituire lo stesso in uscita: in altre parole, dato un certo input $x$, creerà una rappresentazione nello spazio latente a partire dalla quale ricostruirà un output $\hat{x}$ minimizzando l'errore di ricostruzione $\hat{x}-x$. Ciò rende un undercomplete autoencoder una rete non supervisionata, visto e considerato che non richiede alcuna label per funzionare.
+Gli **undercomplete autoencoder** (UAE) sono i più semplici tra gli autoencoder. In particolare, gli UAE accettano provano a dare in uscita un output quanto più fedele possibile all'input preso in ingresso; in altre parole, dato un certo input $x$, creerà una rappresentazione nello spazio latente a partire dalla quale ricostruirà un output $\hat{x}$ minimizzando l'errore di ricostruzione $\hat{x}-x$.
 
-## Autoencoder e dimensionality reduction
+!!!tip "UAE ed approccio non supervisionato"
+    Per come è stato descritto, un UAE è un tipo di rete neurale non supervisionata, visto e considerato che non richiede la presenza di una label per ricostruire l'input.
 
-L'uso primario di un undercomplete autoencoder è quindi la generazione di una rappresentazione compressa nello spazio latente del bottleneck, che può essere utilizzata come un'operazione di dimensionality reduction non lineare.
+L'uso primario di un UAE è quindi generare una rappresentazione compressa $h$ dell'input $x$ nello spazio latente definito dal bottleneck. In quest'ottica, tale operazione può essere interpretata come una dimensionality reduction non lineare.
 
-Ovviamente, quando pensiamo alla riduzione della dimensionalità, ci vengono in mente metodi come la PCA, che proietta i dati in uno spazio ad alta dimensionalità su un iperpiano a più bassa dimensionalità cercando di conservare le informazioni relative alla varianza degli stessi. Tuttavia, la PCA modella esclusivamente relazioni lineari: ciò è ovviamente limitante se comparato con un undercomplete autoencoder, in quanto questo tipo di modello può apprendere relazioni non lineari e, di conseguenza, lavorare su un insieme più ampio di dati. Nei fatti, rimuovendo tutte le funzioni di attivazione da un undercomplete autoencoder, ed utilizzando esclusivamente dei layer lineari, abbiamo un modello che compie un'elaborazione equivalente alla PCA.
+!!!note "UAE e dimensionality reduction"
+    Ricordiamo che le tecniche di dimensionality reduction prevedono che i dati originari, definiti in uno spazio ad alta dimensionalità, siano riproiettati su un iperpiano a dimensionalità inferiore, cercando di conservare quanta più informazione possibile sullo spazio originario. In tal senso, la tecnica che ci viene subito in mente è la PCA, che tuttavia sfrutta proiezioni di tipo esclusivamente lineare. Di contro, un UAE è in grado di apprendere delle relazioni non lineari tra le componenti dell'ingresso proprio grazie alla presenza delle funzioni di attivazione, il che gli permette di lavorare su un insieme più ampio di dati. Di fatto, qualora rimuovessimo tutte le non linearità introdotte dalle funzioni di attivazione di un UAE, avremmo un'elaborazione puramente lineare.
 
-!!!note "Manifold learning"
-    Questa forma di dimensionality reduction non lineare è anche chiamata *manifold learning*.
-
-## Reconstruction loss
-
-La funzione di costo usata per addestrare un undercomplete autoencoder è chiamata *reconstruction loss* alla luce del fatto che valuta la bontà della ricostruzione del dato rispetto all'input originario. Normalmente, è possibile usare una funzione come la norma $L_1$ come loss:
+La funzione di costo usata per addestrare un UAE è chiamata *reconstruction loss* alla luce del fatto che valuta quanto l'output del decoder $\hat{x}$ è simile al ground truth $x$. Per farlo, possiamo usare la norma $L_1$:
 
 $$
-L = |x-\hat{x}|
+L_{UAE} = |x-\hat{x}|
 $$
 
-dove al solito $\hat{x}$ rappresenta l'output del decoder, mentre $x$ rappresenta il ground truth.
-
-I più attenti avranno notato come la loss non abbia un termine di regolarizzazione esplicito. Di conseguenza, l'unico modo per assicurarsi che l'autoencoder non faccia altro se non "memorizzare" i dati in ingresso è quello di impsotare adeguatamente gli iperparametri del modello, ovvero dimensione del bottleneck e dell'encoder.
+!!!tip "Regolarizzazione"
+    I più attenti avranno notato come la funzione di costo non abbia un termine di regolarizzazione esplicito. Di conseguenza, l'unico modo per assicurarsi che l'autoencoder non si limiti a *memorizzare* i dati in ingresso è quello di impostare adeguatamente gli iperparametri del modello, quali le dimensioni del bottleneck e dell'encoder.

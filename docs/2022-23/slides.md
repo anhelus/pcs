@@ -20,3 +20,6 @@
 | 15 - Regressore logistico | [:link:](./slides/15_logistic_reg.pdf) |
 | 16 - Classificatori e regressori | [:link:](./slides/16_clf_rgr.pdf) |
 | 17 - Metriche | [:link:](./slides/17_metrics.pdf) |
+| 18 - Clustering | [:link:](./slides/18_clustering.pdf) |
+| 19 - Concetti di Machine Learning | [:link:](./slides/19_ml_concepts.pdf) |
+| 20 - Analisi delle componenti principali (PCA) | [:link:](./slides/20_pca.pdf) |

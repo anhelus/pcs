@@ -89,6 +89,9 @@ nav:
     - 5.2 - Autoencoder:
       - 5.2.1 - Introduzione agli autoencoder: material/05_dl/02_autoencoder/01_intro.md
       - 5.2.2 - Undercomplete autoencoder: material/05_dl/02_autoencoder/02_undercomplete.md
+      - 5.2.3 - Sparse autoencoder: material/05_dl/02_autoencoder/03_sparse.md
+      - 5.2.4 - Denoising autoencoder: material/05_dl/02_autoencoder/04_denoising.md
+      - 5.2.5 - Variational autoencoder: material/05_dl/02_autoencoder/05_variational.md
   - Appendici:
     - A - Setup di Python e Visual Studio Code: material/appendix/01_python_vs_code/lecture.md
     - B - Setup di TensorFlow: material/appendix/02_setup_tflow/lecture.md

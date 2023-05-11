@@ -1,18 +1,23 @@
-Le *reti convoluzionali*, conosciute anche come *convolutional neural entworks* (CNN), sono un tipo di reti neurali specializzato sull'elabroazione di dati che hanno una topologia a griglia. Esempi includono serie tempiorali, che possono essere pensati come una griglia monodimensionale campionata ad intervalli di tempo regolari, ed immagini, che sono delle grgilie bidimensionali di pixel. Le reti convoluzionali hanno riscosso un enorme successo in applciazioni pratiche. Il nome "cojnvolutional neurla netowrk" indica che la rete impiega un'operazione matematica chiamata *convoluzione*. La convoluzione è uin tipo speciale di operazione lineare. Le reti convoluzzionali sono semplicemnte delle reti neurali che usano delle convoluzioni al posto di una generica moltiplciazione matriciaale in almeno uno degli streati.
+# 5.4.1 - Convolutional neural networks
 
-Per prima cosa, descriviamo cosa è la convoluzione. QUindi, spieghiamo il motivo dietro l'uso di una convoluzione in una rete neurale. Descriveremo quindi un'operazione chiamata pooling. Usualmente, le operazioni usate in una CNN non corrispondono precisamente alla definizione di convoluzione così come suata in altri campi.
+Le **convolutional neural networks** (*CNN*) sono un tipo di rete neurale specializzato nell'elaborazione di dati che hanno una topologia riconducibile ad una griglia temporale. Un tipico esempio di applicazione delle CNN sono le immagini, che nell'ambito informatico sono rappresentate come griglie bidimensionali (o tridimensionali) di pixel.
 
-## L'operazione di convoluzione
+Il termine *convolutional* nel nome suggerisce inoltre che la rete si basa su una specifica operazione matematica di tipo lineare, chiamata **convoluzione**, che viene usata al posto della generica moltiplicazione matriciale in uno o più strati della rete; vediamola più nel dettaglio.
 
-Nella forma più generale, la convoluzione è un'operazione di due funzioni ad argomenti reali. Per motivare la definizione di convoluzione, iniziamo con campioni di due funzioni che possiamo usare.
+## La convoluzione
 
-Supponiamo che stiamo tracciando la posizione di una navicella spaziale con un sensore laser. Il nostro sensore laser fornisce un output singolo $x(t)$, la posizoine della navicella spaziale al tempo $t$. Sia $x$ e $t$ sono a valori reali, ovvero, possiamo avere una diversa lettura dal sensore laser ad ogni istante del tempo.
+Per comprendere i principi sottostanti l'operazione di convoluzione è utile fare un breve esempio. Supponiamo di voler tracciare la posizione di una navicella spaziale mediante un sensore laser, il quale restituirà un output $x(t), x \in \mathbb{R}$ rappresentativo della posizione della navicella al tempo $t, t \in \mathbb{R}$. In altre parole, il fatto che sia $x$ sia $t$ definite nel dominio dei valori reali farà sì che potremo avere una diversa lettura del sensore laser ad ogni istante di tempo.
 
-Ora supponiamo che il nostro sensore laser sia in qualche modo rumoroso. Per ottenere una stima meno rumorosa della posizione della navicella spaziale, vorremmo misurare diverse misure. Naturalmente, le misure più recenti sono più rilevanti, per cui vorremo che qeusta sia una media pesata che ci dà più peso alle misure recenti. Possiamo farlo con una funzione di peso $w(a)$, dove $a$ è l'età della misura. Se paplicahiamo questa meida pesata ad ogni momento, otteniamo una nuova funzione $s$ forniscono una media della posizione della navicella spaziale:
+Supponiamo adesso che l'uscita del sensore sia affetta da rumore; in tal caso, potremmo voler effettuare diverse misurazioni della posizione della navetta allo scopo di ottenere una stima più precisa della sua posizione. Ovviamente, però, dovremo dare maggiore rilevanza alle misure più recenti, per cui dovremo trovare un modo per farlo dando un peso opportuno a ciascun valore considerato, magari usando una funzione di peso $w(a)$, con $a$ un parametro di "età" associato alla misura. Applicando questa media pesata per ciascun istante $t$, avremo una nuova funzione composta $s$ che fornirà la seguente stima della posizione della navicella:
 
 $$
 s(t) = \int x(a) w(t-a) \delta a
 $$
+
+
+
+DA QUI
+
 
 Questa operazione è chiamata  *convoluzione*. L'operazione convoluzione è tipicamente denotata con un asterisco:
 

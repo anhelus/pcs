@@ -6,3 +6,4 @@ Un particolare ringraziamento a tutti coloro che hanno contribuito alla costruzi
 | ---- | ---------- |
 | [Mirko Calò](https://www.researchgate.net/profile/Mirko-Calo) | Registrazione delle lezioni. |
 | [Simone Fidanza](https://github.com/sRavioli) | Revisione ed update della repository. |
+| [Vito Renò](https://didattica.vitoreno.it/) | Materiale sulla PCA |
