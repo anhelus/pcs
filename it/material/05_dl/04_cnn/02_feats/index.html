@@ -11,11 +11,11 @@
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
     
     
       
-        <title>02 feats - Python per il Calcolo Scientifico</title>
+        <title>5.4.2 - Principi alla base delle CNN - Python per il Calcolo Scientifico</title>
       
     
     
@@ -69,7 +69,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="yellow">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#motivi" class="md-skip">
+        <a href="#542-principi-alla-base-delle-cnn" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              02 feats
+              5.4.2 - Principi alla base delle CNN
             
           </span>
         </div>
@@ -129,13 +129,21 @@
             
             
             
-            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="yellow"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Rainbow in the dark"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Rainbow in the dark" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
             
           
             
             
             
-            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Fear of the dark?"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Fear of the dark?" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
             
           
         </form>
@@ -154,12 +162,6 @@
                 <li class="md-select__item">
                   <a href="../../../../../material/05_dl/04_cnn/02_feats/" hreflang="it" class="md-select__link">
                     Italiano
-                  </a>
-                </li>
-              
-                <li class="md-select__item">
-                  <a href="../../../../../en/material/05_dl/04_cnn/02_feats/" hreflang="en" class="md-select__link">
-                    English
                   </a>
                 </li>
               
@@ -552,7 +554,7 @@
   
     <li class="md-nav__item">
       <a href="../../../01_python/03_advanced/01_argparse/" class="md-nav__link">
-        1.3.1 - Passaggio di argomenti a script
+        1.3.1 - Il modulo argparse
       </a>
     </li>
   
@@ -649,7 +651,7 @@
   
     <li class="md-nav__item">
       <a href="../../../02_libs/02_numpy/01_intro/" class="md-nav__link">
-        2.2.1 - Introduzione a Numpy
+        2.2.1 - Introduzione a NumPy
       </a>
     </li>
   
@@ -1218,7 +1220,7 @@
   
     <li class="md-nav__item">
       <a href="../../../03_ml/04_trees/03_gbt/" class="md-nav__link">
-        3.4.3 - Gradient booested trees
+        3.4.3 - Gradient boosted trees
       </a>
     </li>
   
@@ -1721,10 +1723,72 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5_3" id="__nav_5_5_3_label" tabindex="0">
+          4.5.3 - Cross-validazione
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          4.5.3 - Cross-validazione
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../04_sklearn/05_advanced/03_k_fold/" class="md-nav__link">
-        4.5.3 - Cross-validazione
+      <a href="../../../04_sklearn/05_advanced/03_cross_val/01_intro/" class="md-nav__link">
+        4.5.3.1 - Introduzione
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04_sklearn/05_advanced/03_cross_val/02_strategies/" class="md-nav__link">
+        4.5.3.2 - Strategie di cross-validazione
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04_sklearn/05_advanced/03_cross_val/03_permutations/" class="md-nav__link">
+        4.5.3.3 - Permutation score
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1956,12 +2020,165 @@
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          Appendici
+          Modulo 6 - TensorFlow
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 6 - TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+          6.1 - Basi di TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          6.1 - Basi di TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06_tflow/01_intro/01_intro/" class="md-nav__link">
+        6.1.1 - Introduzione a TensorFlow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06_tflow/01_intro/02_data/" class="md-nav__link">
+        6.1.2 - Dataset
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06_tflow/01_intro/03_callbacks/" class="md-nav__link">
+        6.1.3 - Callbacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06_tflow/01_intro/04_tl_ft/" class="md-nav__link">
+        6.1.4 - Transfer learning e fine tuning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06_tflow/01_intro/05_dropout/" class="md-nav__link">
+        6.1.5 - Dropout e regolarizzazione
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../06_tflow/01_intro/06_model_api/" class="md-nav__link">
+        6.1.6 - Layer e Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Appendici
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Appendici
         </label>
@@ -2002,7 +2219,7 @@
   
     <li class="md-nav__item">
       <a href="../../../appendix/03_libraries/lecture/" class="md-nav__link">
-        B - Le librerie in Python
+        C - Le librerie in Python
       </a>
     </li>
   
@@ -2016,7 +2233,7 @@
   
     <li class="md-nav__item">
       <a href="../../../appendix/04_scope/lecture/" class="md-nav__link">
-        C - Ambito di una variabile
+        D - Ambito di una variabile
       </a>
     </li>
   
@@ -2030,7 +2247,7 @@
   
     <li class="md-nav__item">
       <a href="../../../appendix/05_oop/lecture/" class="md-nav__link">
-        D - Programmazione orientata agli oggetti
+        E - Programmazione orientata agli oggetti
       </a>
     </li>
   
@@ -2044,7 +2261,7 @@
   
     <li class="md-nav__item">
       <a href="../../../appendix/06_tips/lecture/" class="md-nav__link">
-        E - Tips
+        F - Tips
       </a>
     </li>
   
@@ -2089,6 +2306,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2097,8 +2316,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#motivi" class="md-nav__link">
-    Motivi
+  <a href="#interazioni-sparse" class="md-nav__link">
+    Interazioni sparse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters-sharing" class="md-nav__link">
+    Parameters sharing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rappresentazione-equivariante" class="md-nav__link">
+    Rappresentazione equivariante
   </a>
   
 </li>
@@ -2118,18 +2351,32 @@
                   
 
 
-  <h1>02 feats</h1>
-
-<h2 id="motivi">Motivi<a class="headerlink" href="#motivi" title="Permanent link">&para;</a></h2>
-<p>La convoluzione sfrutta tre idee importanti che ci possono aiutare a migliorare un sistema di machine learning, ovvero <em>interazioni sparse</em>, <em>sharing dei parametri</em> e <em>rappresentazione equivariante</em>. Inoltre, la convoluzione fonrisce un mezzo per lavorare con degli input di dimeensioni variabili. Vediamo il tutto nel dettaglio.</p>
-<h5 id="interazioni-sparse">Interazioni sparse<a class="headerlink" href="#interazioni-sparse" title="Permanent link">&para;</a></h5>
-<p>Le reti neurali classiche usano la moltiplicazione matriciale per una matrice di parametri con un aprametro separato che descrifvfe l'interazione tra ogni unità di input ed ogni unità di outpòut.- Questo significa che ogni unità di outpèut interagisce con ogni unità di input. Le reti convoluzionali, tuttavia,m hanno tipicamen te delle interazioni sparse (spesso conosicute come <em>connettività sparsa</em>). Questo avviene rendendo il kernel più piccolo dell'input. ad esempio,q uanod si elabora un'immagine, l'0immagine di input può avere migliaia, o milioni, di pixel, ma possiamo individuare piccole, singificative feature come contorni con dei ckernel che occupano al più qualche decina di pixel. Questo singifica che abbiamo bisongog di memorizzare pochi parametir, che riducono sia i requisiti di memoria del modello, sia che migliorano l'efficienza statistica. Signidfica anche che calcolare l'output richiede meno oeprazioni. Qeusti miglioramenti in efficienza sono noralmente abbastanza grandi.,. Se ci sono <span class="arithmatex">\(m\)</span> ingressi ed <span class="arithmatex">\(n\)</span> uscite, la moltiplicazione matriciale richiede <span class="arithmatex">\(m \times n\)</span> parametri, e l'algoritmo usato nella pratica ha una complessità di <span class="arithmatex">\(O(m \times n)\)</span> per campione. Se limitiamo il numeor di connessioni che ogni uscita può avere a <span class="arithmatex">\(k\)</span> l'approccio sparsamente conensso richiede solo <span class="arithmatex">\(k \times n\)</span> parametri ed un <span class="arithmatex">\(O(k \times n)\)</span>. Per molte applicazioni pratiche è psosibile ottenere buone perfomrance sul task di machine learning mantenerndo <span class="arithmatex">\(k\)</span> diversi ordini di grandezza più piccolo di <span class="arithmatex">\(m\)</span>.</p>
-<h5 id="parameters-sharing">Parameters sharing<a class="headerlink" href="#parameters-sharing" title="Permanent link">&para;</a></h5>
-<p>Il parameters sharing si riferisce all'uso dello stesso parametro per più di una funzione in un modello. In una rete tradizionale, ogni elemento della matrice dei pesiè usato esatatmente una sola volta quando si calcola l'uscita di un layer. Viene moltiplicato per un elemento dell'input, e quindi mai rivisitato. Come sinonimo per il parameter sharing, si può dire che una rete abbia dei <em>pesi strettamente legati</em>, perché il valore del peso applicato ad un input è colelgato al valore del peso applicato altrove. In una CNN, ogni membro del kernel è usato ad ogni posizione dell'input, ad eccezione forse di alcuni pixel di contorno, a seconda delle decisioni di design che riguardano il contorno. Il parameter sharing usato dall'operazione di convoluzoien indica che piuttosto che apprendere un insieme di parameteri separato per oigni posizione, apprendiamo soltanto un insieme. Questo non influenza il runtime della forward propagation (è sempre <span class="arithmatex">\(O(k \times n)\)</span>), ma riduce ulteriormente i requisiti di memoria dle modello a <span class="arithmatex">\(k\)</span> parametri. Ricordiamo che <span class="arithmatex">\(k\)</span> è normalemnte diversi ordini di grandezza più piccola di <span class="arithmatex">\(M\)</span>. Dal momento che <span class="arithmatex">\(m\)</span> ed <span class="arithmatex">\(n\)</span> soino normalmente della stesso rordine, <span class="arithmatex">\(k\)</span> è praticamente trascurabile se comparato ad <span class="arithmatex">\(m \times n\)</span>. La convoluzione è qunidion molto più efficiente della moltiplicazione matriciale densa in termini dei requisiti di memoria e dell'efficienza statistica.</p>
-<h5 id="rappresentazione-equivariante">Rappresentazione equivariante<a class="headerlink" href="#rappresentazione-equivariante" title="Permanent link">&para;</a></h5>
-<p>Nel caso di convoluzione, la particolare forma di parameter sharing fa in modo che il layer abbia una proprietà chiamata <em>equivarianza</em> alla traslaziojne. Dire che una funzione è equivariante significa che se l'input cambia, l'output cambia allo stesso modo. Specificamente, una funzione <span class="arithmatex">\(f(x)\)</span> è equivariante ad una funzione <span class="arithmatex">\(g\)</span> se <span class="arithmatex">\(f(g(x))=g(f(x))\)</span>. Nel caso di una convoluzione, se <span class="arithmatex">\(g\)</span> è una qualsiasi funzione che traduce l'input, ovvero, che lo trasla, la funzioen di convoluzione è equivariante a <span class="arithmatex">\(g\)</span>. Ad esempio, se <span class="arithmatex">\(I\)</span> è una funzione che dà la luminositàù di un'immagine a coordinate intere. Sia <span class="arithmatex">\(g\)</span> una funzione che mappa una funzione dell'immagine ad un'altra funzione dell'immagine, in modo che <span class="arithmatex">\(I^{'} = g(I)\)</span> sia la funzione dell'immagine con <span class="arithmatex">\(I^{'}(x, y) = I(x-1, y)\)</span>. Questo sposta ogni pixel di <span class="arithmatex">\(I\)</span> un'unità a destra. Se applichiamo questa trasforamzione ad <span class="arithmatex">\(I\)</span>, e quindi applichiamo la convoluzione, il riusultato è lo stesso di applicare la convoluzione ad <span class="arithmatex">\(I^{'}\)</span>, e quindi applicare la trasformazione <span class="arithmatex">\(g\)</span> all'output. Nel caso di dati monodimensionali, la convoluzione produce una sorta di "timeline" che mostra quanod appaiono diverse feature nell'input. Se spostiamo un evento successivamente nel tempo nell'ionput, la stessa rappresentazione apparirà nell'output,. soltanto dopo. In modo simile alle immagini, la convolzuioen crea una mappa bidimensionale di dove alcune feature appaiono nell'input. Se spostiamo l'oggetto nell'input, la sua rappresentazione si muoverà dello stesso quantitativo nell'poutpèut. Questo è utile per quando sappiamo che alcune funzioni di un piccolo numero di pixel circostanti è utile quando applicata a più locazioni dell'input. Per esempio, quando si elaborano delle immagine, è utile individuare dei contorni nel primo layer di una rete convoluzionale. Glis tessi contoprni appaiono più o meno ovunque nell'immagine, per cui è pratico condividere i parametri nell'intera immagine. In alcuni casi, potremmo voler evitare di condividere i parametri nell'intera immagine. Se ad esempio stiamo elaborando immagini che soino tagliate in modo da essere centrate su un volto di un'immagine, probabilmente vogliamo estrarre diverse feature a diverse posizioni - la parte della rete che leabora la pate superiore del volto deve guardare alle sopracciglia, mentre la parte della rete che elabora la parte inferiore del volto guarda alla mascella.</p>
-<p>La convoluzione non è equivariante ad altre trasfoprmazioni, come cambi nella scala di rotazioni di un'immagine. Altri meccanismi sono necessarie per gestire questo tipo di trasformazioni.</p>
-<p>Infine, alcuni tipi di dati non possono essere elaborati dalla rete neurale definita dalla moltiplicazione matriciale con una matrice a dimensione fissa.</p>
+<h1 id="542-principi-alla-base-delle-cnn">5.4.2 - Principi alla base delle CNN<a class="headerlink" href="#542-principi-alla-base-delle-cnn" title="Permanent link">&para;</a></h1>
+<p>Allo scopo di massimizzare le performance in termini di classificazione, le CNN sfruttano tre importanti principi, ovvero le <strong>interazioni sparse</strong>, la <strong>condivisione (sharing) dei parametri</strong> e la <strong>rappresentazione equivariante</strong>. Vediamoli nel dettaglio</p>
+<h2 id="interazioni-sparse">Interazioni sparse<a class="headerlink" href="#interazioni-sparse" title="Permanent link">&para;</a></h2>
+<p>Le classiche reti neurali feedforward sfruttano la moltiplicazione (matriciale) per una matrice di parametri nella quale ogni parametro descrive l'interazione tra una singola unità di input ed una singola unità di output; se la matrice dei parametri non ha alcun valore pari a zero, ciò significa che ogni unità di input interagisce con ogni unità di output, e viceversa.</p>
+<p>Le CNN, invece, sono caratterizzate da delle <strong>interazioni sparse</strong>, anche conosciute come <strong>connettività sparsa</strong> (<em>sparse connectivity</em>): in altre parole, <em>non tutte</em> le unità di input interagiscono con ogni unità di output, e viceversa. Per ottenere questo scopo, basta utilizzare in fase di convoluzione un kernel più piccolo dell'input. Immaginiamo ad esempio di elaborare un'immagine: questa può avere migliaia, o anche milioni, di pixel; tuttavia, per individuare le feature di interesse, si possono utilizzare dei kernel di piccola dimensione, attorno alle decine di pixel; ciò permette di memorizzare un numero inferiore di parametri, il che da un lato migliora l'efficienza statistica del modello, riducendo al contempo i requisiti in termini di memoria e tempo necessario per l'addestramento.</p>
+<p>In particolare, il miglioramento in termini di efficienza apportato dalla connettività sparsa è decisamente rilevante. Supponendo che vi siano <span class="arithmatex">\(m\)</span> input ed <span class="arithmatex">\(n\)</span> output ad un dato layer, una moltiplicazione matriciale completa richiederebbe <span class="arithmatex">\(m \times n\)</span> parametri, con una complessità pari ad <span class="arithmatex">\(O(m \times n)\)</span> <em>per singola osservazione</em>. Limitando invece le possibili connessioni di ciascun output a <span class="arithmatex">\(k\)</span>, avremo la necessità di utilizzare soltanto <span class="arithmatex">\(k \times n\)</span> parametri, con un <span class="arithmatex">\(O(k \times n)\)</span>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Il valore di <span class="arithmatex">\(k\)</span></p>
+<p>Per la maggior parte delle applicazioni, il valore di <span class="arithmatex">\(k\)</span> può essere scelto di diversi ordini di grandezza inferiore ad <span class="arithmatex">\(n\)</span>, mantenendo comunque delle buone performance.</p>
+</div>
+<h2 id="parameters-sharing">Parameters sharing<a class="headerlink" href="#parameters-sharing" title="Permanent link">&para;</a></h2>
+<p>In una classica rete feedforward, il calcolo dell'uscita di un layer prevede che ogni elemento della matrice dei parametri venga usato solo e soltanto una volta. Ciò non è tuttavia vero in una CNN, in quanto il paradigma del <strong>parameters sharing</strong> prevede che un singolo parametro sia usato da più di una funzione. In altre parole, una CNN ha dei parametri strettamente correlati (<em>strictly tied parameters</em>), dato che il peso applicato a due o più input può essere lo stesso; ciò avviene perché nelle CNN il kernel viene fatto scorrere sull'interezza dell'input (a possibile eccezione di alcuni pixel di contorno).</p>
+<p>Il paradigma del parameter sharing fa quindi in modo che, invece di apprendere un insieme di parametri specifico per ogni posizione dell'input, la rete apprenda un parametro per ciascun <em>intorno</em>. Questo non influenza la complessità della rete, che rimane sempre <span class="arithmatex">\(O(k \times n)\)</span>; tuttavia, i requisiti di memoria del modello a <span class="arithmatex">\(k\)</span> parametri risultano essere ulteriormente ridotti.</p>
+<p>Il parameter sharing usato dall'operazione di convoluzoien indica che piuttosto che apprendere un insieme di parameteri separato per oigni posizione, apprendiamo soltanto un insieme. Questo non influenza il runtime della forward propagation (è sempre <span class="arithmatex">\(O(k \times n)\)</span>), ma riduce ulteriormente i requisiti di memoria dle modello a <span class="arithmatex">\(k\)</span> parametri. Ricordiamo che <span class="arithmatex">\(k\)</span> è normalemnte diversi ordini di grandezza più piccola di <span class="arithmatex">\(M\)</span>. Dal momento che <span class="arithmatex">\(m\)</span> ed <span class="arithmatex">\(n\)</span> soino normalmente della stesso rordine, <span class="arithmatex">\(k\)</span> è praticamente trascurabile se comparato ad <span class="arithmatex">\(m \times n\)</span>. La convoluzione è qunidion molto più efficiente della moltiplicazione matriciale densa in termini dei requisiti di memoria e dell'efficienza statistica.</p>
+<h2 id="rappresentazione-equivariante">Rappresentazione equivariante<a class="headerlink" href="#rappresentazione-equivariante" title="Permanent link">&para;</a></h2>
+<p>Il parameter sharing di una CNN ha come consequenza l'<strong>equivarianza</strong> di un layer convoluzionale alla transazione; in altri termini, l'output del layer cambierà nello stesso modo in cui viene modificato l'input.</p>
+<p>Formalmente, uan funzione <span class="arithmatex">\(f(x)\)</span> è equivariante ad una funzione <span class="arithmatex">\(g(x)\)</span> se <span class="arithmatex">\(f(g(x)) = g(f(x))\)</span>. Immaginiamo ad esempio che la funzione <span class="arithmatex">\(I(\cdot)\)</span> sia quella che restituisce la luminosità di un'immagine. Sia <span class="arithmatex">\(g\)</span> una funzione che trasli l'ouptut di un pixel a destra in modo che:</p>
+<div class="arithmatex">\[
+I^{'} = g(I) \rightarrow g(x, y) = I^{'}(x, y) = I(x-1, y)
+\]</div>
+<p>Applicando la trasformazione <span class="arithmatex">\(g(I)\)</span>, e successivamente convolvendo il risultato, avremo lo stesso effetto dell'applicazione diretta della convoluzione ad <span class="arithmatex">\(I^{'}\)</span>, applicando di conseguenza la trasformazione <span class="arithmatex">\(g\)</span> all'output di convoluzione.</p>
+<p>Ciò implica l'insorgenza di un fenomeno interessante. Applicare la convoluzione a dati monodimensionali ci restituisce una sorta di "timeline", la quale ci mostra quando appaiono specifiche feature nell'input. Grazie alla proprietà di equivarianza, qualora spostassimo un determinato evento nell'input, avremmo che la rappresentazione di tale evento nell'output traslerebbe in maniera equivalente. Lo stesso avviene per una rappresentazione bidimensionale: la convoluzione crea una <em>feature map</em> che rappresenta la posizione in cui appaiono alcune feature all'interno dell'immagine di ingresso. Se questa viene manipolata spostando un oggetto, la rapprentazione a valle della convoluzione sarà contestualmente spostata allo stesso modo.</p>
+<div class="admonition warning">
+<p class="admonition-title">Equivarianza</p>
+<p>La convoluzione è equivariante esclusivamente alla traslazione. Nel caso di altre trasformazioni, come ad esempio rescaling o rotazioni, l'equivarianza non è garantita.</p>
+</div>
 
 
   
@@ -2199,7 +2446,7 @@
     <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="../../../../../js/config.js"></script>
       

@@ -9,13 +9,17 @@
       
       
       
+        <link rel="prev" href="../01_intro/">
+      
+      
+        <link rel="next" href="../03_callbacks/">
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
     
     
       
-        <title>28 - TensorFlow & Keras: Tips & Tricks - Python per il Calcolo Scientifico</title>
+        <title>6.1.2 - Dataset - Python per il Calcolo Scientifico</title>
       
     
     
@@ -69,7 +73,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="yellow">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     
@@ -81,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#28-tensorflow-keras-tips-tricks" class="md-skip">
+        <a href="#612-dataset" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -116,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              28 - TensorFlow & Keras: Tips & Tricks
+              6.1.2 - Dataset
             
           </span>
         </div>
@@ -129,13 +133,21 @@
             
             
             
-            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="yellow"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Rainbow in the dark"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Rainbow in the dark" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
             
           
             
             
             
-            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_2">
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Fear of the dark?"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Fear of the dark?" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
             
           
         </form>
@@ -154,12 +166,6 @@
                 <li class="md-select__item">
                   <a href="../../../../../material/06_tflow/01_intro/02_data/" hreflang="it" class="md-select__link">
                     Italiano
-                  </a>
-                </li>
-              
-                <li class="md-select__item">
-                  <a href="../../../../../en/material/06_tflow/01_intro/02_data/" hreflang="en" class="md-select__link">
-                    English
                   </a>
                 </li>
               
@@ -552,7 +558,7 @@
   
     <li class="md-nav__item">
       <a href="../../../01_python/03_advanced/01_argparse/" class="md-nav__link">
-        1.3.1 - Passaggio di argomenti a script
+        1.3.1 - Il modulo argparse
       </a>
     </li>
   
@@ -649,7 +655,7 @@
   
     <li class="md-nav__item">
       <a href="../../../02_libs/02_numpy/01_intro/" class="md-nav__link">
-        2.2.1 - Introduzione a Numpy
+        2.2.1 - Introduzione a NumPy
       </a>
     </li>
   
@@ -1218,7 +1224,7 @@
   
     <li class="md-nav__item">
       <a href="../../../03_ml/04_trees/03_gbt/" class="md-nav__link">
-        3.4.3 - Gradient booested trees
+        3.4.3 - Gradient boosted trees
       </a>
     </li>
   
@@ -1721,10 +1727,72 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5_3" id="__nav_5_5_3_label" tabindex="0">
+          4.5.3 - Cross-validazione
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          4.5.3 - Cross-validazione
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../04_sklearn/05_advanced/03_k_fold/" class="md-nav__link">
-        4.5.3 - Cross-validazione
+      <a href="../../../04_sklearn/05_advanced/03_cross_val/01_intro/" class="md-nav__link">
+        4.5.3.1 - Introduzione
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04_sklearn/05_advanced/03_cross_val/02_strategies/" class="md-nav__link">
+        4.5.3.2 - Strategie di cross-validazione
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04_sklearn/05_advanced/03_cross_val/03_permutations/" class="md-nav__link">
+        4.5.3.3 - Permutation score
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1944,6 +2012,218 @@
 
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Modulo 6 - TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Modulo 6 - TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+          6.1 - Basi di TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          6.1 - Basi di TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_intro/" class="md-nav__link">
+        6.1.1 - Introduzione a TensorFlow
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          6.1.2 - Dataset
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        6.1.2 - Dataset
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-di-immagini" class="md-nav__link">
+    Dataset di immagini
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-di-testo" class="md-nav__link">
+    Dataset di testo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset-da-array-numpy" class="md-nav__link">
+    Dataset da array NumPy
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_callbacks/" class="md-nav__link">
+        6.1.3 - Callbacks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_tl_ft/" class="md-nav__link">
+        6.1.4 - Transfer learning e fine tuning
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_dropout/" class="md-nav__link">
+        6.1.5 - Dropout e regolarizzazione
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_model_api/" class="md-nav__link">
+        6.1.6 - Layer e Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
   
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1951,17 +2231,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
       
       
       
-        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
           Appendici
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_7">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Appendici
         </label>
@@ -2002,7 +2282,7 @@
   
     <li class="md-nav__item">
       <a href="../../../appendix/03_libraries/lecture/" class="md-nav__link">
-        B - Le librerie in Python
+        C - Le librerie in Python
       </a>
     </li>
   
@@ -2016,7 +2296,7 @@
   
     <li class="md-nav__item">
       <a href="../../../appendix/04_scope/lecture/" class="md-nav__link">
-        C - Ambito di una variabile
+        D - Ambito di una variabile
       </a>
     </li>
   
@@ -2030,7 +2310,7 @@
   
     <li class="md-nav__item">
       <a href="../../../appendix/05_oop/lecture/" class="md-nav__link">
-        D - Programmazione orientata agli oggetti
+        E - Programmazione orientata agli oggetti
       </a>
     </li>
   
@@ -2044,7 +2324,7 @@
   
     <li class="md-nav__item">
       <a href="../../../appendix/06_tips/lecture/" class="md-nav__link">
-        E - Tips
+        F - Tips
       </a>
     </li>
   
@@ -2099,36 +2379,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#281-dataset" class="md-nav__link">
-    28.1 - Dataset
-  </a>
-  
-    <nav class="md-nav" aria-label="28.1 - Dataset">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#2811-immagini" class="md-nav__link">
-    28.1.1 - Immagini
+  <a href="#dataset-di-immagini" class="md-nav__link">
+    Dataset di immagini
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2812-testo" class="md-nav__link">
-    28.1.2 - Testo
+      
+        <li class="md-nav__item">
+  <a href="#dataset-di-testo" class="md-nav__link">
+    Dataset di testo
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2813-array-numpy" class="md-nav__link">
-    28.1.3 - Array NumPy
+      
+        <li class="md-nav__item">
+  <a href="#dataset-da-array-numpy" class="md-nav__link">
+    Dataset da array NumPy
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2147,89 +2414,109 @@
                   
 
 
-<h1 id="28-tensorflow-keras-tips-tricks">28 - TensorFlow &amp; Keras: Tips &amp; Tricks<a class="headerlink" href="#28-tensorflow-keras-tips-tricks" title="Permanent link">&para;</a></h1>
-<h2 id="281-dataset">28.1 - Dataset<a class="headerlink" href="#281-dataset" title="Permanent link">&para;</a></h2>
-<p>I dati che abbiamo utilizzato finora erano organizzati sotto forma di array NumPy. Tuttavia, per dataset di grosse dimensioni, potrebbe essere necessario utilizzare degli oggetti di tipo <a href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset"><code>Dataset</code></a>. In tal senso, Keras ci mette a disposizione diverse tecniche; vediamone alcuni.</p>
-<h3 id="2811-immagini">28.1.1 - Immagini<a class="headerlink" href="#2811-immagini" title="Permanent link">&para;</a></h3>
-<p>Per caricare un dataset di immagini a partire da una cartella, possiamo usare la funzione <a href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/image_dataset_from_directory"><code>image_dataset_from_directory</code></a>, che ha una sintassi di questo tipo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">image_dataset_from_directory</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">data_dir</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;training&#39;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">image_size</span><span class="o">=</span><span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">),</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">val</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">image_dataset_from_directory</span><span class="p">(</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">data_dir</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">image_size</span><span class="o">=</span><span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">),</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+<h1 id="612-dataset">6.1.2 - Dataset<a class="headerlink" href="#612-dataset" title="Permanent link">&para;</a></h1>
+<p>Nella <a href="../01_intro/">lezione precedente</a> abbiamo visto come il metodo <code>fit()</code> accetti i dati sotto forma di array NumPy. Tuttavia, nel momento in cui si ha a che fare con dataset di grosse dimensioni, potrebbe essere necessario usare oggetti specifici appartenenti alla classe <a href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset"><code>Dataset</code></a>.</p>
+<p>Per farlo, Keras ci mette a disposizione delle tecniche che ci permettono di creare un <code>Dataset</code> a partire dai nostri dati; vediamone alcune. </p>
+<h2 id="dataset-di-immagini">Dataset di immagini<a class="headerlink" href="#dataset-di-immagini" title="Permanent link">&para;</a></h2>
+<p>Possiamo creare un dataset a partire da una cartella usando la funzione <a href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/image_dataset_from_directory"><code>image_dataset_from_directory</code></a>.</p>
+<p>Supponiamo per prima cosa che la cartella <code>data_dir</code> sia organizzata come segue:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>data_dir/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>...class1/
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>......1.png
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>......2.png
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>...class2/
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>......1.png
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>......2.png
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>......3.png
 </code></pre></div>
+<p>In pratica, i nostri dati sono organizzati in una cartella "madre", all'interno della quale ci sono tante sottocartelle quante sono le classi del nostro problema, ognuna delle quali conterrà a sua volta tutte le immagini per quella specifica classe.</p>
+<p>Usiamo adesso la funzione <code>image_dataset_from_directory</code> per creare il nostro dataset:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">image_dataset_from_directory</span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>    <span class="n">data_dir</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span class="n">image_size</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>Nel precedente esempio:</p>
 <ul>
-<li><code>data_dir</code> è la cartella dove sono presenti i dati;</li>
-<li><code>validation_split</code> indica quanti dati usare per la validazione. Il valore deve essere coerente tra il dataset di train e quello di validazione;</li>
-<li><code>subset</code> indica se il dataset è indirizzato al training o alla validazione;</li>
-<li><code>image_size</code> rappresenta la dimensione (in pixel) dell'immagine;</li>
-<li><code>batch_size</code> rappresenta la dimensione del batch di dati da usare;</li>
-<li><code>seed</code> è un parametro che ci assicura la coerenza tra le immagini scelte per il training e quelle scelte per il test.</li>
+<li>alla riga 2, specifichiamo la cartella dove sono contenuti i dati;</li>
+<li>alla riga 3, specifichiamo il parametro <code>image_size</code> sotto forma di tupla, nella quale il primo elemento è l'altezza dell'immagine, mentre il secondo è la larghezza (nel nostro caso, siamo di fronte ad una <span class="arithmatex">\(32 \times 32\)</span>);</li>
+<li>alla riga 4, specifichiamo il parametro <code>batch_size</code>, utile in fase di addestramento del modello.</li>
 </ul>
-<p>La cartella <code>data_dir</code> deve essere organizzata come segue:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>data_dir/
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>...class1/
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>......1.png
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>......2.png
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>...class2/
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>......1.png
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>......2.png
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>......3.png
+<p>I più attenti si chiederanno se sia possibile caricare il dataset in modo da suddividere automaticamente i dati in insieme di training e di validazione. Ciò è possibile modificando le precedenti istruzioni come segue:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">train_ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">image_dataset_from_directory</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>    <span class="n">data_dir</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;training&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="n">image_size</span><span class="o">=</span><span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">),</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">val_ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">image_dataset_from_directory</span><span class="p">(</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>    <span class="n">data_dir</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>    <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>    <span class="n">image_size</span><span class="o">=</span><span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">),</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>    <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>In particolare:</p>
+<ul>
+<li>il parametro <code>validation_split</code>, che <strong>deve essere coerente</strong> in entrambi i dataset, indica quanti dati usare per la validazione;</li>
+<li>il parametro <code>subset</code> indica se il dataset è indirizzato al training o alla validazione;</li>
+<li>il parametro <code>seed</code>, che <strong>deve essere coerente</strong> in entrambi i dataset, fa in modo che i dataset siano generati casualmente in modo consistente.</li>
+</ul>
+<p>A questo punto possiamo passare <code>train_ds</code> e <code>val_ds</code> direttamente al metodo <code>fit()</code> del nostro modello usando il parametro <code>validation_data</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">train_ds</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">validation_data</span><span class="o">=</span><span class="n">val_ds</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-<p>A questo punto possiamo passare <code>train</code> e <code>val</code> direttamente al metodo <code>fit</code> del nostro modello.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">train</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">validation_data</span><span class="o">=</span><span class="n">val</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Un accorgimento utile a migliorare le prestazioni della nostra rete è quello di inserire un layer di <em>rescaling</em> qualora si abbia a che fare con immagini a colori. Infatti, i canali RGB possono assumere valori all'interno del range <span class="arithmatex">\([0, 255]\)</span>, mentre è consigliabile usare per una rete neurale valori compresi nell'intervallo <span class="arithmatex">\([0, 1]\)</span>. Keras ci mette a disposizione un apposito layer:</p>
-<blockquote>
-<p><code>py
-tf.keras.layers.Rescaling(1./255)</code></p>
-</blockquote>
-</div>
-<h3 id="2812-testo">28.1.2 - Testo<a class="headerlink" href="#2812-testo" title="Permanent link">&para;</a></h3>
+<h2 id="dataset-di-testo">Dataset di testo<a class="headerlink" href="#dataset-di-testo" title="Permanent link">&para;</a></h2>
 <p>Keras offre un metodo simile per creare un dataset a partire da un insieme di file di testo, utilizzando il metodo <a href="https://www.tensorflow.org/api_docs/python/tf/keras/utils/text_dataset_from_directory"><code>text_dataset_from_directory</code></a>.</p>
 <p>Analogamente al metodo usato per le immagini, <code>text_dataset_from_directory</code> si aspetta una cartella in una certa forma:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>data_dir/
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>...class1/
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>......1.txt
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>......2.txt
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>...class2/
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>......1.txt
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>......2.txt
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>......3.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>data_dir/
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>...class1/
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>......1.txt
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>......2.txt
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>...class2/
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>......1.txt
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>......2.txt
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>......3.txt
 </code></pre></div>
-<p>Per caricare il nostro dataset possiamo usare una forma analoga a quella delle immagini:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">train</span> <span class="o">=</span> <span class="n">text_dataset_from_direcotry</span><span class="p">(</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">data_dir</span><span class="p">,</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;training&#39;</span><span class="p">,</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">val</span> <span class="o">=</span> <span class="n">text_dataset_from_directory</span><span class="p">(</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">data_dir</span><span class="p">,</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+<p>Per caricare il nostro dataset possiamo usare una forma analoga a quella usata per il dataset di immagini:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">train</span> <span class="o">=</span> <span class="n">text_dataset_from_direcotry</span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">data_dir</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;training&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">val</span> <span class="o">=</span> <span class="n">text_dataset_from_directory</span><span class="p">(</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="n">data_dir</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;validation&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
 </code></pre></div>
 <p>I parametri sono esattamente gli stessi, a meno dell'assenza del parametro <code>image_size</code>.</p>
-<h4 id="28121-preparazione-dati-testuali-per-il-trainng">28.1.2.1 - preparazione dati testuali per il trainng<a class="headerlink" href="#28121-preparazione-dati-testuali-per-il-trainng" title="Permanent link">&para;</a></h4>
+<h5 id="preparazione-dei-dati-testuali">Preparazione dei dati testuali<a class="headerlink" href="#preparazione-dei-dati-testuali" title="Permanent link">&para;</a></h5>
 <p>Rispetto alle immagini, i dati testuali richiedono tre ulteriori operazioni, ovvero:</p>
 <ul>
 <li><em>standardizzazione</em>: si tratta di una procedura di preprocessing sul testo, che consiste tipicamente nella rimozione della punteggiatura. Di default, questa operazione converte l'intero testo in minuscolo e rimuove la punteggiatura;</li>
@@ -2238,32 +2525,32 @@ tf.keras.layers.Rescaling(1./255)</code></p>
 </ul>
 <p>Questi tre step sono gestiti in automatico da un layer chiamato <a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/TextVectorization"><code>TextVectorization</code></a>.</p>
 <p>Procediamo quindi a creare un layer di TextVectorization utilizzando una vettorizzazione <em>binaria</em>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">vectorize_layer</span> <span class="o">=</span> <span class="n">TextVectorization</span><span class="p">(</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">max_tokens</span><span class="o">=</span><span class="n">VOCAB_SIZE</span><span class="p">,</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">output_mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">vectorize_layer</span> <span class="o">=</span> <span class="n">TextVectorization</span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">max_tokens</span><span class="o">=</span><span class="n">VOCAB_SIZE</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">output_mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p>In particolare, <code>max_tokens</code> permette di stabilire il numero massimo di vocaboli consentiti, mentre l'<code>output_mode</code> indica la modalità con cui sarà gestita la sequenza vettorizzat.</p>
 <p>A questo punto, occorre creare il dataset che sarà effettivamente passato al primo layer della rete neurale. In tal senso, dobbiamo tenere conto che i dataset che abbiamo creato mediante <code>text_dataset_from_directory</code> non sono ancora stati vettorizzati, ed inoltre le singole coppie campione/label <em>non</em> sono accessibili mediante le tecniche standard di indicizzazione. Ciò è legato al fatto che le funzioni <code>*_dataset_from_directory</code> creano un oggetto di tipo <code>BatchDataset</code>, usato da TensorFlow per <em>ottimizzare</em> il caricamento in memoria di dataset di grosse dimensioni.</p>
 <p>Di conseguenza, dovremo innanzitutto estrarre il testo <em>senza considerare le singole label</em>. Per farlo, possiamo usare la funzione <code>map()</code> del nostro dataset:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">train_text</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">text</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="n">text</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">train_text</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">text</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 <p>La funzione <code>map()</code> non fa altro che applicare all'intero iterabile la funzione passata come argomento. In tal senso, il parametro passato altro non è se non una <em>lambda function</em>, ovvero una funzione anonima che assume una forma sintattica del tipo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">lambda</span> <span class="n">args</span> <span class="p">:</span> <span class="n">expression</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">lambda</span> <span class="n">args</span> <span class="p">:</span> <span class="n">expression</span>
 </code></pre></div>
 <p>e quindi applica l'espressione a valle dei <code>:</code> agli argomenti passati. In questo caso, stiamo semplicemente facendo in modo che tutte le coppie testo/label siano "mappate" sul semplice testo.</p>
 <p>Una volta estratto il testo, dovremo chiamare il metodo <a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/TextVectorization#adapt"><code>adapt</code></a> del layer di vettorizzazione in modo tale da creare il vocabolario che associ un determinato token numerico a ciascuna stringa.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">vectorize_layer</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">vectorize_layer</span><span class="o">.</span><span class="n">adapt</span><span class="p">(</span><span class="n">train_text</span><span class="p">)</span>
 </code></pre></div>
 <p>Potremo quindi procedere ad integrare il layer di vettorizzazione all'interno del nostro modello.</p>
 <p>In tal senso, dovremo assicurarci che il modello abbia un input di forma <code>(1,)</code> e tipo stringa, facendo in modo che la rete abbia un'unica stringa in input per ciascun batch:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">))</span>
 </code></pre></div>
-<h3 id="2813-array-numpy">28.1.3 - Array NumPy<a class="headerlink" href="#2813-array-numpy" title="Permanent link">&para;</a></h3>
+<h2 id="dataset-da-array-numpy">Dataset da array NumPy<a class="headerlink" href="#dataset-da-array-numpy" title="Permanent link">&para;</a></h2>
 <p>Nel caso di un array NumPy, occorre utilizzare il metodo <a href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset#from_tensor_slices"><code>from_tensor_slices</code></a>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">train</span> <span class="o">=</span> <span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">val</span> <span class="o">=</span> <span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">train</span> <span class="o">=</span> <span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">val</span> <span class="o">=</span> <span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
 </code></pre></div>
 
 
@@ -2334,7 +2621,7 @@ tf.keras.layers.Rescaling(1./255)</code></p>
     <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.fac441b0.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="../../../../../js/config.js"></script>
       
