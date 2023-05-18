@@ -32,7 +32,7 @@ ct.transform(tips)
 Possiamo anche combinare i `ColumnTransformer()` con le `Pipeline()`, usando al posto di un singolo transformer una pipeline di transformer. Ad esempio, se volessimo assegnare i dati mancanti usando un `SimpleImputer()` prima dello scaling, potremmo usare una pipeline da passare al transformer:
 
 ```py
-from sklearn.impute import Imputer
+from sklearn.impute import SimpleImputer
 
 numerical_transformer = Pipeline(
     [('imputer', SimpleImputer()),

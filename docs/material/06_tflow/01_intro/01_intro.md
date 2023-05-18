@@ -1,116 +1,98 @@
 # 6.1.1 - Introduzione a TensorFlow
 
-TensorFlow è una delle librerie più utilizzate per l'addestramento di modelli di reti neurali.
+[**TensorFlow**](https://www.tensorflow.org/) è una delle librerie più utilizzate per l'addestramento di modelli di reti neurali.
 
-TensorFlow basa il suo funzionamento sul concetto di tensore, che ricordiamo essere un concetto imputabile ad ogni generico array ad $N$ dimensioni. Visto sotto questo punto di vista, TensorFlow sembra essere molto simile a NumPy; tuttavia, ci sono tre differenze fondamentali tra le librerie.
-
-La prima è che, a differenza di NumPy, TensorFlow è intrinsecamente orientato al calcolo parallelo, per cui trae grande beneficio dalla presenza di GPU (Graphic Processing Unit) o TPU (Tensor Processing Unit).
+TensorFlow basa il suo funzionamento sul concetto di *tensore*, che ricordiamo essere un concetto imputabile ad ogni generico array ad $n$ dimensioni. Visto sotto questo punto di vista, TensorFlow potrebbe apparire simile a NumPy che, come ricordiamo, si occupa proprio di array $n$-dimensionali. Tuttavia, tra le librerie esistono diverse differenze: ad esempio, TensorFlow è pensato esplicitamente per il calcolo differenziale, è scalabile su architetture distribuite, ed è intrinsecamente orientato al calcolo parallelo, traendo grande beneficio dalla presenza di *GPU* (*Graphic Processing Unit*) e *TPU* (*Tensor Processing Unit*).
 
 !!!note "TensorFlow, GPU e TPU"
-    Allo stato attuale, con la versione 2.12.x di TensorFlow, le schede grafiche supportate (a meno di non utilizzare degli artifici) sono le NVIDIA, che mettono a disposizione CUDA e, nelle versioni più recenti, anche delle TPU specifiche per l'elaborazione dei tensori.
-
-TensorFlow è inoltre pensato per il calcolo differenziale su tensori, e può scalare su un gran numero di dispositivi. 
-
-In generale, quindi, TensorFLow è una libreria pensata per la programmazione differenziale su tensori ad un numero arbitrario di dimensioni.
+    Allo stato attuale, con la versione 2.12.x di TensorFlow, le schede grafiche supportate (a meno di non utilizzare degli artifici) sono le NVIDIA, che mettono a disposizione i cosiddetti CUDA core e, nelle versioni più recenti, anche delle TPU specifiche per l'elaborazione dei tensori.
 
 ## TensorFlow e Keras
 
-Messa così, è possibile programmare TensorFlow per effettuare delle operazioni su tensori (array, matrici, ed anche immagini) e simulare quindi l'utilizzo di una rete neurale. Tuttavia, allo scopo di ridurre la complessità di dover implementare da zero un'intera rete neurale, a partire dalla versione 2.0 di TensorFlow è stata integrata al suo interno la libreria Keras, che precedentemente era una libreria accessoria, il cui scopo è quella di fornire un'interfaccia di programmazione (detta anche API, Application Programming Interface) ad alto livello in grado di fornire tutti i mezzi per creare delle architetture orientate al deep learning in ogni possibile applicazione.
-
-L'astrazione fondamentale alla base di Keras è quella legata alla classe Layer, che contiene al suo interno una rappresentazione dello stato di un layer di una rete neurale (ovvero, i suoi pesi) e dei metodi di processing che mappano l'inptu verso l'output, questi ultimi contenuti all'interno del metodo call. Ad esmpio:
-
-```py
-class Linear(keras.layers.Layer):
-    """y = w.x + b"""
-
-    def __init__(self, units=32, input_dim=32):
-        super().__init__()
-        w_init = tf.random_normal_initializer()
-        self.w = tf.Variable(
-            initial_value=w_init(shape=(input_dim, units), dtype="float32"),
-            trainable=True,
-        )
-        b_init = tf.zeros_initializer()
-        self.b = tf.Variable(
-            initial_value=b_init(shape=(units,), dtype="float32"), trainable=True
-        )
-
-    def call(self, inputs):
-        return tf.matmul(inputs, self.w) + self.b
-```
-
-TODO: DESCRIVERE QUESTA CLASSE
-
-In questo corso, non creeremo direttamente dei nuovi layer, per cui non andremo a vedere alcune delle caratteristiche di questa classe.
+TensorFlow può essere usato per operazioni su tensori di ogni tipo sui tensori: di conseguenza, è possibile sfruttarlo anche per creare una rete neurale. Tuttavia, utilizzare direttamente TensorFlow può risultare abbastanza ostico; di conseguenza, a partire dalla versione 2.0 del framework, è stata integrata al suo interno la libreria **Keras**, il cui scopo è quello di fornire un'*interfaccia di programmazione* (in inglese *Application Programming Interface*, o *API*) ad alto livello, che semplifica notevolmente la creazione di architetture per il deep learning. Vediamone alcune tra le più importanti.
 
 ## Keras API: Sequential e Functional
 
-Keras offre due modalità per 
+Keras ci mette a disposizione due modi per creare un'architettura di rete neurale, definiti rispettivamente dalle API [`Sequential`](https://www.tensorflow.org/api_docs/python/tf/keras/Sequential) e [`Functional`](https://www.tensorflow.org/guide/keras/functional?hl=en).
 
+La differenza tra le due API è facilmente riassumibile: 
 
+* l'API `Sequential` offre un approccio interamente *object-oriented* alla creazione di architetture *puramente* sequenziali, il che la rente semplice da usare, ma limitata;
+* l'API `Functional` offre un approccio puramente *funzionale* alla creazione dell'architettura, intrinsecamente più complesso, ma anche in grado di offrire una maggiore flessibilità, e non limitato ad architetture puramente sequenziali, in quanto ci permette di creare architetture rappresentabili secondo un *grafo* più o meno complesso.
 
+Nel seguente snippet, possiamo vedere le due modalità a confronto.
 
-Laddove la Sequential API è orientata agli oggetti, la Fucntional API è una modalità di creazione del modello orientata all'applicazione dei concetti di programmazione funzionale. Ad esempio:
+=== "Sequential"
+    ``` py
+    model = Sequential()
+    model.add(Input(shape=(16), dtype="float32"))
+    model.add(RegLin(32))
+    model.add(Dropout(0.5))
+    model.add(RegLin(10))
+    ```
+=== "Functional"
+    ``` py
+    inputs = Input(shape=(16,), dtype="float32")
+    x = RegLin(32)(inputs)
+    x = Dropout(0.5)(x)
+    outputs = RegLin(10)(x)
+    model = Model(inputs, outputs)
+    ```
 
+In particolare:
 
-# We use an `Input` object to describe the shape and dtype of the inputs.
-# This is the deep learning equivalent of *declaring a type*.
-# The shape argument is per-sample; it does not include the batch size.
-# The functional API focused on defining per-sample transformations.
-# The model we create will automatically batch the per-sample transformations,
-# so that it can be called on batches of data.
-inputs = tf.keras.Input(shape=(16,), dtype="float32")
-
-# We call layers on these "type" objects
-# and they return updated types (new shapes/dtypes).
-x = Linear(32)(inputs)  # We are reusing the Linear layer we defined earlier.
-x = Dropout(0.5)(x)  # We are reusing the Dropout layer we defined earlier.
-outputs = Linear(10)(x)
-
-# A functional `Model` can be defined by specifying inputs and outputs.
-# A model is itself a layer like any other.
-model = tf.keras.Model(inputs, outputs)
-
-# A functional model already has weights, before being called on any data.
-# That's because we defined its input shape in advance (in `Input`).
-assert len(model.weights) == 4
-
-# Let's call our model on some data, for fun.
-y = model(tf.ones((2, 16)))
-assert y.shape == (2, 10)
-
-# You can pass a `training` argument in `__call__`
-# (it will get passed down to the Dropout layer).
-y = model(tf.ones((2, 16)), training=True)
-
-
-Rispetto alla Sequential API, la Functional API tende ad essere più sintetica, e ci permette di creare un *grafo* di layer, piuttosto che uan sequenza degli stessi.
-
+* nell'approccio funzionale usiamo un oggetto di tipo [`Input`](https://www.tensorflow.org/api_docs/python/tf/keras/Input) che crea un tensore per descrivere la forma ed il tipo degli ingressi;
+* nell'approccio sequenziale usiamo invece un `InputLayer` per aggiungere un layer di ingresso al modello;
+* l'API `Sequential` utilizza il metodo `add()` parametrizzato con un layer per concatenare (agendo quindi in modo strettamente sequenziale) uno stack di layer;
+* l'API `Functional` utilizza invece sfrutta la programmazione funzionale per "chiamare" i layer sullo stack precedente: ad esempio, l'istruzione `x = Dropout(0.5)(x)` "chiama" la classe `Dropout` sullo stack di layer costruito in precedenza;
+* il modello funzionale deve essere definito usando la classe [`Model`](https://www.tensorflow.org/api_docs/python/tf/keras/Model) e specificandone input ed output.
 
 ## Model training API
 
+L'addestramento di un modello con Keras prevede l'utilizzo di due metodi definiti dalla *model training API*. Vediamoli insieme.
+
 ##### Il metodo `compile()`
 
-Per addestrare un modello, dobbiamo utilizzare le API specifiche. In primis, dovremo chiamare il metodo `compile()`, che configura un modello per il training. Ad esempio:
+Il primo metodo da utilizzare è [`compile()`](https://www.tensorflow.org/api_docs/python/tf/keras/Model#compile), che configura il modello con i parametri specificati. Ad esempio:
 
 ```py linenums="1"
 model.compile(
-    optimizer=keras.optimizers.SGD(),
-    loss=keras.losses.BinaryCrossentropy(),
+    optimizer=SGD(),
+    loss=BinaryCrossentropy(),
     metrics=[
-        keras.metrics.BinaryAccuracy(),
-        keras.metrics.Precision(),
-        keras.metrics.Recall()
-    ]
-)
+        BinaryAccuracy(),
+        Precision(),
+        Recall()
+    ])
 ```
 
-In particolare: BREVE DESCRIZIONE
+I tre parametri che è importante passare al metodo `compile()` sono:
+
+* `optimizer`, che specifica l'algoritmo di ottimizzazione da utilizzare per l'addestramento del modello;
+* `loss`, che specifica la funzione di costo usata per valutare le performance del modello;
+* `metrics`, che specifica quali metriche saranno mostrate nella valutazione del modello.
+
+Nel caso precedente, utilizziamo l'algoritmo SGD per l'ottimizzazione, la cross-entropy binaria come funzione di costo, e precisione, recall ed accuracy binaria come metriche da mostrare all'utente.
 
 ##### Il metodo `fit()`
 
-Su
+Il metodo `compile()` **non addestra la rete**, limitandosi a configurarla. Per effettuare l'addestramento, dobbiamo usare il metodo [`fit()`](https://www.tensorflow.org/api_docs/python/tf/keras/Model#fit). Ad esempio:
 
-## Caricamento dei dati
+```py linenums="1"
+history = model.fit(
+    x=X,
+    y=y,
+    batch_size=8,
+    epochs=10,
+    validation_split=0.3)
+```
 
-Esempio su image_dataset_from_directory()
+In particolare, i parametri che stiamo usando sono:
+
+* `X` ed `y`, rappresentativi della matrice di design e del vettore delle label, che possono essere (tra gli altri) degli array NumPy;
+* `batch_size`, che indica quanti campioni verranno elaborati ad ogni singolo passaggio dal modello;
+* `epochs`, che indica quante iterazioni di addestramento dovranno essere effettuate dalla rete;
+* `validation_split`, che indica la percentuale dei dati che saranno usati per la validazione.
+
+!!!note "Callback e dati"
+    Il metodo `fit()` offre molti altri interessanti parametri, alcuni dei quali approfondiremo nelle lezioni successive.

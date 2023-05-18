@@ -1,18 +1,3 @@
-# X.X - Object detection
-
-Quella della *object detection* è una tecnica di computer vision usata per identificare e localizare oggetti all'interno di immagini o video. In particolare, la object detection ci permette di identificare la posizione di uno o più oggetti mediante una *bounding box*, ovvero un rettangolo "disegnato" attorno agli oggetti di interesse; ne vediamo un esempio in figura 1.
-
-<figure markdown>
-  ![obj_det](./images/obj_det.png)
-  <figcaption>Figura 1 - Un esempio di object detection. A bounding box di tipo differente corrispondono oggetti di tipo differente; in particolare, nelle diverse figure riconosciamo pomodori, nodi e fiori.</figcaption>
-</figure>
-
-Il task di object detection veniva tradizionalmente effettuato mediante delle tecniche di *template matching*: ad esempio, negli approcci usati fino ai primi anni Duemila per il riconoscimento facciale, venivano usati il cosiddetto *approccio di Viola - Jones*, che prevedeva l'uso di particolari maschere fatte "scorrere" sull'immagine alla ricerca di zone che rispettassero il pattern individuato.
-
-A partire dalla seconda metà degli anni '10, tuttavia, si sono andati via via diffondendo gli approcci basati sulle deep neural network. In particolare, esistono due tipologie di algoritmo:
-
-* nei *two-stages object detector* l'immagine viene dapprima passata attraverso una *Region Proposal Network*, che ha lo scopo di individuare le regioni "candidate" ad "ospitare" un determinato oggetto. A valle di questo primo stage, per ogni zona è determinato un punteggio che va a determinare se sia presente o meno una determinata tipologia di oggetto;
-* nei *single-stage object detector* i due passaggi sono "condensati", e localizzazione e valutazione del tipo di oggetto sono effettuati in un unico passo.
 
 ## YOLO
 

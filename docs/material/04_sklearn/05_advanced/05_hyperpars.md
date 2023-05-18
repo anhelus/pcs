@@ -2,7 +2,7 @@
 
 Ai più attenti non sarà sfuggito che tutto ciò che abbiamo visto finora è inficiato da una sfida molto complesssa, legata alla natura degli algoritmi utilizzati, per i quali può essere necessario valutare più combinazioni di "parametri" da passare al modello, spesso seguendo un approccio di tipo empirico.
 
-Ciò deriva dal fatto che questi "parametri", che nel gergo sono chiamati *iperparametri*, *non* sono appresi dal modello a partire dai dati forniti. Di conseguenza, sono state sviluppate nel corso del tempo delle tecniche di *ricerca* ed *ottimizzazione* degli iperparametri, che ci permettono di selezionarli sulla base del miglior punteggio ottenuto da una specifica combinazione in fase di [cross-validazione](./03_k_fold.md).
+Ciò deriva dal fatto che questi "parametri", che nel gergo sono chiamati *iperparametri*, *non* sono appresi dal modello a partire dai dati forniti. Di conseguenza, sono state sviluppate nel corso del tempo delle tecniche di *ricerca* ed *ottimizzazione* degli iperparametri, che ci permettono di selezionarli sulla base del miglior punteggio ottenuto da una specifica combinazione in fase di [cross-validazione](./03_cross_val/01_intro.md).
 
 Scikit-Learn, ovviamente, ci offre delle soluzioni già pronte a ciò, che andremo brevemente a discutere nel seguito.
 

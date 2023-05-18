@@ -14,28 +14,30 @@ $$
 s(t) = \int x(a) w(t-a) \delta a
 $$
 
-
-
-DA QUI
-
-
-Questa operazione è chiamata  *convoluzione*. L'operazione convoluzione è tipicamente denotata con un asterisco:
+Questa operazione, chiamata per l'appunto *convoluzione*, è tipicamente denotata utilizzando la seguente notazione:
 
 $$
 s(t)  = (x * w)(t)
 $$
 
-Nel nostro esempio, $w$ ha bnisogno di avere una funzione di densità di probabiòlità valida, o l'output non sarà una media pesata. Inoltre, $w$ deve essere $0$ per tutti gli argomenti negativi., o guarderà al futuro, che presumiobilmente è oltre le nostre capacità. Queste limtiazioni sono specifiche per il nostro esempio, comujnque. In generale, la convoluzione è definita per una qualsiasi funzione per la quael l'integrale precedente è definito e può essere usato per altro scopi oltre a prender le medie pesate.
+!!!note "Ritorno al futuro"
+    Notiamo che, limitatamente a questo specifico caso, se $t-a < 0$, allora $w = 0$, onde fare in modo che la funzione non guardi al futuro. In generale, comunque, la convoluzione è definita per qualsiasi funzione per la quale è possibile definire le relazioni precedenti.
 
-Nella terminologia delle reti convoluzionali, il priomo argomento (ovvero la funzione $x$) alla convoluzione è spesso chiamato il suo *input*, mentre il secondo argomento (in qeusto esempio la funzione $w$) è il *kernel*. L'output è alle volte chiamato *feature map*.
+##### Convoluzione discreta
 
-Nel nostro campione, l'idea di un sensore laser che può fornire la misura ad ogni istante non è erealistica. Normalmente, quando laviramo con i dati su un computer, il tempo sarà discretizzato, ed il nostro sensore ci fornirà dati ad invervalli regolari. Nel nostro esempio, può essere più realistico presumere che il nostro laser fornisca una misurazione una volta al secondo. L'indice di tempo $t$ può quindi prendere soltanto valori interi. Se presumiamo che $x$ e $w$ siano definite soltanto sull'intero $t$, possiamo definire la convoluzione discreta come:
+Nella terminologia delle CNN, il primo argomento (ovvero la funzione $x$) è chiamato *input*, mentre il secondo argomento (la funzione $w$) è chiamato *kernel*.
+
+Ovviamente, l'idea che un sensore laser possa fornire la misura ad ogni istante temporale non è realistica. Normalmente, infatti, lavoriamo con tempi discreti, con un sensore che fornisce dati ad intervalli all'incirca regolari; realisticamente quindi potremo presumere che il nostro laser fornisca una misura (ad esempio) una volta al secondo. L'indice temporale $t$ potrà quindi considerare soltanto valori interi e discreti. Di consequenza, potremo definire la convoluzione discreta come:
 
 $$
 s(t) = (x * w)(t) = \sum_{a=-\infty}^{\infty} x(a) w(t-a)
 $$
 
-Nelle applicazioni di machine learning, l'input è di solito un array di dati multidimesnsioanli, ed il kernel è di solito un array multidimensiopnael di parametri che sono adattati dall'algoritmo di apprendimento. Dato che ogni elemtno dell'input e del ckernel deve essere esplicitamente emmorizzato separatamente, normalmente ipotiziamo che queste funzioni siano zero onvuqne tranne nell'ìoinsieme di punti finito per i quali memorizziamo i valori. Questo singifica che nella pratica possiamo implmeentare al sommatoria infinita come una somma su un numero finito di eloemnetoi.
+Nelle CNN, l'input è di solito un array di dati multidimensionali, mentre il kernel è un array di parametri multidimensionale adattato all'algoritmo di apprendimento. Dato che ogni elemento sia dell'input sia del kernel deve essere salvato all'interno della memoria del calcolatore, possiamo ipotizzare che queste funzioni siano zero ovunque, tranne che nell'insieme finito di punti per i quali stiamo effettuando l'osservazione.
+
+##### Convoluzione multidimensioanle
+
+Nell'esempio precedente abbiamo applicato una convoluzione su di un unico asse. Tuttavia, è possibile applicare 
 
 Infine, possiamo usare le convoluzioni su più di un asse per volta. Per esempio, se usiamo un'imamgine bidimensionale $I$ come input,. probabilmente vorremo usare un kernel bidimensionale $K$:
 

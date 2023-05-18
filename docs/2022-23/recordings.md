@@ -21,3 +21,5 @@
 | 04/05/2023 | 13 | [:link:](https://youtu.be/5tjv20IW514) |
 | 09/05/2023 | 14 (Parte 1) | [:link:](https://youtu.be/_Ud1FpTT7D8) |
 | 09/05/2023 | 14 (Parte 2) | [:link:](https://youtu.be/YKc-QL3zksw) |
+| 11/05/2023 | 15 | [:link:](https://youtu.be/s27BgWn9JME) |
+| 16/05/2023 | 16 | [:link:](https://youtu.be/yTvSEOSgT_M) |

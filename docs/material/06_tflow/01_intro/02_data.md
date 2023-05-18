@@ -1,41 +1,14 @@
-# 28 - TensorFlow & Keras: Tips & Tricks
+# 6.1.2 - Dataset
 
-## 28.1 - Dataset
+Nella [lezione precedente](01_intro.md) abbiamo visto come il metodo `fit()` accetti i dati sotto forma di array NumPy. Tuttavia, nel momento in cui si ha a che fare con dataset di grosse dimensioni, potrebbe essere necessario usare oggetti specifici appartenenti alla classe [`Dataset`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset).
 
-I dati che abbiamo utilizzato finora erano organizzati sotto forma di array NumPy. Tuttavia, per dataset di grosse dimensioni, potrebbe essere necessario utilizzare degli oggetti di tipo [`Dataset`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset). In tal senso, Keras ci mette a disposizione diverse tecniche; vediamone alcuni.
+Per farlo, Keras ci mette a disposizione delle tecniche che ci permettono di creare un `Dataset` a partire dai nostri dati; vediamone alcune. 
 
-### 28.1.1 - Immagini
+## Dataset di immagini
 
-Per caricare un dataset di immagini a partire da una cartella, possiamo usare la funzione [`image_dataset_from_directory`](https://www.tensorflow.org/api_docs/python/tf/keras/utils/image_dataset_from_directory), che ha una sintassi di questo tipo:
+Possiamo creare un dataset a partire da una cartella usando la funzione [`image_dataset_from_directory`](https://www.tensorflow.org/api_docs/python/tf/keras/utils/image_dataset_from_directory).
 
-```py
-train = tf.keras.utils.image_dataset_from_directory(
-    data_dir,
-    validation_split=0.2,
-    subset='training',
-    image_size=(img_height, img_width),
-    batch_size=batch_size,
-    seed=seed)
-
-val = tf.keras.utils.image_dataset_from_directory(
-    data_dir,
-    validation_split=0.2,
-    subset='validation',
-    image_size=(img_height, img_width),
-    batch_size=batch_size,
-    seed=seed)
-```
-
-Nel precedente esempio:
-
-* `data_dir` è la cartella dove sono presenti i dati;
-* `validation_split` indica quanti dati usare per la validazione. Il valore deve essere coerente tra il dataset di train e quello di validazione;
-* `subset` indica se il dataset è indirizzato al training o alla validazione;
-* `image_size` rappresenta la dimensione (in pixel) dell'immagine;
-* `batch_size` rappresenta la dimensione del batch di dati da usare;
-* `seed` è un parametro che ci assicura la coerenza tra le immagini scelte per il training e quelle scelte per il test.
-
-La cartella `data_dir` deve essere organizzata come segue:
+Supponiamo per prima cosa che la cartella `data_dir` sia organizzata come segue:
 
 ```bash
 data_dir/
@@ -48,22 +21,59 @@ data_dir/
 ......3.png
 ```
 
-A questo punto possiamo passare `train` e `val` direttamente al metodo `fit` del nostro modello.
+In pratica, i nostri dati sono organizzati in una cartella "madre", all'interno della quale ci sono tante sottocartelle quante sono le classi del nostro problema, ognuna delle quali conterrà a sua volta tutte le immagini per quella specifica classe.
+
+Usiamo adesso la funzione `image_dataset_from_directory` per creare il nostro dataset:
+
+```py linenums="1"
+ds = tf.keras.utils.image_dataset_from_directory(
+    data_dir,
+    image_size=(32, 32),
+    batch_size=32)
+```
+
+Nel precedente esempio:
+
+* alla riga 2, specifichiamo la cartella dove sono contenuti i dati;
+* alla riga 3, specifichiamo il parametro `image_size` sotto forma di tupla, nella quale il primo elemento è l'altezza dell'immagine, mentre il secondo è la larghezza (nel nostro caso, siamo di fronte ad una $32 \times 32$);
+* alla riga 4, specifichiamo il parametro `batch_size`, utile in fase di addestramento del modello.
+
+I più attenti si chiederanno se sia possibile caricare il dataset in modo da suddividere automaticamente i dati in insieme di training e di validazione. Ciò è possibile modificando le precedenti istruzioni come segue:
+
+```py linenums="1"
+train_ds = tf.keras.utils.image_dataset_from_directory(
+    data_dir,
+    validation_split=0.2,
+    subset='training',
+    image_size=(img_height, img_width),
+    batch_size=batch_size,
+    seed=seed)
+
+val_ds = tf.keras.utils.image_dataset_from_directory(
+    data_dir,
+    validation_split=0.2,
+    subset='validation',
+    image_size=(img_height, img_width),
+    batch_size=batch_size,
+    seed=seed)
+```
+
+In particolare:
+
+* il parametro `validation_split`, che **deve essere coerente** in entrambi i dataset, indica quanti dati usare per la validazione;
+* il parametro `subset` indica se il dataset è indirizzato al training o alla validazione;
+* il parametro `seed`, che **deve essere coerente** in entrambi i dataset, fa in modo che i dataset siano generati casualmente in modo consistente.
+
+A questo punto possiamo passare `train_ds` e `val_ds` direttamente al metodo `fit()` del nostro modello usando il parametro `validation_data`:
 
 ```py
 model.fit(
-    train,
-    validation_data=val,
+    train_ds,
+    validation_data=val_ds,
     epochs=10)
 ```
 
-!!!note "Nota"
-    Un accorgimento utile a migliorare le prestazioni della nostra rete è quello di inserire un layer di *rescaling* qualora si abbia a che fare con immagini a colori. Infatti, i canali RGB possono assumere valori all'interno del range $[0, 255]$, mentre è consigliabile usare per una rete neurale valori compresi nell'intervallo $[0, 1]$. Keras ci mette a disposizione un apposito layer:
-    > ```py
-    tf.keras.layers.Rescaling(1./255)
-    ```
-
-### 28.1.2 - Testo
+## Dataset di testo
 
 Keras offre un metodo simile per creare un dataset a partire da un insieme di file di testo, utilizzando il metodo [`text_dataset_from_directory`](https://www.tensorflow.org/api_docs/python/tf/keras/utils/text_dataset_from_directory).
 
@@ -80,7 +90,7 @@ data_dir/
 ......3.txt
 ```
 
-Per caricare il nostro dataset possiamo usare una forma analoga a quella delle immagini:
+Per caricare il nostro dataset possiamo usare una forma analoga a quella usata per il dataset di immagini:
 
 ```py
 train = text_dataset_from_direcotry(
@@ -100,7 +110,7 @@ val = text_dataset_from_directory(
 
 I parametri sono esattamente gli stessi, a meno dell'assenza del parametro `image_size`.
 
-#### 28.1.2.1 - preparazione dati testuali per il trainng
+##### Preparazione dei dati testuali
 
 Rispetto alle immagini, i dati testuali richiedono tre ulteriori operazioni, ovvero:
 
@@ -152,7 +162,7 @@ model.add(
     dtype=tf.string))
 ```
 
-### 28.1.3 - Array NumPy
+## Dataset da array NumPy
 
 Nel caso di un array NumPy, occorre utilizzare il metodo [`from_tensor_slices`](https://www.tensorflow.org/api_docs/python/tf/data/Dataset#from_tensor_slices):
 

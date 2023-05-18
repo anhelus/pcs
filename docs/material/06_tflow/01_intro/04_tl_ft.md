@@ -1,11 +1,8 @@
+# 6.1.4 - Transfer learning e fine tuning
 
+Le reti neurali, e soprattutto le CNN, presentano un'interessante caratteristica: infatti, apprendono delle feature *generiche* nei primi strati, specializzandosi sullo specifico problema man mano che si va in profondità nella rete.
 
-
-## 28.3 - Transfer learning e fine tuning
-
-Le reti neurali, e soprattutto le CNN, presentano un'interessante caratteristica, ovvero quella di apprendere delle feature di carattere *generico* nei loro primi strati, andandosi a specializzare man mano che si va in profondità nella rete.
-
-Partendo da questa considerazione è stata elaborata la tecnica del *transfer learning*, che consiste nel prendere il modello addestrato su un problema e riconfigurarlo per risolverne uno nuovo (ma, ovviamente, simile: ad esempio, un tool che permette di valutare la razza di un gatto può essere usato per distinguere tra leopardi e tigri). Questa tecnica permette anche di addestrare un numero limitato di parametri, per cui è possibile utilizzarla quando si ha a che fare con dataset di dimensioni limitate.
+Partendo da questa considerazione è stata elaborata la tecnica del **transfer learning**, che consiste nel prendere il modello addestrato su un problema, e riconfigurarlo per risolverne uno nuovo ma, ovviamente, simile (ad esempio, un tool che permette di valutare la razza di un gatto può essere usato mediante transfer learning per distinguere tra leopardi e tigri). Questa tecnica permette anche di addestrare un numero limitato di parametri, per cui è possibile utilizzarla quando si ha a che fare con dataset di dimensioni limitate.
 
 In tal senso, il transfer learning segue di solito questi step:
 
