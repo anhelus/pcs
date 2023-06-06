@@ -1,4 +1,9 @@
 site_name: Python per il Calcolo Scientifico
+site_url: https://python.angelocardellicchio.it
+site_author: Angelo Cardellicchio
+
+repo_name: anhelus/pcs
+repo_url: https://github.com/anhelus/pcs.git
 
 nav:
   - Home: index.md
@@ -116,6 +121,10 @@ theme:
   name: material
   language: it
   favicon: assets/images/favicon.png
+  icon:
+    logo: fontawesome/solid/terminal
+    repo: fontawesome/brands/git
+    edit: material/file-edit-outline
   palette:
     - scheme: default
       toggle:
@@ -162,7 +171,6 @@ markdown_extensions:
       alternate_style: true # auto tabs
   - pymdownx.tilde # strike through cross out text
   - md_in_html
-
 
 plugins:
   - search
@@ -288,7 +296,24 @@ plugins:
           E - Programmazione orientata agli oggetti: E - Object oriented programming
           F - Tips: F - Tips
           Ringraziamenti: Credits
+  # zoom and move images
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: false
+      caption_position: bottom
 
+  # implement date of creation and last edit
+  - git-revision-date-localized:
+      type: date
+      enable_creation_date: true
+      fallback_to_build_date: true
 
 extra:
   social:

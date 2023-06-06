@@ -4,7 +4,7 @@ Nelle [lezioni precedenti](../01_intro/01_intro.md) abbiamo visto come esistano 
 
 ## Cosa è la regressione?
 
-Non occorre essere esperti di meteorologia per sapere che i millimetri di pioggia caduti durante una precipitazione sono correlata a fattori quali temperatura, venti, umidità, posizione geografica, ed altri ancora. Immaginiamo quindi di avere un insieme di dati che, al loro interno, descrivano la condizione meteorologica ad un dato istante di tempo (supponiamo, per semplicità, giornaliero), oltre che i millimetri di pioggia caduti nello stesso periodo. Supponiamo di effettuare un'analisi esplorativa dei dati, i cui risultati sono (parzialmente) riportati in figura 1.
+Non serve essere esperti di meteo per capire che la quantità di pioggia durante una precipitazione dipende da diversi fattori come temperatura, venti, umidità, posizione geografica e altro ancora. Immaginiamo di avere un set di dati che descrive la situazione meteo in un determinato momento (per esempio, giornalmente) insieme ai millimetri di pioggia caduti nello stesso periodo. Facciamo un'analisi esplorativa di questi dati, e i risultati sono (almeno in parte) riportati nella figura 1.
 
 <figure markdown>
   ![rain_temp](./images/rain_temp.png)

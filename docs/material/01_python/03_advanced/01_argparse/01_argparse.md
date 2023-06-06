@@ -1,21 +1,18 @@
 # 1.3.1 - Il modulo `argparse`
 
-Il modulo [`argparse`](https://docs.python.org/3/library/argparse.html) ci permette di passare ad uno script Python degli argomenti utilizzando la riga di comando.
+Il modulo [`argparse`](https://docs.python.org/3/library/argparse.html) è una libreria di Python che ci consente di passare argomenti a uno script utilizzando la riga di comando.
 
-Per farlo, dobbiamo seguire un processo articolato in quattro step:
+Per utilizzare `argparse`, dobbiamo seguire quattro semplici passaggi:
 
-1. creiamo un oggetto di classe [`ArgumentParser`](https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser);
-2. aggiungiamo gli argomenti di cui intendiamo fare il parsing;
-3. effettuiamo il parsing di questi argomenti;
-4. usiamo gli argomenti passati.
+1. Creare un oggetto [`ArgumentParser`](https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser), che ci permetterà di gestire gli argomenti.
+2. Aggiungere gli argomenti che desideriamo gestire.
+3. Effettuare il parsing degli argomenti passati.
+4. Utilizzare gli argomenti passati per eseguire le operazioni desiderate.
 
-Come molte cose in Python, è più complesso descrivere questa serie di passaggi che implementarla. Di conseguenza, usiamo il solito approccio *learn by doing*, usando un semplice esempio.
+Per aiutarci a comprendere questo processo, useremo un esempio semplice. Supponiamo di avere una classe chiamata `Persona` definita nel seguente modo:
 
-Supponiamo di avere una classe `Persona`, definita come segue:
-
-```py linenums="1"
-class Persona():
-
+```python
+class Persona:
     def __init__(self, nome, cognome):
         self.nome = nome
         self.cognome = cognome
@@ -24,56 +21,77 @@ class Persona():
         return f'{self.nome} {self.cognome}'
 ```
 
-Scriviamo adesso uno script per creare un oggetto di questa classe, specificandone i parametri mediante riga di comando. Per prima cosa, importiamo la libreria `argparse`:
+Creiamo ora uno script per creare un'istanza di questa classe, specificando i parametri tramite la riga di comando. Iniziamo importando la libreria `argparse`:
 
-```py
+```python
 import argparse
 ```
 
-Definiamo quindi un metodo che accetti come parametro un generico insieme di argomenti (che chiameremo `args`), e che crei al suo interno un'istanza di `Persona` a partire da questi argomenti.
+Definiamo quindi il metodo `run` che accetta come parametro un oggetto `args`, rappresentante gli argomenti passati tramite la riga di comando:
 
-```py linenums="1"
+```python
 def run(args):
-    """ Definiamo il metodo `run` che sarà invocato
-    ad ogni esecuzione dello script.
-    Il metodo accetta un parametro args che rappresenta
-    gli argomenti di cui è stato effettuato il parsing.
+    """
+    Definiamo il metodo `run` che viene eseguito ogni volta che lo script viene avviato.
+    Il metodo accetta un parametro chiamato `args` che contiene gli argomenti del parsing.
     """
     p = Persona(args.nome, args.cognome)
     print(p)
 ```
 
-Possiamo adesso definire il punto di accesso al nostro script come segue:
+Ora possiamo definire il punto di ingresso dello script nel blocco `if __name__ == '__main__':`. Iniziamo creando un oggetto `ArgumentParser` chiamato `parser`:
 
-```py linenums="1"
+```python
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        '-n',
-        '--nome',
-        help='Nome della persona',
-        default='Pippo')
-    parser.add_argument(
-        '-c',
-        '--cognome',
-        help='Cognome della persona',
-        required=True)
-    args = parser.parse_args()
-    run(args)
 ```
 
-In particolare:
+Aggiungiamo quindi il primo argomento, il nome, al nostro `parser` utilizzando il metodo `add_argument()`:
 
-* alla riga 2, creeremo un oggetto di tipo `ArgumentParser`, che chiameremo `parser`;
-* alla riga 3, aggiungeremo un primo argomento (il nome) al `parser` mediante il metodo [`add_argument()`](https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_argument);
-* alla riga 4, aggiungeremo un *flag* che contrassegnerà l'argomento;
-* alla riga 5, aggiungeremo un *nome* per indicare l'argomento;
-* alla riga 6, andremo a definire un messaggio di aiuto mediante il parametro `help` che descriverà a cosa serve l'argomento;
-* alla riga 7, assegneremo un valore di default all'argomento relativo al nome della persona;
-* alla riga 8, creeremo un secondo argomento, ovvero il cognome, aggiungendolo al parser;
-* alla riga 12, specificheremo che l'argomento `cognome` è richiesto settando il parametro `required` a `True`;
-* alla riga 13, andremo ad effettuare il parsing degli argomenti passati, salvandoli in una variabile chiamata `args`;
-* infine, alla riga 14, passeremo la variabile `args` al metodo `run()` definito in precedenza.
+```python
+parser.add_argument(
+    '-n',
+    '--nome',
+    help='Nome della persona',
+    default='Pippo')
+```
+
+Specifichiamo un *flag* per identificare l'argomento e un *nome* per riferirci ad esso. Utilizziamo il parametro `help` per fornire una descrizione dell'argomento e impostiamo un valore di default per il nome.
+
+Aggiungiamo quindi il secondo argomento, il cognome:
+
+```python
+parser.add_argument(
+    '-c',
+    '--cognome',
+    help='Cognome della persona',
+    required=True)
+```
+
+Indichiamo che il cognome è un argomento obbligatorio, utilizzando il parametro `required=True`.
+
+Successivamente, effettuiamo il parsing degli argomenti passati e li salviamo nella variabile `args`:
+
+```python
+args = parser.parse_args()
+```
+
+Infine, chiamiamo il metodo `run` passando l'oggetto `args`:
+
+```python
+run(args)
+```
+
+Ecco un riassunto dei passaggi effettuati:
+
+1. Creiamo un oggetto `ArgumentParser`.
+2. Aggiungiamo i nostri argomenti utilizzando il metodo `add_argument()`.
+3. Effettuiamo il
+
+ parsing degli argomenti passati utilizzando il metodo `parse_args()`.
+4. Utilizziamo gli argomenti passati per eseguire le operazioni desiderate.
+
+Ora siamo pronti per eseguire il nostro script e gestire gli argomenti dalla riga di comando.
 
 !!!tip "La variabile `args`"
     La variabile `args` definisce un oggetto di tipo [`Namespace`](https://docs.python.org/3/library/argparse.html#argparse.Namespace) all'interno del quale sono salvati tutti gli argomenti passati allo script, ciascuno dei quali invocabile con la notazione `args.nome_argomento`.

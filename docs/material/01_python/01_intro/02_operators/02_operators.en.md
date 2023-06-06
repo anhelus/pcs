@@ -1,12 +1,12 @@
 # 1.1.2 - Arithmetic and logical operators
 
-As briefly mentioned in the [previous lesson](01_intro.md), let's now see what the arithmetic and logical operators are, and how they can be used on basic numeric types.
+As mentioned briefly in the [previous lesson](../01_intro/lecture.en.md), let's now explore the arithmetic and logical operators and how they can be applied to basic numeric types.
 
 ## Arithmetic operators
 
-### Addition, multiplication and subtraction
+### Addition, multiplication, and subtraction
 
-Let's try to use the interpreter as a simple calculator. To do this, we write directly after the `>>>` symbol the operations we want to perform, and press the `Enter` key. For example:
+We can use the Python interpreter as a simple calculator. To do this, we enter the desired operations directly after the `>>>` symbol and press the `Enter` key. For example:
 
 ```py
 >>> 2 + 2
@@ -17,9 +17,11 @@ Let's try to use the interpreter as a simple calculator. To do this, we write di
 2
 ```
 
+In the above examples, we see how the addition (`+`), multiplication (`*`), and subtraction (`-`) operators work with numeric values. The interpreter evaluates the expressions and returns the corresponding results.
+
 ### Division
 
-Divisions always return a floating-point number. For example:
+When performing division, the result is always a floating-point number. For example:
 
 ```py
 >>> 16 / 3
@@ -29,26 +31,26 @@ Divisions always return a floating-point number. For example:
 ```
 
 !!!note "Evaluating the type of a variable"
-	To evaluate the type of a variable `a`, we can use the `type()` function, passing the variable as an argument. For example:
+	To determine the type of a variable `a`, we can use the `type()` function by passing the variable as an argument. For example:
 	> ```py
 	  >>> a = 10
 	  >>> type(a)
-	  int
+	  <class 'int'>
 	  >>> b = 3.3
 	  >>> type(b)
-	  float
+	  <class 'float'>
 	  ```
 
-#### Quotient and remainder of a division
+#### Quotient and remainder of division
 
-There are two contextual but distinct operations with respect to classical division. In particular, we can use the `//` operator to obtain the quotient of the division. For example, if we try to divide `16` by `3`, we will get a quotient of `5`:
+There are two related but distinct operations when it comes to division. We can use the `//` operator to obtain the quotient of the division. For example, dividing `16` by `3` gives us a quotient of `5`:
 
 ```py
 >>> 16 // 3
 5
 ```
 
-The `%` operator, on the other hand, returns the remainder of the division. In the previous case, it will therefore return `1`:
+On the other hand, the `%` operator returns the remainder of the division. In the previous example, it would yield `1`:
 
 ```py
 >>> 16 % 3
@@ -56,13 +58,13 @@ The `%` operator, on the other hand, returns the remainder of the division. In t
 ```
 
 !!!note "Modular arithmetic"
-	It is obvious that the `%` operator can be used for applications of modular arithmetic.
+	The `%` operator can also be used for modular arithmetic applications.
 
-It is important to emphasize that the `//` and `%` operators return integer values.
+It's important to note that the `//` and `%` operators return integer values.
 
 ### Exponentiation
 
-To raise a number to a power, it is necessary to use the `**` operator, where the left operand is the base, while the right one is the exponent:
+To raise a number to a power, we use the `**` operator, where the left operand is the base and the right operand is the exponent:
 
 ```py
 >>> 3 ** 2
@@ -73,7 +75,7 @@ To raise a number to a power, it is necessary to use the `**` operator, where th
 
 ### Summary
 
-We end this section with a brief summary of the different types of arithmetic operator, and their effects on numerical variables.
+Let's conclude this section with a concise summary of the different arithmetic operators and their effects on numerical variables.
 
 | Operator | Description | Example | Result |
 | --------- | ----------- | ------- | --------- |
@@ -81,7 +83,7 @@ We end this section with a brief summary of the different types of arithmetic op
 | `-` | Subtraction | `1 - 1` | `0` |
 | `*` | Multiplication | `2 * 1` | `2` |
 | `**` | Exponentiation | `2 ** 3` | `8` |
-| `/` | Division | `2 / 1` | `2` |
+| `/` | Division | `2 / 1` | `2.0` |
 | `//` | Quotient | `4 // 3` | `1` |
 | `%` | Modulo | `5 % 3` | `2` |
 
