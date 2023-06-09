@@ -1,29 +1,43 @@
-## Iterare con i cicli for in Python
+# La funzione `enumerate()`
 
-In Python, un ciclo for viene utilizzato per iterare su un oggetto iterabile, eliminando la necessità di utilizzare un contatore per accedere agli elementi dell'iterabile. Tuttavia, ci sono situazioni in cui potremmo voler avere una variabile che cambia ad ogni iterazione del ciclo. Invece di creare e incrementare manualmente una variabile di contatore, possiamo utilizzare il metodo `enumerate()` per ottenere sia un contatore che un valore dall'iterabile contemporaneamente.
+Abbiamo visto come in Python sia possibile utilizzare un ciclo per iterare tutti gli elementi di una sequenza. Per fare un banale esempio:
 
-Un ciclo for in Python utilizza un'iterazione basata sulla collezione (*collection-based iteration*). Ciò significa che Python assegna l'oggetto successivo nell'iterabile alla variabile di loop ad ogni iterazione. Ad esempio:
-
-```python
+```py
 values = ["a", "b", "c"]
 
 for value in values:
     print(value)
 ```
 
-In questo esempio, `values` è una lista con tre stringhe. Le liste sono oggetti iterabili in Python. Nel ciclo for, la variabile `value` rappresenta l'elemento corrente dell'iterabile. Ad ogni iterazione del ciclo, `value` viene impostato sull'oggetto successivo in `values`.
+Ovviamente, questo uso del ciclo `for` è molto intuitivo; tuttavia, esistono alcune situazioni nelle quali non vogliamo esclusivamente accedere all'elemento della sequenza, ma anche all'indice ad esso associato.
 
-Possiamo stampare `value` a schermo. L'iterazione basata sulla collezione ci aiuta a evitare l'errore comune dell'off-by-one che si verifica in altri linguaggi di programmazione.
+!!!warning "Attenzione"
+    Ovviamente, stiamo supponendo che la sequenza sulla quale stiamo lavorando preveda un indice.
 
-Supponiamo ora che vogliamo stampare sia il valore che l'indice dell'oggetto nella lista durante ogni iterazione. Un modo per affrontare questa situazione sarebbe quello di creare una variabile per memorizzare l'indice e aggiornarla ad ogni iterazione:
+Il modo più semplice di procedere potrebbe quindi essere quello di utilizzare un contatore che vari da zero ad $n-1$, con $n$ numero di elementi nella sequenza:
 
-```python
-index = 0
+```py
+values = ["a", "b", "c"]
 
-for value in values:
-    print(index, value)
-    index += 1
+for idx in range(len(values)):
+    print(values[idx])
+    print(idx)
 ```
+
+Usando la precedente notazione, avremo la possibilità di accedere all'indice di ciascun elemento, rappresentato dalla variabile `idx`, ed all'elemento corrispondente, ottenibile mediante `values[idx]`. Tuttavia, esiste un metodo più compatto e *pythonic* per farlo, ovvero usare il metodo [`enumerate()`](https://docs.python.org/3/library/functions.html#enumerate). L'esempio precedente diventa:
+
+```py
+values = ["a", "b", "c"]
+
+for idx, value in enumerate(values):
+    print(idx)
+    print(value)
+```
+
+
+
+
+DA QUI
 
 In questo caso, `index` è un intero che tiene traccia della posizione corrente nella lista. Ad ogni iterazione del ciclo, stampiamo `index` insieme a `value`. L'ultimo passaggio nel ciclo consiste nell'aggiornare il valore memorizzato in `index` di uno. Tuttavia, un errore comune si verifica quando ci si dimentica di aggiornare l'indice ad ogni iterazione:
 
@@ -55,9 +69,7 @@ Tuttavia, in questo esempio, un errore comune può verificarsi quando ci si dime
 !!!note "Dettaglio tecnico"
     Secondo la documentazione di Python, un iterabile è *qualsiasi* oggetto che può restituire i suoi elementi uno alla volta. Gli iterabili supportano il protocollo dell'iteratore, che specifica come gli elementi dell'oggetto vengono restituiti quando l'oggetto viene utilizzato in un contesto di iterazione. In Python, ci sono due tipi comuni di iteratori: le sequenze e i generatori.
 
-
-
-DA QUI
+## Iterator e cicli for
 
 Un qualsiasi iterabile può essere usato in un ciclo for, ma solo le sequenze possono essere accedute da indici interi. Provare ad accedere agli oggetti per indice da un generatore o un iteratore lancerà un TypeError:
 
