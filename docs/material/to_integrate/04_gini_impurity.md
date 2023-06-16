@@ -11,3 +11,37 @@ nell'esempio precedente (COPIARE IMMAGINE ) la variabilie età ha la gini impuri
 
 
 https://www.learndatasci.com/glossary/gini-impurity/
+
+##Definizione matematica
+
+Consideriamo un dataset $D$ che contiene campioni da $k$ classi. La probabilità che i campioni appartengano ad una classe $i$ ad un dato nodo può essere scritta come $p_i$. La gini impurity di $D$ è definita come:
+
+$$
+Gini(D) = 1 - \sum_{i=1}^k p_i^2
+$$
+
+Il nodo con la distribuzione di classe uniforme ha quindi l'impurità più alta, mentre quella minima è ottenuta quando tutti i record appartengono alla stessa classe. Ad esempio:
+
+| Nodo | $n_1$ | $n_2$ | $p_1$ | $p_2$ | Gini impurity |
+| -    | -     | -     | ----- | ----- | ------------- |
+| A | 0 | 10 | 0 | 1 | 1 - 0x0 - 1x1 = 0 |
+| B | 3 | 7 | 0.3 | 0.7 | 1 - 0.3x0.3 - 0.7x0.7 = 0.42 |
+| C | 5 | 5 | 0.5 | 0.5 | 1 - 0.5x0.5 - 0.5x0.5 = 0.5 | 
+
+Un attributo con la più piccola gini impurity viene scelto per suddividere il nodo.
+
+Se un dataset $D$ è suddiviso su un attributo $A$ in due sottoinsiemi $D_1$ e $D_2$ con dimensioni $n_1$ ed $n_2$, rispettivamente, la Gini Impurity può essere definita come:
+
+$$
+Gini_A (D) = \frac{n_1}{n} Gini (D_1) + \frac{n_2}{n} Gini (D_2)
+$$
+
+Quando si addestra un albero decisionale, l'attributo che fornisce il valore minore di $Gini_A (D)$ è quello scelto per suddividere il nodo.
+
+PEr ottenere l'information gain per un attributo, le impurità pesate dei branch vengono sottratte dall'impurity originaria. Il milgior split può anche essere ottenuto massimizzando il Gini gain. Il gini gain è calcolato come:
+
+$$
+\Delta Gini (A) = Gini(D) - Gini_A (D)
+$$
+
+
