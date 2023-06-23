@@ -1,45 +1,56 @@
-# 1.6 - La gestione degli errori
+# X.X - La gestione degli errori
 
-Nella maggior parte dei linguaggi interpretati, l'esecuzione di un programma termina non appena viene individuato un errore.
+Come quasi tutti i linguaggi di programmazione, anche il linguaggio Python permette di gestire gli errori. In particolare, ne esistono di due tipi: il primo sono gli errori **sintattici**, mentre il secondo sono le **eccezioni**.
 
-In Python, esistono due tipi di errore: il primo è quello *sintattico*, mentre il secondo è chiamato *eccezione*.
+## Errori sintattici
 
-## 1.6.1 - Errori sintattici ed eccezioni
-
-Gli errori di sintassi avvengono qunado il parser individua un'istruzione scritta in maniera non corretta. Ad esempio:
+Gli errori sintattici insorgono quando il programmatore scrive del codice in modo non corretto. Proviamo ad esempio a scrivere l'istruzione `print` usando due parentesi di chiusura al posto di una:
 
 ```py
 >>> print(0/0))
-  File "<stdin>", line 1
+```
+
+avremo il seguente errore:
+
+```py
+File "<stdin>", line 1
     print(0/0))
               ^
 SyntaxError: unmatched ')'
 ```
 
-In questo caso, notiamo la presenza di una parentesi di chiusura di troppo. Di conseguenza, Python lancia un `SyntaxError`, indicandoci anche dove è occorso l'errore (in questo caso, mediante l'informazione `unmatched ')'`).
+L'interprete lancerà quindi un errore di sintassi ([`SyntaxError`](https://docs.python.org/3/library/exceptions.html#SyntaxError)), indicandoci anche dove è occorso l'errore mediante il cursore `^`, oltre che di cosa si tratta (`unmatched ')'`). 
 
-Proviamo adesso a rimuovere la parentesi.
+## Eccezioni
+
+Proviamo adesso a correggere l'errore rimuovendo la parentesi, ed eseguire l'istruzione sintatticamente corretta:
 
 ```py
 >>> print(0/0)
 ```
 
-Se proviamo ad eseguire questa istruzione, avremo l'altro tipo di errore, ovvero l'eccezione. In questo caso, infatti, il codice risulta essere (sintatticamente) corretto, ma è comunque occorso un evento ritenuto "impossibile", che viene adeguatamente descritto nel `Traceback`:
+L'interprete ci darà questo risultato:
 
 ```py
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+    File "<stdin>", line 1, in <module>
 ZeroDivisionError: division by zero
 ```
 
-In particolare, notiamo come il traceback ci dia diverse informazioni:
+La precedente è, per l'appunto, una **eccezione**. In questo caso, infatti, il codice è sintatticamente corretto; tuttavia, l'operazione specificata è impossibile (o, per meglio dire, indeterminata), come viene correttamente indicato dal nome dell'eccezione stessa, ovvero [`ZeroDivisionError`](https://docs.python.org/3/library/exceptions.html#ZeroDivisionError). In questo caso, il *traceback* ci dà diverse informazioni:
 
-* il *file* dove è stata generata l'eccezione. In questo caso, viene riportato `<stdin>` perché il codice precedente è stato inserito mediante interprete;
-* la *riga* dove è occorsa l'eccezione. In questo caso, notiamo che è riportato `line 1`;
-* il *tipo* di eccezione occorsa, con una breve descrizione dell'errore. In questo caso, notiamo come venga lanciata una [`ZeroDivisionError`](https://docs.python.org/3/library/exceptions.html#ZeroDivisionError), che occorre quando il secondo argomento della divisione è pari a 0.
+* in primis, il file (script o modulo) dove è stata generata l'eccezione;
+* la riga dove è occorsa l'eccezione. In questo caso, notiamo che è riportato `line 1`, proprio perché abbiamo soltanto un'istruzione;
+* il *tipo* di eccezione occorsa, con una breve descrizione dell'errore.
+
+!!!tip "File dell'eccezione"
+    In questo caso, al posto del nome del file, viene riportato `<stdin>` perché il codice è richiamato direttamente dall'interprete.
 
 !!!note "Eccezioni built-in"
     Notiamo come l'eccezione `ZeroDivisionError` sia una *built-in exception*, ovvero un'eccezione già integrata nel linguaggio Python, che comunque ci offre la possibilità di definire da noi nuovi tipi di eccezione. Per una panoramica completa, consultare la [reference](https://docs.python.org/3/library/exceptions.html#built-in-exceptions).
+
+
+TODO DA QUI
 
 ## 1.6.2 - Lanciare un'eccezione
 
