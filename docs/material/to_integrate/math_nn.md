@@ -72,3 +72,77 @@ Per esempio, andando indietro all'immagine di esempio di un gato ed i suoi punte
 ### Mutliclass SVM loss
 
 Ci sono molti modi per definire i detatagli di una loss funciton. Come primo esempio svilupperemo una loss comunemente chiamata Multiclass Support Vector Machine (SVM) loss. La SVM loss è impostata in modo che la SVM voglia la classe corretta per ogni immagine per avere un punteggio più alto che le classi incorrette di un certo margine $\Delta$. Notiamo che alle volte è utile umanizzare la funzione di costo come abbiamof atto prima: la SVM vuoel una certa uscita nel senso che l'uscita mandi una loss più bassa (il che è un bene).
+
+Cerchiamo di essere più precisi. Ricordiamo che per l'$i$-mo campione abbiamo i pixel dell'immagine $x_i$ e le label $y_i$ che specificano l'indice della clase corretta. La funzione di score prende i pixel e calcola i vettori $f(x_i, W)$ dei punteggi di classe, che abbreviamo in $s$. Per esempio, lo score per la $J$-ma classe è il $j$-mo elemento $s_j=f(x, W)_j$. La Multiclass SVM loss per l'$i$-mo esempio è quindi formalizzato come segue:
+
+$$
+L_i = \sum_{j \neq y_i} \max(0, s_j - s_{y_i} + \Delta)
+$$
+
+**Esempio** Proviamo a vedere come funziona il tutto con un esempio. Supponiamo di avere tre classi che ricevono i punteggi $s = [13, -7, 11]$, e che la prima classe sia quella vera (ovvero $y_i=0$). Supponiamo inoltre che $\Delta$ (un iperparametro di cui parleremo più a breve) sia pari a $10$. L'espressione somma tutte le classi non correte ($j \neq y_i$), per cui abbiamo due termini:
+
+$$
+L_i = \max(0, -7-13+10)+max(0, 11 - 13 + 10)
+$$
+
+Possiamo vedere che il primo termine ci dà zero dal momento che la somma è negativa, che viene quindi sogliata a zero con la funzione $\max(0, -)$. Otteniamo una loss pari a zero per questa coppia perché il punteggio di classe corretto (13) è stato più grande di quello non corretto almeno per un margine pari a $10$. Infatti la differnza era di $20$, che è molto più grande di $10$ ma la SVM si interessa solo del fatot che la differenza sia almeno 10; una qualsiasi altra differenza oltre il margine viene mandata a zero grazie all'operazione $\max$. Il secondo termine calcola $[11-13+10]$ che dà $8$. Ovvero, anche se la classe corretta ha un punteggio più alto di quella non corretta $(13 > 11)$, non era più grande del margine desiderato di $10$. La differenza era solo di $2$, il che ci dice perché la loss diventa $8$ (ovvero, quanto dovrebbe essere grande la differnza per essere in gado di rispettare il margine autoimposto). In pratica, la SVM loss function vuole che il punteggio della classe corertta $y_i$ sia più grande di $\Delta$. Se ciò non accade, accumuleremo una loss.
+
+Notiamoc he in questo particolare modulo stiamo lavorando con un score lineare $f(x_i; W)=Wx_i$, per cui possiamo riscrvere l'intera funzione di costo in qeusta forma equivalente:
+
+$$
+L_i = \sum_{j \neq y_i} \max(0, w_j^T x_i - w_{y_i}^T x_i + \Delta)
+$$
+
+dove $w_j$ è la $j$-ma riga di $W$ rimdoellata come una colonna. Comunque, questo non sarà necessariamente il caso quando iniziamo a considerare le forme più complesse della funzione di score $f$.
+
+Un ultimo punto di terminologia che menzioneremo prima di finire questa sezione è che funzione $\max(0,-)$ è chiamata *hinge loss*.
+
+**Regolarizzazione**
+
+Vi è un bug con la loss function di prima. Supponiamo che abbiamo un dataset ed un insieme di prametri $W$ che classificano correttamente ogni campione (ovvero tutti i punteggi sono fatti in modo che tutti i margini siano rispettati, ed $L_i=0 \forall i$). Il problema è che questo insieme di $W$ non è necessariamente univoco: ci potrebbero essere molti $W$ simili che classificano corretttamente i campioni. Un modo semplice di vederlo è che se alcuni parametri $W$ classifica correttaemtne tutti i campioni (per cui la loss è zero per ogni esempio), quindi ogni multiplo di questi parametri $\lambda W$ dove $\lambda > 1$ ci darà una loss di zero perché questa trasformazione streatcha uniformaemente tutti i punteggi di magnitudine e quindi anche le loro differenze assolute. Ad esempio, se la differenza negli score tra una classe corretta e quella incorretta più vicina era 15, quindi multiplicare tutti gli elementi di $W$ di 2 renderebbe la nuova differenza 30.
+
+In altre paroli, vogliamo codificare alcune preferenze per un certo insieme di pesi $W$ su altri per rimuovere questa ambiguità. Possiamo farlo estendendo la loss function con una *penalità di regolarizzaizone* R(W). La più comune regolarizzazione è la norma $L2$ che soraggia dei grossi pesi attraverso una penalità elemento per elemento su tutti i parametri:
+
+$$
+R(W) = \sum_k \sum_l W_{k, l}^2
+$$
+
+Nell'espressione rpecedente stiamo sommando gli elementi quadratici di $W$. Notiamo che la funzione di regolarizzazione non è una funzione dei dati, è solo basata sui pesi, inclusa la penalità di regolarizzazione che completa la loss mutlicass SVM, che è fatta di due componenti: la data loss (che è la loss media $L_i$ su tutti gli esempi) e la regularization loss:
+
+$$
+L = \frac{1}{N} \sum_i L_i + \lambda R(W)
+$$
+
+che espansa è:
+
+$$
+L = \frac{1}{N} \sum_i \sum_{j \neq y_i} [\max(0, f(x_i;W)_j)-f(x_i;W)_{y_i}+\Delta] + \lambda \sum_k \sum_l W_{k,l}^2
+$$
+
+dove $N$ è il numero di campioni di training. Come possiamo vedere, aggiungiamo la penalità di regolarizzazione all'obiettivo della loss, pesato per un iperparametro $\lambda$. Non vi è un modo semplice di impostare questo iperparametro ed è normalmente determinato dalla cross-validazione.
+
+Oltre alla motivazione fornta precedente ci sono molte proprietà desiderabili da includere nella penalty di regolarizzazione, molti dei quali riprenderemo successivamente.
+
+La proprietà più interesasnte è che penalizzare i grossi pesi tende a migliorare la generalizzazione, perché significa che non vi sono delle dimensioni di input che possono avere una grossa influeza sui punteggi da sole. Supponiamo ad esempio che abbiamo alcuni vettori di input $x=[1,1,1,1]$ e due vettori dei pesi $w_1=[1,0,0,0]$, $w_2=[0.25, 0.25, 0.25, 0.25]$. Quindi $w_1^Tx=w_2^Tx=1$ per cui entrambi i vettori dei pesi conducono allo stesso prodotto scalare, ma la penalità di $w_1$ è $1$ mentre la penalità L2 di $w_2$ è solo 0.5. Quindi, accordare alla penalità L2 il vettore dei pesi $w_2$ sarebbe preferibile perché ottiene una regularization loss più bassa. Inviece, questo è perché i pesi in $_2$ sono più piccoli e più diffusi. Dal momento che la penalità L2 preferisce vettori dei pesi più piccoli e diffuso, il classificaotre finali è incoraggiato a prendere in considerazione tutte le dimensioni di input verso piccoli quantitativi piuttosto che poche dimensioni di input molto forti. 
+
+Notiamo che i bias non hanno lo stesso effetto dal momento che, a differenza dei pesi, non controllano la forza dell'influenza di una dimensione di input. Quindi, è facile regolarizzare solo i pesi $W$ ma non i bias $b$. Tuttaiva, nella pratica questo spesso ha un effetto trascurabile. In ultimo, notiamo che grazie alla penalità di regolarizzazione non possiamo mai avere una loss di esattamente 0 su tutti gli esempi, perché questo sarebbe possibile solo nel setting $W=0$.
+
+### Considerazioni pratiche
+
+**Valore di delta**
+
+Notiamo che abbiamo parlato poco di $\Delta$ e di come impostarlo. Quale valore dovremmo associargli, e come dovremmo determinarlo? In realtà, questo iperparametro può essere tranquillamente impostaot a $\Delta=1.0$ in tutti i casi. Gli iperparametri $\Delta$ e $\lambda$ sembrano essere differenti, ma nei fatti controllano lo stesso compromesso. Il compromesso è quello tra la data loss e la regularization loss nella funzione obiettivo. La chiave per comprender ciò è che la magnitudine dei pesi $W$ ha deffetti diretti sugli score (e quindi anche le loro difererenze): man mano che SHRINK tutti i valori dentro $W$ le differenze di score diventeranno più piccole, e man mano che aumentiamo i pesi le differenze tra gli score diventeranno più grandi. Quindi, il valore esatto del margine tra i punteggi (e.g., $\Delta=1$ o $\Delta=100$) è in qualche modo senza significato perché i pesi possono restringere o allargare in maniera arbitraria le differenze. Quindi, l'unico vero e proprio compromesso è quanto possiamo permettere ai pesi di crescere attraverso la forza di regolarizzazione $\lambda$.
+
+**Relazione con le bianry SVM**
+
+La loss delle binary SVM può essere scritta per l'$i$_mo caompione come:
+
+$$
+L_i = C \max(0, 1-y_iw^Tx_i) + R(W)
+$$
+
+dove $C$ è un iperparametro e $y_i \in {-1, 1}$. Potremmo convincerci che la formulaizone presentata in questa sezione contiene la SVM binaria come caso speciale quando ci sono solo due classi. Ovvero, se abbiamo soltanto due classi allora la loss si riduce alla SVM binaria mostrata in precedenza. Inoltre, $C$ in questa formulazione e $\lambda$ nella nostra formulazione controllano lo stesso rapporto e sono inversamente propozionali.
+
+## Softmax
+
+La SVM è solo uno dei classificatori comuni. L'altra sceta
