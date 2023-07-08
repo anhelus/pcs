@@ -90,3 +90,7 @@
 .mermaid {
   text-align: center;
 }
+
+figcaption {
+  font-size: small;
+}

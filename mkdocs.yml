@@ -57,9 +57,10 @@ nav:
     - 3.2 - Regressione lineare: material/03_ml/02_lin_reg/lecture.md
     - 3.3 - Regressione logistica: material/03_ml/03_log_reg/lecture.md
     - 3.4 - Alberi:
-      - 3.4.1 - Alberi decisionali: material/03_ml/04_trees/01_decision_trees.md
-      - 3.4.2 - Foreste decisionali: material/03_ml/04_trees/02_decision_forests.md
-      - 3.4.3 - Gradient boosted trees: material/03_ml/04_trees/03_gbt.md
+      - 3.4.1 - Alberi decisionali: material/03_ml/04_trees/01_decision_trees/lecture.md
+      - 3.4.2 - Foreste decisionali: material/03_ml/04_trees/02_decision_forests/lecture.md
+      - 3.4.3 - Gradient boosted trees: material/03_ml/04_trees/03_gbt/lecture.md
+      - 3.4.4 - Indice di Gini: material/03_ml/04_trees/04_gini_impurity/lecture.md
     - 3.5 - Clustering: material/03_ml/05_clustering/lecture.md
     - 3.6 - Metriche:
       - 3.6.1 - Metriche di classificazione: material/03_ml/06_metrics/01_classification.md
