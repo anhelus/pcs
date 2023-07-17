@@ -1,3 +1,6 @@
+https://realpython.com/python-pathlib/ Integrare?
+
+
 # 9 - Pathlib
 
 <!-- TODO: CAPPELLO SU IO FILE -->
