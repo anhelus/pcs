@@ -88,6 +88,53 @@ In questic asi, dovremmo disabilitare idealmente il garbage collector di Pythno 
 
 ### timeit: benchmark short code snippets
 
+Per fare in modo che non si vada nei problemi comuni, Python ha un utile modulo chiamato timeit, che si occupa della maggior parte delle complesistà della profilazione. Questo significa tenere in conto di fattori come carico del sitema, garbage collection, o altri processi concorrenti che possono influenzare i risultati ottenuti. Il modulo timeit aiuta a mitigare questi fattori, fornendo una misura più accurata del tempo di esecuzione del codice.
+
+Ecco un esempio di una funzione ricorsiva che calcola l'n-mo elemento della sequenza di Fibonacci.
+
+
+>>> from timeit import timeit
+
+>>> def fib(n):
+...     return n if n < 2 else fib(n - 2) + fib(n - 1)
+...
+
+>>> iterations = 100
+>>> total_time = timeit("fib(30)", number=iterations, globals=globals())
+
+>>> f"Average time is {total_time / iterations:.2f} seconds"
+'Average time is 0.15 seconds'
+
+In particolare, chiedimao A timeit di misurare il tempo totale di esecuzione di fib(30) ripetuto cento volte in un ciclo. QUindi, calcoliamo il tempo mdio divendo i risultati per il numero di iterazioni.
+
+Questa ripetizione minimizza gli effetti del rumore di sistema sul conteggio. Ripendendo le stesse chiamate a funzione più volte, possiamo avere la media delle fluttuazioni casuali nel tempo di esecuzione che possono arrivare dai processi in esecuzione sul nostro computer. Possiamo iniziare con le cinque iterazioni di defaulut lasciamo fuori il parametor number. Se la funzione è molto veloce o lenta, possiamo modificare questo parametro come serve per ottenere una misura accurata.
+
+Quadno eseguiamo timeit dalla command line, o usiamo il magic command %timeit in un notebook Jupyter, vedremo il miglior runtime del code snippet che abbiamo fornito.
+
+
+$ SETUP_CODE="def fib(n): return n if n < 2 else fib(n - 2) + fib(n - 1)"
+$ python3 -m timeit -s "$SETUP_CODE" -r 100 "fib(30)"
+2 loops, best of 100: 158 msec per loop
+
+
+Se il codice testato richiede un setup, possiamo opzionalemnte istruire timeit ad eseguire una volta entrato nel loop. Spesso, saremo interessati soltanto nel vedere il miglior risultato, che è il più vicino al vero, mentre le run più lunghe indicano dei disturbi causati da rumore casuale.
+
+Mentre timeit permette di effettuare il benchmark di un certo snippet misurando il tempo di esecuzione, non riesce a collezionare metriche più dettagliate per individuare eventuali colli di bottiglia. Per fortuna, Pyton ha un profile più sofisticato che vedremo a breve.
+
+### cProfile: Collect Detailed Runtime Statistics
+
+La libreria standard Python include un modulo profile (puramente in Pyuton) ed un'estensione equivalente implementata in C usando la stessa interfaccia, chiamata cProfile. In generale, è meglio usare cProfile, che ha performance migliori e meno overhead.
+
+Di converso, dovremmo usare profile quando cProfile non è disponibile sul nostro sistema. Inoltre, potremmo preferire alle volte profiel quando vogliamo estenderlo usadno Python.
+
+Entrambi i moduli forniscono un profiler deterministico, che ci può aiutare a rispondere ad omeande come quante volte uance rta funzione è stata chiamata o qunato tempo è stato speso all'interno diq uelal funzioen. Un profiler determinsitico può darci risultati ripdorduibili nelle stesse condizioni perché traccia tutte le chiamate a funzione nel nostro programma.
+
+!!!note
+    Internamente, cPRofile sfrutta sys.setprofile() per registrare un event listener che sarà notificato ogni volta che una delle nostre funzioni viene chiaamata. Per un monitoraggio ancora più granurlare, possiamo chiamare sys.settrace(), che ci permette di tracciare alcuni tipi di eventi al livello delle singole righe di codice. In altenrativa, possiamo trovare un tool di terze parti come line_profiler.
+
+DA DOPO LA NOTA
+
+
 https://realpython.com/python-profiling/#timeit-benchmark-short-code-snippets 
 
 
@@ -122,3 +169,7 @@ https://realpython.com/python-with-statement/
 https://realpython.com/primer-on-python-decorators/
 
 https://realpython.com/python-memory-management/
+
+https://realpython.com/python-thinking-recursively/
+
+https://realpython.com/build-python-c-extension-module/
