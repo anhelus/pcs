@@ -132,8 +132,150 @@ Entrambi i moduli forniscono un profiler deterministico, che ci può aiutare a r
 !!!note
     Internamente, cPRofile sfrutta sys.setprofile() per registrare un event listener che sarà notificato ogni volta che una delle nostre funzioni viene chiaamata. Per un monitoraggio ancora più granurlare, possiamo chiamare sys.settrace(), che ci permette di tracciare alcuni tipi di eventi al livello delle singole righe di codice. In altenrativa, possiamo trovare un tool di terze parti come line_profiler.
 
-DA DOPO LA NOTA
+Possiamo usare cProfile sul nostro itnero programma mediante la riga di comando, o effettuare in alternativa il profiling di un codice più piccolo, come nel seguente esempio:
 
+
+>>> from cProfile import Profile
+>>> from pstats import SortKey, Stats
+
+>>> def fib(n):
+...     return n if n < 2 else fib(n - 2) + fib(n - 1)
+...
+
+>>> with Profile() as profile:
+...     print(f"{fib(35) = }")
+...     (
+...         Stats(profile)
+...         .strip_dirs()
+...         .sort_stats(SortKey.CALLS)
+...         .print_stats()
+...     )
+...
+fib(35) = 9227465
+         29860712 function calls (10 primitive calls) in 9.624 seconds
+
+   Ordered by: call count
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+29860703/1    9.624    0.000    9.624    9.624 <stdin>:1(fib)
+        1    0.000    0.000    0.000    0.000 pstats.py:118(init)
+        1    0.000    0.000    0.000    0.000 pstats.py:137(load_stats)
+        1    0.000    0.000    0.000    0.000 pstats.py:108(__init__)
+        1    0.000    0.000    0.000    0.000 cProfile.py:50(create_stats)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.hasattr}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+
+
+<pstats.Stats object at 0x7fbbd6d47610>
+
+
+L'output è decisamente verboso, ma ci dice che il programma ha richiesto più di nove secondi e mezzo per finrie, facendo esattamente 29860712 chiamata a funzione. Solo dieci di queste erano chiamate primitive o non ricorsive, inclusa una sola chiamata non ricorsiva a fib(). Le altre erano chiamate all'interno di fib() stessa.
+
+!!!note
+    Possiamo suare un modulo sepratao chiamato pstats per formattare, ordinare e stampare a schermo le statistiche collezionate a runtime. Il modulo diventa ancora più utile se mettiamo le statistiche in un file binario. In questo caso, possiamoe seguire pstats come un programma interattivo per esplorare i contenuti del file nel terminale.
+
+Chiamare fib() con un input relativament epiccolo di 35 fa in modo che ci siano quasi trenta milioni di chiamate ricorsive. Il profiler ci restituisce che questo alto numero di chiamate conincide con un'area del codice dove il rpogramma spende la maggior parte del suo tempo. Quando approfondiamo, notiamo che la maggior parte di queste chiamate ricorsive sono ridondanti perché continuano a calcoalare lo stesso valore più e più volte.
+
+Come rapida ottimizzazione, potremmo usare la memoization per mettere in cache i risutlati intermedi. In questo modo, calcoleremo ogni numero di fibonacci ua volta sola, ritulizzando irisultati in cache per chiamate successive a fib().
+
+Non sapremmo questo senza aver fatto la profilazione del codice. Tuttavia, questa operazione comprota un notevole overhead a runtime a causa del codice di instrumentation che deve resgistrare etemere traccia di certi eventi. In alcuni casi, questo può far sì che non si riesca ad usare un tool di profilazione, specialmente in un ambiente di produzione con performance già compromesse.
+
+Vedremo quindi una tecnica popolare che permette di risolvere questo problema.
+
+### Pyinstrument: snapshot del call stack
+
+Per abbassare l'overhead del profiler, posisamo suare il profiling statistico (https://en.wikipedia.org/wiki/Profiling_(computer_programming)#Statistical_profilers) e collezionare solo le metriche una volta ogni tanto. Questo funziona prendendo uno snapshot dello stato del programma a specifici intervalli. Ogni volta, il profiler registara un campione che consiste dell'intero stack di chiamata (https://en.wikipedia.org/wiki/Call_stack) dalla funzione attualmente in esecuzione fino all'ultimo antenato nelal gerarchia di chiamate.
+
+Mentre un profiler statistico non fornisce lo stesso livello di dettaglio di uno deterministico, ci libera da alcuni dei problemi di questo.
+
+DAto che un profile derterministico monitra tutte le chaimate a funzione nella nostra applicazione, ha un overhead notevole e produce molto rumore nel report. Inoltre,q uesto non è uniforme perché dipende dal numero attuale di chiamate a fuznione, il che ci porta a risultati inaccurati e distorti.
+
+Di contro, un profiler statistico filtra le chiamate non significative che non influiscono sulle performance complessive, ed il suo overhead è uniforme e modificabiel. A seconda del tasso dic ampionamento, le funzioni che terminano velocemente ptorebbero anche non mostrarsi nel report.
+
+Per usare un profiler statistico in Python, dovremo installare un tool come Pyinstrument o py-spy. Alcuni di questi sono migliori a seocndao del caso. Ad esempio, Pyinstrument non gestisce codice che viene seguito in più thread o chiama funzioni implementati in moduli C come NumPy o Pandsa.
+
+Per sfruttare Pyinstrumnt, è meglio usare un esempio che comprende più di una funzione. Ecco un'impleentazione diretta di un metodo Monte Carlo (https://en.wikipedia.org/wiki/Monte_Carlo_method)per stimare i valori di pi per mezzo di simulazioni (https://realpython.com/simpy-simulating-with-python/) e probabiltià geometrica (https://en.wikipedia.org/wiki/Geometric_probability):
+
+
+>>> from random import uniform
+
+>>> def estimate_pi(n):
+...     return 4 * sum(hits(point()) for _ in range(n)) / n
+...
+
+>>> def hits(point):
+...     return abs(point) <= 1
+...
+
+>>> def point():
+...     return complex(uniform(0, 1), uniform(0, 1))
+...
+
+>>> for exponent in range(1, 8):
+...     n = 10 ** exponent
+...     estimates = [estimate_pi(n) for _ in range(5)]
+...     print(f"{n = :<10,} {estimates}")
+...
+n = 10         [2.8, 2.8, 3.6, 4.0, 3.6]
+n = 100        [3.04, 3.04, 3.2, 2.96, 3.28]
+n = 1,000      [3.136, 3.144, 3.128, 3.14, 3.12]
+n = 10,000     [3.1448, 3.1408, 3.1448, 3.1456, 3.1664]
+n = 100,000    [3.14872, 3.13736, 3.14532, 3.14668, 3.13988]
+n = 1,000,000  [3.140528, 3.14078, 3.14054, 3.140972, 3.141344]
+n = 10,000,000 [3.1414564, 3.1427292, 3.1402788, 3.1420736, 3.1407568]
+
+
+
+Più iterazioni ci sono nella simulazione, migliore sarà l'approssimazione di pi- Qui, usiamo numeri complessi (https://realpython.com/python-complex-numbers/) come modo conveniente per rappresentare punti bidimensionali scelti casualmente (https://realpython.com/python-random/) usando una distribuzione di probabilità uniforme. Ogni punto giace in un quadrato univerario (https://en.wikipedia.org/wiki/Unit_square). Contando i punti che giacciono su un quadrant of a circle  (https://en.wikipedia.org/wiki/Circular_sector) chiuso in questo quadrato, possiamos timare il rapporto delle loro aree (pi/4).
+
+Come altri tool Pyiunstrument ci permette di usare la command line o di fare il profiling di specifici parti di codice.
+
+
+>>> from pyinstrument import Profiler
+>>> with Profiler(interval=0.1) as profiler:
+...     estimate_pi(n=10_000_000)
+...
+
+3.142216
+>>> profiler.print()
+
+  _     ._   __/__   _ _  _  _ _/_   Recorded: 11:17:13  Samples:  201
+ /_//_/// /_\ / //_// / //_'/ //     Duration: 20.150    CPU time: 20.149
+/   _/                      v4.5.0
+
+Program:
+
+20.100 <module>  <stdin>:1
+└─ 20.100 estimate_pi  <stdin>:1
+      [12 frames hidden]  <stdin>, random, <built-in>
+         19.200 <genexpr>  <stdin>:2
+         ├─ 12.900 point  <stdin>:1
+         │  ├─ 8.000 Random.uniform  random.py:520
+         │  │  ├─ 6.400 [self]  None
+         │  └─ 4.900 [self]  None
+         ├─ 4.800 [self]  None
+
+>>> profiler.open_in_browser()
+
+
+In questo caso, impostando il parametro inverval, diciamo a Pyinstrument di fare uno snapshot ogni ventesimo di secondo Quindi stimiamo il valore di pi usando un metodo Monte Carlo con dieci milioni di iterazioni.
+
+Una frequenza di 0.1 secondi è bassa, per cui avremo dell'overhead a runtime, ma avremo dei dati meno fini nel report. Rifinendo l'intervallo di campionament, possiamoc ambiare la quantità di dettagli che apapre nel report. Più frequente è il campionamento, più dati il profiler collezionerà, al costo di un overhead più alto.
+
+A qusto punto, stiampiamo il report vedendo la gerarchia di chiamate. Questo albero è più utile del report di default di cProfile perché ci msotra il contesto di una chiamata a funzione. Dopotutto, la stessa funzioen può esere chiamata da più punti e con diversi cscopi.
+
+Tuttavia, alcuni degli stack frame (https://en.wikipedia.org/wiki/Call_stack#STACK-FRAME) sono nascosti per endere il report più leggibile. Se vogliamo rivelarli, dobbiamo aprire un interactive report (https://calmcode.io/pyinstrument/html.html) nel browser chiamadno profiler.open_in_browser().
+
+Il report i dice che estimate_pi() spende la maggior parte del suo tempo nella generator expression (https://realpython.com/introduction-to-python-generators/#building-generators-with-generator-expressions). Quando andiamo ad approfnodire, notiamoc he la funzioen point() è il collo di bottiglia. Sfotuantamente, non possiamo fare molto perché chiama la funzione random.uniform() che richiede tempo per essere eseuigta.
+
+
+Se però andiamo a vedre la funzione random.uniform(), vedremo che è puramente Python. Questo significa che può essere molto più lenta di una funzione implementata in C. In questo caso, posisamo rimpiazzare la chiamata ad uniform(0, 1) con random() perché le funzioni sono matematicamente equivalenti per questi valori di input. Quando lo facciamo, vedremo un migliroamento notevole nel tempo di calcolo.
+
+
+https://realpython.com/introduction-to-python-generators/#building-generators-with-generator-expressions
 
 https://realpython.com/python-profiling/#timeit-benchmark-short-code-snippets 
 
@@ -173,3 +315,7 @@ https://realpython.com/python-memory-management/
 https://realpython.com/python-thinking-recursively/
 
 https://realpython.com/build-python-c-extension-module/
+
+https://realpython.com/fibonacci-sequence-python/#visualizing-the-memoized-fibonacci-sequence-algorithm
+
+https://en.wikipedia.org/wiki/Instrumentation_(computer_programming)
