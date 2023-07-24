@@ -275,6 +275,30 @@ Il report i dice che estimate_pi() spende la maggior parte del suo tempo nella g
 Se però andiamo a vedre la funzione random.uniform(), vedremo che è puramente Python. Questo significa che può essere molto più lenta di una funzione implementata in C. In questo caso, posisamo rimpiazzare la chiamata ad uniform(0, 1) con random() perché le funzioni sono matematicamente equivalenti per questi valori di input. Quando lo facciamo, vedremo un migliroamento notevole nel tempo di calcolo.
 
 
+### Key takeaways
+
+Vediamo alcune questioni e risposte che riassumono i conctti più importanti che abbiamo appreso in questo tutorial. Possiamo usare queste domande per comprende la comprensione o ricapitolare e solidificare quello che abbiamo appreso. Dopo ogni domanda, avremo una breve spiegazione nascosta in una sezione collassabile.
+
+**Cosa è il software profiling?**
+
+Il profiling del software misura e analizza le sue statistiche a runtime epr trovare i colli di bottiglia. Un alto consumo di meomria, un uso non efficiente della CPU, e delle eccessive chiamate a funzione possono essere indicatori comuni di problemi potenziali nel software che hanno bisogno di miglioramenti.
+
+**Perché dovremmo ottimizzare le performance del nostro codice?**
+
+Il modello giusto per ottimizzare le performance ci aiuta a vrificare la correttezza dle codice, pulirlo per migliore manutenibilità, e identificare le parti meno efficienti mediante il profiling. Il pareto princple suggerisce che normalmente ottengono la maggioranza dei guadagni modificando solo i colli di bottiglio più critici nel codice.
+
+**Quali sono i tool di profilazione più comuni per Python?**
+
+Python offre diversi tool per profilazione, inclusi tool interni e di terze parti.
+
+* per il timing base, possiamo usare i moduli della standard library time e timeit o un package esterno come codetiming.
+* per collezionare statsitcihe dettagliate al costo di un alto overhead, possiamo usar ei profiler detemrinistici offerti dalla standard library profile o cProfile
+* se abbiamo bisogno di un profiler stratistico, che periodicamente prende un'istantanea dello stato del programma, allora usiamo Pyinstrument
+
+**Qual è la differneza tra la profilazione statistica e deterministica?**
+
+Il profili deterministico rgistra tutte le chiamate a funzione fatte dal nostro programma. Fornisce un dettagliato report con il numero esatto di chiamate ad una particolare funzione o il suo tempo di esecuzione. La profilazione stastitica, d'altro canto, prend un campione del call stack solo ad intervalli periodici. Come risultato, filtra chiamante isniginifcatnti che non contano, e ha meno overhead di un profiler deterministico.
+
 https://realpython.com/introduction-to-python-generators/#building-generators-with-generator-expressions
 
 https://realpython.com/python-profiling/#timeit-benchmark-short-code-snippets 

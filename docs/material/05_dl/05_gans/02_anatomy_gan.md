@@ -1,29 +1,3 @@
-https://developers.google.com/machine-learning/gan/gan_structure?hl=en
-
-# Struttura di una GAN
-
-Una generative adversarial network (GAN) ha due parti
-
-* il generator apprende a genearere dati plausibili. Le istanze generate diventano degli esempi *negativi*é per il discriminator.
-* il *discriminator* apprende a distringuere dai dati falsi del genratore da quelli reali. Penalizza quindi il generatore per produrre dati non plausibioli.
-
-Quando inizia l'addestramento, uil generator produce dei dati ovviamente falsi, e il discriminatro è in grado di stabilire facilmente che non sono veri.
-
-BAD_GAN
-
-Man mano che l'addestramento procede, il genrator migliora il suo output, producendone uno in grado di ingannare il discriminator:
-
-OK_GAN
-
-Se l'addestramento va bene, il discrimnator non è più in grado di dire la differenza tra dato reale e dato falso. Inizia quindi a classificare il dato falso come real, e la sua accuracy diminuisce.
-
-GOOD_GAN
-
-Ecco uno schema del'intero sistema:
-
-GAN_DIAGRAM
-
-Sia il generator sia il discriminator sono delle reti neurali. L'output del generator è connesso direttamente all'input del discriminator. Attraverso la backpropagation, la classificazione del discriminator fornisce un segnale che il generator usa per aggiornare i suoi pesi.
 
 Vediamo i singoli pezzi del sistema in dettaglio.
 
