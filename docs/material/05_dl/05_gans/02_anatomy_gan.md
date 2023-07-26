@@ -1,99 +1,51 @@
+# 5.5.2 - Generatore e discriminatore
 
-Vediamo i singoli pezzi del sistema in dettaglio.
+Vediamo adesso nel dettaglio le singole parti dell'architettura della GAN.
 
-## Discriminator
+## Discriminatore
 
-Il discriminator in una GAN è semplicemente un classificatore. Prova a distinguere i dati reali dai dati creati dal generator. Può usare una qualsiasi architettrura di rete appropriata al tipo di dati da classificatore.
+Il discriminatore di una GAN è, semplicemente, una classica rete neurale utilizzabile come classificatore binario, il cui scopo è quello di distinguere i dati reali (*classe positiva*) da quelli generati (*classe negativa*).
 
 GAN_DIAGRAM_DISCRIMINATOR
 
-### Dati di training del discriminator
+I dati per l'addestramento del discriminatore provengono da due sorgenti:
 
-I dati di training del discriminator vengono da due sorgenti:
+* *istanze reali*, come ad esempio foto di barche vere, ed usate come campioni di classe positiva;
+* *istanze generate*, usate come campioni di classe negativa.
 
-* istanze di dati reali, come foto vere di persone. Il discriminator usa queste istanze come campioni positivi durante l'addestramento
-* istanze di dati falsi, create dal generator. Il discriminatore usa queste istanze come campioni negativi durante l'addestramento
+##### Addestramento del discriminatore
 
-Nella figura precedente, i due box "Sample" rappresentano queste due sorgenti dati che vengono mandate nel discriminator. Durante l'addestramenot del discriminator, il generator non veien addestrato. I suoi pesi rimangono costanti mentre produce esempi per l'addestramento del discriminator.
+Durante l'addestramento del discriminatore, il generatore è "fermo", e non aggiorna i suoi pesi, che rimangono costanti man mano che produce i dati per l'addestramento del discriminatore. Ciò significa quindi che la funzione di costo del generatore viene ignorata, utilizzando soltanto quella del discriminatore. In particolare, la funzione di costo di quest'ultimo è tarata in modo che il discriminatore venga penalizzato per aver mal classificato un'istanza reale come falsa o, alternativamente, una falsa come reale.
 
-### AAddestramento del discriminator
+## Generatore
 
-Il discriminatro connette due funzioni di costo. Durante l'addestreamnto, viene ignorata la loss del generator, ed utilizzata soltanto quelal del discriminator. Usiamo la generator loss durante l'addestramento del generator.
-
-Duratne l'addestramento del discriminator:
-
-1. il discriminator classifica sia dati reali che falsi dal generator
-2. la discriminator loss penalizza il discriminator per aver mal classificato un'istnaza reale come falsa o una falsa come reale
-3. il discriminator aggiorna i suoi pesi mediante backpropagation dalla discriminator loss attraverso la discrimiantor network
-
-## Generator
-
-Il generator apprende a creare dei dati falsi incorporando il feedback del discriminator. Apprende a fare in modo che il discriminator classifichi il suo output come "vero".
-
-L'addestramento del generator richiede una integrazione più stretta tra il generator ed il discriminator di quella richiesta dall'addestramento di qquest'ultimo. La porzione del GAN che addestra il generator include:
-
-* input casuale;
-* la rete generator, che trasforma l'input casuale in un'istanza dei dati;
-* il discriminator, che classifica i dati generati;
-* l'output del discriminator;
-* la loss del generator, che penalizza il generator per non riuscire ad ingannare il discriminator.
+Il generatore si addestra invece a creare dei dati falsi utilizzando il feedback ricevuto dal discriminatore; lo scopo ultimo è quello di fare in modo che il discriminatore sia portato a classificare l'output del generatore come *vero*. Tuttavia, come intuibile, l'addestramento del generatore richiede l'integrazione più stretta tra questo componente ed il discriminatore, in quanto è necessario l'output di quest'ultimo, in quanto la funzione di costo penalizza il generatore qualora questo non riesca ad ingannare il discriminatore.
 
 GAN_DIAGRAM_GENERATOR
 
-## Random Input
+##### Addestramento del generatore
 
-Le reti neurali hanno bisogno di qualche tipo di input. Normalmente mandiamo in input dei dati con i quali vogliamo fare qualcosa, come un'istanza che vogliamo classificare o predire. Ma cosa usiamo come input per una rete che madnda in output nuove istanze dati?
+Per prima cosa, dovremo scegliere un input per inizializzare il generatore, che dovrà trasformarlo, a valle dell'addestramento, in un output significativo. In tal senso, possiamo scegliere un meccanismo di generazione casuale dei dati, come ad esempio un rumore; sperimentalmente, si è verificato che la distribuzione del rumore ha un impatto limitato sull'uscita finale, per cui è possibile scegliere una forma di facile campionamento, come ad esempio una distribuzione di tipo uniforme.
 
-Nella sua forma più basilare, una GAN prende del rumore casuale come input. Il generator quindi trasforma questo rumore in un output significativo. Introducendo del rumore, possiamof are in modo che la GAN produca un'ampia varietà di dati, scegliendo da diversi posti nella distribuzione obiettivo.
+Scelto il dato in input, dovremo addestrare il generatore, il che è mediamente più complesso rispetto all'addestramento di una normale rete neurale. Infatti, il generatore dovrà inviare il suo output al discriminatore, il quale produrrà la predizione che vorremo influenzare. La funzione di costo del generatore penalizzerà quindi il generatore quando questo produrrà un campione che il discriminatore classifica come falso. L'algoritmo di backpropagation deve quindi includere questo meccanismo: per farlo, partiremo dall'output del discriminatore, fino all'input del generatore. Contestualmente, però, non vogliamo che il discriminatore venga modificato durante l'addestramento del generatore, in quanto staremmo di fatto cercando di colpire un bersaglio in movimento! Di conseguenza, addestreremo il generatore seguendo questi step:
 
-Gli esperimenti suggeriscono che la distribuzione del rumore non conta molto,. per cui possiamo scegleire qualcosa che è di facile campionamento, come una distribuzioen uniforme. Per convenienza, lo spazio dal quale il rumore viene campionato è di soltio di dimensioni più picole dello spazio di output.
+1. campionamento di un rumore di casuale;
+2. definizione dell'output del generatore a partire dal rumore campionato al passo $1$;
+3. ottenimento dell'output di classificazione del determinatore (*vero*/*falso*);
+4. calcolo della loss del discriminatore;
+5. backpropagation dal discriminatore verso il generatore per aggiornare i gradienti;
+6. aggiornamento dei pesi del solo generatore.
 
-### Usare il discriminator epr addestrare il generator
+Vediamo adesso come mettere assieme i due pezzi, ed addestrare congiuntamente il discriminatore ed il generatore.
 
-Per addestrare una rete neurale, alteriamo i pesi della rete per ridurre l'errore sul suo output. Nella nostra GAN, tuttavia, il genratore non è direttamente connesso alla loss che vogliamo modificare. Il generatore manda il suo output al discriminatore, e questo produce l'output che vogliamo influienzare. La loss del generatore penalizza il generatore per produrre un campione che la rete discriminativa classifica come falso.
+## Addestramento di una GAN
 
-Questo pezzo extra di rete deve essere incluso nella backpropagation,. La backoproagation modifica ogni peso nella direzione corretta calcolando l'impatto del peso sull'output - come l'ouptut cambia se cambiamo il peso., Ma l'impatto di un peso del generator dipende dall'impatto dei pesi del discriminator. Per cui la backpropagaion iniza con l'output, e va indietro dal discriminator nel genertator.
+Dato che una GAN contiene, nei fatti, due reti addestrate separatamente, dovremo definire un algoritmo in grado di gestire due diverse tecniche di addestramento, e che sia contestualmente in grado di identificare la situazione di convergenza della rete.
 
-Allo stesso tempo, non vogliamo che il discriminator cambi durante l'addestreamneto del generator. Provare a colpire un bersaglio in movimento renderebbe il problema ancora più compelsso per il generator.
+In primis, l'addestramento procede su binari alternati. In particolare, si inizia addestrando il discriminatore per un certo numero di epoche, processo a cui segue l'addestramento del generatore. Questi due step vengono quindi ripetuti iterativamente. Sottolineamo come i pesi di ciascuna rete saranno mantenuti costanti mentre si addestra l'altra: ciò permette alle GAN di addestrare ciascuna delle sue parti nonostante meccanismi differenti, risolvendo problemi di tipo generativo altrimenti non affrontabili.
 
-Di conseguenza, addestriamo il generator con la seguente procedura:
+Ovviamente, man mano che il generatore migliora, le performance del disriminatore peggiorano, in quanto questo non sarà più in grado di distinguere tra i dati reali e quelli generati. Nel caso (ideale) in cui il generatore sia in grado di generare immagini che confondono il discriminatore nel $100\%$ dei casi, allora l'accuracy di quest'ultimo sarà del $50\%$: nei fatti, il discriminatore effettua le predizioni in maniera completamente casuale, proprio come se stesse lanciando una moneta.
 
-1. campioniamo del rumore casuale
-2. produciamo l'output del generatpor dal rumore casuale campionato
-3. otteniamo una classificazione "reale" o "falso" per l'output del generator
-4. calcoliamo la loss dalla classificazione del discrimiantor
-5. effettuiamo la backpropatgation attraverso il discriminator ed il generator per ottenere i graidenti
-6. usiamo i gradienti per cambiare solo i pesi del generator
+Questa progressiva degenerazione delle performance del discriminatore è però un problema per la GAN: infatti, se l'addestramento continua oltre il punto in cui il discriminator sta dando risposte completamente casuali, allora il generatore dovrà addestrarsi a partire da un output non significativo, degradando quindi le sue performance. In generale, quindi, possiamo dire che per una GAN la convergenza non è mai uno stato "stabile", ma dipende sempre da un delicato equilibrio tra le perfomrance del discriminatore e quelle del generatore.
 
-Questa è una singola iterazione dell'addestramento del generator. nella sezione successiva vediamo come mettere insieme il training del generator e del discriminator.
-
-## GAN training
-
-Dato che una GAN contiene due reti addestrate separametne, il suo algoritmo di training deve essere in grado di trattare due complicazioni:
-
-* la GAN deve essere in grado di mettere assieme due tipi diversi di addesteramnto (geneartor e discriminator)
-* la convergenza della GAN non è facile da identificare
-
-### Alternare l'addestramento 
-
-Il generaotr ed il discriminator hanno diversi processi di trainign. Come facciamo quindi ad addestrare la GAN in una botta?
-
-L'addestramento di una GAN procede su periodi alternati:
-
-1. il discriminator vioene addestrato per una o più epochje
-2. il generator viene addestrato per una o più eopche
-3. si ripetopono i passi 1 e 2 per continare ad addestare il gnerator ed il discriminator
-
-Manteniamo il generator costante durante la fase di addestramento del discrimiantor. Man mano che l'addestramento del discrimminator prova a capire come distinguere i dati reali da quelli falsi,. deve comprendere come riconoscere i problemi del generator. Questo è un problema differnete per un generator addestrato rispetto ad un generator non addestrato che produce output casuali.
-
-Inm modo simile, manteniamo il discrimiantor costante durante loa fase di addestramento del generator. Altrimenti il generator proverebbe a colipire un "bersaglio mobile", e potrebbe non convergere mai.
-
-E'm questo andirivieni che permette alle GAN di affrontare dei problemi generativi altrimenti non affronttabili. OTTENIAMO UN TOEHOLD nel difficile rpoblema generativo iniziando con un problema di classificazione molto più semplice. Di converso, se non possiamo addestrare un classificatore a dire la difrenza tra dati reali e generati anche per l'outpu inizializzato casualmente, non possiamo fare in modo che l'addestrramento della GAN possa iniziare.
-
-### Converegenza
-
-Man mano che il genrato migliroa l'addestarmaneot, le performance deld sicrimionator peggiorano percheè il discrimantor non è in garado di dire la differena tra ciò che è vero e falso. Se il generator ha successo al 10=%$, allora il ddiscriminator ha un'accuracy del 50%. Nei fatti, il discrimiantor sta lanciando una moneta per fare le sue predizioni.
-
-Questa progerssione pone un probelma per la convergenza della GAN: il feedback del discriminator diventa meno significativo nel tempo. Se al GAN continua ad addestrarsi oltre al punto in cui il discrimiantor sta dando risposte compeltamente casuali, allora il generator inizia ad addestarsi su feedback spazzatura, e al sua qualità pouò diminiurei.
-
-Per una GAN la convergenza non è quindi mai uno stato stabile.
+Nella [prossima lezione](03_loss_gan.md), vedremo quali sono le funzioni di costo che vengono utilizzate per l'addestramento di questo tipo di reti.

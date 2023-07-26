@@ -1,15 +1,14 @@
-# Problemi Comuni
+# 5.5.4 - Limiti delle GAN
 
-Le GAN ha nno un certo nuemmro di problemi comuni. Tutti questi sono aree di ricerca attiva. Anche se nessunod iqeusti problemi è stato completamente risolto, vedremo alcuned elle soluzioni proposte.
+Nel corso del tempo è emerso un certo numero di problemi comuni alle GAN, ai quali i ricercatori hanno provato a porre rimedio proponendo diverse soluzioni, più o meno efficaci.
 
-### Vanishing gradients
+##### Vanishing gradients
 
-La ricerca suggerisce che se il discriminator è troppo buono, l'adedestreamento del genrator può falire a causa del vanishing gradient. In effetti, un discrimioantore ottimale non fornisce abbastanza informazioni al generator per fare progressi.
+Il problema dei *vanishing gradients* affligge anche le GAN. In particolare, è stato mostrato sperimentalmente come un discriminatore eccessivamente performante comporti una riduzione di performance del generatore: ciò significa che il discriminatore non fornisce informazioni sufficienti per permettere al generatore di progredire nell'addestramento.
 
-##### Tentativi di rimedio
+Per provare a porre rimedio a questo problema, sono state proposte delle modifiche alla funzione di costo, in particolare con la Wasserstein loss e con la modified minimax loss.
 
-* Wasserstei loss: questa loss è progettata per previnrei i vanishgin gradient anche quando addestriamo il discriminator in maniera ottimale.
-* modified minimax loss: il paper originale epr le GAN propose una modifica alla minimax loss per affrontare il vanishign gradient.
+##### Mode collaps
 
 ### Mode collaps
 
