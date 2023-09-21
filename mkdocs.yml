@@ -1,4 +1,4 @@
-site_name: Python per il Calcolo Scientifico
+site_name: Python per la data science
 
 nav:
   - Home: index.md
@@ -294,8 +294,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/anhelus
-    - icon: fontawesome/solid/paper-plane
-      link: mailto:angelo.cardellicchio@stiima.cnr.it
+  consent:
+
   analytics:
     provider: google
     property: G-ZCZWPCYZJ9

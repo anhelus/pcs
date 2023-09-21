@@ -1,31 +1,18 @@
 # Python for Data Science
 
-!!!warning "Disclaimer"
-    The English translation is still in development.
+Welcome!
 
-Welcome to the website for the Python for Data Science course.
+In previous years, this website contained material related to the Python for Scientific Computing course, which was held at the Department of Mathematics at the University of Bari.
 
-## Website Structure
+For various reasons, the course is no longer active; however, I have decided to maintain the website, updating it and structuring it as if it were a real "knowledge base" from which to start exploring the world of Python and its applications in the field of data science.
 
-The following table briefly describes the structure of the website.
+In particular, the content of the website is divided into four different sections:
 
-| Name | Link | Description |
-| ---- | ---- | ----------- |
-| Slides | [:link:](./2022-23/slides.md) | List of slides shown during the lectures. Freely downloadable. |
-| Exam Modalities | [:link:](./2022-23/exams.md) | Detailed description of the modalities for obtaining credits. |
-| Lecture Schedule | [:link:](./2022-23/calendar.md) | Detailed schedule of the lectures, including time and location. |
-| Exam Dates | [:link:](./2022-23/dates.md) | Planned exam dates. *Coming soon*. |
-| Year Topics | [:link:](./2022-23/proposals.en.md) | Yearly topic proposals. *Coming soon*. |
-| Recordings | [:link:](./2022-23/recordings.md) | List of lecture recordings, strictly unedited. |
+* In the first section, you will find all the concepts related to the world of Python programming;
+* In the second section, we will look at some of the most important libraries used in the field of data science;
+* In the third section, we will discuss the theoretical concepts underlying machine learning and deep learning;
+* In the fourth and final section, we will see how to apply the theoretical concepts discussed in the third section using appropriate libraries.
 
-Furthermore, by selecting a topic of interest from the left menu, you can navigate to the section of the website that contains the appropriate course materials, which are complementary to the slides and lectures.
+For each of the topics covered, a "summary" video will also be made available (sooner or later), which you can watch on the course's YouTube channel.
 
-## Previous Academic Years
-
-### 2021/2022
-
-* [Recordings](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS)
-
-## Office Hours
-
-You can schedule a meeting by sending an email to [angelo.cardellicchio@stiima.cnr.it](mailto:angelo.cardellicchio@stiima.cnr.it).
+That said, all that remains is for me to wish you happy reading!

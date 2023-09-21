@@ -1,28 +1,18 @@
-# Python per il Calcolo Scientifico
+# Python per la data science
 
-Benvenuti nel sito per il corso di Python per il Calcolo Scientifico.
+Benvenuti!
 
-## Struttura del sito
+Negli scorsi anni, questo sito conteneva il materiale relativo al corso di Python per il Calcolo Scientifico, che si teneva presso il Dipartimento di Matematica dell'Università degli Studi di Bari.
 
-La seguente tabella descrive, in breve, la struttura del sito.
+Per diversi motivi, il corso non è ormai più attivo; tuttavia, ho deciso di mantenere il sito, aggiornandolo e strutturandolo come se fosse una vera e propria "base di conoscenza" dalla quale partire alla scoperta del mondo di Python e delle sue applicazioni in ambito data science.
 
-| Nome | Link | Spiegazione |
-| ---- | ---- | ----------- |
-| Slides | [:link:](./2022-23/slides.md) | Elenco delle slide visualizzate a lezione. Liberamente scaricabili. |
-| Modalità di esame | [:link:](./2022-23/exams.md) | Descrizione dettagliata delle modalità per il conseguimento dei CFU. |
-| Calendario delle lezioni | [:link:](./2022-23/calendar.md) | Calendario dettagliato delle lezioni, con ore ed aula. |
-| Date di appello | [:link:](./2022-23/dates.md) | Date di appello previste. *In arrivo*. |
-| Temi d'anno | [:link:](./2022-23/proposals.md) | Proposte per i temi d'anno. *In arrivo*. |
-| Registrazioni | [:link:](./2022-23/recordings.md) | Elenco delle registrazioni delle lezioni, rigorosamente non editate. |
+In particolare, il contenuto del sito si articola in quattro diverse sezioni:
 
-Inoltre, selezionando un argomento di interesse dal menu a sinistra, è possibile navigare nella sezione del sito contentente le apposite dispense, da considerarsi integrative rispetto alle slides ed alle lezioni.
+* nella prima sezione troveremo tutti i concetti che riguardano il mondo della programmazione Python;
+* nella seconda sezione vedremo alcune tra le più importanti librerie utilizzate nell'ambito della data science;
+* nella terza sezione parleremo dei concetti teorici alla base del machine learning e del deep learning;
+* nella quarta ed ultima sezione vedremo come applicare i concetti teorici visti nella terza sezione mediante delle apposite librerie.
 
-## A.A. precedenti
+Per ognuno degli argomenti trattati, inoltre, sarà (prima o poi) messo a disposizione un video "riassuntivo", che potrete tranquillamente vedere sul canale YouTube del corso.
 
-### 2021/2022
-
-* [Registrazioni](https://www.youtube.com/playlist?list=PLXF97BkFa4HBqRGCvlIjmcqMDN0VPdFcS)
-
-## Ricevimento
-
-E' possibile concordare un ricevimento inviando una e-mail all'indirizzo [angelo.cardellicchio@stiima.cnr.it](mailto:angelo.cardellicchio@stiima.cnr.it).
+Detto questo, non mi resta che augurarvi buona lettura!
