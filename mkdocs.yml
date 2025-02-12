@@ -95,6 +95,8 @@ nav:
       - 5.2.3 - Sparse autoencoder: material/05_dl/02_autoencoder/03_sparse.md
       - 5.2.4 - Denoising autoencoder: material/05_dl/02_autoencoder/04_denoising.md
       - 5.2.5 - Variational autoencoder: material/05_dl/02_autoencoder/05_variational.md
+    # - 5.3 - Recurrent Neural Networks:
+    #   - 5.3.1 - Introduzione alle recurrent neural netowrk: material/05_dl/03_rnn/01_intro.md
   - Modulo 6 - TensorFlow:
     - 6.1 - Basi di TensorFlow:
       - 6.1.1 - Introduzione a TensorFlow: material/06_tflow/01_intro/01_intro.md
@@ -166,128 +168,128 @@ markdown_extensions:
 
 plugins:
   - search
-  - i18n:
-      default_language: it
-      languages:
-        it:
-          name: Italiano
-          site_name: Python per il Calcolo Scientifico
-          build: true
-        en:
-          name: English
-          site_name: Python for Data Science
-          build: false
-      nav_translations:
-        en:
-          Modulo 1 - Il linguaggio Python: Module 1 - Python language
-          1.1 - Concetti introduttivi: 1.1 - Base concepts
-          1.1.1 - Introduzione al Python: 1.1.1 - Introduction to Python
-          1.1.2 - Operatori: 1.1.2 - Operators
-          1.1.3 - Stringhe: 1.1.3 - Strings
-          1.1.4 - Liste: 1.1.4 - Lists
-          Esercitazione 1.1: Exercises 1.1
-          1.2 - Programmare in Python: 1.2 - Programming in Python
-          1.2.1 - Sintassi fondamentale: 1.2.1 - Base syntax
-          1.2.2 - Programmazione strutturata: 1.2.2 - Structured programming
-          1.2.3 - Funzioni: 1.2.3 - Functions
-          1.2.4 - Altre strutture dati: 1.2.3 - Other data structures
-          1.2.5 - Classi: 1.2.5 - Classes
-          1.2.6 - Script, moduli e package: 1.2.6 - Scripts, modules and packages
-          Esercitazione 1.2: Exercises 1.2
-          1.3 - Concetti avanzati: 1.3 - Advanced concepts
-          1.3.1 - Il modulo argparse: 1.3 - The argparse module
-          Modulo 2 - Librerie per il calcolo scientifico: Module 2 - Data science libraries
-          2.1 - Jupyter Lab: 2.1 - Jupyter Lab
-          2.2 - NumPy: 2.2 - NumPy
-          2.2.1 - Introduzione a NumPy: 2.2.1 - Introduction to NumPy
-          2.2.2 - Gli Array: 2.2.2 - Arrays
-          2.2.3 - Operazioni fondamentali sugli array: 2.2.3 - Basic array operations
-          2.2.4 - Algebra in NumPy: 2.2.4 - Linear Algebra in NumPy
-          2.2.5 - Polinomi in NumPy: 2.2.5 - Polynomials in NumPy
-          2.2.6 - Statistica in NumPy: 2.2.6 - Statistics in NumPy
-          Esercitazione 2.2: Exercises 2.2
-          Tracce: Exercises
-          Soluzioni: Solutions
-          2.3 - Pandas: 2.3 - Pandas
-          2.3.1 - Introduzione a Pandas: 2.3.1 - Introduction to Pandas
-          2.3.2 - Le Series: 2.3.2 - Series in Pandas
-          2.3.3 - Input/Output in Pandas: 2.3.3 - Input/Output in Pandas
-          2.3.4 - Manipolazione dei DataFrame: 2.3.4 - Using DataFrames
-          2.4 - Visualizzazione dei dati in Python: 2.4 - Data visualization in Python
-          2.4.1 - Matplotlib: 2.4.1 - Matplotlib
-          2.4.2 - Seaborn: 2.4.2 - Seaborn
-          Esercitazione 2.4: Exercises 2.4
-          Modulo 3 - Machine learning: Module 3 - Machine learning
-          3.1 - Concetti di machine learning: 3.1 - Machine learning basics
-          3.1.1 - Introduzione al machine learning: 3.1.1 - Machine learning introduction
-          3.1.2 - Definizione del problema: 3.1.2 - Problem framing
-          3.1.3 - Preparazione dei dati: 3.1.3 - Data preparation
-          3.1.4 - Task, predizione ed esperienza: 3.1.4 - Task, predictions, and experience
-          3.1.5 - Generalizzazione: 3.1.5 - Generalization
-          3.1.6 - Iperparametri: 3.1.6 - Hyperparameters
-          3.1.7 - Regolarizzazione: 3.1.7 - Regularization
-          3.2 - Regressione lineare: 3.2 - Linear regression
-          3.3 - Regressione logistica: 3.3 - Logistic regression
-          3.4 - Alberi: 3.4 - Trees
-          3.4.1 - Alberi decisionali: 3.4.1 - Decision trees
-          3.4.2 - Foreste decisionali: 3.4.2 - Decision forests
-          3.4.3 - Gradient boosted trees: 3.4.3 - Gradient boosted trees
-          3.5 - Clustering: material/03_ml/05_clustering/lecture.md
-          3.6 - Metriche: 3.6 - Metrics
-          3.6.1 - Metriche di classificazione: 3.6.1 - Classification metrics
-          3.6.2 - Metriche di regressione: 3.6.2 - Regression metrics
-          3.6.3 - Metriche di clustering: 3.6.3 - Clustering metrics
-          3.7 - Problemi aperti: 3.7 - Open issues
-          3.7.1 - Curse of dimensionality: 3.7.1 - Curse of dimensionality
-          Modulo 4 - Scikit-Learn: Module 4 - Scikit-Learn
-          4.1 - Introduzione a Scikit-Learn: 4.1 - Introduction to Scikit-Learn
-          4.2 - Modelli lineari: 4.2 - Linear models
-          4.2.1 - Metriche di regressione: 4.2.1 - Regression metrics
-          4.2.2 - Regressione lineare e robusta: 4.2.2 - Linear and robust regression
-          4.2.3 - Regressione logistica: 4.2.3 - Logistic regression
-          Esercitazione 4.2: Exercises 4.2
-          4.3 - Stimatori: 4.3 - Estimators
-          4.3.1 - Metriche di classificazione: 4.3.1 - Classification metrics
-          4.3.2 - Classificatori e regressori: 4.3.2 - Classifications and regressors
-          Esercitazione 4.3: Exercises 4.3
-          4.4 - Clustering: 4.4 - Clustering
-          4.4.1 - Metriche di clustering: 4.4.1 - Clustering metrics
-          4.4.2 - Algoritmi di clustering: 4.4.2 - Clustering algorithms
-          Esercitazione 4.4: Exercises 4.4
-          4.5 - Concetti avanzati: 4.5 - Advanced concepts
-          4.5.1 - Pipeline: 4.5.1 - Pipeline
-          4.5.2 - Preprocessing su dataframe: 4.5.2 - Dataframe preprocessing
-          4.5.3 - Cross-validazione: 4.5.3 - Cross-validation
-          4.5.3.1 - Introduzione: 4.5.3.1 - Introduction
-          4.5.3.2 - Strategie di cross-validazione: 4.5.3.2 - Cross-validation strategies
-          4.5.3.3 - Permutation score: 4.5.3.3 - Permutation score
-          4.5.4 - Feature selection: 4.5.4 - Feature selection
-          4.5.5 - Ottimizzazione degli iperparametri: 4.5.5 - Hyperparameters optimization
-          Esercitazione 4.5: Exercises 4.5
-          Modulo 5 - Deep learning: Module 5 - Deep Learning
-          5.1 - Introduzione alle reti neurali: 5.1 - Introduction to neural networks
-          5.2 - Autoencoder: 5.2 - Autoencoder
-          5.2.1 - Introduzione agli autoencoder: 5.2.1 - Introduction to autoencoders
-          5.2.2 - Undercomplete autoencoder: 5.2.2 - Undercomplete autoencoders
-          5.2.3 - Sparse autoencoder: 5.2.3 - Sparse autoencoders
-          5.2.4 - Denoising autoencoder: 5.2.4 - Denoising autoencoders
-          5.2.5 - Variational autoencoder: 5.2.5 - Variational autoencoders
-          Modulo 6 - TensorFlow: Module 6 - TensorFlow
-          6.1 - Basi di TensorFlow: 6.1 - TensorFlow basis
-          6.1.1 - Introduzione a TensorFlow: 6.1.1 - Introduction to TensorFlow
-          6.1.2 - Dataset: 6.1.2 - Dataset
-          6.1.3 - Callbacks: 6.1.3 - Callbacks
-          6.1.4 - Transfer learning e fine tuning: 6.1.4 - Transfer learning and fine tuning
-          6.1.5 - Dropout e regolarizzazione: 6.1.5 - Dropout and regularization
-          6.1.6 - Layer e Model: 6.1.6 - The Layer API
-          Appendici: Appendixes
-          A - Setup di Python e Visual Studio Code: A - Python and VS Code setup
-          B - Setup di TensorFlow: B - TensorFlow Setup
-          C - Le librerie in Python: C - Python libraries
-          D - Ambito di una variabile: D - Scope of a variable
-          E - Programmazione orientata agli oggetti: E - Object oriented programming
-          F - Tips: F - Tips
-          Ringraziamenti: Credits
+  # - i18n:
+  #     default_language: it
+  #     languages:
+  #       it:
+  #         name: Italiano
+  #         site_name: Python per il Calcolo Scientifico
+  #         build: true
+  #       en:
+  #         name: English
+  #         site_name: Python for Data Science
+  #         build: false
+  #     nav_translations:
+  #       en:
+  #         Modulo 1 - Il linguaggio Python: Module 1 - Python language
+  #         1.1 - Concetti introduttivi: 1.1 - Base concepts
+  #         1.1.1 - Introduzione al Python: 1.1.1 - Introduction to Python
+  #         1.1.2 - Operatori: 1.1.2 - Operators
+  #         1.1.3 - Stringhe: 1.1.3 - Strings
+  #         1.1.4 - Liste: 1.1.4 - Lists
+  #         Esercitazione 1.1: Exercises 1.1
+  #         1.2 - Programmare in Python: 1.2 - Programming in Python
+  #         1.2.1 - Sintassi fondamentale: 1.2.1 - Base syntax
+  #         1.2.2 - Programmazione strutturata: 1.2.2 - Structured programming
+  #         1.2.3 - Funzioni: 1.2.3 - Functions
+  #         1.2.4 - Altre strutture dati: 1.2.3 - Other data structures
+  #         1.2.5 - Classi: 1.2.5 - Classes
+  #         1.2.6 - Script, moduli e package: 1.2.6 - Scripts, modules and packages
+  #         Esercitazione 1.2: Exercises 1.2
+  #         1.3 - Concetti avanzati: 1.3 - Advanced concepts
+  #         1.3.1 - Il modulo argparse: 1.3 - The argparse module
+  #         Modulo 2 - Librerie per il calcolo scientifico: Module 2 - Data science libraries
+  #         2.1 - Jupyter Lab: 2.1 - Jupyter Lab
+  #         2.2 - NumPy: 2.2 - NumPy
+  #         2.2.1 - Introduzione a NumPy: 2.2.1 - Introduction to NumPy
+  #         2.2.2 - Gli Array: 2.2.2 - Arrays
+  #         2.2.3 - Operazioni fondamentali sugli array: 2.2.3 - Basic array operations
+  #         2.2.4 - Algebra in NumPy: 2.2.4 - Linear Algebra in NumPy
+  #         2.2.5 - Polinomi in NumPy: 2.2.5 - Polynomials in NumPy
+  #         2.2.6 - Statistica in NumPy: 2.2.6 - Statistics in NumPy
+  #         Esercitazione 2.2: Exercises 2.2
+  #         Tracce: Exercises
+  #         Soluzioni: Solutions
+  #         2.3 - Pandas: 2.3 - Pandas
+  #         2.3.1 - Introduzione a Pandas: 2.3.1 - Introduction to Pandas
+  #         2.3.2 - Le Series: 2.3.2 - Series in Pandas
+  #         2.3.3 - Input/Output in Pandas: 2.3.3 - Input/Output in Pandas
+  #         2.3.4 - Manipolazione dei DataFrame: 2.3.4 - Using DataFrames
+  #         2.4 - Visualizzazione dei dati in Python: 2.4 - Data visualization in Python
+  #         2.4.1 - Matplotlib: 2.4.1 - Matplotlib
+  #         2.4.2 - Seaborn: 2.4.2 - Seaborn
+  #         Esercitazione 2.4: Exercises 2.4
+  #         Modulo 3 - Machine learning: Module 3 - Machine learning
+  #         3.1 - Concetti di machine learning: 3.1 - Machine learning basics
+  #         3.1.1 - Introduzione al machine learning: 3.1.1 - Machine learning introduction
+  #         3.1.2 - Definizione del problema: 3.1.2 - Problem framing
+  #         3.1.3 - Preparazione dei dati: 3.1.3 - Data preparation
+  #         3.1.4 - Task, predizione ed esperienza: 3.1.4 - Task, predictions, and experience
+  #         3.1.5 - Generalizzazione: 3.1.5 - Generalization
+  #         3.1.6 - Iperparametri: 3.1.6 - Hyperparameters
+  #         3.1.7 - Regolarizzazione: 3.1.7 - Regularization
+  #         3.2 - Regressione lited trees: 3.4.3 - Gradient boosted trees
+  #         3.5 - Clustering: material/03_ml/05_clustering/lecture.md
+  #         3.6 - Metriche: 3.6 - Metrics
+  #         3.6.1 - Metriche di classificazione: 3.6.1 - Classification metrics
+  #         3.6.2 - Metriche di regressione: 3.6.2 - Regression metrics
+  #         3.6.3 - Metriche di clustering: 3.6.3 - Clustering metrics
+  #         3.7 - Problemi aperti: 3.7 - Open issues
+  #         3.7.1 - Curse of dimensionality: 3.7.1 - Curse of dimensionality
+  #         Modulo 4 - Scikit-Learn: Module 4 - Scikit-Learn
+  #         4.1 - Introduzione a Scikit-Learn: 4.1 - Introduction to Scikit-Learn
+  #         4.2 - Modelli lineari: 4.2 - Linear models
+  #         4.2.1 - Metriche di regressione: 4.2.1 - Regression metrics
+  #         4.2.2 - Regressione lineare e robusta: 4.2.2 - Linear and robust regression
+  #         4.2.3 - Regressione logistica: 4.2.3 - Logistic regression
+  #         Esercitazione 4.2: Exercises 4.2
+  #         4.3 - Stimatori: 4.3 - Estimators
+  #         4.3.1 - Metriche di classificazione: 4.3.1 - Classification metrics
+  #         4.3.2 - Classificatori e regressori: 4.3.2 - Classifications and regressors
+  #         Esercitazione 4.3: Exercises 4.3
+  #         4.4 - Clustering: 4.4 - Clustering
+  #         4.4.1 - Metriche di clustering: 4.4.1 - Clustering metrics
+  #         4.4.2 - Algoritmi di clustering: 4.4.2 - Clustering algorithms
+  #         Esercitazione 4.4: Exercises 4.4
+  #         4.5 - Concetti avanzati: 4.5 - Advanced concepts
+  #         4.5.1 - Pipeline: 4.5.1 - Pipeline
+  #         4.5.2 - Preprocessing su dataframe: 4.5.2 - Dataframe preprocessing
+  #         4.5.3 - Cross-validazione: 4.5.3 - Cross-validation
+  #         4.5.3.1 - Introduzione: 4.5.3.1 - Introduction
+  #         4.5.3.2 - Strategie di cross-validazione: 4.5.3.2 - Cross-validation strategies
+  #         4.5.3.3 - Permutation score: 4.5.3.3 - Permutation score
+  #         4.5.4 - Feature selection: 4.5.4 - Feature selection
+  #         4.5.5 - Ottimizzazione degli iperparametri: 4.5.5 - Hyperparameters optimization
+  #         Esercitazione 4.5: Exercises 4.5
+  #         Modulo 5 - Deep learning: Module 5 - Deep Learning
+  #         5.1 - Introduzione alle reti neurali: 5.1 - Introduction to neural networks
+  #         5.2 - Autoencoder: 5.2 - Autoencoder
+  #         5.2.1 - Introduzione agli autoencoder: 5.2.1 - Introduction to autoencoders
+  #         5.2.2 - Undercomplete autoencoder: 5.2.2 - Undercomplete autoencoders
+  #         5.2.3 - Sparse autoencoder: 5.2.3 - Sparse autoencoders
+  #         5.2.4 - Denoising autoencoder: 5.2.4 - Denoising autoencoders
+  #         5.2.5 - Variational autoencoder: 5.2.5 - Variational autoencoders
+  #         Modulo 6 - TensorFlow: Module 6 - TensorFlow
+  #         6.1 - Basi di TensorFlow: 6.1 - TensorFlow basis
+  #         6.1.1 - Introduzione a TensorFlow: 6.1.1 - Introduction to TensorFlow
+  #         6.1.2 - Dataset: 6.1.2 - Dataset
+  #         6.1.3 - Callbacks: 6.1.3 - Callbacks
+  #         6.1.4 - Transfer learning e fine tuning: 6.1.4 - Transfer learning and fine tuning
+  #         6.1.5 - Dropout e regolarizzazione: 6.1.5 - Dropout and regularization
+  #         6.1.6 - Layer e Model: 6.1.6 - The Layer API
+  #         Appendici: Appendixes
+  #         A - Setup di Python e Visual Studio Code: A - Python and VS Code setup
+  #         B - Setup di TensorFlow: B - TensorFlow Setup
+  #         C - Le librerie in Python: C - Python libraries
+  #         D - Ambito di una variabile: D - Scope of a variable
+  #         E - Programmazione orientata agli oggetti: E - Object oriented programming
+  #         F - Tips: F - Tips
+  #         Ringraziamenti: Creditsneare: 3.2 - Linear regression
+  #         3.3 - Regressione logistica: 3.3 - Logistic regression
+  #         3.4 - Alberi: 3.4 - Trees
+  #         3.4.1 - Alberi decisionali: 3.4.1 - Decision trees
+  #         3.4.2 - Foreste decisionali: 3.4.2 - Decision forests
+  #         3.4.3 - Gradient boos
 
 
 extra:

@@ -18,8 +18,16 @@ Perché, dunque, preferire il machine learning agli approcci tradizionali? Per r
 
 Un modello di machine learning, ovviamente, è soggetto agli stessi vincoli dei modelli tradizionali. Tuttavia, il modello non deriva le sue predizioni da complesse equazioni matematiche, bensì *deriva la relazione dai dati sotto osservazione*. Di conseguenza, con un numero adeguato di dati, e rispettando le opportune ipotesi di funzionamento, un modello di machine learning questo offre una rappresentazione della realtà più "vera" di quella offerta da qualsiasi modello classico.
 
-!!!note "Statistica e machine learning"
-    Potremmo essere tentati di mettere sullo stesso piano la statistica ed il machine learning. Infatti, pensandoci bene, entrambi gli approcci possono essere usati per fare *inferenza* (ovvero, creare un modello matematico del processo di generazione dei dati che formalizzi il comportamento del sistema) e *predizione* (ovvero, predire il comportamento futuro del sistema). Tuttavia, la statistica è maggiormente incentrata sull'inferire dettagli sulla distribuzione cui sottende una popolazione, mentre il machine learning si concentra sull'aspetto predittivo. Per approfondire, date un'occhiata a [questo articolo](https://www.nature.com/articles/nmeth.4642).
+## Machine learning, deep learning, IA...
+
+Prendiamoci un attimo per cercare di comprendere la differenza tra discipline apparentemente sovrapposte, quali *machine learning*, *deep learning*, ed *intelligenza artificiale*. In particolare, tutte queste discipline discendono da un "antenato" comune, ovvero la *statistica*, che altro non è se non una branca della matematica che si occupa di *descrivere* le caratteristiche di una popolazione di dati (*statistica descrittiva*), eventualmente effettuando delle operazioni di *inferenza* a partire da una certa popolazione (*statistica inferenziale*)[^1].
+
+La statistica è ampiamente utilizzata dall'*intelligenza artificiale*, il cui compito è quello di creare dei sistemi in grado di svolgere dei compiti che, in condizioni normali, richiedono l'interazione con degli esseri umani. Dal punto di vista "filosofico", esistono due tipologie di intelligenza artificiale: la prima è la cosiddetta *IA ristretta*, o *debole*, progettate per eseguire dei compiti ben precisi, come ad esempio individuare i volti in una foto, o rispondere a delle domande testuali. La seconda, invece, è chiamata *IA generale*, o *forte*, e rappresenta un'intelligenza che possiede capacità cognitive eterogenee ed assimilabili a quelle presenti negli organismi che riteniamo comunemente "intelligenti", come ad esempio scimmie o delfini (e, se non vi sentite particolarmente misantropi, esseri umani). 
+
+Il *machine learning* è invece una branca dell'intelligenza artificiale che si concentra sullo sviluppo di algoritmi *data-driven*, ovvero che permettono ad una macchina di apprendere un determinato comportamento direttamente dai dati a disposizione del modello. A sua volta, il *deep learning*, che vedremo in seguito, è una branca del machine learning che utilizza uno specifico tipo di algoritmi, ovvero le *deep neural network*, per mimare la struttura del cervello umano e trattare, di conseguenza, problemi estremamente complessi e sfaccettati.
+
+!!!tip "E ChatGPT?"
+    Quello dell'IA generale è, nel 2025, ancora un *concetto teorico*. Non esiste niente di simile e, nonostante gli incredibili sviluppi che abbiamo avuto negli ultimi anni, non raggiungeremo questo livello ancora per un po' di tempo. Va da sè, quindi, che ChatGPT *et similia* non rappresentano esempi di IA generale, quanto piuttosto di IA debole applicata a contesti specifici di generazione di linguaggio naturale, sviluppata utilizzando degli approcci basati sul deep learning.
 
 ## Tipi di sistemi di machine learning
 
@@ -59,3 +67,5 @@ Il clustering differisce dagli algoritmi supervisionati, ed in particolare dalla
 I sistemi di reinforcement learning effettuano delle predizioni a partire da ricompense o penalità basate sulle azioni effettuate da un *agente* all'interno di un *ambiente*. Sulla base di queste osservazioni, il sistema di reinforcement learning genera una *policy* che definisce la strategia migliore per raggiungere lo scopo prefissato.
 
 Le applicazioni dei sistemi di questo tipo sono varie, e spaziano dall'addestramento dei robot per svolgere task anche complessi, alla creazione di programmi come Alpha Go che sfidino (e battano) gli umani al gioco del Go.
+
+[^1]: [Statistics versus machine learning](https://www.nature.com/articles/nmeth.4642), Nature
