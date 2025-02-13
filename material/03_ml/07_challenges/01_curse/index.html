@@ -1366,11 +1366,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_intro/01_intro/" class="md-nav__link">
+      <a href="../../01_intro/01_intro_ai/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.1 - Introduzione al machine learning
+    3.1.1 - Introduzione all'intelligenza artificiale
     
   </span>
   
@@ -1388,11 +1388,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_intro/02_framing/" class="md-nav__link">
+      <a href="../../01_intro/02_intro_ml/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.2 - Definizione del problema
+    3.1.2 - Introduzione al machine learning
     
   </span>
   
@@ -1410,11 +1410,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_intro/03_data_prep/" class="md-nav__link">
+      <a href="../../01_intro/03_framing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.3 - Preparazione dei dati
+    3.1.3 - Definizione del problema
     
   </span>
   
@@ -1432,11 +1432,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_intro/04_base/" class="md-nav__link">
+      <a href="../../01_intro/04_data_prep/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.4 - Task, predizione ed esperienza
+    3.1.4 - Preparazione dei dati
     
   </span>
   
@@ -1454,11 +1454,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_intro/05_generalization/" class="md-nav__link">
+      <a href="../../01_intro/05_base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.5 - Generalizzazione
+    3.1.5 - Task, predizione ed esperienza
     
   </span>
   
@@ -1476,11 +1476,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_intro/06_hyperparameters/" class="md-nav__link">
+      <a href="../../01_intro/06_generalization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.6 - Iperparametri
+    3.1.6 - Generalizzazione
     
   </span>
   
@@ -1498,11 +1498,33 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01_intro/07_regularization/" class="md-nav__link">
+      <a href="../../01_intro/07_hyperparameters/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.7 - Regolarizzazione
+    3.1.7 - Iperparametri
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_intro/08_regularization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.8 - Regolarizzazione
     
   </span>
   
@@ -3299,7 +3321,7 @@
 
 
 <h1 id="37-sfide-aperte-nel-machine-learning">3.7 - Sfide aperte nel machine learning<a class="headerlink" href="#37-sfide-aperte-nel-machine-learning" title="Permanent link">&para;</a></h1>
-<p>Lo sviluppo e le innovazioni introdotte da machine learning prima, e deep learning dopo, sono in parte motivate dal fallimento degli algoritmi tradizionali nella <a href="../../01_intro/05_generalization/">generalizzazione</a> su diversi task di intelligenza artificiale. In particolare, la generalizzazione diventa sempre più difficile man mano che si lavora con dati ad elevata dimensionalità, dove i meccanismi tradizionali diventano insufficienti ad apprendere funzioni complesse ed adeguate al problema. Questi spazi, inoltre, spesso impongono l'uso di algoritmi ad alto costo computazionale: in tal senso, i recenti avanzamenti nel deep learning sono stati esplicitamente progettati per superare, tra gli altri, questi ostacoli. Vediamone alcuni</p>
+<p>Lo sviluppo e le innovazioni introdotte da machine learning prima, e deep learning dopo, sono in parte motivate dal fallimento degli algoritmi tradizionali nella <a href="../01_intro/05_generalization.md">generalizzazione</a> su diversi task di intelligenza artificiale. In particolare, la generalizzazione diventa sempre più difficile man mano che si lavora con dati ad elevata dimensionalità, dove i meccanismi tradizionali diventano insufficienti ad apprendere funzioni complesse ed adeguate al problema. Questi spazi, inoltre, spesso impongono l'uso di algoritmi ad alto costo computazionale: in tal senso, i recenti avanzamenti nel deep learning sono stati esplicitamente progettati per superare, tra gli altri, questi ostacoli. Vediamone alcuni</p>
 <h2 id="curse-of-dimensionality">Curse of dimensionality<a class="headerlink" href="#curse-of-dimensionality" title="Permanent link">&para;</a></h2>
 <p>Come abbiamo accennato, i problemi di machine learning sono tanto più difficili quanto maggiore è la dimensionalità dei dati. Questo fenomeno è conosciuto come <em>curse of dimensionality</em>, ed è legato al fatto che il numero di possibili configurazioni distinte dei dati caratterizzati da un insieme di feature aumenta esponenzialmente man mano che il numero di queste variabili aumenta.</p>
 <p>La sfida posta dalla curse of dimensionalità è di tipo squisitamente statistico. Nella pratica, il numero di possibili configurazioni di un dato <span class="arithmatex">\(x_i\)</span> diventa sempre più grande all'aumentare del numero di feature dello stesso, il che richiede un numero di campioni di training sempre più elevato. Consideriamo ad esempio la situazione mostrata in figura 1, nel quale si mostra uno spazio a due dimensioni, ognuna delle quali rappresenta una possibile feature categorica a tre diversi valori. Come è possibile notare, lo spazio è interamente caratterizzabile da <span class="arithmatex">\(9\)</span> campioni, per cui un ipotetico modello addestrato su questo dataset avrebbe bisogno di un numero abbastanza ridotto di esempi per avere delle buone performance di generalizzazione.</p>

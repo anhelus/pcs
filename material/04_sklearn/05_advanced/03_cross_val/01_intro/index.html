@@ -1364,11 +1364,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03_ml/01_intro/01_intro/" class="md-nav__link">
+      <a href="../../../../03_ml/01_intro/01_intro_ai/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.1 - Introduzione al machine learning
+    3.1.1 - Introduzione all'intelligenza artificiale
     
   </span>
   
@@ -1386,11 +1386,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03_ml/01_intro/02_framing/" class="md-nav__link">
+      <a href="../../../../03_ml/01_intro/02_intro_ml/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.2 - Definizione del problema
+    3.1.2 - Introduzione al machine learning
     
   </span>
   
@@ -1408,11 +1408,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03_ml/01_intro/03_data_prep/" class="md-nav__link">
+      <a href="../../../../03_ml/01_intro/03_framing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.3 - Preparazione dei dati
+    3.1.3 - Definizione del problema
     
   </span>
   
@@ -1430,11 +1430,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03_ml/01_intro/04_base/" class="md-nav__link">
+      <a href="../../../../03_ml/01_intro/04_data_prep/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.4 - Task, predizione ed esperienza
+    3.1.4 - Preparazione dei dati
     
   </span>
   
@@ -1452,11 +1452,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03_ml/01_intro/05_generalization/" class="md-nav__link">
+      <a href="../../../../03_ml/01_intro/05_base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.5 - Generalizzazione
+    3.1.5 - Task, predizione ed esperienza
     
   </span>
   
@@ -1474,11 +1474,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03_ml/01_intro/06_hyperparameters/" class="md-nav__link">
+      <a href="../../../../03_ml/01_intro/06_generalization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.6 - Iperparametri
+    3.1.6 - Generalizzazione
     
   </span>
   
@@ -1496,11 +1496,33 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../03_ml/01_intro/07_regularization/" class="md-nav__link">
+      <a href="../../../../03_ml/01_intro/07_hyperparameters/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.7 - Regolarizzazione
+    3.1.7 - Iperparametri
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../03_ml/01_intro/08_regularization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.8 - Regolarizzazione
     
   </span>
   
@@ -3301,7 +3323,7 @@
 
 
 <h1 id="4531-crossvalidazione">4.5.3.1 - Crossvalidazione<a class="headerlink" href="#4531-crossvalidazione" title="Permanent link">&para;</a></h1>
-<p>Abbiamo visto come sia necessario <a href="../../../../03_ml/01_intro/03_data_prep/#dati-di-training-test-e-validazione">suddividere il nostro dataset</a> in almeno due insiemi, ovvero quelli di training e di validazione, allo scopo di assicurarci che il modello, addestrato sui dati di training, sia in grado di generalizzare le sue predizioni a casi che non ha mai visto durante l'addestramento.</p>
+<p>Abbiamo visto come sia necessario <a href="../../../03_ml/01_intro/03_data_prep.md#dati-di-training-test-e-validazione">suddividere il nostro dataset</a> in almeno due insiemi, ovvero quelli di training e di validazione, allo scopo di assicurarci che il modello, addestrato sui dati di training, sia in grado di generalizzare le sue predizioni a casi che non ha mai visto durante l'addestramento.</p>
 <p>Tuttavia nel tempo è emerso come questa procedura spesso non sia sufficiente: infatti, pur scegliendo i dati di training e testing in maniera completamente casuale, rimane una possibilità tutt'altro che remota che esistano dei particolari meccanismi di generazione dati specifici per quel determinato sottoinsieme di dati. In altre parole, <em>permane il rischio che l'algoritmo vada in overfitting</em>.</p>
 <p>Per ovviare a questa evenienza, esiste una procedura specifica chiamata <em><span class="arithmatex">\(k\)</span>-fold corss validation</em>. In questa procedura, l'insieme di dati è suddiviso in <span class="arithmatex">\(k\)</span> diverse porzioni, ognuna delle quali sarà usata come test set ad una specifica iterazione, con la restante parte usata come set di training. Dopo <span class="arithmatex">\(k\)</span> iterazioni, i risultati saranno quindi mediati tra loro; questo farà in modo che il contributo di ogni singolo sottoinsieme di dati di training sia meno rilevante e, di conseguenza, il modlelo complessivo maggiormente robusto rispetto a fenomeni di overfitting. Graficamente, possiamo descrivere la <span class="arithmatex">\(k\)</span>-fold cross validation con la figura 1, presa direttamente dalla documentazione di Scikit-Learn.</p>
 <figure>

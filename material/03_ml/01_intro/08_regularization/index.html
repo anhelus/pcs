@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../01_intro/">
+        <link rel="prev" href="../07_hyperparameters/">
       
       
-        <link rel="next" href="../03_data_prep/">
+        <link rel="next" href="../../02_lin_reg/lecture/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>3.1.2 - Definizione del problema - Python per il Calcolo Scientifico</title>
+        <title>3.1.8 - Regolarizzazione - Python per il Calcolo Scientifico</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#312-definizione-del-problema" class="md-skip">
+        <a href="#317-regolarizzazione" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.1.2 - Definizione del problema
+              3.1.8 - Regolarizzazione
             
           </span>
         </div>
@@ -1368,11 +1368,143 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_intro/" class="md-nav__link">
+      <a href="../01_intro_ai/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.1 - Introduzione al machine learning
+    3.1.1 - Introduzione all'intelligenza artificiale
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_intro_ml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.2 - Introduzione al machine learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_framing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.3 - Definizione del problema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_data_prep/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.4 - Preparazione dei dati
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_base/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.5 - Task, predizione ed esperienza
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_generalization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.6 - Generalizzazione
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_hyperparameters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.7 - Iperparametri
     
   </span>
   
@@ -1403,7 +1535,7 @@
           
   
   <span class="md-ellipsis">
-    3.1.2 - Definizione del problema
+    3.1.8 - Regolarizzazione
     
   </span>
   
@@ -1415,7 +1547,7 @@
         
   
   <span class="md-ellipsis">
-    3.1.2 - Definizione del problema
+    3.1.8 - Regolarizzazione
     
   </span>
   
@@ -1438,36 +1570,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#analisi-del-problema" class="md-nav__link">
+  <a href="#il-no-free-lunch-theorem" class="md-nav__link">
     <span class="md-ellipsis">
-      Analisi del problema
+      Il No Free Lunch Theorem
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#comprensione-dei-dati" class="md-nav__link">
+  <a href="#regolarizzazione" class="md-nav__link">
     <span class="md-ellipsis">
-      Comprensione dei dati
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scelta-del-modello" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scelta del modello
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#problemi-multiclasse-e-multioutput" class="md-nav__link">
-    <span class="md-ellipsis">
-      Problemi multiclasse e multioutput
+      Regolarizzazione
     </span>
   </a>
   
@@ -1477,116 +1591,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../03_data_prep/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.1.3 - Preparazione dei dati
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04_base/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.1.4 - Task, predizione ed esperienza
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../05_generalization/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.1.5 - Generalizzazione
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06_hyperparameters/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.1.6 - Iperparametri
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07_regularization/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.1.7 - Regolarizzazione
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -3301,36 +3305,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#analisi-del-problema" class="md-nav__link">
+  <a href="#il-no-free-lunch-theorem" class="md-nav__link">
     <span class="md-ellipsis">
-      Analisi del problema
+      Il No Free Lunch Theorem
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#comprensione-dei-dati" class="md-nav__link">
+  <a href="#regolarizzazione" class="md-nav__link">
     <span class="md-ellipsis">
-      Comprensione dei dati
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scelta-del-modello" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scelta del modello
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#problemi-multiclasse-e-multioutput" class="md-nav__link">
-    <span class="md-ellipsis">
-      Problemi multiclasse e multioutput
+      Regolarizzazione
     </span>
   </a>
   
@@ -3352,73 +3338,27 @@
 
 
 
-<h1 id="312-definizione-del-problema">3.1.2 - Definizione del problema<a class="headerlink" href="#312-definizione-del-problema" title="Permanent link">&para;</a></h1>
-<p>La <em>definizione di un problema</em> è, come prevedibile, il primo passo per la sua risoluzione. Pensiamoci un attimo: se non abbiamo una chiara idea del problema da affrontare, <em>come possiamo pensare di risolverlo</em>?</p>
-<p>Il primo step per affrontare il problema è quindi analizzarlo, isolando gli elementi essenziali da utilizzare nella sua risoluzione: andrà fatto uno <em>studio di fattibilità</em>, determinando se il problema è risolvibile o meno; saranno poi forniti un chiaro insieme di <em>obiettivi</em>, assieme ai <em>criteri</em> ed ai <em>vincoli</em> da rispettare nella risoluzione. Approfondiamo questi aspetti.</p>
-<h2 id="analisi-del-problema">Analisi del problema<a class="headerlink" href="#analisi-del-problema" title="Permanent link">&para;</a></h2>
-<p>Partiamo analizzando il problema, definendo quindi sia i dati in ingresso, sia quello che vogliamo ottenere a valle della risoluzione. Facciamo un paio di esempi concreti:</p>
-<ul>
-<li><strong>Predittore di precipitazioni</strong>: il nostro primo problema prevede la predizione delle precipitazioni orarie. In questo caso, l'obiettivo è quello di creare un software/hardware che, data la collezione storica delle precipitazioni, sia in grado di predire l'entità delle stesse, a partire dalla zona e dal periodo dell'anno, con un buon grado di confidenza.</li>
-<li><strong>Spam detector</strong>: il nostro secondo problema ci chiede di capire se una mail è di spam. L'obiettivo sarà quindi la creazione di un software che, una volta ricevuta una mail, sia in grado di estrapolarne le informazioni che permettano di classificarla come legittima (o meno).</li>
-</ul>
-<p>Una possibile schematizzazione è nella seguente tabella.</p>
-<table>
-<thead>
-<tr>
-<th>Applicazione</th>
-<th>Obiettivo del problema</th>
-<th>Output atteso</th>
-<th>Input</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Previsioni meteo</td>
-<td>Calcolare le precipitazioni orarie in una determinata zona</td>
-<td>Predizione delle precipitazione orarie</td>
-<td>Storico delle precipitazioni, località, situazione attuale</td>
-</tr>
-<tr>
-<td>Spam detector</td>
-<td>Individuare lo spam</td>
-<td>Alert per un possibile spam</td>
-<td>Mail sotto analisi, esempi di mail di spam e legittime</td>
-</tr>
-</tbody>
-</table>
-<p>Una volta individuati obiettivo, input ed output, dovremo verificare che il problema sia risolvibile mediante un algoritmo di machine learning. In particolare, dovremo verificare la presenza di un'adeguata quantità di dati rappresentativi del fenomeno osservato, e decidere quale approccio utilizzare tra classificazione, regressione e clustering. In questa nostra analisi, inoltre, dovremo tenere conto del cosiddetto <a href="https://it.wikipedia.org/wiki/Rasoio_di_Occam"><em>rasoio di Occam</em></a>: infatti, alle volte, potrebbe <em>non</em> essere necessario utilizzare un algoritmo di machine learning per risolvere il problema sotto analisi.</p>
-<div class="admonition note">
-<p class="admonition-title">Machine learning? No, grazie!</p>
-<p>Ad eempio, nonostante un semplice sistema massa - molla - smorzatore possa essere modellato tramite il machine learning, è decisamente più produttivo usare delle semplici relazioni fisiche.</p>
+<h1 id="317-regolarizzazione">3.1.7 - Regolarizzazione<a class="headerlink" href="#317-regolarizzazione" title="Permanent link">&para;</a></h1>
+<h2 id="il-no-free-lunch-theorem">Il No Free Lunch Theorem<a class="headerlink" href="#il-no-free-lunch-theorem" title="Permanent link">&para;</a></h2>
+<p>La teoria matematica alla base del machine learning afferma che un algoritmo sia in grado di generalizzare usando un dataset di addestramento di cardinalità finita. Questo sembra contraddire alcuni principi logici di base: infatti, l'intuizione ci porta a dire che per inferire una legge che descriva ogni campione in un insieme occorre avere delle informazioni su ogni membro dello stesso.</p>
+<p>Il machine learning "aggira" questo problema usando delle regole di tipo probabilistico. In altre parole, un modello di machine learning individua regole che sono <em>probabilmente</em> corrette sulla <em>maggiro parte</em> dei membri dell'insieme di dati.</p>
+<p>Tuttavia, questo non risolve realmente il problema. Infatti, il <em>no free lunch theorem</em> (NFL) afferma che, considerando tutte le distribuzioni possibili per la generazione dei dati, ogni algoritmo mostra lo stesso errore di generalizzazione. In altre parole, non esiste un algoritmo di machine learning universalmente migliore degli altri.</p>
+<p>Fortunatamente, l'NFL è valido soltanto considerando <em>tutte</em> le possibili distribuzioni di dati. Nella realtà, possiamo progettare degli algoritmi che si comportino bene sul nostro specifico problema. Questo significa che l'obiettivo del machine learning non è quello di ricercare un algoritmo universale, ma di comprendere che tipi di distribuzioni sono rilevanti per caratterizzare il nostro problema, e quali algoritmi sono in grado di avere un errore di generalizzazione basso su questo tipo di distribuzioni generatrici.</p>
+<h2 id="regolarizzazione">Regolarizzazione<a class="headerlink" href="#regolarizzazione" title="Permanent link">&para;</a></h2>
+<p>Il NFL richiede di progettare un algoritmo di machine learning che lavori bene su un task specifico, creando un insieme di preferenze nell'algoritmo di apprendimendo allineate con il problema da risolvere.</p>
+<p>Finora, l'unico modo che abbiamo discusso per modificare un algoritmo è stato quello di cambiarne la capacità modificandone gli iperparametri. Tuttavia, procedere esclusivamente in questo modo è semplicistico: infatti, il comportamento di un modello è influenzato anche dall'identità specifica delle funzioni contenute nello spazio di ricerca. Ad esempio, la regressione lineare ha uno spazio delle ipotesi che consiste nell'insieme delle funzioni lineari dei suoi ingressi. Queste funzioni lineari possono essere utili per problemi dove la relazione tra gli input e gli output è quasi lineare, ma sono inadatte a problemi non lineari. </p>
+<div class="admonition tip">
+<p class="admonition-title">Problemi non lineari</p>
+<p>Per fare un esempio, una regressione lineare non può caratterizzare il rapporto tra <span class="arithmatex">\(x\)</span> e <span class="arithmatex">\(sen(x)\)</span>.</p>
 </div>
-<p>Una volta analizzato il problema, e verificata la necessità (e possibilità) di usare il machine learning, dovremo passare alla fase successiva, che prevede l'analisi e lo studio dei dati a nostra disposizione.</p>
-<h2 id="comprensione-dei-dati">Comprensione dei dati<a class="headerlink" href="#comprensione-dei-dati" title="Permanent link">&para;</a></h2>
-<p>La disponibilità di un'adeguata quantità di dati caratterizzanti il fenomeno sotto analisi sono alla base del corretto funzionamento degli algoritmi di machine learning. Per effettuare delle predizioni efficaci, infatti, abbiamo bisogno di usare dati di <em>quantità</em> e <em>qualità</em> adeguate, in grado quindi di garantire un elevato potere predittivo. In particolare, i nostri dati dovranno essere:</p>
-<ul>
-<li><strong>abbondanti</strong>: più esempi rilevanti abbiamo a disposizione, maggiori saranno gli aspetti che potremo caratterizzare e, di conseguenza, migliore sarà il potere risolutivo del nostro modello;</li>
-<li><strong>consistenti</strong>: raccogliere dati usando criteri e strumenti ben determinati e coerenti permetterà una migliore campagna di acquisizione. Ad esempio, il modello meteorologico ottenuto usando dati raccolti ogni giorno per cento anni sarà più preciso di quello ottenuto raccogliendo dati una volta l'anno per lo stesso periodo di tempo;</li>
-<li><strong>affidabili</strong>: la sorgente dei nostri dati dovrà essere affidabile. Ad esempio, l'igrometro ed il barometro dovranno essere ben tarati ed accessibili, mentre l'insieme di email usate per caratterizzare lo spam dovrà essere acquisita da utenti verificati;</li>
-<li><strong>disponibili</strong>: dovremo verificare che non vi siano parti del nostro dataset completamente omesse e, qualora queste siano presenti, che non riguardino aspetti fondamentali e non trascurabili del fenomeno sotto analisi. Ad esempio, un dataset nel quale i valori di temperatura, umidità e pressione sono presi soltanto nei giorni soleggiati avrà ben poca utilità nella predizione delle precipitazioni;</li>
-<li><strong>corretti</strong>: i dati andrebbero verificati in termini sia di valori delle feature, che potrebbero essere errati a causa di starature o malfunzionamenti dei sensori, oppure ancora in caso di perdita di dettagli del testo analizzato, sia di label assegnate. In quest'ultimo caso, infatti, un esperto di dominio potrebbe erroneamente contrassegnare come spam una mail legittima, o viceversa, e ciò andrebbe ovviamente ad inficiare le performance del nostro modello;</li>
-<li><strong>rappresentativi</strong>: il dataset dovrebbe descrivere in maniera completa il fenomeno sottostante, riflettendone accuratamente aspetti e caratteristiche. Utilizzare un dataset non rappresentativo inficierà negativamente le performance predittive del modello.</li>
-</ul>
-<h2 id="scelta-del-modello">Scelta del modello<a class="headerlink" href="#scelta-del-modello" title="Permanent link">&para;</a></h2>
-<p>L'ultimo step è la scelta del tipo di modello da utilizzare, valutando ad esempio tra classificatore, regressore ed algoritmo di clustering.</p>
-<p>Per la nostra applicazione meteo, ad esempio, predire il quantitativo di pioggia che cadrà in un determinato luogo è un chiaro problema di regressione, nel senso che date <span class="arithmatex">\(n\)</span> variabili indipendenti cercheremo di predire una variabile dipendente in uscita.</p>
-<div class="admonition note">
-<p class="admonition-title">Regressione univariata e multivariata</p>
-<p>In questo caso, la regressione si dice <em>univariata</em> a causa del fatto che si sta predicendo un'unica variabile dipendente. Se provassimo a predire (ad esempio) anche la temperatura, avremmo a che fare con una regressione <em>multivariata</em>.</p>
-</div>
-<p>Nel caso dell'applicazione mail, dato che stiamo cercando di valutare se un messaggio è classificabile o meno come spam, avremo a che fare con un problema di classificazione binaria.</p>
-<p>Una volta determinato il tipo di problema, dovremo scegliere l'algoritmo da utilizzare sulla base dei dati, oltre che la metrica con la quale valutare i risultati ottenuti (in accordo al modello scelto). In particolare, la metrica, ed il valore da essa assunto, dipendono strettamente dall'ambito applicativo: se, ad esempio, un errore del <span class="arithmatex">\(10\%\)</span> potrebbe non essere estremamente importante nell'applicazione mail, questo diventerebbe estremamente rilevante (e potenzialmente pericoloso) nella stima dei millimetri di pioggia che cadranno in una certa zona.</p>
-<h2 id="problemi-multiclasse-e-multioutput">Problemi multiclasse e multioutput<a class="headerlink" href="#problemi-multiclasse-e-multioutput" title="Permanent link">&para;</a></h2>
-<p>Esistono diverse tipologie di problemi sulla base dell'ordine sia dei nostri dati, sia delle nostre label. In particolare, distinguiamo i seguenti.</p>
-<h5 id="classificazione-multiclasse">Classificazione multiclasse<a class="headerlink" href="#classificazione-multiclasse" title="Permanent link">&para;</a></h5>
-<p>In questo task di classificazione, i dati possono appartenere ad <em>una ed una sola</em> tra più di due classi. Un esempio è un classificatore che identifica il tipo di frutta mostrato in un'immagine, discernendo tra mele, pere ed uva.</p>
-<h5 id="classificazione-multioutput">Classificazione multioutput<a class="headerlink" href="#classificazione-multioutput" title="Permanent link">&para;</a></h5>
-<p>In questo tipo di classificazione, ogni campione è associato ad <span class="arithmatex">\(m\)</span> label prese da <span class="arithmatex">\(n\)</span> diverse classi, con <span class="arithmatex">\(0 &lt; m \leq n\)</span>. Un esempio può essere la predizione dei topic di riferimento di un documento, presi tra <em>scienza</em>, <em>tecnologia</em>, <em>cultura</em> e <em>religione</em>: possono esserci infatti documenti che parlano sia di cultura che di religione, o anche di religione e scienza, e così via.</p>
-<h5 id="classificazione-multiclassemultioutput">Classificazione multiclasse/multioutput<a class="headerlink" href="#classificazione-multiclassemultioutput" title="Permanent link">&para;</a></h5>
-<p>In questo tipo di classificazione, nota anche come <em>multitask classification</em>, ad ogni campione è associato un insieme di proprietà, per ciascuna delle quali sarà possibile scegliere tra più di due classi. Per fare un esempio, immaginiamo di voler associare i parametri <em>specie</em> e <em>razza</em> ad una serie di immagini di grandi felini: la specie potrà variare tra <em>leone</em>, <em>leopardo</em>, <em>tigre</em>, e così via, mentre la <em>razza</em> varierà per ciascuna specie, ad esempio, <em>leone senegalese</em> e <em>leone indiano</em> per i leoni, <em>tigre siberiana</em> e <em>tigre cinese meridionale</em> per le tigri, e via dicendo.</p>
+<p>Ciò ci suggerisce che si possa controllare il comportamento del modello scegliendo il tipo di funzioni da includere nello spazio di ricerca. Un modo per farlo è dare una certa <em>preferenza</em> per una soluzione rispetto ad un'altra: ciò implica che entrambe le funzioni potranno essere utilizzate, ma una delle due avrà un peso maggiore rispetto all'altra, che sarà scelta soltanto se si adatta ai dati di training in maniera <em>significativamente</em> migliore della soluzione più "pesante".</p>
+<p>Ad esempio, possiamo modificare il criterio di addestramento per la regressione lineare per fare in modo che includa il <em>decadimento dei pesi</em>. Per farlo, dobbiamo minimizzare una funzione <span class="arithmatex">\(L(w)\)</span> che comprende sia l'errore quadratico medio sui dati di training, sia un criterio che esprima una preferenza per i pesi che abbiano una norma <span class="arithmatex">\(L^2\)</span> minore. Nello specifico:</p>
+<div class="arithmatex">\[
+L(w) = MSE_{train} + \lambda w^t w
+\]</div>
+<p>dove <span class="arithmatex">\(\lambda\)</span> è un valore scelto a priori che controlla la forza della nostra preferenza per pesi più piccoli. In pratica, se <span class="arithmatex">\(\lambda \rightarrow 0\)</span> non imponiamo alcuna preferenza di minimizzazione dei pesi, metnre se <span class="arithmatex">\(\lambda \rightarrow 1\)</span> i pesi <span class="arithmatex">\(w\)</span> devono diventare piccoli. Minimizzare <span class="arithmatex">\(L(w)\)</span> fa in modo che i pesi scelti siano un compromesso tra il fitting dei dati di training ed il loro valore assoluto; in altri termini, avremo soluzioni a pendenza inferiore, o che danno peso ad un numero minore dif eature.</p>
+<p>In generale, ad un modello che apprende una funzione <span class="arithmatex">\(f(x; \theta)\)</span> viene <em>regolarizzato</em> mediante una funzione di penalità aggiunta alla funzione di costo. Nel caso del decadimento dei pesi, la funzione di regolarizzazione è data da <span class="arithmatex">\(\Omega(w) = w^T w\)</span>.</p>
+<p>Esprimere una "preferenza" per una funzione rispetto ad un'altra permette quindi di controllare la capacità del modello includendo o escludendo membri dallo spazio delle ipotesi. In altre parole, includere una funzione dallo spazio delle ipotesi, escludendone un'altra, significa esprimere una preferenza infinitamente forte per la prima. Nell'esempio del decadimento dei pesi, abbiamo esplicitamente espresso la nostra preferenza per funzioni lineari con pesi piccoli; tuttavia, esistono molti altri modi per esprimere preferenze per diverse soluzioni; insieme, questi approcci sono conosciuti come <strong>regolarizzazioni</strong>, ovvero tutte quelle modifiche fatte ad un algoritmo di learning intese a ridurre l'errore di generalizzazione preservando quello di training. In tal senso, è opportuno seguire i dettami del NFL, andando a scegliere una forma di regolarizzazione <em>specifica</em> per il nostro problema, e che quindi si adatti a modello e dati analizzati.</p>
 
 
 

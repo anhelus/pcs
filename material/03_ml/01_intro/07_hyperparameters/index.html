@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../03_data_prep/">
+        <link rel="prev" href="../06_generalization/">
       
       
-        <link rel="next" href="../05_generalization/">
+        <link rel="next" href="../08_regularization/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>3.1.4 - Task, predizione ed esperienza - Python per il Calcolo Scientifico</title>
+        <title>3.1.7 - Iperparametri - Python per il Calcolo Scientifico</title>
       
     
     
@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#314-task-predizione-ed-esperienza" class="md-skip">
+        <a href="#316-iperparametri" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.1.4 - Task, predizione ed esperienza
+              3.1.7 - Iperparametri
             
           </span>
         </div>
@@ -1368,11 +1368,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_intro/" class="md-nav__link">
+      <a href="../01_intro_ai/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.1 - Introduzione al machine learning
+    3.1.1 - Introduzione all'intelligenza artificiale
     
   </span>
   
@@ -1390,11 +1390,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../02_framing/" class="md-nav__link">
+      <a href="../02_intro_ml/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.2 - Definizione del problema
+    3.1.2 - Introduzione al machine learning
     
   </span>
   
@@ -1412,11 +1412,77 @@
   
   
     <li class="md-nav__item">
-      <a href="../03_data_prep/" class="md-nav__link">
+      <a href="../03_framing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.3 - Preparazione dei dati
+    3.1.3 - Definizione del problema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_data_prep/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.4 - Preparazione dei dati
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_base/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.5 - Task, predizione ed esperienza
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_generalization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1.6 - Generalizzazione
     
   </span>
   
@@ -1443,83 +1509,16 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    3.1.4 - Task, predizione ed esperienza
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    3.1.4 - Task, predizione ed esperienza
+    3.1.7 - Iperparametri
     
   </span>
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Indice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Indice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#il-task" class="md-nav__link">
-    <span class="md-ellipsis">
-      Il task
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#la-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      La performance
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lesperienza" class="md-nav__link">
-    <span class="md-ellipsis">
-      L'esperienza
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#descrivere-un-dataset" class="md-nav__link">
-    <span class="md-ellipsis">
-      Descrivere un dataset
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1533,55 +1532,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_generalization/" class="md-nav__link">
+      <a href="../08_regularization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    3.1.5 - Generalizzazione
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06_hyperparameters/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.1.6 - Iperparametri
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07_regularization/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3.1.7 - Regolarizzazione
+    3.1.8 - Regolarizzazione
     
   </span>
   
@@ -3294,50 +3249,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Indice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#il-task" class="md-nav__link">
-    <span class="md-ellipsis">
-      Il task
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#la-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      La performance
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lesperienza" class="md-nav__link">
-    <span class="md-ellipsis">
-      L'esperienza
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#descrivere-un-dataset" class="md-nav__link">
-    <span class="md-ellipsis">
-      Descrivere un dataset
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3352,48 +3263,23 @@
 
 
 
-<h1 id="314-task-predizione-ed-esperienza">3.1.4 - Task, predizione ed esperienza<a class="headerlink" href="#314-task-predizione-ed-esperienza" title="Permanent link">&para;</a></h1>
-<p>Abbiamo visto come un algoritmo di machine learning sia in grado di <em>apprendere</em> a partire da un insieme di dati. Per comprendere al meglio cosa questo significhi, possiamo rifarci direttamente alla definizione fornita da Tom Mitchell nel suo libro "Machine Learning" del 1997:</p>
-<div class="admonition cite">
-<p class="admonition-title">Definizione di apprendimento</p>
-<p><em>A computer program is said to learn from experience <span class="arithmatex">\(E\)</span> with respect to some class of tasks <span class="arithmatex">\(T\)</span> and performance measure <span class="arithmatex">\(P\)</span>, if its performance at tasks in<span class="arithmatex">\(T\)</span>, as measured by <span class="arithmatex">\(P\)</span>, improves with experience <span class="arithmatex">\(E\)</span>.</em></p>
+<h1 id="316-iperparametri">3.1.6 - Iperparametri<a class="headerlink" href="#316-iperparametri" title="Permanent link">&para;</a></h1>
+<p>Molti algoritmi di machine learning hanno degli <strong>iperparametri</strong>, ovvero delle "impostazioni" che possiamo utilizzare per controllare il comportamento del modello. A differenza dei parametri, gli iperparametri non sono <em>automaticamente</em> adattati durante l'addestramento.</p>
+<div class="admonition tip">
+<p class="admonition-title">Apprendimento degli iperparametri</p>
+<p>Vedremo come esistono algoritmi che permettono di definire la miglior combinazione possibile per gli iperparametri di un modello dato un certo dataset.</p>
 </div>
-<p>Cerchiamo quindi di dare una definizione intuitiva per <span class="arithmatex">\(T\)</span>, <span class="arithmatex">\(E\)</span> e <span class="arithmatex">\(P\)</span>.</p>
-<h2 id="il-task">Il task<a class="headerlink" href="#il-task" title="Permanent link">&para;</a></h2>
-<p>Il <em>task</em> è il compito affidato all'algoritmo di machine learning, che di solito è troppo complesso da risolvere per un essere umano, o anche per un algoritmo puramente deterministico. Appare quindi ovvio come il processo di apprendimento <em>non</em> coincida con il task: l'apprendimento è infatti il mezzo che permette al nostro modello di imparare ad effettuare il compito assegnato. Ad esempio, qualora volessimo creare un robot in grado di camminare (e, quindi, di soddisfare il <em>task</em> del camminare), dovremmo istruirlo su come fare.</p>
-<p>Per un algoritmo di machine learning, risolvere un task significa effettuare una qualche operazione su di un certo campione, inteso come un insieme di valori misurati in qualche modo. Tipicamente, un campione può essere rappresentato come un vettore <span class="arithmatex">\(x \in \mathbb{R}^n\)</span>, con ogni valore <span class="arithmatex">\(x_i\)</span> feature dello stesso. Ad esempio, le feature associate ad un'immagine possono essere, a basso livello, i valori dei pixel presenti nella stessa.</p>
-<p>Esistono diverse tipologie di task che possono essere trattate con algoritmi di machine learning. Oltre ai problemi di classificazione e regressione trattati nella <a href="../01_intro/">lezione introduttiva</a>, alcuni task che possono essere affidati ad un algoritmo di machine learning sono:</p>
-<ul>
-<li>
-<p><strong>trascrizione</strong>: sono i task in cui il sistema osserva una rappresentazione di un dato non strutturato, trascrivendone l'informazione sotto forma testuale. Ad esempio, nell'OCR il programma visualizza un'immagine che contiene del testo, restituendo lo stesso sotto forma di una sequenza di caratteri, mentre nel riconoscimento vocale l'algoritmo ha il compito di scrivere una sequenza di caratteri che rispecchino le parole pronunciate in una sorgente audio;</p>
-</li>
-<li>
-<p><strong>machine translation</strong>: sono i task in cui il sistema traduce una sequenza di simboli in un certo linguaggio in una sequenza in un altro linguaggio. Un esempio di task di questo tipo è la traduzione di un testo dalla lingua inglese a quella italiana;</p>
-</li>
-<li>
-<p><strong>anomaly detection</strong>: in un task di anomaly detection l'algoritmo valuta un insieme di eventi o oggetti, alla ricerca di campioni che risultino essere atipici. Un software di questo tipo potrebbe ad esempio controllare delle transazioni anomale sulla carta di credito.</p>
-</li>
-</ul>
-<h2 id="la-performance">La performance<a class="headerlink" href="#la-performance" title="Permanent link">&para;</a></h2>
-<p>La capacità di un algoritmo di machine learning può essere valutata mediante una misura quantitativa specifica per il task svolto.</p>
-<p>Per i task di classificazione, una delle misure più utilizzate è l'<em>accuracy</em>, che non è altro se non la proporzione di campioni per la quale il modello è in grado di produrre l'output corretto. Nella pratica, possiamo ottenere un'informazione equivalente considerando l'<em>error rate</em>, ovvero la proporzione di campioni per la quale il modello produce un output non corretto. I task di regressione invece prevedono l'utilizzo di una metrica differente che dia al modello un punteggio numerico valutato su ogni campione.</p>
-<p>E' importante sottolineare come la performance vada misurata su dati che l'algoritmo <em>non</em> ha visto in precedenza, il che ci permette di "simularne" le performance nel mondo reale. Queste misure sono quindi valutate su un <em>insieme di test</em> separato dai dati usati per l'addestramento, che vanno per l'appunto a formare l'<em>insieme di training</em>.</p>
-<p>La scelta della misura di performance può sembrare diretta ed oggettiva, ma spesso può essere difficile sceglierne una in grado di definire al meglio il comportamento desiderato del sistema. In alcuni casi, questo è legato alle difficoltà nello stabilire <em>ciò</em> che dovrebbe essere misurato. Ad esempio, in un task di trascrizione, sarebbe meglio usare l'accuracy del sistema nel trascrivere intere sequenze o una misura più granulare, che fa in modo che specifici elementi della sequenza siano corretti? Ancora, in un task di regressione, vanno maggiormente penalizzati tanti errori di piccola dimensione o pochi errori di grande dimensione? Queste scelte di design dipendono prevalentemente dall'applicazione.</p>
-<h2 id="lesperienza">L'esperienza<a class="headerlink" href="#lesperienza" title="Permanent link">&para;</a></h2>
-<p>L'<em>esperienza</em> viene fornita ad un algoritmo mediante un intero <em>dataset</em>, ovvero un insieme di molti campioni. Un esempio di dataset molto utilizzato per il test di algoritmi di machine learning è <em>Iris</em>, composto da un insieme di misure fatte su sepali e petali di <span class="arithmatex">\(150\)</span> piante di iris, ciascuna appartenente ad una tra tre differenti classi. In particolare, ogni singola pianta è un <em>campione</em> del dataset, la quale è a sua volta caratterizzata da quattro feature, ovvero lunghezza ed ampiezza sia di sepalo, sia di petalo.</p>
-<p>In base al tipo di esperienza fornita dal dataset, l'algoritmo può essere <em>supervisionato</em> o <em>non supervisionato</em>; come abbiamo <a href="../01_intro/">già visto</a>, gli algoritmi di learning non supervisionato apprendono proprietà intrinseche della struttura del dataset, mentre quelli di learning supervisionato imparano a relazionare tali proprietà con una label o un target. In altri termini:</p>
-<ul>
-<li>l'apprendimento non supervisionato prevede l'osservazione di molti esempi di un vettore casuale <span class="arithmatex">\(x\)</span> a partire dai quali si apprende la distribuzione di probabilità <span class="arithmatex">\(p(x)\)</span>, o delle proprietà interessanti della stessa;</li>
-<li>l'apprendimento supervisionato prevede l'osservazione di molti esempi di un vettore casuale <span class="arithmatex">\(x\)</span> a cui è associato un vettore <span class="arithmatex">\(y\)</span> a partire dai quali si apprende la distribuzione di probabilità <span class="arithmatex">\(p(y|x)\)</span>.</li>
-</ul>
-<p>Il termine <em>supervisionato</em> si origina quindi dal fatto che il target <span class="arithmatex">\(y\)</span> viene fornito da un "istruttore" che mostra al sistema di machine learning la "verità", figura che non è presente nell'apprendimento non supervisionato.</p>
+<p>Alle volte, un iperparametro è definito come tale perché è difficile da ottimizzare; tuttavia, capita più spesso che detti valori non devono essere appresi soltanto sul training set, ma devono avere valenza generale, allo scopo di evitare underfitting ed overfitting. Ciò ci riconduce al concetto di <em>generalizzazione</em> visto nella <a href="05_generalization.md">lezione precedente</a>.</p>
+<p>Abbiamo visto come la stima dell'errore di generalizzazione una volta completato l'addestramento avvenga su un test set: in tal senso, è importante che i campioni del test set non siano in alcun modo usati per condizionare l'addestramento del modello. Di conseguenza, andremo a selezionare un <strong>set di validazione</strong> a partire dal training set: questo sarà usato per stimare l'errore di generalizzazione durante o immediatamente dopo l'addestramento, permettendo l'addestramento degli iperparametri. Normalmente, il dataset iniziale viene suddiviso in percentuali pari all'<span class="arithmatex">\(80\%\)</span> per i dati di training ed il <span class="arithmatex">\(20\%\)</span> per i dati di validazione.</p>
 <div class="admonition note">
-<p class="admonition-title">Reinforcement learning</p>
-<p>Gli algoritmi non fanno esperienza su di un dataset, ma apprendono ad interagire con un ambiente mediante un apposito loop di feedback.</p>
+<p class="admonition-title">Errore sul set di validazione</p>
+<p>Dato che il set di validazione è preso dal set di training, l'errore di generalizzazione calcolato su di esso sarà inferiore rispetto a quello calcolato sul set di test.</p>
 </div>
-<h2 id="descrivere-un-dataset">Descrivere un dataset<a class="headerlink" href="#descrivere-un-dataset" title="Permanent link">&para;</a></h2>
-<p>Il dataset è descritto in termini della cosiddetta <em>design matrix</em>, che contiene tante righe quanti sono i campioni disponibili, e tante colonne quante sono le feature. Ad esempio, il dataset Iris sarà caratterizzato da una design matrix del tipo <span class="arithmatex">\(X \in \mathbb{R}^{150 \times 4}\)</span>, dove <span class="arithmatex">\(X(i, 1)\)</span> è la lunghezza del sepalo della pianta <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(X(i, 2)\)</span> è l'ampiezza del sepalo della stessa pianta, e via dicendo. La design matrix definisce quindi ogni campione come un vettore della stessa lunghezza. Ad esempio, una design matrix non può contenere delle immagini con un numero diverso di pixel.</p>
-<p>Nel caso dell'apprendimento supervisionato, alla design matrix si associa un vettore di label <span class="arithmatex">\(y\)</span>, con <span class="arithmatex">\(y_i\)</span> che fornisce la label per il campione associato alla riga <span class="arithmatex">\(i\)</span>-ma.</p>
+<figure>
+<p><img alt="training_full" src="../images/training_full.png" /><br />
+</p>
+<figcaption>Figura 1 - Un esempio del processo di training con minimizzazione di errore di training e test, oltre che ottimizzazione degli iperparametri sult est di validazione.</figcaption>
+</figure>
 
 
 
