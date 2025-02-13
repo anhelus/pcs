@@ -42,13 +42,14 @@ nav:
       - Esercitazione 2.4: material/02_libs/04_visualization/exercises/exercises.md
   - Modulo 3 - Machine learning:
     - 3.1 - Concetti di machine learning:
-      - 3.1.1 - Introduzione al machine learning: material/03_ml/01_intro/01_intro.md
-      - 3.1.2 - Definizione del problema: material/03_ml/01_intro/02_framing.md
-      - 3.1.3 - Preparazione dei dati: material/03_ml/01_intro/03_data_prep.md
-      - 3.1.4 - Task, predizione ed esperienza: material/03_ml/01_intro/04_base.md
-      - 3.1.5 - Generalizzazione: material/03_ml/01_intro/05_generalization.md
-      - 3.1.6 - Iperparametri: material/03_ml/01_intro/06_hyperparameters.md
-      - 3.1.7 - Regolarizzazione: material/03_ml/01_intro/07_regularization.md
+      - 3.1.1 - Introduzione all'intelligenza artificiale: material/03_ml/01_intro/01_intro_ai.md
+      - 3.1.2 - Introduzione al machine learning: material/03_ml/01_intro/02_intro_ml.md
+      - 3.1.3 - Definizione del problema: material/03_ml/01_intro/03_framing.md
+      - 3.1.4 - Preparazione dei dati: material/03_ml/01_intro/04_data_prep.md
+      - 3.1.5 - Task, predizione ed esperienza: material/03_ml/01_intro/05_base.md
+      - 3.1.6 - Generalizzazione: material/03_ml/01_intro/06_generalization.md
+      - 3.1.7 - Iperparametri: material/03_ml/01_intro/07_hyperparameters.md
+      - 3.1.8 - Regolarizzazione: material/03_ml/01_intro/08_regularization.md
     - 3.2 - Regressione lineare: material/03_ml/02_lin_reg/lecture.md
     - 3.3 - Regressione logistica: material/03_ml/03_log_reg/lecture.md
     - 3.4 - Alberi:
