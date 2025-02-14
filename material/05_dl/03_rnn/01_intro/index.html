@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../../02_autoencoder/05_variational/">
+      
+      
+        <link rel="next" href="../../../06_tflow/01_intro/01_intro/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>01 rnn - Python per il Calcolo Scientifico</title>
+        <title>5.3.1 - Introduzione alle recurrent neural netowrk - Python per il Calcolo Scientifico</title>
       
     
     
@@ -80,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#srotolare-la-rnn" class="md-skip">
+        <a href="#531-recurrent-neural-network" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -116,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              01 rnn
+              5.3.1 - Introduzione alle recurrent neural netowrk
             
           </span>
         </div>
@@ -2581,17 +2585,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -2606,7 +2612,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Modulo 5 - Deep learning
@@ -2776,6 +2782,124 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5.3 - Recurrent Neural Networks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            5.3 - Recurrent Neural Networks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5.3.1 - Introduzione alle recurrent neural netowrk
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    5.3.1 - Introduzione alle recurrent neural netowrk
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#caratteristiche-delle-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caratteristiche delle RNN
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3231,6 +3355,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#caratteristiche-delle-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caratteristiche delle RNN
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3245,25 +3386,20 @@
 
 
 
-<p>When it comes to sequential or time series data, traditional feedforward networks cannot be used for learning and prediction. A mechanism is required to retain past or historical information to forecast future values. Recurrent neural networks, or RNNs for short, are a variant of the conventional feedforward artificial neural networks that can deal with sequential data and can be trained to hold knowledge about the past.</p>
-<p>Prerequisites<br />
-This tutorial assumes that you are already familiar with artificial neural networks and the backpropagation algorithm. If not, you can go through this very nice tutorial, Calculus in Action: Neural Networks, by Stefania Cristina. The tutorial also explains how a gradient-based backpropagation algorithm is used to train a neural network.</p>
-<p>What Is a Recurrent Neural Network<br />
-A recurrent neural network (RNN) is a special type of artificial neural network adapted to work for time series data or data that involves sequences. Ordinary feedforward neural networks are only meant for data points that are independent of each other. However, if we have data in a sequence such that one data point depends upon the previous data point, we need to modify the neural network to incorporate the dependencies between these data points. RNNs have the concept of “memory” that helps them store the states or information of previous inputs to generate the next output of the sequence.</p>
-<h1 id="srotolare-la-rnn">Srotolare la RNN<a class="headerlink" href="#srotolare-la-rnn" title="Permanent link">&para;</a></h1>
-<p>Una semplice RNN ha un loop di feedback, come mostrato nel primo diagramma della figura precedente. Il feedback loop mostrato nel rettangolo grigio può essere UNROLLED in tre step temporali per produrre la seconda rete della figura precednete... Ovviamente, possiamo variare l'architettura in modo che la rete si srotoli in <span class="arithmatex">\(k\)</span> step temporali. nella figura, utilizziamo la seguente notazione:</p>
-<ul>
-<li><span class="arithmatex">\(x_t \in R\)</span> è l'input allo step temporale <span class="arithmatex">\(t\)</span>. Per mantenere le cose semplici</li>
-</ul>
+<h1 id="531-recurrent-neural-network">5.3.1 - Recurrent Neural Network<a class="headerlink" href="#531-recurrent-neural-network" title="Permanent link">&para;</a></h1>
+<p>Le <em>Recurrent Neural Network</em> (RNN) sono una particolare tipologia di reti neurali introdotta per la prima negli anni '80 da Geoffrey Hinton con lo scopo di caratterizzare <em>sequenze</em> di dati, come ad esempio serie temporali, sequenze audio, o frasi scritte in linguaggio naturale. Per far questo, le RNN sfruttano il principio delle connessioni <em>ricorrenti</em>, cercando quindi di "memorizzare" le informazioni presenti in diversi istanti temporali della sequenza. Grazie a questa loro capacità, le RNN sono state per lungo tempo sfruttate per elaborare i dati di tipo sequenziale, e rappresentano una delle basi teoriche che ha influenzato gli sviluppi odierni dell'IA e delle reti neurali.</p>
+<h2 id="caratteristiche-delle-rnn">Caratteristiche delle RNN<a class="headerlink" href="#caratteristiche-delle-rnn" title="Permanent link">&para;</a></h2>
+<p>Abbiamo già accennato al fatto che le RNN sono caratterizzate da delle particolari connessioni definite come <em>ricorrenti</em>. Per capire cosa sono, dobbiamo partire dalle <a href="../../01_nn/lecture/">reti tradizionali</a>: in questo tipo di rete, infatti, le uscite di ciascun layer sono funzioni non lineari <em>esclusivamente</em> degli input allo stesso. Tuttavia, esistono delle situazioni nelle quali l'output della rete è funzione non solo dell'ingresso, ma anche degli output della stessa negli istanti precedenti. Prendiamo ad esempio una qualsiasi frase di senso compiuto: ogni parola nella frase è in qualche modo collegata alle altre, ed il significato complessivo è legato al contesto definito dall'interezza della stessa. Di conseguenza, una rete tradizionale potrebbe non essere l'algoritmo più indicato per caratterizzare una situazione di questo tipo.</p>
+<p>Le RNN cercano proprio di superare questa limitazione, introducendo un meccanismo <em>ricorrente</em>, ovvero dove l'output di un layer viene, per usare un termine mutuato dalla teoria dei sistemi, "retroazionato", ovvero inviato anch'esso in ingresso al layer di cui in precedenza, permettendo quindi di "conservare" parte dell'informazione acquisita dall'iungresso precedente. Questa scelta di progettazione rende quindi le RNN particolarmente adatte a contesti nei quali la conoscenza del segnale negli istanti precedenti è fondamentale.</p>
+<!-- https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/ -->
+
+<p>Le RNN sono caratterizzate da dei problemi molto marcati di <em>vanishing gradient</em>, che implicano che i gradienti diventino molto piccoli durante l'addestramento. Ciò impedisce di caratterizzare delle dipendenze a <em>lungo termine</em> all'interno della sequenza. Per ridurre questo problema, sono state sviluppate diverse varianti delle RNN, come le <em>Long Short-Term Memory</em> (LSTM) e le <em>Gated Recurrent Unit</em> (GRU).</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
