@@ -1,0 +1,13 @@
+# 5.3.1 - Recurrent Neural Network
+
+Le *Recurrent Neural Network* (RNN) sono una particolare tipologia di reti neurali introdotta per la prima negli anni '80 da Geoffrey Hinton con lo scopo di caratterizzare *sequenze* di dati, come ad esempio serie temporali, sequenze audio, o frasi scritte in linguaggio naturale. Per far questo, le RNN sfruttano il principio delle connessioni *ricorrenti*, cercando quindi di "memorizzare" le informazioni presenti in diversi istanti temporali della sequenza. Grazie a questa loro capacità, le RNN sono state per lungo tempo sfruttate per elaborare i dati di tipo sequenziale, e rappresentano una delle basi teoriche che ha influenzato gli sviluppi odierni dell'IA e delle reti neurali.
+
+## Caratteristiche delle RNN
+
+Abbiamo già accennato al fatto che le RNN sono caratterizzate da delle particolari connessioni definite come *ricorrenti*. Per capire cosa sono, dobbiamo partire dalle [reti tradizionali](../01_nn/lecture.md): in questo tipo di rete, infatti, le uscite di ciascun layer sono funzioni non lineari *esclusivamente* degli input allo stesso. Tuttavia, esistono delle situazioni nelle quali l'output della rete è funzione non solo dell'ingresso, ma anche degli output della stessa negli istanti precedenti. Prendiamo ad esempio una qualsiasi frase di senso compiuto: ogni parola nella frase è in qualche modo collegata alle altre, ed il significato complessivo è legato al contesto definito dall'interezza della stessa. Di conseguenza, una rete tradizionale potrebbe non essere l'algoritmo più indicato per caratterizzare una situazione di questo tipo.
+
+Le RNN cercano proprio di superare questa limitazione, introducendo un meccanismo *ricorrente*, ovvero dove l'output di un layer viene, per usare un termine mutuato dalla teoria dei sistemi, "retroazionato", ovvero inviato anch'esso in ingresso al layer di cui in precedenza, permettendo quindi di "conservare" parte dell'informazione acquisita dall'iungresso precedente. Questa scelta di progettazione rende quindi le RNN particolarmente adatte a contesti nei quali la conoscenza del segnale negli istanti precedenti è fondamentale.
+
+<!-- https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/ -->
+
+Le RNN sono caratterizzate da dei problemi molto marcati di *vanishing gradient*, che implicano che i gradienti diventino molto piccoli durante l'addestramento. Ciò impedisce di caratterizzare delle dipendenze a *lungo termine* all'interno della sequenza. Per ridurre questo problema, sono state sviluppate diverse varianti delle RNN, come le *Long Short-Term Memory* (LSTM) e le *Gated Recurrent Unit* (GRU).

@@ -96,8 +96,8 @@ nav:
       - 5.2.3 - Sparse autoencoder: material/05_dl/02_autoencoder/03_sparse.md
       - 5.2.4 - Denoising autoencoder: material/05_dl/02_autoencoder/04_denoising.md
       - 5.2.5 - Variational autoencoder: material/05_dl/02_autoencoder/05_variational.md
-    # - 5.3 - Recurrent Neural Networks:
-    #   - 5.3.1 - Introduzione alle recurrent neural netowrk: material/05_dl/03_rnn/01_intro.md
+    - 5.3 - Recurrent Neural Networks:
+      - 5.3.1 - Introduzione alle recurrent neural netowrk: material/05_dl/03_rnn/01_intro.md
   - Modulo 6 - TensorFlow:
     - 6.1 - Basi di TensorFlow:
       - 6.1.1 - Introduzione a TensorFlow: material/06_tflow/01_intro/01_intro.md
