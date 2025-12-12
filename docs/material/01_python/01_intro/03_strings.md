@@ -19,7 +19,7 @@ Notiamo nella seconda istruzione l'uso del carattere di escape (`\`) che precede
 SyntaxError: invalid syntax
 ```
 
-!!!note "Nota"
+!!!note "Raw Strings"
 	Tutti i caratteri preceduti dal simbolo `\` saranno interpretati come escape character, a meno di aggiungere il simbolo `r` prima dell'inizio della stringa:
 	> ```py
 	  >>> print('C:\nuova_cartella')
@@ -31,8 +31,8 @@ SyntaxError: invalid syntax
 
 ## Stringhe su righe multiple
 
-!!!note "Stringhe e liste"
-	La maggior parte dei concetti che vedremo nel seguito sono applicabili anche alle liste. Anzi, per essere precisi, derivano proprio dalle liste, in quanto Python considera una stringa un particolare tipo di lista.
+!!!note "Stringhe e sequenze"
+	La maggior parte dei concetti che vedremo nel seguito sono applicabili anche ad ogni tipo di *sequenza*. Anzi, per essere precisi, Python considera una stringa un particolare tipo di sequenza!
 
 Le stringhe possono articolarsi su più righe. Per farlo, possiamo usare le *triple-quotes*, ovvero tre virgolette di seguito, per indicare l'inizio e la fine della stringa:
 
@@ -94,8 +94,24 @@ Possiamo anche semplicemente porre le due stringhe l'una di seguito all'altra:
 	  ```
 	Il consiglio, in questi casi "ibridi", è quello di usare l'operatore standard di concatenazione, ovvero il `+`.
 
-!!!note "Nota"
-	Esistono modi più efficienti di concatenare delle stringhe, specialmente quando si ha a che fare con numerose operazioni di concatenazione in grossi cicli; l'approfondimento di tali metodi è demandato al lettore.
+### Le f-strings
+
+Sebbene la concatenazione con l'operatore `+` svolga il suo lavoro, nelle versioni più recenti di Python è stato introdotto il concetto di *f-string* (*formatted string literals*), che richiama i concetti utilizzati dalla libreria standard C per la funzione `printf`. Nella pratica, è necessario anteporre una `f` alla stringa, ed inserire tra parentesi graffe le variabili che si vogliono formattare, le quali saranno formattate in maniera automatica. Ad esempio:
+
+```py
+>>> nome = "Mario"
+>>> eta = 30
+>>> print(f"{nome} ha {eta} anni.")
+Mario ha 30 anni.
+```
+
+Qualora si voglia gestire in maniera più "granulare" la formattazione, ad esempio per un tipo numerico, potremo specificare la formattazione che riteniamo più opportuna:
+
+```py
+>>> accuratezza = 0.87564
+>>> print(f"Accuratezza del modello: {accuratezza:.2f}") # Arrotonda a 2 decimali
+Accuratezza del modello: 0.88
+```
 
 ## Indicizzazione di stringhe
 
@@ -205,3 +221,16 @@ TypeError: 'str' object does not support item assignment
 
 !!!tip "Suggerimento"
 	Possiamo comunque assegnare il nome `stringa` ad una nuova variabile.
+
+## Funzioni fondamentali per le stringhe
+
+Chiudiamo questa panoramica introducendo alcuni metodi che è possibile usare sulle stringhe, richiamati nella seguente tabella.
+
+| Metodo | Descrizione | Esempio | Risultato |
+| ------ | ----------- | ------- | --------- |
+| `.lower()` | Converte tutto in minuscolo | `'Ciao'.lower()` | `'ciao'` |
+| `.upper()` | Converte tutto in maiuscolo | `'Ciao'.upper()` | `'CIAO'` |
+| `.strip()` | Rimuove spazi a inizio/fine | `'  x  '.strip()` | `'x'` |
+| `.replace(old, new)` | Sostituisce sottostringhe | `'1,5'.replace(',', '.')` | `'1.5'` |
+| `.split(sep)` | Divide la stringa in una lista | `'a-b-c'.split('-')` | `['a', 'b', 'c']` |
+| `.join(iterable)` | Unisce una lista in stringa | `'-'.join(['a', 'b'])` | `'a-b'` |

@@ -15,6 +15,9 @@ Se apparirà una schermata simile a quella mostrata in figura 1, Python sarà gi
 
 In alternativa, dovremo provvedere ad installarlo seguendo la procedura indicata sul [sito ufficiale](https://www.python.org/), ed aggiungerlo al path di sistema.
 
+!!!warning "Attenzione!"
+    Utilizzare il comando `python` su sistemi Unix-like (come Linux o MacOS) potrebbe far sì che si utilizzi la versione 2.7 di Python, mantenuta spesso per motivi di retrocompatibilità. In questi casi, è necessario utilizzare il comando `python3` per puntare alle versioni più recenti dell'interprete.
+
 ## Python e tipizzazione
 
 ### Tipizzazione dinamica
@@ -65,6 +68,17 @@ Proviamo ora a sommare a `var` un valore pari ad `1.1`. Il risultato, come ovvio
 
 L'utilità del duck typing è evidente: permette allo sviluppatore di "risparmiare" numerose operazioni di cast, rendendo il codice più semplice da scrivere e manutenere. Tuttavia, occorre tenerne conto nel momento in cui si usano classi ed oggetti, in quanto l'interprete proverà ad inferire ed usare automaticamente un tipo in base al contesto in cui viene usata la variabile, con le comodità (ed i potenziali disastri) che questo comporta.
 
+!!!tip "Type Hints"
+    Nonostante la tipizzazione dinamica ed il duck typing, nelle versioni più moderne di Python (diciamo a partire dalla 3.10) è estremamente consigliato l'utilizzo del [type hinting](https://docs.python.org/3/library/typing.html):
+    ```py
+    # Senza Type Hint
+    var = 10
+    
+    # Con Type Hint
+    var: int = 10
+    ```
+    Parleremo più diffusamente di questi concetti nel modulo dedicato.
+
 ## Tipi built-in in Python
 
 Python prevede una [serie](https://docs.python.org/3/library/stdtypes.html) di tipi *built-in*, ovvero nativamente disponibili nel linguaggio. Ne esiste un gran numero; tuttavia, quelli che ci troveremo più frequentemente ad utilizzare sono riassunti in tabella 1.
@@ -73,11 +87,13 @@ Python prevede una [serie](https://docs.python.org/3/library/stdtypes.html) di t
 | ---- | ----------- | ------- |
 | [`int`](https://docs.python.org/3/library/functions.html#int) | Numeri interi | `1` |
 | [`float`](https://docs.python.org/3/library/functions.html#float) | Numeri decimali | `1.0` |
+| [`bool`](https://docs.python.org/3/library/stdtypes.html#boolean-type-bool) | Booleano | `True`, `False` |
 | [`complex`](https://docs.python.org/3/library/functions.html#complex) | Numeri complessi | `1 + 1j` |
 | [`list`](https://docs.python.org/3/library/stdtypes.html#list) | Liste di oggetti | `[1, 'pippo', [1, 2, 3]]` |
 | [`tuple`](https://docs.python.org/3/library/stdtypes.html#tuple) | Tuple di oggetti | `(1, 'pippo', [1, 2, 3])` |
 | [`str`](https://docs.python.org/3/library/stdtypes.html#str) | Stringhe | `'pippo'` |
 | [`set`](https://docs.python.org/3/library/stdtypes.html#set) | Insiemi | `{1, 2, 3}` |
 | [`dict`](https://docs.python.org/3/library/stdtypes.html#dict) | Dizionari | `{'a': 1, 2: 'b'}` |
+
 
 Nella [prossima lezione](./02_operators.md), vedremo alcuni tra gli operatori più comunemente utilizzati sui dati di tipo numerico.

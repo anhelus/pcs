@@ -85,6 +85,56 @@ Terminiamo questa sezione con un breve sommario dei diversi tipi di operatore ar
 | `//` |  Quoziente | `4 // 3` | `1` |
 | `%` | Modulo | `5 % 3` | `2` |
 
+## Operatori di confronto
+
+Gli operatori di confronto sono utilizzati per confrontare due variabili secondo quelle che sono le logiche dell'aritmetica di base. La loro sintassi è per lo più facilmente comprensibile, ma richiede alcuni piccoli accorgimenti per l'operazione di eguaglianza e diseguaglianza.
+
+Supponiamo di voler verificare che il valore associato ad una variabile `a` sia pari a `3`. Potremmo essere tentati di scrivere un'espressione del tipo:
+
+```py
+a = 3
+```
+
+Questa espressione, seppur sintatticamente corretta, è *semanticamente errata*. Infatti, l'operatore `=` è utilizzato per *assegnare* il valore `3` alla variabile `a`, e non per verificare che questa sia uguale a `3`!
+
+Per effettuare questa verifica, dovremo usare l'operatore `==`:
+
+```py
+a == 3
+```
+
+!!!tip "L'operatore `is`"
+	L'operatore `is` verifica l'*identità* di due variabili, ovvero se queste puntano alla stessa locazioni di memoria. Un uso tipico prevede il confronto a `None`:
+	```py
+	python >>> a = None >>> a is None True
+	```
+
+L'espressione precedente ci dirà quindi se la variabile `a` è attualmente pari a `3`, restituendo l'opportuno valore booleano.
+
+!!!warning "Attenzione!"
+	E' importante sottolineare come, a differenza di linguaggi come C e Java, inserire l'espressione `a = 3` in una verifica condizionale generi un errore sintattico.
+
+Nella seguente tabella sono riassunti i principali operatori di comparazione utilizzati in Python. Da notare come tutti restituiscano un valore booleano.
+
+| Operatore | Descrizione | Esempio | Risultato |
+| --------- | ----------- | ------- | --------- |
+| `==` | Uguaglianza | `3 == 3` | `True` |
+| `!=` | Disuguaglianza | `3 != 3` | `False` |
+| `<` | Minore | `2 < 3` | `True` |
+| `>` | Maggiore | `2 > 3` | `False` |
+| `<=` | Minore o uguale | `2 <= 2` | `True` |
+| `>=` |  Maggiore o uguale | `2 >= 2` | `True` |
+
+### Operatori di assegnazione
+
+Esistono anche degli operatori di assegnazione che permettono di aggiornare il valore di una data variabile a seconda dell'operatore e del valore a destra dello stesso. Nella seguente tabella sono riportati i tre casi principali.
+
+| Operatore | Descrizione | Esempio | Risultato |
+| --------- | ----------- | ------- | --------- |
+| `+=` | Incrementa il valore a sinistra del valore a destra | `cnt += 1` | `cnt + 1` |
+| `-=` | Decrementa il valore  a sinistra del valore a destra | `cnt -= 1` | `cnt - 1` |
+| `*=` | Moltiplica il valore a sinistra del valore a destra | `cnt *= 2` | `cnt * 2` |
+
 ## Operatori logici
 
 Gli operatori logici permettono di implementare le operazioni base dell'[algebra booleana](https://it.wikipedia.org/wiki/Algebra_di_Boole).
@@ -96,7 +146,7 @@ In tal senso, è opportuno riassumere brevemente i principi e le operazioni alla
 3. I valori assunti da una condizione sono esprimibili mediante le tabelle di verità.
 
 !!!warning "L'operazione XOR"
-	Esiste una quarta operazione fondamentale, la *XOR*, che però non tratteremo in questa sede.
+	Esiste una quarta operazione fondamentale, la *XOR*, che però opera bit a bit mediante l'operatore `^`.
 
 ### Tabelle di verità delle operazioni logiche fondamentali
 
@@ -139,4 +189,15 @@ In altri termini, il risultato finale ($res$) sarà vero se e solo se sia $cond_
 
 ### Operazioni logiche in Python
 
-Per realizzare le operazioni logiche, Python ci mette a disposizione tre parole chiave, ovvero `and`, `or` e `not`. L'associazione tra parola chiave ed operazione logica è lasciata al lettore come esercizio.
+Per realizzare le operazioni logiche, Python ci mette a disposizione tre parole chiave, ovvero `and`, `or` e `not`. L'associazione tra parola chiave ed operazione logica è  riassunta nella seguente tabella, dove si suppone che:
+
+```py
+x = (5 == 5)	# Vero
+y = (4 == 5)	# Falso
+```
+
+| Operatore | Descrizione | Esempio | Risultato |
+| --------- | ----------- | ------- | --------- |
+| `and` | AND logico | `x and y` | `False` |
+| `or` | OR logico | `x or y` | `True` |
+| `not` | NOT logico | `not x` | `False` |

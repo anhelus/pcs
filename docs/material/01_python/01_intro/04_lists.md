@@ -1,8 +1,8 @@
-# 1.1.4 - Liste
+# 1.1.4 - Liste e tuple
 
-Abbiamo già detto che una stringa altro non è se non un caso particolare di *lista*. La domanda che sorge spontanea è quindi: *cosa è una lista*?
+## Liste
 
-Le liste sono uno dei quattro tipi di strutture *built-in* che Python offre per memorizzare sequenze di dati. Da un punto di vista puramente "concettuale", potremmo considerarle alla stregua degli array presenti in altri linguaggi di programmazione, seppur con alcune, significative differenze.
+Le *liste* sono una delle strutture dati fondamentali di Python. Da un punto di vista puramente "concettuale", potremmo considerarle alla stregua degli array presenti in altri linguaggi di programmazione, seppur con alcune, significative differenze.
 
 Possiamo creare una lista in questo modo:
 
@@ -11,7 +11,7 @@ Possiamo creare una lista in questo modo:
 [1, 2, 3, 4, 5]
 ```
 
-## Concatenazione, indicizzazione e slicing su liste
+### Concatenazione, indicizzazione e slicing su liste
 
 Come sulle stringhe, sulle liste è possibile effettuare operazioni di indicizzazione, slicing e concatenazione:
 
@@ -27,7 +27,7 @@ Come sulle stringhe, sulle liste è possibile effettuare operazioni di indicizza
 [1, 2, 3, 4, 5, 6]
 ```
 
-Facciamo alcuni esempi. Consideriamo la seguente stringa:
+Facciamo alcuni esempi. Consideriamo la seguente lista:
 
 ```py
 >>> l = [1, 2, 3, 4, 5, 6]
@@ -78,7 +78,7 @@ Prendiamo gli elementi agli indici pari in ordine inverso:
 [6, 4, 2]
 ```
 
-## Mutabilità di una lista
+### Mutabilità di una lista
 
 A differenza delle stringhe, le liste sono oggetti *mutabili*. Di conseguenza, possiamo modificarne il contenuto:
 
@@ -88,7 +88,7 @@ A differenza delle stringhe, le liste sono oggetti *mutabili*. Di conseguenza, p
 [99, 2, 3, 4, 5]
 ```
 
-## Operazioni sulle liste
+### Operazioni sulle liste
 
 Possiamo anche eliminare elementi da una lista usando l'operatore `[]` combinato all'operazione di slicing:
 
@@ -122,7 +122,96 @@ Nell'esempio precedente, abbiamo usato la funzione `append()` per inserire un el
 Proviamo ad estendere ulteriormente la lista cambiando il primo elemento con una stringa:
 
 ```py
->>> lista [0] = stringa
+>>> lista[0] = "Python"
 >>> lista
 ['Python', 2, 3, 4, [1, 2, 3]]
 ```
+
+### Controllo di appartenenza mediante l'operatore `in`
+
+Per verificare  se un elemento è presente o meno in una lista possiamo usare l'operatore `in`, il quale restituisce un booleano, e che risulta essere molto più leggibile ed efficiente di un ciclo `for`. Ad esempio:
+
+```py
+>>> players = ['mario', 'luigi', 'wario']
+>>> 'luigi' in players
+True
+>>> 'waluigi' in players
+False
+```
+
+### Metodi fondamentali sulle liste
+
+Concludiamo questo excursus andando ad elencare alcuni dei metodi ottimizzati offerti da Python per la modifica delle liste.
+
+| Metodo | Descrizione | Esempio | Risultato (su `l=[1, 2]`) |
+| ------ | ----------- | ------- | ------------------------- |
+| `.append(x)` | Aggiunge `x` alla fine | `l.append(3)` | `[1, 2, 3]` |
+| `.extend(iter)` | Aggiunge tutti gli elementi di un iterabile | `l.extend([3, 4])` | `[1, 2, 3, 4]` |
+| `.insert(i, x)` | Inserisce `x` all'indice `i` | `l.insert(0, 0)` | `[0, 1, 2]` |
+| `.pop(i)` | Rimuove e *restituisce* l'elemento ad `i` (default ultimo) | `val = l.pop()` | `l=[1]`, `val=2` |
+| `.remove(x)` | Rimuove la *prima* occorrenza di `x` | `l.remove(1)` | `[2]` |
+| `.clear()` | Rimuove tutti gli elementi | `l.clear()` | `[]` |
+| `.count(x)` | Conta quante volte `x` appare | `l.count(1)` | `1` |
+
+## Tuple
+
+Le *tuple* sono sequenze molto simili alle liste, anche se presentano una differenza fondamentale: sono **immutabili**, per cui non possono essere modificate una volta create. La creazione di una tupla avviene in questo modo:
+
+```py
+tupla = ('hello', 'world', 12)
+```
+
+Un po' come avviene per le liste, uno dei valori della tupla può a sua volta essere un'altra tupla. Ad esempio:
+
+```py
+tupla = ('hello', 'world', (1, 2))
+```
+
+A differenza di una lista, però, le *tuple sono immutabili*. Ciò non implica però che non possano contenere al loro interno oggetti mutabili. Guardiamo il seguente esempio:
+
+```py
+tupla = ('hello', 'world', [1, 2, 3])
+```
+
+La tupla avrà al suo interno due stringhe (immutabili) ed una lista (mutabile). Proviamo a modificare la lista:
+
+```py
+tupla[2] = [2, 2, 3]
+```
+
+Apparirà un errore simile a questo:
+
+```sh
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+```
+
+Come prevedibile, abbiamo avuto un errore di assegnazione legato all'immutabilità della tupla. Proviamo adesso però a modificare *direttamente la lista*:
+
+```py
+tupla[2][0] = 2 		# La tupla sarà ('hello', 'world', [2, 2, 3])
+```
+
+L'operazione è evidentemente ammissibile, ed il risultato è stato proprio quello atteso.
+
+Ricapitolando, quindi:
+
+* le tuple sono immutabili, ma possono contenere oggetti mutabili...
+* ...mentre le liste sono mutabili, ma possono contenere oggetti immutabili!
+
+### Tuple unpacking
+
+Una delle feature più interessanti messe a disposizione di Python è l'*unpacking*, ovvero l'assegnazione multipla dei valori di una tupla a diverse variabili in un'unica istruzione. Ad esempio:
+
+```py
+coordinate = (41.90, 12.49)
+lat, lon = coordinate # Unpacking
+
+print(f"Latitudine: {lat}")
+print(f"Longitudine: {lon}")
+```
+
+!!!tip "Quando usare le tuple, quindi?"
+	Preferiamo le tuple ad altre strutture dati quando abbiamo a che fare con dati che non devono cambiare nel codice, oppure per avere dei minimi guadagni in termini di performance.
+

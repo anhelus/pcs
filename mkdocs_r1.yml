@@ -1,0 +1,342 @@
+site_name: Python per il Calcolo Scientifico
+
+nav:
+  - Home: index.md
+  - Modulo 1 - Il linguaggio Python:
+    - 1.1 - Concetti introduttivi:
+      - 1.1.1 - Introduzione al Python: material/01_python/01_intro/01_intro.md
+      - 1.1.2 - Operatori: material/01_python/01_intro/02_operators.md
+      - 1.1.3 - Stringhe: material/01_python/01_intro/03_strings.md
+      - 1.1.4 - Liste e Tuple: material/01_python/01_intro/04_lists.md
+      - Esercitazione 1.1: material/01_python/01_intro/exercises.md
+    - 1.2 - Programmare in Python:
+      - 1.2.1 - Sintassi fondamentale (if/loops/match): material/01_python/02_syntax/01_syntax.md
+      - 1.2.2 - Programmazione strutturata: material/01_python/02_syntax/02_structured.md
+      - 1.2.3 - Funzioni e Lambda: material/01_python/02_syntax/03_functions.md
+      - 1.2.4 - Dizionari e Set: material/01_python/02_syntax/04_data_structures.md
+      - 1.2.5 - Gestione delle Eccezioni (Try/Except): material/01_python/02_syntax/07_exceptions.md # NUOVO
+      - 1.2.6 - Classi e OOP: material/01_python/02_syntax/05_classes.md
+      - 1.2.7 - Script, moduli e package: material/01_python/02_syntax/06_modules.md
+      - Esercitazione 1.2: material/01_python/02_syntax/exercises/exercises.md
+    - 1.3 - Python Avanzato e Engineering:
+      - 1.3.1 - Gestione Ambienti (venv & conda): material/01_python/03_advanced/00_environments.md # NUOVO
+      - 1.3.2 - Il modulo argparse e CLI: material/01_python/03_advanced/01_argparse.md
+      - 1.3.3 - Type Hinting e Pydantic: material/01_python/03_advanced/02_typing.md # NUOVO
+      - 1.3.4 - Introduzione al Testing (pytest): material/01_python/03_advanced/04_testing.md # NUOVO
+  - Modulo 2 - Librerie per il calcolo scientifico:
+    - 2.1 - Jupyter Lab: material/02_libs/01_jupyter/lecture.md
+    - 2.2 - NumPy:
+      - 2.2.1 - Introduzione a NumPy: material/02_libs/02_numpy/01_intro.md
+      - 2.2.2 - Gli Array: material/02_libs/02_numpy/02_array.md
+      - 2.2.3 - Operazioni fondamentali: material/02_libs/02_numpy/03_fundamentals.md
+      - 2.2.4 - Algebra in NumPy: material/02_libs/02_numpy/04_algebra.md
+      - 2.2.5 - Polinomi in NumPy: material/02_libs/02_numpy/05_polynomials.md
+      - 2.2.6 - Statistica in NumPy: material/02_libs/02_numpy/06_statistics.md
+      - Esercitazione 2.2: material/02_libs/02_numpy/exercises/exercises.md
+    - 2.3 - Pandas:
+      - 2.3.1 - Introduzione a Pandas: material/02_libs/03_pandas/01_intro.md
+      - 2.3.2 - Le Series: material/02_libs/03_pandas/02_series.md
+      - 2.3.3 - Input/Output in Pandas: material/02_libs/03_pandas/03_io.md
+      - 2.3.4 - Manipolazione dei DataFrame: material/02_libs/03_pandas/04_functions.md
+      - 2.3.5 - Analisi avanzata (Groupby/Pivot): material/02_libs/03_pandas/05_advanced.md # NUOVO
+    - 2.4 - Visualizzazione dei dati in Python:
+      - 2.4.1 - Matplotlib: material/02_libs/04_visualization/01_matplotlib.md
+      - 2.4.2 - Seaborn: material/02_libs/04_visualization/02_seaborn.md
+      - 2.4.3 - Plotly (Grafici interattivi): material/02_libs/04_visualization/03_plotly.md # NUOVO
+      - Esercitazione 2.4: material/02_libs/04_visualization/exercises/exercises.md
+  - Modulo 3 - Machine learning:
+    - 3.1 - Concetti di machine learning:
+      - 3.1.1 - Introduzione all'AI: material/03_ml/01_intro/01_intro_ai.md
+      - 3.1.2 - Introduzione al ML: material/03_ml/01_intro/02_intro_ml.md
+      - 3.1.3 - Definizione del problema: material/03_ml/01_intro/03_framing.md
+      - 3.1.4 - Preparazione dei dati: material/03_ml/01_intro/04_data_prep.md
+      - 3.1.5 - Task, predizione ed esperienza: material/03_ml/01_intro/05_base.md
+      - 3.1.6 - Generalizzazione e Overfitting: material/03_ml/01_intro/06_generalization.md
+      - 3.1.7 - Iperparametri: material/03_ml/01_intro/07_hyperparameters.md
+      - 3.1.8 - Regolarizzazione: material/03_ml/01_intro/08_regularization.md
+    - 3.2 - Regressione lineare: material/03_ml/02_lin_reg/lecture.md
+    - 3.3 - Regressione logistica: material/03_ml/03_log_reg/lecture.md
+    - 3.4 - Alberi:
+      - 3.4.1 - Alberi decisionali: material/03_ml/04_trees/01_decision_trees.md
+      - 3.4.2 - Foreste decisionali: material/03_ml/04_trees/02_decision_forests.md
+      - 3.4.3 - Gradient boosted trees: material/03_ml/04_trees/03_gbt.md
+    - 3.5 - Clustering: material/03_ml/05_clustering/lecture.md
+    - 3.6 - Metriche:
+      - 3.6.1 - Metriche di classificazione: material/03_ml/06_metrics/01_classification.md
+      - 3.6.2 - Metriche di regressione: material/03_ml/06_metrics/02_regression.md
+      - 3.6.3 - Metriche di clustering: material/03_ml/06_metrics/03_clustering.md
+    - 3.7 - XAI & Interpretabilità (Black Box): # NUOVA SEZIONE QUI
+      - 3.7.1 - Feature Importance: material/03_ml/07_xai/01_feat_imp.md
+      - 3.7.2 - SHAP Values: material/03_ml/07_xai/03_shap.md
+      - 3.7.3 - LIME: material/03_ml/07_xai/04_lime.md
+  - Modulo 4 - Scikit-Learn:
+    - 4.1 - Introduzione a Scikit-Learn: material/04_sklearn/01_intro/lecture.md
+    - 4.2 - Modelli lineari:
+      - ... (come originale) ...
+    - 4.3 - Stimatori:
+      - ... (come originale) ...
+    - 4.4 - Clustering:
+      - ... (come originale) ...
+    - 4.5 - Concetti avanzati:
+      - 4.5.1 - Pipeline: material/04_sklearn/05_advanced/01_pipeline.md
+      - 4.5.2 - Preprocessing su dataframe: material/04_sklearn/05_advanced/02_col_tran.md
+      - 4.5.3 - Cross-validazione:
+        - 4.5.3.1 - Introduzione: material/04_sklearn/05_advanced/03_cross_val/01_intro.md
+        - 4.5.3.2 - Strategie: material/04_sklearn/05_advanced/03_cross_val/02_strategies.md
+      - 4.5.4 - Feature selection: material/04_sklearn/05_advanced/04_feat_sel.md
+      - 4.5.5 - Ottimizzazione iperparametri: material/04_sklearn/05_advanced/05_hyperpars.md
+      - 4.5.6 - Salvataggio Modelli (Pickle/Joblib): material/04_sklearn/05_advanced/06_persistence.md # NUOVO
+  - Modulo 5 - Deep Learning Foundations:
+    - 5.1 - Introduzione alle reti neurali: material/05_dl/01_nn/lecture.md
+    - 5.2 - TensorFlow/Keras API:
+      - 5.2.1 - Intro e Dataset: material/06_tflow/01_intro/01_intro.md
+      - 5.2.2 - Layer, Model e Training: material/06_tflow/01_intro/06_model_api.md
+      - 5.2.3 - Callbacks e Regolarizzazione: material/06_tflow/01_intro/03_callbacks.md
+  - Modulo 6 - Computer Vision Avanzata:
+    - 6.1 - Convolutional Neural Networks (CNN):
+      - 6.1.1 - Convoluzioni e Pooling: material/05_dl/02_cnn/01_theory.md
+      - 6.1.2 - Architetture classiche (ResNet, VGG): material/05_dl/02_cnn/02_architectures.md
+      - 6.1.3 - Transfer Learning: material/06_tflow/01_intro/04_tl_ft.md
+      - 6.1.4 - Visual XAI (Grad-CAM): material/05_dl/02_cnn/07_gradcam.md # NUOVO
+    - 6.2 - Object Detection: # NUOVA SEZIONE
+      - 6.2.1 - Concetti: Bounding Boxes e IoU: material/05_dl/02_cnn/03_obj_det_intro.md
+      - 6.2.2 - YOLO (Real-time detection): material/05_dl/02_cnn/04_yolo.md
+      - 6.2.3 - DETR (Transformer Detection): material/05_dl/02_cnn/05_detr.md
+    - 6.3 - Autoencoder (Mantenuti ma condensati):
+      - 6.3.1 - Introduzione e Denoising: material/05_dl/02_autoencoder/01_intro.md
+      - 6.3.2 - Variational Autoencoder (VAE): material/05_dl/02_autoencoder/05_variational.md
+  - Modulo 7 - NLP e Transformer:
+    - 7.1 - Sequenze e RNN:
+      - 7.1.1 - Recurrent Neural Networks: material/05_dl/03_rnn/01_intro.md
+      - 7.1.2 - Embeddings (Word2Vec): material/05_dl/03_nlp/01_embeddings.md
+    - 7.2 - La Rivoluzione dei Transformer:
+      - 7.2.1 - Attention Mechanism: material/05_dl/03_nlp/02_attention.md
+      - 7.2.2 - Architettura Transformer: material/05_dl/03_nlp/03_transformer.md
+      - 7.2.3 - BERT e Modelli Encoder: material/05_dl/03_nlp/04_bert.md
+      - 7.2.4 - GPT e Modelli Decoder: material/05_dl/03_nlp/05_gpt.md
+  - Modulo 8 - Generative AI & Agentic AI:
+    - 8.1 - LLM Engineering:
+      - 8.1.1 - Prompt Engineering Avanzato: material/07_genai/01_llm/01_prompting.md
+      - 8.1.2 - Quantizzazione e Modelli Locali (Ollama): material/07_genai/01_llm/02_local.md
+      - 8.1.3 - Fine-tuning (LoRA/PEFT): material/07_genai/01_llm/03_peft.md
+    - 8.2 - RAG (Retrieval Augmented Generation):
+      - 8.2.1 - Vector Databases: material/07_genai/02_rag/01_vectordb.md
+      - 8.2.2 - Costruire un RAG: material/07_genai/02_rag/02_impl.md
+    - 8.3 - Agentic AI:
+      - 8.3.1 - Agenti ReAct e Planning: material/07_genai/03_agents/01_react.md
+      - 8.3.2 - Tool Use e Function Calling: material/07_genai/03_agents/02_tools.md
+      - 8.3.3 - Frameworks (LangGraph/CrewAI): material/07_genai/03_agents/03_frameworks.md
+  - Modulo 9 - AI Safety & Frontier Research:
+    - 9.1 - AI Alignment:
+      - 9.1.1 - RLHF (Reinforcement Learning from Human Feedback): material/08_frontier/01_alignment/01_rlhf.md
+      - 9.1.2 - DPO (Direct Preference Optimization): material/08_frontier/01_alignment/02_dpo.md
+      - 9.1.3 - Guardrails: material/08_frontier/01_alignment/03_guardrails.md
+    - 9.2 - Mechanistic Interpretability:
+      - 9.2.1 - Sparse Autoencoders (SAE): material/08_frontier/02_mech_interp/02_sae.md
+      - 9.2.2 - Activation Steering: material/08_frontier/02_mech_interp/03_steering.md
+      - 9.2.3 - Adversarial Attacks: material/08_frontier/02_mech_interp/04_attacks.md
+  - Appendici:
+    - A - Setup Avanzato (Docker/Cuda): material/appendix/01_setup/lecture.md
+    - B - Deployment (FastAPI/Streamlit): material/appendix/02_deploy/lecture.md
+    - C - Tips & Tricks: material/appendix/06_tips/lecture.md
+    - D - Ambito di una variabile: material/appendix/04_scope/lecture.md
+    - E - Programmazione OOP (Extra): material/appendix/05_oop/lecture.md
+  - Ringraziamenti: contributors.md
+
+theme:
+  name: material
+  language: it
+  favicon: assets/images/favicon.png
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Rainbow in the dark
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Fear of the dark?
+
+markdown_extensions:
+  - admonition # notes make pretty
+  - attr_list
+  - footnotes
+  - meta # page-specific context
+  - toc:
+      permalink: true # inserts an anchor
+      toc_depth: 3
+  - sane_lists # better ul and ol
+  - nl2br # newline hard break
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem: # better italic and bold
+      smart_enable: asterisk
+  - pymdownx.caret # insert text and superscript
+  - pymdownx.details # details and summary; work with admonition
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.highlight: # better code, instead of CodeHilite           <--------
+      anchor_linenums: true
+  - pymdownx.inlinehilite # like codehilite but inline
+  - pymdownx.magiclink # auto links
+  - pymdownx.mark # highlight text
+  - pymdownx.smartsymbols # special symbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist: # better tasks lists
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true # auto tabs
+  - pymdownx.tilde # strike through cross out text
+  - md_in_html
+
+
+plugins:
+  - search
+  # - i18n:
+  #     default_language: it
+  #     languages:
+  #       it:
+  #         name: Italiano
+  #         site_name: Python per il Calcolo Scientifico
+  #         build: true
+  #       en:
+  #         name: English
+  #         site_name: Python for Data Science
+  #         build: false
+  #     nav_translations:
+  #       en:
+  #         Modulo 1 - Il linguaggio Python: Module 1 - Python language
+  #         1.1 - Concetti introduttivi: 1.1 - Base concepts
+  #         1.1.1 - Introduzione al Python: 1.1.1 - Introduction to Python
+  #         1.1.2 - Operatori: 1.1.2 - Operators
+  #         1.1.3 - Stringhe: 1.1.3 - Strings
+  #         1.1.4 - Liste: 1.1.4 - Lists
+  #         Esercitazione 1.1: Exercises 1.1
+  #         1.2 - Programmare in Python: 1.2 - Programming in Python
+  #         1.2.1 - Sintassi fondamentale: 1.2.1 - Base syntax
+  #         1.2.2 - Programmazione strutturata: 1.2.2 - Structured programming
+  #         1.2.3 - Funzioni: 1.2.3 - Functions
+  #         1.2.4 - Altre strutture dati: 1.2.3 - Other data structures
+  #         1.2.5 - Classi: 1.2.5 - Classes
+  #         1.2.6 - Script, moduli e package: 1.2.6 - Scripts, modules and packages
+  #         Esercitazione 1.2: Exercises 1.2
+  #         1.3 - Concetti avanzati: 1.3 - Advanced concepts
+  #         1.3.1 - Il modulo argparse: 1.3 - The argparse module
+  #         Modulo 2 - Librerie per il calcolo scientifico: Module 2 - Data science libraries
+  #         2.1 - Jupyter Lab: 2.1 - Jupyter Lab
+  #         2.2 - NumPy: 2.2 - NumPy
+  #         2.2.1 - Introduzione a NumPy: 2.2.1 - Introduction to NumPy
+  #         2.2.2 - Gli Array: 2.2.2 - Arrays
+  #         2.2.3 - Operazioni fondamentali sugli array: 2.2.3 - Basic array operations
+  #         2.2.4 - Algebra in NumPy: 2.2.4 - Linear Algebra in NumPy
+  #         2.2.5 - Polinomi in NumPy: 2.2.5 - Polynomials in NumPy
+  #         2.2.6 - Statistica in NumPy: 2.2.6 - Statistics in NumPy
+  #         Esercitazione 2.2: Exercises 2.2
+  #         Tracce: Exercises
+  #         Soluzioni: Solutions
+  #         2.3 - Pandas: 2.3 - Pandas
+  #         2.3.1 - Introduzione a Pandas: 2.3.1 - Introduction to Pandas
+  #         2.3.2 - Le Series: 2.3.2 - Series in Pandas
+  #         2.3.3 - Input/Output in Pandas: 2.3.3 - Input/Output in Pandas
+  #         2.3.4 - Manipolazione dei DataFrame: 2.3.4 - Using DataFrames
+  #         2.4 - Visualizzazione dei dati in Python: 2.4 - Data visualization in Python
+  #         2.4.1 - Matplotlib: 2.4.1 - Matplotlib
+  #         2.4.2 - Seaborn: 2.4.2 - Seaborn
+  #         Esercitazione 2.4: Exercises 2.4
+  #         Modulo 3 - Machine learning: Module 3 - Machine learning
+  #         3.1 - Concetti di machine learning: 3.1 - Machine learning basics
+  #         3.1.1 - Introduzione al machine learning: 3.1.1 - Machine learning introduction
+  #         3.1.2 - Definizione del problema: 3.1.2 - Problem framing
+  #         3.1.3 - Preparazione dei dati: 3.1.3 - Data preparation
+  #         3.1.4 - Task, predizione ed esperienza: 3.1.4 - Task, predictions, and experience
+  #         3.1.5 - Generalizzazione: 3.1.5 - Generalization
+  #         3.1.6 - Iperparametri: 3.1.6 - Hyperparameters
+  #         3.1.7 - Regolarizzazione: 3.1.7 - Regularization
+  #         3.2 - Regressione lited trees: 3.4.3 - Gradient boosted trees
+  #         3.5 - Clustering: material/03_ml/05_clustering/lecture.md
+  #         3.6 - Metriche: 3.6 - Metrics
+  #         3.6.1 - Metriche di classificazione: 3.6.1 - Classification metrics
+  #         3.6.2 - Metriche di regressione: 3.6.2 - Regression metrics
+  #         3.6.3 - Metriche di clustering: 3.6.3 - Clustering metrics
+  #         3.7 - Problemi aperti: 3.7 - Open issues
+  #         3.7.1 - Curse of dimensionality: 3.7.1 - Curse of dimensionality
+  #         Modulo 4 - Scikit-Learn: Module 4 - Scikit-Learn
+  #         4.1 - Introduzione a Scikit-Learn: 4.1 - Introduction to Scikit-Learn
+  #         4.2 - Modelli lineari: 4.2 - Linear models
+  #         4.2.1 - Metriche di regressione: 4.2.1 - Regression metrics
+  #         4.2.2 - Regressione lineare e robusta: 4.2.2 - Linear and robust regression
+  #         4.2.3 - Regressione logistica: 4.2.3 - Logistic regression
+  #         Esercitazione 4.2: Exercises 4.2
+  #         4.3 - Stimatori: 4.3 - Estimators
+  #         4.3.1 - Metriche di classificazione: 4.3.1 - Classification metrics
+  #         4.3.2 - Classificatori e regressori: 4.3.2 - Classifications and regressors
+  #         Esercitazione 4.3: Exercises 4.3
+  #         4.4 - Clustering: 4.4 - Clustering
+  #         4.4.1 - Metriche di clustering: 4.4.1 - Clustering metrics
+  #         4.4.2 - Algoritmi di clustering: 4.4.2 - Clustering algorithms
+  #         Esercitazione 4.4: Exercises 4.4
+  #         4.5 - Concetti avanzati: 4.5 - Advanced concepts
+  #         4.5.1 - Pipeline: 4.5.1 - Pipeline
+  #         4.5.2 - Preprocessing su dataframe: 4.5.2 - Dataframe preprocessing
+  #         4.5.3 - Cross-validazione: 4.5.3 - Cross-validation
+  #         4.5.3.1 - Introduzione: 4.5.3.1 - Introduction
+  #         4.5.3.2 - Strategie di cross-validazione: 4.5.3.2 - Cross-validation strategies
+  #         4.5.3.3 - Permutation score: 4.5.3.3 - Permutation score
+  #         4.5.4 - Feature selection: 4.5.4 - Feature selection
+  #         4.5.5 - Ottimizzazione degli iperparametri: 4.5.5 - Hyperparameters optimization
+  #         Esercitazione 4.5: Exercises 4.5
+  #         Modulo 5 - Deep learning: Module 5 - Deep Learning
+  #         5.1 - Introduzione alle reti neurali: 5.1 - Introduction to neural networks
+  #         5.2 - Autoencoder: 5.2 - Autoencoder
+  #         5.2.1 - Introduzione agli autoencoder: 5.2.1 - Introduction to autoencoders
+  #         5.2.2 - Undercomplete autoencoder: 5.2.2 - Undercomplete autoencoders
+  #         5.2.3 - Sparse autoencoder: 5.2.3 - Sparse autoencoders
+  #         5.2.4 - Denoising autoencoder: 5.2.4 - Denoising autoencoders
+  #         5.2.5 - Variational autoencoder: 5.2.5 - Variational autoencoders
+  #         Modulo 6 - TensorFlow: Module 6 - TensorFlow
+  #         6.1 - Basi di TensorFlow: 6.1 - TensorFlow basis
+  #         6.1.1 - Introduzione a TensorFlow: 6.1.1 - Introduction to TensorFlow
+  #         6.1.2 - Dataset: 6.1.2 - Dataset
+  #         6.1.3 - Callbacks: 6.1.3 - Callbacks
+  #         6.1.4 - Transfer learning e fine tuning: 6.1.4 - Transfer learning and fine tuning
+  #         6.1.5 - Dropout e regolarizzazione: 6.1.5 - Dropout and regularization
+  #         6.1.6 - Layer e Model: 6.1.6 - The Layer API
+  #         Appendici: Appendixes
+  #         A - Setup di Python e Visual Studio Code: A - Python and VS Code setup
+  #         B - Setup di TensorFlow: B - TensorFlow Setup
+  #         C - Le librerie in Python: C - Python libraries
+  #         D - Ambito di una variabile: D - Scope of a variable
+  #         E - Programmazione orientata agli oggetti: E - Object oriented programming
+  #         F - Tips: F - Tips
+  #         Ringraziamenti: Creditsneare: 3.2 - Linear regression
+  #         3.3 - Regressione logistica: 3.3 - Logistic regression
+  #         3.4 - Alberi: 3.4 - Trees
+  #         3.4.1 - Alberi decisionali: 3.4.1 - Decision trees
+  #         3.4.2 - Foreste decisionali: 3.4.2 - Decision forests
+  #         3.4.3 - Gradient boos
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/anhelus
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:angelo.cardellicchio@stiima.cnr.it
+  analytics:
+    provider: google
+    property: G-ZCZWPCYZJ9
+
+extra_javascript:
+  - js/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; Angelo Cardellicchio - MIT License

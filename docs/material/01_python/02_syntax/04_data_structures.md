@@ -50,51 +50,6 @@ la funzione `f()` sarebbe invocata su tutti gli elementi che soddisfano la `cond
 [2, 2, 6]
 ```
 
-## Tuple
-
-Le *tuple* permettono di rappresentano un insieme di valori eterogenei separadoli da una virgola. Ad esempio:
-
-```py
-tupla = ('hello', 'world', 12)
-```
-
-Un po' come avviene per le liste, uno dei valori della tupla può a sua volta essere un'altra tupla. Ad esempio:
-
-```py
-tupla = ('hello', 'world', (1, 2))
-```
-
-A differenza di una lista, però, le *tuple sono immutabili*. Ciò non implica però che non possano contenere al loro interno oggetti mutabili. Guardiamo il seguente esempio:
-
-```py
-tupla = ('hello', 'world', [1, 2, 3])
-```
-
-La tupla avrà al suo interno due stringhe (immutabili) ed una lista (mutabile). Proviamo a modificare la lista:
-
-```py
-tupla[2] = [2, 2, 3]
-```
-
-Apparirà un errore simile a questo:
-
-```sh
-Traceback (most recent call last):
-File "<stdin>", line 1, in <module>
-TypeError: 'tuple' object does not support item assignment
-```
-
-Come prevedibile, abbiamo avuto un errore di assegnazione legato all'immutabilità della tupla. Proviamo adesso però a modificare *direttamente la lista*:
-
-```py
-tupla[2][0] = 2 		# La tupla sarà ('hello', 'world', [2, 2, 3])
-```
-
-L'operazione è evidentemente ammissibile, ed il risultato è stato proprio quello atteso.
-
-!!!tip "Tuple e liste"
-	Ad un attento osservatore non sfuggirà come tuple e liste siano simili dal punto di vista sintattico, e differiscano in buona sostanza per la mutabilità. Da qui discende che le tuple sono estremamente efficaci nel caso si debba esclusivamente accedere agli elementi contenuti, mentre le liste devono essere usate quando è anche necessario modificare all'occorrenza detti elementi.
-
 ## Set
 
 Anche i *set* sono molto simili alle liste dal punto di vista sintattico, ma offrono una significativa differenza: infatti, in un set *non possono esserci elementi ripetuti*.
