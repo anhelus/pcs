@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -631,6 +631,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Commenti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commenti-multilinea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commenti multilinea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4263,6 +4280,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Commenti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commenti-multilinea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commenti multilinea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4357,17 +4391,18 @@
 <h1 id="121-sintassi-fondamentale">1.2.1 - Sintassi fondamentale<a class="headerlink" href="#121-sintassi-fondamentale" title="Permanent link">&para;</a></h1>
 <p>Vediamo alcuni dei concetti fondamentali che caratterizzano la sintassi del linguaggio Python.</p>
 <h2 id="commenti">Commenti<a class="headerlink" href="#commenti" title="Permanent link">&para;</a></h2>
-<p>Python prevede due tipi di commento. Il primo, e più semplice, è quello a singola riga, anteceduto da un carattere <code>#</code> (<em>asterisco</em>):</p>
+<p>Python prevede due tipi di commento. Il primo, e più semplice, è quello a singola riga, anteceduto da un carattere <code>#</code> (<em>cancelletto</em>):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="c1"># Questo è un commento!</span>
 </code></pre></div>
-<p>L'altro tipo di commento è un commento multilinea, ed è definito esattamente allo stesso modo in cui si definisce una <a href="../../01_intro/03_strings/">stringa multilinea</a>:</p>
+<h3 id="commenti-multilinea">Commenti multilinea<a class="headerlink" href="#commenti-multilinea" title="Permanent link">&para;</a></h3>
+<p>Python non ha un vero e proprio simbolo dedicato ai commenti multilinea (come il <code>/* ... */</code> di C o Java). Tuttavia, per convenzione, sono utilizzate le <a href="../../01_intro/03_strings/">stringhe multilinea</a>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="sd">&quot;&quot;&quot; Questo è un esempio</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="sd">di commento multilinea!</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="sd">&quot;&quot;&quot;</span>
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Singole e doppie apici</p>
-<p>Così come per le stringhe, è possibile usare indifferentemente (ma coerentemente!) singole o doppie apici.</p>
+<div class="admonition tip">
+<p class="admonition-title">Le Docstrings</p>
+<p>Se una stringa multilinea è posizionata all'inizio di un file, di una funzione o di una classe, assume il ruolo di <em>Docstring</em> (<em>Documentation String</em>), e può essere utilizzata da opportuni tool per creare la documentazione del nostro script o modulo.</p>
 </div>
 <h2 id="uso-delle-parentesi">Uso delle parentesi<a class="headerlink" href="#uso-delle-parentesi" title="Permanent link">&para;</a></h2>
 <p>L'utilizzo delle parentesi in Python differisce da quello che ne si fa in molti linguaggi C-like. In particolare, vediamo come sono utilizzate (ed a cosa servono) le parentesi tonde, quadre e graffe.</p>
@@ -4389,34 +4424,54 @@
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="mi">20</span>
 </code></pre></div>
 <p>Nelle prossime lezioni vedremo come utilizzare le parentesi tonde <a href="../02_structured/">nelle tuple</a> e nelle <a href="../03_functions/">chiamate a funzione</a>.</p>
+<p>Un'altra funzione delle parentesi tonde è quella di permettere la <em>line continuation implicita</em>. In altre parole, possiamo utilizzarle per spezzare lunghe righe di codice senza utilizzare caratteri speciali.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">r</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">a</span> <span class="o">+</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">b</span> <span class="o">-</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">c</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">)</span>
+</code></pre></div>
 <h3 id="parentesi-quadre">Parentesi quadre<a class="headerlink" href="#parentesi-quadre" title="Permanent link">&para;</a></h3>
 <p>Le parentesi quadre sono usate per la creazione e l'accesso agli elementi di una struttura dati.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Creo una lista</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Accedo al secondo elemento della lista</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">lista</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>            <span class="c1"># Il valore acceduto è 2</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Creo una lista</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Accedo al secondo elemento della lista</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">lista</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>            <span class="c1"># Il valore acceduto è 2</span>
 </code></pre></div>
 <p>Ne parleremo più diffusamente nella <a href="../02_structured/">prossima lezione</a>.</p>
 <h3 id="parentesi-graffe">Parentesi graffe<a class="headerlink" href="#parentesi-graffe" title="Permanent link">&para;</a></h3>
 <p>Le parentesi graffe sono usate per creare set e dizionari.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">dizionario</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">insieme</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">dizionario</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">insieme</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
 </code></pre></div>
 <p>Anche in questo caso, ne parleremo più diffusamente nella <a href="../02_structured/">prossima lezione</a>.</p>
 <h2 id="termine-di-unistruzione">Termine di un'istruzione<a class="headerlink" href="#termine-di-unistruzione" title="Permanent link">&para;</a></h2>
 <p>A differenza dei linguaggi C-like, che prevedono che la singola istruzione termini con un <code>;</code> (un punto e virgola), Python fa in modo che il carattere di terminazione di un'istruzione sia dato dal newline <code>\n</code>. In altri termini, l'interprete associerà il termine dell'istruzione all'andata a capo.</p>
+<p>In caso di istruzione molto lunga, è possibile spezzarla su più righe utilizzando il carattere di backslash <code>\</code>, che permette la <em>line continuation esplicita</em>. Quindi:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">r</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> \
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">b</span> <span class="o">-</span> \
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">c</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Line continuation</p>
+<p>Quando possibile, è consigliato usare la forma implicita.</p>
+</div>
 <h2 id="blocchi-di-codice">Blocchi di codice<a class="headerlink" href="#blocchi-di-codice" title="Permanent link">&para;</a></h2>
 <p>Per delimitare un blocco di codice Python ricorre al carattere <code>:</code> (<em>due punti</em>) ed all'<em>indentazione</em>. In particolare, tutto il codice che segue un carattere <code>:</code> ed è ad uno stesso livello di indentazione risulta far parte di uno stesso blocco. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>               <span class="c1"># Codice non in un blocco</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>          <span class="c1"># Inizia il blocco if esterno</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">&gt;&gt;&gt;</span>     <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="o">&gt;&gt;&gt;</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;blocco esterno&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="o">&gt;&gt;&gt;</span>     <span class="k">if</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>       <span class="c1"># Inizia il blocco if annidato</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="o">&gt;&gt;&gt;</span>         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;blocco interno&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>               <span class="c1"># Codice non in un blocco</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>          <span class="c1"># Inizia il blocco if esterno</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="o">&gt;&gt;&gt;</span>     <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="o">&gt;&gt;&gt;</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;blocco esterno&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="o">&gt;&gt;&gt;</span>     <span class="k">if</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>       <span class="c1"># Inizia il blocco if annidato</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="o">&gt;&gt;&gt;</span>         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;blocco interno&#39;</span><span class="p">)</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Indentazioni e parentesi graffe</p>
 <p>I più attenti avranno notato che le indentazioni svolgono, in buona sostanza, un ruolo analogo a quello delle parentesi graffe nei linguaggi C-like.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Tab e spazi</p>
+<p>L'indentazione in Python <em>non è opzionale</em>. Se sbagliamo l'allineamento, il programma andrà in errore, producendo un <code>IndentationError</code>. Inoltre, il PEP dedicato allo stile (PEP 8) impone l'uso di quattro (4) spazi per livello di indentazione. Qualora si utilizzi il tasto TAB allo scopo, è opportuno configurare in maniera appropriata la propria IDE!</p>
 </div>
 
 
@@ -4497,10 +4552,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../../../js/config.js"></script>
       
