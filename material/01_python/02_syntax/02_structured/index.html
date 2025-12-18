@@ -660,6 +660,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Istruzione condizionale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#il-costrutto-matchcase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il costrutto match/case
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -696,6 +713,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#istruzioni-break-e-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Istruzioni break e continue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#il-blocco-else-nei-cicli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il blocco else nei cicli
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -706,17 +745,6 @@
     <span class="md-ellipsis">
       
         La funzione range()
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#istruzioni-break-e-continue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Istruzioni break e continue
       
     </span>
   </a>
@@ -4252,6 +4280,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Istruzione condizionale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#il-costrutto-matchcase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il costrutto match/case
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4288,6 +4333,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#istruzioni-break-e-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Istruzioni break e continue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#il-blocco-else-nei-cicli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il blocco else nei cicli
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4298,17 +4365,6 @@
     <span class="md-ellipsis">
       
         La funzione range()
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#istruzioni-break-e-continue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Istruzioni break e continue
       
     </span>
   </a>
@@ -4356,116 +4412,158 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="o">&gt;&gt;&gt;</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a è maggiore di 5&#39;</span><span class="p">)</span>
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Switch/case in Python</p>
-<p>Fino alla versione 3.10, Python non offriva un'implementazione per il costrutto <code>switch/case</code>. A partire da quest'ultima, però, è stato implementato il cosiddetto <em>pattern matching</em> mediante la sintassi <code>match/case</code>:</p>
-<blockquote>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">match</span> <span class="n">command</span><span class="p">:</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">case</span> <span class="s2">&quot;caso 1&quot;</span><span class="p">:</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="n">istruzioni</span><span class="p">()</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">case</span> <span class="s2">&quot;altro caso&quot;</span><span class="p">:</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Comando sconosciuto&quot;</span><span class="p">)</span>
-</code></pre></div><br />
-Approfondiremo questo costrutto nell'<a href="">apposita lezione</a>.</p>
-</blockquote>
-</div>
+<h3 id="il-costrutto-matchcase">Il costrutto <code>match/case</code><a class="headerlink" href="#il-costrutto-matchcase" title="Permanent link">&para;</a></h3>
+<p>Introdotta in Python 3.10, l'istruzione <code>match</code> è l'evoluzione del classico <code>switch</code> presente in altri linguaggi di programmazione. Il costrutto, che definisce il cosiddetto <em>structural pattern matching</em>, non si limita a confrontare diversi valori, ma permette anche di analizzare la <em>struttura</em> dei dati. Ad esempio, se volessimo visualizzare un messaggio relativo ad un errore HTTP:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">status</span> <span class="o">=</span> <span class="mi">404</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">match</span> <span class="n">status</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">case</span> <span class="mi">200</span><span class="p">:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="k">case</span> <span class="mi">400</span> <span class="o">|</span> <span class="mi">404</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Errore Client&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">case</span> <span class="mi">500</span><span class="p">:</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Errore Server&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span> <span class="c1"># Wildcard (equivalente al default)</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status sconosciuto&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Il costrutto può anche essere usato per gestire formati dati eterogenei, come delle tuple:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">punto</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">match</span> <span class="n">punto</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Origine&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Asse Y, valore </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="k">case</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Asse X, valore </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="k">case</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Punto alle coordinate </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="cicli">Cicli<a class="headerlink" href="#cicli" title="Permanent link">&para;</a></h2>
 <h3 id="ciclo-for">Ciclo <code>for</code><a class="headerlink" href="#ciclo-for" title="Permanent link">&para;</a></h3>
 <p>Il ciclo <code>for</code> itera su una <em>sequenza</em>, come una lista o una stringa, ed ha una sintassi del tipo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">sequenza</span><span class="p">:</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">istruzioni</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">sequenza</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">istruzioni</span><span class="p">()</span>
 </code></pre></div>
 <p>Per fare un esempio, nel seguente blocco di codice vediamo come mostrare a schermo in maniera iterativa i numeri che vanno da 0 a 5 (escluso):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">:</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 <p>Il risultato che sarà stampato a schermo è:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="m">0</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="m">1</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="m">2</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="m">3</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="m">4</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="m">0</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="m">1</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="m">2</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="m">3</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="m">4</span>
 </code></pre></div>
 <p>Rispetto ai linguaggi "classici", quindi, il ciclo <code>for</code> opera esclusivamente sugli <em>iterabili</em>, per cui potrebbe in qualche caso occorrere una riprogettazione del codice. Tuttavia, questa caratteristica di Python comporta anche una maggiore semplicità del codice; ad esempio, vediamo come è molto semplice iterare su una stringa:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
 </code></pre></div>
 <p>A schermo vedremo in entrambi i casi il seguente risultato:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>P
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>y
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>t
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>h
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>o
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>n
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>P
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>y
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>t
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>h
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>o
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>n
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">No free lunches!</p>
 <p>Come ci ricorda il <em>no free lunches theorem</em>, <strong>non esistono pasti gratuiti</strong>! Infatti, la maggiore semplicità sintattica offerta da Python non è indolore, ma ha un costo. Uno script Python, infatti, per quanto ottimizzato, non potrà quasi mai offrire performance paragonabili ad un codice ottimizzato in C o C++, a meno di non usare particolari (ed avanzati) accorgimenti.</p>
 </div>
+<h5 id="iterare-in-maniera-pythonic">Iterare in maniera <em>pythonic</em><a class="headerlink" href="#iterare-in-maniera-pythonic" title="Permanent link">&para;</a></h5>
+<p>Spesso abbiamo la necessità di iterare su una lista considerando anche l'indice dell'elemento corrente. Nei linguaggi C-like, di solito, viene utilizzato un indice numerico manuale; tuttavia, Python offre una modalità molto più <em>pythonic</em> mediante la funzione <code>enumerate()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">nomi</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span> <span class="s2">&quot;Luigi&quot;</span><span class="p">,</span> <span class="s2">&quot;Wario&quot;</span><span class="p">]</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">nome</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nomi</span><span class="p">):</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Indice </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">nome</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Se invece dovessimo iterare su due liste contemporaneamente potremo usare la funzione <code>zip()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">nomi</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span> <span class="s2">&quot;Luigi&quot;</span><span class="p">,</span> <span class="s2">&quot;Wario&quot;</span><span class="p">]</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">eta</span> <span class="o">=</span> <span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">32</span><span class="p">]</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">nomi</span><span class="p">,</span> <span class="n">eta</span><span class="p">):</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> ha </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2"> anni&quot;</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="ciclo-while">Ciclo <code>while</code><a class="headerlink" href="#ciclo-while" title="Permanent link">&para;</a></h3>
 <p>A differenza del ciclo <code>for</code>, il funzionamento del <code>while</code> è analogo a quello delle controparti negli altri linguaggi di programmazione. La sintassi generica è:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">while</span><span class="p">(</span><span class="n">condizione</span><span class="p">):</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">istruzioni</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">while</span><span class="p">(</span><span class="n">condizione</span><span class="p">):</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="n">istruzioni</span><span class="p">()</span>
 </code></pre></div>
 <p>Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">i</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">while</span> <span class="p">(</span><span class="n">i</span><span class="p">):</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Continuo!&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Esco!&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        <span class="n">i</span> <span class="o">=</span> <span class="kc">False</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">i</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">while</span> <span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Continuo!&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Esco!&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>        <span class="n">i</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div>
 <p>Il codice nel blocco precedente non fa altro che generare un valore numerico intero casuale nell'intervallo <span class="arithmatex">\([-5, 5]\)</span> mediante la funzione <code>randint</code>. Se tale valore è superiore a <span class="arithmatex">\(0\)</span>, il ciclo continua, altrimenti si esce dallo stesso.</p>
 <p>A schermo vedremo, ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Continuo!
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Continuo!
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Esco!
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Continuo!
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Continuo!
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Esco!
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">I valori booleani in Python</p>
 <p>I più attenti avranno notato come i valori booleani in Python siano stati scritti come <code>True</code> e <code>False</code>. Questo non è un refuso: la prima lettera è proprio una maiuscola.</p>
 </div>
+<h3 id="istruzioni-break-e-continue">Istruzioni <code>break</code> e <code>continue</code><a class="headerlink" href="#istruzioni-break-e-continue" title="Permanent link">&para;</a></h3>
+<p>Le istruzioni <code>break</code> e <code>continue</code> permettono rispettivamente di <em>uscire dal ciclo</em> o di <em>saltare all'iterazione successiva</em>. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">while</span> <span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="k">if</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Continuo!&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>        <span class="k">continue</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Esco!&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>        <span class="k">break</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sono uscito!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Le istruzioni precedenti <em>usciranno</em> dal ciclo quando viene generato casualmente un numero negativo, mentre continueranno ad iterare quando viene generato casualmente un numero positivo.</p>
+<h3 id="il-blocco-else-nei-cicli">Il blocco <code>else</code> nei cicli<a class="headerlink" href="#il-blocco-else-nei-cicli" title="Permanent link">&para;</a></h3>
+<p>Python permette di associare un blocco <code>else</code> ai cicli <code>for</code> e <code>while</code>. In particolare, il codice indentato in questo blocco verrà eseguito solo al termine naturale del ciclo (e, quindi, se non viene trovato un <code>break</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">numeri</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">target</span> <span class="o">=</span> <span class="mi">4</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numeri</span><span class="p">:</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trovato!&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="k">break</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Numero non trovato nella lista.&quot;</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="la-funzione-range">La funzione <code>range()</code><a class="headerlink" href="#la-funzione-range" title="Permanent link">&para;</a></h2>
 <p>Riprendiamo adesso il ciclo <code>for</code> visto in precedenza.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">:</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">:</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 <p>Nonostante il codice sia già compatto, scrivere manualmente la sequenza da iterare può facilmente diventare un'operazione abbastanza complessa. Python ci viene quindi in aiuto tramite la funzione <code>range(i, j, s)</code>, che genera una sequenza avente tutti i numeri compresi tra <code>i</code> (incluso) e <code>j</code> (escluso) a passo <code>s</code>. Ad esempio, per generare i numeri compresi tra 0 e 4 scriveremo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="go">[0, 1, 2, 3, 4]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Notiamo che per mandare in output i valori di <code>r</code> dovremo convertirlo in lista (<code>list(r)</code>).</p>
 </div>
 <p>Qualora omessi, <code>i</code> ed <code>s</code> assumono valori di default rispettivamente 0 ed 1:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </code></pre></div>
 <p>E' anche possibile specificare una sequenza <em>decrementale</em> ponendo <code>i &gt; j</code> ed <code>s &lt; 0</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </code></pre></div>
-<h2 id="istruzioni-break-e-continue">Istruzioni <code>break</code> e <code>continue</code><a class="headerlink" href="#istruzioni-break-e-continue" title="Permanent link">&para;</a></h2>
-<p>Le istruzioni <code>break</code> e <code>continue</code> permettono rispettivamente di <em>uscire dal ciclo</em> o di <em>saltare all'iterazione successiva</em>. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">while</span> <span class="p">(</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="k">if</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Continuo!&quot;</span><span class="p">)</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>        <span class="k">continue</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Esco!&quot;</span><span class="p">)</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="k">break</span>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sono uscito!&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p>Le istruzioni precedenti <em>usciranno</em> dal ciclo quando viene generato casualmente un numero negativo, mentre continueranno ad iterare quando viene generato casualmente un numero positivo.</p>
 
 
 
