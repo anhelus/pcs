@@ -699,6 +699,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Passaggio di parametri a funzione">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passaggio-di-parametri-opzionali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passaggio di parametri opzionali
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-funzioni-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le funzioni lambda
+      
+    </span>
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4224,6 +4252,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Passaggio di parametri a funzione">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passaggio-di-parametri-opzionali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passaggio di parametri opzionali
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-funzioni-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le funzioni lambda
+      
+    </span>
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4263,15 +4319,16 @@
 </code></pre></div>
 <p>E' importante notare che:</p>
 <ul>
-<li>non è necessario definire un tipo, ma soltanto un <em>valore</em> di ritorno. Qualora la funzione non restituisca alcun valore, potrà essere omessa l'istruzione <code>return</code>;</li>
-<li>non è (strettamente) necessario definire il tipo di ciascuno dei parametri passati;</li>
+<li>anche se non è necessario definire un tipo di ritorno, è <em>fortemente consigliato farlo</em>. Qualora la funzione non restituisca alcun valore, potrà essere omessa l'istruzione <code>return</code>;</li>
+<li>è <em>fortemente consigliato</em> definire il tipo di ciascuno dei parametri passati;</li>
 <li>è consentito inserire dei parametri <em>opzionali</em>, con valori di default.</li>
 </ul>
 <p>Ad esempio, la seguente funzione somma <code>1</code> al valore in ingresso e restituisce il nuovo valore:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">aggiungi_uno</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">aggiungi_uno</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">val</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">return</span> <span class="n">val</span>
 </code></pre></div>
+<p>Come possiamo vedere, abbiamo specificato il tipo del parametro in ingresso usando la sintassi <code>i: int</code>, ed il tipo dell'argomento di ritorno usando la notazione infissa (<code>-&gt; int</code>).</p>
 <div class="admonition warning">
 <p class="admonition-title">Tipo dei parametri di ingresso</p>
 <p>Il duck typing fa sì che non venga effettuato alcun controllo sui parametri in ingresso. Ciò però non significa che non si possa provare a chiamare (ad esempio) la funzione <code>aggiungi_uno()</code> passando come parametro una stringa; ciò tuttavia causerà un (prevedibile) errore.</p>
@@ -4279,7 +4336,7 @@
 <h2 id="passaggio-di-parametri-a-funzione">Passaggio di parametri a funzione<a class="headerlink" href="#passaggio-di-parametri-a-funzione" title="Permanent link">&para;</a></h2>
 <p>Python prevede che i parametri siano passati ad una funzione secondo una modalità ibrida chiamata <em>call-by-assignment</em>. In pratica, il passaggio avviene <em>esclusivamente per valore</em>, ma con effetti differenti su tipi mutabili ed immutabili.</p>
 <p>Ad esempio, provando a passare un valore primitivo (come un intero), Python si comporterà come se si stesse effettuando un passaggio per valore:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">raddoppia</span><span class="p">(</span><span class="n">intero</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">raddoppia</span><span class="p">(</span><span class="n">intero</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">intero</span> <span class="o">=</span> <span class="n">intero</span> <span class="o">*</span> <span class="mi">2</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valore all</span><span class="se">\&#39;</span><span class="s1">interno della funzione: </span><span class="si">{</span><span class="n">intero</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
@@ -4291,7 +4348,7 @@
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s2">&quot;Valore all&#39;interno della funzione: 1&quot;</span>
 </code></pre></div>
 <p>Ciò è legato al fatto che il passaggio viene effettuato per valore, per cui la funzione <code>raddoppia()</code> agirà su una <em>copia</em> della variabile passata come argomento, e non sulla variabile originaria. Se invece usassimo una funzione che modifica una lista:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">aggiungi_a_lista</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">elemento</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">aggiungi_a_lista</span><span class="p">(</span><span class="n">lista</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">elemento</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valore all</span><span class="se">\&#39;</span><span class="s1">interno della funzione: </span><span class="si">{</span><span class="n">lista</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
@@ -4302,21 +4359,52 @@
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valore all</span><span class="se">\&#39;</span><span class="s1">esterno della funzione: </span><span class="si">{</span><span class="n">lista</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s2">&quot;Valore all&#39;interno della funzione: [1, 2, 3]&quot;</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Il tipo <code>Any</code></p>
+<p>Il tipo <code>Any</code> non è built-in: per usarlo, dovremo ricordarci di aggiungere all'inizio del codice <code>from typing import Any</code>. Una versione più semplice potrebbe vedere l'utilizzo di <code>object</code> come tipo suggerito.</p>
+</div>
 <p>In questo caso, essendo la lista mutabile, il passaggio viene effettuato nei fatti per <em>reference</em>: ciò significa che le operazioni compiute all'interno della funzione <code>aggiungi_a_lista()</code> agiranno sulla lista originaria.</p>
 <div class="admonition note">
 <p class="admonition-title">Shallow e deep copy</p>
 <p>Di default, Python copia le variabili per mezzo di una <em>shallow copy</em>: ciò significa che un'operazione di assignment del tipo <code>a = b</code> fa in modo che <code>a</code> punti allo stesso indirizzo di memoria di <code>b</code> e, di conseguenza, ogni modifica a <code>b</code> si rifletta su <code>a</code>. Per evitare un fenomeno di questo tipo occorre usare una <em>deep copy</em> grazie alla funzione <code>deepcopy()</code> della libreria <code>copy</code>.</p>
 </div>
+<h3 id="passaggio-di-parametri-opzionali">Passaggio di parametri opzionali<a class="headerlink" href="#passaggio-di-parametri-opzionali" title="Permanent link">&para;</a></h3>
+<p>Nel caso si volessero passare dei parametri opzionali, dovremo specificare i valori di default all'interno della firma della funzione. Modifichiamo, ad esempio, la funzione <code>aggiungi_a_lista</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">aggiungi_a_lista</span><span class="p">(</span><span class="n">lista</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">elemento</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valore all</span><span class="se">\&#39;</span><span class="s1">interno della funzione: </span><span class="si">{</span><span class="n">lista</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>In questo caso, staremo dando ad <code>elemento</code> il valore di default <code>1</code>. E' importante sottolineare come i parametri opzionali debbano <em>sempre</em> seguire quelli non opzionali nella firma della funzione.</p>
+<div class="admonition warning">
+<p class="admonition-title">I valori di default mutabili</p>
+<p>Una situazione potenzialmente problematica è quella in cui usiamo dei valori di default mutabili. Potremmo, ad esempio, pensare di utilizzare una lista vuota come valore di default per una funzione. In questo caso, Python fa sì che il valore di default venga creato una sola volta, quando la funzione viene definita, e non ogni volta che viene chiamata, in quanto questo causerebbe la condivisione della stessa lista tra chiamate diverse. Di conseguenza, in questi casi è corretto utilizzare il valore <code>None</code>.</p>
+</div>
+<h2 id="le-funzioni-lambda">Le funzioni lambda<a class="headerlink" href="#le-funzioni-lambda" title="Permanent link">&para;</a></h2>
+<p>Python ci offre la possibilità di utilizzare delle funzioni anonime, chiamate <em>funzioni lambda</em>. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">quadrato</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">quadrato_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">quadrato_lambda</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="c1"># 25</span>
+</code></pre></div>
+<p>La sintassi generica dell'espressione lambda è quindi <code>lambda argomenti: espressione</code>. Un uso comune di questo tipo di funzioni è all'interno di altre funzioni, come <code>sort</code>, <code>map</code>, o <code>filter</code>, per lavorare in maniera rapida su una lista. Ad esempio, la seguente funzione permette di ordinare una lista di tuple in base al secondo elemento delle stesse.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">punti</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)]</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">punti</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">punti</span><span class="p">)</span> <span class="c1"># [(3, 2), (1, 5), (2, 8)]</span>
+</code></pre></div>
 <h2 id="listruzione-pass">L'istruzione <code>pass</code><a class="headerlink" href="#listruzione-pass" title="Permanent link">&para;</a></h2>
 <p>Chiudiamo accennando all'istruzione <code>pass</code>. Questa non fa assolutamente nulla; è utile, ad esempio, quando vogliamo inserire una funzione (o una classe) vuota, che definiremo per qualche motivo in seguito:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span><span class="w"> </span><span class="nf">funzione_vuota</span><span class="p">():</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="o">...</span>     <span class="k">pass</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="o">...</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">funzione_vuota</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span><span class="w"> </span><span class="nf">funzione_vuota</span><span class="p">():</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="o">...</span>     <span class="k">pass</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="o">...</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">funzione_vuota</span><span class="p">()</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Anche se di primo acchitto potrebbe non essere evidente, esistono diverse situazioni in cui l'istruzione <code>pass</code> risulta essere estremamente utile.</p>
+<p>Anche se di primo acchito potrebbe non essere evidente, esistono diverse situazioni in cui l'istruzione <code>pass</code> risulta essere estremamente utile.</p>
 </div>
 
 
