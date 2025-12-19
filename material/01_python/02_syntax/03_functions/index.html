@@ -740,6 +740,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#documentare-una-funzione" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentare una funzione
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4293,6 +4304,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#documentare-una-funzione" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentare una funzione
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4406,6 +4428,27 @@
 <p class="admonition-title">Nota</p>
 <p>Anche se di primo acchito potrebbe non essere evidente, esistono diverse situazioni in cui l'istruzione <code>pass</code> risulta essere estremamente utile.</p>
 </div>
+<h2 id="documentare-una-funzione">Documentare una funzione<a class="headerlink" href="#documentare-una-funzione" title="Permanent link">&para;</a></h2>
+<p>Ricordiamo, infine, che dobbiamo <em>documentare le funzioni!</em> Per farlo, usiamo le docstring che abbiamo <a href="../01_syntax/">introdotto in precedenza</a>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcola_area</span><span class="p">(</span><span class="n">base</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">altezza</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="sd">    Calcola l&#39;area di un triangolo.</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="sd">    Args:</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="sd">        base (float): La base del triangolo.</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="sd">        altezza (float): L&#39;altezza del triangolo.</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="sd">        float: L&#39;area calcolata.</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">base</span> <span class="o">*</span> <span class="n">altezza</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</code></pre></div>
+<p>Notiamo che, nella docstring, definiamo:</p>
+<ul>
+<li>una prima sezione, all'interno della quale spieghiamo cosa fa la funzione;</li>
+<li>una sezione <code>Args</code> nella quale elenchiamo gli argomenti della funzione;</li>
+<li>una sezione <code>Returns</code> che dettaglia cosa viene restituito dalla funzione.</li>
+</ul>
 
 
 
