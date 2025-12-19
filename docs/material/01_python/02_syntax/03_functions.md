@@ -128,3 +128,28 @@ Chiudiamo accennando all'istruzione `pass`. Questa non fa assolutamente nulla; Ã
 
 !!!note "Nota"
 	Anche se di primo acchito potrebbe non essere evidente, esistono diverse situazioni in cui l'istruzione `pass` risulta essere estremamente utile.
+
+## Documentare una funzione
+
+Ricordiamo, infine, che dobbiamo *documentare le funzioni!* Per farlo, usiamo le docstring che abbiamo [introdotto in precedenza](01_syntax.md):
+
+```py
+def calcola_area(base: float, altezza: float) -> float:
+    """
+    Calcola l'area di un triangolo.
+    
+    Args:
+        base (float): La base del triangolo.
+        altezza (float): L'altezza del triangolo.
+        
+    Returns:
+        float: L'area calcolata.
+    """
+    return (base * altezza) / 2
+```
+
+Notiamo che, nella docstring, definiamo:
+
+* una prima sezione, all'interno della quale spieghiamo cosa fa la funzione;
+* una sezione `Args` nella quale elenchiamo gli argomenti della funzione;
+* una sezione `Returns` che dettaglia cosa viene restituito dalla funzione.
