@@ -46,7 +46,7 @@ lista_output_if_else = [f(elemento) if condizione else g(elemento) for elemento 
 la funzione `f()` sarebbe invocata su tutti gli elementi che soddisfano la `condizione`, mentre la funzione `g()` su tutti quelli che non la soddisfano. Potremmo ad esempio restituire tutti gli elementi pari, raddoppiando contestualmente i dispari:
 
 ```py
->>> lista_output_complessa = [x if x % 2 == 0 else x * 2 for elemento in lista_input]
+>>> lista_output_complessa = [x if x % 2 == 0 else x * 2 for x in lista_input]
 [2, 2, 6]
 ```
 
@@ -73,6 +73,26 @@ Un'altra considerazione da fare è che il set *non è ordinato*: ciò rende impo
 	  l = [1, 2, 2, 3]		# La lista sarà [1, 2, 2, 3]
   	  s = set(l)			# Il set sarà [1, 2, 3]
 	  ```
+
+### Operazioni Insiemistiche
+
+I set supportano le operazioni matematiche classiche:
+
+| Operazione | Operatore | Descrizione |
+| :--- | :---: | :--- |
+| **Unione** | `A \| B` | Elementi presenti in A *oppure* in B |
+| **Intersezione** | `A & B` | Elementi presenti in A *e anche* in B |
+| **Differenza** | `A - B` | Elementi in A che *non* sono in B |
+| **Diff. Simmetrica** | `A ^ B` | Elementi in A o in B, ma *non* in entrambi |
+
+```py
+A = {1, 2, 3}
+B = {3, 4, 5}
+
+print(A & B) # {3} (Intersezione)
+print(A | B) # {1, 2, 3, 4, 5} (Unione)
+print(A - B) # {1, 2} (Differenza)
+```
 
 ## Dizionari
 
@@ -134,6 +154,33 @@ dict_items([('k', 'v'), (1, 'n')])
 >>> list(coppie)
 [('k', 'v'), (1, 'n')]
 ```
+
+!!!tip "Iterare su un dizionario"
+	Piuttosto che convertire `items()` in una lista, è prassi comune iterare direttamente su di esso usando l'unpacking. Ad esempio:
+	> ```py
+	  for k, v in d.items():
+	  	print(f"Chiave: {k}, valore: {v}")
+	  ```
+
+!!!warning "`KeyError` ed il metodo `.get()`"
+	Se la chiave non esiste, Python solleva un errore `KeyError`. Per scrivere codice robusto, si usa il metodo `.get()`, che restituisce `None` (o un valore di default) se la chiave manca.
+	> ```py
+	  # Accesso sicuro
+	  ruolo = user.get('ruolo')          # Restituisce None (nessun errore)
+	  ruolo = user.get('ruolo', 'Guest') # Restituisce 'Guest'
+	  ```
+
+### Unione di dizionari
+A partire da Python 3.9, è possibile unire due dizionari utilizzando l'operatore `|`. Ad esempio:
+
+```py
+default = {'tema': 'light', 'debug': False}
+config = {'debug': True}
+finale = default | config
+# Risultato: {'tema': 'light', 'debug': True}
+```
+
+Notiamo quindi come i valori del dizionario a destra dell'operatore sovrascrivano quelli del dizionario a sinistra nel caso di conflitti.
 
 ### Creazione di un dizionario (non vuoto)
 
