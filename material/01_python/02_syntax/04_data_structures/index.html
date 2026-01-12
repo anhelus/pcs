@@ -744,6 +744,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operazioni-insiemistiche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operazioni Insiemistiche
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -763,6 +780,17 @@
     <span class="md-ellipsis">
       
         Chiavi e valori
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unione-di-dizionari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unione di dizionari
       
     </span>
   </a>
@@ -4286,6 +4314,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operazioni-insiemistiche" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operazioni Insiemistiche
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4305,6 +4350,17 @@
     <span class="md-ellipsis">
       
         Chiavi e valori
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unione-di-dizionari" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unione di dizionari
       
     </span>
   </a>
@@ -4369,7 +4425,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">lista_output_if_else</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="k">if</span> <span class="n">condizione</span> <span class="k">else</span> <span class="n">g</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista_input</span><span class="p">]</span>
 </code></pre></div>
 <p>la funzione <code>f()</code> sarebbe invocata su tutti gli elementi che soddisfano la <code>condizione</code>, mentre la funzione <code>g()</code> su tutti quelli che non la soddisfano. Potremmo ad esempio restituire tutti gli elementi pari, raddoppiando contestualmente i dispari:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">lista_output_complessa</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="n">lista_input</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">lista_output_complessa</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lista_input</span><span class="p">]</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </code></pre></div>
 <h2 id="set">Set<a class="headerlink" href="#set" title="Permanent link">&para;</a></h2>
@@ -4392,6 +4448,46 @@
 </code></pre></div>
 </blockquote>
 </div>
+<h3 id="operazioni-insiemistiche">Operazioni Insiemistiche<a class="headerlink" href="#operazioni-insiemistiche" title="Permanent link">&para;</a></h3>
+<p>I set supportano le operazioni matematiche classiche:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Operazione</th>
+<th style="text-align: center;">Operatore</th>
+<th style="text-align: left;">Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Unione</strong></td>
+<td style="text-align: center;"><code>A \| B</code></td>
+<td style="text-align: left;">Elementi presenti in A <em>oppure</em> in B</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Intersezione</strong></td>
+<td style="text-align: center;"><code>A &amp; B</code></td>
+<td style="text-align: left;">Elementi presenti in A <em>e anche</em> in B</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Differenza</strong></td>
+<td style="text-align: center;"><code>A - B</code></td>
+<td style="text-align: left;">Elementi in A che <em>non</em> sono in B</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Diff. Simmetrica</strong></td>
+<td style="text-align: center;"><code>A ^ B</code></td>
+<td style="text-align: left;">Elementi in A o in B, ma <em>non</em> in entrambi</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">A</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">B</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">&amp;</span> <span class="n">B</span><span class="p">)</span> <span class="c1"># {3} (Intersezione)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">|</span> <span class="n">B</span><span class="p">)</span> <span class="c1"># {1, 2, 3, 4, 5} (Unione)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="n">B</span><span class="p">)</span> <span class="c1"># {1, 2} (Differenza)</span>
+</code></pre></div>
 <h2 id="dizionari">Dizionari<a class="headerlink" href="#dizionari" title="Permanent link">&para;</a></h2>
 <p>Il quarto ed ultimo tipo di contenitore per sequenze di dati è il <em>dizionario</em>, presente anche in altri linguaggi di programmazione con il nome di <em>array associativo</em> o <em>hash map</em>.</p>
 <p>L'elemento base di un dizionario è la <em>coppia chiave - valore</em>, nella quale un certo valore (di qualsiasi tipo) è associato ad una determinata chiave (di tipo immutabile).</p>
@@ -4401,60 +4497,87 @@
 <p>Una differenza tra set e dizionari sta nel fatto che questi ultimi sono <em>ordinati</em> a partire da Python 3.7.</p>
 </div>
 <p>Per creare un dizionario, possiamo usare una sintassi simile a quella usata per i set. Ad esempio, per creare un dizionario vuoto:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span> <span class="o">=</span> <span class="p">{}</span>
 </code></pre></div>
 <p>Possiamo quindi inserire delle coppie chiave - valore in questo modo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;v&#39;</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">{</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;n&#39;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;v&#39;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">{</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;n&#39;</span><span class="p">}</span>
 </code></pre></div>
 <p>Per accedere al valore associato ad una determinata chiave:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="s1">&#39;n&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="s1">&#39;n&#39;</span>
 </code></pre></div>
 <h3 id="chiavi-e-valori">Chiavi e valori<a class="headerlink" href="#chiavi-e-valori" title="Permanent link">&para;</a></h3>
 <p>E' possibile recuperare la lista di tutte le chiavi presenti in un dizionario usando il metodo <code>keys()</code>, che restituisce un oggetto di tipo <code>dict_keys</code>, a sua volta convertibile in lista:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">chiavi</span> <span class="o">=</span> <span class="n">dizionario</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">chiavi</span><span class="p">)</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">chiavi</span> <span class="o">=</span> <span class="n">dizionario</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">chiavi</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 <p>In modo analogo, si può accedere a tutti i valori presenti nel dizionario mediante il metodo <code>values()</code>, che restituirà un oggetto di tipo <code>dict_values</code>, da convertire anch'esso in lista:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">valori</span> <span class="o">=</span> <span class="n">dizionario</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">dict_values</span><span class="p">([</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">])</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">valori</span><span class="p">)</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">valori</span> <span class="o">=</span> <span class="n">dizionario</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">dict_values</span><span class="p">([</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">])</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">valori</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span>
 </code></pre></div>
 <p>Possiamo accedere anche a tutte le coppie chiave - valore mediante il metodo <code>items()</code>, che ci restituisce un oggetto di tipo <code>dict_items</code>, il quale può essere convertito in una lista di tuple:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">coppie</span> <span class="o">=</span> <span class="n">dizionario</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">dict_items</span><span class="p">([(</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">)])</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">coppie</span><span class="p">)</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">[(</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">coppie</span> <span class="o">=</span> <span class="n">dizionario</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">dict_items</span><span class="p">([(</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">)])</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">coppie</span><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">[(</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">)]</span>
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Iterare su un dizionario</p>
+<p>Piuttosto che convertire <code>items()</code> in una lista, è prassi comune iterare direttamente su di esso usando l'unpacking. Ad esempio:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chiave: </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">, valore: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</blockquote>
+</div>
+<div class="admonition warning">
+<p class="admonition-title"><code>KeyError</code> ed il metodo <code>.get()</code></p>
+<p>Se la chiave non esiste, Python solleva un errore <code>KeyError</code>. Per scrivere codice robusto, si usa il metodo <code>.get()</code>, che restituisce <code>None</code> (o un valore di default) se la chiave manca.</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Accesso sicuro</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">ruolo</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ruolo&#39;</span><span class="p">)</span>          <span class="c1"># Restituisce None (nessun errore)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">ruolo</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ruolo&#39;</span><span class="p">,</span> <span class="s1">&#39;Guest&#39;</span><span class="p">)</span> <span class="c1"># Restituisce &#39;Guest&#39;</span>
+</code></pre></div>
+</blockquote>
+</div>
+<h3 id="unione-di-dizionari">Unione di dizionari<a class="headerlink" href="#unione-di-dizionari" title="Permanent link">&para;</a></h3>
+<p>A partire da Python 3.9, è possibile unire due dizionari utilizzando l'operatore <code>|</code>. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">default</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tema&#39;</span><span class="p">:</span> <span class="s1">&#39;light&#39;</span><span class="p">,</span> <span class="s1">&#39;debug&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;debug&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">finale</span> <span class="o">=</span> <span class="n">default</span> <span class="o">|</span> <span class="n">config</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Risultato: {&#39;tema&#39;: &#39;light&#39;, &#39;debug&#39;: True}</span>
+</code></pre></div>
+<p>Notiamo quindi come i valori del dizionario a destra dell'operatore sovrascrivano quelli del dizionario a sinistra nel caso di conflitti.</p>
 <h3 id="creazione-di-un-dizionario-non-vuoto">Creazione di un dizionario (non vuoto)<a class="headerlink" href="#creazione-di-un-dizionario-non-vuoto" title="Permanent link">&para;</a></h3>
 <p>Abbiamo diversi modi per creare un dizionario non vuoto.</p>
 <h4 id="uso-delloperatore">Uso dell'operatore <code>{}</code><a class="headerlink" href="#uso-delloperatore" title="Permanent link">&para;</a></h4>
 <p>Il più semplice, che è quello che useremo più spesso, è quello di dichiarare nell'operatore <code>{}</code> le coppie chiave - valore iniziali:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 </code></pre></div>
 <h4 id="uso-del-costruttore-dict">Uso del costruttore <code>dict()</code><a class="headerlink" href="#uso-del-costruttore-dict" title="Permanent link">&para;</a></h4>
 <p>Un altro modo è usare il metodo costruttore <code>dict()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">k1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">k1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="uso-della-funzione-zip">Uso della funzione <code>zip</code><a class="headerlink" href="#uso-della-funzione-zip" title="Permanent link">&para;</a></h4>
 <p>Possiamo poi usare la funzione <code>zip</code> per creare un dizionario a partire da due liste:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">chiavi</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;k1&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">]</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">valori</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">chiavi</span><span class="p">,</span> <span class="n">valori</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">chiavi</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;k1&#39;</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">]</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">valori</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">dizionario</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">chiavi</span><span class="p">,</span> <span class="n">valori</span><span class="p">))</span>
 </code></pre></div>
 <h4 id="dict-comprehension">Dict comprehension<a class="headerlink" href="#dict-comprehension" title="Permanent link">&para;</a></h4>
 <p>Un modo per ottenere un dizionario a partire da un altro oggetto iterabile è la <em>dict comprehension</em>, che ha una forma del tipo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="n">chiave</span><span class="p">:</span> <span class="n">valore</span> <span class="k">for</span> <span class="n">valore</span> <span class="ow">in</span> <span class="n">iterabile</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="n">chiave</span><span class="p">:</span> <span class="n">valore</span> <span class="k">for</span> <span class="n">valore</span> <span class="ow">in</span> <span class="n">iterabile</span><span class="p">}</span>
 </code></pre></div>
 <p>Possiamo ad esempio creare un dizionario contenente come chiave i numeri da 1 a 9, e come valori corrispondenti i quadrati degli stessi:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">quadrati</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">):</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">quadrati</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">):</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)}</span>
 </code></pre></div>
 
 
