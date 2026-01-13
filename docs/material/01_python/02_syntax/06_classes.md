@@ -1,4 +1,4 @@
-# 1.2.5 - Classi ed OOP
+# 1.2.6 - Classi ed OOP
 
 Python offre un esteso supporto alla programmazione orientata agli oggetti. Prima di proseguire, però, è opportuno introdurre brevemente questo concetto.
 
@@ -68,7 +68,7 @@ class NomeClasse(ClasseBase):
 Occorre prestare particolare attenzione all'uso della keyword `self`, che permette di riferirsi alla specifica istanza di una classe (per chi ha familiarità con i linguaggi come il C++, è concettualmente simile alla parola chiave `this`). Ad esempio:
 
 ```py
-class Persona(object):
+class Persona:
 
 	def __init__(self, nome, cognome, eta=18):
 		self.nome = nome
@@ -76,21 +76,23 @@ class Persona(object):
 		self.__eta = eta
 ```
 
-Questo snippet ci permette di evidenziare quattro punti:
+Questo snippet ci permette di evidenziare tre punti:
 
-1. la classe generica `object`, da cui derivano **tutte** le classi Python (ma la cui dichiarazione può comunque essere omessa);
-2. il funzionamento della parola chiave `self`, che permette di associare agli attributi della singola istanza un determinato valore;
-3. la possibilità di inserire tra i parametri dei valori opzionali e di default (in questo caso `eta`, che di default vale `18`);
-4. la presenza di uno o due simboli `_` (*underscore*) davanti ad alcuni attributi.
+1. il funzionamento della parola chiave `self`, che permette di associare agli attributi della singola istanza un determinato valore;
+2. la possibilità di inserire tra i parametri dei valori opzionali e di default (in questo caso `eta`, che di default vale `18`);
+3. la presenza di uno o due simboli `_` (*underscore*) davanti ad alcuni attributi.
 
-Approfondiamo brevemente il punto 4.
+!!!note "La classe `object`"
+	Tutte le classi Python derivano da una classe generica `object`, la cui dichiarazione può essere tranquillamente omessa.
+
+Approfondiamo brevemente il punto 3.
 
 ### Modificatori di accesso
 
 Python prevede l'uso di modificatori di accesso ai dati; nello specifico, troviamo i classici `public`, `protected` e `private`. Tuttavia, a differenza di altri linguaggi, per distinguere tra i tre modificatori di accesso si utilizzano uno o due *underscore* come suffisso al nome dell'attributo; in particolare, usare un *underscore* singolo indica un attributo protected, mentre un *underscore* doppio indica un attributo `private`. Nel nostro caso:
 
 ```py
-class Persona(object):
+class Persona:
 
 	def __init__(self, nome, cognome, eta=18):
 		self.nome = nome				# Membro "public"
@@ -243,9 +245,10 @@ In particolare:
 Grazie a `property`, potremo seguire le "best practice" della OOP, rendendo privati gli attributi della classe ed accedendovi mediante opportuni metodi.
 
 ```py
-class Persona():
+class Persona:
 
 	def __init__(self, nome, cognome, eta):
+		# Attenzione! Qui stiamo già usando i setter che definiremo nel seguito!
 		self.nome = nome
 		self.cognome = cognome
 		self.eta = eta
@@ -307,3 +310,40 @@ ValueError: La lunghezza del nome non può essere inferiore a due caratteri.
 ```
 
 Notiamo che, dal punto di vista dello script che richiama la classe, non ci sono differenze di sorta; tuttavia, la logica di validazione ci permette di evitare errori e situazioni incoerenti, ed è inoltre possibile sfruttare le proprietà per accedere agli attributi privati della classe.
+
+### Magic Methods (Metodi Speciali)
+
+Oltre a `__init__`, esistono altri metodi speciali, tutti contraddistinti da una notazione che prevede un doppio underscore all'inizio ed alla fine. Tra i più utilizzati, ricordiamo:
+
+* `__str__(self)`: restituisce una rappresentazione stringa leggibile dell'oggetto (usata da `print()`);
+* `__repr__(self)`: rappresentazione non ambigua per il debugging.
+
+Ad esempio:
+
+```py
+def __str__(self):
+	# Chiamando print(p), apparirà "Mario Rossi"!
+	return f"{self.nome} {self.cognome}"
+```
+
+## Le Dataclasses
+
+Introdotte in Python 3.7, le *dataclasses* permettono di definire classi che servono principalmente a contenere dati, risparmiando quindi la scrittura dei metodi boilerplate (come `__init__`). Per usarle, importiamo il decorator `dataclass`:
+
+```py
+from dataclasses import dataclass
+
+@dataclass
+class Configurazione:
+    batch_size: int = 32
+    learning_rate: float = 0.001
+    modello: str = "ResNet50"
+
+# L'__init__ è generato automaticamente!
+conf = Configurazione(batch_size=64)
+
+print(conf) 
+# Output: Configurazione(batch_size=64, learning_rate=0.001, modello='ResNet50')
+```
+
+Da notare come le dataclass supportino nativamente i type hints.

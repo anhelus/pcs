@@ -14,7 +14,7 @@ nav:
       - 1.2.2 - Programmazione strutturata: material/01_python/02_syntax/02_structured.md
       - 1.2.3 - Funzioni: material/01_python/02_syntax/03_functions.md
       - 1.2.4 - Altre strutture dati: material/01_python/02_syntax/04_data_structures.md
-      - 1.2.5 - Classi: material/01_python/02_syntax/05_classes.md
+      - 1.2.5 - Classi: material/01_python/02_syntax/06_classes.md
       - 1.2.6 - Script, moduli e package: material/01_python/02_syntax/06_modules.md
       - Esercitazione 1.2: material/01_python/02_syntax/exercises/exercises.md
     - 1.3 - Concetti avanzati:
