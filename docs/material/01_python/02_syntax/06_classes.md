@@ -43,11 +43,11 @@ Ad esempio, l'auto Opel Corsa targata AB 123 CD ha una casa costruttrice (Opel),
 Per definire una classe, dovremo usare la parola chiave `class`:
 
 ```py
-class NomeClasse(ClasseBase):
+class NomeClasse:
 	# Attributi e metodi di classe...
 ```
 
-Con la sintassi precedente, abbiamo creato una classe chiamata `NomeClasse` discendente da una classe base (`ClasseBase`).
+Con la sintassi precedente, abbiamo creato una classe chiamata `NomeClasse`.
 
 ### Il metodo `__init__`
 
