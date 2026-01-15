@@ -1,4 +1,4 @@
-# 1.2.6 - Script, moduli e package
+# 1.2.7 - Script, moduli e package
 
 Quando si usa Python la tentazione è quella di interagire direttamente con l'interprete, lanciandolo da terminale ed eseguendo di volta in volta le istruzioni necessarie. Ovviamente questo approccio, seppur immediato, presenta diversi svantaggi. Ad esempio:
 
@@ -122,6 +122,7 @@ Riscriviamo ora il file `main.py`:
 # main.py
 import geometria
 import trigonometria
+import math
 
 if __name__ == "__main__":
 	print(geometria.calcola_area_quadrato(4))
@@ -131,7 +132,7 @@ if __name__ == "__main__":
 Possiamo notare due cose.
 
 1. In primis, stiamo richiamando le funzioni `calcola_area_quadrato()` e `calcola_tangente()` definite nei moduli `geometria` e `trigonometria`, rispettivamente. Questi moduli sono importati all'interno del nostro script mediante la direttiva `import`.
-2. Al rigo 5, la "strana" sintassi mostrata serve a dichiarare quello che è il `main`, ovvero il punto di "accesso" al codice del nostro programma. Il `main` è normalmente presente in tutti i linguaggi di programmazione, alle volte sotto forme un po' differenti da quella qui mostrata; tuttavia, nel caso di script particolarmente semplici, il `main` può essere tranquillamente omesso, in quanto l'interprete riuscirà ad eseguirlo in maniera autonoma.
+2. Al rigo 5, la "strana" sintassi mostrata serve a dichiarare quello che è il `main`, ovvero il punto di "accesso" al codice del nostro programma. Il `main` è normalmente presente in tutti i linguaggi di programmazione, alle volte sotto forme un po' differenti da quella qui mostrata; tuttavia, nel caso di script particolarmente semplici, il `main` può essere tranquillamente omesso, in quanto l'interprete riuscirà ad eseguirlo in maniera autonoma. Tuttavia, è *importantissimo* in caso di progetti più complessi: infatti, serve ad evitare che il codice contenuto venga eseguito quando il modulo viene importanto in un altro script.
 
 Proviamo a lanciare lo script; per farlo, digitiamo l'istruzione `python main.py` da terminale. A schermo, se tutto è andato per il verso giusto, vedremo i valori dell'area di un quadrato e della tangente di $\pi$.
 
@@ -198,10 +199,19 @@ Per una lista esaustiva, si rimanda alla [Python Library Reference](https://docs
 
 Chiudiamo la trattazione con un accenno ai *package*, ovvero a delle vere e proprie "collezioni" che raggruppano moduli tra loro coerenti, in modo da facilitarne il successivo accesso. In pratica, i package non sono altro se non delle cartelle contenenti più moduli (quindi, file con estensione `nome_modulo.py`), oltre ad un file, chiamato `__init__.py`, che permette all'interprete di riconoscere quella cartella come package e, occasionalmente, contiene delle istruzioni di inizializzazione del package.
 
+!!!tip
+	Il file `__init__` non è più strettamente necessario a partire da Python 3.3, anche se è sempre buona norma conservarlo.
+
 Per poter accedere ad un modulo contenuto all'interno di un package, possiamo usare la direttiva `import`, modificandola come segue:
 
 ```py
 import nome_package.nome_modulo
 # oppure...
 from nome_package.nome_modulo import nome_funzione
+```
+
+Esiste anche la possibilità di effettuare gli import relativi, il che rappresenta lo standard all'interno di uno stesso package. Per farlo, usiamo la seguente sintassi:
+
+```py
+from . import nome_modulo
 ```
