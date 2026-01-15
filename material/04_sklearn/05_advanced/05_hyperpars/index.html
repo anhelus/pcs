@@ -672,7 +672,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/05_classes/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/05_exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2.5 - Gestione delle eccezioni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/06_classes/" class="md-nav__link">
         
   
   
@@ -700,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/06_modules/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/07_modules/" class="md-nav__link">
         
   
   
@@ -4327,7 +4355,7 @@
 <a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;accuracy_score&#39;</span><span class="p">)</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Appare evidente come il funzionamento sia concettualmente analogo al caso in cui si usi un singolo stimatore, grazie soprattutto all'<a href="../01_pipeline/">equivalenza tra pipeline e stimatori</a>. Tuttavia, è interessante sottolineare che, come evidenziato nelle righe 10, 11 e 12, è necessario usare una notazione simile al <a href="../../../01_python/02_syntax/05_classes/#modificatori-di-accesso">name mangling</a> per specificare la combinazione tra l'elemento della pipeline ed il valore associato agli iperparametri da ricercare.</p>
+<p>Appare evidente come il funzionamento sia concettualmente analogo al caso in cui si usi un singolo stimatore, grazie soprattutto all'<a href="../01_pipeline/">equivalenza tra pipeline e stimatori</a>. Tuttavia, è interessante sottolineare che, come evidenziato nelle righe 10, 11 e 12, è necessario usare una notazione simile al <a href="../../01_python/02_syntax/05_classes.md#modificatori-di-accesso">name mangling</a> per specificare la combinazione tra l'elemento della pipeline ed il valore associato agli iperparametri da ricercare.</p>
 <h2 id="random-search">Random search<a class="headerlink" href="#random-search" title="Permanent link">&para;</a></h2>
 <p>Prevedibilmente, utilizzare la grid search porterà sempre all'individuazione del picco (o della valle) all'interno delle possibili combinazioni di iperparametri selezionate. Questo è legato al fatto che l'approccio usato dalla grid search è <em>a forza bruta</em>: in altre parole, sono testate tutte le possibili combinazioni di parametri fino a che non si trova la migliore.</p>
 <p>Tuttavia, appare evidente come il costo computazionale legato ad una ricerca talmente estesa non sia alle volte giustificabile alla luce di miglioramenti tutto sommato marginali nel valore assunto dalla metrica di scoring. Di conseguenza, sono stati sviluppati degli approcci a minor costo, tra cui il più semplice è quello proposto dalla <em>random search</em> che, come suggerisce il nome stesso, effettua una selezione casuale dei valori associati agli iperparametri a partire da una determinata distribuzione. Questa scelta ha due vantaggi rispetto alla grid search:</p>

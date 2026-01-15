@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../05_classes/">
+        <link rel="prev" href="../05_exceptions/">
       
       
-        <link rel="next" href="../exercises/exercises/">
+        <link rel="next" href="../07_modules/">
       
       
         
@@ -23,7 +23,7 @@
     
     
       
-        <title>1.2.6 - Script, moduli e package - Python per il Calcolo Scientifico</title>
+        <title>1.2.5 - Classi - Python per il Calcolo Scientifico</title>
       
     
     
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#126-script-moduli-e-package" class="md-skip">
+        <a href="#126-classi-ed-oop" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1.2.6 - Script, moduli e package
+              1.2.5 - Classi
             
           </span>
         </div>
@@ -676,14 +676,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_classes/" class="md-nav__link">
+      <a href="../05_exceptions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    1.2.5 - Classi
+    1.2.5 - Gestione delle eccezioni
   
 
     
@@ -720,7 +720,7 @@
   <span class="md-ellipsis">
     
   
-    1.2.6 - Script, moduli e package
+    1.2.5 - Classi
   
 
     
@@ -738,7 +738,7 @@
   <span class="md-ellipsis">
     
   
-    1.2.6 - Script, moduli e package
+    1.2.5 - Classi
   
 
     
@@ -764,10 +764,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#il-primo-script" class="md-nav__link">
+  <a href="#la-programmazione-orientata-agli-oggetti" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Il primo script
+        La programmazione orientata agli oggetti
       
     </span>
   </a>
@@ -775,22 +775,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-moduli" class="md-nav__link">
+  <a href="#classi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        I moduli
+        Classi
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="I moduli">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodi-ed-attributi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metodi ed attributi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classi-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classi in Python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classi in Python">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#i-moduli-geometria-e-trigonometria" class="md-nav__link">
+  <a href="#il-metodo-__init__" class="md-nav__link">
     <span class="md-ellipsis">
       
-        I moduli geometria e trigonometria
+        Il metodo __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificatori-di-accesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modificatori di accesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metodi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-proprieta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le proprietà
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magic-methods-metodi-speciali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magic Methods (Metodi Speciali)
       
     </span>
   </a>
@@ -803,60 +869,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usare-gli-import" class="md-nav__link">
+  <a href="#le-dataclasses" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usare gli import
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Usare gli import">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alias
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#la-funzione-dir" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        La funzione dir()
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#moduli-della-libreria-standard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Moduli della libreria standard
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Package
+        Le Dataclasses
       
     </span>
   </a>
@@ -867,6 +883,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2.6 - Script, moduli e package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -4272,10 +4316,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#il-primo-script" class="md-nav__link">
+  <a href="#la-programmazione-orientata-agli-oggetti" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Il primo script
+        La programmazione orientata agli oggetti
       
     </span>
   </a>
@@ -4283,22 +4327,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#i-moduli" class="md-nav__link">
+  <a href="#classi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        I moduli
+        Classi
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="I moduli">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodi-ed-attributi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metodi ed attributi
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classi-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classi in Python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classi in Python">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#i-moduli-geometria-e-trigonometria" class="md-nav__link">
+  <a href="#il-metodo-__init__" class="md-nav__link">
     <span class="md-ellipsis">
       
-        I moduli geometria e trigonometria
+        Il metodo __init__
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificatori-di-accesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modificatori di accesso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metodi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-proprieta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le proprietà
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magic-methods-metodi-speciali" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magic Methods (Metodi Speciali)
       
     </span>
   </a>
@@ -4311,60 +4421,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usare-gli-import" class="md-nav__link">
+  <a href="#le-dataclasses" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usare gli import
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Usare gli import">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alias
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#la-funzione-dir" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        La funzione dir()
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#moduli-della-libreria-standard" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Moduli della libreria standard
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Package
+        Le Dataclasses
       
     </span>
   </a>
@@ -4388,161 +4448,277 @@
 
 
 
-<h1 id="126-script-moduli-e-package">1.2.6 - Script, moduli e package<a class="headerlink" href="#126-script-moduli-e-package" title="Permanent link">&para;</a></h1>
-<p>Quando si usa Python la tentazione è quella di interagire direttamente con l'interprete, lanciandolo da terminale ed eseguendo di volta in volta le istruzioni necessarie. Ovviamente questo approccio, seppur immediato, presenta diversi svantaggi. Ad esempio:</p>
+<h1 id="126-classi-ed-oop">1.2.6 - Classi ed OOP<a class="headerlink" href="#126-classi-ed-oop" title="Permanent link">&para;</a></h1>
+<p>Python offre un esteso supporto alla programmazione orientata agli oggetti. Prima di proseguire, però, è opportuno introdurre brevemente questo concetto.</p>
+<h2 id="la-programmazione-orientata-agli-oggetti">La programmazione orientata agli oggetti<a class="headerlink" href="#la-programmazione-orientata-agli-oggetti" title="Permanent link">&para;</a></h2>
+<p>Quello della <em>programmazione orientata agli oggetti</em> (OOP) è un paradigma di programmazione che permette di creare nuovi tipi definiti dall'utente, da intendersi come complementari ai tipi definiti dal linguaggio di programmazione. In tal senso, la OOP sposta il focus dalle <em>funzioni</em>, centrali nei linguaggi come il C e nel paradigma procedurale, ai <em>dati</em>.</p>
+<p>In tal senso, si arriva a dire che <em>nella OOP tutto è un oggetto</em>.</p>
+<h2 id="classi">Classi<a class="headerlink" href="#classi" title="Permanent link">&para;</a></h2>
+<p>Una <em>classe</em> è un prototipo per un determinato tipo di dati definito dall'utente. Ad esempio:</p>
 <ul>
-<li>non avremo a disposizione il syntax highlighting offerto da una normale IDE;</li>
-<li>non potremo recuperare il codice una volta chiuso l'interprete;</li>
-<li>non potremo né modificare, né verificare facilmente il funzionamento del codice.</li>
+<li>la classe <code>Studente</code> rappresenta tutte le proprietà e le azioni associate ad uno studente;</li>
+<li>la classe <code>Auto</code> rappresenta tutte le proprietà e le azioni associate ad un'auto;</li>
+<li>la classe <code>Motore</code> definisce i comportamenti dei motori;</li>
 </ul>
-<p>Appare quindi evidente come usare l'interprete <em>non</em> sia un modo ottimale di sviluppare codice Python. Di conseguenza, sarà necessario definire, mediante la nostra IDE di riferimento, dei veri e propri <em>script</em> che saranno salvati sotto forma di file con estensione <code>.py</code>, ognuno dei quali contenenti una serie di istruzioni necessarie all'esecuzione del nostro programma.</p>
-<h2 id="il-primo-script">Il primo script<a class="headerlink" href="#il-primo-script" title="Permanent link">&para;</a></h2>
-<p>Proviamo quindi a creare il nostro primo script Python. Per farlo, apriamo la nostra IDE di riferimento, come Visual Studio Code, e creiamo un file chiamato <code>main.py</code>, all'interno del quale inseriremo il seguente codice:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># main.py</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">hello_world</span><span class="p">():</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">hello_world</span><span class="p">()</span>
-</code></pre></div>
-<p>Adesso apriamo un terminale, spostiamoci nella cartella nel quale abbiamo salvato questo script, ed eseguiamolo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>cartella_dove_risiede_lo_script
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python<span class="w"> </span>main.py
-</code></pre></div>
-<p>Le due istruzioni precedenti:</p>
+<p>e via discorrendo.</p>
+<p>In generale, quindi, può esistere una classe per ogni tipologia di oggetti presenti nel mondo, sia esso reale o informatico.</p>
+<p>Importante è non confondere la classe con il <em>singolo oggetto</em>, chiamato <em>istanza</em>. Ad esempio:</p>
 <ul>
-<li>servono a cambiare cartella (<em>change directory</em>, <code>cd</code>), spostandoci nella cartella dove risiede lo script;</li>
-<li>dicono all'interprete Python di lanciare lo script <code>main.py</code>.</li>
+<li>lo studente Angelo Cardellicchio è un'istanza della classe <code>Studente</code>;</li>
+<li>l'auto Opel Corsa targata AB 123 CD è un'istanza della classe <code>Auto</code>;</li>
+<li>l'auto Hyundai Tucson CD 321 AB è un'istanza della classe <code>Auto</code>;</li>
+<li>l'auto Opel Corsa targata AA 123 CC è un'altra istanza della classe <code>Auto</code>.</li>
 </ul>
-<p>A schermo, se tutto è andato per il verso giusto, apparirà la scritta <code>Hello, world</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Hello,<span class="w"> </span>world
-</code></pre></div>
-<h2 id="i-moduli">I moduli<a class="headerlink" href="#i-moduli" title="Permanent link">&para;</a></h2>
-<p>Quando le dimensioni della nostra <em>code base</em> (ovvero la quantità di codice che scriviamo nel nostro programma) iniziano ad essere particolarmente "ingombranti", è opportuno adottare un approccio <em>modulare</em>, separando in file differenti parti di codice delegate a funzioni eterogenee. Facciamo un esempio.</p>
-<p>Immaginiamo di voler scrivere un programma che definisca delle funzioni per calcolare l'area delle principali figure geometriche. Modifichiamo quindi il nostro file <code>main.py</code> come segue:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># main.py</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcola_area_quadrato</span><span class="p">(</span><span class="n">lato</span><span class="p">):</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">return</span> <span class="n">lato</span> <span class="o">*</span> <span class="n">lato</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcola_area_rettangolo</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">altezza</span><span class="p">):</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="k">return</span> <span class="n">base</span> <span class="o">*</span> <span class="n">altezza</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcola_area_triangolo</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">altezza</span><span class="p">):</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">base</span> <span class="o">*</span> <span class="n">altezza</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">area_quadrato</span> <span class="o">=</span> <span class="n">calcola_area_quadrato</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">area_rettangolo</span> <span class="o">=</span> <span class="n">calcola_area_rettangolo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">area_triangolo</span> <span class="o">=</span> <span class="n">calcola_area_triangolo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</code></pre></div>
-<p>Immaginiamo di voler quindi aggiungere una funzione di calcolo trigonometrico:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># main.py</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcola_tangente</span><span class="p">(</span><span class="n">angolo</span><span class="p">):</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angolo</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angolo</span><span class="p">)</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">tangente_pi</span> <span class="o">=</span> <span class="n">calcola_tangente</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-</code></pre></div>
-<p>Il codice del nostro file <code>main.py</code> comprenderà adesso funzioni di tipo geometrico e trigonometrico.</p>
-<p>Cosa succederebbe se volessimo integrare delle funzioni di calcolo integrale, o di altro tipo? Ovviamente, ci sarebbe da un lato un aumento delle dimensioni della code base, dall'altro un "mix" tra funzioni che afferiscono ad ambiti differenti (seppur simili tra loro). Una buona idea sarebbe quindi quella di <em>separare</em> le diverse parti del programma, magari raggruppando le funzioni geometriche nel file <code>geometria.py</code>, le funzioni trigonometriche nel file <code>trigonometria.py</code>, e via discorrendo.</p>
-<p>Questi file, che conterranno al loro interno prevalentemente funzioni (ma non solo), sono chiamati <em>moduli</em>.</p>
+<h2 id="metodi-ed-attributi">Metodi ed attributi<a class="headerlink" href="#metodi-ed-attributi" title="Permanent link">&para;</a></h2>
+<p>Ogni classe ha dei <em>metodi</em>, che caratterizzano delle azioni che è possibile effettuare su ogni istanza della classe, e degli <em>attributi</em>, ovvero delle caratteristiche dell'istanza.</p>
+<p>In particolare, ogni nuovo tipo, chiamato <em>classe</em>, avrà opportuni <em>attributi</em> e <em>metodi</em>, ognuno dei quali accessibile dall'esterno mediante opportuni <em>modificatori</em>.</p>
+<p>Ad esempio, l'auto Opel Corsa targata AB 123 CD ha una casa costruttrice (Opel), un modello (Corsa), una targa (AB 123 CD), una cilindrata, e via dicendo.</p>
 <div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>La linea che distingue gli script dai moduli è molto sottile, e nei fatti è facile fare confusione ed utilizzarli in maniera "intercambiabile". Sottolineamo però che, idealmente, gli script devono contenere al loro interno soltanto del codice che sarà <em>eseguito</em>, mentre i moduli solo del codice che sarà <em>invocato</em> da uno o più script.</p>
+<p class="admonition-title">Approfondimento</p>
+<p>Possiamo approfondire i concetti alla base della OOP in <a href="../../../appendix/05_oop/lecture/">questa appendice</a>.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Interprete e nome di un modulo</p>
-<p>L'interprete è in grado di risalire al nome di un modulo dal nome del file in cui è contenuto. Se, ad esempio, definiamo un modulo nel file <code>geometria.py</code>, l'interprete associerà a quel modulo il nome <code>geometria</code>. Detto nome è inoltre accessibile globalmente e dall'interno del modulo richiamando la variabile globale <code>__name__</code>.</p>
+<h2 id="classi-in-python">Classi in Python<a class="headerlink" href="#classi-in-python" title="Permanent link">&para;</a></h2>
+<p>Per definire una classe, dovremo usare la parola chiave <code>class</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">NomeClasse</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="c1"># Attributi e metodi di classe...</span>
+</code></pre></div>
+<p>Con la sintassi precedente, abbiamo creato una classe chiamata <code>NomeClasse</code>.</p>
+<h3 id="il-metodo-__init__">Il metodo <code>__init__</code><a class="headerlink" href="#il-metodo-__init__" title="Permanent link">&para;</a></h3>
+<p>La maggior parte dei linguaggi di programmazione utilizza il concetto di <em>costruttore</em> per creare un'istanza di una classe. Il Python, tuttavia, non prevede l'utilizzo di un costruttore vero e proprio, quanto piuttosto di un metodo di <em>inizializzazione</em> dei singoli attributi dell'istanza. Da qui deriva il nome del metodo, ovvero <code>__init__</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">NomeClasse</span><span class="p">(</span><span class="n">ClasseBase</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="c1"># ...</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">arg_1</span> <span class="o">=</span> <span class="n">arg_1</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="c1"># ...</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Unpacking</p>
+<p>Con la sintassi <code>*args</code> e <code>**kwargs</code> vogliamo rappresentare l'azione di <em>unpacking</em> di (rispettivamente) una lista ed un dizionario, mediante la quale stiamo passando tutti i valori contenuti all'interno della sequenza.</p>
 </div>
-<h3 id="i-moduli-geometria-e-trigonometria">I moduli <code>geometria</code> e <code>trigonometria</code><a class="headerlink" href="#i-moduli-geometria-e-trigonometria" title="Permanent link">&para;</a></h3>
-<p>Creiamo adesso il file <code>geometria.py</code>, all'interno del quale "sposteremo" le funzioni definite in precedenza per il calcolo geometrico.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># geometria.py</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcola_area_quadrato</span><span class="p">(</span><span class="n">lato</span><span class="p">):</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="k">return</span> <span class="n">lato</span> <span class="o">*</span> <span class="n">lato</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcola_area_rettangolo</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">altezza</span><span class="p">):</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">return</span> <span class="n">base</span> <span class="o">*</span> <span class="n">altezza</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcola_area_triangolo</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">altezza</span><span class="p">):</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">base</span> <span class="o">*</span> <span class="n">altezza</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<p>Occorre prestare particolare attenzione all'uso della keyword <code>self</code>, che permette di riferirsi alla specifica istanza di una classe (per chi ha familiarità con i linguaggi come il C++, è concettualmente simile alla parola chiave <code>this</code>). Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Persona</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_cognome</span> <span class="o">=</span> <span class="n">cognome</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span> <span class="o">=</span> <span class="n">eta</span>
 </code></pre></div>
-<p>Analogamente, nel file <code>trigonometria.py</code> andremo a definire la funzione per il calcolo della tangente.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># trigonometria.py</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcola_tangente</span><span class="p">(</span><span class="n">angolo</span><span class="p">):</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angolo</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angolo</span><span class="p">)</span>
-</code></pre></div>
-<p>Riscriviamo ora il file <code>main.py</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span>
-<span class="normal"><a href="#__codelineno-7-5">5</a></span>
-<span class="normal"><a href="#__codelineno-7-6">6</a></span>
-<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># main.py</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">geometria</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">trigonometria</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">geometria</span><span class="o">.</span><span class="n">calcola_area_quadrato</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">trigonometria</span><span class="o">.</span><span class="n">calcola_tangente</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-</code></pre></div></td></tr></table></div>
-<p>Possiamo notare due cose.</p>
+<p>Questo snippet ci permette di evidenziare tre punti:</p>
 <ol>
-<li>In primis, stiamo richiamando le funzioni <code>calcola_area_quadrato()</code> e <code>calcola_tangente()</code> definite nei moduli <code>geometria</code> e <code>trigonometria</code>, rispettivamente. Questi moduli sono importati all'interno del nostro script mediante la direttiva <code>import</code>.</li>
-<li>Al rigo 5, la "strana" sintassi mostrata serve a dichiarare quello che è il <code>main</code>, ovvero il punto di "accesso" al codice del nostro programma. Il <code>main</code> è normalmente presente in tutti i linguaggi di programmazione, alle volte sotto forme un po' differenti da quella qui mostrata; tuttavia, nel caso di script particolarmente semplici, il <code>main</code> può essere tranquillamente omesso, in quanto l'interprete riuscirà ad eseguirlo in maniera autonoma.</li>
+<li>il funzionamento della parola chiave <code>self</code>, che permette di associare agli attributi della singola istanza un determinato valore;</li>
+<li>la possibilità di inserire tra i parametri dei valori opzionali e di default (in questo caso <code>eta</code>, che di default vale <code>18</code>);</li>
+<li>la presenza di uno o due simboli <code>_</code> (<em>underscore</em>) davanti ad alcuni attributi.</li>
 </ol>
-<p>Proviamo a lanciare lo script; per farlo, digitiamo l'istruzione <code>python main.py</code> da terminale. A schermo, se tutto è andato per il verso giusto, vedremo i valori dell'area di un quadrato e della tangente di <span class="arithmatex">\(\pi\)</span>.</p>
-<h2 id="usare-gli-import">Usare gli import<a class="headerlink" href="#usare-gli-import" title="Permanent link">&para;</a></h2>
-<p>Relativamente al modulo <code>geometria</code>, abbiamo usato esclusivamente la funzione <code>calcola_area_quadrato()</code>, "trascurando" le altre due funzioni comunque presenti nel modulo. In queste circostanze, possiamo usare una versione modificata della direttiva <code>import</code>, che assume la seguente forma:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">modulo</span><span class="w"> </span><span class="kn">import</span> <span class="n">funzione_o_classe</span>
+<div class="admonition note">
+<p class="admonition-title">La classe <code>object</code></p>
+<p>Tutte le classi Python derivano da una classe generica <code>object</code>, la cui dichiarazione può essere tranquillamente omessa.</p>
+</div>
+<p>Approfondiamo brevemente il punto 3.</p>
+<h3 id="modificatori-di-accesso">Modificatori di accesso<a class="headerlink" href="#modificatori-di-accesso" title="Permanent link">&para;</a></h3>
+<p>Python prevede l'uso di modificatori di accesso ai dati; nello specifico, troviamo i classici <code>public</code>, <code>protected</code> e <code>private</code>. Tuttavia, a differenza di altri linguaggi, per distinguere tra i tre modificatori di accesso si utilizzano uno o due <em>underscore</em> come suffisso al nome dell'attributo; in particolare, usare un <em>underscore</em> singolo indica un attributo protected, mentre un <em>underscore</em> doppio indica un attributo <code>private</code>. Nel nostro caso:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Persona</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mi">18</span><span class="p">):</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>                <span class="c1"># Membro &quot;public&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_cognome</span> <span class="o">=</span> <span class="n">cognome</span>         <span class="c1"># Membro &quot;protected&quot;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span> <span class="o">=</span> <span class="n">eta</span>                <span class="c1"># Membro &quot;private&quot;</span>
 </code></pre></div>
-<p>il che, nel nostro caso specifico, diventa:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">geometria</span><span class="w"> </span><span class="kn">import</span> <span class="n">calcola_area_quadrato</span>
+<div class="admonition warning">
+<p class="admonition-title">Attenzione</p>
+<p>Nonostante il modificatore di accesso, è possibile accedere ai membri protetti dall'esterno della classe. Infatti:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="s1">&#39;Jax&#39;</span><span class="p">,</span> <span class="s1">&#39;Teller&#39;</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">nome</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s1">&#39;Jax&#39;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">_cognome</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s1">&#39;Teller&#39;</span>
 </code></pre></div>
-<p>In questo modo, possiamo importare solamente quello che ci serve, il che risulta particolarmente utile a migliorare l'efficienza del nostro codice; il perché sarà chiaro a breve.</p>
-<h3 id="alias">Alias<a class="headerlink" href="#alias" title="Permanent link">&para;</a></h3>
-<p>La direttiva <code>import</code> ci permette di definire anche degli alias, particolarmente utili nel caso si usino dei nomi di package complessi. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">trigonometria</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tr</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">calcola_tangente</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+</blockquote>
+<p>Questo non vale per gli attributi privati:</p>
+<blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="o">&gt;&gt;&gt;</span>     <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">__eta</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="o">&gt;&gt;&gt;</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Età è privato!&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">Età</span> <span class="n">è</span> <span class="n">privato</span><span class="err">!</span>
 </code></pre></div>
-<h2 id="la-funzione-dir">La funzione <code>dir()</code><a class="headerlink" href="#la-funzione-dir" title="Permanent link">&para;</a></h2>
-<p>La funzione <code>dir()</code> restituisce una lista con tutti i nomi (sia di funzione, sia di classe) definiti da un modulo. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="n">geometria</span><span class="p">)</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">[</span><span class="s1">&#39;__builtins__&#39;</span><span class="p">,</span> <span class="s1">&#39;__cached__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__file__&#39;</span><span class="p">,</span> <span class="s1">&#39;__loader__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;__package__&#39;</span><span class="p">,</span> <span class="s1">&#39;__spec__&#39;</span><span class="p">,</span> <span class="s1">&#39;calcola_area_quadrato&#39;</span><span class="p">,</span> <span class="s1">&#39;calcola_area_rettangolo&#39;</span><span class="p">,</span> <span class="s1">&#39;calcola_area_triangolo&#39;</span><span class="p">]</span>
+</blockquote>
+</div>
+<p>Questa sintassi può ovviamente essere utilizzata per definire dei metodi protetti o privati.</p>
+<div class="admonition tip">
+<p class="admonition-title">Suggerimento</p>
+<p>La sintassi che abbiamo mostrato nello snippet precedente è relativa alla <em>gestione delle eccezioni</em>.</p>
+</div>
+<h3 id="metodi">Metodi<a class="headerlink" href="#metodi" title="Permanent link">&para;</a></h3>
+<p>La sintassi per definire il metodo di una classe è analoga a quella usata per definire una funzione.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">metodo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="k">pass</span>
 </code></pre></div>
-<p>E' interessante notare come, oltre a funzioni, classi e variabili da noi definite, nel modulo <code>geometria</code> siano automaticamente definite <em>altre</em> variabili, che saranno importate usando import:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">geometria</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">geometria</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">geometria</span><span class="o">.</span><span class="n">calcola_area_quadrato</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<p>Esiste tuttavia una differenza fondamentale: infatti, il primo attributo di un metodo appartenente ad una classe è <em>sempre</em> un riferimento all'istanza tramite la parola chiave <code>self</code>. Tale riferimento non va specificato quando il metodo viene chiamato dall'esterno:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># ...</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">p</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">()</span>           <span class="c1"># p è un&#39;istanza di Persona</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">p</span><span class="o">.</span><span class="n">metodo</span><span class="p">(</span><span class="n">parametro</span><span class="p">)</span>     <span class="c1"># richiamo il metodo dall&#39;istanza</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># ...</span>
 </code></pre></div>
-<p>Notiamo che saremo in grado di accedere alla variabile <code>__file__</code> del modulo <code>geometria</code>, che indica il percorso relativo dello stesso all'interno del file system. Ovviamente, questa variabile non è quasi mai utile, ma comporta un ulteriore carico sul codice, da cui diventa evidente l'importanza dell'opportuno uso della direttiva <code>from</code>.</p>
-<h2 id="moduli-della-libreria-standard">Moduli della libreria standard<a class="headerlink" href="#moduli-della-libreria-standard" title="Permanent link">&para;</a></h2>
-<p>Python ha diversi moduli appartenenti ad una libreria standard, i quali sono automaticamente disponibili a valle dell'installazione dell'interprete. Alcuni tra i più utilizzati sono:</p>
+<p>Nel codice precedente, abbiamo usato l'operatore <code>.</code> per accedere a <code>metodo()</code> definito all'interno della classe <code>Persona</code>.</p>
+<p>Approfondiamo adesso alcune particolari tipologie di metodi, ottenibili usando determinati decorator (cfr. appendice B).</p>
+<h4 id="metodi-di-classe">Metodi di classe<a class="headerlink" href="#metodi-di-classe" title="Permanent link">&para;</a></h4>
+<p>Il decorator <code>@classmethod</code> ci permette di definire i cosiddetti <em>metodi di classe</em>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nd">@classmethod</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">builder_stringa</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stringa</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span> <span class="o">=</span> <span class="n">stringa</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="k">return</span> <span class="n">Persona</span><span class="p">(</span><span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="p">)</span>
+</code></pre></div>
+<p>A differenza dei metodi standard, i metodi di classe hanno un riferimento alla classe (<code>cls</code>) e non all'istanza (<code>self</code>). Questo significa che sono dei metodi che si <em>applicano all'intera classe</em>, e non alla singola istanza. Un tipico esempio di utilizzo di un metodo di classe è mostrato nello snippet precedente, nel quale stiamo creando un oggetto di classe <code>Persona</code> a partire da una stringa.</p>
+<div class="admonition tip">
+<p class="admonition-title">Curiosità</p>
+<p>Il metodo precedente è, di fatto, un'implementazione del design pattern Builder.</p>
+</div>
+<p>Per richiamare un metodo di classe occorre riferirsi al nome della classe stessa, e non ad una singola istanza:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">persona</span> <span class="o">=</span> <span class="n">Persona</span><span class="o">.</span><span class="n">builder_stringa</span><span class="p">(</span><span class="s1">&#39;Bobby Munson 58&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">persona</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span> <span class="n">persona</span><span class="o">.</span><span class="n">_cognome</span><span class="p">))</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">Bobby</span> <span class="n">Munson</span>
+</code></pre></div>
+<h4 id="metodi-statici">Metodi statici<a class="headerlink" href="#metodi-statici" title="Permanent link">&para;</a></h4>
+<p>Mediante il decoratore <code>@staticmethod</code> possiamo definire un metodo <em>statico</em>. In Python il funzionamento di un metodo di questo tipo è riassumibile in un comportamento assimilabile ad una funzione "semplice", definita però all'interno della classe, e richiamabile su istanze della stessa. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nd">@staticmethod</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">nome_valido</span><span class="p">(</span><span class="n">nome</span><span class="p">):</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nome</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+<p>Questo metodo è quindi liberamente richiamabile mediante l'operatore <code>.</code> da una singola istanza:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Persona</span><span class="o">.</span><span class="n">nome_valido</span><span class="p">(</span><span class="s1">&#39;Li&#39;</span><span class="p">))</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kc">True</span>
+</code></pre></div>
+<p>Un'altra possibilità è richiamarlo sulla classe stessa:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">Persona</span><span class="o">.</span><span class="n">nome_valido</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">))</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kc">False</span>
+</code></pre></div>
+<h4 id="metodi-astratti">Metodi astratti<a class="headerlink" href="#metodi-astratti" title="Permanent link">&para;</a></h4>
+<p>Possiamo definire dei metodi <em>astratti</em> (cfr. Appendice C) mediante il decorator <code>@abstractmethod</code>. Per farlo, la nostra classe deve discendere dalla classe <code>ABC</code> (acronimo che sta per <em>Abstract Base Class</em>), contenuta nel package <code>abc</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">ClasseBase</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="c1"># ...</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="nd">@abstractmethod</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">metodo_da_sovrascrivere</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>        <span class="k">pass</span>
+</code></pre></div>
+<p>I metodi contrassegnati con il decorator <code>@abstractmethod</code> dovranno essere implementati nelle classi derivate (in altre parole, dovremo farne l'<em>override</em>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ClasseDerivata</span><span class="p">(</span><span class="n">ClasseBase</span><span class="p">):</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="c1"># ...</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">metodo_da_sovrascrivere</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        <span class="c1"># ...</span>
+</code></pre></div>
+<h3 id="le-proprieta">Le proprietà<a class="headerlink" href="#le-proprieta" title="Permanent link">&para;</a></h3>
+<p>In molti linguaggi di programmazione si usano tradizionalmente i metodi <em>accessori</em> (<em>getter</em>) e <em>modificatori</em> (<em>setter</em>) per accedere agli attributi delle istanze di una classe. Python non vieta di farlo: ad esempio, possiamo scrivere un metodo <code>get_nome(self)</code> per accedere al nome di una persona, ed un metodo <code>set_nome(self, nome)</code> per impostare detta proprietà.</p>
+<p>Tuttavia, è possibile usare una sintassi più compatta (e, in definitiva, maggiormente <em>pythonic</em>) mediante il decorator <code>@property</code>, che rappresenta una funzione a quattro parametri:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">property</span><span class="p">(</span><span class="n">fget</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fdel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>In particolare:</p>
 <ul>
-<li><code>sys</code>: è il modulo integrato nell'interprete, ed offre diverse utility necessarie al suo funzionamento;</li>
-<li><code>os</code>: modulo delegato all'interazione con il sistema operativo su cui gira l'interprete;</li>
-<li><code>time</code>: modulo usato per tutte le utility riguardanti il "cronometraggio" del tempo di esecuzione di una funzione;</li>
-<li><code>datetime</code>: modulo usato per le funzionalità di data ed ora;</li>
-<li><code>copy</code>: modulo usato per gestire, tra le altre cose, la deep copy di un oggetto.</li>
+<li><code>fget</code> è la funzione usata per recuperare il valore dell'attributo;</li>
+<li><code>fset</code> è la funzione usata per impostare il valore dell'attributo;</li>
+<li><code>fdel</code> è la funzione per rimuovere l'attributo;</li>
+<li><code>doc</code> è la funzione per documentare e descrivere l'attributo.</li>
 </ul>
-<p>Per una lista esaustiva, si rimanda alla <a href="https://docs.python.org/3/library/">Python Library Reference</a>.</p>
-<h2 id="package">Package<a class="headerlink" href="#package" title="Permanent link">&para;</a></h2>
-<p>Chiudiamo la trattazione con un accenno ai <em>package</em>, ovvero a delle vere e proprie "collezioni" che raggruppano moduli tra loro coerenti, in modo da facilitarne il successivo accesso. In pratica, i package non sono altro se non delle cartelle contenenti più moduli (quindi, file con estensione <code>nome_modulo.py</code>), oltre ad un file, chiamato <code>__init__.py</code>, che permette all'interprete di riconoscere quella cartella come package e, occasionalmente, contiene delle istruzioni di inizializzazione del package.</p>
-<p>Per poter accedere ad un modulo contenuto all'interno di un package, possiamo usare la direttiva <code>import</code>, modificandola come segue:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">nome_package.nome_modulo</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># oppure...</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">nome_package.nome_modulo</span><span class="w"> </span><span class="kn">import</span> <span class="n">nome_funzione</span>
+<p>Grazie a <code>property</code>, potremo seguire le "best practice" della OOP, rendendo privati gli attributi della classe ed accedendovi mediante opportuni metodi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Persona</span><span class="p">:</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">cognome</span><span class="p">,</span> <span class="n">eta</span><span class="p">):</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>        <span class="c1"># Attenzione! Qui stiamo già usando i setter che definiremo nel seguito!</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cognome</span> <span class="o">=</span> <span class="n">cognome</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">eta</span> <span class="o">=</span> <span class="n">eta</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>    <span class="nd">@property</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">nome</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__nome</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>    <span class="nd">@nome</span><span class="o">.</span><span class="n">setter</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">nome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;La lunghezza del nome non può essere inferiore a due caratteri.&#39;</span><span class="p">)</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__nome</span> <span class="o">=</span> <span class="n">value</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>    <span class="nd">@property</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">cognome</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cognome</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>    <span class="nd">@cognome</span><span class="o">.</span><span class="n">setter</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">cognome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;La lunghezza del cognome non può essere inferiore a due caratteri.&#39;</span><span class="p">)</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__cognome</span> <span class="o">=</span> <span class="n">value</span>
+<a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a>
+<a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a>    <span class="nd">@property</span>
+<a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">eta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span>
+<a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>
+<a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a>    <span class="nd">@eta</span><span class="o">.</span><span class="n">setter</span>
+<a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">eta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a>        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;L&#39;età non può essere negativa.&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">__eta</span> <span class="o">=</span> <span class="n">value</span>
 </code></pre></div>
+<p>Alcune note:</p>
+<ul>
+<li>abbiamo riscritto la classe <code>Persona</code> in modo da trasformare tutti gli attributi in proprietà;</li>
+<li>per ogni proprietà, abbiamo specificato un getter, che restituisce il valore della stessa;</li>
+<li>oltre al getter, è stato specificato un setter, nel quale vi è anche una forma di validazione del valore passato in input.</li>
+</ul>
+<p>Vediamo come usare la nostra nuova classe:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">draco</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="s1">&#39;Draco&#39;</span><span class="p">,</span> <span class="s1">&#39;Malfoy&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">draco</span><span class="o">.</span><span class="n">nome</span><span class="p">)</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="s1">&#39;Draco&#39;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">draco</span><span class="o">.</span><span class="n">eta</span><span class="p">)</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="mi">12</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">hermione</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;Granger&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>    <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>    <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3</span><span class="p">,</span> <span class="ow">in</span> <span class="fm">__init__</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>    <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">12</span><span class="p">,</span> <span class="ow">in</span> <span class="n">nome</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="ne">ValueError</span><span class="p">:</span> <span class="n">La</span> <span class="n">lunghezza</span> <span class="k">del</span> <span class="n">nome</span> <span class="n">non</span> <span class="n">può</span> <span class="n">essere</span> <span class="n">inferiore</span> <span class="n">a</span> <span class="n">due</span> <span class="n">caratteri</span><span class="o">.</span>
+</code></pre></div>
+<p>Notiamo che, dal punto di vista dello script che richiama la classe, non ci sono differenze di sorta; tuttavia, la logica di validazione ci permette di evitare errori e situazioni incoerenti, ed è inoltre possibile sfruttare le proprietà per accedere agli attributi privati della classe.</p>
+<h3 id="magic-methods-metodi-speciali">Magic Methods (Metodi Speciali)<a class="headerlink" href="#magic-methods-metodi-speciali" title="Permanent link">&para;</a></h3>
+<p>Oltre a <code>__init__</code>, esistono altri metodi speciali, tutti contraddistinti da una notazione che prevede un doppio underscore all'inizio ed alla fine. Tra i più utilizzati, ricordiamo:</p>
+<ul>
+<li><code>__str__(self)</code>: restituisce una rappresentazione stringa leggibile dell'oggetto (usata da <code>print()</code>);</li>
+<li><code>__repr__(self)</code>: rappresentazione non ambigua per il debugging.</li>
+</ul>
+<p>Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    <span class="c1"># Chiamando print(p), apparirà &quot;Mario Rossi&quot;!</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nome</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cognome</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h2 id="le-dataclasses">Le Dataclasses<a class="headerlink" href="#le-dataclasses" title="Permanent link">&para;</a></h2>
+<p>Introdotte in Python 3.7, le <em>dataclasses</em> permettono di definire classi che servono principalmente a contenere dati, risparmiando quindi la scrittura dei metodi boilerplate (come <code>__init__</code>). Per usarle, importiamo il decorator <code>dataclass</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nd">@dataclass</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Configurazione</span><span class="p">:</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.001</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    <span class="n">modello</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ResNet50&quot;</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="c1"># L&#39;__init__ è generato automaticamente!</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="n">conf</span> <span class="o">=</span> <span class="n">Configurazione</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">conf</span><span class="p">)</span> 
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="c1"># Output: Configurazione(batch_size=64, learning_rate=0.001, modello=&#39;ResNet50&#39;)</span>
+</code></pre></div>
+<p>Da notare come le dataclass supportino nativamente i type hints.</p>
 
 
 

@@ -672,7 +672,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/05_classes/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/05_exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2.5 - Gestione delle eccezioni
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/02_syntax/06_classes/" class="md-nav__link">
         
   
   
@@ -700,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/06_modules/" class="md-nav__link">
+      <a href="../../../01_python/02_syntax/07_modules/" class="md-nav__link">
         
   
   
@@ -4278,7 +4306,7 @@
 <p>Gli stimatori ed i transformer offrono un'interfaccia comune, la quale offre (nella maggior parte dei casi) i metodi <code>fit</code> e <code>transform</code> per, rispettivamente, addestrare l'algoritmo (<code>fit</code>) ed effettuare le predizioni (<code>transform</code>). Tuttavia, è importante notare come ogni stimatore e transformer abbiano parametri specifici e dipendenti dalla natura dell'algoritmo utilizzato; ogni algoritmo, inoltre, andrà verificato secondo delle opportune <em>metriche</em>, che permettono di definire, in termini percentuali o assoluti, l'accuratezza dell'algoritmo utilizzato.</p>
 <div class="admonition tip">
 <p class="admonition-title">OOP in NumPy</p>
-<p>Gli stimatori derivano tutti da una classe base comune, chiamata <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html"><code>BaseEstimator</code></a>. Questa scelta garantisce l'interfaccia comune accennata in precedenza e, conseguentemente, il rispetto dei principi di <a href="../../../01_python/02_syntax/05_classes/">incapsulamento e polimorfismo</a>. Anche i transformer offrono un'interfaccia comune, basata tuttavia sull'uso del <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html"><code>TransformerMixin</code></a>, ovvero di un particolare tipo di classe (detta, per l'appunto, <em>mixin</em>) che permette di implementare meccanismi di ereditarietà multipla. </p>
+<p>Gli stimatori derivano tutti da una classe base comune, chiamata <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html"><code>BaseEstimator</code></a>. Questa scelta garantisce l'interfaccia comune accennata in precedenza e, conseguentemente, il rispetto dei principi di <a href="../../01_python/02_syntax/05_classes.md">incapsulamento e polimorfismo</a>. Anche i transformer offrono un'interfaccia comune, basata tuttavia sull'uso del <a href="https://scikit-learn.org/stable/modules/generated/sklearn.base.TransformerMixin.html"><code>TransformerMixin</code></a>, ovvero di un particolare tipo di classe (detta, per l'appunto, <em>mixin</em>) che permette di implementare meccanismi di ereditarietà multipla. </p>
 </div>
 <h2 id="preprocessing">Preprocessing<a class="headerlink" href="#preprocessing" title="Permanent link">&para;</a></h2>
 <p>Quando abbiamo <a href="../../03_ml/01_intro/03_data_prep.md">introdotto i concetti alla base del machine learning</a>, abbiamo visto come sia spesso necessario effettuare una serie di operazioni di preprocessing sui dati. Scikit-Learn offre un gran numero di strumenti per farlo; tra questi, vale la pena ricordarne tre in particolare, ovvero:</p>
