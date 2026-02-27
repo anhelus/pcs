@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
     
     
       
@@ -685,6 +685,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2.5 - Gestione delle eccezioni
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -701,6 +719,119 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#errori-sintattici-ed-eccezioni" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errori sintattici ed eccezioni
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lanciare-uneccezione-raise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lanciare un'eccezione (raise)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listruzione-assert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'istruzione assert
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestione-delle-eccezioni-il-blocco-try-except" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestione delle eccezioni: il blocco try / except
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestione delle eccezioni: il blocco try / except">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#catturare-i-dettagli-dellerrore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catturare i dettagli dell'errore
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestione-di-eccezioni-multiple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestione di eccezioni multiple
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-clausole-else-e-finally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le clausole else e finally
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#il-principio-eafp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il principio EAFP
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -721,7 +852,7 @@
   <span class="md-ellipsis">
     
   
-    1.2.5 - Classi
+    1.2.6 - Classi
   
 
     
@@ -749,7 +880,7 @@
   <span class="md-ellipsis">
     
   
-    1.2.6 - Script, moduli e package
+    1.2.7 - Script, moduli e package
   
 
     
@@ -4156,6 +4287,108 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#errori-sintattici-ed-eccezioni" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errori sintattici ed eccezioni
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lanciare-uneccezione-raise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lanciare un'eccezione (raise)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listruzione-assert" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L'istruzione assert
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestione-delle-eccezioni-il-blocco-try-except" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestione delle eccezioni: il blocco try / except
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestione delle eccezioni: il blocco try / except">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#catturare-i-dettagli-dellerrore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catturare i dettagli dell'errore
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestione-di-eccezioni-multiple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestione di eccezioni multiple
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-clausole-else-e-finally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le clausole else e finally
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#il-principio-eafp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il principio EAFP
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4171,8 +4404,133 @@
 
 
 
-<h1 id="125-gestione-delle-eccezioni">1.2.5 - Gestione delle Eccezioni<a class="headerlink" href="#125-gestione-delle-eccezioni" title="Permanent link">&para;</a></h1>
-<p>In arrivo!</p>
+<h1 id="125-gestione-delle-eccezioni">1.2.5 - Gestione delle eccezioni<a class="headerlink" href="#125-gestione-delle-eccezioni" title="Permanent link">&para;</a></h1>
+<p>Nei linguaggi interpretati l'esecuzione di un programma termina non appena viene individuato un errore. In Python ne esistono due tipi: il primo è quello <em>sintattico</em>, mentre il secondo è chiamato <em>eccezione</em>.</p>
+<h2 id="errori-sintattici-ed-eccezioni">Errori sintattici ed eccezioni<a class="headerlink" href="#errori-sintattici-ed-eccezioni" title="Permanent link">&para;</a></h2>
+<p>Gli <strong>errori di sintassi</strong> avvengono quando il parser individua un'istruzione scritta in maniera non corretta. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>              <span class="o">^</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">unmatched</span> <span class="s1">&#39;)&#39;</span>
+</code></pre></div>
+<p>In questo caso, notiamo la presenza di una parentesi di chiusura di troppo. Python lancia un <code>SyntaxError</code> prima ancora di eseguire il codice. Proviamo adesso a rimuovere la parentesi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p>Se proviamo ad eseguire questa istruzione, avremo l'altro tipo di errore, ovvero l'<strong>eccezione</strong>. In questo caso, il codice è sintatticamente corretto, ma durante l'esecuzione avviene un evento "impossibile" (divisione per zero), descritto nel <code>Traceback</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+</code></pre></div>
+<p>Il traceback ci dice:<br />
+* il <em>file</em> e la <em>riga</em> dell'errore;<br />
+* il <em>tipo</em> di eccezione (<code>ZeroDivisionError</code>);<br />
+* una breve descrizione dell'errore.</p>
+<div class="admonition note">
+<p class="admonition-title">Eccezioni built-in</p>
+<p>Python include moltissime eccezioni predefinite. Per una panoramica completa, consultate la <a href="https://docs.python.org/3/library/exceptions.html#built-in-exceptions">reference ufficiale</a>.</p>
+</div>
+<h2 id="lanciare-uneccezione-raise">Lanciare un'eccezione (<code>raise</code>)<a class="headerlink" href="#lanciare-uneccezione-raise" title="Permanent link">&para;</a></h2>
+<p>Possiamo lanciare volontariamente un'eccezione usando l'istruzione <code>raise</code>. Questo è utile, ad esempio, per validare un dato:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x vale </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">. Non deve superare 5.&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Eseguendo il codice:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  <span class="o">...</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="ne">ValueError</span><span class="p">:</span> <span class="n">x</span> <span class="n">vale</span> <span class="mf">10.</span> <span class="n">Non</span> <span class="n">deve</span> <span class="n">superare</span> <span class="mf">5.</span>
+</code></pre></div></p>
+<h2 id="listruzione-assert">L'istruzione <code>assert</code><a class="headerlink" href="#listruzione-assert" title="Permanent link">&para;</a></h2>
+<p>L'istruzione <code>assert</code> serve a verificare una condizione che <em>riteniamo debba essere vera</em> per il corretto funzionamento della logica (invarianti). Se la condizione è falsa, viene lanciato un <code>AssertionError</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># Verifica che siamo su Linux, altrimenti errore</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">assert</span> <span class="p">(</span><span class="s1">&#39;linux&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="p">),</span> <span class="s1">&#39;Questo codice richiede Linux!&#39;</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Assert vs Raise</p>
+<p>Ricordiamo di non utilizzare l'istruzione <code>assert</code> per validare dati utente o effettuare un controllo di sicurezza. Infatti, se dovessimo lanciare il nostro codice con l'opzione di ottimizzazione <code>-O</code>, scenario molto comune in produzione, tutte le istruzioni <code>assert</code> verrannno <strong>ignorate e rimosse</strong>.</p>
+</div>
+<h2 id="gestione-delle-eccezioni-il-blocco-try-except">Gestione delle eccezioni: il blocco <code>try</code> / <code>except</code><a class="headerlink" href="#gestione-delle-eccezioni-il-blocco-try-except" title="Permanent link">&para;</a></h2>
+<p>Per evitare che il programma vada in crash, possiamo decidere di <em>catturare</em> l'errore usando il blocco <code>try/except</code>.</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    state if_state &lt;&lt;choice&gt;&gt;
+    [*] --&gt; Try
+    Try --&gt; if_state
+    if_state --&gt; Except: Errore
+    if_state --&gt; [*]: Ok
+    Except --&gt; [*]</code></pre>
+<p>Facciamo un esempio pratico, provando a dividere un numero per zero:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">risultato</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Errore: Non puoi dividere per zero!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>In questo caso, invece di mostrare un traceback ed interrompersi, il programma stamperà il messaggio, continuando l'esecuzione qualora possibile.</p>
+<h3 id="catturare-i-dettagli-dellerrore">Catturare i dettagli dell'errore<a class="headerlink" href="#catturare-i-dettagli-dellerrore" title="Permanent link">&para;</a></h3>
+<p>Possiamo anche decidere di accedere ai dettagli dell'errore usando la keyword <code>as</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file_inesistente.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ops! Si è verificato un errore: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Questo darà all'utente una maggiore contezza di dove si è verificato il problema e delle procedure da seguire per risolvere il tutto.</p>
+<h3 id="gestione-di-eccezioni-multiple">Gestione di eccezioni multiple<a class="headerlink" href="#gestione-di-eccezioni-multiple" title="Permanent link">&para;</a></h3>
+<p>E' interessante anche notare come un blocco <code>try</code> possa generare diversi tipi di errore, che possono essere gestiti in maniera separata:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">valore</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Inserisci un numero: &quot;</span><span class="p">))</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">risultato</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="n">valore</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Devi inserire un numero intero!&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Non puoi inserire zero!&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="c1"># Cattura qualsiasi altro errore imprevisto</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Errore generico imprevisto: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Attenzione all'<code>except:</code>!</p>
+<p>E' importante evitare di scrivere l'istruzione <code>except:</code> senza specificare il tipo di errore. Così facendo, infatti, cattureremmo anche eventi come il <code>KeyboardInterrupt</code> (CTRL+C), impedendo all'utente di fermare il programma manualmente. Per evitare una situazione di questo tipo, potremmo decidere di usare l'istruzione <code>except Exception:</code>.</p>
+</div>
+<h2 id="le-clausole-else-e-finally">Le clausole <code>else</code> e <code>finally</code><a class="headerlink" href="#le-clausole-else-e-finally" title="Permanent link">&para;</a></h2>
+<p>Il costrutto completo prevede altri due blocchi:</p>
+<ul>
+<li><code>else</code>: eseguito <strong>solo se non ci sono stati errori</strong>.</li>
+<li><code>finally</code>: eseguito <strong>sempre</strong>, alla fine, utile per pulire risorse (chiudere file, DB).</li>
+</ul>
+<p>Ad esempio, qualora volessimo gestire in maniera corretta l'apertura e chiusura di un file, potremmo scrivere il seguente blocco di codice:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dati.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File non trovato.&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File aperto con successo. Righe: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operazione di lettura conclusa (con o senza successo).&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="il-principio-eafp">Il principio EAFP<a class="headerlink" href="#il-principio-eafp" title="Permanent link">&para;</a></h2>
+<p>Un principio molto diffuso in Python è il cosiddetto <strong>EAFP</strong>, acronimo che sta per <em>It's Easier to Ask for Forgiveness than Permission</em>. In italiano, prevedibilmente, equivale a dire che <em>è più facile chiedere perdono che permesso</em>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Attenzione</p>
+<p>Potreste essere tentati di provare a giustificare le vostre eventuali mancanze affettive affermando un'ipotetica adesione agli standard Python. Non fatelo.</p>
+</div>
+<p>In pratica, lo standard EAFP prevede che, invece di controllare preventivamente se un'operazione è possibile, in Python spesso si prova a fare l'operazione e, solo successivamente, si gestisce l'eventuale errore intercorso. Questo contrasta quindi con l'approccio <strong>LBYL</strong> (<em>Look Before You Leap</em>) tipico di linguaggi come il C.</p>
+<p>Ad esempio, se volessimo utilizzare l'approccio LBYL, potremmo provare a cercare la presenza di una chiave <code>eta</code> all'interno di un dizionario <code>user</code> e, qualora questa non sia presente, scrivere a schermo un messaggio di errore, gestendo il tutto con un'istruzione condizionale:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Mario&quot;</span><span class="p">}</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">if</span> <span class="s2">&quot;eta&quot;</span> <span class="ow">in</span> <span class="n">user</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;eta&quot;</span><span class="p">])</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Età sconosciuta&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Nell'approccio EAFP, invece, l'analisi della presenza dell'errore verrebbe gestita esclusivamente mediante un'eccezione:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="p">[</span><span class="s2">&quot;eta&quot;</span><span class="p">])</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Età sconosciuta&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Ovviamente, l'approccio EAFP è spesso meno oneroso dal punto di vista computazionale, specie se l'errore si verifica raramente. Inoltre, il codice sarebbe più leggibile, evitando potenziali proliferazioni ed annidamenti di istruzioni condizionali.</p>
 
 
 
