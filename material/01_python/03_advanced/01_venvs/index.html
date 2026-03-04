@@ -9,17 +9,21 @@
       
       
       
+        <link rel="prev" href="../../02_syntax/exercises/exercises/">
+      
+      
+        <link rel="next" href="../../../02_libs/01_jupyter/lecture/">
       
       
         
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
-        <title>1.7: La programmazione funzionale - Python per il Calcolo Scientifico</title>
+        <title>1.3.1 - Gestione degli ambienti - Python per il Calcolo Scientifico</title>
       
     
     
@@ -82,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#17-la-programmazione-funzionale" class="md-skip">
+        <a href="#131-gestione-degli-ambienti-venv" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -118,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1.7: La programmazione funzionale
+              1.3.1 - Gestione degli ambienti
             
           </span>
         </div>
@@ -264,18 +268,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -296,7 +302,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -785,18 +791,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -817,7 +825,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -832,17 +840,44 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../01_argparse/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.1 - Gestione degli ambienti
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    1.3.1 - Il modulo argparse
+    1.3.1 - Gestione degli ambienti
   
 
     
@@ -851,6 +886,98 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cose-un-ambiente-virtuale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cos'è un ambiente virtuale?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creare-un-ambiente-con-venv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creare un ambiente con venv
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attivazione-dellambiente-virtuale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attivazione dell'ambiente virtuale
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attivazione dell&#39;ambiente virtuale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#riproducibilita-requirementstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Riproducibilità: requirements.txt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disattivare-lambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disattivare l'ambiente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternativa-a-venv-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternativa a venv: conda
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4145,10 +4272,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#171-le-funzioni-di-ordine-superiore" class="md-nav__link">
+  <a href="#cose-un-ambiente-virtuale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.7.1 - Le funzioni di ordine superiore
+        Cos'è un ambiente virtuale?
       
     </span>
   </a>
@@ -4156,10 +4283,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#funzioni-anonime" class="md-nav__link">
+  <a href="#creare-un-ambiente-con-venv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Funzioni anonime
+        Creare un ambiente con venv
       
     </span>
   </a>
@@ -4167,32 +4294,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#map" class="md-nav__link">
+  <a href="#attivazione-dellambiente-virtuale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        map()
+        Attivazione dell'ambiente virtuale
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attivazione dell&#39;ambiente virtuale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#riproducibilita-requirementstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Riproducibilità: requirements.txt
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#filter" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#disattivare-lambiente" class="md-nav__link">
     <span class="md-ellipsis">
       
-        filter()
+        Disattivare l'ambiente
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#reduce" class="md-nav__link">
+  <a href="#alternativa-a-venv-conda" class="md-nav__link">
     <span class="md-ellipsis">
       
-        reduce()
+        Alternativa a venv: conda
       
     </span>
   </a>
@@ -4216,106 +4360,70 @@
 
 
 
-<h1 id="17-la-programmazione-funzionale">1.7: La programmazione funzionale<a class="headerlink" href="#17-la-programmazione-funzionale" title="Permanent link">&para;</a></h1>
-<p>La <em>programmazione funzionale</em> è un paradigma di programmazione che definisce l'elaborazione del dato attraverso e concetti di <em>funzione</em> e <em>stato immutabile</em>.</p>
-<p>Per comprendere cosa questo comporti, è utile pensare alla programmazione imperativa. In questo paradigma, infatti, l'elaborazione avviene mediante le singole istruzioni scritte nel codice sorgente, le quali consistono di una serie di comandi la cui esecuzione modifica il valore di una variabile e, conseguentemente, lo <em>stato</em> del programma. Ad esempio, un ciclo esegue ripetutamente una certa istruzione, cambiando di volta in volta il valore di una variabile:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">contatore</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">contatore</span> <span class="o">+=</span> <span class="mi">1</span>
+<h1 id="131-gestione-degli-ambienti-venv">1.3.1 - Gestione degli Ambienti (<code>venv</code>)<a class="headerlink" href="#131-gestione-degli-ambienti-venv" title="Permanent link">&para;</a></h1>
+<p>Uno dei problemi più comuni quando sviluppiamo in Python è la <em>gestione delle dipendenze</em>, ovvero delle singole librerie che utilizziamo in fase di programmazione. Di default, infatti, Python installa tutte le librerie all'interno di una cartella <em>globale</em>, valida per tutto il sistema. Questo comporta due problemi critici:</p>
+<ol>
+<li><strong>Corruzione del sistema</strong>: infatti, installare librerie in una cartella globale può creare conflitti con script di sistema che dipendono da una specifica versione di Python.</li>
+<li><strong>Conflitti di versione:</strong>: immaginiamo di lavorare su due progetti, di cui il primo richiede <code>pandas</code> alla versione 1.0, mentre il secondo richiede <code>pandas</code> alla versione 2.0, allo scopo di utilizzare nuove funzionalità. Se installassimo tutto <em>globalmente</em>, non sarebbe possibile lavorare contemporaneamente su entrambi i progetti, in quanto ci sarebbe un conflitto tra le versioni della libreria utilizzate.</li>
+</ol>
+<p>La soluzione è, quindi, l'utilizzo dei cosiddetti <em>ambienti virtuali</em> (<em>virtual environments</em>).</p>
+<h2 id="cose-un-ambiente-virtuale">Cos'è un ambiente virtuale?<a class="headerlink" href="#cose-un-ambiente-virtuale" title="Permanent link">&para;</a></h2>
+<p>Un ambiente virtuale è una cartella autocontenuta che include tre cose:<br />
+1. Una copia (o un link simbolico) dell'interprete Python.<br />
+2. Una cartella <code>site-packages</code> isolata dove verranno installate le librerie specifiche per quel progetto.<br />
+3. Uno script per attivare e disattivare l'ambiente.</p>
+<p>L'utilizzo di un ambiente virtuale per ciascun progetto garantisce il concetto di <em>isolamento</em>: ognuno ha le sue librerie, e non interferisce in alcun modo con gli altri.</p>
+<h2 id="creare-un-ambiente-con-venv">Creare un ambiente con <code>venv</code><a class="headerlink" href="#creare-un-ambiente-con-venv" title="Permanent link">&para;</a></h2>
+<p>Python 3 include nativamente il modulo <code>venv</code>, che è quello base per la creazione di ambienti virtuali. Per utilizzarlo, dobbiamo aprire il terminale, spostarci nella cartella del nostro progetto, e lanciare il segeunte comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="p">.</span><span class="n">venv</span>
 </code></pre></div>
-<p>Man mano che il valore di <code>contatore</code> aumenta, lo stato delle variabili varia di conseguenza. Di contro, la programmazione funzionale elimina il concetto di stato. Invece di modificare i valori delle variabili, questo tipo di programmazione lavora soltanto su tipi <em>immutabili</em> che, come sappiamo, non possono essere alterati. Di conseguenza, la programmazione funzionale lavora esclusivamente su <em>copie</em> della strutture dati originarie. Inoltre, mentre nella programmazione imperativa usiamo normalmente costrutti come sequenze, cicli ed iterazioni, nella programmazione funzionale usiamo esclusivamente funzioni per modificare i dati, il che risulta in soluzioni più eleganti, maggiormente modulari, e potenzialmente più efficienti.</p>
-<p>Prima di iniziare a parlare di programmazione funzionale in Python, tuttavia, è necessario introdurre alcuni concetti fondamentali.</p>
-<h2 id="171-le-funzioni-di-ordine-superiore">1.7.1 - Le funzioni di ordine superiore<a class="headerlink" href="#171-le-funzioni-di-ordine-superiore" title="Permanent link">&para;</a></h2>
-<p>Le <em>funzioni di ordine superiore</em> sono ampiamente utilizzate nella programmazione funzionale, e non sono altro che funzioni che possono a loro volta accettare una funzione come argomento, o restituire una funzione in uscita. </p>
-<p>Le funzioni di ordine superiore sono lo strumento principale per definire l'elaborazione nella programmazione funzionale. Queste sono funzioni che possono accettare una funzione come argomento, o restituire una funzione in uscita. In Python, <code>reduce()</code>, <code>map()</code> e <code>filter()</code> sono alcune tra le più importanti funzioni di ordine superiore. Quando combinate con funzioni più semplici, possono essere usate epr eseguire operazioni complesse.</p>
-<p>Vediamo un esempio di funzione di ordine superiore. In particoalre, <code>stampa_saluto()</code> accetta una funzione <code>f</code> ed una stringa <code>n</code> come argomenti, e restituisce la chiamata alla funzione <code>f</code> con argomento <code>n</code>, ovvero <code>f(n)</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span><span class="w"> </span><span class="nf">saluto</span><span class="p">(</span><span class="n">nome</span><span class="p">):</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">...</span>     <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Buongiorno, </span><span class="si">{}</span><span class="s1">!&#39;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="o">...</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span><span class="w"> </span><span class="nf">stampa_saluto</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="o">...</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">stampa_saluto</span><span class="p">(</span><span class="n">saluto</span><span class="p">,</span> <span class="s1">&#39;Mondo&#39;</span><span class="p">)</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">Buongiorno</span><span class="p">,</span> <span class="n">Mondo</span><span class="err">!</span>
-</code></pre></div>
-<h2 id="funzioni-anonime">Funzioni anonime<a class="headerlink" href="#funzioni-anonime" title="Permanent link">&para;</a></h2>
-<p>Abbiamo visto un esempio di una funzione che accetta come argomento un'altra funzione. <code>map()</code>, <code>filter()</code> e <code>reduce()</code> funzionano allo stesso modo: ognuno di loro accetta una funzione ed una sequenza di elementi, restituendo il risutato dell'applicazione della funzi0one ricevuta ad ogni elemento della sequenza. Nei due esempi precedenti, abbiamo definito le nostre funzioni suando la parola chiave <code>def</code> di Python. Questo crea un oggetto Python chiamabile che esegue l'istruzione specificata all'interno della sua definizione ogni volta che lo chiamiamo.</p>
-<p>Tuttavia, nella programmazione funzionale, le funzioni anonime (anche chiamate <em>funzioni lambda</em>) sono preferite. Ne parleremo estesamente nella prossima lezione. Tuttavia, per ora ci basti sapere che sono chiamate anonime perché non sono "collegate" ad alcun nome, allineandosi quindi alla tendenza della programmaizone funzionale verso l'assenza di stato. In pratica, la differenza principale tra le funzioni lambda e le funzioni Python normali sta nel fatto che la funzione lambda valuta una singola espressione restituendo una funzione, mentre le funzioni normali non lo fanno (necessariamente). In altri termini, le funzioni lambda non possono usare delle istruzioni come le condizionali, o anche un semplice <code>return</code>. Ecco un esempio di funzione lambda:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)(</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="mi">6</span>
-</code></pre></div>
-<p>Potremmo definire questa operazione usando la parola chiave <code>def</code> ed otterremmo lo stesso output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span><span class="w"> </span><span class="nf">aggiungi_uno</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">...</span>     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="o">...</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">aggiungi_uno</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="mi">6</span>
-</code></pre></div>
-<p>In pratica, nel primo snippet, abbiamo usato la keyword <code>lambda</code>per definire una funzione inline, chiamandola con argomento <code>x = 5</code>. La funzione è stata immediatamente valutata, ed un output prodotto. A differenza del secondo snippet, la funzione lambda non era legata ad un nome, per cui, per utilizzarla nuovamente, dovremmo riscrivere l'istruzione.</p>
-<p>Le funzioni lambda sono importanti per <code>map()</code>, <code>filter()</code> e <code>reduce()</code> perché gli argomenti che passiamo a queste funzioni sono spesso funzioni brevi che devono essere usate soltanto una volta nei nostri programmi, per cui non vi è alcun motivo per salvarle. A differenza delle funzioni regolari che devono essere definite e salvate in memoria, le funzioni anonime sono più concise, e vengono eliminate dopo l'esecuzione.</p>
-<p>Ora che abbiamo visto i preliminari, diamo uno sguardo più approfondito alle funzioni <code>map()</code>, <code>filter()</code> e <code>reduce()</code>.</p>
-<h2 id="map">map()<a class="headerlink" href="#map" title="Permanent link">&para;</a></h2>
-<p>La funzione <code>map()</code> di Python ha la seguente sintassi:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">map</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="o">*</span><span class="n">sequence</span><span class="p">)</span>
-</code></pre></div>
-<p>In pratica, <code>map()</code> applica la funzione ricevuta al primo argomento ad ogni elemento nella sequenza <code>sequence</code>, restituendo la sequenza risultatnte. Nell'esempio successivo, creiamo una lista di interi ed usiamo <code>map()</code> e la funzione <code>str</code> di Python per convertire ogni intero in stringhe.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">seq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">seq</span><span class="p">))</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">]</span>
-</code></pre></div>
-<p>Notiamo come i risultati restituiti dalla funzione <code>map()</code> siano a loro volta racchiusi in una lista. Questo è legato al fatto che, in realtà, la funzione <code>map()</code> restituisce un generator.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="o">&lt;</span><span class="nb">map</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x000001BB7143F100</span><span class="o">&gt;</span>
-</code></pre></div>
-<p>I generatori Python adottano una astrategia conosciutra come <em>lazy evaluation</em>, il che implica che Python non conosce il valore di un oggetto fino a che non lo usa. Anche se può sembrare controintuitivo, valuter un oggetto in maniera "lazy" permette di aumentare l'efficienza del codice riducendo il numero di elabroazioni non necessarie. Questo è il motivo per cui abbiamo racchiuso il generator creato da <code>map()</code> in una lista: farlo valuta l'espressione del generatore, e permette di inserire i risultati in un oggetto di tipo lista facilmente accessibile.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Le list comprehension hanno lo stesso scopo della funzione <code>map()</code>. Tuttavia, in questo caso, non abbiamo lazy evaluation.</p>
+<p>Così facendo andremo a creare una sottocartella chiamata <code>.venv</code> nella directory attuale.</p>
+<div class="admonition tip">
+<p class="admonition-title">Perché <code>.venv</code>?</p>
+<p>Il nome <code>.venv</code> è un nome standard assegnato alla cartella dell'ambiente virtuale. Tuttavia, possiamo scegliere quello che più ci aggrada. Il consiglio è però di usare il punto davanti al nome (<code>.venv</code>) al fine di rendere la cartella nascosta nei sistemi Unix-like, mantenendola in alto nelle visualizzazioni delle cartelle, e segnalando che è una directory di configurazione non contenente codice sorgente.</p>
 </div>
-<h2 id="filter">filter()<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h2>
-<p>La funzione <code>filter()</code> di Python ha la seguente sintassi:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">filter</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="o">*</span><span class="n">sequence</span><span class="p">)</span>
-</code></pre></div>
-<p>In questo caso, filter() prende una funzione chiamata <em>predicato</em> che restituisce <code>True</code> se un elemento soddisfa la condizione definita nel predicato, e <code>Falso</code>altrimenti. L'output della funzione <code>filter()</code>consiste degli elementi della sequenza originaria che soddisfano il predicato.</p>
-<p>Nel codice seguente, usiamo una funzione <code>filter()</code> su una sequenza di nomi per individuare quelli che iniziano per <code>A</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">nomi</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Angelo&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrea&#39;</span><span class="p">,</span> <span class="s1">&#39;Giovanni&#39;</span><span class="p">,</span> <span class="s1">&#39;Paolo&#39;</span><span class="p">,</span> <span class="s1">&#39;Mario&#39;</span><span class="p">,</span> <span class="s1">&#39;Luca&#39;</span><span class="p">]</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">nomi</span><span class="p">))</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">[</span><span class="s1">&#39;Angelo&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrea&#39;</span><span class="p">]</span>
-</code></pre></div>
-<p>I nomi per i quali la funzione lambda restituisce <code>True</code> sono Angelo ed Andrea, come prevedibile. Il resto della sequenza viene quindi trascurato.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Anche in questo caso avremmo potuto utilizzare una list comprehension, ottenendo una soluzione sicuramente maggiormente <em>pythonic</em>.</p>
+<h2 id="attivazione-dellambiente-virtuale">Attivazione dell'ambiente virtuale<a class="headerlink" href="#attivazione-dellambiente-virtuale" title="Permanent link">&para;</a></h2>
+<p>Il passo successivo alla creazione dell'ambiente virtuale è la sua <em>attivazione</em>, il che implica modificare temporaneamente le variabili d'ambiente del terminale (ed in particolare il <code>PATH</code>) per fare in modo che i comandi <code>python</code> e <code>pip</code> puntino all'ambiente virtuale e non a quello di sistema.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Windows (PowerShell)</label><label for="__tabbed_1_2">macOS / Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span>
+</code></pre></div><br />
+<em>Nota: In caso di errore di sicurezza, potrebbe essere necessario eseguire l'istruzione <code>Set-ExecutionPolicy Unrestricted -Scope Process</code>.</em></p>
 </div>
-<p>Potremmo anche concatenare le funzioni <code>map()</code> e <code>filter()</code> nella stessa chiamata. Se, ad esempio, volessimo ottenere i nomi che iniziano per <code>A</code> e convertirli in maiuscolo, potremmo usare la seguente istruzione:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">nomi</span><span class="p">)))</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">[</span><span class="s1">&#39;ANGELO&#39;</span><span class="p">,</span> <span class="s1">&#39;ANDREA&#39;</span><span class="p">]</span>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </code></pre></div>
-<p>In pratica, stiamo mappando la funzione lambda <code>x: x.upper()</code>, che trasforma le stringhe in maiuscolo, sui risultati della <code>filter()</code> precedentemente considerata.</p>
-<h2 id="reduce">reduce()<a class="headerlink" href="#reduce" title="Permanent link">&para;</a></h2>
-<p>La funzione <code>reduce()</code> non restituisce una nuova sequenza come <code>map()</code> o <code>filter()</code>. Invece, restituisce un singolo valreo. La sintassi è simile a quella delle altre due funzioni:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">reduce</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="o">*</span><span class="n">sequence</span><span class="p">)</span>
-</code></pre></div>
-<p>In questo caso, <code>reduce()</code> applica la funzione agli elementi della sequenza, da sinsitra verso destra, iniziando con i primi due elementi della sequenza. Combiniamo quindi i risultati dellì'applciazione della funzione ai primi due elmeenti della sequezna con il terzo elemnto, passandolo ad un'altra chiamata alla stessa funzione. Questo processo si ripete fino a che non raggiungiamo la fine dell'iteratore, e questo viene ridotto ad un singolo valore.</p>
-<p>Vediamo un esempio dove <code>reduce()</code> prende come argomento una funzione lambda che moltiplica due numeri consecutivamente:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">reduce</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">numeri</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">numeri</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">numeri</span><span class="p">)</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="mi">24</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Notiamo che, a differenza di <code>map()</code> e <code>filter()</code>, la funzione <code>reduce()</code> non è integrata in Python, ma deve essere importata dalla libreria <code>functools</code>.</p>
 </div>
-<p>Se volessimo scrivere questa stessa funzione ricorrendo ad un approccio classic, potremmo usare un iteratore, oppure una serie ricorsiva di chiamate a funzione. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span><span class="w"> </span><span class="nf">moltiplica</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="o">...</span>     <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="o">...</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">moltiplica</span><span class="p">(</span><span class="n">moltiplica</span><span class="p">(</span><span class="n">moltiplica</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> 
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="mi">24</span>
+</div>
+</div>
+<p>Una volta attivato l'ambiente virtuale, vedremo il nome tra parentesi nel prompt del terminale, ad esempio <code>(.venv) user@path:~$</code>.</p>
+<p>Una volta attivato l'ambiente, possiamo installare pacchetti in isolamento usando <code>pip</code>.</p>
+<h3 id="riproducibilita-requirementstxt">Riproducibilità: <code>requirements.txt</code><a class="headerlink" href="#riproducibilita-requirementstxt" title="Permanent link">&para;</a></h3>
+<p>La riproducibilità di un ambiente virtuale è fondamentale per permettere di utilizzare il programma su altre macchine. Per garantirla, è necessario "congelare" lo stato delle librerie installate all'interno di un file chiamato, per convenzione, <code>requirements.txt</code>. Per farlo, dobbiamo usare il comando <code>freeze</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
 </code></pre></div>
+<p>Questo creerà un file <code>requirements.txt</code> con un elenco preciso di dipendenze. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>numpy==1.26.4
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pandas==2.2.1
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>requests==2.31.0
+</code></pre></div>
+<p>Potremo quindi installare queste esatte dipendenze usando il seguente comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Non fare la commit l'ambiente!</p>
+<p>La cartella <code>.venv</code> <strong>NON</strong> va mai caricata su Git o condivisa. Contiene migliaia di file specifici per il nostro sistema operativo, e comporterebbe soltanto problemi di gestione. Di conseguenza, è sempre opportuno inserire la cartella relativa all'ambiente virtuale all'interno del file <code>.gitignore</code>, condividendo esclusivamente il file <code>requirements.txt</code>.</p>
+</div>
+<h3 id="disattivare-lambiente">Disattivare l'ambiente<a class="headerlink" href="#disattivare-lambiente" title="Permanent link">&para;</a></h3>
+<p>Una volta terminato il lavoro, è opportuno uscire dall'ambiente virutale per tornare a quello globale. Per farlo, possiamo usare il comando <code>deactivate</code> da shell.</p>
+<h2 id="alternativa-a-venv-conda">Alternativa a <code>venv</code>: <code>conda</code><a class="headerlink" href="#alternativa-a-venv-conda" title="Permanent link">&para;</a></h2>
+<p>Chiudiamo con un breve riferimetno a <code>conda</code>, un gestore di ambienti virtuali molto utilizzato in ambito data science. A differenza di <code>venv</code>, che gestisce soltanto i pacchetti Python, Conda è un gestore di pacchetti ed ambienti che può installare anche librerie esterne, come ad esempio le CUDA per il deep learning su GPU NVIDIA. La sintassi da utilizzare in questo caso è leggermente differente, e prevede comandi del tipo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myenv<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>myenv
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>conda<span class="w"> </span>install<span class="w"> </span>pandas
+</code></pre></div>
+<p>Tuttavia, <code>venv</code> rimane lo standard universale per i progetti Python, ed il consiglio è sempre e comunque di partire proprio da quello prima di migrare verso sistemi più avanzati.</p>
 
 
 

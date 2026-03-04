@@ -15,11 +15,11 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
-        <title>Attention - Python per il Calcolo Scientifico</title>
+        <title>1.3.4 - Decoratori e Generatori - Python per il Calcolo Scientifico</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#attention" class="md-skip">
+        <a href="#134-decoratori-e-generatori" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Attention
+              1.3.4 - Decoratori e Generatori
             
           </span>
         </div>
@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/01_intro/" class="md-nav__link">
+      <a href="../../01_intro/01_intro/" class="md-nav__link">
         
   
   
@@ -389,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/02_operators/" class="md-nav__link">
+      <a href="../../01_intro/02_operators/" class="md-nav__link">
         
   
   
@@ -417,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/03_strings/" class="md-nav__link">
+      <a href="../../01_intro/03_strings/" class="md-nav__link">
         
   
   
@@ -445,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/04_lists/" class="md-nav__link">
+      <a href="../../01_intro/04_lists/" class="md-nav__link">
         
   
   
@@ -473,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/exercises/" class="md-nav__link">
+      <a href="../../01_intro/exercises/" class="md-nav__link">
         
   
   
@@ -556,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/01_syntax/" class="md-nav__link">
+      <a href="../../02_syntax/01_syntax/" class="md-nav__link">
         
   
   
@@ -584,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/02_structured/" class="md-nav__link">
+      <a href="../../02_syntax/02_structured/" class="md-nav__link">
         
   
   
@@ -612,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/03_functions/" class="md-nav__link">
+      <a href="../../02_syntax/03_functions/" class="md-nav__link">
         
   
   
@@ -640,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/04_data_structures/" class="md-nav__link">
+      <a href="../../02_syntax/04_data_structures/" class="md-nav__link">
         
   
   
@@ -668,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/05_exceptions/" class="md-nav__link">
+      <a href="../../02_syntax/05_exceptions/" class="md-nav__link">
         
   
   
@@ -696,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/06_classes/" class="md-nav__link">
+      <a href="../../02_syntax/06_classes/" class="md-nav__link">
         
   
   
@@ -724,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/07_modules/" class="md-nav__link">
+      <a href="../../02_syntax/07_modules/" class="md-nav__link">
         
   
   
@@ -752,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/exercises/exercises/" class="md-nav__link">
+      <a href="../../02_syntax/exercises/exercises/" class="md-nav__link">
         
   
   
@@ -835,14 +835,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/03_advanced/01_argparse/" class="md-nav__link">
+      <a href="../01_venvs/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    1.3.1 - Il modulo argparse
+    1.3.1 - Gestione degli ambienti
   
 
     
@@ -4145,13 +4145,119 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#attention-nel-machine-learning" class="md-nav__link">
+  <a href="#decoratori" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Attention nel machine learning
+        Decoratori
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Decoratori">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creare-un-decoratore-il-pattern-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creare un Decoratore: Il Pattern Standard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applicare-il-decoratore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applicare il Decoratore
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoratori-built-in-utili" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decoratori built-in utili
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generatori" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generatori
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generatori">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lazy-evaluation-valutazione-pigra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lazy Evaluation (Valutazione Pigra)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generator-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generator Expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-duso-reale-data-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso d'uso reale: Data Pipelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso d&#39;uso reale: Data Pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yield-vs-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yield vs Return
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4172,35 +4278,154 @@
 
 
 
-<h1 id="attention">Attention<a class="headerlink" href="#attention" title="Permanent link">&para;</a></h1>
-<p>L'attetnion è un concetto ampiamente investigato che è stato spesso usato assieme ad <em>aropusal</em>, alertness, ed engagement con l'ambiente circostante.</p>
-<blockquote>
-<p>In its most generic form, attention coudl be descriebd as merely an overal level of alertness or ability to engage with surroundings.</p>
-</blockquote>
-<p>La <em>visual</em> attention è una derelle aree spesso più staudiate sia dalla prospettiva neuroscientifica, sia da quella psicologica.</p>
-<p>Quando ad un soggetto viene presentate diverse imagini, i movimenti dell'occhio che il soggetWto effettua possono rilevare le parti <em>salienti</em> dell'immagine che attraggono soprattutto la attenzione del soggetto. In questa review dei modelli computazionali per la visual attention, Itti e Koch menzioano che queste parti salienti dell'immagini sono spesso caratterizzate dagli attributi visivi, includendo il contrasto in termini di intensità, gli edge orientati, gli angoli e le giunzioni, ed il movimento. Il cervello umano ATTENDS a queste feature visive salienti a diversi livelli neuronali.</p>
-<blockquote>
-<p>I neuroni nei primi stage sono adatti a distinguere attributi visuali semplici come contrasto di intensitàò, colori opposti, orientamento, direzione e velcocità del moto, o disparità stereo a diverse scale spaziali. Il tuning dei neuroni diventa sempre più specializzato conla progressione da aree visive a basso livello verso quelle ad alto livello, in modo che le aree visive ad alto livello includono neurono che rispondono solo ad angoli o giunzioni, indizi di forma a partire dall'ombreggiatura, o vie di specifici oggetti nel modndo reale.</p>
-</blockquote>
-<p>E' interessante osservare come diversi soggetti tendono ad esesre attratti alle stesse indizi visivi.</p>
-<p>I ricercatori hanno anche scroperto diverse forme di interazione tra la memoria e l'attention. Dal modmento che il cervello umano ha una capacità di memoria limitata, scegliere quali informazioni memorizzare diventa cruciale nell'utilizzo ottimizzato di queste risorse limitate. Il cervello umano lo fa affidandosi all'attention, in modo da memorizzare dinamicamente in memoria l'informazione a cui il soggeetto umano fa più attenzione.</p>
-<h2 id="attention-nel-machine-learning">Attention nel machine learning<a class="headerlink" href="#attention-nel-machine-learning" title="Permanent link">&para;</a></h2>
-<p>Implementare il meccanismo di attention nelle ANN non segue necessariamente i meccanismi biologici e psicologici del cervello umano. INvece, è l'abilità di evidenziare dinameicamente ed usare le parti <em>salienti</em> dell'informazione a disposziione - in modo simile a quello del cervello umano - che rende l'attention un concetto così attraente nel machien learning.</p>
-<p>Possiamo pensare ai sistemi attention-based come composti di tre componenti (da Deep Learning <a href="https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/ref=sr_1_1?dchild=1&amp;keywords=deep+learning&amp;qid=1622968138&amp;sr=8-1">https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/ref=sr_1_1?dchild=1&amp;keywords=deep+learning&amp;qid=1622968138&amp;sr=8-1</a>)</p>
-<ul>
-<li>un processo che <em>legge</em> i dati raw (come le parole in una frase) e lei converte in rappresentazioni distrib uite, con un vettore delle feature assocaito alla posizione di ognio parola</li>
-<li>una lista di vettori delle feature che contienen l'output del lettore. questo può essere visto come una "memoria" che contiene una sequenza di fatti, che posssoono essere recuperati succeeeviamente, non necessariamente nello stgesso ordine, senza doverli visitare tutti nuovamente</li>
-<li>un processo che sfrutta il contenuto di memoriz per effettuare un task in maniera sequenziale, facendo in modo che ad ogni step temporale ci sia la possibilitàdi inserire l'attention sul contenuitop di un elem,ento di memoria (o di alcuni, con pesi diffeernti)</li>
-</ul>
-<p>Vediamo uil framewokr dell'encoder-decoder come esempio, perchè è in questo framework semplcie che venne per la prima volta introdotto il concetto di attention.</p>
-<p>Se stiamo elabroando una sequenzza di parole in input, allora questa sarà per prima cosa passata ad un encoder, che darà in output un vettore per ogni elemento nella sequenza., Questo corriosponde al primo compoenmtne del nostro sistema attention-based, come spiegato in precedenza.</p>
-<p>Una lista di questi vettori (il secondo compoennte del sistema attention-based dim prima), assieme agli strati nascosti rpecedenti del decoder, sarà sfruttata dal meccanismo di attention per evidenziare in maneira dinamica quale dell'i formazione di input sarà usata per generare l'output.</p>
-<p>Ad ogni step temporale, il meccanismo di attention prende quindi lìo stato nascosto precedente del decoder e la slista di vettori codificati, usandoli per generare valori di punteggio non normalizzati che indicano quanto "bene" gli elemenit della sequnza di input si alleneano all'output attuaylele. Dal momento che i valori di punteggio generati devono avere senso (relativamente) in termini di importanza, sono normalizzati passandoli attraverso una funzione softmax per generare i <em>pesi</em>. Seguendo la nromalizzazione mediante softmax, tutti i valori di pesi saranno nell'intervallo [0,1] e si sommeranno ad 1, cil che significa che possono essere interpretrati come probabilità. Infine, i vettori codificati sono scalati dai pesi clcolati epr generare un contextg vector. Questo processo di attenzione forma il terzo componente del sikstema attention-based descritto rpecedente,ente,. E' questro context vector che viene quindi mandato nel decoder per genrare un output tradotto: (<a href="https://www.frontiersin.org/articles/10.3389/fncom.2020.00029/full">https://www.frontiersin.org/articles/10.3389/fncom.2020.00029/full</a>)</p>
-<blockquote>
-<p>Questo tipo di attenzione artriificale è una forma di re-weighting iterativo. Nello specifico, evidenzia dinamneicamente diverse compoennti di un input pre-elaborato man mano che sono necessarie alla generazione dell'output. Questo li rende flessibili e context-dependent, come l'attention biologica.</p>
-</blockquote>
-<p>Il processo implementato da un sistema che incorproa un meccanismo di attention contrasta con uno che non lo comprende. In quest'uyltimo, l'encoder genrea un vettore a lunghezza fissa indipendedntemtne dalla lugnhezza co complessità dell'input. In assenza di unn eccanismo che evidenzia l'informazione saliente lungo l'intero input, il doceoder avrà accesso sotlanto all'informazione linmitata che sarebbe codificata all'interno del vettore a lunghezza fissa. Questo risulta, potnenzialmente, nelf atto che il defcodeder perde informazioni importanti.</p>
-<p>Il meccanismo di attention è+ statop inizialmente propsoto per elabroare sequenze di parle nella machine translation, che ha un aspetto temporale intrionscec,. Tuttavia può essere genralizzato per elabroare informazione che può essere statica e non encessariamente correlata in maniera sequenziale, così come nel contesto dell'image proccesing.</p>
+<h1 id="134-decoratori-e-generatori">1.3.4 - Decoratori e Generatori<a class="headerlink" href="#134-decoratori-e-generatori" title="Permanent link">&para;</a></h1>
+<p>In questa lezione esploreremo due funzionalità avanzate di Python che distinguono un programmatore principiante da un esperto: i <strong>Decoratori</strong>, per estendere le funzionalità delle funzioni, e i <strong>Generatori</strong>, per gestire flussi di dati in modo efficiente.</p>
+<h2 id="decoratori">Decoratori<a class="headerlink" href="#decoratori" title="Permanent link">&para;</a></h2>
+<p>Un decoratore è un design pattern che permette di modificare o estendere il comportamento di una funzione (o metodo) senza modificarne il codice sorgente. In Python, i decoratori sono funzioni che accettano un'altra funzione come argomento e restituiscono una nuova funzione "arricchita".</p>
+<p>Si applicano usando la sintassi <code>@nome_decoratore</code> sopra la definizione della funzione.</p>
+<h3 id="creare-un-decoratore-il-pattern-standard">Creare un Decoratore: Il Pattern Standard<a class="headerlink" href="#creare-un-decoratore-il-pattern-standard" title="Permanent link">&para;</a></h3>
+<p>Il caso d'uso più comune per un decoratore è eseguire del codice <em>prima</em> e <em>dopo</em> la funzione target (es. logging, timing, controllo accessi).</p>
+<p>Per scrivere un decoratore, usiamo una struttura a "matrioska": una funzione esterna (il decoratore) che definisce una funzione interna (il wrapper).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Stampa il tempo di esecuzione della funzione decorata.&quot;&quot;&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="c1"># @functools.wraps preserva il nome e la docstring della funzione originale</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span> 
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="c1"># 1. Eseguiamo la funzione originale</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="n">value</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="n">run_time</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="c1"># 2. Aggiungiamo il comportamento extra (logging)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La funzione </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">!r}</span><span class="s2"> ha impiegato </span><span class="si">{</span><span class="n">run_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> secondi&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="c1"># 3. Restituiamo il valore originale</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        <span class="k">return</span> <span class="n">value</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    <span class="k">return</span> <span class="n">wrapper</span>
+</code></pre></div>
+<h3 id="applicare-il-decoratore">Applicare il Decoratore<a class="headerlink" href="#applicare-il-decoratore" title="Permanent link">&para;</a></h3>
+<p>Ora possiamo applicare <code>@timer</code> a qualsiasi funzione per misurarne le performance senza toccare la logica interna:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nd">@timer</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">waste_time</span><span class="p">(</span><span class="n">num_times</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_times</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="nb">sum</span><span class="p">([</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10_000</span><span class="p">)])</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">waste_time</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Output: La funzione &#39;waste_time&#39; ha impiegato 0.3201 secondi</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice: <code>functools.wraps</code></p>
+<p>Notate l'uso di <code>@functools.wraps(func)</code> dentro il decoratore. Senza di esso, la funzione decorata perderebbe la sua identità (il nome <code>__name__</code> diventerebbe <code>wrapper</code> invece di <code>waste_time</code>), rendendo difficile il debugging.</p>
+</div>
+<h3 id="decoratori-built-in-utili">Decoratori built-in utili<a class="headerlink" href="#decoratori-built-in-utili" title="Permanent link">&para;</a></h3>
+<p>Python offre decoratori potentissimi nella libreria standard. In Data Science, il più importante è <code>@lru_cache</code> (Least Recently Used Cache) dal modulo <code>functools</code>. Serve per la <strong>memoization</strong>: salva i risultati delle funzioni costose e li restituisce istantaneamente se gli stessi argomenti vengono ripassati.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="k">return</span> <span class="n">n</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># La prima esecuzione calcola, le successive leggono dalla cache</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span> 
+</code></pre></div>
+<h2 id="generatori">Generatori<a class="headerlink" href="#generatori" title="Permanent link">&para;</a></h2>
+<p>I generatori sono funzioni speciali che permettono di creare iteratori in modo semplice. A differenza delle funzioni normali che restituiscono un valore e terminano (<code>return</code>), i generatori producono una sequenza di valori nel tempo, sospendendo l'esecuzione tra un valore e l'altro (<code>yield</code>).</p>
+<h3 id="lazy-evaluation-valutazione-pigra">Lazy Evaluation (Valutazione Pigra)<a class="headerlink" href="#lazy-evaluation-valutazione-pigra" title="Permanent link">&para;</a></h3>
+<p>Il vantaggio principale è l'efficienza della memoria. Una lista carica tutti i dati in RAM. Un generatore calcola il valore successivo solo quando richiesto (<strong>Lazy Evaluation</strong>).</p>
+<p>Immaginiamo di dover processare una sequenza di un milione di numeri:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Approccio con LISTA (Eager): Occupa molta RAM</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_squares_list</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="k">return</span> <span class="n">result</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Approccio con GENERATORE (Lazy): Memoria quasi zero</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_squares_gen</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="k">yield</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span>  <span class="c1"># Mette in pausa la funzione e restituisce il valore</span>
+</code></pre></div>
+<p>Utilizzo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Creiamo il generatore (non calcola nulla ancora)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">squares</span> <span class="o">=</span> <span class="n">get_squares_gen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Otteniamo i valori uno alla volta</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">squares</span><span class="p">))</span> <span class="c1"># 0</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">squares</span><span class="p">))</span> <span class="c1"># 1</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># O iteriamo con un ciclo for</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">get_squares_gen</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="generator-expressions">Generator Expressions<a class="headerlink" href="#generator-expressions" title="Permanent link">&para;</a></h3>
+<p>Esattamente come le <em>List Comprehension</em>, Python offre le <em>Generator Expressions</em>. La sintassi è identica ma usa le parentesi tonde <code>()</code> invece delle quadre <code>[]</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># List Comprehension: Crea subito una lista di 10.000 elementi</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">lista</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># Generator Expression: Crea un oggetto generatore (leggerissimo)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">generatore</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dimensione Lista: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Output: ~85 KB</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dimensione Generatore: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">generatore</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1"># Output: ~100-200 bytes (costante, indipendentemente da n!)</span>
+</code></pre></div>
+<h2 id="caso-duso-reale-data-pipelines">Caso d'uso reale: Data Pipelines<a class="headerlink" href="#caso-duso-reale-data-pipelines" title="Permanent link">&para;</a></h2>
+<p>In progetti di Machine Learning, spesso i dataset sono troppo grandi per stare nella RAM (es. file di log da 50GB o dataset di immagini). I generatori sono la soluzione standard per creare <strong>Data Pipelines</strong>.</p>
+<p>Esempio di lettura file "pigra":</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">read_large_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Generatore che legge un file una riga alla volta.&quot;&quot;&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>            <span class="k">yield</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Pipeline di processamento dati</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">log_lines</span> <span class="o">=</span> <span class="n">read_large_file</span><span class="p">(</span><span class="s2">&quot;server_logs.txt&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Possiamo processare file infiniti senza crashare la RAM</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">log_lines</span><span class="p">:</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="k">if</span> <span class="s2">&quot;ERROR&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Trovato errore: </span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="yield-vs-return">Yield vs Return<a class="headerlink" href="#yield-vs-return" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Caratteristica</th>
+<th style="text-align: left;"><code>return</code></th>
+<th style="text-align: left;"><code>yield</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Comportamento</strong></td>
+<td style="text-align: left;">Termina la funzione e restituisce il risultato finale.</td>
+<td style="text-align: left;">Sospende la funzione, restituisce un valore e salva lo stato.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Memoria</strong></td>
+<td style="text-align: left;">Deve costruire l'intero output in memoria.</td>
+<td style="text-align: left;">Produce un elemento alla volta (memory efficient).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Uso</strong></td>
+<td style="text-align: left;">Funzioni standard, calcoli immediati.</td>
+<td style="text-align: left;">Stream di dati, file grandi, sequenze infinite.</td>
+</tr>
+</tbody>
+</table>
 
 
 

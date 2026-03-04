@@ -15,11 +15,11 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
-        <title>03 transf attention - Python per il Calcolo Scientifico</title>
+        <title>1.3.2 - Interfacce a riga di comando (argparse) - Python per il Calcolo Scientifico</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lencoder" class="md-skip">
+        <a href="#132-interfacce-a-riga-di-comando-argparse" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              03 transf attention
+              1.3.2 - Interfacce a riga di comando (argparse)
             
           </span>
         </div>
@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/01_intro/" class="md-nav__link">
+      <a href="../../01_intro/01_intro/" class="md-nav__link">
         
   
   
@@ -389,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/02_operators/" class="md-nav__link">
+      <a href="../../01_intro/02_operators/" class="md-nav__link">
         
   
   
@@ -417,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/03_strings/" class="md-nav__link">
+      <a href="../../01_intro/03_strings/" class="md-nav__link">
         
   
   
@@ -445,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/04_lists/" class="md-nav__link">
+      <a href="../../01_intro/04_lists/" class="md-nav__link">
         
   
   
@@ -473,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/exercises/" class="md-nav__link">
+      <a href="../../01_intro/exercises/" class="md-nav__link">
         
   
   
@@ -556,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/01_syntax/" class="md-nav__link">
+      <a href="../../02_syntax/01_syntax/" class="md-nav__link">
         
   
   
@@ -584,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/02_structured/" class="md-nav__link">
+      <a href="../../02_syntax/02_structured/" class="md-nav__link">
         
   
   
@@ -612,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/03_functions/" class="md-nav__link">
+      <a href="../../02_syntax/03_functions/" class="md-nav__link">
         
   
   
@@ -640,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/04_data_structures/" class="md-nav__link">
+      <a href="../../02_syntax/04_data_structures/" class="md-nav__link">
         
   
   
@@ -668,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/05_exceptions/" class="md-nav__link">
+      <a href="../../02_syntax/05_exceptions/" class="md-nav__link">
         
   
   
@@ -696,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/06_classes/" class="md-nav__link">
+      <a href="../../02_syntax/06_classes/" class="md-nav__link">
         
   
   
@@ -724,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/07_modules/" class="md-nav__link">
+      <a href="../../02_syntax/07_modules/" class="md-nav__link">
         
   
   
@@ -752,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/exercises/exercises/" class="md-nav__link">
+      <a href="../../02_syntax/exercises/exercises/" class="md-nav__link">
         
   
   
@@ -835,14 +835,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/03_advanced/01_argparse/" class="md-nav__link">
+      <a href="../01_venvs/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    1.3.1 - Il modulo argparse
+    1.3.1 - Gestione degli ambienti
   
 
     
@@ -4138,6 +4138,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#struttura-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Struttura base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Struttura base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creazione-dello-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creazione dello script
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestione-dei-tipi-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestione dei Tipi (type)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flag-booleani-store_true" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flag Booleani (store_true)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vincolare-le-scelte-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vincolare le scelte (choices)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esempio-completo-template-per-ml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esempio Completo (Template per ML)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4153,38 +4233,149 @@
 
 
 
-<p>Before the introduction of the Transformer model, the use of attention for neural machine translation was implemented by RNN-based encoder-decoder architectures. The Transformer model revolutionized the implementation of attention by dispensing with recurrence and convolutions and, alternatively, relying solely on a self-attention mechanism. </p>
-<p>Introduction to the Transformer Attention<br />
-Thus far, you have familiarized yourself with using an attention mechanism in conjunction with an RNN-based encoder-decoder architecture. Two of the most popular models that implement attention in this manner have been those proposed by Bahdanau et al. (2014) and Luong et al. (2015). </p>
-<p>The Transformer architecture revolutionized the use of attention by dispensing with recurrence and convolutions, on which the formers had extensively relied. </p>
-<p>… the Transformer is the first transduction model relying entirely on self-attention to compute representations of its input and output without using sequence-aligned RNNs or convolution.</p>
-<p>– Attention Is All You Need, 2017.</p>
-<p>In their paper, “Attention Is All You Need,” Vaswani et al. (2017) explain that the Transformer model, alternatively, relies solely on the use of self-attention, where the representation of a sequence (or sentence) is computed by relating different words in the same sequence. </p>
-<p>Self-attention, sometimes called intra-attention, is an attention mechanism relating different positions of a single sequence in order to compute a representation of the sequence.</p>
-<p>– Attention Is All You Need, 2017.</p>
-<h1 id="lencoder">L'encoder<a class="headerlink" href="#lencoder" title="Permanent link">&para;</a></h1>
-<p>L'encoder consiste di uno stack di <span class="arithmatex">\(N=6\)</span> identici layer, dove ogni layer è composto da due sottolayer::</p>
+<h1 id="132-interfacce-a-riga-di-comando-argparse">1.3.2 - Interfacce a riga di comando (<code>argparse</code>)<a class="headerlink" href="#132-interfacce-a-riga-di-comando-argparse" title="Permanent link">&para;</a></h1>
+<p>Sviluppare uno script Python in maniera corretta implica la necessità di evitare la modifica del codice sorgente ogni volta che vogliamo cambiare un parametro come, ad esempio, il numero di epoche di training, il percorso del dataset da analizzare, o il learning rate del nostro modello. Il modulo <a href="https://docs.python.org/3/library/argparse.html"><code>argparse</code></a> della libreria standard ci permette di passare questi parametri direttamente da riga di comando (CLI).</p>
+<h2 id="struttura-base">Struttura base<a class="headerlink" href="#struttura-base" title="Permanent link">&para;</a></h2>
+<p>L'uso di <code>argparse</code> prevede quattro step fondamentali:</p>
 <ol>
-<li>il primo sublayer implementa un meccanismo di multi-head self-attention. Abbiamo visto che il multi-head mechanism implementa <span class="arithmatex">\(h\)</span> head che riceve una (differente) versione proiettata delle query, key, e value, ognuno per produrre <span class="arithmatex">\(h\)</span> output in parallelo che sono quindi usati per generare un risultato finale.</li>
-<li>il secondo sublayer è un fully connected feed-forward network che consiste di due trasformazioni lineari con elle attivazioni di tipo ReLU:</li>
+<li>Per prima cosa, dovremo creare un oggetto di classe <a href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser"><code>ArgumentParser</code></a>.</li>
+<li>A questo punto, dovremo aggiungere gli argomenti attesi dallo script (<code>add_argument</code>).</li>
+<li>Effettuare il parsing (<code>parse_args</code>);</li>
+<li>Usare i valori all'interno dello script.</li>
 </ol>
-<div class="arithmatex">\[
-FFN(x) = ReLU(W_1 x + b_1) W_2 + b_2
-\]</div>
-<p>I sei layer del transformer dell'encoder del transformer applicano la stessa trasformazione linere aa tutte le parole nella sequenza di input, ma ogni layer sfrutta diversi pesi <span class="arithmatex">\((W_1, W_2)\)</span> ed i bias <span class="arithmatex">\((b_1, b_2)\)</span> parametri per farlo.</p>
-<p>Inoltre, ognuno di questi due sublayer ha una connessione residuale che lo circonda.</p>
-<p>Ogni sublayer è anche succeduta da un layer di normalizzazione, layernorm(.), che normlaizza la somma calcolata tra il sublayer di input, x,m e l'output generato dal sublayer stesso, sublayer(x):</p>
-<div class="arithmatex">\[
-layernorm(x + sublaayer(x))
-\]</div>
-<p>Un'importante considerazione da tenere in mente è che l'architettura transfoemr non può intrinsiecamente catturare ogni ifnormazione sulle posizioni relative delle parlnella sequeznqa dal momento che non fa uso delle ricorrenze. Questa inforamzione deve essere ineiettata introducendo dei <em>positional encodings</em> all'embedding di input.</p>
-<p>I vettori di positional encoding sono della stessa dimensione degli input embeddings e sono generati usando funzioni seno e coseno a diverse frequenze. Quindi, sono semplicemente sommate agli input embedding per iniettare l'informazione posizionale.</p>
-<h1 id="il-decoder">Il decoder<a class="headerlink" href="#il-decoder" title="Permanent link">&para;</a></h1>
-<p>Il decoder codnivide diverse similarità con l'encoder.</p>
-<p>Il decoder è anche questo composto di uno stack di <span class="arithmatex">\(N=6\)</span> layer identici che sono composti di tre sublayer:</p>
-<ol>
-<li>il primo sublayer riceve l'output precedente dello stack di decodifica, lo auenta con informazione posizionle, ed iomplementa su di esso la multi-head self-attention. Anche se l'encoder èp progettato epr trattare tutte le parole nella sequenza di input indipendentemtne dalla loro posizione lnella sstessa, il decoder viene modificato per fare attenzione soltanto alle parole precedenti. Quindi, la prediuzione per una parola alla posizione <span class="arithmatex">\(i\)</span> può dipendere solo dagli output consociuti dalle parole che vengono prima nella sequenza. Nel meccanismo di attenzione multi-head che implementa più funzioni singole di attenzione in maniera parallela questo viene ottenuto introducendo una maschera sui valori oprdotti dalla moltiplicazione scalare delle matrici <span class="arithmatex">\(Q\)</span> e <span class="arithmatex">\(K\)</span>. Qeusta maschera viene implemettata sopprimendo i valori matriciali che sarebbero altrimenti corrispondenti a delle connessioni non consentite.</li>
-</ol>
+<p>Usiamo un approccio pratico. Immaginiamo di voler popolare una semplice struttura dati che rappresenta una persona. Per farlo in modo moderno, useremo una <a href="../02_syntax/05_classes.md">Dataclass</a>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nd">@dataclass</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Persona</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">cognome</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">eta</span><span class="p">:</span> <span class="nb">int</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">studente</span><span class="p">:</span> <span class="nb">bool</span>
+</code></pre></div>
+<h3 id="creazione-dello-script">Creazione dello script<a class="headerlink" href="#creazione-dello-script" title="Permanent link">&para;</a></h3>
+<p>Creiamo un file <code>cli_demo.py</code>. Definiremo una funzione <code>main</code> che accetta gli argomenti parsati e crea l'oggetto.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># ... (inserire qui la definizione della dataclass Persona) ...</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">):</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="sd">    Logica principale dello script.</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="sd">    Riceve i parametri parsati e istanzia la classe.</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">Persona</span><span class="p">(</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="n">nome</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">nome</span><span class="p">,</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="n">cognome</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">cognome</span><span class="p">,</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="n">eta</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">eta</span><span class="p">,</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="n">studente</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">studente</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="p">)</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creato oggetto: </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="c1"># 1. Creazione del parser</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Script demo per gestire persone.&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="c1"># 2. Aggiunta argomenti</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    <span class="c1"># Argomento con valore di default (Opzionale)</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>        <span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--nome&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Nome della persona&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;Mario&#39;</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    <span class="p">)</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    <span class="c1"># Argomento obbligatorio (required=True)</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>        <span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--cognome&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Cognome della persona&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>        <span class="n">required</span><span class="o">=</span><span class="kc">True</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    <span class="p">)</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>    <span class="c1"># 3. Parsing</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>    <span class="c1"># 4. Esecuzione</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>    <span class="n">run</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</code></pre></div>
+<p>Eseguiamo lo script da terminale:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Errore: manca il cognome (obbligatorio)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python<span class="w"> </span>cli_demo.py<span class="w"> </span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Output: error: the following arguments are required: -c/--cognome</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Funzionamento corretto</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>python<span class="w"> </span>cli_demo.py<span class="w"> </span>-c<span class="w"> </span>Rossi
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Output: Creato oggetto: Persona(nome=&#39;Mario&#39;, cognome=&#39;Rossi&#39;, ...)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Help automatico</p>
+<p><code>argparse</code> genera automaticamente un messaggio di aiuto. Provate a lanciare:<br />
+<code>python cli_demo.py --help</code></p>
+</div>
+<h2 id="gestione-dei-tipi-type">Gestione dei Tipi (<code>type</code>)<a class="headerlink" href="#gestione-dei-tipi-type" title="Permanent link">&para;</a></h2>
+<p>Di default, <code>argparse</code> tratta tutto come stringhe. Se vogliamo passare un numero (es. l'età), dobbiamo specificare il tipo.</p>
+<p>Aggiungiamo l'argomento età al parser:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>        <span class="s1">&#39;-e&#39;</span><span class="p">,</span> <span class="s1">&#39;--eta&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Età della persona&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>           <span class="c1"># Conversione automatica in intero</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="n">default</span><span class="o">=</span><span class="mi">18</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="p">)</span>
+</code></pre></div>
+<p>Se l'utente prova a passare una stringa non numerica, il programma si fermerà prima di eseguire <code>run()</code>, mostrando un errore chiaro.</p>
+<h2 id="flag-booleani-store_true">Flag Booleani (<code>store_true</code>)<a class="headerlink" href="#flag-booleani-store_true" title="Permanent link">&para;</a></h2>
+<p>Spesso in AI abbiamo bisogno di "interruttori" on/off (es. <code>--use-gpu</code>, <code>--verbose</code>, <code>--dry-run</code>). In questi casi non vogliamo passare un valore, ma solo sapere se il flag è presente o meno. Si usa <code>action='store_true'</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>        <span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--studente&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Indica se la persona è uno studente&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span> <span class="c1"># Se presente diventa True, altrimenti False</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="p">)</span>
+</code></pre></div>
+<p>Utilizzo:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Senza flag -&gt; studente=False</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>cli_demo.py<span class="w"> </span>-c<span class="w"> </span>Rossi<span class="w"> </span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Con flag -&gt; studente=True</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>python<span class="w"> </span>cli_demo.py<span class="w"> </span>-c<span class="w"> </span>Rossi<span class="w"> </span>--studente
+</code></pre></div></p>
+<h2 id="vincolare-le-scelte-choices">Vincolare le scelte (<code>choices</code>)<a class="headerlink" href="#vincolare-le-scelte-choices" title="Permanent link">&para;</a></h2>
+<p>Se un parametro può assumere solo un set limitato di valori (es. il modello da usare per il training), possiamo usare <code>choices</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>        <span class="s1">&#39;--ruolo&#39;</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;guest&#39;</span><span class="p">],</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="n">default</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Ruolo nel sistema&#39;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="p">)</span>
+</code></pre></div>
+<p>Se l'utente passa <code>--ruolo superadmin</code>, <code>argparse</code> bloccherà l'esecuzione segnalando che il valore non è tra quelli ammessi.</p>
+<h2 id="esempio-completo-template-per-ml">Esempio Completo (Template per ML)<a class="headerlink" href="#esempio-completo-template-per-ml" title="Permanent link">&para;</a></h2>
+<p>Ecco uno snippet "pronto all'uso" che copre il 90% dei casi d'uso in un progetto di Machine Learning:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="c1"># Iperparametri (Numeri)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--epochs&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Numero di epoche&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--lr&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Learning rate&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="c1"># Percorsi (Stringhe)</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--data&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Path del dataset&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="c1"># Configurazioni (Scelte e Flag)</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--model&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;resnet&#39;</span><span class="p">,</span> <span class="s1">&#39;vgg&#39;</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;resnet&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--gpu&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Abilita training su GPU&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Training </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="si">}</span><span class="s2"> on </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">epochs</span><span class="si">}</span><span class="s2"> epochs...&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">gpu</span><span class="p">:</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GPU Enabled!&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
 
 
 

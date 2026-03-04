@@ -15,11 +15,11 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
-        <title>Meccanismo di attention - Python per il Calcolo Scientifico</title>
+        <title>03 hinting - Python per il Calcolo Scientifico</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#meccanismo-di-attention" class="md-skip">
+        <a href="#133-type-hinting-e-validazione-dati-pydantic" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Meccanismo di attention
+              03 hinting
             
           </span>
         </div>
@@ -361,7 +361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/01_intro/" class="md-nav__link">
+      <a href="../../01_intro/01_intro/" class="md-nav__link">
         
   
   
@@ -389,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/02_operators/" class="md-nav__link">
+      <a href="../../01_intro/02_operators/" class="md-nav__link">
         
   
   
@@ -417,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/03_strings/" class="md-nav__link">
+      <a href="../../01_intro/03_strings/" class="md-nav__link">
         
   
   
@@ -445,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/04_lists/" class="md-nav__link">
+      <a href="../../01_intro/04_lists/" class="md-nav__link">
         
   
   
@@ -473,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/01_intro/exercises/" class="md-nav__link">
+      <a href="../../01_intro/exercises/" class="md-nav__link">
         
   
   
@@ -556,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/01_syntax/" class="md-nav__link">
+      <a href="../../02_syntax/01_syntax/" class="md-nav__link">
         
   
   
@@ -584,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/02_structured/" class="md-nav__link">
+      <a href="../../02_syntax/02_structured/" class="md-nav__link">
         
   
   
@@ -612,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/03_functions/" class="md-nav__link">
+      <a href="../../02_syntax/03_functions/" class="md-nav__link">
         
   
   
@@ -640,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/04_data_structures/" class="md-nav__link">
+      <a href="../../02_syntax/04_data_structures/" class="md-nav__link">
         
   
   
@@ -668,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/05_exceptions/" class="md-nav__link">
+      <a href="../../02_syntax/05_exceptions/" class="md-nav__link">
         
   
   
@@ -696,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/06_classes/" class="md-nav__link">
+      <a href="../../02_syntax/06_classes/" class="md-nav__link">
         
   
   
@@ -724,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/07_modules/" class="md-nav__link">
+      <a href="../../02_syntax/07_modules/" class="md-nav__link">
         
   
   
@@ -752,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/02_syntax/exercises/exercises/" class="md-nav__link">
+      <a href="../../02_syntax/exercises/exercises/" class="md-nav__link">
         
   
   
@@ -835,14 +835,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01_python/03_advanced/01_argparse/" class="md-nav__link">
+      <a href="../01_venvs/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    1.3.1 - Il modulo argparse
+    1.3.1 - Gestione degli ambienti
   
 
     
@@ -4145,10 +4145,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#il-meccaqnismo-di-attention-generale" class="md-nav__link">
+  <a href="#type-hinting-avanzato" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Il meccaqnismo di attention generale
+        Type Hinting Avanzato
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Hinting Avanzato">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipi-composti-list-dict-tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipi Composti (List, Dict, Tuple)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#union-e-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Union e Optional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#il-tipo-any" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il tipo Any
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-type-checking-mypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static Type Checking (mypy)
       
     </span>
   </a>
@@ -4156,10 +4206,71 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uso-di-numpyu-e-scipy" class="md-nav__link">
+  <a href="#pydantic-validazione-dati-a-runtime" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Uso di num,pyu e scipy
+        Pydantic: Validazione Dati a Runtime
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pydantic: Validazione Dati a Runtime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#il-basemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il BaseModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestione-degli-errori" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestione degli Errori
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validazione-avanzata-con-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validazione Avanzata con Field
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serializzazione" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serializzazione
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestione-configurazioni-basesettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestione Configurazioni (BaseSettings)
       
     </span>
   </a>
@@ -4183,124 +4294,146 @@
 
 
 
-<h1 id="meccanismo-di-attention">Meccanismo di attention<a class="headerlink" href="#meccanismo-di-attention" title="Permanent link">&para;</a></h1>
-<p>L'attention mechanism venne introdotto da Bahdanau nel 2014 (<a href="https://arxiv.org/abs/1409.0473">https://arxiv.org/abs/1409.0473</a>) per risolvere il problema del collo di bottiglia che merge dall'uso di vettori di codifica a lunghezza fissa, con il decoder che ha accesso limitato all'informazione fornita dall'input. Questo diventa problematico specialmente nelc aso di sequenze lunghe o complesse, dove la dimensionalità della rappresentazionesarà forzata ad essere la stessa di quella di frasi più semplici o corte.</p>
-<p>Da notare che il meccanismo di attention di Bahdanau è diviso nel calcolo passo passo di <em>alignment scores</em>, <em>weights</em>, e del <em>context vector</em>.</p>
-<ol>
-<li>Alignment scores: il modello di allineamento prende gli stati nascosti del decoder <span class="arithmatex">\(h_i\)</span> ed il precedente output del decoder <span class="arithmatex">\(s_{t-1}\)</span> per calcolare uno score <span class="arithmatex">\(e_{t,1}\)</span> che indica quanto bene gli elementi della sequenza di input si allineano allk'oputput corrente alla posizione <span class="arithmatex">\(t\)</span>. Il modello di allineamento è rappresentato da una funzione <span class="arithmatex">\(a(\cdot)\)</span> che può essere implementata usando una rete neurale feedforward:</li>
-</ol>
-<div class="arithmatex">\[
-e_{t,i}=a(s_{t-1},h_i)
-\]</div>
-<ol start="2">
-<li>pesi: i pesi <span class="arithmatex">\(\alpha_{t,i}\)</span> sono calcolati applicando un'operazione di softmax agli alignment score calcolati in precedenza:</li>
-</ol>
-<div class="arithmatex">\[
-\alpha_{t,i} = softmax(e_{t,i})
-\]</div>
-<ol start="3">
-<li>context vector: un context vector unic, <span class="arithmatex">\(c_t\)</span>, viene inviato al decoder ad ogni step temporale. Viene calcolato come la somma pesata di tutti i <span class="arithmatex">\(T\)</span> stati nascosti codificati:</li>
-</ol>
-<div class="arithmatex">\[
-c_t = \sum_{i=1}^T \alpha_{t,i} h_i
-\]</div>
-<p>In particolar,e nell'implementazione originale vi era un RNN sia per l'encoder sia per il decoder.</p>
-<p>Ad ogni modo, il meccanismo di attention può essere riformulato in una forma generale che può essere applicata ad una qualsias task sequence-to-sequence (seq2seq), dove l'informazione potrebbe non necessariaemnte essere correlata in maniera sequenziale.</p>
-<h2 id="il-meccaqnismo-di-attention-generale">Il meccaqnismo di attention generale<a class="headerlink" href="#il-meccaqnismo-di-attention-generale" title="Permanent link">&para;</a></h2>
-<p>Il <em>general attention mechanism</em> sua tre componenti principali, ovvero le <em>query</em> <span class="arithmatex">\(Q\)</span>, le chiavi <span class="arithmatex">\(K\)</span> e i values <span class="arithmatex">\(V\)</span>.</p>
-<p>SE dobbiamo comparare questi tre componenti al meccanismo di attention propost da Bahdanau, la query sarà analoga all'output precedente del decoder, <span class="arithmatex">\(s_{t-1}\)</span>, mentre i values saranno anaolghi agli input codificati <span class="arithmatex">\(h_i\)</span>. Nel meccahinsmo di attention di Bahdanau, le chiavi ed i valori sono  lo stesso vettore.</p>
-<p>Possiamo pensare al vettore <span class="arithmatex">\(s_{t-1}\)</span> come una query eseguita su un database di coppie chiave-valore, mentre le chiavi sono i vettori e gli stati nascosti <span class="arithmatex">\(h_i\)</span> i valori.</p>
-<p>Il general attention mechainsm effettua i seguenti calcoli:</p>
-<ol>
-<li>ogni query vector <span class="arithmatex">\(q=s_{t-1}\)</span> viene conforntato con un database di chiave per calcolare un punteggio. Questa operazione di matching viene effettauta come prodotto scalare della specifica query considerata con ogni vettore chiave <span class="arithmatex">\(k_i\)</span>:</li>
-</ol>
-<div class="arithmatex">\[
-e_{q, k_i} = q \cdot k_i
-\]</div>
-<ol start="2">
-<li>Gli score sono passati attraverso un'operazione di softmax per generare i pesi:</li>
-</ol>
-<div class="arithmatex">\[
-\alpha_{q, k_i} = softmax(e_{q, k_i})
-\]</div>
-<p>L'attention generale viene qunind i calcolata dalla somma pesata dei value ve tors <span class="arithmatex">\(v_k-i\)</span>, dove ogni value vecotr viene accoppiato con una chaive corrispondente:</p>
-<div class="arithmatex">\[
-attention(q, K, V) = \sum_i \alpha_{q, k_i V_{k_i}}
-\]</div>
-<p>Nel contesto dlela machine translation, ad ogni parola in una sequenza di input sarà attribuita la sua query, chaive, e value vectrors. Questi vettori sono generati moltilpicando la rappresentazione dell'encoder della specifica parola considerata con tre diverse matrici di peso che sarebbero state genrate durante l'addestramento.</p>
-<p>In pratica, quando il meccanismo di attention generalizzato viene prensentato una sequenza di parole, prende il query vector attribuito ad alcuen parole specifiche nelle sequenze e lo misura rispetto ad ogni chiave nel database. Nel fralo, cattura come la parola conmsiderata si correla alle altre nella sequenza. Quindi scala i valori in accordo ai pesi di attenzione calcolati dai punteggi per mantenere il focus su quelle parole rilevanit alla query. Nel farlo, viene prodotto un output di attenzione per la parola considerata.</p>
-<h2 id="uso-di-numpyu-e-scipy">Uso di num,pyu e scipy<a class="headerlink" href="#uso-di-numpyu-e-scipy" title="Permanent link">&para;</a></h2>
-<p>Vediamo come implementare il genereal attention mechanism usando le librerie NumPy e Scipy in Python. Per semplicità, calcoliamo inizialmente l'attention per la prima parola in una sequenza di quattro. A questo punto,g eneralizziamo il codice per caolcolare l'output di attention per tutte le quattro parole in forma matriclae.</p>
-<p>Iniziamo per prima cosa definendo gli embedding delle quattro diverse parole per calcolare l'attention. Nella pratica, quyesti embedding sarebbero stati generati da un encoder; per questo esempio, li definirnemeo manualmente.</p>
-<h1 id="encoder-representations-of-four-different-words">encoder representations of four different words<a class="headerlink" href="#encoder-representations-of-four-different-words" title="Permanent link">&para;</a></h1>
-<p>word<em>1 = array([1, 0, 0])<br />
-word</em>2 = array([0, 1, 0])<br />
-word<em>3 = array([1, 1, 0])<br />
-word</em>4 = array([0, 0, 1])</p>
-<p>Lo step succesivo genera le matrici dipeso, che alla fine moltiplicheremo per gli embedding per genrare le query, key, e vvalyes. Qui generiamo queste matrici dei pesi in maniera casuael; tuttavia, nella pratica, qeusti sarebbero stati appresi durante il training.</p>
-<p>...</p>
-<h1 id="generating-the-weight-matrices">generating the weight matrices<a class="headerlink" href="#generating-the-weight-matrices" title="Permanent link">&para;</a></h1>
-<p>random.seed(42) # to allow us to reproduce the same attention values<br />
-W<em>Q = random.randint(3, size=(3, 3))<br />
-W</em>K = random.randint(3, size=(3, 3))<br />
-W_V = random.randint(3, size=(3, 3))</p>
-<p>Botiamo come il numeor di righe di ciascuna di queste matrici è+ uguale alla diemnsione dei word embedding (in questo caso tre) per permetterci di effettuare la moltiplicazione amtriciale.</p>
-<p>Di consequenza, query, key e value vector perr ogni parola sono  genrati moltiplicando ogni wmebdding per ciascuna delle matrici dei pesi.</p>
-<p>...</p>
-<h1 id="generating-the-queries-keys-and-values">generating the queries, keys and values<a class="headerlink" href="#generating-the-queries-keys-and-values" title="Permanent link">&para;</a></h1>
-<p>query<em>1 = word</em>1 @ W<em>Q<br />
-key</em>1 = word<em>1 @ W</em>K<br />
-value<em>1 = word</em>1 @ W_V</p>
-<p>query<em>2 = word</em>2 @ W<em>Q<br />
-key</em>2 = word<em>2 @ W</em>K<br />
-value<em>2 = word</em>2 @ W_V</p>
-<p>query<em>3 = word</em>3 @ W<em>Q<br />
-key</em>3 = word<em>3 @ W</em>K<br />
-value<em>3 = word</em>3 @ W_V</p>
-<p>query<em>4 = word</em>4 @ W<em>Q<br />
-key</em>4 = word<em>4 @ W</em>K<br />
-value<em>4 = word</em>4 @ W_V</p>
-<p>Considerando solo la prima parola, lo step successivo peswa il suo query vector rispetto a tutti i key vector usando un'operazione di prodotto scalare.</p>
-<p>...</p>
-<h1 id="scoring-the-first-query-vector-against-all-key-vectors">scoring the first query vector against all key vectors<a class="headerlink" href="#scoring-the-first-query-vector-against-all-key-vectors" title="Permanent link">&para;</a></h1>
-<p>scores = array([dot(query<em>1, key</em>1), dot(query<em>1, key</em>2), dot(query<em>1, key</em>3), dot(query<em>1, key</em>4)])</p>
-<p>I valori di punteggio sono quindi pasati attravero un'operazione di softmax per generare i pesi. Prima di farlo, è rpatica comune dividerli epr il quadrato della dimensionalità dei key veector (in questo caso tre) per mantenere stabili i gradienti.</p>
-<p>...</p>
-<h1 id="computing-the-weights-by-a-softmax-operation">computing the weights by a softmax operation<a class="headerlink" href="#computing-the-weights-by-a-softmax-operation" title="Permanent link">&para;</a></h1>
-<p>weights = softmax(scores / key_1.shape[0] ** 0.5)</p>
-<p>Infine, l'output di attention viene calcoalto come somma pesata di tutti i quattro value vector.</p>
-<p>...</p>
-<h1 id="computing-the-attention-by-a-weighted-sum-of-the-value-vectors">computing the attention by a weighted sum of the value vectors<a class="headerlink" href="#computing-the-attention-by-a-weighted-sum-of-the-value-vectors" title="Permanent link">&para;</a></h1>
-<p>attention = (weights[0] * value<em>1) + (weights[1] * value</em>2) + (weights[2] * value<em>3) + (weights[3] * value</em>4)</p>
-<p>print(attention)</p>
-<p>Il codice completo è il seguente, implementanto ilk tuttto in forma matriciale per generar eun oiutput di attention per tutte e quattro le parole in un'unica passata:</p>
-<p>from numpy import array<br />
-from numpy import random<br />
-from numpy import dot<br />
-from scipy.special import softmax</p>
-<h1 id="encoder-representations-of-four-different-words_1">encoder representations of four different words<a class="headerlink" href="#encoder-representations-of-four-different-words_1" title="Permanent link">&para;</a></h1>
-<p>word<em>1 = array([1, 0, 0])<br />
-word</em>2 = array([0, 1, 0])<br />
-word<em>3 = array([1, 1, 0])<br />
-word</em>4 = array([0, 0, 1])</p>
-<h1 id="stacking-the-word-embeddings-into-a-single-array">stacking the word embeddings into a single array<a class="headerlink" href="#stacking-the-word-embeddings-into-a-single-array" title="Permanent link">&para;</a></h1>
-<p>words = array([word<em>1, word</em>2, word<em>3, word</em>4])</p>
-<h1 id="generating-the-weight-matrices_1">generating the weight matrices<a class="headerlink" href="#generating-the-weight-matrices_1" title="Permanent link">&para;</a></h1>
-<p>random.seed(42)<br />
-W<em>Q = random.randint(3, size=(3, 3))<br />
-W</em>K = random.randint(3, size=(3, 3))<br />
-W_V = random.randint(3, size=(3, 3))</p>
-<h1 id="generating-the-queries-keys-and-values_1">generating the queries, keys and values<a class="headerlink" href="#generating-the-queries-keys-and-values_1" title="Permanent link">&para;</a></h1>
-<p>Q = words @ W<em>Q<br />
-K = words @ W</em>K<br />
-V = words @ W_V</p>
-<h1 id="scoring-the-query-vectors-against-all-key-vectors">scoring the query vectors against all key vectors<a class="headerlink" href="#scoring-the-query-vectors-against-all-key-vectors" title="Permanent link">&para;</a></h1>
-<p>scores = Q @ K.transpose()</p>
-<h1 id="computing-the-weights-by-a-softmax-operation_1">computing the weights by a softmax operation<a class="headerlink" href="#computing-the-weights-by-a-softmax-operation_1" title="Permanent link">&para;</a></h1>
-<p>weights = softmax(scores / K.shape[1] ** 0.5, axis=1)</p>
-<h1 id="computing-the-attention-by-a-weighted-sum-of-the-value-vectors_1">computing the attention by a weighted sum of the value vectors<a class="headerlink" href="#computing-the-attention-by-a-weighted-sum-of-the-value-vectors_1" title="Permanent link">&para;</a></h1>
-<p>attention = weights @ V</p>
-<p>print(attention)</p>
+<p>Ecco la bozza per il file <strong>1.3.3</strong>, sintetizzata e adattata dai due lunghi articoli che mi hai fornito.</p>
+<p>Ho unito i concetti di <strong>Type Hinting avanzato</strong> (dall'articolo su <em>mypy</em>) con la potenza di <strong>Pydantic</strong> (dall'articolo su <em>Pydantic</em>), creando un percorso logico che va dalla teoria alla pratica ingegneristica. Ho aggiornato la sintassi allo standard moderno (Python 3.10+, usando <code>|</code> per le Union e i generici built-in <code>list[]</code> invece di <code>List[]</code>).</p>
+<hr />
+<h1 id="133-type-hinting-e-validazione-dati-pydantic">1.3.3 - Type Hinting e Validazione Dati (Pydantic)<a class="headerlink" href="#133-type-hinting-e-validazione-dati-pydantic" title="Permanent link">&para;</a></h1>
+<p>Python è un linguaggio a <strong>tipizzazione dinamica</strong>: non siamo obbligati a dichiarare il tipo delle variabili e questo può cambiare durante l'esecuzione. Tuttavia, in progetti complessi di Data Science e ML Engineering, questa libertà può diventare una trappola, rendendo difficile capire che forma devono avere i dati che passano attraverso le nostre pipeline.</p>
+<p>In questa lezione vedremo come rendere il codice robusto usando il <strong>Type Hinting Avanzato</strong> e come validare i dati a runtime con <strong>Pydantic</strong>.</p>
+<h2 id="type-hinting-avanzato">Type Hinting Avanzato<a class="headerlink" href="#type-hinting-avanzato" title="Permanent link">&para;</a></h2>
+<p>Abbiamo già visto come annotare funzioni semplici (<code>def func(x: int) -&gt; int</code>). Vediamo ora come gestire strutture dati complesse.</p>
+<h3 id="tipi-composti-list-dict-tuple">Tipi Composti (List, Dict, Tuple)<a class="headerlink" href="#tipi-composti-list-dict-tuple" title="Permanent link">&para;</a></h3>
+<p>Nelle versioni moderne di Python (3.9+), possiamo usare i tipi nativi per definire strutture complesse.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Lista di stringhe</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">nomi</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span> <span class="s2">&quot;Luigi&quot;</span><span class="p">]</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Dizionario con chiavi stringa e valori interi</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">voti</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Matematica&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;Fisica&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Tupla con struttura fissa (es. coordinate x, y)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">punto</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12.5</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="union-e-optional">Union e Optional<a class="headerlink" href="#union-e-optional" title="Permanent link">&para;</a></h3>
+<p>Spesso una variabile può assumere più tipi.<br />
+*   <strong>Union:</strong> Il valore può essere di tipo A <em>oppure</em> B. Dal Python 3.10 si usa l'operatore <code>|</code>.<br />
+*   <strong>Optional:</strong> Il valore può essere di un tipo specifico <em>oppure</em> <code>None</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Vecchia sintassi (typing.Union)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Nuova sintassi (Python 3.10+)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">elabora_dato</span><span class="p">(</span><span class="n">dato</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="k">if</span> <span class="n">dato</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Valore: </span><span class="si">{</span><span class="n">dato</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Optional è equivalente a: Type | None</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">utente</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+<h3 id="il-tipo-any">Il tipo <code>Any</code><a class="headerlink" href="#il-tipo-any" title="Permanent link">&para;</a></h3>
+<p>Il tipo <code>Any</code> (dal modulo <code>typing</code>) è una "via di fuga". Dice al sistema di controllo: "Fidati di me, qui può esserci qualsiasi cosa".<br />
+Va usato con estrema parsimonia, perché disabilita di fatto i controlli di tipo.</p>
+<h2 id="static-type-checking-mypy">Static Type Checking (<code>mypy</code>)<a class="headerlink" href="#static-type-checking-mypy" title="Permanent link">&para;</a></h2>
+<p>Le annotazioni di tipo in Python vengono <strong>ignorate</strong> dall'interprete a runtime. Se passi una stringa dove è richiesto un intero, Python proverà comunque ad eseguire il codice (e probabilmente crasherà dopo).</p>
+<p>Per verificare la coerenza dei tipi <em>prima</em> di eseguire il codice, si usano gli <strong>Static Type Checkers</strong>. Il più famoso è <strong>mypy</strong>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mypy
+</code></pre></div>
+<p>Esempio di file <code>check.py</code> con errore:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">somma</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">somma</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;20&quot;</span><span class="p">))</span>  <span class="c1"># Errore di tipo!</span>
+</code></pre></div></p>
+<p>Eseguendo <code>mypy check.py</code>:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>check.py:4: error: Argument 2 to &quot;somma&quot; has incompatible type &quot;str&quot;; expected &quot;int&quot;
+</code></pre></div></p>
+<h2 id="pydantic-validazione-dati-a-runtime">Pydantic: Validazione Dati a Runtime<a class="headerlink" href="#pydantic-validazione-dati-a-runtime" title="Permanent link">&para;</a></h2>
+<p>Se <code>mypy</code> controlla il codice mentre lo scrivi, <strong>Pydantic</strong> controlla i dati mentre il programma gira. È la libreria standard <em>de facto</em> per la validazione dati in Python (usata da FastAPI, LangChain, HuggingFace).</p>
+<p>Pydantic non si limita a controllare i tipi: fa <strong>Data Parsing</strong>. Se i dati in ingresso non sono nel formato corretto ma possono essere convertiti (es. la stringa "10" passata dove serve un <code>int</code>), Pydantic lo farà. Altrimenti, solleverà un errore dettagliato.</p>
+<h3 id="il-basemodel">Il <code>BaseModel</code><a class="headerlink" href="#il-basemodel" title="Permanent link">&para;</a></h3>
+<p>Tutto ruota attorno alla classe <code>BaseModel</code>. Definiamo i nostri schemi dati come classi.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Utente</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">is_attivo</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Valore di default</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="n">data_registrazione</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1"># Creazione di un oggetto (Parsing e Validazione)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">dati_esterni</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>              <span class="c1"># Stringa -&gt; convertita in int</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="s2">&quot;nome&quot;</span><span class="p">:</span> <span class="s2">&quot;Mario Rossi&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;mario@example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="s2">&quot;data_registrazione&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-01T12:00:00&quot;</span> <span class="c1"># ISO format -&gt; datetime object</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="n">user</span> <span class="o">=</span> <span class="n">Utente</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">dati_esterni</span><span class="p">)</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>        <span class="c1"># 123 (è un intero!)</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">data_registrazione</span><span class="p">))</span> <span class="c1"># &lt;class &#39;datetime.datetime&#39;&gt;</span>
+</code></pre></div>
+<h3 id="gestione-degli-errori">Gestione degli Errori<a class="headerlink" href="#gestione-degli-errori" title="Permanent link">&para;</a></h3>
+<p>Se i dati non sono validi, Pydantic solleva un'eccezione <code>ValidationError</code> che spiega esattamente cosa non va.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">Utente</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;ciao&quot;</span><span class="p">,</span> <span class="n">nome</span><span class="o">=</span><span class="s2">&quot;Luigi&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;luigi@test.com&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div><br />
+Output:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>1 validation error for Utente
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>id
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, ...]
+</code></pre></div></p>
+<h3 id="validazione-avanzata-con-field">Validazione Avanzata con <code>Field</code><a class="headerlink" href="#validazione-avanzata-con-field" title="Permanent link">&para;</a></h3>
+<p>Possiamo aggiungere vincoli più stringenti ai dati (es. numeri positivi, lunghezza stringhe, regex) usando <code>Field</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">EmailStr</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Prodotto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">prezzo</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Il prezzo deve essere positivo&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">sku</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^[A-Z]</span><span class="si">{3}</span><span class="s2">-\d</span><span class="si">{3}</span><span class="s2">$&quot;</span><span class="p">)</span> <span class="c1"># Es. ABC-123</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="c1"># EmailStr richiede: pip install &quot;pydantic[email]&quot;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="n">email_fornitore</span><span class="p">:</span> <span class="n">EmailStr</span> 
+</code></pre></div>
+<h3 id="serializzazione">Serializzazione<a class="headerlink" href="#serializzazione" title="Permanent link">&para;</a></h3>
+<p>Pydantic rende facilissimo convertire i modelli complessi in dizionari o JSON, pronti per essere inviati via API o salvati su file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Convertire in dizionario</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump</span><span class="p">())</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Convertire in JSON string</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump_json</span><span class="p">())</span>
+</code></pre></div>
+<h2 id="gestione-configurazioni-basesettings">Gestione Configurazioni (<code>BaseSettings</code>)<a class="headerlink" href="#gestione-configurazioni-basesettings" title="Permanent link">&para;</a></h2>
+<p>In ambito Engineering, non si scrivono mai password o chiavi API direttamente nel codice (hardcoding). Si usano le <strong>Variabili d'Ambiente</strong>.<br />
+Pydantic offre un modulo separato <code>pydantic-settings</code> per gestire la configurazione dell'applicazione in modo tipizzato.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pydantic-settings
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic_settings</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseSettings</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;My AI App&quot;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">db_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5432</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    <span class="c1"># Opzionale: legge automaticamente da un file .env</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">:</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>        <span class="n">env_file</span> <span class="o">=</span> <span class="s2">&quot;.env&quot;</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># Pydantic cercherà le variabili d&#39;ambiente APP_NAME, API_KEY, DB_PORT</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1"># Se API_KEY manca, solleverà un errore all&#39;avvio dell&#39;app!</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span> 
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to DB on port </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db_port</span><span class="si">}</span><span class="s2"> using key </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Best Practice</p>
+<p>Usa sempre Pydantic quando devi gestire dati che provengono dall'esterno (API, file CSV, input utente) o configurazioni. Garantisce che se il programma parte, i dati sono nella forma corretta.</p>
+</div>
 
 
 
