@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../02_argparse/">
+      
+      
+        <link rel="next" href="../../../02_libs/01_jupyter/lecture/">
       
       
         
@@ -19,7 +23,7 @@
     
     
       
-        <title>03 hinting - Python per il Calcolo Scientifico</title>
+        <title>1.3.3 - Type Hinting e Pydantic - Python per il Calcolo Scientifico</title>
       
     
     
@@ -82,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#133-type-hinting-e-validazione-dati-pydantic" class="md-skip">
+        <a href="#133-type-hinting-e-validazione-dati-con-pydantic" class="md-skip">
           Vai al contenuto
         </a>
       
@@ -118,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              03 hinting
+              1.3.3 - Type Hinting e Pydantic
             
           </span>
         </div>
@@ -264,18 +268,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -296,7 +302,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -785,18 +791,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -817,7 +825,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -879,6 +887,164 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.3 - Type Hinting e Pydantic
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.3 - Type Hinting e Pydantic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#type-hintingavanzato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type hinting...avanzato?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-type-checking-con-mypy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static Type Checking con mypy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validazione-a-runtime-con-pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validazione a runtime con Pydantic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validazione a runtime con Pydantic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-classe-basemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La classe BaseModel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validazione-avanzata-con-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validazione Avanzata con Field
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serializzazione-in-file-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serializzazione in file JSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestione-configurazioni-con-basesettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestione Configurazioni con BaseSettings
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4173,60 +4339,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#type-hinting-avanzato" class="md-nav__link">
+  <a href="#type-hintingavanzato" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Type Hinting Avanzato
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Type Hinting Avanzato">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tipi-composti-list-dict-tuple" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tipi Composti (List, Dict, Tuple)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#union-e-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Union e Optional
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#il-tipo-any" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Il tipo Any
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#static-type-checking-mypy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Static Type Checking (mypy)
+        Type hinting...avanzato?
       
     </span>
   </a>
@@ -4234,33 +4350,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pydantic-validazione-dati-a-runtime" class="md-nav__link">
+  <a href="#static-type-checking-con-mypy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pydantic: Validazione Dati a Runtime
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pydantic: Validazione Dati a Runtime">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#il-basemodel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Il BaseModel
+        Static Type Checking con mypy
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#gestione-degli-errori" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#validazione-a-runtime-con-pydantic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestione degli Errori
+        Validazione a runtime con Pydantic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validazione a runtime con Pydantic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-classe-basemodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La classe BaseModel
       
     </span>
   </a>
@@ -4279,10 +4395,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#serializzazione" class="md-nav__link">
+  <a href="#serializzazione-in-file-json" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Serializzazione
+        Serializzazione in file JSON
       
     </span>
   </a>
@@ -4295,10 +4411,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gestione-configurazioni-basesettings" class="md-nav__link">
+  <a href="#gestione-configurazioni-con-basesettings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gestione Configurazioni (BaseSettings)
+        Gestione Configurazioni con BaseSettings
       
     </span>
   </a>
@@ -4322,16 +4438,11 @@
 
 
 
-<p>Ecco la bozza per il file <strong>1.3.3</strong>, sintetizzata e adattata dai due lunghi articoli che mi hai fornito.</p>
-<p>Ho unito i concetti di <strong>Type Hinting avanzato</strong> (dall'articolo su <em>mypy</em>) con la potenza di <strong>Pydantic</strong> (dall'articolo su <em>Pydantic</em>), creando un percorso logico che va dalla teoria alla pratica ingegneristica. Ho aggiornato la sintassi allo standard moderno (Python 3.10+, usando <code>|</code> per le Union e i generici built-in <code>list[]</code> invece di <code>List[]</code>).</p>
-<hr />
-<h1 id="133-type-hinting-e-validazione-dati-pydantic">1.3.3 - Type Hinting e Validazione Dati (Pydantic)<a class="headerlink" href="#133-type-hinting-e-validazione-dati-pydantic" title="Permanent link">&para;</a></h1>
-<p>Python è un linguaggio a <strong>tipizzazione dinamica</strong>: non siamo obbligati a dichiarare il tipo delle variabili e questo può cambiare durante l'esecuzione. Tuttavia, in progetti complessi di Data Science e ML Engineering, questa libertà può diventare una trappola, rendendo difficile capire che forma devono avere i dati che passano attraverso le nostre pipeline.</p>
-<p>In questa lezione vedremo come rendere il codice robusto usando il <strong>Type Hinting Avanzato</strong> e come validare i dati a runtime con <strong>Pydantic</strong>.</p>
-<h2 id="type-hinting-avanzato">Type Hinting Avanzato<a class="headerlink" href="#type-hinting-avanzato" title="Permanent link">&para;</a></h2>
-<p>Abbiamo già visto come annotare funzioni semplici (<code>def func(x: int) -&gt; int</code>). Vediamo ora come gestire strutture dati complesse.</p>
-<h3 id="tipi-composti-list-dict-tuple">Tipi Composti (List, Dict, Tuple)<a class="headerlink" href="#tipi-composti-list-dict-tuple" title="Permanent link">&para;</a></h3>
-<p>Nelle versioni moderne di Python (3.9+), possiamo usare i tipi nativi per definire strutture complesse.</p>
+<h1 id="133-type-hinting-e-validazione-dati-con-pydantic">1.3.3 - Type Hinting e Validazione Dati con Pydantic<a class="headerlink" href="#133-type-hinting-e-validazione-dati-con-pydantic" title="Permanent link">&para;</a></h1>
+<p>Abbiamo già introdotto il concetto di <a href="../../01_intro/01_intro/">tipizzazione dinamica</a>: in pratica, Python non ci obbliga a dichiarare il tipo di variabili, e questo può cambiare in maniera abbastanza "semplice" a runtime. Tuttavia, nei progetti complessi, questa libertà può diventare una trappola, rendendo difficile capire la forma che devono avere i dati che passano attraverso i nostri script e le nostre pipeline di elaborazione.</p>
+<p>Per rendere il codice più robusto, quindi, ci viene in aiuto il concetto di <em>type hinting avanzato</em>, che possiamo gestire a runtime mediante l'utilizzo della libreria <a href="https://docs.pydantic.dev/latest/"><strong>Pydantic</strong></a>.</p>
+<h2 id="type-hintingavanzato">Type hinting...avanzato?<a class="headerlink" href="#type-hintingavanzato" title="Permanent link">&para;</a></h2>
+<p><a href="../../01_intro/01_intro/">Abbiamo già visto</a> come sia possibile annotare funzioni semplici. Tuttavia, è necessario imparare anche a gestire delle strutture dati più complesse. Per definirle, le ultime versioni di Python ci mettono a disposizione i tipi nativi. Ad esempio:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Lista di stringhe</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">nomi</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mario&quot;</span><span class="p">,</span> <span class="s2">&quot;Luigi&quot;</span><span class="p">]</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -4341,44 +4452,42 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Tupla con struttura fissa (es. coordinate x, y)</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">punto</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12.5</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="union-e-optional">Union e Optional<a class="headerlink" href="#union-e-optional" title="Permanent link">&para;</a></h3>
-<p>Spesso una variabile può assumere più tipi.<br />
-*   <strong>Union:</strong> Il valore può essere di tipo A <em>oppure</em> B. Dal Python 3.10 si usa l'operatore <code>|</code>.<br />
-*   <strong>Optional:</strong> Il valore può essere di un tipo specifico <em>oppure</em> <code>None</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Vecchia sintassi (typing.Union)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Nuova sintassi (Python 3.10+)</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">elabora_dato</span><span class="p">(</span><span class="n">dato</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="k">if</span> <span class="n">dato</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="k">return</span> <span class="kc">None</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Valore: </span><span class="si">{</span><span class="n">dato</span><span class="si">}</span><span class="s2">&quot;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Optional è equivalente a: Type | None</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">utente</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<h5 id="union-e-optional">Union e Optional<a class="headerlink" href="#union-e-optional" title="Permanent link">&para;</a></h5>
+<p>Spesso una variabile può assumere più tipi. In questo caso, potremmo utilizzare due soluzioni:</p>
+<ul>
+<li>le <em>union</em> prevedono che il valore possa essere di tipo A <em>oppure</em> di tipo B. In Python, dalla versione 3.10, è possibile usare l'operatore <code>|</code>;</li>
+<li>gli <em>optional</em> prevedono che il valore sia di un tipo specifico, <em>oppure</em> <code>None</code>.</li>
+</ul>
+<p>Questa sintassi va a sostituire quella tenuta fino a Python 3.9, che prevedeva l'uso delle classi <code>Union</code> ed <code>Optional</code> importate dal package <code>typing</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Nuova sintassi per le Union (Python 3.10+)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">elabora_dato</span><span class="p">(</span><span class="n">dato</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">if</span> <span class="n">dato</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Valore: </span><span class="si">{</span><span class="n">dato</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Optional è equivalente a: Type | None</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">utente</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div>
-<h3 id="il-tipo-any">Il tipo <code>Any</code><a class="headerlink" href="#il-tipo-any" title="Permanent link">&para;</a></h3>
-<p>Il tipo <code>Any</code> (dal modulo <code>typing</code>) è una "via di fuga". Dice al sistema di controllo: "Fidati di me, qui può esserci qualsiasi cosa".<br />
-Va usato con estrema parsimonia, perché disabilita di fatto i controlli di tipo.</p>
-<h2 id="static-type-checking-mypy">Static Type Checking (<code>mypy</code>)<a class="headerlink" href="#static-type-checking-mypy" title="Permanent link">&para;</a></h2>
-<p>Le annotazioni di tipo in Python vengono <strong>ignorate</strong> dall'interprete a runtime. Se passi una stringa dove è richiesto un intero, Python proverà comunque ad eseguire il codice (e probabilmente crasherà dopo).</p>
-<p>Per verificare la coerenza dei tipi <em>prima</em> di eseguire il codice, si usano gli <strong>Static Type Checkers</strong>. Il più famoso è <strong>mypy</strong>.</p>
+<h5 id="il-tipo-any">Il tipo <code>Any</code><a class="headerlink" href="#il-tipo-any" title="Permanent link">&para;</a></h5>
+<p>Il tipo <code>Any</code>, presente anch'esso nel modulo <code>typing</code>, permette di specificare all'interprete Python che quel dato può essere di qualsiasi tipo. Il consiglio è di usarlo con estrema cautela, visto che, di fatto, disabilita il type hinting.</p>
+<h2 id="static-type-checking-con-mypy">Static Type Checking con <code>mypy</code><a class="headerlink" href="#static-type-checking-con-mypy" title="Permanent link">&para;</a></h2>
+<p>E' importante sottolineare come le annotazioni di tipo vengano, nei fatti, <em>ignorate</em> a runtime dall'interprete. In altre parole, se passiamo una stringa dove è richiesto un intero, l'interprete proverà comunque ad eseguire il codice, lanciando molto probabilmente un errore immeditamente dopo. Di conseguenza, per verificare la coerenza dei tipi <em>prima</em> di eseguire il codice, si utilizzano i cosiddetti <em>static type checkers</em>, il più famoso tra i quali è <code>mypy</code>. Per usarlo, dobbiamo per prima cosa installarlo:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mypy
 </code></pre></div>
-<p>Esempio di file <code>check.py</code> con errore:<br />
+<p>A questo punto, proviamo a creare un file <code>check.py</code> che contiene un errore di tipo:<br />
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">somma</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">somma</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;20&quot;</span><span class="p">))</span>  <span class="c1"># Errore di tipo!</span>
 </code></pre></div></p>
-<p>Eseguendo <code>mypy check.py</code>:<br />
+<p>Eseguendo l'istruzione <code>mypy check.py</code> avremo il seguente risultato:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>check.py:4: error: Argument 2 to &quot;somma&quot; has incompatible type &quot;str&quot;; expected &quot;int&quot;
-</code></pre></div></p>
-<h2 id="pydantic-validazione-dati-a-runtime">Pydantic: Validazione Dati a Runtime<a class="headerlink" href="#pydantic-validazione-dati-a-runtime" title="Permanent link">&para;</a></h2>
-<p>Se <code>mypy</code> controlla il codice mentre lo scrivi, <strong>Pydantic</strong> controlla i dati mentre il programma gira. È la libreria standard <em>de facto</em> per la validazione dati in Python (usata da FastAPI, LangChain, HuggingFace).</p>
-<p>Pydantic non si limita a controllare i tipi: fa <strong>Data Parsing</strong>. Se i dati in ingresso non sono nel formato corretto ma possono essere convertiti (es. la stringa "10" passata dove serve un <code>int</code>), Pydantic lo farà. Altrimenti, solleverà un errore dettagliato.</p>
-<h3 id="il-basemodel">Il <code>BaseModel</code><a class="headerlink" href="#il-basemodel" title="Permanent link">&para;</a></h3>
-<p>Tutto ruota attorno alla classe <code>BaseModel</code>. Definiamo i nostri schemi dati come classi.</p>
+</code></pre></div>
+<h2 id="validazione-a-runtime-con-pydantic">Validazione a runtime con Pydantic<a class="headerlink" href="#validazione-a-runtime-con-pydantic" title="Permanent link">&para;</a></h2>
+<p>Se <code>mypy</code> ci permette di controllare il codice durante la fase di scrittura, <strong>Pydantic</strong> è la libreria standard <em>de facto</em> per la validazione dei dati in Python, e che permette quindi di controllare i dati mentre il programma è in esecuzione.</p>
+<p>Pydantic non si limita al type checking, ma fa anche <em>data parsing</em>. In pratica, se i dati in ingresso non sono nel formato corretto, ma possono essere convertiti (ad esempio, una stringa "10" passata dove serve un <code>int</code>), Pydantic gestirà la conversione. Altrimenti, solleverà un errore dettagliato.</p>
+<h3 id="la-classe-basemodel">La classe <code>BaseModel</code><a class="headerlink" href="#la-classe-basemodel" title="Permanent link">&para;</a></h3>
+<p>Il funzionamento di Pydantic ruota attorno alla classe <code>BaseModel</code>, che ci permette di definire i nostri schemi dati come classi. Immaginiamo ad esempio di voler implementare una classe <code>Utente</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
@@ -4396,71 +4505,71 @@ Va usato con estrema parsimonia, perché disabilita di fatto i controlli di tipo
 <a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;mario@example.com&quot;</span><span class="p">,</span>
 <a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="s2">&quot;data_registrazione&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-01T12:00:00&quot;</span> <span class="c1"># ISO format -&gt; datetime object</span>
 <a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="n">user</span> <span class="o">=</span> <span class="n">Utente</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">dati_esterni</span><span class="p">)</span>
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>        <span class="c1"># 123 (è un intero!)</span>
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">data_registrazione</span><span class="p">))</span> <span class="c1"># &lt;class &#39;datetime.datetime&#39;&gt;</span>
 </code></pre></div>
-<h3 id="gestione-degli-errori">Gestione degli Errori<a class="headerlink" href="#gestione-degli-errori" title="Permanent link">&para;</a></h3>
-<p>Se i dati non sono validi, Pydantic solleva un'eccezione <code>ValidationError</code> che spiega esattamente cosa non va.</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+<p>A questo punto, potremo utilizzare il metodo <code>model_validate</code> per validare i dati utilizzati.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">user</span> <span class="o">=</span> <span class="n">Utente</span><span class="o">.</span><span class="n">model_validate</span><span class="p">(</span><span class="n">dati_esterni</span><span class="p">)</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">Utente</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;ciao&quot;</span><span class="p">,</span> <span class="n">nome</span><span class="o">=</span><span class="s2">&quot;Luigi&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;luigi@test.com&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</code></pre></div><br />
-Output:<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>1 validation error for Utente
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>id
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, ...]
-</code></pre></div></p>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>        <span class="c1"># 123 (è un intero!)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">data_registrazione</span><span class="p">))</span> <span class="c1"># &lt;class &#39;datetime.datetime&#39;&gt;</span>
+</code></pre></div>
+<p>Qualora i dati non siano validi, Pydantic solleverà un'eccezione di tipo <code>ValidationError</code>, la quale spiegherà in maniera precisa l'errore intercorso. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">Utente</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;ciao&quot;</span><span class="p">,</span> <span class="n">nome</span><span class="o">=</span><span class="s2">&quot;Luigi&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;luigi@test.com&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<p>Questo manderà in output il seguente testo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="m">1</span><span class="w"> </span>validation<span class="w"> </span>error<span class="w"> </span><span class="k">for</span><span class="w"> </span>Utente
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>id
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>Input<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>a<span class="w"> </span>valid<span class="w"> </span>integer,<span class="w"> </span>unable<span class="w"> </span>to<span class="w"> </span>parse<span class="w"> </span>string<span class="w"> </span>as<span class="w"> </span>an<span class="w"> </span>integer<span class="w"> </span><span class="o">[</span><span class="nv">type</span><span class="o">=</span>int_parsing,<span class="w"> </span>...<span class="o">]</span>
+</code></pre></div>
 <h3 id="validazione-avanzata-con-field">Validazione Avanzata con <code>Field</code><a class="headerlink" href="#validazione-avanzata-con-field" title="Permanent link">&para;</a></h3>
-<p>Possiamo aggiungere vincoli più stringenti ai dati (es. numeri positivi, lunghezza stringhe, regex) usando <code>Field</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">EmailStr</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Prodotto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">prezzo</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Il prezzo deve essere positivo&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="n">sku</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^[A-Z]</span><span class="si">{3}</span><span class="s2">-\d</span><span class="si">{3}</span><span class="s2">$&quot;</span><span class="p">)</span> <span class="c1"># Es. ABC-123</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="c1"># EmailStr richiede: pip install &quot;pydantic[email]&quot;</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="n">email_fornitore</span><span class="p">:</span> <span class="n">EmailStr</span> 
+<p>Qualora volessimo aggiungere dei vincoli più stringenti sui dati, come ad esempio numeri positivi o lunghezza delle stringhe, potremo usare la classe <code>Field</code>. Ad esempio:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">EmailStr</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Prodotto</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">prezzo</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Il prezzo deve essere positivo&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">sku</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">pattern</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;^[A-Z]</span><span class="si">{3}</span><span class="s2">-\d</span><span class="si">{3}</span><span class="s2">$&quot;</span><span class="p">)</span> <span class="c1"># Es. ABC-123</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="c1"># EmailStr richiede: pip install &quot;pydantic[email]&quot;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="n">email_fornitore</span><span class="p">:</span> <span class="n">EmailStr</span> 
 </code></pre></div>
-<h3 id="serializzazione">Serializzazione<a class="headerlink" href="#serializzazione" title="Permanent link">&para;</a></h3>
-<p>Pydantic rende facilissimo convertire i modelli complessi in dizionari o JSON, pronti per essere inviati via API o salvati su file.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Convertire in dizionario</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump</span><span class="p">())</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Convertire in JSON string</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump_json</span><span class="p">())</span>
+<h3 id="serializzazione-in-file-json">Serializzazione in file JSON<a class="headerlink" href="#serializzazione-in-file-json" title="Permanent link">&para;</a></h3>
+<p>Pydantic rende facile anche convertire gli oggetti complessi in dizionari o serializzarli in JSON pronti per essere inviati, ad esempio, mediante API RESTful. Per farlo, potremo usare i due metodi seguenti:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Conversione in dizionario</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump</span><span class="p">())</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Conversione in stringa JSON</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump_json</span><span class="p">())</span>
 </code></pre></div>
-<h2 id="gestione-configurazioni-basesettings">Gestione Configurazioni (<code>BaseSettings</code>)<a class="headerlink" href="#gestione-configurazioni-basesettings" title="Permanent link">&para;</a></h2>
-<p>In ambito Engineering, non si scrivono mai password o chiavi API direttamente nel codice (hardcoding). Si usano le <strong>Variabili d'Ambiente</strong>.<br />
-Pydantic offre un modulo separato <code>pydantic-settings</code> per gestire la configurazione dell'applicazione in modo tipizzato.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pydantic-settings
+<h2 id="gestione-configurazioni-con-basesettings">Gestione Configurazioni con <code>BaseSettings</code><a class="headerlink" href="#gestione-configurazioni-con-basesettings" title="Permanent link">&para;</a></h2>
+<p>Pydantic ci mette anche a disposizione un modulo separato, chiamato <code>pydantic-settings</code>, che ci permette di gestire le <em>variabili d'ambiente</em> e, conseguentemente, la configurazione dell'applicazione in modo tipizzato. Per prima cosa, dobbiamo installare il modulo via pip:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pydantic-settings
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic_settings</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseSettings</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;My AI App&quot;</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">db_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5432</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    <span class="c1"># Opzionale: legge automaticamente da un file .env</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">:</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>        <span class="n">env_file</span> <span class="o">=</span> <span class="s2">&quot;.env&quot;</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># Pydantic cercherà le variabili d&#39;ambiente APP_NAME, API_KEY, DB_PORT</span>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1"># Se API_KEY manca, solleverà un errore all&#39;avvio dell&#39;app!</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span> 
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to DB on port </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db_port</span><span class="si">}</span><span class="s2"> using key </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<p>A quel punto, potremo creare una nuova configurazione, ad esempio facendo come segue:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pydantic_settings</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseSettings</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Applicazione AI&quot;</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="n">db_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5432</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="c1"># Opzionale: legge automaticamente da un file .env</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">:</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        <span class="n">env_file</span> <span class="o">=</span> <span class="s2">&quot;.env&quot;</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># Pydantic cercherà le variabili d&#39;ambiente APP_NAME, API_KEY, DB_PORT</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1"># Se API_KEY manca, solleverà un errore all&#39;avvio dell&#39;app!</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span> 
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to DB on port </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">db_port</span><span class="si">}</span><span class="s2"> using key </span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Best Practice</p>
-<p>Usa sempre Pydantic quando devi gestire dati che provengono dall'esterno (API, file CSV, input utente) o configurazioni. Garantisce che se il programma parte, i dati sono nella forma corretta.</p>
+<p>L'utilizzo di Pydantic è estremamente consigliato quando dobbiamo gestire dati che provengono dall'esterno, ovvero mediante API, file CSV, o input dell'utente, oppure configurazioni. Questo garantisce che, se il programma parte, i tipi siano nel formato corretto.</p>
 </div>
 
 
