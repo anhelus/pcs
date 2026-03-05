@@ -20,7 +20,7 @@ nav:
       - Esercitazione 1.2: material/01_python/02_syntax/exercises/exercises.md
     - 1.3 - Concetti avanzati:
       - 1.3.1 - Gestione degli ambienti: material/01_python/03_advanced/01_venvs.md
-      # - 1.3.2 - Il modulo argparse: material/01_python/03_advanced/02_argparse.md
+      - 1.3.2 - Il modulo argparse: material/01_python/03_advanced/02_argparse.md
       # - 1.3.3 - Type Hinting e Pydantic: material/01_python/03_advanced/03_hinting.md
       # - 1.3.4 - Decoratori e generatori: material/01_python/03_advanced/04_decorators_generators.md
       # - 1.3.5 - Pytest: material/01_python/03_advanced/05_test.md
