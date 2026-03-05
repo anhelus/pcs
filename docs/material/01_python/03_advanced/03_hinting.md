@@ -1,22 +1,12 @@
-Ecco la bozza per il file **1.3.3**, sintetizzata e adattata dai due lunghi articoli che mi hai fornito.
+# 1.3.3 - Type Hinting e Validazione Dati con Pydantic
 
-Ho unito i concetti di **Type Hinting avanzato** (dall'articolo su *mypy*) con la potenza di **Pydantic** (dall'articolo su *Pydantic*), creando un percorso logico che va dalla teoria alla pratica ingegneristica. Ho aggiornato la sintassi allo standard moderno (Python 3.10+, usando `|` per le Union e i generici built-in `list[]` invece di `List[]`).
+Abbiamo già introdotto il concetto di [tipizzazione dinamica](../01_intro/01_intro.md): in pratica, Python non ci obbliga a dichiarare il tipo di variabili, e questo può cambiare in maniera abbastanza "semplice" a runtime. Tuttavia, nei progetti complessi, questa libertà può diventare una trappola, rendendo difficile capire la forma che devono avere i dati che passano attraverso i nostri script e le nostre pipeline di elaborazione.
 
----
+Per rendere il codice più robusto, quindi, ci viene in aiuto il concetto di *type hinting avanzato*, che possiamo gestire a runtime mediante l'utilizzo della libreria [**Pydantic**](https://docs.pydantic.dev/latest/).
 
-# 1.3.3 - Type Hinting e Validazione Dati (Pydantic)
+## Type hinting...avanzato?
 
-Python è un linguaggio a **tipizzazione dinamica**: non siamo obbligati a dichiarare il tipo delle variabili e questo può cambiare durante l'esecuzione. Tuttavia, in progetti complessi di Data Science e ML Engineering, questa libertà può diventare una trappola, rendendo difficile capire che forma devono avere i dati che passano attraverso le nostre pipeline.
-
-In questa lezione vedremo come rendere il codice robusto usando il **Type Hinting Avanzato** e come validare i dati a runtime con **Pydantic**.
-
-## Type Hinting Avanzato
-
-Abbiamo già visto come annotare funzioni semplici (`def func(x: int) -> int`). Vediamo ora come gestire strutture dati complesse.
-
-### Tipi Composti (List, Dict, Tuple)
-
-Nelle versioni moderne di Python (3.9+), possiamo usare i tipi nativi per definire strutture complesse.
+[Abbiamo già visto](../01_intro/01_intro.md) come sia possibile annotare funzioni semplici. Tuttavia, è necessario imparare anche a gestire delle strutture dati più complesse. Per definirle, le ultime versioni di Python ci mettono a disposizione i tipi nativi. Ad esempio:
 
 ```python
 # Lista di stringhe
@@ -29,17 +19,17 @@ voti: dict[str, int] = {"Matematica": 28, "Fisica": 30}
 punto: tuple[float, float] = (12.5, 45.0)
 ```
 
-### Union e Optional
+##### Union e Optional
 
-Spesso una variabile può assumere più tipi.
-*   **Union:** Il valore può essere di tipo A *oppure* B. Dal Python 3.10 si usa l'operatore `|`.
-*   **Optional:** Il valore può essere di un tipo specifico *oppure* `None`.
+Spesso una variabile può assumere più tipi. In questo caso, potremmo utilizzare due soluzioni:
+
+* le *union* prevedono che il valore possa essere di tipo A *oppure* di tipo B. In Python, dalla versione 3.10, è possibile usare l'operatore `|`;
+* gli *optional* prevedono che il valore sia di un tipo specifico, *oppure* `None`.
+
+Questa sintassi va a sostituire quella tenuta fino a Python 3.9, che prevedeva l'uso delle classi `Union` ed `Optional` importate dal package `typing`
 
 ```python
-# Vecchia sintassi (typing.Union)
-from typing import Optional, Union
-
-# Nuova sintassi (Python 3.10+)
+# Nuova sintassi per le Union (Python 3.10+)
 def elabora_dato(dato: int | float) -> str | None:
     if dato < 0:
         return None
@@ -49,22 +39,19 @@ def elabora_dato(dato: int | float) -> str | None:
 utente: str | None = None
 ```
 
-### Il tipo `Any`
+##### Il tipo `Any`
 
-Il tipo `Any` (dal modulo `typing`) è una "via di fuga". Dice al sistema di controllo: "Fidati di me, qui può esserci qualsiasi cosa".
-Va usato con estrema parsimonia, perché disabilita di fatto i controlli di tipo.
+Il tipo `Any`, presente anch'esso nel modulo `typing`, permette di specificare all'interprete Python che quel dato può essere di qualsiasi tipo. Il consiglio è di usarlo con estrema cautela, visto che, di fatto, disabilita il type hinting.
 
-## Static Type Checking (`mypy`)
+## Static Type Checking con `mypy`
 
-Le annotazioni di tipo in Python vengono **ignorate** dall'interprete a runtime. Se passi una stringa dove è richiesto un intero, Python proverà comunque ad eseguire il codice (e probabilmente crasherà dopo).
-
-Per verificare la coerenza dei tipi *prima* di eseguire il codice, si usano gli **Static Type Checkers**. Il più famoso è **mypy**.
+E' importante sottolineare come le annotazioni di tipo vengano, nei fatti, *ignorate* a runtime dall'interprete. In altre parole, se passiamo una stringa dove è richiesto un intero, l'interprete proverà comunque ad eseguire il codice, lanciando molto probabilmente un errore immeditamente dopo. Di conseguenza, per verificare la coerenza dei tipi *prima* di eseguire il codice, si utilizzano i cosiddetti *static type checkers*, il più famoso tra i quali è `mypy`. Per usarlo, dobbiamo per prima cosa installarlo:
 
 ```bash
 pip install mypy
 ```
 
-Esempio di file `check.py` con errore:
+A questo punto, proviamo a creare un file `check.py` che contiene un errore di tipo:
 ```python
 def somma(a: int, b: int) -> int:
     return a + b
@@ -72,20 +59,21 @@ def somma(a: int, b: int) -> int:
 print(somma(10, "20"))  # Errore di tipo!
 ```
 
-Eseguendo `mypy check.py`:
+Eseguendo l'istruzione `mypy check.py` avremo il seguente risultato:
+
 ```text
 check.py:4: error: Argument 2 to "somma" has incompatible type "str"; expected "int"
 ```
 
-## Pydantic: Validazione Dati a Runtime
+## Validazione a runtime con Pydantic
 
-Se `mypy` controlla il codice mentre lo scrivi, **Pydantic** controlla i dati mentre il programma gira. È la libreria standard *de facto* per la validazione dati in Python (usata da FastAPI, LangChain, HuggingFace).
+Se `mypy` ci permette di controllare il codice durante la fase di scrittura, **Pydantic** è la libreria standard *de facto* per la validazione dei dati in Python, e che permette quindi di controllare i dati mentre il programma è in esecuzione.
 
-Pydantic non si limita a controllare i tipi: fa **Data Parsing**. Se i dati in ingresso non sono nel formato corretto ma possono essere convertiti (es. la stringa "10" passata dove serve un `int`), Pydantic lo farà. Altrimenti, solleverà un errore dettagliato.
+Pydantic non si limita al type checking, ma fa anche *data parsing*. In pratica, se i dati in ingresso non sono nel formato corretto, ma possono essere convertiti (ad esempio, una stringa "10" passata dove serve un `int`), Pydantic gestirà la conversione. Altrimenti, solleverà un errore dettagliato.
 
-### Il `BaseModel`
+### La classe `BaseModel`
 
-Tutto ruota attorno alla classe `BaseModel`. Definiamo i nostri schemi dati come classi.
+Il funzionamento di Pydantic ruota attorno alla classe `BaseModel`, che ci permette di definire i nostri schemi dati come classi. Immaginiamo ad esempio di voler implementare una classe `Utente`:
 
 ```python
 from pydantic import BaseModel
@@ -105,16 +93,18 @@ dati_esterni = {
     "email": "mario@example.com",
     "data_registrazione": "2024-01-01T12:00:00" # ISO format -> datetime object
 }
+```
 
+A questo punto, potremo utilizzare il metodo `model_validate` per validare i dati utilizzati.
+
+```py
 user = Utente.model_validate(dati_esterni)
 
 print(user.id)        # 123 (è un intero!)
 print(type(user.data_registrazione)) # <class 'datetime.datetime'>
 ```
 
-### Gestione degli Errori
-
-Se i dati non sono validi, Pydantic solleva un'eccezione `ValidationError` che spiega esattamente cosa non va.
+Qualora i dati non siano validi, Pydantic solleverà un'eccezione di tipo `ValidationError`, la quale spiegherà in maniera precisa l'errore intercorso. Ad esempio:
 
 ```python
 from pydantic import ValidationError
@@ -124,8 +114,10 @@ try:
 except ValidationError as e:
     print(e)
 ```
-Output:
-```text
+
+Questo manderà in output il seguente testo:
+
+```sh
 1 validation error for Utente
 id
   Input should be a valid integer, unable to parse string as an integer [type=int_parsing, ...]
@@ -133,7 +125,7 @@ id
 
 ### Validazione Avanzata con `Field`
 
-Possiamo aggiungere vincoli più stringenti ai dati (es. numeri positivi, lunghezza stringhe, regex) usando `Field`.
+Qualora volessimo aggiungere dei vincoli più stringenti sui dati, come ad esempio numeri positivi o lunghezza delle stringhe, potremo usare la classe `Field`. Ad esempio:
 
 ```python
 from pydantic import BaseModel, Field, EmailStr
@@ -147,32 +139,33 @@ class Prodotto(BaseModel):
     email_fornitore: EmailStr 
 ```
 
-### Serializzazione
+### Serializzazione in file JSON
 
-Pydantic rende facilissimo convertire i modelli complessi in dizionari o JSON, pronti per essere inviati via API o salvati su file.
+Pydantic rende facile anche convertire gli oggetti complessi in dizionari o serializzarli in JSON pronti per essere inviati, ad esempio, mediante API RESTful. Per farlo, potremo usare i due metodi seguenti:
 
 ```python
-# Convertire in dizionario
+# Conversione in dizionario
 print(user.model_dump())
 
-# Convertire in JSON string
+# Conversione in stringa JSON
 print(user.model_dump_json())
 ```
 
-## Gestione Configurazioni (`BaseSettings`)
+## Gestione Configurazioni con `BaseSettings`
 
-In ambito Engineering, non si scrivono mai password o chiavi API direttamente nel codice (hardcoding). Si usano le **Variabili d'Ambiente**.
-Pydantic offre un modulo separato `pydantic-settings` per gestire la configurazione dell'applicazione in modo tipizzato.
+Pydantic ci mette anche a disposizione un modulo separato, chiamato `pydantic-settings`, che ci permette di gestire le *variabili d'ambiente* e, conseguentemente, la configurazione dell'applicazione in modo tipizzato. Per prima cosa, dobbiamo installare il modulo via pip:
 
 ```bash
 pip install pydantic-settings
 ```
 
+A quel punto, potremo creare una nuova configurazione, ad esempio facendo come segue:
+
 ```python
 from pydantic_settings import BaseSettings
 
 class Config(BaseSettings):
-    app_name: str = "My AI App"
+    app_name: str = "Applicazione AI"
     api_key: str
     db_port: int = 5432
 
@@ -188,4 +181,4 @@ print(f"Connecting to DB on port {config.db_port} using key {config.api_key}")
 ```
 
 !!!tip "Best Practice"
-    Usa sempre Pydantic quando devi gestire dati che provengono dall'esterno (API, file CSV, input utente) o configurazioni. Garantisce che se il programma parte, i dati sono nella forma corretta.
+    L'utilizzo di Pydantic è estremamente consigliato quando dobbiamo gestire dati che provengono dall'esterno, ovvero mediante API, file CSV, o input dell'utente, oppure configurazioni. Questo garantisce che, se il programma parte, i tipi siano nel formato corretto.
