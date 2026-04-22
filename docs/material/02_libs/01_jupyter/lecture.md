@@ -1,89 +1,96 @@
 # 2.1 - Jupyter Lab
 
 !!!tip "Notebook di accompagnamento"
-	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/00_jupyter_sample.ipynb).
+	Per questa lezione (e per le successive) esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/00_jupyter_sample.ipynb).
 
-!!!tip "Notebook di accompagnamento"
-	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/00_jupyter_sample.ipynb).
+Fino a questo momento ci siamo limitati a scrivere e lanciare script Python direttamente da riga di comando o file `.py`. Sebbene questo sia l'approccio standard per l'ingegneria del software (sviluppo di API, backend, ecc.), risulta limitante in ambito **Data Science e Machine Learning**.
 
-Fino a questo momento ci siamo limitati a lanciare script Python direttamente da riga di comando. Tuttavia, è evidente come questo approccio sia limitato, specialmente in applicazioni in ambito data science.
+Quando analizziamo dati, abbiamo bisogno di esplorarli passo-passo, visualizzare grafici e testare trasformazioni senza dover ricaricare in memoria dataset giganti a ogni singola esecuzione.
 
-Per ovviare a queste problematiche, all'interno del framework SciPy viene proposto [Jupyter Lab](https://jupyter.org/),  che introduce uno tra gli strumenti più utilizzati dai data analyst al giorno d'oggi, ovvero i *notebook*.
+Per ovviare a queste problematiche, l'ecosistema Python offre [Jupyter](https://jupyter.org/), che introduce lo strumento più utilizzato dai data analyst: i **Notebook**.
 
 ## Anatomia di un notebook
 
-Un notebook è, in poche parole, un *ambiente interattivo* che permette di *scrivere* e *testare* il nostro codice. In particolare, ptoremo scrivere una o più istruzioni, ed eseguirle in maniera separata dalle altre mediante il meccanismo delle *celle*, che altro non sono se non dei singoli "blocchi" di codice.
+Un notebook è un *ambiente interattivo* che permette di fondere codice, testo formattato e output visivi (come grafici o tabelle) in un unico documento.
 
-!!!tip "Suggerimento"
-	I notebook Jupyter ci permettono di inserire anche commenti, descrizioni ed equazioni utilizzando due linguaggi di markup molto noti, ovvero [Markdown](https://daringfireball.net/projects/markdown/) e [Latex](https://www.latex-project.org/).
-
-Vediamo adesso come creare ed utilizzare il nostro primo notebook.
+Il notebook è suddiviso in **celle**, che possono essere di due tipi principali:
+1.  **Celle di Codice:** Contengono codice Python. Possiamo eseguire una singola cella alla volta; le variabili create resteranno in memoria e saranno accessibili dalle celle successive.
+2.  **Celle Markdown:** Permettono di inserire commenti, titoli, descrizioni testuali e formule matematiche in [LaTeX](https://www.latex-project.org/).
 
 ## Installazione e lancio di Jupyter Lab
 
-!!!note "Installazione di una libreria"
-    Ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'[appendice B](../../appendix/03_libraries/lecture.md).
+!!!note "Gestione degli Ambienti"
+    Come abbiamo imparato nel Modulo 1, è fondamentale installare le librerie all'interno di un ambiente virtuale isolato, e non nel sistema globale.
 
-Per installare Jupyter Lab, ricorriamo all'utilizzo di `pip`, preferibilmente all'interno di un ambiente virtuale:
+Per installare Jupyter Lab, attiviamo il nostro ambiente virtuale e usiamo `pip`:
 
 ```sh
-workon my-virtual-env
-(my-virtual-env) pip install jupyterlab
+# Attiviamo l'ambiente (es. su Windows / Mac)
+# .venv\Scripts\activate  OPPURE  source .venv/bin/activate
+
+pip install jupyterlab
 ```
 
-A differenza delle altre librerie, Jupyter non andrà (necessariamente) importato; infatti, è possibile lanciare un ambiente interattivo utilizzando la seguente istruzione da riga di comando:
+A differenza delle normali librerie che importiamo nel codice, Jupyter è una vera e propria applicazione web. Per lanciare l'ambiente interattivo, digitiamo da terminale:
 
 ```sh
 jupyter lab
 ```
 
-!!!note "Importare iPython"
-	In teoria è possibile importare iPython ed utilizzare i metodi e le classi messe a disposizione come una qualsiasi libreria. Nei fatti, però, molto spesso ci si limita ad utilizzare l'ambiente interattivo offerto dai notebook.
+Questo comando aprirà automaticamente una nuova scheda nel tuo browser predefinito, mostrando l'interfaccia del programma. Il terminale rimarrà "bloccato" a fare da server locale finché non deciderai di chiuderlo (con `CTRL+C`).
 
 ## Il primo notebook
 
-A questo punto ci troveremo davanti ad una schermata simile a quella mostrata in figura 1.
+Una volta avviato Jupyter Lab, ci troveremo davanti alla schermata introduttiva (Launcher).
 
 <figure markdown>
   ![intro](./images/intro.png){ width="450" }
   <figcaption>Figura 1 - La schermata introduttiva di Jupyter Lab</figcaption>
 </figure>
 
-Creiamo il nostro primo notebook premendo il pulsante *Python 3* nel menu *Notebook*. Una volta terminata la procedura, potremo iniziare ad interagire con l'ambiente. Prima di procedere, però, definiamo il nome del nostro notebook dal menu a sinistra.
+Creiamo il nostro primo notebook cliccando sull'icona **Python 3 (ipykernel)** sotto la voce *Notebook*. Rinominamo il file appena creato (dal menu a sinistra o cliccando sul nome in alto).
 
-Proviamo a fare qualcosa di semplice: creiamo una funzione che sommi due variabili di tipo numerico, restituendo il risultato, e chiamiamola su due diversi valori.
-
-Per prima cosa, scriviamo il codice della funzione all'interno della prima cella:
+Proviamo a fare qualcosa di semplice. Clicchiamo sulla prima cella e definiamo una funzione (usando i Type Hints che abbiamo imparato!):
 
 ```py
-def somma(a, b):
-	somma = a + b
-	return somma
+def somma(a: float, b: float) -> float:
+	return a + b
 ```
 
-Per eseguire il codice all'interno della cella, premiamo il tasto `Play`, oppure la combinazione di tasti `Shift+Invio`. Una volta eseguita la prima cella, Jupyter ne creerà in automatico un'altra; al suo interno, potremo scrivere le istruzioni necessarie a chiamare la funzione `somma()` su due diversi valori.
+Per eseguire il codice all'interno della cella, possiamo premere il tasto `Play` in alto, oppure usare la comodissima combinazione di tasti `Shift + Invio`. 
+
+Jupyter eseguirà il codice (salvando la funzione in memoria) e creerà automaticamente una nuova cella sottostante. Qui possiamo chiamare la nostra funzione:
 
 ```py
-somma(5, 7)
+somma(5.5, 7.0)
 ```
 
-Eseguiamo l'istruzione; noteremo che al di sotto della cella apparirà il valore assunto dalla funzione.
+Premendo di nuovo `Shift + Invio`, noteremo che immediatamente sotto la cella apparirà l'output della funzione (ovvero `12.5`).
 
-## Altre operazioni utili
+## Gestione del Kernel e "Stato Nascosto"
 
-Jupyter ci permette di effettuare una serie di operazioni utili, tra cui:
+Jupyter si basa sul concetto di **Kernel**. Il Kernel è il "motore" Python in background che esegue effettivamente il codice e memorizza le variabili.
 
-* cancellare un'intera cella;
-* inserire una cella al di sopra o al di sotto di quella attualmente selezionata;
-* stoppare il kernel;
-* riavviare il kernel.
+Jupyter ci permette di effettuare operazioni cruciali sul Kernel tramite il menu in alto:
+*   **Interrupt Kernel (Interrompi):** Ferma l'esecuzione della cella attuale (utile se abbiamo scritto un ciclo `while` infinito per sbaglio o se un calcolo sta impiegando troppo tempo). Non cancella i dati in memoria.
+*   **Restart Kernel (Riavvia):** "Spegne e riaccende" il motore. **Tutte le variabili in memoria vengono cancellate**.
 
-Soffermiamoci per un attimo sulle ultime due operazioni. Può capitare, infatti, che ci sia la necessità di interrompere il flusso attuale dell'esecuzione delle istruzioni, oppure ancora che sia necessario riavviare il notebook. Dato che Jupyter si basa sul concetto di *kernel*, il quale è il responsabile per l'esecuzione del notebook, diremo in gergo che possiamo *interrompere*, o *stoppare*, il kernel, oppure ancora che possiamo *riavviarlo*.
+!!!warning "Il problema dello Stato Nascosto (Hidden State)"
+    Nei notebook non sei obbligato a eseguire le celle in ordine dall'alto verso il basso. Puoi eseguire la cella 5, poi la 2, poi di nuovo la 5. 
+    Questo causa spessissimo bug in cui una variabile ha un valore diverso da quello che vedi scritto, perché l'hai modificata eseguendo un'altra cella in precedenza. 
+    **Best Practice:** Quando il tuo notebook sembra avere comportamenti inspiegabili, clicca su *"Kernel -> Restart Kernel and Run All Cells"*. Se il codice è corretto, funzionerà in modo sequenziale dall'inizio alla fine.
 
-L'interruzione del kernel si limita a fermare l'esecuzione della cella attuale: ciò non comporta alcuna perdita di dati, e potremo riprendere ad eseguire il codice nel notebook in ogni momento, sia dall'inizio di quella cella, sia dall'interno di un'altra. Il riavvio del kernel, invece, "blocca" completamente l'esecuzione, andando a cancellare anche le variabili presenti in memoria: si tratta, quindi, di un vero e proprio "reset", da utilizzare quando, ad esempio, abbiamo la necessità di riorganizzare il codice, oppure quando abbiamo effettuato un numero eccessivo di modifiche per le quali i risultati iniziano a non essere coerenti con le nostre attese.
+## Lavorare in Visual Studio Code
 
-## Colab
+Oggi non è strettamente necessario lanciare Jupyter dal browser. Se utilizzi un IDE moderno come **Visual Studio Code (VS Code)**, puoi semplicemente creare un file con estensione `.ipynb` direttamente nell'editor.
 
-Sempre più spesso il codice per il calcolo scientifico e la data science richiede l'uso di risorse computazionali estese che, talvolta, non sono disponibili sui PC che utilizziamo. Per ovviare a questo problema, e permettere a chiunque di sperimentare con le librerie che vedremo in questo corso, esiste uno strumento chiamato [Colab](https://colab.research.google.com/) messo a disposizione da Google che ci permette di eseguire gratuitamente i nostri notebook Jupyter.
+VS Code riconoscerà automaticamente che si tratta di un Notebook Jupyter e ti mostrerà un'interfaccia integrata che unisce la comodità dei notebook (celle, grafici inline) con la potenza dell'IDE (autocompletamento avanzato, GitHub Copilot, linter). È la scelta preferita da molti professionisti.
 
-Ovviamente, la versione gratuita comporta una serie di limitazioni, che tuttavia risultano essere più che sufficienti per i nostri scopi.
+## Google Colab (Notebook in Cloud)
+
+Il Machine Learning e il Deep Learning (che vedremo nei moduli successivi) richiedono risorse computazionali enormi, in particolare l'uso di **GPU** (Schede Video), che non tutti possiedono sui propri computer portatili.
+
+Per ovviare a questo problema, Google mette a disposizione uno strumento gratuito chiamato **[Google Colab](https://colab.research.google.com/)**.
+Colab non è altro che un ambiente Jupyter Notebook ospitato sui server di Google, pre-installato con tutte le librerie di Data Science più famose (NumPy, Pandas, TensorFlow, Scikit-Learn) e che offre l'accesso gratuito (con alcuni limiti di tempo) a GPU e TPU.
+
+Sarà il nostro strumento di elezione quando arriveremo ad addestrare reti neurali complesse.

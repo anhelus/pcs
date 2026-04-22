@@ -1,111 +1,113 @@
-# 2.2.1 Introduzione a NumPy
+# 2.2.1 - Introduzione a NumPy
 
-La libreria **NumPy**, nome derivante dalla crasi tra <em>Num</em>erical <em>Py</em>thon, è una tra le più utilizzate nelle applicazioni di calcolo scientifico in Python.
+La libreria **NumPy**, nome derivante dalla crasi tra *Num*erical *Py*thon, è il pilastro fondamentale per il calcolo scientifico e l'analisi dati in Python.
 
-Nella pratica, possiamo pensare a NumPy come ad uno standard *de facto*: infatti, le classi ed i metodi messi a disposizione dalla libreria sono estensivamente utilizzate nella quasi totalità degli altri tool Python per le scienze matematiche, chimiche e fisiche, oltre che per l'ingegneria.
-
-Partiamo nella nostra disamina dalla procedura di installazione della libreria.
+Nella pratica, NumPy è uno standard *de facto*: le sue strutture dati sono utilizzate come base (o "motore" interno) da quasi tutte le altre librerie di Data Science e Machine Learning, tra cui Pandas, Scikit-Learn e TensorFlow.
 
 ## Installare NumPy
 
-!!!note "Installazione di una libreria"
-    Al solito, ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'[appendice B](../../appendix/03_libraries/lecture.md).
+Come visto nel[Modulo 1.3](../01_python/03_advanced/00_environments.md), è fondamentale installare le librerie esterne all'interno del nostro ambiente virtuale isolato.
 
-Per installare NumPy, ricorriamo all'utilizzo di `pip`, preferibilmente all'interno di un ambiente virtuale:
+Apriamo il terminale, attiviamo l'ambiente virtuale e usiamo `pip`:
 
 ```sh
-workon my-virtual-env
-(my-virtual-env) pip install numpy
+# Assicurati di avere l'ambiente virtuale attivo, es: source .venv/bin/activate
+pip install numpy
 ```
 
-## Introduzione a NumPy
-
-### Gli `ndarray`
-
-Abbiamo visto in precedenza che per usare un package o un modulo Python all'interno dei nostri programmi dovremo per prima cosa importarlo:
+La convenzione universale per importare NumPy nei nostri script è utilizzare l'alias `np`:
 
 ```py
 import numpy as np
 ```
 
-Una volta importato NumPy, potremo passare ad utilizzare la struttura dati "principe" della libreria, ovvero l'*array*, analogo a quelli descritti dalla classica formulazione matematica.
+## La struttura dati: `ndarray`
 
+Il cuore pulsante di NumPy è l'oggetto `ndarray` (*n-dimensional array*). Si tratta di una struttura dati ottimizzata per rappresentare vettori, matrici e tensori a $n$ dimensioni, contenenti dati di tipo **strettamente omogeneo** (tutti numeri interi, o tutti decimali, ecc.).
 
-Nello specifico, NumPy ci mette a disposizione gli `ndarray`, ovvero delle strutture dati in grado di rappresentare array ad $n$ dimensioni, contenenti dati di tipo *omogeneo*.
-
-!!!tip "Nota"
-    Anche `ndarray` è un'abbreviazione che sta per <em>n-d</em>imensional *array*.
-
-Il metodo più semplice per creare un array è usare il costruttore `array` a cui viene passata una lista:
+Il metodo più semplice per creare un array è usare il costruttore `np.array()` passandogli una normale lista Python:
 
 ```py
->>> a = np.array([1, 2, 3])
+>>> a = np.array([1, 2, 3, 4, 5])
+>>> type(a)
+<class 'numpy.ndarray'>
 ```
 
-### Array vs liste
+### Array vs Liste: Perché usare NumPy?
 
-Sono diverse le differenze che intercorrono tra un array ed una classica lista; le principali sono riassunte nella seguente tabella.
+A prima vista, un array 1D di NumPy può sembrare identico a una lista Python. Tuttavia, dal punto di vista ingegneristico, sono mondi completamente diversi. 
 
-| Caratteristica | `ndarray`              | Lista                       |
+| Caratteristica | `ndarray` di NumPy | Lista nativa Python |
 | -------------- | ---------------------- | --------------------------- |
-| Dimensione     | Fissa                  | Non fissa                   |
-| Elementi       | Omogenei (stesso tipo) | Eterogenei (qualsiasi tipo) |
-| Ambito         | Operazioni algebriche  | General-purpose             |
+| **Elementi** | Omogenei (tutti dello stesso tipo) | Eterogenei (es. `[1, "ciao", True]`) |
+| **Memoria** | Blocco contiguo di memoria (Backend in C) | Array di puntatori sparsi in memoria |
+| **Dimensione** | Fissa alla creazione | Dinamica (può crescere con `.append()`) |
+| **Performance**| Estremamente veloce | Molto lenta su grandi moli di dati |
 
-In pratica:
+**Il segreto delle performance:**
+Le liste Python sono flessibili ma pesanti. Poiché una lista può contenere tipi di dati misti, Python deve controllare il tipo di *ogni singolo elemento* prima di eseguire un'operazione.
+In NumPy, essendo l'array omogeneo, i dati sono salvati nella RAM in blocchi fisicamente contigui. Le operazioni matematiche vengono eseguite direttamente al livello del processore da codice scritto in **C** o **C++** super ottimizzato, bypassando completamente le lentezze dell'interprete Python.
 
-* un array ha dimensione fissa, a differenza della lista. Cambiarne la dimensione comporterà quindi la creazione di un nuovo array, e la cancellazione di quello originario;
-* gli elementi di un array devono essere dello stesso tipo (tale limitazione non vale ovviamente per le liste);
-* gli array sono pensati specificamente per le operazioni algebriche, laddove le liste sono pensate per degli scopi generici.
+## Vettorizzazione (Vectorization)
 
-## NumPy e le operazioni algebriche
+Gli array NumPy sono progettati specificamente per l'algebra lineare. Facciamo un esempio pratico: vogliamo moltiplicare due vettori (array 1D) *elemento per elemento*.
 
-Abbiamo detto che gli array NumPy sono progettati specificamente per le operazioni algebriche. Ovviamente, ciò assume una notevole rilevanza ai nostri fini. Per capirlo, facciamo un esemplice esempio, nel quale moltiplichiamo tra loro due vettori riga *elemento-per-elemento*.
-
-Per effettuare l'operazione appena descritta potremmo usare un ciclo `for` o una list comprehension:
+Se usassimo le normali liste Python, dovremmo ricorrere a un ciclo `for`:
 
 ```py
-# ciclo for
-c = []
+# Approccio standard Python (Lento)
+a = [1, 2, 3]
+b = [4, 5, 6]
+c =[]
+
 for i in range(len(a)):
-    c.append(a[i]*b[i])
-
-# list comprehension
-c = [a[i] * b[i] for i in range(len(a))]
+    c.append(a[i] * b[i])
 ```
 
-Il risultato dell'operazione sarà in entrambi i casi *corretto*. Tuttavia, i cicli sono computazionalmente *costosi*: ciò significa che, specialmente all'aumentare del numero di elementi contenuti nei vettori, sarà necessario pagare un costo crescente.
+Se estendessimo il calcolo a un'immagine a colori (che è un array 3D: altezza, larghezza, canali RGB), avremmo bisogno di ben tre cicli `for` annidati! In Python, i cicli annidati su milioni di elementi richiedono secondi, se non minuti.
 
-Questo potrebbe essere in qualche modo arginato dal ricorso ad un linguaggio più efficiente, come ad esempio il C; tuttavia, provando ad estendere il calcolo a due dimensioni, il codice diverrà:
+In NumPy, possiamo sfruttare la **Vettorizzazione**. Possiamo applicare l'operazione matematica direttamente all'intero oggetto array:
 
 ```py
-for i in range(len(a)):
-    for j in range(len(b)):
-        c.append(a[i][j]*b[i][j])
+# Approccio NumPy (Vettorizzato e Veloce)
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+c = a * b  # Risultato: array([4, 10, 18])
 ```
 
-Il numero di cicli annidati aumenterà ovviamente in maniera direttamente proporzionale alla dimensionalità degli array coinvolti. Ciò implica che per un array ad $m$ dimensioni avremo altrettanti cicli annidati, con tutto ciò che ne consegue in termini di complessità di codice.
+Questa sintassi, oltre ad essere infinitamente più leggibile (sembra vera e propria matematica scritta su carta), è ordini di grandezza più veloce. Il ciclo `for` avviene ancora, ma avviene "sotto il cofano" nel backend in C di NumPy, non in Python.
 
-Ed è proprio in questa situazione che NumPy ci viene in aiuto. Infatti, per moltiplicare due array *di qualsiasi dimensionalità* ci basta usare la seguente istruzione:
+Questa è la regola d'oro del calcolo scientifico in Python: **evitare i cicli `for` ogni volta che è possibile ed esprimerli come operazioni su array NumPy.**
+
+## Tipi di dato (`dtype`)
+
+A differenza del normale Python (che ha solo `int` e `float`), NumPy fornisce un controllo granulare sulla memoria, mettendoci a disposizione tipi di dato derivati direttamente dal linguaggio C.
+
+Questo è cruciale nel Data Science: elaborare un milione di numeri a 64-bit richiede il doppio della RAM rispetto a elaborarli a 32-bit.
+
+I tipi a dimensione fissa (*sized aliases*) più utilizzati sono:
+
+*   `np.int8`, `np.int16`, `np.int32`, `np.int64`: Interi con segno a 8, 16, 32 o 64 bit.
+*   `np.float32`, `np.float64`: Numeri a virgola mobile (decimali). In ambito Machine/Deep Learning, il `float32` è lo standard assoluto per risparmiare memoria sulle GPU.
+
+Possiamo specificare il tipo di dato esplicitamente al momento della creazione dell'array usando il parametro `dtype`:
 
 ```py
-c = a * b
+# Forziamo la creazione di un array di float a 32 bit
+>>> arr = np.array([1, 2, 3], dtype=np.float32)
+>>> arr.dtype
+dtype('float32')
 ```
 
-Evidentemente, una sintassi di questo tipo risulta essere molto più concisa e semplice rispetto all'uso dei cicli annidati, ed è inoltre molto simile a quella che possiamo trovare sulle formule "reali" usate nei libri di testo.
+!!!tip "Type Hinting in NumPy"
+    Nelle lezioni precedenti abbiamo visto quanto sia importante il *Type Hinting*. Ma come annotiamo un array NumPy?
+    Nelle versioni moderne della libreria esiste un sottomodulo dedicato:
+    ```py
+    import numpy as np
+    import numpy.typing as npt
 
-L'uso di questa sintassi si esplicita in due concetti fondamentali sui quali risulta essere basato NumPy:
-
-* la *vettorizzazione* del codice, ovvero la possibilità di scrivere istruzioni matriciali senza usare esplicitamente dei cicli;
-* il *broadcasting*, che riguarda la possibilità di usare una sintassi comune ed indipendente dalla dimensionalità degli array coinvolti nelle operazioni.
-
-## Tipi di dato
-
-NumPy mette a disposizione una serie di tipi di dato primitivi che vanno a sovrapporsi a quelli [built-in](../../01_python/01_intro/01_intro.md#tipi-built-in-in-python) di Python, e che trovano una corrispondenza praticamente perfetta con quelli messi a disposizione dal linguaggio C.
-
-Questi sono riassunti nella [tabella](https://numpy.org/doc/stable/user/basics.types.html#array-types-and-conversions-between-types) presente sulla reference.
-
-E' importante sottolineare due aspetti:
-
-* la dimensione di ciascun dato dipende dalla piattaforma (ovvero, sistema operativo e processore) utilizzata;
-* è disponibile una serie di tipi la cui dimensione è *indipendente* dalla piattaforma, definiti a [questo indirizzo](https://numpy.org/doc/stable/reference/arrays.scalars.html#sized-aliases). In generale, il consiglio è di far riferimento proprio a questi ultimi.
+    def normalizza(dati: npt.NDArray[np.float64]) -> npt.NDArray[np.float64]:
+        # Logica della funzione
+        pass
+    ```

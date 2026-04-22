@@ -1,5 +1,9 @@
 # 1.3.5 - Introduzione al Testing (`pytest`)
 
+Il saggio insegna che:
+
+!!!quote "
+
 Scrivere codice che funziona "sul momento" è facile. Scrivere codice che **continua a funzionare** dopo mesi di modifiche e refactoring richiede i **Test Automatici**.
 
 In Python, lo standard industriale per il testing è **`pytest`**. Rispetto al modulo nativo `unittest`, pytest richiede meno codice boilerplate, offre un output più leggibile e dispone di un ecosistema di plugin potentissimo.
