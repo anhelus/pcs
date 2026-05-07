@@ -1,6 +1,6 @@
 # 3.7 - Sfide aperte nel machine learning
 
-Lo sviluppo e le innovazioni introdotte da machine learning prima, e deep learning dopo, sono in parte motivate dal fallimento degli algoritmi tradizionali nella [generalizzazione](../01_intro/05_generalization.md) su diversi task di intelligenza artificiale. In particolare, la generalizzazione diventa sempre più difficile man mano che si lavora con dati ad elevata dimensionalità, dove i meccanismi tradizionali diventano insufficienti ad apprendere funzioni complesse ed adeguate al problema. Questi spazi, inoltre, spesso impongono l'uso di algoritmi ad alto costo computazionale: in tal senso, i recenti avanzamenti nel deep learning sono stati esplicitamente progettati per superare, tra gli altri, questi ostacoli. Vediamone alcuni
+Lo sviluppo e le innovazioni introdotte da machine learning prima, e deep learning dopo, sono in parte motivate dal fallimento degli algoritmi tradizionali nella [generalizzazione](../01_intro/06_generalization.md) su diversi task di intelligenza artificiale. In particolare, la generalizzazione diventa sempre più difficile man mano che si lavora con dati ad elevata dimensionalità, dove i meccanismi tradizionali diventano insufficienti ad apprendere funzioni complesse ed adeguate al problema. Questi spazi, inoltre, spesso impongono l'uso di algoritmi ad alto costo computazionale: in tal senso, i recenti avanzamenti nel deep learning sono stati esplicitamente progettati per superare, tra gli altri, questi ostacoli. Vediamone alcuni
 
 ## Curse of dimensionality
 

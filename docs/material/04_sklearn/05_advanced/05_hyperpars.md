@@ -65,7 +65,7 @@ search = GridSearchCV(pipe, param_grid, scoring='accuracy_score')
 search.fit(X_train, y_train)
 ```
 
-Appare evidente come il funzionamento sia concettualmente analogo al caso in cui si usi un singolo stimatore, grazie soprattutto all'[equivalenza tra pipeline e stimatori](./01_pipeline.md). Tuttavia, è interessante sottolineare che, come evidenziato nelle righe 10, 11 e 12, è necessario usare una notazione simile al [name mangling](../../01_python/02_syntax/05_classes.md#modificatori-di-accesso) per specificare la combinazione tra l'elemento della pipeline ed il valore associato agli iperparametri da ricercare.
+Appare evidente come il funzionamento sia concettualmente analogo al caso in cui si usi un singolo stimatore, grazie soprattutto all'[equivalenza tra pipeline e stimatori](./01_pipeline.md). Tuttavia, è interessante sottolineare che, come evidenziato nelle righe 10, 11 e 12, è necessario usare una notazione simile al [name mangling](../../01_python/02_syntax/06_classes.md#modificatori-di-accesso) per specificare la combinazione tra l'elemento della pipeline ed il valore associato agli iperparametri da ricercare.
 
 ## Random search
 

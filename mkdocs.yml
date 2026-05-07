@@ -1,4 +1,7 @@
 site_name: Python per il Calcolo Scientifico
+site_description: >-
+  Un corso completo di Python per la Data Science, il Machine Learning 
+  e il calcolo scientifico. Dalle basi al Deep Learning con TensorFlow e Scikit-Learn.
 
 nav:
   - Home: index.md
@@ -174,8 +177,8 @@ markdown_extensions:
 
 plugins:
   - search
-  - sitemap:
-    hostname: https://python.angelocardellicchio.it
+#  - sitemap:
+#    hostname: https://python.angelocardellicchio.it
 
 
 extra:

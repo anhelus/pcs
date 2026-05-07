@@ -1,6 +1,6 @@
 # 3.2 - La regressione lineare
 
-Nelle [lezioni precedenti](../01_intro/01_intro.md) abbiamo visto come esistano fondamentalmente due tipi di tecniche di apprendimento supervisionato, ovvero *regressione* e *classificazione*. In questa lezione, approfondiremo il caso più semplice di regressione, ovvero quello lineare.
+Nelle [lezioni precedenti](../01_intro/02_intro_ml.md) abbiamo visto come esistano fondamentalmente due tipi di tecniche di apprendimento supervisionato, ovvero *regressione* e *classificazione*. In questa lezione, approfondiremo il caso più semplice di regressione, ovvero quello lineare.
 
 ## Cosa è la regressione?
 
