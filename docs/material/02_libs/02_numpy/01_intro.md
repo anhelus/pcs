@@ -1,3 +1,7 @@
+---
+description: Introduciamo la libreria NumPy, che ci permette di estendere le capacità di Python portando al suo interno il calcolo numerico e matriciale.
+---
+
 # 2.2.1 - Introduzione a NumPy
 
 La libreria **NumPy**, nome derivante dalla crasi tra *Num*erical *Py*thon, è il pilastro fondamentale per il calcolo scientifico e l'analisi dati in Python.

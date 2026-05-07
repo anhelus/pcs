@@ -1,3 +1,7 @@
+---
+description: In questa lezione parleremo degli operatori aritmetici e logici in Python, illustrandone il funzionamento e le caratteristiche fondamentali.
+---
+
 # 1.1.2 - Operatori aritmetici e logici
 
 Come brevemente accennato nella [scorsa lezione](01_intro.md), vediamo di seguito quelli che sono gli operatori aritmetici e logici, e come possono essere utilizzati sui tipi numerici di base.

@@ -2,10 +2,9 @@
 description: In questa lezione introdurremo il linguaggio Python, parlando dei suoi concetti fondamentali e di come iniziare ad utilizzarlo.
 ---
 
-
 # 1.1.1 - Introduzione al Python
 
-Prima di iniziare a parlare del linguaggio Python, è opportuno verificare che l'interprete sia installato nel nostro sistema. Per farlo, apriamo un terminale (Shell o Command Prompt, a seconda del nostro sistema), e scriviamo:
+In questa lezione daremo una introduzione al linguaggio Python. Prima di iniziare a parlare del linguaggio Python, è opportuno verificare che l'interprete sia installato nel nostro sistema. Per farlo, apriamo un terminale (Shell o Command Prompt, a seconda del nostro sistema), e scriviamo:
 
 ```sh
 python

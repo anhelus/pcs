@@ -1,3 +1,7 @@
+---
+description: Vediamo in breve quali sono le operazioni algebriche che è possibile effettuare mediante i metodi messi a disposizione dalla libreria NumPy.
+---
+
 # 2.2.4 - Operazioni algebriche in NumPy
 
 !!!tip "Notebook di accompagnamento"

@@ -1,6 +1,10 @@
-# 1.2.1 - Sintassi fondamentale
+---
+description: Dopo aver visto i fondamenti del linguaggio, passiamo ad approfondire la sintassi, illustrando alcuni dei concetti più importanti da conoscere.
+---
 
-Vediamo alcuni dei concetti fondamentali che caratterizzano la sintassi del linguaggio Python.
+# 1.2.1 - Concetti sintattici fondamentali
+
+Vediamo alcuni dei concetti sintattici fondamentali che caratterizzano la sintassi del linguaggio Python.
 
 ## Commenti
 

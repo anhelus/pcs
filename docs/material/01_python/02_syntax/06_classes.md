@@ -1,10 +1,14 @@
+---
+description: Facciamo un breve excursus andando ad illustrare i concetti alla base della programmazione orientata agli oggetti (OOP) e delle classi.
+---
+
 # 1.2.6 - Classi ed OOP
 
-Python offre un esteso supporto alla programmazione orientata agli oggetti. Prima di proseguire, però, è opportuno introdurre brevemente questo concetto.
+Python offre un esteso supporto alla programmazione orientata agli oggetti (in inglese, *object oriented programming*, o OOP). Prima di proseguire, però, è opportuno introdurre brevemente questo concetto.
 
 ## La programmazione orientata agli oggetti
 
-Quello della *programmazione orientata agli oggetti* (OOP) è un paradigma di programmazione che permette di creare nuovi tipi definiti dall'utente, da intendersi come complementari ai tipi definiti dal linguaggio di programmazione. In tal senso, la OOP sposta il focus dalle *funzioni*, centrali nei linguaggi come il C e nel paradigma procedurale, ai *dati*.
+Quello della OOP è un paradigma di programmazione che permette di creare nuovi tipi definiti dall'utente, da intendersi come complementari ai tipi definiti dal linguaggio di programmazione. In tal senso, la OOP sposta il focus dalle *funzioni*, centrali nei linguaggi come il C e nel paradigma procedurale, ai *dati*.
 
 In tal senso, si arriva a dire che *nella OOP tutto è un oggetto*.
 

@@ -1,20 +1,5 @@
-
-
-
-Questo file contiene concetti validissimi, ma nasconde alcune "trappole" storiche in cui cadono spessissimo i programmatori quando passano da Python puro a NumPy. 
-
-Inoltre, alcune sezioni erano ripetitive (come `shape` e `ndim`, già viste nel file precedente) e mancavano di alcune *best practices* fondamentali introdotte nelle versioni recenti di Python (come l'operatore `@` per le matrici).
-
-Ecco i **5 interventi chirurgici** che ho applicato per gli standard 2026:
-
-1.  **L'operatore `@` per le Matrici:** Invece di usare solo `np.dot()`, ho introdotto l'operatore nativo `@` (es. `A @ B`). È lo standard assoluto nel Machine Learning moderno per la moltiplicazione matriciale perché rende le formule identiche a quelle matematiche.
-2.  **Il trucco del `-1` nel `reshape`:** Ho aggiunto come usare `-1` per far calcolare automaticamente una dimensione a NumPy. In Scikit-Learn (che vedremo nel Modulo 4) si usa continuamente `reshape(-1, 1)`.
-3.  **Il VERO significato di `axis`:** Ho chiarito meglio come funziona `axis=0` e `axis=1`. Spesso si fa confusione dicendo "somma per righe". In realtà `axis=0` significa *collassa le righe* (muoviti in verticale), ottenendo la somma di ogni colonna.
-4.  **Il mega-warning su Append/Insert:** Ho mantenuto la spiegazione di `np.append()`, ma l'ho circondata di un avviso critico. Modificare la dimensione di un array in un ciclo `for` è l'errore di performance numero 1 in NumPy.
-5.  **Rimozione ridondanze:** Ho eliminato il paragrafo "Dimensioni e forma di un array" ( `ndim`, `size`, `shape`), perché l'abbiamo già spiegato approfonditamente nella lezione precedente (2.2.2).
-
-Ecco il file **Definitivo (Ready to Push)**:
-
+---
+description: In questa lezione parliamo delle operazioni fondamentali che è possibile portare avanti sugli array grazie alla libreria NumPy.
 ---
 
 # 2.2.3 - Operazioni fondamentali sugli array

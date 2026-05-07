@@ -1,3 +1,7 @@
+---
+description: Approfondiamo il concetto di struttura dati andando a mostrare tecniche avanzate per manipolarle.
+---
+
 # 1.2.4 - Strutture dati
 
 In questa lezione approfondiremo alcune tecniche per manipolare le [liste](../01_intro/04_lists.md), oltre ad altre strutture dati fondamentali.

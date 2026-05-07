@@ -1,3 +1,7 @@
+---
+description: Introduciamo le stringhe in Python, parlando del loro funzionamento e confrontandole con altre sequenze presenti nel linguaggio.
+---
+
 # 1.1.3 - Stringhe
 
 In Python le stringhe possono indifferentemente essere racchiuse tra virgolette singole e doppie.

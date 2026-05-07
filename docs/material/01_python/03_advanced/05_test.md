@@ -1,3 +1,7 @@
+---
+description: Il test è una delle funzionalità più importanti da implementare nel contesto di un progetto di complessità più o meno elevata. Vediamo come implementarla usando la libreria pytest.
+---
+
 # 1.3.5 - Introduzione al Testing (`pytest`)
 
 Il saggio insegna che:

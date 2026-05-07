@@ -1,3 +1,7 @@
+---
+description: In questa lezione parleremo di come la libreria NumPy ci permette di manipolare matrici e tensori multidimensionali.
+---
+
 # 2.2.2 - Gli Array
 
 Nella [lezione precedente](01_intro.md) abbiamo introdotto il concetto di array, la struttura dati "centrale" nell'ecosistema di NumPy. In questa lezione esploreremo come crearli, ispezionarli e manipolarli in modo efficiente.

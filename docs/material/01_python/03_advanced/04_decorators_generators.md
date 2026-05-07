@@ -1,3 +1,8 @@
+---
+description: Vediamo insieme quali funzionalità Python offre per estendere le funzioni e gestire i flussi dati in maniera efficiente.
+---
+
+
 # 1.3.4 - Decoratori e Generatori
 
 In questa lezione esploreremo due funzionalità avanzate di Python che distinguono un programmatore principiante da un esperto: i **Decoratori**, per estendere le funzionalità delle funzioni, e i **Generatori**, per gestire flussi di dati in modo efficiente.

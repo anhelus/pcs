@@ -1,3 +1,7 @@
+---
+description: In questa lezione introdurremo i principi della programmazione strutturata.
+---
+
 # 1.2.2 - Programmazione strutturata
 
 Come tutti i linguaggi derivati da C, anche Python offre il supporto ai principali costrutti della programmazione strutturata. Vediamoli brevemente.

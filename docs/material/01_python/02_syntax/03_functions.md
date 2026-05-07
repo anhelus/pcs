@@ -1,3 +1,7 @@
+---
+description: Introduciamo il concetto di funzione, andandolo a contestualizzare nell'ambito dei concetti di modularità e riuso.
+---
+
 # 1.2.3 - Funzioni
 
 ## Definizione di funzione

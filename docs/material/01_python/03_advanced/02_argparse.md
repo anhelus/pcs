@@ -1,3 +1,7 @@
+---
+description: In questa lezione parleremo di come fornire all'utente la possibilità di interagire con i nostri script mediante delle interfacce a riga di comando.
+---
+
 # 1.3.2 - Interfacce a riga di comando (`argparse`)
 
 Il corretto sviluppo di uno script Python implica la necessità di evitare modifiche al codice sorgente ogni volta che dobbiamo cambiare un parametro (ad esempio, il numero di epoche di addestramento, il percorso del dataset, o il learning rate del modello). In tal senso, il modulo [`argparse`](https://docs.python.org/3/library/argparse.html) della libreria standard ci permette di passare questi parametri direttamente da riga di comando (CLI).

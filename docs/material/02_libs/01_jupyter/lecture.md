@@ -1,3 +1,7 @@
+---
+description: Introduciamo la libreria Jupyter, che ci permette di creare dei notebook per la gestione di script e programmi interattivi e particolarmente utili in ambito data science e machine learning.
+---
+
 # 2.1 - Jupyter Lab
 
 !!!tip "Notebook di accompagnamento"
