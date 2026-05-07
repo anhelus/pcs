@@ -1,3 +1,7 @@
+---
+description: In questa lezione parleremo di come si gestiscono gli errori in Python mediante un accurato utilizzo del concetto di eccezione.
+---
+
 # 1.2.5 - Gestione delle eccezioni
 
 Nei linguaggi interpretati l'esecuzione di un programma termina non appena viene individuato un errore. In Python ne esistono due tipi: il primo è quello *sintattico*, mentre il secondo è chiamato *eccezione*.

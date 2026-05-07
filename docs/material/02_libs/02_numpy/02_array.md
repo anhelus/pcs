@@ -1,22 +1,23 @@
-# 2.2.2 - Gli array
+---
+description: In questa lezione parleremo di come la libreria NumPy ci permette di manipolare matrici e tensori multidimensionali.
+---
 
-Nella [lezione precedente](01_intro.md) abbiamo introdotto il concetto gli array, ovvero la struttura dati "centrale" nell'ecosistema di NumPy. In questa lezione ne approfondiremo aspetti e caratteristiche principali.
+# 2.2.2 - Gli Array
 
-## Array e liste
+Nella [lezione precedente](01_intro.md) abbiamo introdotto il concetto di array, la struttura dati "centrale" nell'ecosistema di NumPy. In questa lezione esploreremo come crearli, ispezionarli e manipolarli in modo efficiente.
 
-Di primo acchito, l'impressione che si può avere osservando gli array è che questi siano molto simili alle classiche liste. Tuttavia, come abbiamo già visto, esistono diverse differenze notevoli, riassumibili in linea di massima affermando che è preferibile usare un array quando si devono svolgere operazioni di tipo matematico su dati omogenei.
+## Creazione di un Array
 
-Gli array NumPy sono istanze della classe `ndarray`, crasi che sta per $n$-dimensional array. Mediante questa classe possiamo rappresentare strutture dati con un numero arbitrario di dimensioni, ovvero vettori, matrici e tensori.
-
-Il primo passo per utilizzare un array è, come accennato in precedenza, crearlo. In tal senso, ci sono diversi metodi, ma ricordiamo di seguito quello più "semplice", che prevede l'uso del costruttore `array()` a cui passare una lista di elementi dello stesso tipo:
+Il metodo più immediato per creare un array è l'uso del costruttore `np.array()` a cui passare una lista Python:
 
 ```py
+>>> import numpy as np
 >>> a = np.array([1, 2, 3, 4, 5, 6])
 >>> a
 array([1, 2, 3, 4, 5, 6])
 ```
 
-Passando invece una lista i cui elementi sono a loro volta delle liste, potremo ottenere in uscita un array multidimensionale:
+Passando una lista di liste, otteniamo un array bidimensionale (una matrice):
 
 ```py
 >>> b = np.array([[1, 2, 3], [4, 5, 6]])
@@ -25,333 +26,173 @@ array([[1, 2, 3],
        [4, 5, 6]])
 ```
 
-Notiamo infine che gli array non sono necessariamente numerici. Possiamo, ad esempio, creare un array di stringhe:
+### Upcasting (Conversione automatica)
+
+A differenza delle liste, gli array NumPy *devono* contenere dati omogenei. Cosa succede se passiamo una lista con tipi misti, come un intero e un decimale?
 
 ```py
->>> c = np.array(["s1", "s2"])
->>> c
-array(['s1', 's2'], dtype='<U2')
-```
-
-### Array eterogenei
-
-In precedenza si è accennato al fatto che gli array, a differenza delle liste, debbano contenere dati omogenei. Cosa succederebbe quindi se provassimo a passare al metodo `array()` una lista composta da dati di tipo eterogeneo? Partiamo verificando cosa accade ad esempio usando un intero ed un float.
-
-```py
->>> d = np.array([1, 1.])
+>>> d = np.array([1, 3.14])
 >>> d
-array([1., 1.])
+array([1.  , 3.14])
 ```
 
-Notiamo subito che è stata effettuata in maniera implicita ed automatica un'operazione di conversione di tipo, e tutti i valori passati sono stati convertiti in formato float.
+NumPy applica il principio dell'**upcasting**: converte automaticamente tutti gli elementi al tipo di dato più "capiente" per evitare perdita di informazioni. In questo caso, l'intero `1` è diventato il float `1.0`.
 
-Interessante è anche valutare cosa accade se proviamo a passare una lista contenente un numero ed una stringa:
+Se mescoliamo numeri e stringhe, tutto diventerà una stringa:
 
 ```py
->>> e = np.array([1, "s3"])
+>>> e = np.array([1, "python"])
 >>> e
-array(['1', 's3'], dtype='<U11')
+array(['1', 'python'], dtype='<U21')
 ```
 
-Notiamo come anche in questo caso sia stata effettuata una conversione di tipo, passando stavolta da intero a stringa.
+## Ispezionare un Array (Shape, Ndim, Size)
 
-!!!note "Upcasting"
-	La regola da tenere a mente è che NumPy (e, in generale, Python) seguono il principio dell'*upcasting*: in altre parole, quando deve essere fatta una conversione tra diversi tipi di dati, si fa in modo di scegliere il tipo a più alta precisione, minimizzando i rischi di perdita di informazioni.
-
-## Il numero di elementi di un array
-
-Gli array NumPy hanno dimensione prefissata, e sono quindi in grado di contenere un numero fisso di oggetti di un certo tipo. Per definire (o conoscere) questo valore si utilizza una proprietà chiamata `shape` che, a grandi linee, rappresenta la *forma* dell'array. La shape di un array è in pratica una tupla di numeri interi, ovviamente non negativi, ciascuno dei quali determina il numero di elementi per ciascuna delle dimensioni dell'array.
-
-Creiamo ad esempio un array che rappresenti una matrice $2 \times 3$, ovvero a due righe e tre colonne:
+Quando lavoriamo con dataset complessi (es. batch di immagini), è fondamentale conoscere la geometria dei nostri dati. NumPy offre tre attributi fondamentali:
 
 ```py
->>> a = np.array([[1, 2, 3], [4, 5, 6]])
->>> a
-array([[1, 2, 3],
-       [4, 5, 6]])
-```
+>>> matrice = np.array([[1, 2, 3],[4, 5, 6]])
 
-Vediamo che valore assume la proprietà `shape` di questo array:
+>>> matrice.ndim  # Numero di dimensioni (Assi)
+2
 
-```py
->>> a.shape
+>>> matrice.shape # La forma: (righe, colonne)
 (2, 3)
+
+>>> matrice.size  # Numero totale di elementi (2 * 3)
+6
 ```
 
-Come ci aspettavamo, il nostro array ha cardinalità due sulla prima dimensione (ovvero il numero di righe) e tre sulla seconda (ovvero il numero di colonne).
+## Altri metodi di creazione
 
-## Altri metodi per creare un array
+Oltre a convertire liste esistenti, NumPy offre funzioni ottimizzate per generare array da zero (utilissime per preallocare memoria o creare dati fittizi).
 
-Oltre al metodo visto in precedenza, possiamo creare un array utilizzando direttamente il costruttore della classe `ndarray`:
+### Zeri, Uni e Vuoti
 
 ```py
->>> a = np.ndarray([3, 3])       # oppure a = np.ndarray(shape=(3, 3))
->>> a
-array([[0.00000000e+000, 0.00000000e+000, 0.00000000e+000],
-       [0.00000000e+000, 0.00000000e+000, 3.02368175e-321],
-       [6.69431255e+151, 1.68534231e+246, 6.69431467e+151]])
+# Array 3x3 riempito di zeri
+>>> z = np.zeros((3, 3))
+
+# Array 2x4 riempito di uni
+>>> u = np.ones((2, 4))
+
+# Array non inizializzato (estremamente veloce da creare, 
+# contiene i valori "spazzatura" già presenti in quel blocco di RAM)
+>>> e = np.empty((2, 2)) 
 ```
 
-Notiamo che il costruttore accetta una lista contenente la shape dell'array, che in questo caso diverrà un $3 \times 3$.
+### Generazione di sequenze (`arange` e `linspace`)
 
-!!!note "Nota"
-    Notiamo come i numeri con cui viene "riempito" l'array sono al momento casuali.
-
-Oltre a questa tecnica base, esistono diversi modi per creare array di un certo tipo. Vediamoli in breve.
-
-### Array con valori zero ed unitari
-
-Possiamo creare un array di dimensioni arbitrarie in cui tutti gli elementi sono pari ad 1. Per farlo, usiamo la funzione `ones()`:
+In Data Science, queste due funzioni sono onnipresenti per generare assi temporali o griglie di coordinate:
 
 ```py
->>> u = np.ones(shape=(3, 3))
->>> u
-array([[1., 1., 1.],
-       [1., 1., 1.],
-       [1., 1., 1.]])
+# Come il range() di Python, ma genera un array e accetta numeri decimali
+>>> np.arange(0, 10, 2)  # (start, stop_escluso, step)
+array([0, 2, 4, 6, 8])
+
+# Genera N numeri equamente distanziati tra due estremi
+>>> np.linspace(0, 1, 5) # (start, stop_incluso, numero_di_elementi)
+array([0.  , 0.25, 0.5 , 0.75, 1.  ])
 ```
 
-In modo simile, possiamo creare array di dimensioni arbitrarie in cui tutti gli elementi sono pari a zero mediante la funzione `zeros()`:
+## Accesso agli elementi (Indexing)
+
+!!!danger "L'Anti-pattern `[ ][ ]`"
+    In Python standard, per accedere a una lista di liste scriveremmo `lista[0][1]`. In NumPy, questa sintassi è un **grave errore di performance** perché forza la creazione in memoria di un array temporaneo per la prima riga prima di estrarre la colonna.
+
+La sintassi corretta, veloce e "NumPy-onica" utilizza la virgola per separare le dimensioni: `array[riga, colonna]`.
 
 ```py
->>> z = np.zeros(shape=(3, 3))
->>> z
-array([[0., 0., 0.],
-       [0., 0., 0.],
-       [0., 0., 0.]])
+>>> b = np.array([[10, 20, 30],[40, 50, 60]])
+
+# Voglio l'elemento alla prima riga (indice 0) e seconda colonna (indice 1)
+>>> b[0, 1]
+20
 ```
 
-### Array vuoti
+## Slicing Multi-dimensionale
 
-Possiamo creare un array vuoto mediante la funzione `empty()`:
+Lo slicing in NumPy (`start:stop:step`) è potentissimo perché agisce simultaneamente su più dimensioni. È la tecnica alla base del ritaglio di immagini (cropping) nella Computer Vision.
 
 ```py
->>> e = np.empty(shape=(3, 3))
->>> e
-array([[0.00000000e+000, 0.00000000e+000, 0.00000000e+000],
-       [0.00000000e+000, 0.00000000e+000, 1.67982320e-321],
-       [5.96555652e-302, 1.14188703e-104, 9.91401238e-278]])
+>>> b = np.array([[1, 2, 3],
+                  [4, 5, 6],[7, 8, 9]])
+
+# Voglio le prime due righe (0:2), ma solo le ultime due colonne (1:)
+>>> b[0:2, 1:]
+array([[2, 3],[5, 6]])
+
+# Voglio TUTTE le righe (:), ma solo la colonna centrale (1)
+>>> b[:, 1]
+array([2, 5, 8])
 ```
 
-Questa funzione può risultare utile quando vogliamo preallocare spazio per un array.
+## Maschere Booleane (Masking)
 
-!!!note "Nota"
-    I più attenti avranno notato che, in realtà, l'array generato da `empty()` non è vuoto, ma contiene valori casuali. In tal senso, dà risultati equivalenti all'uso diretto del costruttore `ndarray()`.
-
-### Matrice identità
-
-Possiamo creare una matrice identità usando la funzione `eye()`:
+Possiamo estrarre sottoinsiemi di dati applicando condizioni logiche. Questo processo crea una "maschera" di `True` e `False`.
 
 ```py
->>> i = np.eye(3)
->>> i
-array([[1., 0., 0.],
-       [0., 1., 0.],
-       [0., 0., 1.]])
-```
+>>> b = np.array([1, 2, 3, 4, 5, 6])
 
-!!!warning "Attenzione"
-    In questo caso, notiamo come non si possa passare una tupla o una lista per indicare le dimensioni dell'array. Tuttavia, possiamo specificare sia il numero delle righe (con il primo parametro) che il numero delle colonne (con il secondo parametro).
-
-### Matrici diagonali
-
-La funzione `diag()` viene usata sia per *creare* una matrice diagonale a partire da un vettore (che, ovviamente, sarà poi la diagonale della matrice), sia per *estrarre* la diagonale di una matrice. Per capire questa dualità, immaginiamo per prima cosa di avere a disposizione un vettore riga a tre elementi, che vogliamo trasformare in modo tale che si comporti come la diagonale di una matrice.
-
-```py
->>> x = np.array([5, 2, 3])
->>> x
-array([5, 2, 3])
-```
-
-Potremo creare una matrice diagonale a partire da questo vettore passandolo come parametro alla funzione `diag()`:
-
-```py
->>> d = np.diag(x)
->>> d
-array([[5, 0, 0],
-       [0, 2, 0],
-       [0, 0, 3]])
-```
-
-Vediamo invece come affrontare il problema duale. Immaginiamo di avere quindi un array, e volerne estrarre la diagonale:
-
-```py
->>> x = np.array([[5, 5, 5], [2, 1, 3], [4, 3, 6]])
->>> x
-array([[5, 2, 2],
-       [2, 1, 3],
-       [4, 3, 6]])
-```
-
-Per farlo, dovremo anche questa volta usare la funzione `diag()`:
-
-```py
->>> d = np.diag(x)
->>> d
-array([5, 1, 6])
-```
-
-!!!tip "Suggerimento"
-    Il fatto che la funzione `diag()` sia usata per operazioni duali può, a ragione, causare confusione. Basta però ricordare che passando un vettore si ottiene una matrice, mentre passando una matrice si ottiene un vettore, ed il gioco è fatto.
-
-!!!warning "Attenzione"
-    Ovviamente, la funzione `diag()` accetta solo input monodimensionali (vettori) e bidimensionali (matrici)!
-
-### Matrici triangolari
-
-Concludiamo questa breve carrellata mostrando due metodi in grado di estrarre la matrice triangolare, rispettivamente superiore ed inferiore.
-
-Supponiamo di avere la matrice x definita in precedenza. Per estrarre la matrice triangolare superiore, dovremo usare la funzione `triu()`:
-
-```py
->>> tu = np.triu(x)
->>> tu
-array([[5, 2, 2],
-       [0, 1, 3],
-       [0, 0, 6]])
-```
-
-Per estrarre invece la matrice triangolare inferiore, dovremo usare la funzione `tril()`:
-
-```py
->>> tl = np.tril(x)
->>> tl
-array([[5, 0, 0],
-       [2, 1, 0],
-       [4, 3, 6]])
-```
-
-!!!tip "Suggerimento"
-    In questo caso, le funzioni `tril()` e `triu()` possono tranquillamente essere applicate agli array n-dimensionali. Inoltre, non è richiesto le diverse dimensioni dell'array abbiano la stessa cardinalità.
-
-## Accesso agli elementi di un array
-
-Così come per le liste, il modo più immediato per accedere al valore di un elemento in un array è usare l'operatore `[]`, specificando contestualmente l'indice dell'elemento cui si vuole accedere. Ad esempio, per selezionare il primo elemento di un vettore:
-
-```py
->>> a = np.array([1, 2, 3, 4])
->>> a[0]
-1
-```
-
-Nel caso di array ad $n$ dimensioni, è necessario indicare l'indice per ciascuna delle dimensioni dell'array. Ad esempio, per un array bidimensionale potremmo selezionare l'elemento alla prima riga e prima colonna con una sintassi di questo tipo:
-
-```py
->>> b = np.array([[1, 2], [3, 4]])
->>> b[0][0]
-1
-```
-
-## Maschere booleane
-
-Possiamo accedere ad un sottoinsieme di elementi dell'array mediante una "maschera", ovvero un altro array, di dimensioni uguali a quelle di partenza, al cui interno sono presenti esclusivamente dei valori booleani. Così facendo, estrarremo soltanto gli elementi la cui corrispondente posizione all'interno della maschera ha valore `True`. Ad esempio, possiamo selezionare tutti gli elementi appartenenti alla prima colonna dell'array `b`:
-
-```py
->>> mask = np.array([[True, False], [True, False]])
->>> b[mask]
-array([1, 3])
-```
-
-Ancora, possiamo scegliere tutti gli elementi che soddisfano una certa condizione logico/matematica:
-
-```py
->>> mask = (b > 2)
+# Quali elementi sono maggiori di 3?
+>>> mask = b > 3
 >>> mask
-array([[False, False],
-       [ True,  True]])
+array([False, False, False,  True,  True,  True])
+
+# Applichiamo la maschera per estrarre i dati
 >>> b[mask]
-array([3, 4])
+array([4, 5, 6])
+
+# Forma compatta
+>>> b[b > 3]
+array([4, 5, 6])
 ```
 
-Interessante notare come la precedente notazione possa essere ulteriormente sintetizzata usando delle relazioni logiche:
+!!!warning "Operatori Logici in NumPy"
+    Per combinare più condizioni sulle maschere, **non** possiamo usare le keyword di Python `and`, `or`, `not`. Dobbiamo usare gli operatori bit-a-bit `&` (AND), `|` (OR), `~` (NOT), assicurandoci di mettere le condizioni tra parentesi tonde:
+    ```py
+    # Valori pari E maggiori di 2
+    >>> b[(b % 2 == 0) & (b > 2)]
+    array([4, 6])
+    ```
+
+## Sostituzione condizionale: `np.where`
+
+Spesso non vogliamo solo estrarre dati, ma modificarli in base a una condizione (es. "imposta a 0 tutti i valori negativi"). La funzione `np.where(condizione, valore_se_vero, valore_se_falso)` è la soluzione standard:
 
 ```py
->>> b[b > 2]
-array([3, 4])
+>>> x = np.array([-2, 5, -1, 8])
+>>> np.where(x < 0, 0, x)
+array([0, 5, 0, 8])
 ```
 
-Volendo, possiamo adattare la forma precedente all'uso di espressioni arbitrariamente complesse:
+## Fancy Indexing
+
+Chiudiamo con una tecnica avanzata chiamata *fancy indexing*, che permette di usare un array di indici interi per estrarre elementi in un ordine specifico o ripetuto.
+
+Per dimostrarlo, generiamo prima dei dati casuali usando l'API moderna di NumPy per la riproducibilità (`default_rng`):
 
 ```py
->>> b[b%2 == 0]
-array([2, 4])
->>> b[(b > 1) & (b < 4)]
-array([2, 3])
-```
+# Inizializziamo il generatore di numeri casuali (seed=42 per riproducibilità)
+>>> rng = np.random.default_rng(42)
 
-## Slicing degli array
-
-Così come le liste, anche gli array consentono le operazioni di slicing:
-
-```py
->>> a = np.array([1, 2, 3, 4])
->>> a[0:2]
-array([1, 2])
-```
-
-Per gli array multidimensionali, lo slicing si intende sulla $n$-ma dimensione dell'array. Questo concetto è facile da comprendere se si visualizza l'array ad $n$-dimensioni come un array di array:
-
-```py
->>> b
-array([[1, 2],
-       [3, 4]])
->>> b[0:1]              # Lo slicing avviene sulla seconda dimensione
-array([[1, 2]])
-```
-
-## La funzione `nonzero()`
-
-Possiamo usare la funzione `nonzero()` per selezionare gli elementi e gli indici di un array il cui valore non sia pari a zero. Ad esempio:
-
-```py
->>> x = np.array([[3, 0, 0], [0, 4, 0], [5, 6, 0]])
+# Generiamo 10 numeri interi tra 0 e 100
+>>> x = rng.integers(0, 100, size=10)
 >>> x
-array([[3, 0, 0],
-       [0, 4, 0],
-       [5, 6, 0]])
->>> np.nonzero(x)
-(array([0, 1, 2, 2], dtype=int64), array([0, 1, 0, 1], dtype=int64))
+array([ 8, 77, 65, 43, 43, 85,  8, 69, 20,  9])
+
+# Vogliamo estrarre gli elementi agli indici 1, 5 e 2, in quest'ordine
+>>> indici = np.array([1, 5, 2])
+>>> x[indici]
+array([77, 85, 65])
 ```
 
-La funzione `nonzero()` restituisce una tupla con gli indici per riga e colonna degli elementi diversi da zero. In particolare, la tupla risultante avrà un numero di elementi pari a ciascuna delle dimensioni dell'array `x` di ingresso, e l'$i$-mo vettore individuerà gli indici relativi alla $i$-ma dimensione. Ad esempio, in questo caso, il primo array rappresenta gli indici relativi alla prima dimensione dei valori non nulli (in questo caso, gli indici di riga), mentre il secondo gli indici relativi alla seconda dimensione (indici di colonna). Notiamo quindi che avremo i seguenti elementi diversi da zero:
-
-| Indice di riga | Indice di colonna | Valore |
-| -------------- | ----------------- | ------ |
-| 0              | 0                 | 3      |
-| 1              | 1                 | 4      |
-| 2              | 0                 | 5      |
-| 2              | 1                 | 6      |
-
-!!!tip "Ottenere una lista di tuple"
-    Possiamo ottenere una lista di tuple rappresentative delle coppie di indici per gli elementi non nulli sfruttando la funzione `zip`:
-    > ```py
-      >>> s = np.nonzero(tarry)
-      >>> s
-      (array([0, 1, 2, 2], dtype=int64), array([0, 1, 0, 1], dtype=int64))
-      >>> coords = list(zip(s[0], s[1]))
-      >>> coords
-      [(0, 0), (1, 1), (2, 0), (2, 1)]
-      ```
-
-## Fancy indexing
-
-Chiudiamo questa lezione parlando di una tecnica molto interessante chiamata *fancy indexing*, consistente nell'usare un array di indici per accedere a più elementi contemporaneamente. Ad esempio:
+La potenza del fancy indexing sta nel fatto che la forma (`shape`) dell'array risultante non dipende dai dati di origine, ma *dall'array degli indici*:
 
 ```py
->>> rand = np.random.RandomState(42)
->>> x = rand.randint(100, size=10)
->>> indexes = np.array([[1, 4],[5, 2]])
->>> x
-array([51, 92, 14, 71, 60, 20, 82, 86, 74, 74])
->>> x[indexes]
-array([[92, 60],
-       [20, 14]])
+# Passiamo una matrice 2x2 di indici
+>>> indici_2d = np.array([[1, 4], 
+                          [5, 2]])
+>>> x[indici_2d]
+array([[77, 43],[85, 65]])
 ```
-
-Nel codice precedente, stiamo:
-
-1. usando la funzione `randint()` per generare un array di numeri interi casuali compresi tra 0 e 100;
-2. generando un array bidimensionale `indexes`;
-3. restituendo, mediante il fancy indexing, un array con le dimensioni di `indexes` e gli elementi di `x` presi nelle posizioni indicate da `indexes`.
-
-La potenza del fancy indexing sta proprio in questo: non solo siamo in grado di accedere facilmente a più elementi di un array mediante un'unica operazione, ma possiamo anche ridisporre questi elementi come più ci aggrada!

@@ -1,3 +1,7 @@
+---
+description: In questa lezione vediamo come utilizzare la libreria Pydantic per il type hinting e la validazione dei dati.
+---
+
 # 1.3.3 - Type Hinting e Validazione Dati con Pydantic
 
 Abbiamo già introdotto il concetto di [tipizzazione dinamica](../01_intro/01_intro.md): in pratica, Python non ci obbliga a dichiarare il tipo di variabili, e questo può cambiare in maniera abbastanza "semplice" a runtime. Tuttavia, nei progetti complessi, questa libertà può diventare una trappola, rendendo difficile capire la forma che devono avere i dati che passano attraverso i nostri script e le nostre pipeline di elaborazione.

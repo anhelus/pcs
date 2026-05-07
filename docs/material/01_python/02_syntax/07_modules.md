@@ -1,3 +1,7 @@
+---
+description: In questa lezione parleremo di come si struttura un programma Python, introducendo i concetti di script, modulo e package.
+---
+
 # 1.2.7 - Script, moduli e package
 
 Quando si usa Python la tentazione è quella di interagire direttamente con l'interprete, lanciandolo da terminale ed eseguendo di volta in volta le istruzioni necessarie. Ovviamente questo approccio, seppur immediato, presenta diversi svantaggi. Ad esempio:

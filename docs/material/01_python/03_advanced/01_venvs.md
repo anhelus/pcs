@@ -1,3 +1,7 @@
+---
+description: In questa lezione introdurremo il concetto di gestione dell'ambiente virtuale e delle librerie ad esso associate.
+---
+
 # 1.3.1 - Gestione degli Ambienti (`venv`)
 
 Uno dei problemi più comuni quando sviluppiamo in Python è la *gestione delle dipendenze*, ovvero delle singole librerie che utilizziamo in fase di programmazione. Di default, infatti, Python installa tutte le librerie all'interno di una cartella *globale*, valida per tutto il sistema. Questo comporta due problemi critici:

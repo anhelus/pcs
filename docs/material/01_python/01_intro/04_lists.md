@@ -1,4 +1,10 @@
+---
+description: Parliamo di liste e tuple, introducendone concetti fondamentali e differenze nell'utilizzo pratico.
+---
+
 # 1.1.4 - Liste e tuple
+
+In questa lezione parleremo di altre due strutture dati fondamentali di Python, ovvero liste e tuple.
 
 ## Liste
 
