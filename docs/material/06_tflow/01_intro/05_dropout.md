@@ -1,6 +1,6 @@
 # 6.1.5 - Regolarizzazione in TensorFlow
 
-Abbiamo già visto i concetti alla base della [regolarizzazione](../../03_ml/01_intro/07_regularization.md) in una delle lezioni precedenti, ma può comunque essere utile richiamarli brevemente.
+Abbiamo già visto i concetti alla base della [regolarizzazione](../../03_ml/01_intro/08_regularization.md) in una delle lezioni precedenti, ma può comunque essere utile richiamarli brevemente.
 
 L'uso della regolarizzazione può essere spiegato con il concetto di *rasoio di Occam*, per il quale, date due possibili spiegazioni per lo stesso fenomeno, quella che lo descrive meglio è molto probabilmente la più semplice (o, più formalmente, *quella che assume il minor numero di ipotesi*).
 

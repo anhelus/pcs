@@ -5,7 +5,7 @@
 
 La forma più semplice di regressione in Scikit-Learn è implementata grazie ad una serie di stimatori contenuti nel package `linear_model` della libreria.
 
-Esaminiamone brevemente alcuni, ovvero quello [lineare](#regressione-lineare), [robusto](#regressione-in-caso-di-rumore) e [polinomiale](#regressione-polinomiale).
+Esaminiamone brevemente alcuni, ovvero quello [lineare](#regressione-lineare) e [robusto](#regressione-robusta).
 
 ## Regressione lineare
 

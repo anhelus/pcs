@@ -52,7 +52,7 @@ A differenza dei modelli di regressione, il cui output è rappresentato da un nu
 
 Esistono due macrocategorie di modelli di classificazione, ovvero quelli *binari* e quelli *multiclasse*. In particolare, i modelli di classificazione binaria distinguono esclusivamente tra due valori: ad esempio, un modello di classificazione delle email potrebbe indicare se il messaggio è di spam o meno. I modelli di classificazione multiclasse invece riescono a distinguere tra più classi: ad esempio, il nostro modello di riconoscimento delle foto potrebbe riconoscere oggetti di "classe" gatto, cane, gallina ed oca.
 
-Parleremo più approfonditamente di questi modelli in una delle [lezioni successive](04_base.md).
+Parleremo più approfonditamente di questi modelli in una delle [lezioni successive](05_base.md).
 
 ### Sistemi ad apprendimento non supervisionato
 

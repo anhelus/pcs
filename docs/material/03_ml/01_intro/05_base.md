@@ -13,7 +13,7 @@ Il *task* è il compito affidato all'algoritmo di machine learning, che di solit
 
 Per un algoritmo di machine learning, risolvere un task significa effettuare una qualche operazione su di un certo campione, inteso come un insieme di valori misurati in qualche modo. Tipicamente, un campione può essere rappresentato come un vettore $x \in \mathbb{R}^n$, con ogni valore $x_i$ feature dello stesso. Ad esempio, le feature associate ad un'immagine possono essere, a basso livello, i valori dei pixel presenti nella stessa.
 
-Esistono diverse tipologie di task che possono essere trattate con algoritmi di machine learning. Oltre ai problemi di classificazione e regressione trattati nella [lezione introduttiva](01_intro.md), alcuni task che possono essere affidati ad un algoritmo di machine learning sono:
+Esistono diverse tipologie di task che possono essere trattate con algoritmi di machine learning. Oltre ai problemi di classificazione e regressione trattati nella [lezione introduttiva](02_intro_ml.md), alcuni task che possono essere affidati ad un algoritmo di machine learning sono:
 
 * **trascrizione**: sono i task in cui il sistema osserva una rappresentazione di un dato non strutturato, trascrivendone l'informazione sotto forma testuale. Ad esempio, nell'OCR il programma visualizza un'immagine che contiene del testo, restituendo lo stesso sotto forma di una sequenza di caratteri, mentre nel riconoscimento vocale l'algoritmo ha il compito di scrivere una sequenza di caratteri che rispecchino le parole pronunciate in una sorgente audio;
 
@@ -35,7 +35,7 @@ La scelta della misura di performance può sembrare diretta ed oggettiva, ma spe
 
 L'*esperienza* viene fornita ad un algoritmo mediante un intero *dataset*, ovvero un insieme di molti campioni. Un esempio di dataset molto utilizzato per il test di algoritmi di machine learning è *Iris*, composto da un insieme di misure fatte su sepali e petali di $150$ piante di iris, ciascuna appartenente ad una tra tre differenti classi. In particolare, ogni singola pianta è un *campione* del dataset, la quale è a sua volta caratterizzata da quattro feature, ovvero lunghezza ed ampiezza sia di sepalo, sia di petalo.
 
-In base al tipo di esperienza fornita dal dataset, l'algoritmo può essere *supervisionato* o *non supervisionato*; come abbiamo [già visto](01_intro.md), gli algoritmi di learning non supervisionato apprendono proprietà intrinseche della struttura del dataset, mentre quelli di learning supervisionato imparano a relazionare tali proprietà con una label o un target. In altri termini:
+In base al tipo di esperienza fornita dal dataset, l'algoritmo può essere *supervisionato* o *non supervisionato*; come abbiamo [già visto](02_intro_ml.md), gli algoritmi di learning non supervisionato apprendono proprietà intrinseche della struttura del dataset, mentre quelli di learning supervisionato imparano a relazionare tali proprietà con una label o un target. In altri termini:
 
 * l'apprendimento non supervisionato prevede l'osservazione di molti esempi di un vettore casuale $x$ a partire dai quali si apprende la distribuzione di probabilità $p(x)$, o delle proprietà interessanti della stessa;
 * l'apprendimento supervisionato prevede l'osservazione di molti esempi di un vettore casuale $x$ a cui è associato un vettore $y$ a partire dai quali si apprende la distribuzione di probabilità $p(y|x)$.

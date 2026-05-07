@@ -10,7 +10,7 @@ Nella pratica, NumPy è uno standard *de facto*: le sue strutture dati sono util
 
 ## Installare NumPy
 
-Come visto nel[Modulo 1.3](../01_python/03_advanced/00_environments.md), è fondamentale installare le librerie esterne all'interno del nostro ambiente virtuale isolato.
+Come visto nel[Modulo 1.3](../../01_python/03_advanced/01_venvs.md), è fondamentale installare le librerie esterne all'interno del nostro ambiente virtuale isolato.
 
 Apriamo il terminale, attiviamo l'ambiente virtuale e usiamo `pip`:
 

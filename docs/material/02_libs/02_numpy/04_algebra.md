@@ -79,7 +79,7 @@ numpy.linalg.LinAlgError: Singular matrix
 
 ### La funzione `dot()`
 
-Nella [scorsa lezione](03_fundamentals.md#operazioni-algebriche-di-base) abbiamo visto un esempio di utilizzo della funzione `dot(a, b)` utilizzata per calcolare il prodotto matriciale tra gli array `a` e `b`. A questa funzione si applicano tutte le regole del calcolo matriciale, così come riassunto nella seguente tabella.
+Nella [scorsa lezione](03_fundamentals.md) abbiamo visto un esempio di utilizzo della funzione `dot(a, b)` utilizzata per calcolare il prodotto matriciale tra gli array `a` e `b`. A questa funzione si applicano tutte le regole del calcolo matriciale, così come riassunto nella seguente tabella.
 
 | Dimensionalità `a` | Dimensionalità `b` | Risultato |
 | ---------------- | ----- | --------- |

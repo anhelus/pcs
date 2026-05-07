@@ -15,7 +15,7 @@ L'uso di `argparse` prevede quattro step fondamentali:
 3. Chiameremo quindi il metodo `parse_args` per effettuare il parsing degli argomenti attesi al punto 2.
 4. Utilizzeremo infine i valori di cui è stato fatto il parsing all'interno dello script.
 
-Proviamo a fare un esempio. Immaginiamo di voler popolare una semplice struttura dati che rappresenta una persona. Per farlo, utilizzeremo una [dataclass](../02_syntax/05_classes.md).
+Proviamo a fare un esempio. Immaginiamo di voler popolare una semplice struttura dati che rappresenta una persona. Per farlo, utilizzeremo una [dataclass](../02_syntax/06_classes.md).
 
 ```py
 from dataclasses import dataclass
