@@ -6,10 +6,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Introduciamo la libreria Jupyter, che ci permette di creare dei notebook per la gestione di script e programmi interattivi e particolarmente utili in ambito data science e machine learning.">
       
       
       
-        <link rel="prev" href="../../../01_python/03_advanced/03_hinting/">
+      
+        <link rel="prev" href="../../../01_python/03_advanced/05_test/">
       
       
         <link rel="next" href="../../02_numpy/01_intro/">
@@ -19,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -916,6 +918,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/03_advanced/04_decorators_generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.4 - Decoratori e generatori
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/03_advanced/05_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.5 - Pytest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1080,10 +1138,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#altre-operazioni-utili" class="md-nav__link">
+  <a href="#gestione-del-kernel-e-stato-nascosto" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Altre operazioni utili
+        Gestione del Kernel e "Stato Nascosto"
       
     </span>
   </a>
@@ -1091,10 +1149,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#colab" class="md-nav__link">
+  <a href="#lavorare-in-visual-studio-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Colab
+        Lavorare in Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-colab-notebook-in-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Colab (Notebook in Cloud)
       
     </span>
   </a>
@@ -4342,10 +4411,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#altre-operazioni-utili" class="md-nav__link">
+  <a href="#gestione-del-kernel-e-stato-nascosto" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Altre operazioni utili
+        Gestione del Kernel e "Stato Nascosto"
       
     </span>
   </a>
@@ -4353,10 +4422,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#colab" class="md-nav__link">
+  <a href="#lavorare-in-visual-studio-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Colab
+        Lavorare in Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-colab-notebook-in-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Colab (Notebook in Cloud)
       
     </span>
   </a>
@@ -4383,74 +4463,76 @@
 <h1 id="21-jupyter-lab">2.1 - Jupyter Lab<a class="headerlink" href="#21-jupyter-lab" title="Permanent link">&para;</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Notebook di accompagnamento</p>
-<p>Per questa lezione esiste un <em>notebook di accompagnamento</em>, reperibile a <a href="https://github.com/anhelus/pcs-exercises/blob/master/01_libs/00_jupyter_sample.ipynb">questo indirizzo</a>.</p>
+<p>Per questa lezione (e per le successive) esiste un <em>notebook di accompagnamento</em>, reperibile a <a href="https://github.com/anhelus/pcs-exercises/blob/master/01_libs/00_jupyter_sample.ipynb">questo indirizzo</a>.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Notebook di accompagnamento</p>
-<p>Per questa lezione esiste un <em>notebook di accompagnamento</em>, reperibile a <a href="https://github.com/anhelus/pcs-exercises/blob/master/01_libs/00_jupyter_sample.ipynb">questo indirizzo</a>.</p>
-</div>
-<p>Fino a questo momento ci siamo limitati a lanciare script Python direttamente da riga di comando. Tuttavia, è evidente come questo approccio sia limitato, specialmente in applicazioni in ambito data science.</p>
-<p>Per ovviare a queste problematiche, all'interno del framework SciPy viene proposto <a href="https://jupyter.org/">Jupyter Lab</a>,  che introduce uno tra gli strumenti più utilizzati dai data analyst al giorno d'oggi, ovvero i <em>notebook</em>.</p>
+<p>Fino a questo momento ci siamo limitati a scrivere e lanciare script Python direttamente da riga di comando o file <code>.py</code>. Sebbene questo sia l'approccio standard per l'ingegneria del software (sviluppo di API, backend, ecc.), risulta limitante in ambito <strong>Data Science e Machine Learning</strong>.</p>
+<p>Quando analizziamo dati, abbiamo bisogno di esplorarli passo-passo, visualizzare grafici e testare trasformazioni senza dover ricaricare in memoria dataset giganti a ogni singola esecuzione.</p>
+<p>Per ovviare a queste problematiche, l'ecosistema Python offre <a href="https://jupyter.org/">Jupyter</a>, che introduce lo strumento più utilizzato dai data analyst: i <strong>Notebook</strong>.</p>
 <h2 id="anatomia-di-un-notebook">Anatomia di un notebook<a class="headerlink" href="#anatomia-di-un-notebook" title="Permanent link">&para;</a></h2>
-<p>Un notebook è, in poche parole, un <em>ambiente interattivo</em> che permette di <em>scrivere</em> e <em>testare</em> il nostro codice. In particolare, ptoremo scrivere una o più istruzioni, ed eseguirle in maniera separata dalle altre mediante il meccanismo delle <em>celle</em>, che altro non sono se non dei singoli "blocchi" di codice.</p>
-<div class="admonition tip">
-<p class="admonition-title">Suggerimento</p>
-<p>I notebook Jupyter ci permettono di inserire anche commenti, descrizioni ed equazioni utilizzando due linguaggi di markup molto noti, ovvero <a href="https://daringfireball.net/projects/markdown/">Markdown</a> e <a href="https://www.latex-project.org/">Latex</a>.</p>
-</div>
-<p>Vediamo adesso come creare ed utilizzare il nostro primo notebook.</p>
+<p>Un notebook è un <em>ambiente interattivo</em> che permette di fondere codice, testo formattato e output visivi (come grafici o tabelle) in un unico documento.</p>
+<p>Il notebook è suddiviso in <strong>celle</strong>, che possono essere di due tipi principali:<br />
+1.  <strong>Celle di Codice:</strong> Contengono codice Python. Possiamo eseguire una singola cella alla volta; le variabili create resteranno in memoria e saranno accessibili dalle celle successive.<br />
+2.  <strong>Celle Markdown:</strong> Permettono di inserire commenti, titoli, descrizioni testuali e formule matematiche in <a href="https://www.latex-project.org/">LaTeX</a>.</p>
 <h2 id="installazione-e-lancio-di-jupyter-lab">Installazione e lancio di Jupyter Lab<a class="headerlink" href="#installazione-e-lancio-di-jupyter-lab" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
-<p class="admonition-title">Installazione di una libreria</p>
-<p>Ricordiamo che le diverse opzioni utilizzabili per installare una libreria sono descritte nel dettaglio nell'<a href="../../../appendix/03_libraries/lecture/">appendice B</a>.</p>
+<p class="admonition-title">Gestione degli Ambienti</p>
+<p>Come abbiamo imparato nel Modulo 1, è fondamentale installare le librerie all'interno di un ambiente virtuale isolato, e non nel sistema globale.</p>
 </div>
-<p>Per installare Jupyter Lab, ricorriamo all'utilizzo di <code>pip</code>, preferibilmente all'interno di un ambiente virtuale:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>workon<span class="w"> </span>my-virtual-env
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">(</span>my-virtual-env<span class="o">)</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>jupyterlab
+<p>Per installare Jupyter Lab, attiviamo il nostro ambiente virtuale e usiamo <code>pip</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Attiviamo l&#39;ambiente (es. su Windows / Mac)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># .venv\Scripts\activate  OPPURE  source .venv/bin/activate</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>pip<span class="w"> </span>install<span class="w"> </span>jupyterlab
 </code></pre></div>
-<p>A differenza delle altre librerie, Jupyter non andrà (necessariamente) importato; infatti, è possibile lanciare un ambiente interattivo utilizzando la seguente istruzione da riga di comando:</p>
+<p>A differenza delle normali librerie che importiamo nel codice, Jupyter è una vera e propria applicazione web. Per lanciare l'ambiente interattivo, digitiamo da terminale:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>jupyter<span class="w"> </span>lab
 </code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Importare iPython</p>
-<p>In teoria è possibile importare iPython ed utilizzare i metodi e le classi messe a disposizione come una qualsiasi libreria. Nei fatti, però, molto spesso ci si limita ad utilizzare l'ambiente interattivo offerto dai notebook.</p>
-</div>
+<p>Questo comando aprirà automaticamente una nuova scheda nel tuo browser predefinito, mostrando l'interfaccia del programma. Il terminale rimarrà "bloccato" a fare da server locale finché non deciderai di chiuderlo (con <code>CTRL+C</code>).</p>
 <h2 id="il-primo-notebook">Il primo notebook<a class="headerlink" href="#il-primo-notebook" title="Permanent link">&para;</a></h2>
-<p>A questo punto ci troveremo davanti ad una schermata simile a quella mostrata in figura 1.</p>
+<p>Una volta avviato Jupyter Lab, ci troveremo davanti alla schermata introduttiva (Launcher).</p>
 <figure>
 <p><img alt="intro" src="../images/intro.png" width="450" /><br />
 </p>
 <figcaption>Figura 1 - La schermata introduttiva di Jupyter Lab</figcaption>
 </figure>
-<p>Creiamo il nostro primo notebook premendo il pulsante <em>Python 3</em> nel menu <em>Notebook</em>. Una volta terminata la procedura, potremo iniziare ad interagire con l'ambiente. Prima di procedere, però, definiamo il nome del nostro notebook dal menu a sinistra.</p>
-<p>Proviamo a fare qualcosa di semplice: creiamo una funzione che sommi due variabili di tipo numerico, restituendo il risultato, e chiamiamola su due diversi valori.</p>
-<p>Per prima cosa, scriviamo il codice della funzione all'interno della prima cella:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">somma</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">somma</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">return</span> <span class="n">somma</span>
+<p>Creiamo il nostro primo notebook cliccando sull'icona <strong>Python 3 (ipykernel)</strong> sotto la voce <em>Notebook</em>. Rinominamo il file appena creato (dal menu a sinistra o cliccando sul nome in alto).</p>
+<p>Proviamo a fare qualcosa di semplice. Clicchiamo sulla prima cella e definiamo una funzione (usando i Type Hints che abbiamo imparato!):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">somma</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </code></pre></div>
-<p>Per eseguire il codice all'interno della cella, premiamo il tasto <code>Play</code>, oppure la combinazione di tasti <code>Shift+Invio</code>. Una volta eseguita la prima cella, Jupyter ne creerà in automatico un'altra; al suo interno, potremo scrivere le istruzioni necessarie a chiamare la funzione <code>somma()</code> su due diversi valori.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">somma</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<p>Per eseguire il codice all'interno della cella, possiamo premere il tasto <code>Play</code> in alto, oppure usare la comodissima combinazione di tasti <code>Shift + Invio</code>. </p>
+<p>Jupyter eseguirà il codice (salvando la funzione in memoria) e creerà automaticamente una nuova cella sottostante. Qui possiamo chiamare la nostra funzione:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">somma</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">)</span>
 </code></pre></div>
-<p>Eseguiamo l'istruzione; noteremo che al di sotto della cella apparirà il valore assunto dalla funzione.</p>
-<h2 id="altre-operazioni-utili">Altre operazioni utili<a class="headerlink" href="#altre-operazioni-utili" title="Permanent link">&para;</a></h2>
-<p>Jupyter ci permette di effettuare una serie di operazioni utili, tra cui:</p>
-<ul>
-<li>cancellare un'intera cella;</li>
-<li>inserire una cella al di sopra o al di sotto di quella attualmente selezionata;</li>
-<li>stoppare il kernel;</li>
-<li>riavviare il kernel.</li>
-</ul>
-<p>Soffermiamoci per un attimo sulle ultime due operazioni. Può capitare, infatti, che ci sia la necessità di interrompere il flusso attuale dell'esecuzione delle istruzioni, oppure ancora che sia necessario riavviare il notebook. Dato che Jupyter si basa sul concetto di <em>kernel</em>, il quale è il responsabile per l'esecuzione del notebook, diremo in gergo che possiamo <em>interrompere</em>, o <em>stoppare</em>, il kernel, oppure ancora che possiamo <em>riavviarlo</em>.</p>
-<p>L'interruzione del kernel si limita a fermare l'esecuzione della cella attuale: ciò non comporta alcuna perdita di dati, e potremo riprendere ad eseguire il codice nel notebook in ogni momento, sia dall'inizio di quella cella, sia dall'interno di un'altra. Il riavvio del kernel, invece, "blocca" completamente l'esecuzione, andando a cancellare anche le variabili presenti in memoria: si tratta, quindi, di un vero e proprio "reset", da utilizzare quando, ad esempio, abbiamo la necessità di riorganizzare il codice, oppure quando abbiamo effettuato un numero eccessivo di modifiche per le quali i risultati iniziano a non essere coerenti con le nostre attese.</p>
-<h2 id="colab">Colab<a class="headerlink" href="#colab" title="Permanent link">&para;</a></h2>
-<p>Sempre più spesso il codice per il calcolo scientifico e la data science richiede l'uso di risorse computazionali estese che, talvolta, non sono disponibili sui PC che utilizziamo. Per ovviare a questo problema, e permettere a chiunque di sperimentare con le librerie che vedremo in questo corso, esiste uno strumento chiamato <a href="https://colab.research.google.com/">Colab</a> messo a disposizione da Google che ci permette di eseguire gratuitamente i nostri notebook Jupyter.</p>
-<p>Ovviamente, la versione gratuita comporta una serie di limitazioni, che tuttavia risultano essere più che sufficienti per i nostri scopi.</p>
+<p>Premendo di nuovo <code>Shift + Invio</code>, noteremo che immediatamente sotto la cella apparirà l'output della funzione (ovvero <code>12.5</code>).</p>
+<h2 id="gestione-del-kernel-e-stato-nascosto">Gestione del Kernel e "Stato Nascosto"<a class="headerlink" href="#gestione-del-kernel-e-stato-nascosto" title="Permanent link">&para;</a></h2>
+<p>Jupyter si basa sul concetto di <strong>Kernel</strong>. Il Kernel è il "motore" Python in background che esegue effettivamente il codice e memorizza le variabili.</p>
+<p>Jupyter ci permette di effettuare operazioni cruciali sul Kernel tramite il menu in alto:<br />
+*   <strong>Interrupt Kernel (Interrompi):</strong> Ferma l'esecuzione della cella attuale (utile se abbiamo scritto un ciclo <code>while</code> infinito per sbaglio o se un calcolo sta impiegando troppo tempo). Non cancella i dati in memoria.<br />
+*   <strong>Restart Kernel (Riavvia):</strong> "Spegne e riaccende" il motore. <strong>Tutte le variabili in memoria vengono cancellate</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Il problema dello Stato Nascosto (Hidden State)</p>
+<p>Nei notebook non sei obbligato a eseguire le celle in ordine dall'alto verso il basso. Puoi eseguire la cella 5, poi la 2, poi di nuovo la 5. <br />
+Questo causa spessissimo bug in cui una variabile ha un valore diverso da quello che vedi scritto, perché l'hai modificata eseguendo un'altra cella in precedenza. <br />
+<strong>Best Practice:</strong> Quando il tuo notebook sembra avere comportamenti inspiegabili, clicca su <em>"Kernel -&gt; Restart Kernel and Run All Cells"</em>. Se il codice è corretto, funzionerà in modo sequenziale dall'inizio alla fine.</p>
+</div>
+<h2 id="lavorare-in-visual-studio-code">Lavorare in Visual Studio Code<a class="headerlink" href="#lavorare-in-visual-studio-code" title="Permanent link">&para;</a></h2>
+<p>Oggi non è strettamente necessario lanciare Jupyter dal browser. Se utilizzi un IDE moderno come <strong>Visual Studio Code (VS Code)</strong>, puoi semplicemente creare un file con estensione <code>.ipynb</code> direttamente nell'editor.</p>
+<p>VS Code riconoscerà automaticamente che si tratta di un Notebook Jupyter e ti mostrerà un'interfaccia integrata che unisce la comodità dei notebook (celle, grafici inline) con la potenza dell'IDE (autocompletamento avanzato, GitHub Copilot, linter). È la scelta preferita da molti professionisti.</p>
+<h2 id="google-colab-notebook-in-cloud">Google Colab (Notebook in Cloud)<a class="headerlink" href="#google-colab-notebook-in-cloud" title="Permanent link">&para;</a></h2>
+<p>Il Machine Learning e il Deep Learning (che vedremo nei moduli successivi) richiedono risorse computazionali enormi, in particolare l'uso di <strong>GPU</strong> (Schede Video), che non tutti possiedono sui propri computer portatili.</p>
+<p>Per ovviare a questo problema, Google mette a disposizione uno strumento gratuito chiamato <strong><a href="https://colab.research.google.com/">Google Colab</a></strong>.<br />
+Colab non è altro che un ambiente Jupyter Notebook ospitato sui server di Google, pre-installato con tutte le librerie di Data Science più famose (NumPy, Pandas, TensorFlow, Scikit-Learn) e che offre l'accesso gratuito (con alcuni limiti di tempo) a GPU e TPU.</p>
+<p>Sarà il nostro strumento di elezione quando arriveremo ad addestrare reti neurali complesse.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 

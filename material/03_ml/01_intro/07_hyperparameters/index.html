@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Un corso completo di Python per la Data Science, il Machine Learning  e il calcolo scientifico. Dalle basi al Deep Learning con TensorFlow e Scikit-Learn.">
+      
       
       
       
@@ -19,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -903,6 +905,62 @@
     
   
     1.3.3 - Type Hinting e Pydantic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/03_advanced/04_decorators_generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.4 - Decoratori e generatori
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/03_advanced/05_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.5 - Pytest
   
 
     
@@ -4233,7 +4291,7 @@
 <p class="admonition-title">Apprendimento degli iperparametri</p>
 <p>Vedremo come esistono algoritmi che permettono di definire la miglior combinazione possibile per gli iperparametri di un modello dato un certo dataset.</p>
 </div>
-<p>Alle volte, un iperparametro è definito come tale perché è difficile da ottimizzare; tuttavia, capita più spesso che detti valori non devono essere appresi soltanto sul training set, ma devono avere valenza generale, allo scopo di evitare underfitting ed overfitting. Ciò ci riconduce al concetto di <em>generalizzazione</em> visto nella <a href="05_generalization.md">lezione precedente</a>.</p>
+<p>Alle volte, un iperparametro è definito come tale perché è difficile da ottimizzare; tuttavia, capita più spesso che detti valori non devono essere appresi soltanto sul training set, ma devono avere valenza generale, allo scopo di evitare underfitting ed overfitting. Ciò ci riconduce al concetto di <em>generalizzazione</em> visto nella <a href="../06_generalization/">lezione precedente</a>.</p>
 <p>Abbiamo visto come la stima dell'errore di generalizzazione una volta completato l'addestramento avvenga su un test set: in tal senso, è importante che i campioni del test set non siano in alcun modo usati per condizionare l'addestramento del modello. Di conseguenza, andremo a selezionare un <strong>set di validazione</strong> a partire dal training set: questo sarà usato per stimare l'errore di generalizzazione durante o immediatamente dopo l'addestramento, permettendo l'addestramento degli iperparametri. Normalmente, il dataset iniziale viene suddiviso in percentuali pari all'<span class="arithmatex">\(80\%\)</span> per i dati di training ed il <span class="arithmatex">\(20\%\)</span> per i dati di validazione.</p>
 <div class="admonition note">
 <p class="admonition-title">Errore sul set di validazione</p>

@@ -6,20 +6,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Il test è una delle funzionalità più importanti da implementare nel contesto di un progetto di complessità più o meno elevata. Vediamo come implementarla usando la libreria pytest.">
       
       
       
+      
+        <link rel="prev" href="../04_decorators_generators/">
+      
+      
+        <link rel="next" href="../../../02_libs/01_jupyter/lecture/">
       
       
         
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>1.3.5 - Introduzione al Testing (pytest) - Python per il Calcolo Scientifico</title>
+        <title>1.3.5 - Pytest - Python per il Calcolo Scientifico</title>
       
     
     
@@ -118,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1.3.5 - Introduzione al Testing (pytest)
+              1.3.5 - Pytest
             
           </span>
         </div>
@@ -264,18 +270,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -296,7 +304,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -785,18 +793,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -817,7 +827,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -907,6 +917,198 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_decorators_generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.4 - Decoratori e generatori
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.5 - Pytest
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.5 - Pytest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installazione" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installazione
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#il-primo-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il primo Test
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Il primo Test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eseguire-i-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eseguire i test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixtures-gestione-delle-dipendenze" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixtures: Gestione delle Dipendenze
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fixtures: Gestione delle Dipendenze">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#il-file-conftestpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Il file conftest.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametrizzazione" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parametrizzazione
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizzazione-del-progetto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organizzazione del Progetto
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4307,6 +4509,8 @@
 
 
 <h1 id="135-introduzione-al-testing-pytest">1.3.5 - Introduzione al Testing (<code>pytest</code>)<a class="headerlink" href="#135-introduzione-al-testing-pytest" title="Permanent link">&para;</a></h1>
+<p>Il saggio insegna che:</p>
+<p>!!!quote "</p>
 <p>Scrivere codice che funziona "sul momento" è facile. Scrivere codice che <strong>continua a funzionare</strong> dopo mesi di modifiche e refactoring richiede i <strong>Test Automatici</strong>.</p>
 <p>In Python, lo standard industriale per il testing è <strong><code>pytest</code></strong>. Rispetto al modulo nativo <code>unittest</code>, pytest richiede meno codice boilerplate, offre un output più leggibile e dispone di un ecosistema di plugin potentissimo.</p>
 <h2 id="installazione">Installazione<a class="headerlink" href="#installazione" title="Permanent link">&para;</a></h2>
@@ -4416,6 +4620,9 @@
 
 
 
+
+  
+  
 
 
 

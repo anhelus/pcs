@@ -6,20 +6,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Vediamo insieme quali funzionalità Python offre per estendere le funzioni e gestire i flussi dati in maniera efficiente.">
       
       
       
+      
+        <link rel="prev" href="../03_hinting/">
+      
+      
+        <link rel="next" href="../05_test/">
       
       
         
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>1.3.4 - Decoratori e Generatori - Python per il Calcolo Scientifico</title>
+        <title>1.3.4 - Decoratori e generatori - Python per il Calcolo Scientifico</title>
       
     
     
@@ -118,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1.3.4 - Decoratori e Generatori
+              1.3.4 - Decoratori e generatori
             
           </span>
         </div>
@@ -264,18 +270,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -296,7 +304,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -785,18 +793,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -817,7 +827,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -899,6 +909,226 @@
     
   
     1.3.3 - Type Hinting e Pydantic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.4 - Decoratori e generatori
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.4 - Decoratori e generatori
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#decoratori" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decoratori
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decoratori">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creare-un-decoratore-il-pattern-standard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creare un Decoratore: Il Pattern Standard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applicare-il-decoratore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applicare il Decoratore
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoratori-built-in-utili" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decoratori built-in utili
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generatori" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generatori
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generatori">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lazy-evaluation-valutazione-pigra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lazy Evaluation (Valutazione Pigra)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generator-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generator Expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caso-duso-reale-data-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caso d'uso reale: Data Pipelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caso d&#39;uso reale: Data Pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yield-vs-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yield vs Return
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.5 - Pytest
   
 
     
@@ -4488,6 +4718,9 @@
 
 
 
+
+  
+  
 
 
 

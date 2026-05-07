@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="In questa lezione parleremo di come la libreria NumPy ci permette di manipolare matrici e tensori multidimensionali.">
+      
       
       
       
@@ -19,7 +21,7 @@
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -916,6 +918,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/03_advanced/04_decorators_generators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.4 - Decoratori e generatori
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_python/03_advanced/05_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.3.5 - Pytest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1152,22 +1210,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#array-e-liste" class="md-nav__link">
+  <a href="#creazione-di-un-array" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array e liste
+        Creazione di un Array
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Array e liste">
+    <nav class="md-nav" aria-label="Creazione di un Array">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#array-eterogenei" class="md-nav__link">
+  <a href="#upcasting-conversione-automatica" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array eterogenei
+        Upcasting (Conversione automatica)
       
     </span>
   </a>
@@ -1180,10 +1238,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#il-numero-di-elementi-di-un-array" class="md-nav__link">
+  <a href="#ispezionare-un-array-shape-ndim-size" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Il numero di elementi di un array
+        Ispezionare un Array (Shape, Ndim, Size)
       
     </span>
   </a>
@@ -1191,22 +1249,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#altri-metodi-per-creare-un-array" class="md-nav__link">
+  <a href="#altri-metodi-di-creazione" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Altri metodi per creare un array
+        Altri metodi di creazione
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Altri metodi per creare un array">
+    <nav class="md-nav" aria-label="Altri metodi di creazione">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#array-con-valori-zero-ed-unitari" class="md-nav__link">
+  <a href="#zeri-uni-e-vuoti" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array con valori zero ed unitari
+        Zeri, Uni e Vuoti
       
     </span>
   </a>
@@ -1214,43 +1272,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#array-vuoti" class="md-nav__link">
+  <a href="#generazione-di-sequenze-arange-e-linspace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array vuoti
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matrice-identita" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Matrice identità
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matrici-diagonali" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Matrici diagonali
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matrici-triangolari" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Matrici triangolari
+        Generazione di sequenze (arange e linspace)
       
     </span>
   </a>
@@ -1263,10 +1288,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#accesso-agli-elementi-di-un-array" class="md-nav__link">
+  <a href="#accesso-agli-elementi-indexing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Accesso agli elementi di un array
+        Accesso agli elementi (Indexing)
       
     </span>
   </a>
@@ -1274,10 +1299,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#maschere-booleane" class="md-nav__link">
+  <a href="#slicing-multi-dimensionale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Maschere booleane
+        Slicing Multi-dimensionale
       
     </span>
   </a>
@@ -1285,10 +1310,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#slicing-degli-array" class="md-nav__link">
+  <a href="#maschere-booleane-masking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Slicing degli array
+        Maschere Booleane (Masking)
       
     </span>
   </a>
@@ -1296,10 +1321,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#la-funzione-nonzero" class="md-nav__link">
+  <a href="#sostituzione-condizionale-npwhere" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La funzione nonzero()
+        Sostituzione condizionale: np.where
       
     </span>
   </a>
@@ -1310,7 +1335,7 @@
   <a href="#fancy-indexing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fancy indexing
+        Fancy Indexing
       
     </span>
   </a>
@@ -4422,22 +4447,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#array-e-liste" class="md-nav__link">
+  <a href="#creazione-di-un-array" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array e liste
+        Creazione di un Array
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Array e liste">
+    <nav class="md-nav" aria-label="Creazione di un Array">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#array-eterogenei" class="md-nav__link">
+  <a href="#upcasting-conversione-automatica" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array eterogenei
+        Upcasting (Conversione automatica)
       
     </span>
   </a>
@@ -4450,10 +4475,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#il-numero-di-elementi-di-un-array" class="md-nav__link">
+  <a href="#ispezionare-un-array-shape-ndim-size" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Il numero di elementi di un array
+        Ispezionare un Array (Shape, Ndim, Size)
       
     </span>
   </a>
@@ -4461,22 +4486,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#altri-metodi-per-creare-un-array" class="md-nav__link">
+  <a href="#altri-metodi-di-creazione" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Altri metodi per creare un array
+        Altri metodi di creazione
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Altri metodi per creare un array">
+    <nav class="md-nav" aria-label="Altri metodi di creazione">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#array-con-valori-zero-ed-unitari" class="md-nav__link">
+  <a href="#zeri-uni-e-vuoti" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array con valori zero ed unitari
+        Zeri, Uni e Vuoti
       
     </span>
   </a>
@@ -4484,43 +4509,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#array-vuoti" class="md-nav__link">
+  <a href="#generazione-di-sequenze-arange-e-linspace" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Array vuoti
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matrice-identita" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Matrice identità
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matrici-diagonali" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Matrici diagonali
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#matrici-triangolari" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Matrici triangolari
+        Generazione di sequenze (arange e linspace)
       
     </span>
   </a>
@@ -4533,10 +4525,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#accesso-agli-elementi-di-un-array" class="md-nav__link">
+  <a href="#accesso-agli-elementi-indexing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Accesso agli elementi di un array
+        Accesso agli elementi (Indexing)
       
     </span>
   </a>
@@ -4544,10 +4536,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#maschere-booleane" class="md-nav__link">
+  <a href="#slicing-multi-dimensionale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Maschere booleane
+        Slicing Multi-dimensionale
       
     </span>
   </a>
@@ -4555,10 +4547,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#slicing-degli-array" class="md-nav__link">
+  <a href="#maschere-booleane-masking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Slicing degli array
+        Maschere Booleane (Masking)
       
     </span>
   </a>
@@ -4566,10 +4558,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#la-funzione-nonzero" class="md-nav__link">
+  <a href="#sostituzione-condizionale-npwhere" class="md-nav__link">
     <span class="md-ellipsis">
       
-        La funzione nonzero()
+        Sostituzione condizionale: np.where
       
     </span>
   </a>
@@ -4580,7 +4572,7 @@
   <a href="#fancy-indexing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fancy indexing
+        Fancy Indexing
       
     </span>
   </a>
@@ -4604,291 +4596,157 @@
 
 
 
-<h1 id="222-gli-array">2.2.2 - Gli array<a class="headerlink" href="#222-gli-array" title="Permanent link">&para;</a></h1>
-<p>Nella <a href="../01_intro/">lezione precedente</a> abbiamo introdotto il concetto gli array, ovvero la struttura dati "centrale" nell'ecosistema di NumPy. In questa lezione ne approfondiremo aspetti e caratteristiche principali.</p>
-<h2 id="array-e-liste">Array e liste<a class="headerlink" href="#array-e-liste" title="Permanent link">&para;</a></h2>
-<p>Di primo acchito, l'impressione che si può avere osservando gli array è che questi siano molto simili alle classiche liste. Tuttavia, come abbiamo già visto, esistono diverse differenze notevoli, riassumibili in linea di massima affermando che è preferibile usare un array quando si devono svolgere operazioni di tipo matematico su dati omogenei.</p>
-<p>Gli array NumPy sono istanze della classe <code>ndarray</code>, crasi che sta per <span class="arithmatex">\(n\)</span>-dimensional array. Mediante questa classe possiamo rappresentare strutture dati con un numero arbitrario di dimensioni, ovvero vettori, matrici e tensori.</p>
-<p>Il primo passo per utilizzare un array è, come accennato in precedenza, crearlo. In tal senso, ci sono diversi metodi, ma ricordiamo di seguito quello più "semplice", che prevede l'uso del costruttore <code>array()</code> a cui passare una lista di elementi dello stesso tipo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<h1 id="222-gli-array">2.2.2 - Gli Array<a class="headerlink" href="#222-gli-array" title="Permanent link">&para;</a></h1>
+<p>Nella <a href="../01_intro/">lezione precedente</a> abbiamo introdotto il concetto di array, la struttura dati "centrale" nell'ecosistema di NumPy. In questa lezione esploreremo come crearli, ispezionarli e manipolarli in modo efficiente.</p>
+<h2 id="creazione-di-un-array">Creazione di un Array<a class="headerlink" href="#creazione-di-un-array" title="Permanent link">&para;</a></h2>
+<p>Il metodo più immediato per creare un array è l'uso del costruttore <code>np.array()</code> a cui passare una lista Python:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 </code></pre></div>
-<p>Passando invece una lista i cui elementi sono a loro volta delle liste, potremo ottenere in uscita un array multidimensionale:</p>
+<p>Passando una lista di liste, otteniamo un array bidimensionale (una matrice):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 </code></pre></div>
-<p>Notiamo infine che gli array non sono necessariamente numerici. Possiamo, ad esempio, creare un array di stringhe:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;s1&quot;</span><span class="p">,</span> <span class="s2">&quot;s2&quot;</span><span class="p">])</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">c</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">array</span><span class="p">([</span><span class="s1">&#39;s1&#39;</span><span class="p">,</span> <span class="s1">&#39;s2&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;&lt;U2&#39;</span><span class="p">)</span>
+<h3 id="upcasting-conversione-automatica">Upcasting (Conversione automatica)<a class="headerlink" href="#upcasting-conversione-automatica" title="Permanent link">&para;</a></h3>
+<p>A differenza delle liste, gli array NumPy <em>devono</em> contenere dati omogenei. Cosa succede se passiamo una lista con tipi misti, come un intero e un decimale?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">])</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">array</span><span class="p">([</span><span class="mf">1.</span>  <span class="p">,</span> <span class="mf">3.14</span><span class="p">])</span>
 </code></pre></div>
-<h3 id="array-eterogenei">Array eterogenei<a class="headerlink" href="#array-eterogenei" title="Permanent link">&para;</a></h3>
-<p>In precedenza si è accennato al fatto che gli array, a differenza delle liste, debbano contenere dati omogenei. Cosa succederebbe quindi se provassimo a passare al metodo <code>array()</code> una lista composta da dati di tipo eterogeneo? Partiamo verificando cosa accade ad esempio usando un intero ed un float.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
+<p>NumPy applica il principio dell'<strong>upcasting</strong>: converte automaticamente tutti gli elementi al tipo di dato più "capiente" per evitare perdita di informazioni. In questo caso, l'intero <code>1</code> è diventato il float <code>1.0</code>.</p>
+<p>Se mescoliamo numeri e stringhe, tutto diventerà una stringa:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">])</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">array</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;&lt;U21&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>Notiamo subito che è stata effettuata in maniera implicita ed automatica un'operazione di conversione di tipo, e tutti i valori passati sono stati convertiti in formato float.</p>
-<p>Interessante è anche valutare cosa accade se proviamo a passare una lista contenente un numero ed una stringa:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;s3&quot;</span><span class="p">])</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">array</span><span class="p">([</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;s3&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;&lt;U11&#39;</span><span class="p">)</span>
+<h2 id="ispezionare-un-array-shape-ndim-size">Ispezionare un Array (Shape, Ndim, Size)<a class="headerlink" href="#ispezionare-un-array-shape-ndim-size" title="Permanent link">&para;</a></h2>
+<p>Quando lavoriamo con dataset complessi (es. batch di immagini), è fondamentale conoscere la geometria dei nostri dati. NumPy offre tre attributi fondamentali:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">matrice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">matrice</span><span class="o">.</span><span class="n">ndim</span>  <span class="c1"># Numero di dimensioni (Assi)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="mi">2</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">matrice</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># La forma: (righe, colonne)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">matrice</span><span class="o">.</span><span class="n">size</span>  <span class="c1"># Numero totale di elementi (2 * 3)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="mi">6</span>
 </code></pre></div>
-<p>Notiamo come anche in questo caso sia stata effettuata una conversione di tipo, passando stavolta da intero a stringa.</p>
-<div class="admonition note">
-<p class="admonition-title">Upcasting</p>
-<p>La regola da tenere a mente è che NumPy (e, in generale, Python) seguono il principio dell'<em>upcasting</em>: in altre parole, quando deve essere fatta una conversione tra diversi tipi di dati, si fa in modo di scegliere il tipo a più alta precisione, minimizzando i rischi di perdita di informazioni.</p>
+<h2 id="altri-metodi-di-creazione">Altri metodi di creazione<a class="headerlink" href="#altri-metodi-di-creazione" title="Permanent link">&para;</a></h2>
+<p>Oltre a convertire liste esistenti, NumPy offre funzioni ottimizzate per generare array da zero (utilissime per preallocare memoria o creare dati fittizi).</p>
+<h3 id="zeri-uni-e-vuoti">Zeri, Uni e Vuoti<a class="headerlink" href="#zeri-uni-e-vuoti" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Array 3x3 riempito di zeri</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Array 2x4 riempito di uni</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Array non inizializzato (estremamente veloce da creare, </span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># contiene i valori &quot;spazzatura&quot; già presenti in quel blocco di RAM)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> 
+</code></pre></div>
+<h3 id="generazione-di-sequenze-arange-e-linspace">Generazione di sequenze (<code>arange</code> e <code>linspace</code>)<a class="headerlink" href="#generazione-di-sequenze-arange-e-linspace" title="Permanent link">&para;</a></h3>
+<p>In Data Science, queste due funzioni sono onnipresenti per generare assi temporali o griglie di coordinate:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Come il range() di Python, ma genera un array e accetta numeri decimali</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># (start, stop_escluso, step)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Genera N numeri equamente distanziati tra due estremi</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># (start, stop_incluso, numero_di_elementi)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">array</span><span class="p">([</span><span class="mf">0.</span>  <span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.</span>  <span class="p">])</span>
+</code></pre></div>
+<h2 id="accesso-agli-elementi-indexing">Accesso agli elementi (Indexing)<a class="headerlink" href="#accesso-agli-elementi-indexing" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">L'Anti-pattern <code>[ ][ ]</code></p>
+<p>In Python standard, per accedere a una lista di liste scriveremmo <code>lista[0][1]</code>. In NumPy, questa sintassi è un <strong>grave errore di performance</strong> perché forza la creazione in memoria di un array temporaneo per la prima riga prima di estrarre la colonna.</p>
 </div>
-<h2 id="il-numero-di-elementi-di-un-array">Il numero di elementi di un array<a class="headerlink" href="#il-numero-di-elementi-di-un-array" title="Permanent link">&para;</a></h2>
-<p>Gli array NumPy hanno dimensione prefissata, e sono quindi in grado di contenere un numero fisso di oggetti di un certo tipo. Per definire (o conoscere) questo valore si utilizza una proprietà chiamata <code>shape</code> che, a grandi linee, rappresenta la <em>forma</em> dell'array. La shape di un array è in pratica una tupla di numeri interi, ovviamente non negativi, ciascuno dei quali determina il numero di elementi per ciascuna delle dimensioni dell'array.</p>
-<p>Creiamo ad esempio un array che rappresenti una matrice <span class="arithmatex">\(2 \times 3\)</span>, ovvero a due righe e tre colonne:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<p>La sintassi corretta, veloce e "NumPy-onica" utilizza la virgola per separare le dimensioni: <code>array[riga, colonna]</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]])</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># Voglio l&#39;elemento alla prima riga (indice 0) e seconda colonna (indice 1)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="mi">20</span>
 </code></pre></div>
-<p>Vediamo che valore assume la proprietà <code>shape</code> di questo array:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<h2 id="slicing-multi-dimensionale">Slicing Multi-dimensionale<a class="headerlink" href="#slicing-multi-dimensionale" title="Permanent link">&para;</a></h2>
+<p>Lo slicing in NumPy (<code>start:stop:step</code>) è potentissimo perché agisce simultaneamente su più dimensioni. È la tecnica alla base del ritaglio di immagini (cropping) nella Computer Vision.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>                  <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Voglio le prime due righe (0:2), ma solo le ultime due colonne (1:)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Voglio TUTTE le righe (:), ma solo la colonna centrale (1)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 </code></pre></div>
-<p>Come ci aspettavamo, il nostro array ha cardinalità due sulla prima dimensione (ovvero il numero di righe) e tre sulla seconda (ovvero il numero di colonne).</p>
-<h2 id="altri-metodi-per-creare-un-array">Altri metodi per creare un array<a class="headerlink" href="#altri-metodi-per-creare-un-array" title="Permanent link">&para;</a></h2>
-<p>Oltre al metodo visto in precedenza, possiamo creare un array utilizzando direttamente il costruttore della classe <code>ndarray</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>       <span class="c1"># oppure a = np.ndarray(shape=(3, 3))</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">array</span><span class="p">([[</span><span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">],</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>       <span class="p">[</span><span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">3.02368175e-321</span><span class="p">],</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>       <span class="p">[</span><span class="mf">6.69431255e+151</span><span class="p">,</span> <span class="mf">1.68534231e+246</span><span class="p">,</span> <span class="mf">6.69431467e+151</span><span class="p">]])</span>
-</code></pre></div>
-<p>Notiamo che il costruttore accetta una lista contenente la shape dell'array, che in questo caso diverrà un <span class="arithmatex">\(3 \times 3\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Notiamo come i numeri con cui viene "riempito" l'array sono al momento casuali.</p>
-</div>
-<p>Oltre a questa tecnica base, esistono diversi modi per creare array di un certo tipo. Vediamoli in breve.</p>
-<h3 id="array-con-valori-zero-ed-unitari">Array con valori zero ed unitari<a class="headerlink" href="#array-con-valori-zero-ed-unitari" title="Permanent link">&para;</a></h3>
-<p>Possiamo creare un array di dimensioni arbitrarie in cui tutti gli elementi sono pari ad 1. Per farlo, usiamo la funzione <code>ones()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">u</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>       <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>       <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
-</code></pre></div>
-<p>In modo simile, possiamo creare array di dimensioni arbitrarie in cui tutti gli elementi sono pari a zero mediante la funzione <code>zeros()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">z</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>       <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>       <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]])</span>
-</code></pre></div>
-<h3 id="array-vuoti">Array vuoti<a class="headerlink" href="#array-vuoti" title="Permanent link">&para;</a></h3>
-<p>Possiamo creare un array vuoto mediante la funzione <code>empty()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">e</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">array</span><span class="p">([[</span><span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">],</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>       <span class="p">[</span><span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">0.00000000e+000</span><span class="p">,</span> <span class="mf">1.67982320e-321</span><span class="p">],</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>       <span class="p">[</span><span class="mf">5.96555652e-302</span><span class="p">,</span> <span class="mf">1.14188703e-104</span><span class="p">,</span> <span class="mf">9.91401238e-278</span><span class="p">]])</span>
-</code></pre></div>
-<p>Questa funzione può risultare utile quando vogliamo preallocare spazio per un array.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>I più attenti avranno notato che, in realtà, l'array generato da <code>empty()</code> non è vuoto, ma contiene valori casuali. In tal senso, dà risultati equivalenti all'uso diretto del costruttore <code>ndarray()</code>.</p>
-</div>
-<h3 id="matrice-identita">Matrice identità<a class="headerlink" href="#matrice-identita" title="Permanent link">&para;</a></h3>
-<p>Possiamo creare una matrice identità usando la funzione <code>eye()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">i</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>       <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>       <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
+<h2 id="maschere-booleane-masking">Maschere Booleane (Masking)<a class="headerlink" href="#maschere-booleane-masking" title="Permanent link">&para;</a></h2>
+<p>Possiamo estrarre sottoinsiemi di dati applicando condizioni logiche. Questo processo crea una "maschera" di <code>True</code> e <code>False</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># Quali elementi sono maggiori di 3?</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mask</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">array</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">])</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># Applichiamo la maschera per estrarre i dati</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c1"># Forma compatta</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 </code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">Attenzione</p>
-<p>In questo caso, notiamo come non si possa passare una tupla o una lista per indicare le dimensioni dell'array. Tuttavia, possiamo specificare sia il numero delle righe (con il primo parametro) che il numero delle colonne (con il secondo parametro).</p>
+<p class="admonition-title">Operatori Logici in NumPy</p>
+<p>Per combinare più condizioni sulle maschere, <strong>non</strong> possiamo usare le keyword di Python <code>and</code>, <code>or</code>, <code>not</code>. Dobbiamo usare gli operatori bit-a-bit <code>&amp;</code> (AND), <code>|</code> (OR), <code>~</code> (NOT), assicurandoci di mettere le condizioni tra parentesi tonde:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Valori pari E maggiori di 2</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[(</span><span class="n">b</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)]</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</code></pre></div></p>
 </div>
-<h3 id="matrici-diagonali">Matrici diagonali<a class="headerlink" href="#matrici-diagonali" title="Permanent link">&para;</a></h3>
-<p>La funzione <code>diag()</code> viene usata sia per <em>creare</em> una matrice diagonale a partire da un vettore (che, ovviamente, sarà poi la diagonale della matrice), sia per <em>estrarre</em> la diagonale di una matrice. Per capire questa dualità, immaginiamo per prima cosa di avere a disposizione un vettore riga a tre elementi, che vogliamo trasformare in modo tale che si comporti come la diagonale di una matrice.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<h2 id="sostituzione-condizionale-npwhere">Sostituzione condizionale: <code>np.where</code><a class="headerlink" href="#sostituzione-condizionale-npwhere" title="Permanent link">&para;</a></h2>
+<p>Spesso non vogliamo solo estrarre dati, ma modificarli in base a una condizione (es. "imposta a 0 tutti i valori negativi"). La funzione <code>np.where(condizione, valore_se_vero, valore_se_falso)</code> è la soluzione standard:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 </code></pre></div>
-<p>Potremo creare una matrice diagonale a partire da questo vettore passandolo come parametro alla funzione <code>diag()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<h2 id="fancy-indexing">Fancy Indexing<a class="headerlink" href="#fancy-indexing" title="Permanent link">&para;</a></h2>
+<p>Chiudiamo con una tecnica avanzata chiamata <em>fancy indexing</em>, che permette di usare un array di indici interi per estrarre elementi in un ordine specifico o ripetuto.</p>
+<p>Per dimostrarlo, generiamo prima dei dati casuali usando l'API moderna di NumPy per la riproducibilità (<code>default_rng</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Inizializziamo il generatore di numeri casuali (seed=42 per riproducibilità)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Generiamo 10 numeri interi tra 0 e 100</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">array</span><span class="p">([</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span>  <span class="mi">9</span><span class="p">])</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># Vogliamo estrarre gli elementi agli indici 1, 5 e 2, in quest&#39;ordine</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">indici</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">indici</span><span class="p">]</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="n">array</span><span class="p">([</span><span class="mi">77</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">65</span><span class="p">])</span>
 </code></pre></div>
-<p>Vediamo invece come affrontare il problema duale. Immaginiamo di avere quindi un array, e volerne estrarre la diagonale:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>       <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<p>La potenza del fancy indexing sta nel fatto che la forma (<code>shape</code>) dell'array risultante non dipende dai dati di origine, ma <em>dall'array degli indici</em>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Passiamo una matrice 2x2 di indici</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">indici_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>                          <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">indici_2d</span><span class="p">]</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">array</span><span class="p">([[</span><span class="mi">77</span><span class="p">,</span> <span class="mi">43</span><span class="p">],[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">65</span><span class="p">]])</span>
 </code></pre></div>
-<p>Per farlo, dovremo anche questa volta usare la funzione <code>diag()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">d</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Suggerimento</p>
-<p>Il fatto che la funzione <code>diag()</code> sia usata per operazioni duali può, a ragione, causare confusione. Basta però ricordare che passando un vettore si ottiene una matrice, mentre passando una matrice si ottiene un vettore, ed il gioco è fatto.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Attenzione</p>
-<p>Ovviamente, la funzione <code>diag()</code> accetta solo input monodimensionali (vettori) e bidimensionali (matrici)!</p>
-</div>
-<h3 id="matrici-triangolari">Matrici triangolari<a class="headerlink" href="#matrici-triangolari" title="Permanent link">&para;</a></h3>
-<p>Concludiamo questa breve carrellata mostrando due metodi in grado di estrarre la matrice triangolare, rispettivamente superiore ed inferiore.</p>
-<p>Supponiamo di avere la matrice x definita in precedenza. Per estrarre la matrice triangolare superiore, dovremo usare la funzione <code>triu()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">tu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">tu</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
-</code></pre></div>
-<p>Per estrarre invece la matrice triangolare inferiore, dovremo usare la funzione <code>tril()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">tl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">tl</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>       <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>       <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Suggerimento</p>
-<p>In questo caso, le funzioni <code>tril()</code> e <code>triu()</code> possono tranquillamente essere applicate agli array n-dimensionali. Inoltre, non è richiesto le diverse dimensioni dell'array abbiano la stessa cardinalità.</p>
-</div>
-<h2 id="accesso-agli-elementi-di-un-array">Accesso agli elementi di un array<a class="headerlink" href="#accesso-agli-elementi-di-un-array" title="Permanent link">&para;</a></h2>
-<p>Così come per le liste, il modo più immediato per accedere al valore di un elemento in un array è usare l'operatore <code>[]</code>, specificando contestualmente l'indice dell'elemento cui si vuole accedere. Ad esempio, per selezionare il primo elemento di un vettore:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="mi">1</span>
-</code></pre></div>
-<p>Nel caso di array ad <span class="arithmatex">\(n\)</span> dimensioni, è necessario indicare l'indice per ciascuna delle dimensioni dell'array. Ad esempio, per un array bidimensionale potremmo selezionare l'elemento alla prima riga e prima colonna con una sintassi di questo tipo:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="mi">1</span>
-</code></pre></div>
-<h2 id="maschere-booleane">Maschere booleane<a class="headerlink" href="#maschere-booleane" title="Permanent link">&para;</a></h2>
-<p>Possiamo accedere ad un sottoinsieme di elementi dell'array mediante una "maschera", ovvero un altro array, di dimensioni uguali a quelle di partenza, al cui interno sono presenti esclusivamente dei valori booleani. Così facendo, estrarremo soltanto gli elementi la cui corrispondente posizione all'interno della maschera ha valore <code>True</code>. Ad esempio, possiamo selezionare tutti gli elementi appartenenti alla prima colonna dell'array <code>b</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]])</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-</code></pre></div>
-<p>Ancora, possiamo scegliere tutti gli elementi che soddisfano una certa condizione logico/matematica:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mask</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">array</span><span class="p">([[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>       <span class="p">[</span> <span class="kc">True</span><span class="p">,</span>  <span class="kc">True</span><span class="p">]])</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-</code></pre></div>
-<p>Interessante notare come la precedente notazione possa essere ulteriormente sintetizzata usando delle relazioni logiche:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-</code></pre></div>
-<p>Volendo, possiamo adattare la forma precedente all'uso di espressioni arbitrariamente complesse:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">b</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">b</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)]</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-</code></pre></div>
-<h2 id="slicing-degli-array">Slicing degli array<a class="headerlink" href="#slicing-degli-array" title="Permanent link">&para;</a></h2>
-<p>Così come le liste, anche gli array consentono le operazioni di slicing:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-</code></pre></div>
-<p>Per gli array multidimensionali, lo slicing si intende sulla <span class="arithmatex">\(n\)</span>-ma dimensione dell'array. Questo concetto è facile da comprendere se si visualizza l'array ad <span class="arithmatex">\(n\)</span>-dimensioni come un array di array:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>       <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>              <span class="c1"># Lo slicing avviene sulla seconda dimensione</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
-</code></pre></div>
-<h2 id="la-funzione-nonzero">La funzione <code>nonzero()</code><a class="headerlink" href="#la-funzione-nonzero" title="Permanent link">&para;</a></h2>
-<p>Possiamo usare la funzione <code>nonzero()</code> per selezionare gli elementi e gli indici di un array il cui valore non sia pari a zero. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>       <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">))</span>
-</code></pre></div>
-<p>La funzione <code>nonzero()</code> restituisce una tupla con gli indici per riga e colonna degli elementi diversi da zero. In particolare, la tupla risultante avrà un numero di elementi pari a ciascuna delle dimensioni dell'array <code>x</code> di ingresso, e l'<span class="arithmatex">\(i\)</span>-mo vettore individuerà gli indici relativi alla <span class="arithmatex">\(i\)</span>-ma dimensione. Ad esempio, in questo caso, il primo array rappresenta gli indici relativi alla prima dimensione dei valori non nulli (in questo caso, gli indici di riga), mentre il secondo gli indici relativi alla seconda dimensione (indici di colonna). Notiamo quindi che avremo i seguenti elementi diversi da zero:</p>
-<table>
-<thead>
-<tr>
-<th>Indice di riga</th>
-<th>Indice di colonna</th>
-<th>Valore</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>3</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>4</td>
-</tr>
-<tr>
-<td>2</td>
-<td>0</td>
-<td>5</td>
-</tr>
-<tr>
-<td>2</td>
-<td>1</td>
-<td>6</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition tip">
-<p class="admonition-title">Ottenere una lista di tuple</p>
-<p>Possiamo ottenere una lista di tuple rappresentative delle coppie di indici per gli elementi non nulli sfruttando la funzione <code>zip</code>:</p>
-<blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">tarry</span><span class="p">)</span>
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span>
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">))</span>
-<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">coords</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">coords</span>
-<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
-</code></pre></div>
-</blockquote>
-</div>
-<h2 id="fancy-indexing">Fancy indexing<a class="headerlink" href="#fancy-indexing" title="Permanent link">&para;</a></h2>
-<p>Chiudiamo questa lezione parlando di una tecnica molto interessante chiamata <em>fancy indexing</em>, consistente nell'usare un array di indici per accedere a più elementi contemporaneamente. Ad esempio:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
-<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
-<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="n">array</span><span class="p">([</span><span class="mi">51</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">74</span><span class="p">])</span>
-<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">[</span><span class="n">indexes</span><span class="p">]</span>
-<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="n">array</span><span class="p">([[</span><span class="mi">92</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span>
-<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>       <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">14</span><span class="p">]])</span>
-</code></pre></div>
-<p>Nel codice precedente, stiamo:</p>
-<ol>
-<li>usando la funzione <code>randint()</code> per generare un array di numeri interi casuali compresi tra 0 e 100;</li>
-<li>generando un array bidimensionale <code>indexes</code>;</li>
-<li>restituendo, mediante il fancy indexing, un array con le dimensioni di <code>indexes</code> e gli elementi di <code>x</code> presi nelle posizioni indicate da <code>indexes</code>.</li>
-</ol>
-<p>La potenza del fancy indexing sta proprio in questo: non solo siamo in grado di accedere facilmente a più elementi di un array mediante un'unica operazione, ma possiamo anche ridisporre questi elementi come più ci aggrada!</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
