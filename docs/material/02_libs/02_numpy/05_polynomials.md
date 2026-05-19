@@ -1,7 +1,8 @@
-# 2.2.5 - Operazioni polinomiali in NumPy
+---
+description: In questa sezione parleremo di come effettuare le operazioni sui polinomi in NumPy, utilizzando un approccio moderno basato sui paradigmi object oriented.
+---
 
-!!!tip "Notebook di accompagnamento"
-	Per questa lezione esiste un *notebook di accompagnamento*, reperibile a [questo indirizzo](https://github.com/anhelus/pcs-exercises/blob/master/01_libs/01_numpy/02_polynomials.ipynb).
+# 2.2.5 - Operazioni polinomiali in NumPy
 
 Come abbiamo visto nella [scorsa lezione](04_algebra.md), NumPy ci offre un'ampia gamma di funzioni per il calcolo matriciale. Tuttavia, è anche possibile utilizzarlo per altri scopi, non ultimo il calcolo polinomiale, mediante il modulo [`numpy.polynomial`](https://numpy.org/doc/stable/reference/routines.polynomials.html). Vediamo quindi alcuni tra i principali utilizzi di questo modulo.
 
@@ -25,6 +26,8 @@ NumPy ci permette di rappresentare il polinomio mediante gli oggetti di classe [
 >>> p_1 = Polynomial(p_1_coef[::-1])
 >>> p_2 = Polynomial(p_2_coef[::-1])
 ```
+
+A questo punto, le variabili `p_1` e `p_2` inizieranno a comportarsi in maniera "intelligente", abilitando l'uso degli operatori matematici standard, e non limitandosi quindi ad essere dei meri contenitori.
 
 !!!warning "Ordine dei coefficienti"
     La caratteristica più importante (e controintuitiva) della classe `Polynomial` (e di tutti i metodi di gestione dei polinomi in NumPy) è che i coefficienti vengono trattati *in ordine crescente*. In pratica, viene considerato innanzitutto il termine noto (ovvero il termine per $x^0$), poi il coefficiente di primo grado, quello di secondo, e così via. Per questo motivo, nel codice precedente viene considerata la lista dei coefficienti in ordine inverso.
