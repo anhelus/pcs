@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Un corso completo di Python per la Data Science, il Machine Learning  e il calcolo scientifico. Dalle basi al Deep Learning con TensorFlow e Scikit-Learn.">
+        <meta name="description" content="In questa sezione parleremo di come effettuare le operazioni sui polinomi in NumPy, utilizzando un approccio moderno basato sui paradigmi object oriented.">
       
       
       
@@ -52,6 +52,8 @@
     
     
       <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -4507,10 +4509,6 @@
 
 
 <h1 id="225-operazioni-polinomiali-in-numpy">2.2.5 - Operazioni polinomiali in NumPy<a class="headerlink" href="#225-operazioni-polinomiali-in-numpy" title="Permanent link">&para;</a></h1>
-<div class="admonition tip">
-<p class="admonition-title">Notebook di accompagnamento</p>
-<p>Per questa lezione esiste un <em>notebook di accompagnamento</em>, reperibile a <a href="https://github.com/anhelus/pcs-exercises/blob/master/01_libs/01_numpy/02_polynomials.ipynb">questo indirizzo</a>.</p>
-</div>
 <p>Come abbiamo visto nella <a href="../04_algebra/">scorsa lezione</a>, NumPy ci offre un'ampia gamma di funzioni per il calcolo matriciale. Tuttavia, è anche possibile utilizzarlo per altri scopi, non ultimo il calcolo polinomiale, mediante il modulo <a href="https://numpy.org/doc/stable/reference/routines.polynomials.html"><code>numpy.polynomial</code></a>. Vediamo quindi alcuni tra i principali utilizzi di questo modulo.</p>
 <h2 id="la-classe-polynomial">La classe <code>Polynomial</code><a class="headerlink" href="#la-classe-polynomial" title="Permanent link">&para;</a></h2>
 <p>Immaginiamo di avere due diversi polinomi, cui non associamo alcun significato fisico. I due sono espressi dalle seguenti equazioni:</p>
@@ -4527,6 +4525,7 @@ p_2: y = x^2 + 3x + 2
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">p_1</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">p_1_coef</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">p_2</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="p">(</span><span class="n">p_2_coef</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </code></pre></div>
+<p>A questo punto, le variabili <code>p_1</code> e <code>p_2</code> inizieranno a comportarsi in maniera "intelligente", abilitando l'uso degli operatori matematici standard, e non limitandosi quindi ad essere dei meri contenitori.</p>
 <div class="admonition warning">
 <p class="admonition-title">Ordine dei coefficienti</p>
 <p>La caratteristica più importante (e controintuitiva) della classe <code>Polynomial</code> (e di tutti i metodi di gestione dei polinomi in NumPy) è che i coefficienti vengono trattati <em>in ordine crescente</em>. In pratica, viene considerato innanzitutto il termine noto (ovvero il termine per <span class="arithmatex">\(x^0\)</span>), poi il coefficiente di primo grado, quello di secondo, e così via. Per questo motivo, nel codice precedente viene considerata la lista dei coefficienti in ordine inverso.</p>
@@ -4584,6 +4583,9 @@ p_2: y = x^2 + 3x + 2
 
 
 
+
+  
+  
 
 
 
@@ -4662,11 +4664,11 @@ p_2: y = x^2 + 3x + 2
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../../js/config.js"></script>
+        <script src="../../../../js/katex.js"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
   </body>
