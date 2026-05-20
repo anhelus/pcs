@@ -192,8 +192,10 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/anhelus
+      name: GitHub
     - icon: fontawesome/solid/paper-plane
       link: mailto:angelo.cardellicchio@stiima.cnr.it
+      name: Contattami
   analytics:
     provider: google
     property: G-ZCZWPCYZJ9

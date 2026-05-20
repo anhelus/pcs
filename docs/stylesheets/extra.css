@@ -90,3 +90,22 @@
 .mermaid {
   text-align: center;
 }
+
+/* Scurisce il testo del copyright nel footer per l'accessibilità */
+.md-copyright {
+    color: rgba(0, 0, 0, 0.85); /* Un grigio molto più scuro */
+}
+
+/* Scurisce i link nel testo per farli risaltare di più */
+.md-typeset a {
+    color: #2e30b5; /* Un blu più profondo rispetto all'indigo standard */
+}
+
+/* Scurisce il testo secondario nel footer */
+.md-footer-meta {
+    color: #333;
+}
+
+.md-search__inner {
+    aria-label: "Ricerca";
+}
