@@ -1,4 +1,5 @@
 site_name: Python per il Calcolo Scientifico
+site_url: https://python.angelocardellicchio.it
 site_description: >-
   Un corso completo di Python per la Data Science, il Machine Learning 
   e il calcolo scientifico. Dalle basi al Deep Learning con TensorFlow e Scikit-Learn.
@@ -129,6 +130,8 @@ theme:
   favicon: assets/images/favicon.png
   palette:
     - scheme: default
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/brightness-7
         name: Rainbow in the dark
@@ -177,16 +180,22 @@ markdown_extensions:
 
 plugins:
   - search
-#  - sitemap:
-#    hostname: https://python.angelocardellicchio.it
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+  - privacy:
+      assets: true
 
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/anhelus
+      name: GitHub
     - icon: fontawesome/solid/paper-plane
       link: mailto:angelo.cardellicchio@stiima.cnr.it
+      name: Contattami
   analytics:
     provider: google
     property: G-ZCZWPCYZJ9
