@@ -9,3 +9,11 @@ document.addEventListener("DOMContentLoaded", function() {
         throwOnError: false
     });
 });
+
+// Fix per l'accessibilità della ricerca
+document.addEventListener("DOMContentLoaded", function() {
+    var searchDialog = document.querySelector('.md-search[role="dialog"]');
+    if (searchDialog) {
+        searchDialog.setAttribute('aria-label', 'Ricerca');
+    }
+});
