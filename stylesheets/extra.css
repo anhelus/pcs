@@ -91,19 +91,23 @@
   text-align: center;
 }
 
-/* Scurisce il testo del copyright nel footer per l'accessibilità */
-.md-copyright {
-    color: rgba(0, 0, 0, 0.85); /* Un grigio molto più scuro */
+/* 1. Scurisce il testo del copyright e del footer per contrasto massimo */
+.md-copyright, 
+.md-footer-meta, 
+.md-typeset .md-footer-meta {
+    color: rgba(0, 0, 0, 0.95) !important; /* Quasi nero */
 }
 
-/* Scurisce i link nel testo per farli risaltare di più */
+/* 2. Scurisce i link nel testo */
 .md-typeset a {
-    color: #2e30b5; /* Un blu più profondo rispetto all'indigo standard */
+    color: #1a237e !important; /* Un blu molto scuro (Indigo 900) */
+    text-decoration: underline; /* Obbligatorio per distinguere i link senza affidarsi solo al colore */
+    text-decoration-thickness: 1px;
 }
 
-/* Scurisce il testo secondario nel footer */
-.md-footer-meta {
-    color: #333;
+/* 3. Colore più scuro per i link al passaggio del mouse */
+.md-typeset a:hover {
+    color: #000051 !important;
 }
 
 .md-search__inner {
